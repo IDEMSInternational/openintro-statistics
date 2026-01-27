@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Point estimates and sampling variability</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="OpenIntro Statistics">
+<meta property="book:author" content="David Diez">
+<meta property="book:author" content="Mine Çetinkaya-Rundel">
+<meta property="book:author" content="Christopher D Barr">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="openintro-statistics" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://www.openintro.org/" target="_blank"><img src="images/openintro-logo.svg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="openintro-statistics.html"><span class="title">OpenIntro Statistics:</span> <span class="subtitle">Fourth Edition</span></a></h1>
+<p class="byline">David Diez, Mine Çetinkaya-Rundel, Christopher D Barr</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-foundations-inference.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-foundations-inference.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-confidence-intervals.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-intro-to-data.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to data</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-stents-strokes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Case study: using stents to prevent strokes</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-stents-strokes.html#exercises-1" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-data-basics.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Data basics</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-data-basics.html#subsec-observations-variables" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Observations, variables, and data matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-data-basics.html#subsec-types-of-variables" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Types of variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec-data-basics.html#subsec-relationships-between-variables" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Relationships between variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec-data-basics.html#exercises-2" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-sampling-principles.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Sampling principles and strategies</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-sampling-principles.html#subsec-populations-samples" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Populations and samples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-sampling-principles.html#subsec-anecdotal-evidence" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Anecdotal evidence</span></a></div></li>
+<li><div class="toc-item"><a href="sec-sampling-principles.html#subsec-sampling-population" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Sampling from a population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-sampling-principles.html#subsec-observational-studies" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Observational studies</span></a></div></li>
+<li><div class="toc-item"><a href="sec-sampling-principles.html#subsec-four-sampling-methods" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Four sampling methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec-sampling-principles.html#exercises-3" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-experiments.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Experiments</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-experiments.html#subsec-experimental-design" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Principles of experimental design</span></a></div></li>
+<li><div class="toc-item"><a href="sec-experiments.html#subsec-reducing-bias" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Reducing bias in human experiments</span></a></div></li>
+<li><div class="toc-item"><a href="sec-experiments.html#exercises-4" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-review-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Review exercises</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-review-exercises.html#exercises-5" class="internal"><span class="codenumber">1.5</span> <span class="title">Review exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-summarizing-data.html" class="internal"><span class="codenumber">2</span> <span class="title">Summarizing data</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-malaria-vaccine.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Case study: Malaria vaccine</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-malaria-vaccine.html#subsec-variability-within-data" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Variability within data</span></a></div></li>
+<li><div class="toc-item"><a href="sec-malaria-vaccine.html#subsec-simulating-the-study" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Simulating the study</span></a></div></li>
+<li><div class="toc-item"><a href="sec-malaria-vaccine.html#subsec-checking-independence" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Checking for independence</span></a></div></li>
+<li><div class="toc-item"><a href="sec-malaria-vaccine.html#exercises-malaria-case" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-categorical-data.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Considering categorical data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-categorical-data.html#exercises-7" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-numerical-data.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Examining numerical data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-numerical-data.html#exercises-8" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-ch02-review.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Review exercises</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-ch02-review.html#exercises-9" class="internal"><span class="codenumber">2.4</span> <span class="title">Review exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-probability.html" class="internal"><span class="codenumber">3</span> <span class="title">Probability</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-defining-probability.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Defining probability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-introductory-examples" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Introductory examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-probability-definition" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Probability</span></a></div></li>
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-disjoint-outcomes" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Disjoint or mutually exclusive outcomes</span></a></div></li>
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-probabilities-not-disjoint" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Probabilities when events are not disjoint</span></a></div></li>
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-probability-distributions" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Probability distributions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-complement" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Complement of an event</span></a></div></li>
+<li><div class="toc-item"><a href="sec-defining-probability.html#subsec-independence" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Independence</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-conditional-probability.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Conditional probability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-exploring-contingency-table" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Exploring probabilities with a contingency table</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-marginal-joint-probabilities" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Marginal and joint probabilities</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-defining-conditional-probability" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Defining conditional probability</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-smallpox-boston" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Smallpox in Boston, 1721</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-general-multiplication-rule" class="internal"><span class="codenumber">3.2.5</span> <span class="title">General multiplication rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-independence-conditional" class="internal"><span class="codenumber">3.2.6</span> <span class="title">Independence considerations in conditional probability</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-tree-diagrams" class="internal"><span class="codenumber">3.2.7</span> <span class="title">Tree diagrams</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conditional-probability.html#subsec-bayes-theorem" class="internal"><span class="codenumber">3.2.8</span> <span class="title">Bayes’ Theorem</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-sampling-small-population.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Sampling from a small population</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-random-variables.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Random variables</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-random-variables.html#subsec-expectation" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Expectation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-random-variables.html#subsec-variability-random-variables" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Variability in random variables</span></a></div></li>
+<li><div class="toc-item"><a href="sec-random-variables.html#subsec-linear-combinations" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Linear combinations of random variables</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-continuous-distributions.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Continuous distributions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-continuous-distributions.html#subsec-histograms-to-continuous" class="internal"><span class="codenumber">3.5.1</span> <span class="title">From histograms to continuous distributions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-continuous-distributions.html#subsec-probabilities-continuous" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Probabilities from continuous distributions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-distributions.html" class="internal"><span class="codenumber">4</span> <span class="title">Distributions of random variables</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-normal-distribution.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Normal distribution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-normal-distribution.html#subsec-normal-distribution-model" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Normal distribution model</span></a></div></li>
+<li><div class="toc-item"><a href="sec-normal-distribution.html#subsec-standardizing-z-scores" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Standardizing with Z-scores</span></a></div></li>
+<li><div class="toc-item"><a href="sec-normal-distribution.html#subsec-finding-tail-areas" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Finding tail areas</span></a></div></li>
+<li><div class="toc-item"><a href="sec-normal-distribution.html#subsec-normal-probability-examples" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Normal probability examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-normal-distribution.html#subsec-68-95-997-rule" class="internal"><span class="codenumber">4.1.5</span> <span class="title">68-95-99.7 rule</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-geometric-distribution.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Geometric distribution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-geometric-distribution.html#subsec-bernoulli-distribution" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Bernoulli distribution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geometric-distribution.html#subsec-geometric-distribution-def" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Geometric distribution</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-binomial-distribution.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Binomial distribution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-binomial-distribution.html#subsec-binomial-distribution-def" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The binomial distribution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-binomial-distribution.html#subsec-normal-approx-binomial" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Normal approximation to the binomial distribution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-binomial-distribution.html#subsec-normal-approx-breaks-down" class="internal"><span class="codenumber">4.3.3</span> <span class="title">The normal approximation breaks down on small intervals</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-negative-binomial.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Negative binomial distribution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-poisson-distribution.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Poisson distribution</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-foundations-inference.html" class="internal"><span class="codenumber">5</span> <span class="title">Foundations for inference</span></a></div>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="sec-point-estimates.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Point estimates and sampling variability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-point-estimates-error" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Point estimates and error</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-understanding-variability" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Understanding the variability of a point estimate</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-central-limit-theorem" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-applying-clt" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to proportions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-clt-details" class="internal"><span class="codenumber">5.1.5</span> <span class="title">More details regarding the Central Limit Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-extending-framework" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Extending the framework for other statistics</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-confidence-intervals.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Confidence intervals for a proportion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-capturing-parameter" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Capturing the population parameter</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-constructing-95-ci" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% confidence interval</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-changing-confidence-level" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Changing the confidence level</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-more-case-studies-ci" class="internal"><span class="codenumber">5.2.4</span> <span class="title">More case studies</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-interpreting-ci" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Interpreting confidence intervals</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis testing for a proportion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-ht-framework" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Hypothesis testing framework</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-testing-using-ci" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Testing hypotheses using confidence intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision errors</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-formal-testing-pvalues" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal testing using p-values</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-choosing-significance-level" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Choosing a significance level</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-statistical-vs-practical" class="internal"><span class="codenumber">5.3.6</span> <span class="title">Statistical significance versus practical significance</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-one-sided-tests" class="internal"><span class="codenumber">5.3.7</span> <span class="title">One-sided hypothesis tests (special topic)</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-inference-props.html" class="internal"><span class="codenumber">6</span> <span class="title">Inference for categorical data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-one-prop.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Inference for a single proportion</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-inference-means.html" class="internal"><span class="codenumber">7</span> <span class="title">Inference for numerical data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-one-mean.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Inference for a single mean</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-simple-linear-regression.html" class="internal"><span class="codenumber">8</span> <span class="title">Introduction to linear regression</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-line-best-fit.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Line fitting and residuals</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-multiple-logistic-regression.html" class="internal"><span class="codenumber">9</span> <span class="title">Multiple and logistic regression</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-multiple-regression.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Multiple regression</span></a></div></li>
+<li><div class="toc-item"><a href="sec-logistic-regression.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Logistic regression</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="appendix-data-sets.html" class="internal"><span class="codenumber">A</span> <span class="title">Data Sets</span></a></div></li>
+<li><div class="toc-item"><a href="appendix-tables.html" class="internal"><span class="codenumber">B</span> <span class="title">Statistical Tables</span></a></div></li>
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">C</span> <span class="title">Selected Solutions</span></a></div></li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+<li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-point-estimates"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Point estimates and sampling variability</span>
+</h2>
+<section class="introduction" id="introduction-18"><div class="para" id="p-419">Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.</div></section><section class="subsection" id="subsec-point-estimates-error"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Point estimates and error</span>
+</h3>
+<div class="para" id="p-420">Suppose a poll suggested the US President’s approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population.</div>
+<div class="para" id="p-421">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-understanding-variability"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Understanding the variability of a point estimate</span>
+</h3>
+<div class="para" id="p-422">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-central-limit-theorem"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span>
+</h3>
+<div class="para" id="p-423">To be converted from LaTeX source.</div>
+<article class="example example-like" id="ex-clt-proportions"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-clt-proportions"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Central Limit Theorem for proportions.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-clt-proportions"><article class="example example-like"><div class="para" id="p-424">Describe the sampling distribution for the sample proportion when sampling from a population where the true proportion is 0.3.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-29" id="solution-29"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-29"><div class="solution solution-like"><div class="para" id="p-425">To be converted from LaTeX source.</div></div></div>
+</div></article></div>
+<figure class="figure figure-like" id="fig-clt-prop-grid"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_foundations_for_inf/figures/clt_prop_grid.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.2<span class="period">.</span></span><span class="space"> </span>Sampling distributions showing Central Limit Theorem</figcaption></figure></section><section class="subsection" id="subsec-applying-clt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to proportions</span>
+</h3>
+<div class="para" id="p-426">To be converted from LaTeX source.</div>
+<figure class="figure figure-like" id="fig-p-hat-from-53-59"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_foundations_for_inf/figures/p-hat_from_53_and_59_computation.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.3<span class="period">.</span></span><span class="space"> </span>Sampling distribution of sample proportion</figcaption></figure></section><section class="subsection" id="subsec-clt-details"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.5</span> <span class="title">More details regarding the Central Limit Theorem</span>
+</h3>
+<div class="para" id="p-427">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-extending-framework"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.6</span> <span class="title">Extending the framework for other statistics</span>
+</h3>
+<div class="para" id="p-428">To be converted from LaTeX source.</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-foundations-inference.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-confidence-intervals.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

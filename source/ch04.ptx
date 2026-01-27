@@ -5,30 +5,244 @@
 
   <introduction>
     <p>
-      This chapter covers important probability distributions including normal, binomial,
-      geometric, and Poisson distributions.
-    </p>
-    <p>
-      <alert>To be converted from:</alert>
-      <ul>
-        <li><c>ch_distributions/TeX/normal_distribution.tex</c></li>
-        <li><c>ch_distributions/TeX/binomial_distribution.tex</c></li>
-        <li><c>ch_distributions/TeX/geometric_distribution.tex</c></li>
-        <li><c>ch_distributions/TeX/negative_binomial_distribution.tex</c></li>
-        <li><c>ch_distributions/TeX/poisson_distribution.tex</c></li>
-        <li><c>ch_distributions/TeX/review_exercises.tex</c></li>
-      </ul>
+      In this chapter, we discuss statistical distributions that frequently arise 
+      in the context of data analysis or statistical inference. We start with the 
+      normal distribution in the first section, which is used frequently in later 
+      chapters of this book. The remaining sections will occasionally be referenced 
+      but may be considered optional for the content in this book.
     </p>
   </introduction>
 
-  <section xml:id="sec-normal-dist">
+  <!-- Section 4.1: Normal distribution -->
+  <section xml:id="sec-normal-distribution">
     <title>Normal distribution</title>
-    <p>Content to be converted from LaTeX source.</p>
+
+    <introduction>
+      <p>
+        Among all the distributions we see in practice, one is overwhelmingly the 
+        most common. The symmetric, unimodal, bell curve is ubiquitous throughout 
+        statistics. Indeed it is so common, that people often know it as the normal 
+        curve or normal distribution.
+      </p>
+
+      <figure xml:id="fig-simple-normal">
+        <caption>A normal curve</caption>
+        <image source="ch_distributions/figures/simpleNormal"/>
+      </figure>
+
+      <p>
+        Variables such as SAT scores and heights of US adult males closely follow 
+        the normal distribution.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsec-normal-distribution-model">
+      <title>Normal distribution model</title>
+      <p>
+        The normal distribution always describes a symmetric, unimodal, bell-shaped 
+        curve. However, these curves can look different depending on the details of 
+        the model. Specifically, the normal distribution model can be adjusted using 
+        two parameters: mean and standard deviation.
+      </p>
+
+      <figure xml:id="fig-two-sample-normals">
+        <caption>Two normal distributions with different parameters</caption>
+        <image source="ch_distributions/figures/twoSampleNormals"/>
+      </figure>
+
+      <figure xml:id="fig-two-sample-normals-stacked">
+        <caption>The normal distributions plotted together on the same scale</caption>
+        <image source="ch_distributions/figures/twoSampleNormalsStacked"/>
+      </figure>
+
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-standardizing-z-scores">
+      <title>Standardizing with Z-scores</title>
+      <p>
+        We often want to put data onto a standardized scale, which can make 
+        comparisons more reasonable.
+      </p>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-finding-tail-areas">
+      <title>Finding tail areas</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-normal-probability-examples">
+      <title>Normal probability examples</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-68-95-997-rule">
+      <title>68-95-99.7 rule</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
   </section>
 
-  <section xml:id="sec-binomial-dist">
+  <!-- Section 4.2: Geometric distribution -->
+  <section xml:id="sec-geometric-distribution">
+    <title>Geometric distribution</title>
+
+    <subsection xml:id="subsec-bernoulli-distribution">
+      <title>Bernoulli distribution</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-bernoulli-coin">
+        <title>Bernoulli random variable for a coin flip</title>
+        <statement>
+          <p>
+            Consider a single coin flip. Define a random variable X that takes 
+            value 1 if the coin lands heads and 0 if it lands tails. Is X a 
+            Bernoulli random variable?
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+    </subsection>
+
+    <subsection xml:id="subsec-geometric-distribution-def">
+      <title>Geometric distribution</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-geometric-eye-color">
+        <title>Geometric distribution for eye color</title>
+        <statement>
+          <p>
+            Suppose we observe individuals one at a time until we find someone 
+            with blue eyes. Let X represent the number of people observed. What 
+            is the probability distribution of X?
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-geometric-dist-35">
+        <caption>Geometric distribution with p = 0.35</caption>
+        <image source="ch_distributions/figures/geometricDist35"/>
+      </figure>
+
+      <figure xml:id="fig-geometric-dist-70">
+        <caption>Geometric distribution with p = 0.70</caption>
+        <image source="ch_distributions/figures/geometricDist70"/>
+      </figure>
+    </subsection>
+  </section>
+
+  <!-- Section 4.3: Binomial distribution -->
+  <section xml:id="sec-binomial-distribution">
     <title>Binomial distribution</title>
-    <p>Content to be converted from LaTeX source.</p>
+
+    <introduction>
+      <p>
+        The binomial distribution describes the probability of having exactly k 
+        successes in n independent Bernoulli trials with probability of success p.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsec-binomial-distribution-def">
+      <title>The binomial distribution</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-binomial-underage-drinking">
+        <title>Underage drinking</title>
+        <statement>
+          <p>
+            Suppose we randomly sample 10 high school students and ask if they 
+            have consumed alcohol in the last month. What is the probability 
+            that exactly 2 of them say yes?
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+    </subsection>
+
+    <subsection xml:id="subsec-normal-approx-binomial">
+      <title>Normal approximation to the binomial distribution</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-four-binomial-approx">
+        <caption>Four binomial models showing approximation to normal</caption>
+        <image source="ch_distributions/figures/fourBinomialModelsShowingApproxToNormal"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-normal-approx-breaks-down">
+      <title>The normal approximation breaks down on small intervals</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-norm-approx-binomial-fail">
+        <caption>Normal approximation to binomial can fail on small intervals</caption>
+        <image source="ch_distributions/figures/normApproxToBinomFail"/>
+      </figure>
+    </subsection>
+  </section>
+
+  <!-- Section 4.4: Negative binomial distribution -->
+  <section xml:id="sec-negative-binomial">
+    <title>Negative binomial distribution</title>
+
+    <introduction>
+      <p>
+        The negative binomial distribution describes the probability of observing 
+        the kth success on the nth trial, where each trial has probability p of 
+        success and all trials are independent.
+      </p>
+    </introduction>
+
+    <p>To be converted from LaTeX source.</p>
+
+    <example xml:id="ex-negative-binomial">
+      <title>Negative binomial example</title>
+      <statement>
+        <p>
+          Suppose we are interested in the number of people we need to survey 
+          until we find 3 people who support a particular policy. If each person 
+          has a 40% chance of supporting the policy, what is the probability we 
+          need to survey exactly 10 people?
+        </p>
+      </statement>
+      <solution>
+        <p>To be converted from LaTeX source.</p>
+      </solution>
+    </example>
+  </section>
+
+  <!-- Section 4.5: Poisson distribution -->
+  <section xml:id="sec-poisson-distribution">
+    <title>Poisson distribution</title>
+
+    <introduction>
+      <p>
+        The Poisson distribution is used to describe the number of rare events 
+        that occur in a fixed amount of time or space when the events occur 
+        independently and at a constant average rate.
+      </p>
+    </introduction>
+
+    <p>To be converted from LaTeX source.</p>
+
+    <example xml:id="ex-poisson-visits">
+      <title>Website visits</title>
+      <statement>
+        <p>
+          A website receives an average of 2 visits per minute. What is the 
+          probability the website receives exactly 5 visits in the next minute?
+        </p>
+      </statement>
+      <solution>
+        <p>To be converted from LaTeX source.</p>
+      </solution>
+    </example>
   </section>
 
 </chapter>

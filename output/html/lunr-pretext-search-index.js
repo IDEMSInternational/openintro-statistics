@@ -1369,40 +1369,445 @@ var ptx_lunr_docs = [
   "body": "Marathon winners  Histogram and box plot of NYC Marathon winning times (1970–1999) plus gender boxplots and time series.   Overall winning times     Winning times by gender     Winning times over years     Histogram vs. box plot: what each shows?  Why bimodal overall distribution?  Compare men vs. women times (boxplots).  What does the time series reveal?   "
 },
 {
-  "id": "sec-probability-intro",
+  "id": "sec-defining-probability",
   "level": "1",
-  "url": "sec-probability-intro.html",
+  "url": "sec-defining-probability.html",
   "type": "Section",
   "number": "3.1",
-  "title": "Introduction to probability",
-  "body": " Introduction to probability  Content to be converted from LaTeX source.  "
+  "title": "Defining probability",
+  "body": " Defining probability   Statistics is based on probability, and while probability is not required for the applied techniques in this book, it may help you gain a deeper understanding of the methods and set a better foundation for future courses.    Introductory examples  To be converted from LaTeX source.   Probability of rolling a 1   A \"die\", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?    To be converted from LaTeX source.     Probability of rolling a 1 or 2   What is the chance of getting a 1 or 2 in the next roll?    To be converted from LaTeX source.      Probability  To be converted from LaTeX source.   The fraction of die rolls that are 1 at each stage in a simulation    Random processes  Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process.     Disjoint or mutually exclusive outcomes  To be converted from LaTeX source.    Probabilities when events are not disjoint  To be converted from LaTeX source.    Probability distributions  To be converted from LaTeX source.    Complement of an event  To be converted from LaTeX source.    Independence  To be converted from LaTeX source.   "
 },
 {
-  "id": "sec-normal-dist",
+  "id": "ex-prob-of-1",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-prob-of-1",
+  "type": "Example",
+  "number": "3.1.1",
+  "title": "Probability of rolling a 1.",
+  "body": " Probability of rolling a 1   A \"die\", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?    To be converted from LaTeX source.   "
+},
+{
+  "id": "ex-prob-of-1-or-2",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-prob-of-1-or-2",
+  "type": "Example",
+  "number": "3.1.2",
+  "title": "Probability of rolling a 1 or 2.",
+  "body": " Probability of rolling a 1 or 2   What is the chance of getting a 1 or 2 in the next roll?    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-die-prop",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-die-prop",
+  "type": "Figure",
+  "number": "3.1.3",
+  "title": "",
+  "body": " The fraction of die rolls that are 1 at each stage in a simulation   "
+},
+{
+  "id": "ex-random-process",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-random-process",
+  "type": "Checkpoint",
+  "number": "3.1.4",
+  "title": "Random processes.",
+  "body": "Random processes  Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process.  "
+},
+{
+  "id": "sec-conditional-probability",
   "level": "1",
-  "url": "sec-normal-dist.html",
+  "url": "sec-conditional-probability.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Conditional probability",
+  "body": " Conditional probability   Exploring probabilities with a contingency table  To be converted from LaTeX source.    Marginal and joint probabilities  To be converted from LaTeX source.    Defining conditional probability  To be converted from LaTeX source.    Smallpox in Boston, 1721  To be converted from LaTeX source.    General multiplication rule  To be converted from LaTeX source.    Independence considerations in conditional probability  To be converted from LaTeX source.    Tree diagrams  To be converted from LaTeX source.    Bayes' Theorem  To be converted from LaTeX source.   "
+},
+{
+  "id": "sec-sampling-small-population",
+  "level": "1",
+  "url": "sec-sampling-small-population.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Sampling from a small population",
+  "body": " Sampling from a small population   When we sample observations from a population, usually we're only sampling a small fraction of the possible individuals or cases. However, sometimes our sample size is large enough or the population is small enough that we sample more than 10% of a population without replacement.    Selecting a student at random   Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?    To be converted from LaTeX source.     Three questions without replacement   If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.    To be converted from LaTeX source.    "
+},
+{
+  "id": "ex-professor-select-student",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-professor-select-student",
+  "type": "Example",
+  "number": "3.3.1",
+  "title": "Selecting a student at random.",
+  "body": " Selecting a student at random   Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?    To be converted from LaTeX source.   "
+},
+{
+  "id": "ex-3-questions-wo-replacement",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-3-questions-wo-replacement",
+  "type": "Example",
+  "number": "3.3.2",
+  "title": "Three questions without replacement.",
+  "body": " Three questions without replacement   If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.    To be converted from LaTeX source.   "
+},
+{
+  "id": "sec-random-variables",
+  "level": "1",
+  "url": "sec-random-variables.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Random variables",
+  "body": " Random variables   It's often useful to model a process using what's called a random variable. Such a model allows us to apply a mathematical framework and statistical principles for better understanding and predicting outcomes in the real world.    Bookstore sales expectation   Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?    To be converted from LaTeX source.     Expectation  To be converted from LaTeX source.   Probability distribution for the bookstore's revenue from one student      Variability in random variables  To be converted from LaTeX source.    Linear combinations of random variables  To be converted from LaTeX source.   "
+},
+{
+  "id": "ex-bookstore-sales",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-bookstore-sales",
+  "type": "Example",
+  "number": "3.4.1",
+  "title": "Bookstore sales expectation.",
+  "body": " Bookstore sales expectation   Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-book-cost-dist",
+  "level": "2",
+  "url": "sec-random-variables.html#fig-book-cost-dist",
+  "type": "Figure",
+  "number": "3.4.2",
+  "title": "",
+  "body": " Probability distribution for the bookstore's revenue from one student   "
+},
+{
+  "id": "sec-continuous-distributions",
+  "level": "1",
+  "url": "sec-continuous-distributions.html",
+  "type": "Section",
+  "number": "3.5",
+  "title": "Continuous distributions",
+  "body": " Continuous distributions   So far in this chapter we've discussed cases where the outcome of a variable is discrete. In this section, we consider a context where the outcome is a continuous numerical variable.    US adult heights histograms   Figure shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?    To be converted from LaTeX source.     Four hollow histograms of US adults heights with varying bin widths     From histograms to continuous distributions  To be converted from LaTeX source.   The continuous probability distribution of heights for US adults      Probabilities from continuous distributions  To be converted from LaTeX source.   Density for heights with the area between 180 and 185 cm shaded     "
+},
+{
+  "id": "ex-us-heights",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#ex-us-heights",
+  "type": "Example",
+  "number": "3.5.1",
+  "title": "US adult heights histograms.",
+  "body": " US adult heights histograms   Figure shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-fdic-histograms",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#fig-fdic-histograms",
+  "type": "Figure",
+  "number": "3.5.2",
+  "title": "",
+  "body": " Four hollow histograms of US adults heights with varying bin widths   "
+},
+{
+  "id": "fig-fdic-height-cont-dist",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#fig-fdic-height-cont-dist",
+  "type": "Figure",
+  "number": "3.5.3",
+  "title": "",
+  "body": " The continuous probability distribution of heights for US adults   "
+},
+{
+  "id": "fig-fdic-height-filled",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#fig-fdic-height-filled",
+  "type": "Figure",
+  "number": "3.5.4",
+  "title": "",
+  "body": " Density for heights with the area between 180 and 185 cm shaded   "
+},
+{
+  "id": "sec-normal-distribution",
+  "level": "1",
+  "url": "sec-normal-distribution.html",
   "type": "Section",
   "number": "4.1",
   "title": "Normal distribution",
-  "body": " Normal distribution  Content to be converted from LaTeX source.  "
+  "body": " Normal distribution   Among all the distributions we see in practice, one is overwhelmingly the most common. The symmetric, unimodal, bell curve is ubiquitous throughout statistics. Indeed it is so common, that people often know it as the normal curve or normal distribution.   A normal curve    Variables such as SAT scores and heights of US adult males closely follow the normal distribution.    Normal distribution model  The normal distribution always describes a symmetric, unimodal, bell-shaped curve. However, these curves can look different depending on the details of the model. Specifically, the normal distribution model can be adjusted using two parameters: mean and standard deviation.   Two normal distributions with different parameters     The normal distributions plotted together on the same scale    To be converted from LaTeX source.    Standardizing with Z-scores  We often want to put data onto a standardized scale, which can make comparisons more reasonable.  To be converted from LaTeX source.    Finding tail areas  To be converted from LaTeX source.    Normal probability examples  To be converted from LaTeX source.    68-95-99.7 rule  To be converted from LaTeX source.   "
 },
 {
-  "id": "sec-binomial-dist",
+  "id": "fig-simple-normal",
+  "level": "2",
+  "url": "sec-normal-distribution.html#fig-simple-normal",
+  "type": "Figure",
+  "number": "4.1.1",
+  "title": "",
+  "body": " A normal curve   "
+},
+{
+  "id": "fig-two-sample-normals",
+  "level": "2",
+  "url": "sec-normal-distribution.html#fig-two-sample-normals",
+  "type": "Figure",
+  "number": "4.1.2",
+  "title": "",
+  "body": " Two normal distributions with different parameters   "
+},
+{
+  "id": "fig-two-sample-normals-stacked",
+  "level": "2",
+  "url": "sec-normal-distribution.html#fig-two-sample-normals-stacked",
+  "type": "Figure",
+  "number": "4.1.3",
+  "title": "",
+  "body": " The normal distributions plotted together on the same scale   "
+},
+{
+  "id": "sec-geometric-distribution",
   "level": "1",
-  "url": "sec-binomial-dist.html",
+  "url": "sec-geometric-distribution.html",
   "type": "Section",
   "number": "4.2",
-  "title": "Binomial distribution",
-  "body": " Binomial distribution  Content to be converted from LaTeX source.  "
+  "title": "Geometric distribution",
+  "body": " Geometric distribution   Bernoulli distribution  To be converted from LaTeX source.   Bernoulli random variable for a coin flip   Consider a single coin flip. Define a random variable X that takes value 1 if the coin lands heads and 0 if it lands tails. Is X a Bernoulli random variable?    To be converted from LaTeX source.      Geometric distribution  To be converted from LaTeX source.   Geometric distribution for eye color   Suppose we observe individuals one at a time until we find someone with blue eyes. Let X represent the number of people observed. What is the probability distribution of X?    To be converted from LaTeX source.     Geometric distribution with p = 0.35     Geometric distribution with p = 0.70     "
 },
 {
-  "id": "sec-inference-intro",
+  "id": "ex-bernoulli-coin",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-bernoulli-coin",
+  "type": "Example",
+  "number": "4.2.1",
+  "title": "Bernoulli random variable for a coin flip.",
+  "body": " Bernoulli random variable for a coin flip   Consider a single coin flip. Define a random variable X that takes value 1 if the coin lands heads and 0 if it lands tails. Is X a Bernoulli random variable?    To be converted from LaTeX source.   "
+},
+{
+  "id": "ex-geometric-eye-color",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-geometric-eye-color",
+  "type": "Example",
+  "number": "4.2.2",
+  "title": "Geometric distribution for eye color.",
+  "body": " Geometric distribution for eye color   Suppose we observe individuals one at a time until we find someone with blue eyes. Let X represent the number of people observed. What is the probability distribution of X?    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-geometric-dist-35",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#fig-geometric-dist-35",
+  "type": "Figure",
+  "number": "4.2.3",
+  "title": "",
+  "body": " Geometric distribution with p = 0.35   "
+},
+{
+  "id": "fig-geometric-dist-70",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#fig-geometric-dist-70",
+  "type": "Figure",
+  "number": "4.2.4",
+  "title": "",
+  "body": " Geometric distribution with p = 0.70   "
+},
+{
+  "id": "sec-binomial-distribution",
   "level": "1",
-  "url": "sec-inference-intro.html",
+  "url": "sec-binomial-distribution.html",
+  "type": "Section",
+  "number": "4.3",
+  "title": "Binomial distribution",
+  "body": " Binomial distribution   The binomial distribution describes the probability of having exactly k successes in n independent Bernoulli trials with probability of success p.    The binomial distribution  To be converted from LaTeX source.   Underage drinking   Suppose we randomly sample 10 high school students and ask if they have consumed alcohol in the last month. What is the probability that exactly 2 of them say yes?    To be converted from LaTeX source.      Normal approximation to the binomial distribution  To be converted from LaTeX source.   Four binomial models showing approximation to normal      The normal approximation breaks down on small intervals  To be converted from LaTeX source.   Normal approximation to binomial can fail on small intervals     "
+},
+{
+  "id": "ex-binomial-underage-drinking",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-binomial-underage-drinking",
+  "type": "Example",
+  "number": "4.3.1",
+  "title": "Underage drinking.",
+  "body": " Underage drinking   Suppose we randomly sample 10 high school students and ask if they have consumed alcohol in the last month. What is the probability that exactly 2 of them say yes?    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-four-binomial-approx",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#fig-four-binomial-approx",
+  "type": "Figure",
+  "number": "4.3.2",
+  "title": "",
+  "body": " Four binomial models showing approximation to normal   "
+},
+{
+  "id": "fig-norm-approx-binomial-fail",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#fig-norm-approx-binomial-fail",
+  "type": "Figure",
+  "number": "4.3.3",
+  "title": "",
+  "body": " Normal approximation to binomial can fail on small intervals   "
+},
+{
+  "id": "sec-negative-binomial",
+  "level": "1",
+  "url": "sec-negative-binomial.html",
+  "type": "Section",
+  "number": "4.4",
+  "title": "Negative binomial distribution",
+  "body": " Negative binomial distribution   The negative binomial distribution describes the probability of observing the kth success on the nth trial, where each trial has probability p of success and all trials are independent.   To be converted from LaTeX source.   Negative binomial example   Suppose we are interested in the number of people we need to survey until we find 3 people who support a particular policy. If each person has a 40% chance of supporting the policy, what is the probability we need to survey exactly 10 people?    To be converted from LaTeX source.    "
+},
+{
+  "id": "ex-negative-binomial",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-negative-binomial",
+  "type": "Example",
+  "number": "4.4.1",
+  "title": "Negative binomial example.",
+  "body": " Negative binomial example   Suppose we are interested in the number of people we need to survey until we find 3 people who support a particular policy. If each person has a 40% chance of supporting the policy, what is the probability we need to survey exactly 10 people?    To be converted from LaTeX source.   "
+},
+{
+  "id": "sec-poisson-distribution",
+  "level": "1",
+  "url": "sec-poisson-distribution.html",
+  "type": "Section",
+  "number": "4.5",
+  "title": "Poisson distribution",
+  "body": " Poisson distribution   The Poisson distribution is used to describe the number of rare events that occur in a fixed amount of time or space when the events occur independently and at a constant average rate.   To be converted from LaTeX source.   Website visits   A website receives an average of 2 visits per minute. What is the probability the website receives exactly 5 visits in the next minute?    To be converted from LaTeX source.    "
+},
+{
+  "id": "ex-poisson-visits",
+  "level": "2",
+  "url": "sec-poisson-distribution.html#ex-poisson-visits",
+  "type": "Example",
+  "number": "4.5.1",
+  "title": "Website visits.",
+  "body": " Website visits   A website receives an average of 2 visits per minute. What is the probability the website receives exactly 5 visits in the next minute?    To be converted from LaTeX source.   "
+},
+{
+  "id": "sec-point-estimates",
+  "level": "1",
+  "url": "sec-point-estimates.html",
   "type": "Section",
   "number": "5.1",
-  "title": "Introduction to statistical inference",
-  "body": " Introduction to statistical inference  Content to be converted from LaTeX source.  "
+  "title": "Point estimates and sampling variability",
+  "body": " Point estimates and sampling variability   Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.    Point estimates and error  Suppose a poll suggested the US President's approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population.  To be converted from LaTeX source.    Understanding the variability of a point estimate  To be converted from LaTeX source.    Central Limit Theorem  To be converted from LaTeX source.   Central Limit Theorem for proportions   Describe the sampling distribution for the sample proportion when sampling from a population where the true proportion is 0.3.    To be converted from LaTeX source.     Sampling distributions showing Central Limit Theorem      Applying the Central Limit Theorem to proportions  To be converted from LaTeX source.   Sampling distribution of sample proportion      More details regarding the Central Limit Theorem  To be converted from LaTeX source.    Extending the framework for other statistics  To be converted from LaTeX source.   "
+},
+{
+  "id": "ex-clt-proportions",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-clt-proportions",
+  "type": "Example",
+  "number": "5.1.1",
+  "title": "Central Limit Theorem for proportions.",
+  "body": " Central Limit Theorem for proportions   Describe the sampling distribution for the sample proportion when sampling from a population where the true proportion is 0.3.    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-clt-prop-grid",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-clt-prop-grid",
+  "type": "Figure",
+  "number": "5.1.2",
+  "title": "",
+  "body": " Sampling distributions showing Central Limit Theorem   "
+},
+{
+  "id": "fig-p-hat-from-53-59",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-p-hat-from-53-59",
+  "type": "Figure",
+  "number": "5.1.3",
+  "title": "",
+  "body": " Sampling distribution of sample proportion   "
+},
+{
+  "id": "sec-confidence-intervals",
+  "level": "1",
+  "url": "sec-confidence-intervals.html",
+  "type": "Section",
+  "number": "5.2",
+  "title": "Confidence intervals for a proportion",
+  "body": " Confidence intervals for a proportion   A point estimate provides a single plausible value for a parameter. However, a point estimate is rarely perfect; usually there is some error in the estimate. Instead of supplying just a point estimate, a confidence interval provides a plausible range of values for the parameter.    Capturing the population parameter  To be converted from LaTeX source.   95% confidence interval illustration      Constructing a 95% confidence interval  To be converted from LaTeX source.   Constructing a confidence interval   In a poll of 1000 registered voters, 540 say they will vote for Candidate A. Construct a 95% confidence interval for the proportion of all registered voters who will vote for Candidate A.    To be converted from LaTeX source.     Choosing the z-value for confidence intervals      Changing the confidence level  To be converted from LaTeX source.    More case studies  To be converted from LaTeX source.    Interpreting confidence intervals  To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-95-percent-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#fig-95-percent-ci",
+  "type": "Figure",
+  "number": "5.2.1",
+  "title": "",
+  "body": " 95% confidence interval illustration   "
+},
+{
+  "id": "ex-construct-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-construct-ci",
+  "type": "Example",
+  "number": "5.2.2",
+  "title": "Constructing a confidence interval.",
+  "body": " Constructing a confidence interval   In a poll of 1000 registered voters, 540 say they will vote for Candidate A. Construct a 95% confidence interval for the proportion of all registered voters who will vote for Candidate A.    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-choosing-z-for-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#fig-choosing-z-for-ci",
+  "type": "Figure",
+  "number": "5.2.3",
+  "title": "",
+  "body": " Choosing the z-value for confidence intervals   "
+},
+{
+  "id": "sec-hypothesis-testing",
+  "level": "1",
+  "url": "sec-hypothesis-testing.html",
+  "type": "Section",
+  "number": "5.3",
+  "title": "Hypothesis testing for a proportion",
+  "body": " Hypothesis testing for a proportion   Confidence intervals are useful for estimating parameters, but they are not the only way to make use of sample data. In this section we introduce hypothesis testing, which is a formal technique for making decisions based on data and evaluating claims about a population.    Hypothesis testing framework  To be converted from LaTeX source.   Jury selection   In a particular county, 80% of registered voters are white. A jury of 12 people is selected, and only 8 are white. Does this provide evidence of discrimination in jury selection?    To be converted from LaTeX source.     P-value for jury selection hypothesis test      Testing hypotheses using confidence intervals  To be converted from LaTeX source.    Decision errors  To be converted from LaTeX source.   Types of errors in hypothesis testing     H true  H true    Reject H  Type I Error  Correct decision    Fail to reject H  Correct decision  Type II Error       Formal testing using p-values  To be converted from LaTeX source.   Computing a p-value   A poll of 500 voters finds that 270 support a particular policy. Test whether this provides evidence that more than half of all voters support the policy.    To be converted from LaTeX source.     Computing p-value from normal distribution      Choosing a significance level  To be converted from LaTeX source.    Statistical significance versus practical significance  To be converted from LaTeX source.    One-sided hypothesis tests (special topic)  To be converted from LaTeX source.   One-sided hypothesis test illustration     "
+},
+{
+  "id": "ex-jury-selection",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-jury-selection",
+  "type": "Example",
+  "number": "5.3.1",
+  "title": "Jury selection.",
+  "body": " Jury selection   In a particular county, 80% of registered voters are white. A jury of 12 people is selected, and only 8 are white. Does this provide evidence of discrimination in jury selection?    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-juror-ht-pvalue",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#fig-juror-ht-pvalue",
+  "type": "Figure",
+  "number": "5.3.2",
+  "title": "",
+  "body": " P-value for jury selection hypothesis test   "
+},
+{
+  "id": "table-decision-errors",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#table-decision-errors",
+  "type": "Table",
+  "number": "5.3.3",
+  "title": "Types of errors in hypothesis testing",
+  "body": " Types of errors in hypothesis testing     H true  H true    Reject H  Type I Error  Correct decision    Fail to reject H  Correct decision  Type II Error    "
+},
+{
+  "id": "ex-pvalue-computation",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-pvalue-computation",
+  "type": "Example",
+  "number": "5.3.4",
+  "title": "Computing a p-value.",
+  "body": " Computing a p-value   A poll of 500 voters finds that 270 support a particular policy. Test whether this provides evidence that more than half of all voters support the policy.    To be converted from LaTeX source.   "
+},
+{
+  "id": "fig-normal-dist-pvalue",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#fig-normal-dist-pvalue",
+  "type": "Figure",
+  "number": "5.3.5",
+  "title": "",
+  "body": " Computing p-value from normal distribution   "
+},
+{
+  "id": "fig-business-one-sided",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#fig-business-one-sided",
+  "type": "Figure",
+  "number": "5.3.6",
+  "title": "",
+  "body": " One-sided hypothesis test illustration   "
 },
 {
   "id": "sec-one-prop",

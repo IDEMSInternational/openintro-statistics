@@ -5,17 +5,267 @@
 
   <introduction>
     <p>
-      This chapter introduces the foundational concepts of statistical inference including
-      confidence intervals and hypothesis testing.
+      Statistical inference is primarily concerned with understanding and quantifying 
+      the uncertainty of parameter estimates. While the equations and details change 
+      depending on the setting, the foundations for inference are the same throughout 
+      all of statistics.
     </p>
     <p>
-      <alert>Content to be converted from ch_foundations_for_inf/TeX/</alert>
+      We start with a familiar topic: the idea of using a sample proportion to estimate 
+      a population proportion. Next, we create what's called a confidence interval, 
+      which is a range of plausible values where we may find the true population value. 
+      Finally, we introduce the hypothesis testing framework, which allows us to formally 
+      evaluate claims about the population.
     </p>
   </introduction>
 
-  <section xml:id="sec-inference-intro">
-    <title>Introduction to statistical inference</title>
-    <p>Content to be converted from LaTeX source.</p>
+  <!-- Section 5.1: Point estimates and sampling variability -->
+  <section xml:id="sec-point-estimates">
+    <title>Point estimates and sampling variability</title>
+
+    <introduction>
+      <p>
+        Companies such as Pew Research frequently conduct polls as a way to understand 
+        the state of public opinion or knowledge on many topics, including politics, 
+        scientific understanding, brand recognition, and more. The ultimate goal in 
+        taking a poll is generally to use the responses to estimate the opinion or 
+        knowledge of the broader population.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsec-point-estimates-error">
+      <title>Point estimates and error</title>
+      <p>
+        Suppose a poll suggested the US President's approval rating is 45%. We would 
+        consider 45% to be a point estimate of the approval rating we might see if 
+        we collected responses from the entire population.
+      </p>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-understanding-variability">
+      <title>Understanding the variability of a point estimate</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-central-limit-theorem">
+      <title>Central Limit Theorem</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-clt-proportions">
+        <title>Central Limit Theorem for proportions</title>
+        <statement>
+          <p>
+            Describe the sampling distribution for the sample proportion when 
+            sampling from a population where the true proportion is 0.3.
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-clt-prop-grid">
+        <caption>Sampling distributions showing Central Limit Theorem</caption>
+        <image source="ch_foundations_for_inf/figures/clt_prop_grid"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-applying-clt">
+      <title>Applying the Central Limit Theorem to proportions</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-p-hat-from-53-59">
+        <caption>Sampling distribution of sample proportion</caption>
+        <image source="ch_foundations_for_inf/figures/p-hat_from_53_and_59_computation"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-clt-details">
+      <title>More details regarding the Central Limit Theorem</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-extending-framework">
+      <title>Extending the framework for other statistics</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+  </section>
+
+  <!-- Section 5.2: Confidence intervals -->
+  <section xml:id="sec-confidence-intervals">
+    <title>Confidence intervals for a proportion</title>
+
+    <introduction>
+      <p>
+        A point estimate provides a single plausible value for a parameter. However, 
+        a point estimate is rarely perfect; usually there is some error in the estimate. 
+        Instead of supplying just a point estimate, a confidence interval provides a 
+        plausible range of values for the parameter.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsec-capturing-parameter">
+      <title>Capturing the population parameter</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-95-percent-ci">
+        <caption>95% confidence interval illustration</caption>
+        <image source="ch_foundations_for_inf/figures/95PercentConfidenceInterval"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-constructing-95-ci">
+      <title>Constructing a 95% confidence interval</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-construct-ci">
+        <title>Constructing a confidence interval</title>
+        <statement>
+          <p>
+            In a poll of 1000 registered voters, 540 say they will vote for 
+            Candidate A. Construct a 95% confidence interval for the proportion 
+            of all registered voters who will vote for Candidate A.
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-choosing-z-for-ci">
+        <caption>Choosing the z-value for confidence intervals</caption>
+        <image source="ch_foundations_for_inf/figures/choosingZForCI"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-changing-confidence-level">
+      <title>Changing the confidence level</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-more-case-studies-ci">
+      <title>More case studies</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-interpreting-ci">
+      <title>Interpreting confidence intervals</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+  </section>
+
+  <!-- Section 5.3: Hypothesis testing -->
+  <section xml:id="sec-hypothesis-testing">
+    <title>Hypothesis testing for a proportion</title>
+
+    <introduction>
+      <p>
+        Confidence intervals are useful for estimating parameters, but they are not 
+        the only way to make use of sample data. In this section we introduce 
+        hypothesis testing, which is a formal technique for making decisions based 
+        on data and evaluating claims about a population.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsec-ht-framework">
+      <title>Hypothesis testing framework</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-jury-selection">
+        <title>Jury selection</title>
+        <statement>
+          <p>
+            In a particular county, 80% of registered voters are white. A jury 
+            of 12 people is selected, and only 8 are white. Does this provide 
+            evidence of discrimination in jury selection?
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-juror-ht-pvalue">
+        <caption>P-value for jury selection hypothesis test</caption>
+        <image source="ch_foundations_for_inf/figures/jurorHTPValueShown"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-testing-using-ci">
+      <title>Testing hypotheses using confidence intervals</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-decision-errors">
+      <title>Decision errors</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <table xml:id="table-decision-errors">
+        <title>Types of errors in hypothesis testing</title>
+        <tabular>
+          <row header="yes">
+            <cell></cell>
+            <cell>H<m>_0</m> true</cell>
+            <cell>H<m>_A</m> true</cell>
+          </row>
+          <row>
+            <cell>Reject H<m>_0</m></cell>
+            <cell>Type I Error</cell>
+            <cell>Correct decision</cell>
+          </row>
+          <row>
+            <cell>Fail to reject H<m>_0</m></cell>
+            <cell>Correct decision</cell>
+            <cell>Type II Error</cell>
+          </row>
+        </tabular>
+      </table>
+    </subsection>
+
+    <subsection xml:id="subsec-formal-testing-pvalues">
+      <title>Formal testing using p-values</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-pvalue-computation">
+        <title>Computing a p-value</title>
+        <statement>
+          <p>
+            A poll of 500 voters finds that 270 support a particular policy. 
+            Test whether this provides evidence that more than half of all 
+            voters support the policy.
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-normal-dist-pvalue">
+        <caption>Computing p-value from normal distribution</caption>
+        <image source="ch_foundations_for_inf/figures/normal_dist_mean_500_se_016"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-choosing-significance-level">
+      <title>Choosing a significance level</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-statistical-vs-practical">
+      <title>Statistical significance versus practical significance</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-one-sided-tests">
+      <title>One-sided hypothesis tests (special topic)</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-business-one-sided">
+        <caption>One-sided hypothesis test illustration</caption>
+        <image source="ch_foundations_for_inf/figures/business_one_sided_20_21-p_value"/>
+      </figure>
+    </subsection>
   </section>
 
 </chapter>

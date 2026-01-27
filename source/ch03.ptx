@@ -5,16 +5,291 @@
 
   <introduction>
     <p>
-      This chapter introduces fundamental concepts of probability theory.
+      Probability forms the foundation of statistics, and you're probably already
+      aware of many of the ideas presented in this chapter. However, formalization 
+      of probability concepts is likely new for most readers.
     </p>
     <p>
-      <alert>Content to be converted from ch_probability/TeX/</alert>
+      While this chapter provides a theoretical foundation for the ideas in later 
+      chapters and provides a path to a deeper understanding, mastery of the concepts 
+      introduced in this chapter is not required for applying the methods introduced 
+      in the rest of this book.
     </p>
   </introduction>
 
-  <section xml:id="sec-probability-intro">
-    <title>Introduction to probability</title>
-    <p>Content to be converted from LaTeX source.</p>
+  <!-- Section 3.1: Defining probability -->
+  <section xml:id="sec-defining-probability">
+    <title>Defining probability</title>
+
+    <introduction>
+      <p>
+        Statistics is based on probability, and while probability is not required 
+        for the applied techniques in this book, it may help you gain a deeper 
+        understanding of the methods and set a better foundation for future courses.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsec-introductory-examples">
+      <title>Introductory examples</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-prob-of-1">
+        <title>Probability of rolling a 1</title>
+        <statement>
+          <p>
+            A "die", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. 
+            What is the chance of getting 1 when rolling a die?
+          </p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+
+      <example xml:id="ex-prob-of-1-or-2">
+        <title>Probability of rolling a 1 or 2</title>
+        <statement>
+          <p>What is the chance of getting a 1 or 2 in the next roll?</p>
+        </statement>
+        <solution>
+          <p>To be converted from LaTeX source.</p>
+        </solution>
+      </example>
+    </subsection>
+
+    <subsection xml:id="subsec-probability-definition">
+      <title>Probability</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-die-prop">
+        <caption>The fraction of die rolls that are 1 at each stage in a simulation</caption>
+        <image source="ch_probability/figures/dieProp"/>
+      </figure>
+
+      <exercise xml:id="ex-random-process">
+        <title>Random processes</title>
+        <statement>
+          <p>
+            Random processes include rolling a die and flipping a coin. (a) Think of 
+            another random process. (b) Describe all the possible outcomes of that process.
+          </p>
+        </statement>
+      </exercise>
+    </subsection>
+
+    <subsection xml:id="subsec-disjoint-outcomes">
+      <title>Disjoint or mutually exclusive outcomes</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-probabilities-not-disjoint">
+      <title>Probabilities when events are not disjoint</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-probability-distributions">
+      <title>Probability distributions</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-complement">
+      <title>Complement of an event</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-independence">
+      <title>Independence</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+  </section>
+
+  <!-- Section 3.2: Conditional probability -->
+  <section xml:id="sec-conditional-probability">
+    <title>Conditional probability</title>
+
+    <subsection xml:id="subsec-exploring-contingency-table">
+      <title>Exploring probabilities with a contingency table</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-marginal-joint-probabilities">
+      <title>Marginal and joint probabilities</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-defining-conditional-probability">
+      <title>Defining conditional probability</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-smallpox-boston">
+      <title>Smallpox in Boston, 1721</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-general-multiplication-rule">
+      <title>General multiplication rule</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-independence-conditional">
+      <title>Independence considerations in conditional probability</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-tree-diagrams">
+      <title>Tree diagrams</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-bayes-theorem">
+      <title>Bayes' Theorem</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+  </section>
+
+  <!-- Section 3.3: Sampling from a small population -->
+  <section xml:id="sec-sampling-small-population">
+    <title>Sampling from a small population</title>
+
+    <introduction>
+      <p>
+        When we sample observations from a population, usually we're only sampling 
+        a small fraction of the possible individuals or cases. However, sometimes 
+        our sample size is large enough or the population is small enough that we 
+        sample more than 10% of a population without replacement.
+      </p>
+    </introduction>
+
+    <example xml:id="ex-professor-select-student">
+      <title>Selecting a student at random</title>
+      <statement>
+        <p>
+          Professors sometimes select a student at random to answer a question. 
+          If each student has an equal chance of being selected and there are 15 
+          people in your class, what is the chance that she will pick you for 
+          the next question?
+        </p>
+      </statement>
+      <solution>
+        <p>To be converted from LaTeX source.</p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-3-questions-wo-replacement">
+      <title>Three questions without replacement</title>
+      <statement>
+        <p>
+          If the professor asks 3 questions, what is the probability that you 
+          will not be selected? Assume that she will not pick the same person 
+          twice in a given lecture.
+        </p>
+      </statement>
+      <solution>
+        <p>To be converted from LaTeX source.</p>
+      </solution>
+    </example>
+  </section>
+
+  <!-- Section 3.4: Random variables -->
+  <section xml:id="sec-random-variables">
+    <title>Random variables</title>
+
+    <introduction>
+      <p>
+        It's often useful to model a process using what's called a random variable. 
+        Such a model allows us to apply a mathematical framework and statistical 
+        principles for better understanding and predicting outcomes in the real world.
+      </p>
+    </introduction>
+
+    <example xml:id="ex-bookstore-sales">
+      <title>Bookstore sales expectation</title>
+      <statement>
+        <p>
+          Two books are assigned for a statistics class: a textbook and its 
+          corresponding study guide. The university bookstore determined 20% of 
+          enrolled students do not buy either book, 55% buy the textbook only, 
+          and 25% buy both books. If there are 100 students enrolled, how many 
+          books should the bookstore expect to sell to this class?
+        </p>
+      </statement>
+      <solution>
+        <p>To be converted from LaTeX source.</p>
+      </solution>
+    </example>
+
+    <subsection xml:id="subsec-expectation">
+      <title>Expectation</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-book-cost-dist">
+        <caption>Probability distribution for the bookstore's revenue from one student</caption>
+        <image source="ch_probability/figures/bookCostDist"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-variability-random-variables">
+      <title>Variability in random variables</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-linear-combinations">
+      <title>Linear combinations of random variables</title>
+      <p>To be converted from LaTeX source.</p>
+    </subsection>
+  </section>
+
+  <!-- Section 3.5: Continuous distributions -->
+  <section xml:id="sec-continuous-distributions">
+    <title>Continuous distributions</title>
+
+    <introduction>
+      <p>
+        So far in this chapter we've discussed cases where the outcome of a 
+        variable is discrete. In this section, we consider a context where 
+        the outcome is a continuous numerical variable.
+      </p>
+    </introduction>
+
+    <example xml:id="ex-us-heights">
+      <title>US adult heights histograms</title>
+      <statement>
+        <p>
+          Figure shows a few different hollow histograms for the heights of 
+          US adults. How does changing the number of bins allow you to make 
+          different interpretations of the data?
+        </p>
+      </statement>
+      <solution>
+        <p>To be converted from LaTeX source.</p>
+      </solution>
+    </example>
+
+    <figure xml:id="fig-fdic-histograms">
+      <caption>Four hollow histograms of US adults heights with varying bin widths</caption>
+      <image source="ch_probability/figures/fdicHistograms"/>
+    </figure>
+
+    <subsection xml:id="subsec-histograms-to-continuous">
+      <title>From histograms to continuous distributions</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-fdic-height-cont-dist">
+        <caption>The continuous probability distribution of heights for US adults</caption>
+        <image source="ch_probability/figures/fdicHeightContDist"/>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-probabilities-continuous">
+      <title>Probabilities from continuous distributions</title>
+      <p>To be converted from LaTeX source.</p>
+
+      <figure xml:id="fig-fdic-height-filled">
+        <caption>Density for heights with the area between 180 and 185 cm shaded</caption>
+        <image source="ch_probability/figures/fdicHeightContDistFilled"/>
+      </figure>
+    </subsection>
   </section>
 
 </chapter>
