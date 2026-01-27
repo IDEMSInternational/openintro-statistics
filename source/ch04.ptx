@@ -3278,4 +3278,402 @@
     </exercises>
   </section>
 
+  <!-- Chapter review exercises -->
+  <section xml:id="sec-ch04-review">
+    <title>Chapter review</title>
+    <exercises>
+      <title>Chapter review</title>
+
+      <exercise xml:id="ex-roulette-winnings">
+        <title>Roulette winnings</title>
+        <statement>
+          <p>
+            In the game of roulette, a wheel is spun and you place bets on where it will stop. One popular bet is 
+            that it will stop on a red slot; such a bet has an 18/38 chance of winning. 
+            If it stops on red, you double the money you bet. If not, you lose the money 
+            you bet. Suppose you play 3 times, each time with a $1 bet. Let Y represent 
+            the total amount won or lost. Write a probability model for Y.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-speeding-i5-intro">
+        <title>Speeding on the I-5, Part I</title>
+        <statement>
+          <p>
+            The distribution of passenger vehicle speeds traveling on the Interstate 5 Freeway (I-5) in 
+            California is nearly normal with a mean of 72.6 miles/hour and a standard 
+            deviation of 4.78 miles/hour.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>What percent of passenger vehicles travel slower than 80 miles/hour?</p></li>
+              <li><p>What percent of passenger vehicles travel between 60 and 80 miles/hour?</p></li>
+              <li><p>How fast do the fastest 5% of passenger vehicles travel?</p></li>
+              <li>
+                <p>
+                  The speed limit on this stretch of the I-5 is 70 miles/hour. 
+                  Approximate what percentage of the passenger vehicles travel above the speed 
+                  limit on this stretch of the I-5.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-university-admissions">
+        <title>University admissions</title>
+        <statement>
+          <p>
+            Suppose a university announced that it admitted 2,500 students for the following year's freshman 
+            class. However, the university has dorm room spots for only 1,786 freshman 
+            students. If there is a 70% chance that an admitted student will decide to 
+            accept the offer and attend this university, what is the approximate 
+            probability that the university will not have enough dormitory room spots for 
+            the freshman class?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-speeding-i5-geometric">
+        <title>Speeding on the I-5, Part II</title>
+        <statement>
+          <p>
+            <xref ref="ex-speeding-i5-intro"/> states that the distribution of speeds of 
+            cars traveling on the Interstate 5 Freeway (I-5) in California is nearly 
+            normal with a mean of 72.6 miles/hour and a standard deviation of 4.78 
+            miles/hour. The speed limit on this stretch of the I-5 is 70 miles/hour.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  A highway patrol officer is hidden on the side of the freeway. What is 
+                  the probability that 5 cars pass and none are speeding? Assume that the 
+                  speeds of the cars are independent of each other.
+                </p>
+              </li>
+              <li>
+                <p>
+                  On average, how many cars would the highway patrol officer expect to 
+                  watch until the first car that is speeding? What is the standard deviation of 
+                  the number of cars he would expect to watch?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-auto-insurance-premiums">
+        <title>Auto insurance premiums</title>
+        <statement>
+          <p>
+            Suppose a newspaper article states that the distribution of auto insurance premiums for 
+            residents of California is approximately normal with a mean of $1,650. The 
+            article also states that 25% of California residents pay more than $1,800.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the Z-score that corresponds to the top 25% (or the 75<m>^{th}</m> 
+                  percentile) of the standard normal distribution?
+                </p>
+              </li>
+              <li><p>What is the mean insurance cost? What is the cutoff for the 75th percentile?</p></li>
+              <li><p>Identify the standard deviation of insurance premiums in California.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sat-scores">
+        <title>SAT scores</title>
+        <statement>
+          <p>
+            SAT scores (out of 1600) are distributed 
+            normally with a mean of 1100 and a standard deviation of 200.
+            Suppose a school council awards a certificate of excellence
+            to all students who score at least 1350 on the SAT,
+            and suppose we pick one of the recognized students at random.
+            What is the probability this student's score will be
+            at least 1500?
+            (The material covered in
+            Section 2.2
+            on conditional probability
+            would be useful for this question.)
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-married-women">
+        <title>Married women</title>
+        <statement>
+          <p>
+            The American Community Survey estimates that 47.1% of women ages 15 years and over are married.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  We randomly select three women between these ages. What is the 
+                  probability that the third woman selected is the only one who is married?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that all three randomly selected women are 
+                  married?
+                </p>
+              </li>
+              <li>
+                <p>
+                  On average, how many women would you expect to sample before selecting 
+                  a married woman? What is the standard deviation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the proportion of married women was actually 30%, how many women 
+                  would you expect to sample before selecting a married woman? What is the 
+                  standard deviation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Based on your answers to parts (c) and (d), how does decreasing the 
+                  probability of an event affect the mean and standard deviation of the wait 
+                  time until success?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-survey-response-rate">
+        <title>Survey response rate</title>
+        <statement>
+          <p>
+            Pew Research reported that the typical response rate to their surveys is only 9%. 
+            If for a particular survey 15,000 households are contacted, what is the probability 
+            that at least 1,500 will agree to respond?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-overweight-baggage">
+        <title>Overweight baggage</title>
+        <statement>
+          <p>
+            Suppose weights of the checked baggage of airline passengers follow a nearly normal distribution 
+            with mean 45 pounds and standard deviation 3.2 pounds. Most airlines charge a 
+            fee for baggage that weigh in excess of 50 pounds. Determine what percent of 
+            airline passengers incur this fee.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-heights-10-yrs">
+        <title>Heights of 10 year olds, Part I</title>
+        <statement>
+          <p>
+            Heights of 10 year olds, regardless of gender, closely follow
+            a normal distribution with mean 55 inches and standard deviation
+            6 inches.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that a randomly chosen 10 year old
+                  is shorter than 48 inches?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that a randomly chosen 10 year old
+                  is between 60 and 65 inches?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the tallest 10% of the class is considered
+                  <q>very tall</q>,
+                  what is the height cutoff for <q>very tall</q>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-buy-books-ebay">
+        <title>Buying books on Ebay</title>
+        <statement>
+          <p>
+            Suppose you're considering buying your expensive chemistry
+            textbook on Ebay.
+            Looking at past auctions suggests that the 
+            prices of this textbook follow an approximately normal
+            distribution with mean $89 and standard deviation $15.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that a randomly selected auction for this book 
+                  closes at more than $100?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Ebay allows you to set your maximum bid price so that if someone 
+                  outbids you on an auction you can automatically outbid them, up to the 
+                  maximum bid price you set. If you are only bidding on one auction, what are 
+                  the advantages and disadvantages of setting a bid price too high or too low? 
+                  What if you are bidding on multiple auctions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If you watched 10 auctions, roughly what percentile might you use for a 
+                  maximum bid cutoff to be somewhat sure that you will win one of these ten 
+                  auctions? Is it possible to find a cutoff point that will ensure that you win 
+                  an auction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If you are willing to track up to ten auctions closely, about what 
+                  price might you use as your maximum bid price if you want to be somewhat sure 
+                  that you will buy one of these ten books?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-heights-10-yrs-prob">
+        <title>Heights of 10 year olds, Part II</title>
+        <statement>
+          <p>
+            Heights of 10 year olds, regardless of gender, closely follow
+            a normal distribution with mean 55 inches and standard deviation
+            6 inches.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  The height requirement for <em>Batman the Ride</em> at
+                  Six Flags Magic Mountain is 54 inches.
+                  What percent of 10 year olds cannot go on this ride?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose there are four 10 year olds.
+                  What is the chance that at least two of them
+                  will be able to ride <em>Batman the Ride</em>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose you work at the park to help them better
+                  understand their customers' demographics, and
+                  you are counting people as they enter
+                  the park.
+                  What is the chance that the first 10 year old
+                  you see who can ride <em>Batman the Ride</em> is
+                  the 3rd 10 year old who enters the park?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the chance that the fifth 10 year old
+                  you see who can ride <em>Batman the Ride</em> is
+                  the 12th 10 year old who enters the park?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-heights-10-yrs-dist">
+        <title>Heights of 10 year olds, Part III</title>
+        <statement>
+          <p>
+            Heights of 10 year olds, regardless of gender, closely follow
+            a normal distribution with mean 55 inches and standard deviation
+            6 inches.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What fraction of 10 year olds are taller than
+                  76 inches?
+                </p>
+              </li>
+              <li xml:id="ex-heights-10-yrs-dist-76-inches">
+                <p>
+                  If there are 2,000 10 year olds entering
+                  Six Flags Magic Mountain in a single day,
+                  then compute the expected number of
+                  10 year olds who are at least 76 inches tall.
+                  (You may assume the heights of the 10-year olds
+                  are independent.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using the binomial distribution,
+                  compute the probability that 0 of the 2,000
+                  10 year olds will be at least 76 inches tall.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The number of 10 year olds who enter
+                  Six Flags Magic Mountain and are
+                  at least 76 inches tall in a given day
+                  follows a Poisson distribution with
+                  mean equal to the value found in
+                  part <xref ref="ex-heights-10-yrs-dist-76-inches"/>.
+                  Use the Poisson distribution to identify
+                  the probability no 10 year old will enter
+                  the park who is 76 inches or taller.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-mc-quiz">
+        <title>Multiple choice quiz</title>
+        <statement>
+          <p>
+            In a multiple choice quiz there are 
+            5 questions and 4 choices for each question (a, b, c, d). Robin has not 
+            studied for the quiz at all, and decides to randomly guess the answers. What 
+            is the probability that
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>the first question she gets right is the 3<m>^{rd}</m> question?</p></li>
+              <li><p>she gets exactly 3 or exactly 4 questions right?</p></li>
+              <li><p>she gets the majority of the questions right?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
 </chapter>
