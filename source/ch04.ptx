@@ -65,7 +65,7 @@
         we may write the distribution as <m>N(\mu, \sigma)</m>. The two distributions in 
         <xref ref="fig-two-sample-normals-stacked"/> may be written as
         <md>
-          <mrow>N(\mu=0,\sigma=1) \quad \text{and} \quad N(\mu=19,\sigma=4)</mrow>
+          <mrow>N(\mu=0, \sigma=1) \quad \text{and} \quad N(\mu=19, \sigma=4)</mrow>
         </md>
         Because the mean and standard deviation describe a normal distribution exactly, 
         they are called the distribution's <term>parameters</term>.
@@ -98,7 +98,7 @@
         </statement>
         <solution>
           <p>
-            (a) <m>N(\mu=5,\sigma=3)</m>. (b) <m>N(\mu=-100, \sigma=10)</m>. 
+            (a) <m>N(\mu=5, \sigma=3)</m>. (b) <m>N(\mu=-100, \sigma=10)</m>. 
             (c) <m>N(\mu=2, \sigma=9)</m>.
           </p>
         </solution>
@@ -434,7 +434,7 @@
               Z = \frac{x - \mu}{\sigma} = \frac{1030 - 1100}{200} = -0.35
             </me>
             Using statistical software, we get a tail area of 0.3632. Edward is at the 
-            <m>36^{th}</m> percentile.
+            36<m>^{th}</m> percentile.
           </p>
         </solution>
       </example>
@@ -511,7 +511,7 @@
         <title>Finding height at 40th percentile</title>
         <statement>
           <p>
-            Erik's height is at the <m>40^{th}</m> percentile. How tall is he?
+            Erik's height is at the 40<m>^{th}</m> percentile. How tall is he?
           </p>
         </statement>
         <solution>
@@ -528,7 +528,7 @@
             In this case, the lower tail probability is known (0.40), which can be shaded on 
             the diagram. We want to find the observation that corresponds to this value. As a 
             first step in this direction, we determine the Z-score associated with the 
-            <m>40^{th}</m> percentile. Using software, we can obtain the corresponding Z-score 
+            40<m>^{th}</m> percentile. Using software, we can obtain the corresponding Z-score 
             of about -0.25.
           </p>
 
@@ -549,7 +549,7 @@
         <title>Finding height at 82nd percentile</title>
         <statement>
           <p>
-            What is the adult male height at the <m>82^{nd}</m> percentile?
+            What is the adult male height at the 82<m>^{nd}</m> percentile?
           </p>
         </statement>
         <solution>
@@ -563,14 +563,14 @@
           </figure>
 
           <p>
-            Next, we want to find the Z-score at the <m>82^{nd}</m> percentile, which will be 
+            Next, we want to find the Z-score at the 82<m>^{nd}</m> percentile, which will be 
             a positive value and can be found using software as <m>Z = 0.92</m>. Finally, the 
             height <m>x</m> is found using the Z-score formula with the known mean <m>\mu</m>, 
             standard deviation <m>\sigma</m>, and Z-score <m>Z = 0.92</m>:
             <me>
               0.92 = Z = \frac{x-\mu}{\sigma} = \frac{x - 70}{3.3}
             </me>
-            This yields 73.04 inches or about 6'1'' as the height at the <m>82^{nd}</m> 
+            This yields 73.04 inches or about 6'1'' as the height at the 82<m>^{nd}</m> 
             percentile.
           </p>
         </solution>
@@ -579,8 +579,8 @@
       <exercise>
         <statement>
           <p>
-            The SAT scores follow <m>N(1100, 200)</m>. (a) What is the <m>95^{th}</m> 
-            percentile for SAT scores? (b) What is the <m>97.5^{th}</m> percentile for SAT 
+            The SAT scores follow <m>N(1100, 200)</m>. (a) What is the 95<m>^{th}</m> 
+            percentile for SAT scores? (b) What is the 97.5<m>^{th}</m> percentile for SAT 
             scores?
           </p>
         </statement>
@@ -906,7 +906,7 @@
             <ol marker="a.">
               <li>
                 <p>
-                  The score of a student who scored in the <m>80^{th}</m> percentile on the 
+                  The score of a student who scored in the 80<m>^{th}</m> percentile on the 
                   Quantitative Reasoning section.
                 </p>
               </li>
