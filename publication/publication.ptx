@@ -6,5 +6,6 @@
     <calculator model="geogebra-graphing"/>
     <index-page ref="frontmatter"/>
     <video privacy="yes"/>
+    <favicon source="favicon.svg"/>
   </html>
 </publication>
