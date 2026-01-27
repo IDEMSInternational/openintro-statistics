@@ -3027,28 +3027,255 @@
   <section xml:id="sec-poisson-distribution">
     <title>Poisson distribution</title>
 
-    <introduction>
-      <p>
-        The Poisson distribution is used to describe the number of rare events 
-        that occur in a fixed amount of time or space when the events occur 
-        independently and at a constant average rate.
-      </p>
-    </introduction>
-
-    <p>To be converted from LaTeX source.</p>
-
-    <example xml:id="ex-poisson-visits">
-      <title>Website visits</title>
+    <example xml:id="ex-ami-nyc">
+      <title>AMI incidents in New York City</title>
       <statement>
         <p>
-          A website receives an average of 2 visits per minute. What is the 
-          probability the website receives exactly 5 visits in the next minute?
+          There are about 8 million individuals in New York City. How many individuals 
+          might we expect to be hospitalized for acute myocardial infarction (AMI), 
+          i.e. a heart attack, each day? According to historical records, the average 
+          number is about 4.4 individuals. However, we would also like to know the 
+          approximate distribution of counts. What would a histogram of the number of 
+          AMI occurrences each day look like if we recorded the daily counts over an 
+          entire year?
         </p>
       </statement>
       <solution>
-        <p>To be converted from LaTeX source.</p>
+        <p>
+          A histogram of the number of occurrences of AMI on 365 days for NYC is shown 
+          in <xref ref="fig-ami-incidences-over-100-days"/>.<fn>These data are simulated. 
+          In practice, we should check for an association between successive days.</fn> 
+          The sample mean (4.38) is similar to the historical average of 4.4. The sample 
+          standard deviation is about 2, and the histogram indicates that about 70% of the 
+          data fall between 2.4 and 6.4. The distribution's shape is unimodal and skewed 
+          to the right.
+        </p>
       </solution>
     </example>
+
+    <figure xml:id="fig-ami-incidences-over-100-days">
+      <caption>
+        A histogram of the number of occurrences of AMI on 365 separate days in NYC.
+      </caption>
+      <image source="ch_distributions/figures/amiIncidencesOver100Days"/>
+    </figure>
+
+    <p>
+      The <term>Poisson distribution</term> is often useful for estimating the number of 
+      events in a large population over a unit of time. For instance, consider each of 
+      the following events:
+      <ul>
+        <li><p>having a heart attack,</p></li>
+        <li><p>getting married, and</p></li>
+        <li><p>getting struck by lightning.</p></li>
+      </ul>
+      The Poisson distribution helps us describe the number of such events that will occur 
+      in a day for a fixed population if the individuals within the population are independent. 
+      The Poisson distribution could also be used over another unit of time, such as an hour 
+      or a week.
+    </p>
+
+    <p>
+      The histogram in <xref ref="fig-ami-incidences-over-100-days"/> approximates a Poisson 
+      distribution with rate equal to 4.4. The <term>rate</term> for a Poisson distribution 
+      is the average number of occurrences in a mostly-fixed population per unit of time. 
+      In <xref ref="ex-ami-nyc"/>, the time unit is a day, the population is all New York 
+      City residents, and the historical rate is 4.4. The parameter in the Poisson distribution 
+      is the rate<mdash/>or how many events we expect to observe<mdash/>and it is typically 
+      denoted by <m>\lambda</m> (the Greek letter <em>lambda</em>) or <m>\mu</m>. Using the 
+      rate, we can describe the probability of observing exactly <m>k</m> events in a single 
+      unit of time.
+    </p>
+
+    <blockquote>
+      <p>
+        <term>Poisson distribution</term>
+      </p>
+      <p>
+        Suppose we are watching for events and the number of observed events follows a 
+        Poisson distribution with rate <m>\lambda</m>. Then
+        <me>
+          P(\text{observe $k$ events}) = \frac{\lambda^{k} e^{-\lambda}}{k!}
+        </me>
+        where <m>k</m> may take a value 0, 1, 2, and so on, and <m>k!</m> represents 
+        <m>k</m>-factorial, as described on page <xref ref="sec-binomial-distribution"/>. 
+        The letter <m>e \approx 2.718</m> is the base of the natural logarithm. The mean 
+        and standard deviation of this distribution are <m>\lambda</m> and 
+        <m>\sqrt{\lambda}</m>, respectively.
+      </p>
+    </blockquote>
+
+    <p>
+      We will leave a rigorous set of conditions for the Poisson distribution to a later 
+      course. However, we offer a few simple guidelines that can be used for an initial 
+      evaluation of whether the Poisson model would be appropriate.
+    </p>
+
+    <p>
+      A random variable may follow a Poisson distribution if we are looking for the number 
+      of events, the population that generates such events is large, and the events occur 
+      independently of each other.
+    </p>
+
+    <p>
+      Even when events are not really independent<mdash/>for instance, Saturdays and Sundays 
+      are especially popular for weddings<mdash/>a Poisson model may sometimes still be 
+      reasonable if we allow it to have a different rate for different times. In the wedding 
+      example, the rate would be modeled as higher on weekends than on weekdays. The idea of 
+      modeling rates for a Poisson distribution against a second variable such as the day of 
+      week forms the foundation of some more advanced methods that fall in the realm of 
+      <term>generalized linear models</term>. In Chapters <xref ref="ch-simple-linear-regression"/> 
+      and <xref ref="ch-multiple-logistic-regression"/>, we will discuss a foundation of 
+      linear models.
+    </p>
+
+    <exercises xml:id="exercises-poisson">
+      <title>Section 4.5 Exercises</title>
+
+      <exercise xml:id="ex-coffee-shop-customers">
+        <title>Customers at a coffee shop</title>
+        <statement>
+          <p>
+            A coffee shop serves an average of 75 customers per hour during the morning rush.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Which distribution have we studied that is most appropriate for calculating 
+                  the probability of a given number of customers arriving within one hour 
+                  during this time of day?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What are the mean and the standard deviation of the number of customers 
+                  this coffee shop serves in one hour during this time of day?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Would it be considered unusually low if only 60 customers showed up to 
+                  this coffee shop in one hour during this time of day?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability that this coffee shop serves 70 customers in 
+                  one hour during this time of day.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-stenographer-typos">
+        <title>Stenographer's typos</title>
+        <statement>
+          <p>
+            A very skilled court stenographer makes one typographical error (typo) per hour 
+            on average.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What probability distribution is most appropriate for calculating the 
+                  probability of a given number of typos this stenographer makes in an hour?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What are the mean and the standard deviation of the number of typos 
+                  this stenographer makes?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Would it be considered unusual if this stenographer made 4 typos in a 
+                  given hour?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability that this stenographer makes at most 2 typos 
+                  in a given hour.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-cars-in-parking-lot">
+        <title>How many cars show up</title>
+        <statement>
+          <p>
+            For Monday through Thursday when there isn't a holiday, the average number of 
+            vehicles that visit a particular retailer between 2pm and 3pm each afternoon 
+            is 6.5, and the number of cars that show up on any given day follows a Poisson 
+            distribution.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that exactly 5 cars will show up next Monday?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that 0, 1, or 2 cars will show up next Monday 
+                  between 2pm and 3pm?
+                </p>
+              </li>
+              <li>
+                <p>
+                  There is an average of 11.7 people who visit during those same hours from 
+                  vehicles. Is it likely that the number of people visiting by car during 
+                  this hour is also Poisson? Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-lost-baggage">
+        <title>Lost baggage</title>
+        <statement>
+          <p>
+            Occasionally an airline will lose a bag. Suppose a small airline has found it 
+            can reasonably model the number of bags lost each weekday using a Poisson model 
+            with a mean of 2.2 bags.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that the airline will lose no bags next Monday?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that the airline will lose 0, 1, or 2 bags on 
+                  next Monday?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose the airline expands over the course of the next 3 years, doubling 
+                  the number of flights it makes, and the CEO asks you if it's reasonable 
+                  for them to continue using the Poisson model with a mean of 2.2. What is 
+                  an appropriate recommendation? Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
 
 </chapter>
