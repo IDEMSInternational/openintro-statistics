@@ -39,23 +39,70 @@
     <subsection xml:id="subsec-normal-distribution-model">
       <title>Normal distribution model</title>
       <p>
-        The normal distribution always describes a symmetric, unimodal, bell-shaped 
+        The <term>normal distribution</term> always describes a symmetric, unimodal, bell-shaped 
         curve. However, these curves can look different depending on the details of 
         the model. Specifically, the normal distribution model can be adjusted using 
-        two parameters: mean and standard deviation.
+        two parameters: mean and standard deviation. As you can probably guess, changing the mean 
+        shifts the bell curve to the left or right, while changing the standard deviation stretches 
+        or constricts the curve. <xref ref="fig-two-sample-normals"/> shows the normal distribution 
+        with mean <m>0</m> and standard deviation <m>1</m> in the left panel and the normal 
+        distribution with mean <m>19</m> and standard deviation <m>4</m> in the right panel. 
+        <xref ref="fig-two-sample-normals-stacked"/> shows these distributions on the same axis.
       </p>
 
       <figure xml:id="fig-two-sample-normals">
-        <caption>Two normal distributions with different parameters</caption>
+        <caption>Both curves represent the normal distribution. However, they differ in their center and spread.</caption>
         <image source="ch_distributions/figures/twoSampleNormals"/>
       </figure>
 
       <figure xml:id="fig-two-sample-normals-stacked">
-        <caption>The normal distributions plotted together on the same scale</caption>
+        <caption>The normal distributions shown in <xref ref="fig-two-sample-normals"/> but plotted together and on the same scale.</caption>
         <image source="ch_distributions/figures/twoSampleNormalsStacked"/>
       </figure>
 
-      <p>To be converted from LaTeX source.</p>
+      <p>
+        If a normal distribution has mean <m>\mu</m> and standard deviation <m>\sigma</m>, 
+        we may write the distribution as <m>N(\mu, \sigma)</m>. The two distributions in 
+        <xref ref="fig-two-sample-normals-stacked"/> may be written as
+        <md>
+          <mrow>N(\mu=0,\sigma=1) \quad \text{and} \quad N(\mu=19,\sigma=4)</mrow>
+        </md>
+        Because the mean and standard deviation describe a normal distribution exactly, 
+        they are called the distribution's <term>parameters</term>.
+      </p>
+
+      <blockquote>
+        <p>
+          <term>Normal distribution facts</term>
+        </p>
+        <p>
+          Many variables are nearly normal, but none are exactly normal. Thus the normal 
+          distribution, while not perfect for any single problem, is very useful for a variety 
+          of problems. We will use it in data exploration and to solve important problems in 
+          statistics.
+        </p>
+      </blockquote>
+
+      <p>
+        The normal distribution with mean <m>\mu = 0</m> and standard deviation <m>\sigma = 1</m> 
+        is called the <term>standard normal distribution</term>.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            Write down the short-hand for a normal distribution with (a) mean 5 and standard 
+            deviation 3, (b) mean -100 and standard deviation 10, and (c) mean 2 and standard 
+            deviation 9.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            (a) <m>N(\mu=5,\sigma=3)</m>. (b) <m>N(\mu=-100, \sigma=10)</m>. 
+            (c) <m>N(\mu=2, \sigma=9)</m>.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
 
     <subsection xml:id="subsec-standardizing-z-scores">
@@ -64,23 +111,953 @@
         We often want to put data onto a standardized scale, which can make 
         comparisons more reasonable.
       </p>
-      <p>To be converted from LaTeX source.</p>
+
+      <example xml:id="ex-act-sat">
+        <title>Comparing SAT and ACT scores</title>
+        <statement>
+          <p>
+            <xref ref="table-sat-act-stats"/> shows the mean and standard deviation for total 
+            scores on the SAT and ACT. The distribution of SAT and ACT scores are both nearly 
+            normal. Suppose Ann scored 1300 on her SAT and Tom scored 24 on his ACT. Who 
+            performed better?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We use the standard deviation as a guide. Ann is 1 standard deviation above average 
+            on the SAT: <m>1100 + 200 = 1300</m>. Tom is 0.5 standard deviations above the mean 
+            on the ACT: <m>21 + 0.5 \times 6 = 24</m>. In <xref ref="fig-sat-act-normals"/>, 
+            we can see that Ann tends to do better with respect to everyone else than Tom did, 
+            so her score was better.
+          </p>
+        </solution>
+      </example>
+
+      <table xml:id="table-sat-act-stats">
+        <title>Mean and standard deviation for the SAT and ACT</title>
+        <tabular>
+          <row header="yes" bottom="medium">
+            <cell></cell>
+            <cell>SAT</cell>
+            <cell>ACT</cell>
+          </row>
+          <row>
+            <cell>Mean</cell>
+            <cell>1100</cell>
+            <cell>21</cell>
+          </row>
+          <row>
+            <cell>SD</cell>
+            <cell>200</cell>
+            <cell>6</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <figure xml:id="fig-sat-act-normals">
+        <caption>Ann's and Tom's scores shown against the SAT and ACT distributions.</caption>
+        <image source="ch_distributions/figures/satActNormals"/>
+      </figure>
+
+      <p>
+        <xref ref="ex-act-sat"/> used a standardization technique called a Z-score, a method 
+        most commonly employed for nearly normal observations but that may be used with any 
+        distribution. The <term>Z-score</term> of an observation is defined as the number of 
+        standard deviations it falls above or below the mean. If the observation is one 
+        standard deviation above the mean, its Z-score is 1. If it is 1.5 standard deviations 
+        <em>below</em> the mean, then its Z-score is -1.5. If <m>x</m> is an observation from 
+        a distribution <m>N(\mu, \sigma)</m>, we define the Z-score mathematically as
+        <me>
+          Z = \frac{x - \mu}{\sigma}
+        </me>
+        Using <m>\mu_{SAT} = 1100</m>, <m>\sigma_{SAT} = 200</m>, and 
+        <m>x_{Ann} = 1300</m>, we find Ann's Z-score:
+        <me>
+          Z_{Ann} = \frac{x_{Ann} - \mu_{SAT}}{\sigma_{SAT}} = \frac{1300 - 1100}{200} = 1
+        </me>
+      </p>
+
+      <blockquote>
+        <p>
+          <term>The Z-score</term>
+        </p>
+        <p>
+          The Z-score of an observation is the number of standard deviations it falls above 
+          or below the mean. We compute the Z-score for an observation <m>x</m> that follows 
+          a distribution with mean <m>\mu</m> and standard deviation <m>\sigma</m> using
+          <me>
+            Z = \frac{x - \mu}{\sigma}
+          </me>
+        </p>
+      </blockquote>
+
+      <exercise>
+        <statement>
+          <p>
+            Use Tom's ACT score, 24, along with the ACT mean and standard deviation to find 
+            his Z-score.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>Z_{Tom} = \frac{x_{Tom} - \mu_{ACT}}{\sigma_{ACT}} = \frac{24 - 21}{6} = 0.5</m>
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        Observations above the mean always have positive Z-scores, while those below the mean 
+        always have negative Z-scores. If an observation is equal to the mean, such as an SAT 
+        score of 1100, then the Z-score is <m>0</m>.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            Let <m>X</m> represent a random variable from <m>N(\mu=3, \sigma=2)</m>, 
+            and suppose we observe <m>x=5.19</m>. (a) Find the Z-score of <m>x</m>. 
+            (b) Use the Z-score to determine how many standard deviations above or below 
+            the mean <m>x</m> falls.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            (a) Its Z-score is given by <m>Z = \frac{x-\mu}{\sigma} = \frac{5.19 - 3}{2} = 
+            \frac{2.19}{2} = 1.095</m>. (b) The observation <m>x</m> is 1.095 standard 
+            deviations <em>above</em> the mean. We know it must be above the mean since 
+            <m>Z</m> is positive.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-head-length-zscore">
+        <statement>
+          <p>
+            Head lengths of brushtail possums follow a normal distribution with mean 92.6 mm 
+            and standard deviation 3.6 mm. Compute the Z-scores for possums with head lengths 
+            of 95.4 mm and 85.8 mm.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            For <m>x_1=95.4</m> mm: <m>Z_1 = \frac{x_1 - \mu}{\sigma} = \frac{95.4 - 92.6}{3.6} 
+            = 0.78</m>. For <m>x_2=85.8</m> mm: <m>Z_2 = \frac{85.8 - 92.6}{3.6} = -1.89</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        We can use Z-scores to roughly identify which observations are more unusual than others. 
+        An observation <m>x_1</m> is said to be more unusual than another observation <m>x_2</m> 
+        if the absolute value of its Z-score is larger than the absolute value of the other 
+        observation's Z-score: <m>|Z_1| > |Z_2|</m>. This technique is especially insightful 
+        when a distribution is symmetric.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            Which of the observations in <xref ref="ex-head-length-zscore"/> is more unusual?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Because the <em>absolute value</em> of Z-score for the second observation is larger 
+            than that of the first, the second observation has a more unusual head length.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
 
     <subsection xml:id="subsec-finding-tail-areas">
       <title>Finding tail areas</title>
-      <p>To be converted from LaTeX source.</p>
+      <p>
+        It's very useful in statistics to be able to identify tail areas of distributions. 
+        For instance, what fraction of people have an SAT score below Ann's score of 1300? 
+        This is the same as the <term>percentile</term> Ann is at, which is the percentage 
+        of cases that have lower scores than Ann. We can visualize such a tail area like the 
+        curve and shading shown in <xref ref="fig-sat-below-1300"/>.
+      </p>
+
+      <figure xml:id="fig-sat-below-1300">
+        <caption>The area to the left of <m>Z</m> represents the fraction of people who scored lower than Ann.</caption>
+        <image source="ch_distributions/figures/satBelow1300"/>
+      </figure>
+
+      <p>
+        There are many techniques for doing this, and we'll discuss three of the options.
+        <ol>
+          <li>
+            <p>
+              The most common approach in practice is to use statistical software. For example, 
+              in the program R, we could find the area shown in <xref ref="fig-sat-below-1300"/> 
+              using the following command, which takes in the Z-score and returns the lower tail 
+              area: <c>pnorm(1)</c> returns <c>0.8413447</c>. According to this calculation, 
+              the region shaded that is below 1300 represents the proportion 0.841 (84.1%) of 
+              SAT test takers who had Z-scores below <m>Z = 1</m>. More generally, we can also 
+              specify the cutoff explicitly if we also note the mean and standard deviation: 
+              <c>pnorm(1300, mean = 1100, sd = 200)</c> returns <c>0.8413447</c>.
+            </p>
+            <p>
+              There are many other software options, such as Python or SAS; even spreadsheet 
+              programs such as Excel and Google Sheets support these calculations.
+            </p>
+          </li>
+          <li>
+            <p>
+              A common strategy in classrooms is to use a graphing calculator, such as a TI or 
+              Casio calculator. These calculators require a series of button presses that are 
+              less concisely described. You can find instructions on using these calculators 
+              for finding tail areas of a normal distribution in the OpenIntro video library: 
+              <url href="https://www.openintro.org/videos"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The last option for finding tail areas is to use what's called a 
+              <term>probability table</term>; these are occasionally used in classrooms 
+              but rarely in practice. The appendix contains such a table and a guide for 
+              how to use it.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <p>
+        We will solve normal distribution problems in this section by always first finding 
+        the Z-score. The reason is that we will encounter close parallels called 
+        <term>test statistics</term> beginning in Chapter 5; these are, in many instances, 
+        an equivalent of a Z-score.
+      </p>
     </subsection>
 
     <subsection xml:id="subsec-normal-probability-examples">
       <title>Normal probability examples</title>
-      <p>To be converted from LaTeX source.</p>
+      <p>
+        Cumulative SAT scores are approximated well by a normal model, 
+        <m>N(\mu = 1100, \sigma = 200)</m>.
+      </p>
+
+      <example xml:id="ex-sat-above-1190">
+        <title>Finding probability of SAT score above 1190</title>
+        <statement>
+          <p>
+            Shannon is a randomly selected SAT taker, and nothing is known about Shannon's 
+            SAT aptitude. What is the probability Shannon scores at least 1190 on her SATs?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First, always draw and label a picture of the normal distribution. (Drawings need 
+            not be exact to be useful.) We are interested in the chance she scores above 1190, 
+            so we shade this upper tail:
+          </p>
+
+          <figure xml:id="fig-sat-above-1190">
+            <caption>Shading the upper tail above 1190</caption>
+            <image source="ch_distributions/figures/satAbove1190"/>
+          </figure>
+
+          <p>
+            The picture shows the mean and the values at 2 standard deviations above and below 
+            the mean. The simplest way to find the shaded area under the curve makes use of 
+            the Z-score of the cutoff value. With <m>\mu = 1100</m>, <m>\sigma = 200</m>, 
+            and the cutoff value <m>x = 1190</m>, the Z-score is computed as
+            <me>
+              Z = \frac{x - \mu}{\sigma} = \frac{1190 - 1100}{200} = \frac{90}{200} = 0.45
+            </me>
+            Using statistical software (or another preferred method), we can find the area 
+            left of <m>Z = 0.45</m> as 0.6736. To find the area <em>above</em> 
+            <m>Z = 0.45</m>, we compute one minus the area of the lower tail:
+          </p>
+
+          <figure xml:id="fig-subtracting-area">
+            <caption>Computing the upper tail area</caption>
+            <image source="ch_distributions/figures/subtractingArea"/>
+          </figure>
+
+          <p>
+            The probability Shannon scores at least 1190 on the SAT is 0.3264.
+          </p>
+        </solution>
+      </example>
+
+      <blockquote>
+        <p>
+          <term>Always draw a picture first, and find the Z-score second</term>
+        </p>
+        <p>
+          For any normal probability situation, <em>always always always</em> draw and label 
+          the normal curve and shade the area of interest first. The picture will provide an 
+          estimate of the probability. After drawing a figure to represent the situation, 
+          identify the Z-score for the value of interest.
+        </p>
+      </blockquote>
+
+      <exercise>
+        <statement>
+          <p>
+            If the probability of Shannon scoring at least 1190 is 0.3264, then what is the 
+            probability she scores less than 1190? Draw the normal curve representing this 
+            exercise, shading the lower region instead of the upper one.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We found this probability in <xref ref="ex-sat-above-1190"/>: 0.6736.
+          </p>
+        </solution>
+      </exercise>
+
+      <example xml:id="ex-edward-sat-below-1030">
+        <title>Finding a percentile</title>
+        <statement>
+          <p>
+            Edward earned a 1030 on his SAT. What is his percentile?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First, a picture is needed. Edward's percentile is the proportion of people who do 
+            not get as high as a 1030. These are the scores to the left of 1030.
+          </p>
+
+          <figure xml:id="fig-sat-below-1030">
+            <caption>Shading the lower tail below 1030</caption>
+            <image source="ch_distributions/figures/satBelow1030"/>
+          </figure>
+
+          <p>
+            Identifying the mean <m>\mu=1100</m>, the standard deviation <m>\sigma=200</m>, 
+            and the cutoff for the tail area <m>x=1030</m> makes it easy to compute the Z-score:
+            <me>
+              Z = \frac{x - \mu}{\sigma} = \frac{1030 - 1100}{200} = -0.35
+            </me>
+            Using statistical software, we get a tail area of 0.3632. Edward is at the 
+            <m>36^{th}</m> percentile.
+          </p>
+        </solution>
+      </example>
+
+      <exercise>
+        <statement>
+          <p>
+            Use the results of <xref ref="ex-edward-sat-below-1030"/> to compute the 
+            proportion of SAT takers who did better than Edward. Also draw a new picture.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If Edward did better than 36% of SAT takers, then about 64% must have done better 
+            than him.
+          </p>
+        </solution>
+      </exercise>
+
+      <blockquote>
+        <p>
+          <term>Finding areas to the right</term>
+        </p>
+        <p>
+          Many software programs return the area to the left when given a Z-score. If you 
+          would like the area to the right, first find the area to the left and then subtract 
+          this amount from one.
+        </p>
+      </blockquote>
+
+      <exercise>
+        <statement>
+          <p>
+            Stuart earned an SAT score of 1500. Draw a picture for each part. (a) What is his 
+            percentile? (b) What percent of SAT takers did better than Stuart?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We leave the drawings to you. (a) <m>Z = \frac{1500 - 1100}{200} = 2 \to 0.9772</m>. 
+            (b) <m>1 - 0.9772 = 0.0228</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        Based on a sample of 100 men, the heights of male adults in the US is nearly normal 
+        with mean 70.0'' and standard deviation 3.3''.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            Mike is 5'7'' and Jose is 6'4'', and they both live in the US. (a) What is Mike's 
+            height percentile? (b) What is Jose's height percentile? Also draw one picture for 
+            each part.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First put the heights into inches: 67 and 76 inches. (a) <m>Z_{Mike} = \frac{67 - 70}{3.3} 
+            = -0.91 \to 0.1814</m>. (b) <m>Z_{Jose} = \frac{76 - 70}{3.3} = 1.82 \to 0.9656</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        The last several problems have focused on finding the percentile (lower tail) or the 
+        upper tail for a particular observation. What if you would like to know the observation 
+        corresponding to a particular percentile?
+      </p>
+
+      <example xml:id="ex-normal-40-perc">
+        <title>Finding height at 40th percentile</title>
+        <statement>
+          <p>
+            Erik's height is at the <m>40^{th}</m> percentile. How tall is he?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            As always, first draw the picture.
+          </p>
+
+          <figure xml:id="fig-height-40-perc">
+            <caption>Finding the height at the 40th percentile</caption>
+            <image source="ch_distributions/figures/height40Perc"/>
+          </figure>
+
+          <p>
+            In this case, the lower tail probability is known (0.40), which can be shaded on 
+            the diagram. We want to find the observation that corresponds to this value. As a 
+            first step in this direction, we determine the Z-score associated with the 
+            <m>40^{th}</m> percentile. Using software, we can obtain the corresponding Z-score 
+            of about -0.25.
+          </p>
+
+          <p>
+            Knowing <m>Z_{Erik} = -0.25</m> and the population parameters <m>\mu = 70</m> and 
+            <m>\sigma = 3.3</m> inches, the Z-score formula can be set up to determine Erik's 
+            unknown height, labeled <m>x_{Erik}</m>:
+            <me>
+              -0.25 = Z_{Erik} = \frac{x_{Erik} - \mu}{\sigma} = \frac{x_{Erik} - 70}{3.3}
+            </me>
+            Solving for <m>x_{Erik}</m> yields a height of 69.18 inches. That is, Erik is 
+            about 5'9''.
+          </p>
+        </solution>
+      </example>
+
+      <example xml:id="ex-height-82-perc">
+        <title>Finding height at 82nd percentile</title>
+        <statement>
+          <p>
+            What is the adult male height at the <m>82^{nd}</m> percentile?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Again, we draw the figure first.
+          </p>
+
+          <figure xml:id="fig-height-82-perc">
+            <caption>Finding the height at the 82nd percentile</caption>
+            <image source="ch_distributions/figures/height82Perc"/>
+          </figure>
+
+          <p>
+            Next, we want to find the Z-score at the <m>82^{nd}</m> percentile, which will be 
+            a positive value and can be found using software as <m>Z = 0.92</m>. Finally, the 
+            height <m>x</m> is found using the Z-score formula with the known mean <m>\mu</m>, 
+            standard deviation <m>\sigma</m>, and Z-score <m>Z = 0.92</m>:
+            <me>
+              0.92 = Z = \frac{x-\mu}{\sigma} = \frac{x - 70}{3.3}
+            </me>
+            This yields 73.04 inches or about 6'1'' as the height at the <m>82^{nd}</m> 
+            percentile.
+          </p>
+        </solution>
+      </example>
+
+      <exercise>
+        <statement>
+          <p>
+            The SAT scores follow <m>N(1100, 200)</m>. (a) What is the <m>95^{th}</m> 
+            percentile for SAT scores? (b) What is the <m>97.5^{th}</m> percentile for SAT 
+            scores?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Short answers: (a) <m>Z_{95} = 1.6449 \to 1429</m> SAT score. 
+            (b) <m>Z_{97.5} = 1.96 \to 1492</m> SAT score.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-more-74-less-69">
+        <statement>
+          <p>
+            Adult male heights follow <m>N(70.0'', 3.3'')</m>. (a) What is the probability 
+            that a randomly selected male adult is at least 6'2'' (74 inches)? (b) What is 
+            the probability that a male adult is shorter than 5'9'' (69 inches)?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Short answers: (a) <m>Z = 1.21 \to 0.8869</m>, then subtract this value from 1 to 
+            get 0.1131. (b) <m>Z = -0.30 \to 0.3821</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <example xml:id="ex-between-59-and-62">
+        <title>Finding probability between two values</title>
+        <statement>
+          <p>
+            What is the probability that a random adult male is between 5'9'' and 6'2''?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            These heights correspond to 69 inches and 74 inches. First, draw the figure. 
+            The area of interest is no longer an upper or lower tail.
+          </p>
+
+          <figure xml:id="fig-between-59-and-62">
+            <caption>Finding area between two values</caption>
+            <image source="ch_distributions/figures/between59And62"/>
+          </figure>
+
+          <p>
+            The total area under the curve is 1. If we find the area of the two tails that are 
+            not shaded (from <xref ref="ex-more-74-less-69"/>, these areas are 0.3821 and 
+            0.1131), then we can find the middle area:
+          </p>
+
+          <figure xml:id="fig-subtracting-2-areas">
+            <caption>Subtracting the tail areas from 1</caption>
+            <image source="ch_distributions/figures/subtracting2Areas"/>
+          </figure>
+
+          <p>
+            That is, the probability of being between 5'9'' and 6'2'' is 0.5048.
+          </p>
+        </solution>
+      </example>
+
+      <exercise>
+        <statement>
+          <p>
+            SAT scores follow <m>N(1100, 200)</m>. What percent of SAT takers get between 
+            1100 and 1400?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            This is an abbreviated solution. (Be sure to draw a figure!) First find the percent 
+            who get below 1100 and the percent that get above 1400: <m>Z_{1100} = 0.00 \to 0.5000</m> 
+            (area below), <m>Z_{1400} = 1.5 \to 0.0668</m> (area above). Final answer: 
+            <m>1.0000 - 0.5000 - 0.0668 = 0.4332</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Adult male heights follow <m>N(70.0'', 3.3'')</m>. What percent of adult males 
+            are between 5'5'' and 5'7''?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            5'5'' is 65 inches (<m>Z = -1.52</m>). 5'7'' is 67 inches (<m>Z = -0.91</m>). 
+            Numerical solution: <m>1.000 - 0.0643 - 0.8186 = 0.1171</m>, i.e. 11.71%.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
 
     <subsection xml:id="subsec-68-95-997-rule">
       <title>68-95-99.7 rule</title>
-      <p>To be converted from LaTeX source.</p>
+      <p>
+        Here, we present a useful rule of thumb for the probability of falling within 1, 2, 
+        and 3 standard deviations of the mean in the normal distribution. This will be useful 
+        in a wide range of practical settings, especially when trying to make a quick estimate 
+        without a calculator or Z-table.
+      </p>
+
+      <figure xml:id="fig-68-95-997">
+        <caption>Probabilities for falling within 1, 2, and 3 standard deviations of the mean in a normal distribution.</caption>
+        <image source="ch_distributions/figures/6895997"/>
+      </figure>
+
+      <exercise>
+        <statement>
+          <p>
+            Use software, a calculator, or a probability table to confirm that about 68%, 95%, 
+            and 99.7% of observations fall within 1, 2, and 3 standard deviations of the mean 
+            in the normal distribution, respectively. For instance, first find the area that 
+            falls between <m>Z=-1</m> and <m>Z=1</m>, which should have an area of about 0.68. 
+            Similarly there should be an area of about 0.95 between <m>Z=-2</m> and <m>Z=2</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First draw the pictures. Using software, we get 0.6827 within 1 standard deviation, 
+            0.9545 within 2 standard deviations, and 0.9973 within 3 standard deviations.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        It is possible for a normal random variable to fall 4, 5, or even more standard 
+        deviations from the mean. However, these occurrences are very rare if the data are 
+        nearly normal. The probability of being further than 4 standard deviations from the 
+        mean is about 1-in-15,000. For 5 and 6 standard deviations, it is about 1-in-2 million 
+        and 1-in-500 million, respectively.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            SAT scores closely follow the normal model with mean <m>\mu = 1100</m> and 
+            standard deviation <m>\sigma = 200</m>. (a) About what percent of test takers 
+            score 700 to 1500? (b) What percent score between 1100 and 1500?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            (a) 700 and 1500 represent two standard deviations below and above the mean, which 
+            means about 95% of test takers will score between 700 and 1500. (b) We found that 
+            700 to 1500 represents about 95% of test takers. These test takers would be evenly 
+            split by the center of the distribution, 1100, so <m>\frac{95\%}{2} = 47.5\%</m> 
+            of all test takers score between 1100 and 1500.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-area-under-curve-1">
+        <title>Area under the curve, Part I</title>
+        <statement>
+          <p>
+            What percent of a standard normal distribution <m>N(\mu=0, \sigma=1)</m> is found 
+            in each region? Be sure to draw a graph.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p><m>Z \lt -1.35</m></p></li>
+              <li><p><m>Z > 1.48</m></p></li>
+              <li><p><m>-0.4 \lt Z \lt 1.5</m></p></li>
+              <li><p><m>|Z| > 2</m></p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-area-under-curve-2">
+        <title>Area under the curve, Part II</title>
+        <statement>
+          <p>
+            What percent of a standard normal distribution <m>N(\mu=0, \sigma=1)</m> is found 
+            in each region? Be sure to draw a graph.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p><m>Z > -1.13</m></p></li>
+              <li><p><m>Z \lt 0.18</m></p></li>
+              <li><p><m>Z > 8</m></p></li>
+              <li><p><m>|Z| \lt 0.5</m></p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-gre-intro">
+        <title>GRE scores, Part I</title>
+        <statement>
+          <p>
+            Sophia who took the Graduate Record Examination (GRE) scored 160 on the Verbal 
+            Reasoning section and 157 on the Quantitative Reasoning section. The mean score 
+            for Verbal Reasoning section for all test takers was 151 with a standard deviation 
+            of 7, and the mean score for the Quantitative Reasoning was 153 with a standard 
+            deviation of 7.67. Suppose that both distributions are nearly normal.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>Write down the short-hand for these two normal distributions.</p></li>
+              <li>
+                <p>
+                  What is Sophia's Z-score on the Verbal Reasoning section? On the Quantitative 
+                  Reasoning section? Draw a standard normal distribution curve and mark these 
+                  two Z-scores.
+                </p>
+              </li>
+              <li><p>What do these Z-scores tell you?</p></li>
+              <li><p>Relative to others, which section did she do better on?</p></li>
+              <li><p>Find her percentile scores for the two exams.</p></li>
+              <li>
+                <p>
+                  What percent of the test takers did better than her on the Verbal Reasoning 
+                  section? On the Quantitative Reasoning section?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why simply comparing raw scores from the two sections could lead to 
+                  an incorrect conclusion as to which section a student did better on.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the distributions of the scores on these exams are not nearly normal, 
+                  would your answers to parts (b) - (f) change? Explain your reasoning.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-triathlon-times-intro">
+        <title>Triathlon times, Part I</title>
+        <statement>
+          <p>
+            In triathlons, it is common for racers to be placed into age and gender groups. 
+            Friends Leo and Mary both completed the Hermosa Beach Triathlon, where Leo 
+            competed in the <em>Men, Ages 30 - 34</em> group while Mary competed in the 
+            <em>Women, Ages 25 - 29</em> group. Leo completed the race in 1:22:28 
+            (4948 seconds), while Mary completed the race in 1:31:53 (5513 seconds). Obviously 
+            Leo finished faster, but they are curious about how they did within their 
+            respective groups. Can you help them? Here is some information on the performance 
+            of their groups:
+          </p>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  The finishing times of the <em>Men, Ages 30 - 34</em> group has a mean of 
+                  4313 seconds with a standard deviation of 583 seconds.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The finishing times of the <em>Women, Ages 25 - 29</em> group has a mean of 
+                  5261 seconds with a standard deviation of 807 seconds.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The distributions of finishing times for both groups are approximately normal.
+                </p>
+              </li>
+            </ul>
+          </p>
+          <p>
+            Remember: a better performance corresponds to a faster finish.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>Write down the short-hand for these two normal distributions.</p></li>
+              <li>
+                <p>
+                  What are the Z-scores for Leo's and Mary's finishing times? What do these 
+                  Z-scores tell you?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Did Leo or Mary rank better in their respective groups? Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What percent of the triathletes did Leo finish faster than in his group?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What percent of the triathletes did Mary finish faster than in her group?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the distributions of finishing times are not nearly normal, would your 
+                  answers to parts (b)-(e) change? Explain your reasoning.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-gre-cutoffs">
+        <title>GRE scores, Part II</title>
+        <statement>
+          <p>
+            In <xref ref="ex-gre-intro"/> we saw two distributions for GRE scores: 
+            <m>N(\mu=151, \sigma=7)</m> for the verbal part of the exam and 
+            <m>N(\mu=153, \sigma=7.67)</m> for the quantitative part. Use this information 
+            to compute each of the following:
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  The score of a student who scored in the <m>80^{th}</m> percentile on the 
+                  Quantitative Reasoning section.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The score of a student who scored worse than 70% of the test takers in the 
+                  Verbal Reasoning section.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-triathlon-times-cutoffs">
+        <title>Triathlon times, Part II</title>
+        <statement>
+          <p>
+            In <xref ref="ex-triathlon-times-intro"/> we saw two distributions for triathlon 
+            times: <m>N(\mu=4313, \sigma=583)</m> for <em>Men, Ages 30 - 34</em> and 
+            <m>N(\mu=5261, \sigma=807)</m> for the <em>Women, Ages 25 - 29</em> group. Times 
+            are listed in seconds. Use this information to compute each of the following:
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  The cutoff time for the fastest 5% of athletes in the men's group, i.e. those 
+                  who took the shortest 5% of time to finish.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The cutoff time for the slowest 10% of athletes in the women's group.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-la-weather-intro">
+        <title>LA weather, Part I</title>
+        <statement>
+          <p>
+            The average daily high temperature in June in LA is 77°F with a standard deviation 
+            of 5°F. Suppose that the temperatures in June closely follow a normal distribution.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability of observing an 83°F temperature or higher in LA 
+                  during a randomly chosen day in June?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How cool are the coldest 10% of the days (days with lowest high temperature) 
+                  during June in LA?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-capm">
+        <title>CAPM</title>
+        <statement>
+          <p>
+            The Capital Asset Pricing Model (CAPM) is a financial model that assumes returns 
+            on a portfolio are normally distributed. Suppose a portfolio has an average annual 
+            return of 14.7% (i.e. an average gain of 14.7%) with a standard deviation of 33%. 
+            A return of 0% means the value of the portfolio doesn't change, a negative return 
+            means that the portfolio loses money, and a positive return means that the 
+            portfolio gains money.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What percent of years does this portfolio lose money, i.e. have a return 
+                  less than 0%?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the cutoff for the highest 15% of annual returns with this portfolio?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-la-weather-unit-change">
+        <title>LA weather, Part II</title>
+        <statement>
+          <p>
+            <xref ref="ex-la-weather-intro"/> states that average daily high temperature in 
+            June in LA is 77°F with a standard deviation of 5°F, and it can be assumed that 
+            they follow a normal distribution. We use the following equation to convert °F 
+            (Fahrenheit) to °C (Celsius):
+            <me>C = (F - 32) \times \frac{5}{9}</me>
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Write the probability model for the distribution of temperature in °C in 
+                  June in LA.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability of observing a 28°C (which roughly corresponds to 
+                  83°F) temperature or higher in June in LA? Calculate using the °C model 
+                  from part (a).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Did you get the same answer or different answers in part (b) of this question 
+                  and part (a) of <xref ref="ex-la-weather-intro"/>? Are you surprised? Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Estimate the IQR of the temperatures (in °C) in June in LA.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-find-sd-cholesterol">
+        <title>Find the SD</title>
+        <statement>
+          <p>
+            Cholesterol levels for women aged 20 to 34 follow an approximately normal 
+            distribution with mean 185 milligrams per deciliter (mg/dl). Women with 
+            cholesterol levels above 220 mg/dl are considered to have high cholesterol and 
+            about 18.5% of women fall into this category. What is the standard deviation of 
+            the distribution of cholesterol levels for women aged 20 to 34?
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
   </section>
 
   <!-- Section 4.2: Geometric distribution -->
