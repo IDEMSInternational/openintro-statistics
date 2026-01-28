@@ -4456,6 +4456,240 @@ var ptx_lunr_docs = [
   "body": " Chapter 7 Review Exercises  This chapter covered inference for categorical data. Key concepts include:   Confidence intervals and hypothesis tests for a single proportion  Sample size calculations for proportions  Comparing two proportions using confidence intervals and hypothesis tests  The pooled proportion for hypothesis testing  Chi-square goodness of fit tests for comparing observed and expected distributions  Chi-square tests for independence in two-way tables  Computing expected counts and degrees of freedom for chi-square tests   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
 },
 {
+  "id": "sec-fitting-line-residuals-correlation",
+  "level": "1",
+  "url": "sec-fitting-line-residuals-correlation.html",
+  "type": "Section",
+  "number": "8.1",
+  "title": "Fitting a line, residuals, and correlation",
+  "body": " Fitting a line, residuals, and correlation   It's helpful to think deeply about the line fitting process. In this section, we define the form of a linear model, explore criteria for what makes a good fit, and introduce a new statistic called correlation .    Fitting a line to data  It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for data to appear as a cloud of points , where the data fall around a straight line, even if none of the observations fall exactly on the line. In cases where there is a clear relationship between the variables, we will have some uncertainty regarding our estimates of the model parameters.   Linear Model   Linear regression is the statistical method for fitting a line to data where the relationship between two variables, and , can be modeled by a straight line with some error: where:  and are the model's parameters  represents the error (epsilon)  is the explanatory variable or predictor  is the response variable  The parameters are estimated using data, and we write their point estimates as and . The fitted line is written as:      There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is when the relationship is nonlinear , such as a curved relationship.     Residuals  Residuals are the leftovers from the model fit: the differences between the observed values and the values predicted by the line.   Residual   The residual of the observation is the difference between the observed ( ) and predicted ( ) response values: If an observation lands above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals.     Residual Plot  A residual plot is a scatterplot of the residuals ( ) on the vertical axis against the predictor variable ( ) on the horizontal axis. These plots are helpful in evaluating whether a linear model is appropriate.  Key features to look for:  Random scatter: Residuals should be randomly scattered around zero with no apparent pattern  Constant variance: The variability of residuals should be roughly constant across all values of  No curvature: A curved pattern suggests a nonlinear relationship       Correlation  Correlation measures the strength of the linear relationship between two numerical variables.   Correlation   The correlation coefficient , denoted by , describes the strength and direction of the linear relationship between two numerical variables. The correlation is calculated as: where and are the sample standard deviations of and , respectively.  Properties of correlation:  The correlation is always between -1 and 1:  indicates a perfect negative linear relationship  indicates no linear relationship  indicates a perfect positive linear relationship  Correlation does not imply causation  Correlation is sensitive to outliers  Correlation measures only linear relationships       "
+},
+{
+  "id": "p-1290",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#p-1290",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "correlation "
+},
+{
+  "id": "p-1291",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#p-1291",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cloud of points "
+},
+{
+  "id": "def-linear-model",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#def-linear-model",
+  "type": "Definition",
+  "number": "8.1.1",
+  "title": "Linear Model.",
+  "body": " Linear Model   Linear regression is the statistical method for fitting a line to data where the relationship between two variables, and , can be modeled by a straight line with some error: where:  and are the model's parameters  represents the error (epsilon)  is the explanatory variable or predictor  is the response variable  The parameters are estimated using data, and we write their point estimates as and . The fitted line is written as:    "
+},
+{
+  "id": "note-2",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#note-2",
+  "type": "Note",
+  "number": "8.1.2",
+  "title": "",
+  "body": " There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is when the relationship is nonlinear , such as a curved relationship.  "
+},
+{
+  "id": "def-residual",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#def-residual",
+  "type": "Definition",
+  "number": "8.1.3",
+  "title": "Residual.",
+  "body": " Residual   The residual of the observation is the difference between the observed ( ) and predicted ( ) response values: If an observation lands above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals.   "
+},
+{
+  "id": "p-1296",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#p-1296",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "residual plot "
+},
+{
+  "id": "def-correlation",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#def-correlation",
+  "type": "Definition",
+  "number": "8.1.4",
+  "title": "Correlation.",
+  "body": " Correlation   The correlation coefficient , denoted by , describes the strength and direction of the linear relationship between two numerical variables. The correlation is calculated as: where and are the sample standard deviations of and , respectively.  Properties of correlation:  The correlation is always between -1 and 1:  indicates a perfect negative linear relationship  indicates no linear relationship  indicates a perfect positive linear relationship  Correlation does not imply causation  Correlation is sensitive to outliers  Correlation measures only linear relationships     "
+},
+{
+  "id": "sec-least-squares-regression",
+  "level": "1",
+  "url": "sec-least-squares-regression.html",
+  "type": "Section",
+  "number": "8.2",
+  "title": "Least squares regression",
+  "body": " Least squares regression   We now introduce a method for finding the coefficients and that minimize the sum of the squared residuals. This approach is called the method of least squares .    The least squares criterion  The least squares line is the line that minimizes the sum of the squared residuals.   Least Squares Regression Line   The least squares regression line is the line that minimizes: The coefficients that accomplish this are: where is the correlation, and are the sample standard deviations, and and are the sample means of and , respectively.     Important Property  The least squares regression line always passes through the point , the point of averages.     Interpreting regression coefficients   Interpreting the Slope  The slope describes the estimated change in the response variable for a one-unit increase in the predictor variable .   Template: For each additional [unit of ], the model predicts an additional (or a decrease of) [units of ], on average.    Interpreting the Intercept  The intercept describes the estimated value of when .   Caution: The intercept is often not meaningful if is outside the range of the observed data. In such cases, the intercept serves mainly as an adjustment constant.     Coefficient of determination:   (R-squared)   The coefficient of determination , denoted , describes the proportion of variation in the response variable that is explained by the least squares line with predictor : where is the correlation between and .  Interpretation: represents the percentage of the variability in that can be explained by the linear relationship with . Values range from 0 to 1 (or 0% to 100%).      Conditions for least squares regression   Conditions for Least Squares Regression  For inference in regression, we check the following conditions:  Linearity: The relationship between and should be linear. Check this with a scatterplot of the data and\/or a residual plot.  Nearly normal residuals: The residuals should be nearly normally distributed. Check this with a histogram or normal probability plot of residuals.  Constant variability: The variability of points around the least squares line should be roughly constant. Check this with a residual plot.  Independent observations: The observations should be independent. Consider how the data were collected.      "
+},
+{
+  "id": "p-1301",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#p-1301",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "method of least squares "
+},
+{
+  "id": "p-1302",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#p-1302",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "least squares line "
+},
+{
+  "id": "def-least-squares",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#def-least-squares",
+  "type": "Definition",
+  "number": "8.2.1",
+  "title": "Least Squares Regression Line.",
+  "body": " Least Squares Regression Line   The least squares regression line is the line that minimizes: The coefficients that accomplish this are: where is the correlation, and are the sample standard deviations, and and are the sample means of and , respectively.   "
+},
+{
+  "id": "note-3",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#note-3",
+  "type": "Note",
+  "number": "8.2.2",
+  "title": "Important Property.",
+  "body": " Important Property  The least squares regression line always passes through the point , the point of averages.  "
+},
+{
+  "id": "def-r-squared",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#def-r-squared",
+  "type": "Definition",
+  "number": "8.2.3",
+  "title": "<span class=\"process-math\">\\(R^2\\)<\/span> (R-squared).",
+  "body": " (R-squared)   The coefficient of determination , denoted , describes the proportion of variation in the response variable that is explained by the least squares line with predictor : where is the correlation between and .  Interpretation: represents the percentage of the variability in that can be explained by the linear relationship with . Values range from 0 to 1 (or 0% to 100%).   "
+},
+{
+  "id": "sec-outliers-in-regression",
+  "level": "1",
+  "url": "sec-outliers-in-regression.html",
+  "type": "Section",
+  "number": "8.3",
+  "title": "Types of outliers in linear regression",
+  "body": " Types of outliers in linear regression  In linear regression, we need to be aware of unusual observations that may influence the regression line or our interpretation of it.   Outlier   An outlier in regression is a point that does not fit the overall pattern of the data. It has a large residual.     High Leverage Point   A point is said to have high leverage if it is extreme in the direction. Points with high leverage have the potential to influence the slope of the regression line.     Influential Point   An influential point is a point that, if removed, would substantially change the slope of the regression line. Influential points typically have both high leverage and are outliers.     Dealing with Unusual Observations  When encountering unusual observations:  Investigate whether there is an error in data entry or measurement  Consider whether the observation belongs to a different population  Assess the impact on the regression by fitting the model with and without the point  Report findings both with and without influential points when appropriate     "
+},
+{
+  "id": "def-outlier-in-regression",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#def-outlier-in-regression",
+  "type": "Definition",
+  "number": "8.3.1",
+  "title": "Outlier.",
+  "body": " Outlier   An outlier in regression is a point that does not fit the overall pattern of the data. It has a large residual.   "
+},
+{
+  "id": "def-leverage",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#def-leverage",
+  "type": "Definition",
+  "number": "8.3.2",
+  "title": "High Leverage Point.",
+  "body": " High Leverage Point   A point is said to have high leverage if it is extreme in the direction. Points with high leverage have the potential to influence the slope of the regression line.   "
+},
+{
+  "id": "def-influential-point",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#def-influential-point",
+  "type": "Definition",
+  "number": "8.3.3",
+  "title": "Influential Point.",
+  "body": " Influential Point   An influential point is a point that, if removed, would substantially change the slope of the regression line. Influential points typically have both high leverage and are outliers.   "
+},
+{
+  "id": "note-4",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#note-4",
+  "type": "Note",
+  "number": "8.3.4",
+  "title": "Dealing with Unusual Observations.",
+  "body": " Dealing with Unusual Observations  When encountering unusual observations:  Investigate whether there is an error in data entry or measurement  Consider whether the observation belongs to a different population  Assess the impact on the regression by fitting the model with and without the point  Report findings both with and without influential points when appropriate    "
+},
+{
+  "id": "sec-inference-for-regression",
+  "level": "1",
+  "url": "sec-inference-for-regression.html",
+  "type": "Section",
+  "number": "8.4",
+  "title": "Inference for linear regression",
+  "body": " Inference for linear regression   Just as we performed inference for means and proportions, we can perform inference for the slope and intercept of a regression line.    Understanding the regression model  When we fit a regression line to data, we are estimating the true population regression line: where . Our estimates and are point estimates of the true parameters and .    Standard error of the slope   Standard Error of the Slope   The standard error of the slope  is given by: where is the residual standard error :       Hypothesis test for the slope   Hypothesis Test for  To test whether there is a linear relationship between and :  (no linear relationship)  (linear relationship exists)  Test statistic: with degrees of freedom , where is the number of observations.     Confidence interval for the slope   Confidence Interval for  A confidence interval for the true slope can be constructed as: where is the critical value from the -distribution with degrees of freedom.     Prediction intervals  A confidence interval for the average response differs from a prediction interval for an individual response.   Prediction Interval vs Confidence Interval    Confidence interval for the mean response: An interval estimate for the average value of at a particular value . This interval is narrower.  Prediction interval for an individual response: An interval estimate for a single new observation's value of at . This interval is wider because it accounts for both the uncertainty in estimating the mean and the variability of individual observations.      "
+},
+{
+  "id": "def-se-slope",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#def-se-slope",
+  "type": "Definition",
+  "number": "8.4.1",
+  "title": "Standard Error of the Slope.",
+  "body": " Standard Error of the Slope   The standard error of the slope  is given by: where is the residual standard error :    "
+},
+{
+  "id": "sec-ch08-review",
+  "level": "1",
+  "url": "sec-ch08-review.html",
+  "type": "Section",
+  "number": "8.5",
+  "title": "Chapter 8 Review",
+  "body": " Chapter 8 Review   This chapter introduced simple linear regression, a powerful tool for modeling the relationship between two numerical variables. Key concepts include:    The linear model:  Residuals and residual plots for assessing model fit  Correlation as a measure of linear association  Least squares method for finding the best-fitting line  Coefficient of determination ( ) for quantifying model performance  Conditions for regression: linearity, normal residuals, constant variance, independence  Outliers, leverage points, and influential observations  Inference for the slope: hypothesis tests and confidence intervals  Prediction intervals for future observations      Practice Exercises   Describe what the correlation coefficient measures and list three important properties of correlation.    Explain the difference between an outlier, a high leverage point, and an influential point in regression analysis.    What are the four conditions that should be checked before performing inference in linear regression?    If the correlation between two variables is , what proportion of the variation in is explained by the linear relationship with ?    "
+},
+{
+  "id": "exercise-233",
+  "level": "2",
+  "url": "sec-ch08-review.html#exercise-233",
+  "type": "Exercise",
+  "number": "8.5.1",
+  "title": "",
+  "body": " Describe what the correlation coefficient measures and list three important properties of correlation.  "
+},
+{
+  "id": "exercise-234",
+  "level": "2",
+  "url": "sec-ch08-review.html#exercise-234",
+  "type": "Exercise",
+  "number": "8.5.2",
+  "title": "",
+  "body": " Explain the difference between an outlier, a high leverage point, and an influential point in regression analysis.  "
+},
+{
+  "id": "exercise-235",
+  "level": "2",
+  "url": "sec-ch08-review.html#exercise-235",
+  "type": "Exercise",
+  "number": "8.5.3",
+  "title": "",
+  "body": " What are the four conditions that should be checked before performing inference in linear regression?  "
+},
+{
+  "id": "exercise-236",
+  "level": "2",
+  "url": "sec-ch08-review.html#exercise-236",
+  "type": "Exercise",
+  "number": "8.5.4",
+  "title": "",
+  "body": " If the correlation between two variables is , what proportion of the variation in is explained by the linear relationship with ?  "
+},
+{
   "id": "appendix-data-sets",
   "level": "1",
   "url": "appendix-data-sets.html",
