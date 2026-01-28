@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Chapter 6 Review Exercises</title>
+<title>Testing for Independence in Two-Way Tables</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -218,7 +218,7 @@ true);
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-anova.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-inference-for-means.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-inference-for-props.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-chi-square-gof.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-inference-for-props.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-ch07-review.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -474,7 +474,7 @@ true);
 <li><div class="toc-item"><a href="sec-anova.html#subsec-multiple-comparisons" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Multiple Comparisons and What ANOVA Doesn’t Tell Us</span></a></div></li>
 </ul>
 </li>
-<li class="active"><div class="toc-item"><a href="sec-ch06-review.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Chapter 6 Review Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-ch06-review.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Chapter 6 Review Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -504,7 +504,7 @@ true);
 <li><div class="toc-item"><a href="sec-chi-square-gof.html#subsec-chi-square-distribution" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The Chi-Square Distribution</span></a></div></li>
 </ul>
 </li>
-<li>
+<li class="active">
 <div class="toc-item"><a href="sec-chi-square-independence.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Testing for Independence in Two-Way Tables</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-chi-square-independence.html#subsec-two-way-tables" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Two-Way Tables and Expected Counts</span></a></div></li>
@@ -526,21 +526,53 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-ch06-review"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">6.6</span> <span class="title">Chapter 6 Review Exercises</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-chi-square-independence"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.4</span> <span class="title">Testing for Independence in Two-Way Tables</span>
 </h2>
-<div class="para" id="p-1238">This chapter introduced inference for numerical data using the t-distribution. Key concepts include:</div>
+<section class="introduction" id="introduction-32"><div class="para" id="p-1278">A two-way table (also called a <dfn class="terminology">contingency table</dfn>) summarizes data for two categorical variables. We often want to know: Are these two variables independent, or is there an association between them?</div></section><section class="subsection" id="subsec-two-way-tables"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.4.1</span> <span class="title">Two-Way Tables and Expected Counts</span>
+</h3>
+<div class="para" id="p-1279">In a two-way table, we organize data by two categorical variables. To test for independence, we compare observed counts to expected counts under the assumption that the variables are independent.</div>
+<article class="assemblage assemblage-like" id="assem-expected-counts"><h4 class="heading"><span class="title">Computing Expected Counts.</span></h4>
+<div class="para" id="p-1280">If two variables are independent, the expected count for a cell in row <span class="process-math">\(i\)</span> and column <span class="process-math">\(j\)</span> is:</div></article></section><section class="subsection" id="subsec-chi-square-test-independence"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.4.2</span> <span class="title">The Chi-Square Test for Independence</span>
+</h3>
+<div class="para" id="p-1281">The chi-square test for independence uses the same test statistic as the goodness of fit test:</div>
+<div class="displaymath process-math" id="md-75">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1282">However, the degrees of freedom are calculated differently:</div>
+<div class="displaymath process-math" id="md-76">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1283"><em class="alert">Hypotheses:</em></div>
 <ul class="disc">
-<li id="li-418"><div class="para" id="p-derived-li-418">The t-distribution and its properties</div></li>
-<li id="li-419"><div class="para" id="p-derived-li-419">One-sample t-confidence intervals and hypothesis tests</div></li>
-<li id="li-420"><div class="para" id="p-derived-li-420">Paired data analysis using differences</div></li>
-<li id="li-421"><div class="para" id="p-derived-li-421">Two-sample t-procedures for comparing independent groups</div></li>
-<li id="li-422"><div class="para" id="p-derived-li-422">Statistical power and sample size determination</div></li>
-<li id="li-423"><div class="para" id="p-derived-li-423">ANOVA for comparing three or more means</div></li>
+<li id="li-432"><div class="para" id="p-derived-li-432">
+<span class="process-math">\(H_0\text{:}\)</span> The two variables are independent.</div></li>
+<li id="li-433"><div class="para" id="p-derived-li-433">
+<span class="process-math">\(H_A\text{:}\)</span> The two variables are not independent (they are associated).</div></li>
 </ul>
-<div class="para" id="p-1239">Additional exercises for practicing these concepts are available in the accompanying exercise materials.</div></section></div>
+<div class="para" id="p-1284"><em class="alert">Conditions:</em></div>
+<ol class="decimal">
+<li id="li-434"><div class="para" id="p-derived-li-434">
+<em class="alert">Independence:</em> Each case that contributes a count to the table must be independent of all other cases.</div></li>
+<li id="li-435"><div class="para" id="p-derived-li-435">
+<em class="alert">Sample size:</em> Each expected count must be at least 5.</div></li>
+</ol>
+<div class="para" id="p-1285">The chi-square test for independence tells us <em class="emphasis">whether</em> there is an association, but it doesn’t tell us the nature or strength of that association. If the test is significant, examine the table and consider computing row or column proportions to understand the relationship.</div></section><section class="subsection" id="subsec-chi-square-limitations"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.4.3</span> <span class="title">Limitations of Chi-Square Tests</span>
+</h3>
+<div class="para" id="p-1286">Important considerations when using chi-square tests:</div>
+<ul class="disc">
+<li id="li-436"><div class="para" id="p-derived-li-436">Chi-square tests can only establish whether an association exists; they do not determine causation.</div></li>
+<li id="li-437"><div class="para" id="p-derived-li-437">The test requires all expected counts to be at least 5. If this condition is not met, consider combining categories or using an alternative test (such as Fisher’s exact test).</div></li>
+<li id="li-438"><div class="para" id="p-derived-li-438">Large sample sizes can make even trivial differences statistically significant. Always consider practical significance alongside statistical significance.</div></li>
+<li id="li-439"><div class="para" id="p-derived-li-439">Chi-square tests work with counts, not percentages or proportions. Make sure your data are in the correct form.</div></li>
+</ul></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-anova.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-inference-for-props.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-chi-square-gof.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-ch07-review.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

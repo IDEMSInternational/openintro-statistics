@@ -4339,6 +4339,123 @@ var ptx_lunr_docs = [
   "body": " Chapter 6 Review Exercises  This chapter introduced inference for numerical data using the t-distribution. Key concepts include:   The t-distribution and its properties  One-sample t-confidence intervals and hypothesis tests  Paired data analysis using differences  Two-sample t-procedures for comparing independent groups  Statistical power and sample size determination  ANOVA for comparing three or more means   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
 },
 {
+  "id": "sec-single-proportion",
+  "level": "1",
+  "url": "sec-single-proportion.html",
+  "type": "Section",
+  "number": "7.1",
+  "title": "Inference for a Single Proportion",
+  "body": " Inference for a Single Proportion   We encountered inference methods for a single proportion in Chapter 5, exploring point estimates, confidence intervals, and hypothesis tests. In this section, we'll review these topics and also learn how to choose an appropriate sample size when collecting data for single proportion contexts.    Identifying When the Sample Proportion is Nearly Normal  A sample proportion can be modeled using a normal distribution when the sample observations are independent and the sample size is sufficiently large.   Sampling Distribution of  The sampling distribution for based on a sample of size from a population with a true proportion is nearly normal when:   The sample's observations are independent, e.g., are from a simple random sample.  We expect to see at least 10 successes and 10 failures in the sample, i.e., and . This is called the success-failure condition .   When these conditions are met, the sampling distribution of is nearly normal with mean and standard error .   Typically we don't know the true proportion , so we substitute some value to check conditions and estimate the standard error. For confidence intervals, the sample proportion is used to check the success-failure condition and compute the standard error. For hypothesis tests, typically the null value (the proportion claimed in the null hypothesis) is used in place of .    Confidence Intervals for a Proportion  A confidence interval provides a range of plausible values for the parameter , and when can be modeled using a normal distribution, the confidence interval for takes the form:   where is chosen to correspond to the confidence level, and the standard error is computed as .   Constructing a Confidence Interval for a Single Proportion  Once you've determined that the sampling distribution for is nearly normal, a confidence interval for the population proportion is:   where corresponds to the confidence level.     Hypothesis Testing for a Proportion  When testing hypotheses about a population proportion, we use the hypothesized value (from the null hypothesis) to check conditions and compute the standard error.   Test statistic for a single proportion:    When the null hypothesis is true and the conditions are satisfied, follows a standard normal distribution.    Key Difference: For confidence intervals, use in the standard error. For hypothesis tests, use in the standard error.     Choosing a Sample Size When Estimating a Proportion  When planning a study, we often want to know: How many observations do we need to achieve a desired margin of error? The margin of error in a confidence interval is .  Solving for in the margin of error formula:   Since we don't know before collecting data, we can:   Use a guess for based on a previous study or pilot data.  Use , which gives the most conservative (largest) sample size, since is maximized when .    "
+},
+{
+  "id": "sec-difference-two-proportions",
+  "level": "1",
+  "url": "sec-difference-two-proportions.html",
+  "type": "Section",
+  "number": "7.2",
+  "title": "Difference of Two Proportions",
+  "body": " Difference of Two Proportions   We now consider a different scenario: comparing proportions from two independent groups. For example, we might compare the proportion of patients who recover in a treatment group versus a control group, or compare the proportion of voters supporting a candidate across two different regions.    Sampling Distribution of a Difference of Proportions  When we have two independent samples, we're often interested in the difference between sample proportions: . This difference estimates the difference in population proportions: .   Sampling Distribution of   When the following conditions are satisfied, the sampling distribution of is nearly normal with:    Conditions:    Independence: The data in each group must be independent, and the two groups must be independent of each other.  Success-failure condition: The success-failure condition must hold for each sample: , , , and .       Confidence Interval for  A confidence interval for the difference is:   where the standard error is:   Note that we use the sample proportions and in the standard error formula.    Hypothesis Test for  When testing (or equivalently, ), we use a pooled proportion to compute the standard error.    The pooled proportion is used when testing the null hypothesis that two proportions are equal:   where and are the number of successes in each sample.    The test statistic is:     Remember: Use the pooled proportion in the standard error for hypothesis tests, but use the individual sample proportions for confidence intervals.    "
+},
+{
+  "id": "thm-diff-proportions",
+  "level": "2",
+  "url": "sec-difference-two-proportions.html#thm-diff-proportions",
+  "type": "Theorem",
+  "number": "7.2.1",
+  "title": "Sampling Distribution of <span class=\"process-math\">\\(\\hat{p}_1 - \\hat{p}_2\\)<\/span>.",
+  "body": " Sampling Distribution of   When the following conditions are satisfied, the sampling distribution of is nearly normal with:    Conditions:    Independence: The data in each group must be independent, and the two groups must be independent of each other.  Success-failure condition: The success-failure condition must hold for each sample: , , , and .    "
+},
+{
+  "id": "p-1264",
+  "level": "2",
+  "url": "sec-difference-two-proportions.html#p-1264",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "pooled proportion "
+},
+{
+  "id": "def-pooled-proportion",
+  "level": "2",
+  "url": "sec-difference-two-proportions.html#def-pooled-proportion",
+  "type": "Definition",
+  "number": "7.2.2",
+  "title": "",
+  "body": "  The pooled proportion is used when testing the null hypothesis that two proportions are equal:   where and are the number of successes in each sample.   "
+},
+{
+  "id": "sec-chi-square-gof",
+  "level": "1",
+  "url": "sec-chi-square-gof.html",
+  "type": "Section",
+  "number": "7.3",
+  "title": "Testing for Goodness of Fit Using Chi-Square",
+  "body": " Testing for Goodness of Fit Using Chi-Square   Sometimes we want to evaluate whether the observed distribution of a categorical variable matches a hypothesized distribution. For example: Does the distribution of blood types in a sample match the known distribution in the general population? Do observed frequencies of outcomes match those expected if a die is fair? These questions can be answered using a chi-square goodness of fit test .    Goodness of Fit Test  In a goodness of fit test, we compare observed counts to expected counts under a null hypothesis. The test statistic measures how far the observed counts are from the expected counts.    The chi-square test statistic for goodness of fit is:   where the sum is taken over all categories.    The chi-square statistic measures the total deviation between observed and expected counts. Large values of indicate a poor fit between the data and the null hypothesis.    The Chi-Square Distribution  When the sample size is large enough, the chi-square test statistic follows a chi-square distribution .    The chi-square distribution is a right-skewed distribution that starts at zero. It has one parameter: degrees of freedom (df) . For a goodness of fit test with categories:      Conditions for the chi-square goodness of fit test:    Independence: The observations must be independent.  Sample size: Each expected count must be at least 5.   The p-value for a chi-square test is always found in the upper tail of the chi-square distribution, since large values of provide evidence against .   "
+},
+{
+  "id": "p-1269",
+  "level": "2",
+  "url": "sec-chi-square-gof.html#p-1269",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "chi-square goodness of fit test "
+},
+{
+  "id": "def-chi-square-statistic",
+  "level": "2",
+  "url": "sec-chi-square-gof.html#def-chi-square-statistic",
+  "type": "Definition",
+  "number": "7.3.1",
+  "title": "",
+  "body": "  The chi-square test statistic for goodness of fit is:   where the sum is taken over all categories.   "
+},
+{
+  "id": "p-1274",
+  "level": "2",
+  "url": "sec-chi-square-gof.html#p-1274",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "chi-square distribution "
+},
+{
+  "id": "def-chi-square-dist",
+  "level": "2",
+  "url": "sec-chi-square-gof.html#def-chi-square-dist",
+  "type": "Definition",
+  "number": "7.3.2",
+  "title": "",
+  "body": "  The chi-square distribution is a right-skewed distribution that starts at zero. It has one parameter: degrees of freedom (df) . For a goodness of fit test with categories:    "
+},
+{
+  "id": "sec-chi-square-independence",
+  "level": "1",
+  "url": "sec-chi-square-independence.html",
+  "type": "Section",
+  "number": "7.4",
+  "title": "Testing for Independence in Two-Way Tables",
+  "body": " Testing for Independence in Two-Way Tables   A two-way table (also called a contingency table ) summarizes data for two categorical variables. We often want to know: Are these two variables independent, or is there an association between them?    Two-Way Tables and Expected Counts  In a two-way table, we organize data by two categorical variables. To test for independence, we compare observed counts to expected counts under the assumption that the variables are independent.   Computing Expected Counts  If two variables are independent, the expected count for a cell in row and column is:      The Chi-Square Test for Independence  The chi-square test for independence uses the same test statistic as the goodness of fit test:   However, the degrees of freedom are calculated differently:    Hypotheses:    : The two variables are independent.  : The two variables are not independent (they are associated).    Conditions:    Independence: Each case that contributes a count to the table must be independent of all other cases.  Sample size: Each expected count must be at least 5.    The chi-square test for independence tells us whether there is an association, but it doesn't tell us the nature or strength of that association. If the test is significant, examine the table and consider computing row or column proportions to understand the relationship.     Limitations of Chi-Square Tests  Important considerations when using chi-square tests:   Chi-square tests can only establish whether an association exists; they do not determine causation.  The test requires all expected counts to be at least 5. If this condition is not met, consider combining categories or using an alternative test (such as Fisher's exact test).  Large sample sizes can make even trivial differences statistically significant. Always consider practical significance alongside statistical significance.  Chi-square tests work with counts, not percentages or proportions. Make sure your data are in the correct form.    "
+},
+{
+  "id": "p-1278",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#p-1278",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "contingency table "
+},
+{
+  "id": "sec-ch07-review",
+  "level": "1",
+  "url": "sec-ch07-review.html",
+  "type": "Section",
+  "number": "7.5",
+  "title": "Chapter 7 Review Exercises",
+  "body": " Chapter 7 Review Exercises  This chapter covered inference for categorical data. Key concepts include:   Confidence intervals and hypothesis tests for a single proportion  Sample size calculations for proportions  Comparing two proportions using confidence intervals and hypothesis tests  The pooled proportion for hypothesis testing  Chi-square goodness of fit tests for comparing observed and expected distributions  Chi-square tests for independence in two-way tables  Computing expected counts and degrees of freedom for chi-square tests   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
+},
+{
   "id": "appendix-data-sets",
   "level": "1",
   "url": "appendix-data-sets.html",
