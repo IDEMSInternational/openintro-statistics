@@ -21,7 +21,7 @@ Now building HTML into C:\Users\lclem\OneDrive\Documents\GitHub\PreTeXt books\Op
 INFO    : discovering source file's directory name: C:\Users\lclem\OneDrive\Documents\GitHub\PreTeXt books\OpenIntro Statistics\openintro-statistics-1\source
 INFO    : Runestone Services (via PreTeXt repository): version 6.5.0
 INFO    : Runestone Services (using newer, via online CDN query): version 7.11.11
-INFO    : converting C:\Users\lclem\OneDrive\Documents\GitHub\PreTeXt books\OpenIntro Statistics\openintro-statistics-1\source\main.ptx to HTML in C:\Users\lclem\AppData\Local\Temp\tmp09deun3d
+INFO    : converting C:\Users\lclem\OneDrive\Documents\GitHub\PreTeXt books\OpenIntro Statistics\openintro-statistics-1\source\main.ptx to HTML in C:\Users\lclem\AppData\Local\Temp\tmp8b30j9qj
 INFO    : XSL conversion of C:\Users\lclem\OneDrive\Documents\GitHub\PreTeXt books\OpenIntro Statistics\openintro-statistics-1\source\main.ptx by C:\Users\lclem\.ptx\xsl\pretext-html.xsl
 INFO    : comprehensive messages, warnings, and errors:
 INFO    :     * PTX:DEPRECATE: (2015-03-17) tables are done quite differently, the "tgroup" element is indicative (2 times)
@@ -72,14 +72,6 @@ INFO    :     *              located within: "ex-immigration-views" (xml:id), "V
 INFO    :     *              located within: "ex-immigration-views" (xml:id), "Views on immigration" (title)
 INFO    :     *              located within: "ex-immigration-views" (xml:id), "Views on immigration" (title)
 INFO    :     * --------------
-INFO    :     * PTX:ERROR:   a cross-reference ("xref") uses references [ch-multiple-logistic-regression] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
-INFO    :     *              located within: "sec-poisson-distribution" (xml:id), "Poisson distribution" (title)
-INFO    :     * PTX:ERROR:   a cross-reference ("xref") uses references [ch-multiple-logistic-regression] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
-INFO    :     *              located within: "sec-poisson-distribution" (xml:id), "Poisson distribution" (title)
-INFO    : successful application of C:\Users\lclem\.ptx\xsl\pretext-html.xsl
-INFO    : Removing temporary directory C:\Users\lclem\AppData\Local\Temp\tmp09deun3d
-INFO    : 
-Success! Run `pretext view web` to see the results.
-
+INFO    : Removing temporary directory C:\Users\lclem\AppData\Local\Temp\tmp8b30j9qj
 INFO    : While running pretext, the following errors occurred:
 
