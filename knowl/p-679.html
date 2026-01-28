@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">There are many techniques for doing this, and we’ll discuss three of the options.</div>
+<ol class="decimal">
+<li>
+<div class="para">The most common approach in practice is to use statistical software. For example, in the program R, we could find the area shown in <a href="" class="xref" data-knowl="./knowl/fig-sat-below-1300.html" title="Figure 4.1.12">Figure 4.1.12</a> using the following command, which takes in the Z-score and returns the lower tail area: <code class="code-inline tex2jax_ignore">pnorm(1)</code> returns <code class="code-inline tex2jax_ignore">0.8413447</code>. According to this calculation, the region shaded that is below 1300 represents the proportion 0.841 (84.1%) of SAT test takers who had Z-scores below <span class="process-math">\(Z = 1\text{.}\)</span> More generally, we can also specify the cutoff explicitly if we also note the mean and standard deviation: <code class="code-inline tex2jax_ignore">pnorm(1300, mean = 1100, sd = 200)</code> returns <code class="code-inline tex2jax_ignore">0.8413447</code>.</div>
+<div class="para">There are many other software options, such as Python or SAS; even spreadsheet programs such as Excel and Google Sheets support these calculations.</div>
+</li>
+<li><div class="para">A common strategy in classrooms is to use a graphing calculator, such as a TI or Casio calculator. These calculators require a series of button presses that are less concisely described. You can find instructions on using these calculators for finding tail areas of a normal distribution in the OpenIntro video library: <a class="external" href="https://www.openintro.org/videos" target="_blank"><code class="code-inline tex2jax_ignore">https://www.openintro.org/videos</code></a>.</div></li>
+<li><div class="para">The last option for finding tail areas is to use what’s called a <dfn class="terminology">probability table</dfn>; these are occasionally used in classrooms but rarely in practice. The appendix contains such a table and a guide for how to use it.</div></li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-normal-distribution.html#p-679" class="internal">in-context</a></span>
+</body>
+</html>

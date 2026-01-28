@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(A\)</span> represent the event that a randomly selected card is a diamond and <span class="process-math">\(B\)</span> represent the event that it is a face card. How do we compute <span class="process-math">\(P(A \text{ or } B)\text{?}\)</span> Events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are not disjoint — the cards <span class="process-math">\(J\diamondsuit\text{,}\)</span> <span class="process-math">\(Q\diamondsuit\text{,}\)</span> and <span class="process-math">\(K\diamondsuit\)</span> fall into both categories — so we cannot use the Addition Rule for disjoint events. Instead we use the Venn diagram. We start by adding the probabilities of the two events:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A) + P(B) = P(\diamondsuit) + P(\text{face card}) = 13/52 + 12/52
+\end{equation*}
+</div>
+<div class="para">However, the three cards that are in both events were counted twice, once in each probability. We must correct this double counting:</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(A\text{ or } B) \amp= P(\diamondsuit\text{ or face card})\\
+\amp= P(\diamondsuit) + P(\text{face card}) - P(\diamondsuit\text{ and face card})\\
+\amp= 13/52 + 12/52 - 3/52\\
+\amp= 22/52 = 11/26
+\end{align*}
+</div>
+<div class="para">This equation is an example of the <dfn class="terminology">General Addition Rule</dfn>.</div>
+</div>
+<span class="incontext"><a href="sec-defining-probability.html#p-397" class="internal">in-context</a></span>
+</body>
+</html>
