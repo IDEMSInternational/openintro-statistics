@@ -161,9 +161,11 @@ class LaTeXToPreTeXtConverter:
         
         # Remove LaTeX formatting commands
         text = re.sub(r'\\noindent\s*', '', text)
-        text = re.sub(r'\\vspace\{[^}]+\}', '', text)
-        text = re.sub(r'\\hspace\{[^}]+\}', '', text)
+        text = re.sub(r'\\vspace\*?\{[^}]+\}', '', text)
+        text = re.sub(r'\\hspace\*?\{[^}]+\}', '', text)
         text = re.sub(r'\\setlength\{[^}]+\}\{[^}]+\}', '', text)
+        text = re.sub(r'\\captionsetup\{[^}]*\}', '', text)
+        text = re.sub(r'\\footnotetext\{[^}]*\}', '', text)
         text = re.sub(r'\\index\{[^}]*\}', '', text)
         text = re.sub(r'\\label\{[^}]+\}', '', text)
         text = re.sub(r'\\stdvspace\{\}', '', text)
@@ -171,6 +173,7 @@ class LaTeXToPreTeXtConverter:
         text = re.sub(r'\\oiRedirect\{[^}]*\}\{([^}]*)\}', r'\1', text)
         text = re.sub(r'\\R\{\}', 'R', text)
         text = re.sub(r'\\D\{[^}]*\}', '', text)
+        text = re.sub(r'\\data\{\}', 'data', text)
         
         # Convert dashes
         text = re.sub(r'---', '—', text)
@@ -195,6 +198,7 @@ class LaTeXToPreTeXtConverter:
     def convert_display_math_environment(self, env_name, lines, i):
         """Convert display math environments (eqnarray*, align*, eqnarray) to PreTeXt"""
         self.flush_paragraph()
+        self.in_display_math = True
         math_lines = []
         i += 1
         
@@ -224,11 +228,13 @@ class LaTeXToPreTeXtConverter:
             eq = re.sub(r'\s*&\s*', ' ', eq)
             self.output.append(f'{self.get_indent()}<me>{eq.strip()}</me>')
         
+        self.in_display_math = False
         return i + 1
     
     def convert_table_environment(self, lines, i):
         """Convert tabular environment to PreTeXt"""
         self.flush_paragraph()
+        self.in_table = True
         table_lines = []
         i += 1
         
@@ -258,6 +264,7 @@ class LaTeXToPreTeXtConverter:
             
             self.output.append(f'{self.get_indent()}</tabular>')
         
+        self.in_table = False
         return i + 1
     
     def convert_parts_environment(self, lines, i):
@@ -409,6 +416,7 @@ class LaTeXToPreTeXtConverter:
                                     title = title_with_label
                         
                         # Build exercise
+                        self.in_exercise = True
                         if xml_id:
                             self.output.append(f'{self.get_indent()}<exercise xml:id="{xml_id}">')
                         else:
@@ -432,6 +440,7 @@ class LaTeXToPreTeXtConverter:
                         self.indent_level -= 1
                         self.output.append(f'{self.get_indent()}</exercise>')
                         self.output.append('')
+                        self.in_exercise = False
                 
                 i += 1
                 continue
@@ -637,7 +646,10 @@ class LaTeXToPreTeXtConverter:
                             i += 1
                 
                 self.output.append('')
-                self.output.append(f'  <section xml:id="{xml_id}">')
+                if xml_id:
+                    self.output.append(f'  <section xml:id="{xml_id}">')
+                else:
+                    self.output.append(f'  <section>')
                 self.output.append(f'    <title>{title}</title>')
                 self.output.append('')
                 self.in_section = True
@@ -750,7 +762,10 @@ class LaTeXToPreTeXtConverter:
                             xml_id = label_match.group(1)
                             i += 1
                 
-                self.output.append(f'    <subsection xml:id="{xml_id}">')
+                if xml_id:
+                    self.output.append(f'    <subsection xml:id="{xml_id}">')
+                else:
+                    self.output.append(f'    <subsection>')
                 self.output.append(f'      <title>{title}</title>')
                 self.in_subsection = True
                 self.indent_level = 3
