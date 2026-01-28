@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-inference-for-props" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Inference for Categorical Data</title>
+  
+  <introduction>
+    <p>
+      In this chapter, we apply the methods and ideas from Chapter 5 in several contexts for
+      categorical data. We'll start by revisiting what we learned for a single proportion, where
+      the normal distribution can be used to model the uncertainty in the sample proportion. Next,
+      we apply these same ideas to analyze the difference of two proportions using the normal model.
+      Later in the chapter, we apply inference techniques to contingency tables; while we will use
+      a different distribution in this context, the core ideas of hypothesis testing remain the same.
+    </p>
+  </introduction>
+  
+  <!-- Section 7.1: Inference for a single proportion -->
+  <section xml:id="sec-single-proportion">
+    <title>Inference for a Single Proportion</title>
+    
+    <introduction>
+      <p>
+        We encountered inference methods for a single proportion in Chapter 5, exploring point
+        estimates, confidence intervals, and hypothesis tests. In this section, we'll review these
+        topics and also learn how to choose an appropriate sample size when collecting data for
+        single proportion contexts.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-sample-prop-normal">
+      <title>Identifying When the Sample Proportion is Nearly Normal</title>
+      
+      <p>
+        A sample proportion <m>\hat{p}</m> can be modeled using a normal distribution when the
+        sample observations are independent and the sample size is sufficiently large.
+      </p>
+      
+      <assemblage xml:id="assem-sampling-dist-p-hat">
+        <title>Sampling Distribution of <m>\hat{p}</m></title>
+        <p>
+          The sampling distribution for <m>\hat{p}</m> based on a sample of size <m>n</m> from
+          a population with a true proportion <m>p</m> is nearly normal when:
+        </p>
+        <ol>
+          <li>The sample's observations are independent, e.g., are from a simple random sample.</li>
+          <li>We expect to see at least 10 successes and 10 failures in the sample, i.e.,
+              <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>. This is called the
+              <term>success-failure condition</term>.</li>
+        </ol>
+        <p>
+          When these conditions are met, the sampling distribution of <m>\hat{p}</m> is nearly
+          normal with mean <m>p</m> and standard error <m>SE = \sqrt{\frac{p(1-p)}{n}}</m>.
+        </p>
+      </assemblage>
+      
+      <p>
+        Typically we don't know the true proportion <m>p</m>, so we substitute some value to check
+        conditions and estimate the standard error. For confidence intervals, the sample proportion
+        <m>\hat{p}</m> is used to check the success-failure condition and compute the standard error.
+        For hypothesis tests, typically the null value (the proportion claimed in the null hypothesis)
+        is used in place of <m>p</m>.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-ci-for-proportion">
+      <title>Confidence Intervals for a Proportion</title>
+      
+      <p>
+        A confidence interval provides a range of plausible values for the parameter <m>p</m>, and
+        when <m>\hat{p}</m> can be modeled using a normal distribution, the confidence interval for
+        <m>p</m> takes the form:
+      </p>
+      
+      <md>
+        \hat{p} \pm z^* \times SE
+      </md>
+      
+      <p>
+        where <m>z^*</m> is chosen to correspond to the confidence level, and the standard error is
+        computed as <m>SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</m>.
+      </p>
+      
+      <assemblage xml:id="assem-ci-single-proportion">
+        <title>Constructing a Confidence Interval for a Single Proportion</title>
+        <p>
+          Once you've determined that the sampling distribution for <m>\hat{p}</m> is nearly normal,
+          a confidence interval for the population proportion <m>p</m> is:
+        </p>
+        <md>
+          \hat{p} \pm z^* \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+        </md>
+        <p>
+          where <m>z^*</m> corresponds to the confidence level.
+        </p>
+      </assemblage>
+    </subsection>
+    
+    <subsection xml:id="subsec-ht-single-proportion">
+      <title>Hypothesis Testing for a Proportion</title>
+      
+      <p>
+        When testing hypotheses about a population proportion, we use the hypothesized value
+        <m>p_0</m> (from the null hypothesis) to check conditions and compute the standard error.
+      </p>
+      
+      <p>
+        <alert>Test statistic for a single proportion:</alert>
+      </p>
+      
+      <md>
+        Z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
+      </md>
+      
+      <p>
+        When the null hypothesis is true and the conditions are satisfied, <m>Z</m> follows a
+        standard normal distribution.
+      </p>
+      
+      <important>
+        <p>
+          <alert>Key Difference:</alert> For confidence intervals, use <m>\hat{p}</m> in the standard
+          error. For hypothesis tests, use <m>p_0</m> in the standard error.
+        </p>
+      </important>
+    </subsection>
+    
+    <subsection xml:id="subsec-choosing-sample-size">
+      <title>Choosing a Sample Size When Estimating a Proportion</title>
+      
+      <p>
+        When planning a study, we often want to know: How many observations do we need to achieve a
+        desired margin of error? The margin of error in a confidence interval is <m>ME = z^* \times SE</m>.
+      </p>
+      
+      <p>
+        Solving for <m>n</m> in the margin of error formula:
+      </p>
+      
+      <md>
+        ME = z^* \sqrt{\frac{p(1-p)}{n}} \quad\Rightarrow\quad n = \frac{z^{*2} \cdot p(1-p)}{ME^2}
+      </md>
+      
+      <p>
+        Since we don't know <m>p</m> before collecting data, we can:
+      </p>
+      
+      <ol>
+        <li>Use a guess for <m>p</m> based on a previous study or pilot data.</li>
+        <li>Use <m>p = 0.5</m>, which gives the most conservative (largest) sample size, since
+            <m>p(1-p)</m> is maximized when <m>p = 0.5</m>.</li>
+      </ol>
+    </subsection>
+  </section>
+  
+  <!-- Section 7.2: Difference of two proportions -->
+  <section xml:id="sec-difference-two-proportions">
+    <title>Difference of Two Proportions</title>
+    
+    <introduction>
+      <p>
+        We now consider a different scenario: comparing proportions from two independent groups.
+        For example, we might compare the proportion of patients who recover in a treatment group
+        versus a control group, or compare the proportion of voters supporting a candidate across
+        two different regions.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-sampling-dist-diff-props">
+      <title>Sampling Distribution of a Difference of Proportions</title>
+      
+      <p>
+        When we have two independent samples, we're often interested in the difference between
+        sample proportions: <m>\hat{p}_1 - \hat{p}_2</m>. This difference estimates the difference
+        in population proportions: <m>p_1 - p_2</m>.
+      </p>
+      
+      <theorem xml:id="thm-diff-proportions">
+        <title>Sampling Distribution of <m>\hat{p}_1 - \hat{p}_2</m></title>
+        <statement>
+          <p>
+            When the following conditions are satisfied, the sampling distribution of
+            <m>\hat{p}_1 - \hat{p}_2</m> is nearly normal with:
+          </p>
+          <md>
+            \text{Mean} = p_1 - p_2 \qquad SE = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+          </md>
+          <p>
+            <alert>Conditions:</alert>
+          </p>
+          <ol>
+            <li><alert>Independence:</alert> The data in each group must be independent, and the
+                two groups must be independent of each other.</li>
+            <li><alert>Success-failure condition:</alert> The success-failure condition must hold
+                for each sample: <m>n_1p_1 \geq 10</m>, <m>n_1(1-p_1) \geq 10</m>,
+                <m>n_2p_2 \geq 10</m>, and <m>n_2(1-p_2) \geq 10</m>.</li>
+          </ol>
+        </statement>
+      </theorem>
+    </subsection>
+    
+    <subsection xml:id="subsec-ci-diff-proportions">
+      <title>Confidence Interval for <m>p_1 - p_2</m></title>
+      
+      <p>
+        A confidence interval for the difference <m>p_1 - p_2</m> is:
+      </p>
+      
+      <md>
+        (\hat{p}_1 - \hat{p}_2) \pm z^* \times SE
+      </md>
+      
+      <p>
+        where the standard error is:
+      </p>
+      
+      <md>
+        SE = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
+      </md>
+      
+      <p>
+        Note that we use the sample proportions <m>\hat{p}_1</m> and <m>\hat{p}_2</m> in the
+        standard error formula.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-ht-diff-proportions">
+      <title>Hypothesis Test for <m>H_0: p_1 = p_2</m></title>
+      
+      <p>
+        When testing <m>H_0: p_1 = p_2</m> (or equivalently, <m>H_0: p_1 - p_2 = 0</m>), we use a
+        <term>pooled proportion</term> to compute the standard error.
+      </p>
+      
+      <definition xml:id="def-pooled-proportion">
+        <statement>
+          <p>
+            The <term>pooled proportion</term> is used when testing the null hypothesis that two
+            proportions are equal:
+          </p>
+          <md>
+            \hat{p}_{pool} = \frac{\text{total number of successes}}{\text{total number of observations}} = \frac{x_1 + x_2}{n_1 + n_2}
+          </md>
+          <p>
+            where <m>x_1</m> and <m>x_2</m> are the number of successes in each sample.
+          </p>
+        </statement>
+      </definition>
+      
+      <p>
+        The test statistic is:
+      </p>
+      
+      <md>
+        Z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}_{pool}(1-\hat{p}_{pool})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
+      </md>
+      
+      <important>
+        <p>
+          <alert>Remember:</alert> Use the pooled proportion in the standard error for hypothesis
+          tests, but use the individual sample proportions for confidence intervals.
+        </p>
+      </important>
+    </subsection>
+  </section>
+  
+  <!-- Section 7.3: Testing for goodness of fit using chi-square -->
+  <section xml:id="sec-chi-square-gof">
+    <title>Testing for Goodness of Fit Using Chi-Square</title>
+    
+    <introduction>
+      <p>
+        Sometimes we want to evaluate whether the observed distribution of a categorical variable
+        matches a hypothesized distribution. For example: Does the distribution of blood types in a
+        sample match the known distribution in the general population? Do observed frequencies of
+        outcomes match those expected if a die is fair? These questions can be answered using a
+        <term>chi-square goodness of fit test</term>.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-gof-test-intro">
+      <title>Goodness of Fit Test</title>
+      
+      <p>
+        In a goodness of fit test, we compare observed counts to expected counts under a null
+        hypothesis. The test statistic measures how far the observed counts are from the expected counts.
+      </p>
+      
+      <definition xml:id="def-chi-square-statistic">
+        <statement>
+          <p>
+            The <term>chi-square test statistic</term> for goodness of fit is:
+          </p>
+          <md>
+            \chi^2 = \sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}} = \sum \frac{(O - E)^2}{E}
+          </md>
+          <p>
+            where the sum is taken over all categories.
+          </p>
+        </statement>
+      </definition>
+      
+      <p>
+        The chi-square statistic measures the total deviation between observed and expected counts.
+        Large values of <m>\chi^2</m> indicate a poor fit between the data and the null hypothesis.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-chi-square-distribution">
+      <title>The Chi-Square Distribution</title>
+      
+      <p>
+        When the sample size is large enough, the chi-square test statistic follows a
+        <term>chi-square distribution</term>.
+      </p>
+      
+      <definition xml:id="def-chi-square-dist">
+        <statement>
+          <p>
+            The <term>chi-square distribution</term> is a right-skewed distribution that starts at
+            zero. It has one parameter: <term>degrees of freedom (df)</term>. For a goodness of fit
+            test with <m>k</m> categories:
+          </p>
+          <md>
+            df = k - 1
+          </md>
+        </statement>
+      </definition>
+      
+      <p>
+        <alert>Conditions for the chi-square goodness of fit test:</alert>
+      </p>
+      
+      <ol>
+        <li><alert>Independence:</alert> The observations must be independent.</li>
+        <li><alert>Sample size:</alert> Each expected count must be at least 5.</li>
+      </ol>
+      
+      <p>
+        The p-value for a chi-square test is always found in the upper tail of the chi-square
+        distribution, since large values of <m>\chi^2</m> provide evidence against <m>H_0</m>.
+      </p>
+    </subsection>
+  </section>
+  
+  <!-- Section 7.4: Testing for independence in two-way tables -->
+  <section xml:id="sec-chi-square-independence">
+    <title>Testing for Independence in Two-Way Tables</title>
+    
+    <introduction>
+      <p>
+        A two-way table (also called a <term>contingency table</term>) summarizes data for two
+        categorical variables. We often want to know: Are these two variables independent, or is
+        there an association between them?
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-two-way-tables">
+      <title>Two-Way Tables and Expected Counts</title>
+      
+      <p>
+        In a two-way table, we organize data by two categorical variables. To test for independence,
+        we compare observed counts to expected counts under the assumption that the variables are
+        independent.
+      </p>
+      
+      <assemblage xml:id="assem-expected-counts">
+        <title>Computing Expected Counts</title>
+        <p>
+          If two variables are independent, the expected count for a cell in row <m>i</m> and
+          column <m>j</m> is:
+        </p>
+        <md>
+          E_{ij} = \frac{(\text{row } i \text{ total}) \times (\text{column } j \text{ total})}{\text{table total}}
+        </md>
+      </assemblage>
+    </subsection>
+    
+    <subsection xml:id="subsec-chi-square-test-independence">
+      <title>The Chi-Square Test for Independence</title>
+      
+      <p>
+        The chi-square test for independence uses the same test statistic as the goodness of fit test:
+      </p>
+      
+      <md>
+        \chi^2 = \sum_{all\text{ }cells} \frac{(O - E)^2}{E}
+      </md>
+      
+      <p>
+        However, the degrees of freedom are calculated differently:
+      </p>
+      
+      <md>
+        df = (\text{number of rows} - 1) \times (\text{number of columns} - 1)
+      </md>
+      
+      <p>
+        <alert>Hypotheses:</alert>
+      </p>
+      
+      <ul>
+        <li><m>H_0</m>: The two variables are independent.</li>
+        <li><m>H_A</m>: The two variables are not independent (they are associated).</li>
+      </ul>
+      
+      <p>
+        <alert>Conditions:</alert>
+      </p>
+      
+      <ol>
+        <li><alert>Independence:</alert> Each case that contributes a count to the table must be
+            independent of all other cases.</li>
+        <li><alert>Sample size:</alert> Each expected count must be at least 5.</li>
+      </ol>
+      
+      <important>
+        <p>
+          The chi-square test for independence tells us <em>whether</em> there is an association,
+          but it doesn't tell us the nature or strength of that association. If the test is
+          significant, examine the table and consider computing row or column proportions to
+          understand the relationship.
+        </p>
+      </important>
+    </subsection>
+    
+    <subsection xml:id="subsec-chi-square-limitations">
+      <title>Limitations of Chi-Square Tests</title>
+      
+      <p>
+        Important considerations when using chi-square tests:
+      </p>
+      
+      <ul>
+        <li>Chi-square tests can only establish whether an association exists; they do not
+            determine causation.</li>
+        <li>The test requires all expected counts to be at least 5. If this condition is not met,
+            consider combining categories or using an alternative test (such as Fisher's exact test).</li>
+        <li>Large sample sizes can make even trivial differences statistically significant. Always
+            consider practical significance alongside statistical significance.</li>
+        <li>Chi-square tests work with counts, not percentages or proportions. Make sure your data
+            are in the correct form.</li>
+      </ul>
+    </subsection>
+  </section>
+  
+  <!-- Section 7.5: Chapter review -->
+  <section xml:id="sec-ch07-review">
+    <title>Chapter 7 Review Exercises</title>
+    
+    <p>
+      This chapter covered inference for categorical data. Key concepts include:
+    </p>
+    
+    <ul>
+      <li>Confidence intervals and hypothesis tests for a single proportion</li>
+      <li>Sample size calculations for proportions</li>
+      <li>Comparing two proportions using confidence intervals and hypothesis tests</li>
+      <li>The pooled proportion for hypothesis testing</li>
+      <li>Chi-square goodness of fit tests for comparing observed and expected distributions</li>
+      <li>Chi-square tests for independence in two-way tables</li>
+      <li>Computing expected counts and degrees of freedom for chi-square tests</li>
+    </ul>
+    
+    <p>
+      Additional exercises for practicing these concepts are available in the accompanying
+      exercise materials.
+    </p>
+  </section>
+</chapter>

@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="ch-inference-for-means" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Inference for Numerical Data</title>
+  
+  <introduction>
+    <p>
+      Chapter 5 introduced a framework for statistical inference based on confidence intervals
+      and hypotheses using the normal distribution for sample proportions. In this chapter, we
+      encounter several new point estimates and a couple new distributions. In each case, the
+      inference ideas remain the same: determine which point estimate or test statistic is useful,
+      identify an appropriate distribution for the point estimate or test statistic, and apply
+      the ideas of inference.
+    </p>
+  </introduction>
+  
+  <!-- Section 6.1: One-sample means with the t-distribution -->
+  <section xml:id="sec-one-sample-t">
+    <title>One-Sample Means with the <m>t</m>-Distribution</title>
+    
+    <introduction>
+      <p>
+        Similar to how we can model the behavior of the sample proportion <m>\hat{p}</m> using
+        a normal distribution, the sample mean <m>\bar{x}</m> can also be modeled using a normal
+        distribution when certain conditions are met. However, we'll soon learn that a new
+        distribution, called the <term>t-distribution</term>, tends to be more useful when
+        working with the sample mean. We'll first learn about this new distribution, then we'll
+        use it to construct confidence intervals and conduct hypothesis tests for the mean.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-sampling-dist-xbar">
+      <title>The Sampling Distribution of <m>\bar{x}</m></title>
+      
+      <p>
+        The sample mean tends to follow a normal distribution centered at the population mean
+        <m>\mu</m> when certain conditions are met. Additionally, we can compute a standard error
+        for the sample mean using the population standard deviation <m>\sigma</m> and the sample
+        size <m>n</m>.
+      </p>
+      
+      <theorem xml:id="thm-clt-mean">
+        <title>Central Limit Theorem for the Sample Mean</title>
+        <statement>
+          <p>
+            When we collect a sufficiently large sample of <m>n</m> independent observations from
+            a population with mean <m>\mu</m> and standard deviation <m>\sigma</m>, the sampling
+            distribution of <m>\bar{x}</m> will be nearly normal with:
+          </p>
+          <md>
+            \text{Mean} = \mu \qquad \text{Standard Error (SE)} = \frac{\sigma}{\sqrt{n}}
+          </md>
+        </statement>
+      </theorem>
+      
+      <p>
+        Before diving into confidence intervals and hypothesis tests using <m>\bar{x}</m>, we
+        first need to cover two topics:
+      </p>
+      
+      <ul>
+        <li>When we modeled <m>\hat{p}</m> using the normal distribution, certain conditions had
+            to be satisfied. The conditions for working with <m>\bar{x}</m> are a little more
+            complex.</li>
+        <li>The standard error is dependent on the population standard deviation <m>\sigma</m>.
+            However, we rarely know <m>\sigma</m>, and instead we must estimate it. Because this
+            estimation is itself imperfect, we use a new distribution called the
+            <term>t-distribution</term> to account for this additional uncertainty.</li>
+      </ul>
+    </subsection>
+    
+    <subsection xml:id="subsec-conditions-for-xbar">
+      <title>Evaluating Conditions for Modeling <m>\bar{x}</m></title>
+      
+      <p>
+        Two conditions are required to apply the Central Limit Theorem for a sample mean <m>\bar{x}</m>:
+      </p>
+      
+      <ol>
+        <li><alert>Independence:</alert> The sample observations must be independent. This is
+            typically satisfied if the data come from a simple random sample and the sample size
+            is less than 10% of the population.</li>
+        <li><alert>Normality:</alert> The population distribution should be normal or the sample
+            size should be large (<m>n \geq 30</m> is a common guideline). For smaller samples,
+            we can check normality using a normal probability plot or histogram.</li>
+      </ol>
+      
+      <important>
+        <p>
+          When examining a sample, the normality condition is satisfied if:
+        </p>
+        <ul>
+          <li>The sample shows no clear outliers and little skewness, OR</li>
+          <li>The sample size is at least 30 and there are no particularly extreme outliers.</li>
+        </ul>
+      </important>
+    </subsection>
+    
+    <subsection xml:id="subsec-introducing-t-dist">
+      <title>Introducing the <m>t</m>-Distribution</title>
+      
+      <p>
+        When we don't know the population standard deviation <m>\sigma</m> (which is nearly always
+        the case), we must estimate it using the sample standard deviation <m>s</m>. This introduces
+        additional uncertainty, especially for small samples. The <term>t-distribution</term> accounts
+        for this extra variability.
+      </p>
+      
+      <definition xml:id="def-t-distribution">
+        <statement>
+          <p>
+            The <term>t-distribution</term> is a bell-shaped distribution centered at zero, similar
+            to the standard normal distribution, but with thicker tails. The exact form of the
+            t-distribution depends on the <term>degrees of freedom (df)</term>. For inference with
+            a single sample mean, <m>df = n - 1</m>.
+          </p>
+        </statement>
+      </definition>
+      
+      <p>
+        Key properties of the t-distribution:
+      </p>
+      
+      <ul>
+        <li>It is symmetric and bell-shaped, centered at 0.</li>
+        <li>It has thicker tails than the normal distribution, meaning more probability in the extremes.</li>
+        <li>As the degrees of freedom increase, the t-distribution approaches the normal distribution.</li>
+        <li>For <m>df \geq 30</m>, the t-distribution is nearly indistinguishable from the normal distribution.</li>
+      </ul>
+      
+      <definition xml:id="def-standard-error-mean">
+        <statement>
+          <p>
+            When the population standard deviation <m>\sigma</m> is unknown and estimated by the
+            sample standard deviation <m>s</m>, the <term>standard error of the mean</term> is:
+          </p>
+          <md>
+            SE = \frac{s}{\sqrt{n}}
+          </md>
+        </statement>
+      </definition>
+    </subsection>
+    
+    <subsection xml:id="subsec-one-sample-t-ci">
+      <title>One-Sample <m>t</m>-Confidence Intervals</title>
+      
+      <p>
+        A confidence interval for a population mean <m>\mu</m> based on a sample of size <m>n</m>
+        with sample mean <m>\bar{x}</m> and sample standard deviation <m>s</m> is given by:
+      </p>
+      
+      <md>
+        \bar{x} \pm t^*_{df} \times SE \quad\text{where}\quad SE = \frac{s}{\sqrt{n}} \quad\text{and}\quad df = n - 1
+      </md>
+      
+      <p>
+        Here, <m>t^*_{df}</m> is the critical value from the t-distribution with <m>df</m> degrees
+        of freedom that corresponds to the desired confidence level.
+      </p>
+      
+      <procedure xml:id="proc-one-sample-t-ci">
+        <title>One-Sample <m>t</m>-Confidence Interval</title>
+        <step>
+          <title>Prepare</title>
+          <p>
+            Identify the sample mean <m>\bar{x}</m>, sample standard deviation <m>s</m>, and sample
+            size <m>n</m>. Determine the desired confidence level.
+          </p>
+        </step>
+        <step>
+          <title>Check</title>
+          <p>
+            Verify that observations are independent and that the sample size is appropriate for
+            the distribution of the data (check for extreme outliers or strong skewness).
+          </p>
+        </step>
+        <step>
+          <title>Calculate</title>
+          <p>
+            Compute <m>SE = s/\sqrt{n}</m> and <m>df = n-1</m>. Find the appropriate <m>t^*_{df}</m>
+            value and construct the confidence interval <m>\bar{x} \pm t^*_{df} \times SE</m>.
+          </p>
+        </step>
+        <step>
+          <title>Conclude</title>
+          <p>
+            Interpret the confidence interval in the context of the problem.
+          </p>
+        </step>
+      </procedure>
+    </subsection>
+    
+    <subsection xml:id="subsec-one-sample-t-test">
+      <title>One-Sample <m>t</m>-Test</title>
+      
+      <p>
+        To test a hypothesis about a population mean <m>\mu</m>, we use the <term>one-sample t-test</term>.
+        The test statistic is:
+      </p>
+      
+      <md>
+        t = \frac{\bar{x} - \mu_0}{SE} = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}
+      </md>
+      
+      <p>
+        where <m>\mu_0</m> is the null value (the value of <m>\mu</m> under the null hypothesis).
+        This test statistic follows a t-distribution with <m>df = n-1</m> when the null hypothesis
+        is true and conditions are met.
+      </p>
+      
+      <procedure xml:id="proc-one-sample-t-test">
+        <title>One-Sample <m>t</m>-Test</title>
+        <step>
+          <title>Prepare</title>
+          <p>
+            State the hypotheses, identify <m>\bar{x}</m>, <m>s</m>, <m>n</m>, and the significance
+            level <m>\alpha</m>.
+          </p>
+        </step>
+        <step>
+          <title>Check</title>
+          <p>
+            Verify independence and normality conditions.
+          </p>
+        </step>
+        <step>
+          <title>Calculate</title>
+          <p>
+            Compute the t-statistic and find the p-value using the t-distribution with <m>df = n-1</m>.
+          </p>
+        </step>
+        <step>
+          <title>Conclude</title>
+          <p>
+            Make a decision by comparing the p-value to <m>\alpha</m> and interpret in context.
+          </p>
+        </step>
+      </procedure>
+    </subsection>
+  </section>
+  
+  <!-- Section 6.2: Paired data -->
+  <section xml:id="sec-paired-data">
+    <title>Paired Data</title>
+    
+    <introduction>
+      <p>
+        Sometimes data naturally come in pairs. For example, we might measure blood pressure before
+        and after treatment for the same patients, or we might compare test scores for students
+        who took both a pretest and a posttest. When data are paired, we analyze the differences
+        within each pair rather than treating the two groups as independent.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-paired-observations">
+      <title>Paired Observations and Samples</title>
+      
+      <definition xml:id="def-paired-data">
+        <statement>
+          <p>
+            <term>Paired data</term> represent two sets of observations that are collected on the
+            same units or on units that are meaningfully connected. In a paired analysis, we are
+            interested in the <term>difference</term> for each pair of observations.
+          </p>
+        </statement>
+      </definition>
+      
+      <p>
+        Examples of paired data:
+      </p>
+      
+      <ul>
+        <li>Blood pressure measurements before and after medication for the same patients</li>
+        <li>Pre-test and post-test scores for the same students</li>
+        <li>Measurements on twins or siblings</li>
+        <li>Prices of textbooks at two different stores for the same titles</li>
+      </ul>
+      
+      <important>
+        <p>
+          The key to identifying paired data: Can we meaningfully connect one observation in the
+          first dataset to exactly one observation in the second dataset?
+        </p>
+      </important>
+    </subsection>
+    
+    <subsection xml:id="subsec-inference-paired-data">
+      <title>Inference for Paired Data</title>
+      
+      <p>
+        To analyze paired data, we:
+      </p>
+      
+      <ol>
+        <li>Calculate the difference for each pair: <m>d_i = x_{i,1} - x_{i,2}</m></li>
+        <li>Treat these differences as a single sample</li>
+        <li>Apply one-sample t-procedures to the differences</li>
+      </ol>
+      
+      <p>
+        Let <m>\bar{x}_d</m> represent the mean of the differences and <m>s_d</m> represent the
+        standard deviation of the differences. Then:
+      </p>
+      
+      <ul>
+        <li><alert>Confidence interval for <m>\mu_d</m>:</alert>
+            <m>\bar{x}_d \pm t^*_{n-1} \times \frac{s_d}{\sqrt{n}}</m></li>
+        <li><alert>Test statistic:</alert>
+            <m>t = \frac{\bar{x}_d - 0}{s_d/\sqrt{n}}</m> (when testing <m>H_0: \mu_d = 0</m>)</li>
+      </ul>
+      
+      <p>
+        The conditions for paired t-procedures are the same as for one-sample t-procedures, applied
+        to the differences:
+      </p>
+      
+      <ol>
+        <li><alert>Independence:</alert> The pairs must be independent of each other.</li>
+        <li><alert>Normality:</alert> The differences should come from a nearly normal distribution,
+            or the sample size should be large enough.</li>
+      </ol>
+    </subsection>
+  </section>
+  
+  <!-- Section 6.3: Difference of two means -->
+  <section xml:id="sec-difference-two-means">
+    <title>Difference of Two Means</title>
+    
+    <introduction>
+      <p>
+        We now consider a different scenario: comparing means from two independent groups. For
+        example, we might compare average exam scores between students who attended review sessions
+        and those who didn't, or compare average recovery times between patients receiving two
+        different treatments.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-comparing-two-indep-means">
+      <title>Comparing Two Independent Means</title>
+      
+      <p>
+        When comparing two independent groups, we examine the difference in sample means:
+        <m>\bar{x}_1 - \bar{x}_2</m>. This quantity estimates the difference in population means:
+        <m>\mu_1 - \mu_2</m>.
+      </p>
+      
+      <definition xml:id="def-two-sample-conditions">
+        <statement>
+          <p>
+            For inference on the difference of two means, the following conditions should be met:
+          </p>
+          <ol>
+            <li><alert>Independence:</alert> Within each group, observations must be independent.
+                The two groups must also be independent of each other.</li>
+            <li><alert>Normality:</alert> The data in each group should come from a nearly normal
+                distribution, or each sample size should be sufficiently large.</li>
+          </ol>
+        </statement>
+      </definition>
+    </subsection>
+    
+    <subsection xml:id="subsec-two-sample-t-procedures">
+      <title>Two-Sample <m>t</m>-Procedures</title>
+      
+      <p>
+        The standard error for the difference of two independent sample means is:
+      </p>
+      
+      <md>
+        SE = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+      </md>
+      
+      <p>
+        The degrees of freedom calculation for the two-sample t-test is complex. Most software
+        uses the Welch-Satterthwaite approximation. A conservative approach is to use
+        <m>df = \min(n_1 - 1, n_2 - 1)</m>.
+      </p>
+      
+      <p>
+        <alert>Confidence interval for <m>\mu_1 - \mu_2</m>:</alert>
+      </p>
+      
+      <md>
+        (\bar{x}_1 - \bar{x}_2) \pm t^*_{df} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+      </md>
+      
+      <p>
+        <alert>Test statistic for <m>H_0: \mu_1 = \mu_2</m>:</alert>
+      </p>
+      
+      <md>
+        t = \frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+      </md>
+      
+      <procedure xml:id="proc-two-sample-t">
+        <title>Two-Sample <m>t</m>-Procedures</title>
+        <step>
+          <title>Prepare</title>
+          <p>
+            Identify summary statistics for both groups and determine the parameter of interest.
+          </p>
+        </step>
+        <step>
+          <title>Check</title>
+          <p>
+            Verify independence within and between groups, and check the normality condition for
+            each group.
+          </p>
+        </step>
+        <step>
+          <title>Calculate</title>
+          <p>
+            Compute the standard error and degrees of freedom. Calculate the confidence interval
+            or test statistic as appropriate.
+          </p>
+        </step>
+        <step>
+          <title>Conclude</title>
+          <p>
+            Interpret the results in context.
+          </p>
+        </step>
+      </procedure>
+    </subsection>
+    
+    <subsection xml:id="subsec-pooled-standard-deviation">
+      <title>Pooled Standard Deviation (Optional)</title>
+      
+      <p>
+        When we have strong reason to believe that the two populations have equal variances, we
+        can use a <term>pooled standard deviation</term> to get a more precise estimate. The pooled
+        standard deviation is:
+      </p>
+      
+      <md>
+        s_{pooled} = \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}
+      </md>
+      
+      <p>
+        The standard error becomes <m>SE = s_{pooled}\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}</m> and
+        the degrees of freedom is <m>df = n_1 + n_2 - 2</m>. However, this approach should only be
+        used when the equal variance assumption is reasonable.
+      </p>
+    </subsection>
+  </section>
+  
+  <!-- Section 6.4: Power calculations for difference of means -->
+  <section xml:id="sec-power-calculations">
+    <title>Power Calculations for a Difference of Means</title>
+    
+    <introduction>
+      <p>
+        When planning a study, researchers often want to know: How large should my sample be to
+        detect a meaningful effect? This question relates to the concept of <term>statistical power</term>.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-statistical-power">
+      <title>Understanding Statistical Power</title>
+      
+      <definition xml:id="def-power">
+        <statement>
+          <p>
+            The <term>power</term> of a hypothesis test is the probability that the test correctly
+            rejects a false null hypothesis. In other words, it's the probability of detecting an
+            effect when one truly exists.
+          </p>
+          <md>
+            \text{Power} = 1 - P(\text{Type 2 Error}) = 1 - \beta
+          </md>
+        </statement>
+      </definition>
+      
+      <p>
+        Power depends on several factors:
+      </p>
+      
+      <ul>
+        <li>The <alert>significance level</alert> <m>\alpha</m> (lower <m>\alpha</m> means lower power)</li>
+        <li>The <alert>effect size</alert> (larger effects are easier to detect)</li>
+        <li>The <alert>sample size</alert> (larger samples provide more power)</li>
+        <li>The <alert>variability</alert> in the data (less variability means more power)</li>
+      </ul>
+      
+      <p>
+        Researchers typically aim for a power of 0.80 or higher, meaning an 80% chance of detecting
+        a true effect.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-sample-size-determination">
+      <title>Sample Size Determination</title>
+      
+      <p>
+        Power calculations can be used to determine the necessary sample size for a study. The
+        process involves specifying:
+      </p>
+      
+      <ol>
+        <li>The desired significance level <m>\alpha</m></li>
+        <li>The desired power (typically 0.80)</li>
+        <li>The minimum effect size you want to detect</li>
+        <li>An estimate of the population standard deviation</li>
+      </ol>
+      
+      <p>
+        With these inputs, statistical software or formulas can calculate the required sample size
+        for each group. Adequate planning using power calculations helps ensure studies are neither
+        underpowered (unable to detect real effects) nor wastefully large.
+      </p>
+    </subsection>
+  </section>
+  
+  <!-- Section 6.5: Comparing many means with ANOVA -->
+  <section xml:id="sec-anova">
+    <title>Comparing Many Means with ANOVA</title>
+    
+    <introduction>
+      <p>
+        Sometimes we want to compare means across more than two groups. For example, we might want
+        to compare average test scores across four different teaching methods, or compare recovery
+        times across three different treatments. When comparing multiple groups, we use
+        <term>Analysis of Variance (ANOVA)</term>.
+      </p>
+    </introduction>
+    
+    <subsection xml:id="subsec-anova-hypotheses">
+      <title>ANOVA Hypotheses and Conditions</title>
+      
+      <p>
+        Consider comparing <m>k</m> groups with means <m>\mu_1, \mu_2, \ldots, \mu_k</m>. The
+        hypotheses for ANOVA are:
+      </p>
+      
+      <ul>
+        <li><m>H_0</m>: The mean outcome is the same across all groups.
+            <m>\mu_1 = \mu_2 = \cdots = \mu_k</m></li>
+        <li><m>H_A</m>: At least one mean is different from the others.</li>
+      </ul>
+      
+      <definition xml:id="def-anova-conditions">
+        <statement>
+          <p>
+            <term>Conditions for ANOVA:</term>
+          </p>
+          <ol>
+            <li><alert>Independence:</alert> Observations must be independent within and across groups.</li>
+            <li><alert>Normality:</alert> The data within each group should be approximately normal.</li>
+            <li><alert>Equal variance:</alert> The variability should be roughly constant across groups.</li>
+          </ol>
+        </statement>
+      </definition>
+    </subsection>
+    
+    <subsection xml:id="subsec-f-statistic">
+      <title>The <m>F</m>-Statistic</title>
+      
+      <p>
+        ANOVA uses the <term>F-statistic</term> to compare group means. The F-statistic is a ratio
+        of two measures of variability:
+      </p>
+      
+      <md>
+        F = \frac{\text{Variability between groups}}{\text{Variability within groups}} = \frac{MSG}{MSE}
+      </md>
+      
+      <p>
+        where MSG is the <term>mean square between groups</term> and MSE is the
+        <term>mean square error</term> (within groups).
+      </p>
+      
+      <ul>
+        <li>If the null hypothesis is true (all means equal), we expect <m>F \approx 1</m>.</li>
+        <li>If at least one mean is different, we expect <m>F > 1</m>.</li>
+        <li>Large values of <m>F</m> provide evidence against <m>H_0</m>.</li>
+      </ul>
+      
+      <definition xml:id="def-f-distribution">
+        <statement>
+          <p>
+            The <term>F-distribution</term> is a right-skewed distribution (starting at 0) used for
+            ANOVA. It has two degrees of freedom parameters:
+          </p>
+          <ul>
+            <li><m>df_1 = k - 1</m> (degrees of freedom for groups, where <m>k</m> is the number of groups)</li>
+            <li><m>df_2 = n - k</m> (degrees of freedom for error, where <m>n</m> is the total sample size)</li>
+          </ul>
+        </statement>
+      </definition>
+    </subsection>
+    
+    <subsection xml:id="subsec-anova-table">
+      <title>The ANOVA Table</title>
+      
+      <p>
+        ANOVA results are typically summarized in an <term>ANOVA table</term>:
+      </p>
+      
+      <p>
+        <alert>ANOVA Table Structure:</alert>
+      </p>
+      
+      <tabular>
+        <row header="yes">
+          <cell>Source</cell>
+          <cell>Sum of Squares</cell>
+          <cell>df</cell>
+          <cell>Mean Square</cell>
+          <cell>F</cell>
+          <cell>p-value</cell>
+        </row>
+        <row>
+          <cell>Groups</cell>
+          <cell>SSG</cell>
+          <cell><m>k-1</m></cell>
+          <cell><m>MSG = \frac{SSG}{k-1}</m></cell>
+          <cell><m>\frac{MSG}{MSE}</m></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>Error</cell>
+          <cell>SSE</cell>
+          <cell><m>n-k</m></cell>
+          <cell><m>MSE = \frac{SSE}{n-k}</m></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>Total</cell>
+          <cell>SST</cell>
+          <cell><m>n-1</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </subsection>
+    
+    <subsection xml:id="subsec-multiple-comparisons">
+      <title>Multiple Comparisons and What ANOVA Doesn't Tell Us</title>
+      
+      <p>
+        When ANOVA gives a significant result, it tells us that at least one mean is different, but
+        it doesn't tell us which means differ. To determine which specific groups differ, we need to
+        conduct <term>multiple comparisons</term> or <term>post-hoc tests</term>.
+      </p>
+      
+      <important>
+        <p>
+          <alert>Multiple Testing Problem:</alert> When conducting many pairwise comparisons, the
+          chance of making at least one Type 1 error increases. Methods like the
+          <term>Bonferroni correction</term> or <term>Tukey's HSD</term> help control this error rate.
+        </p>
+      </important>
+      
+      <p>
+        A simple approach is the <term>Bonferroni correction</term>: If conducting <m>m</m> tests,
+        use <m>\alpha/m</m> as the significance level for each individual test to maintain an
+        overall significance level of approximately <m>\alpha</m>.
+      </p>
+    </subsection>
+  </section>
+  
+  <!-- Section 6.6: Chapter review -->
+  <section xml:id="sec-ch06-review">
+    <title>Chapter 6 Review Exercises</title>
+    
+    <p>
+      This chapter introduced inference for numerical data using the t-distribution. Key concepts include:
+    </p>
+    
+    <ul>
+      <li>The t-distribution and its properties</li>
+      <li>One-sample t-confidence intervals and hypothesis tests</li>
+      <li>Paired data analysis using differences</li>
+      <li>Two-sample t-procedures for comparing independent groups</li>
+      <li>Statistical power and sample size determination</li>
+      <li>ANOVA for comparing three or more means</li>
+    </ul>
+    
+    <p>
+      Additional exercises for practicing these concepts are available in the accompanying
+      exercise materials.
+    </p>
+  </section>
+</chapter>
