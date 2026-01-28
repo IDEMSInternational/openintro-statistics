@@ -8,12 +8,14 @@
     <p>Linear regression is a very powerful statistical technique. Many people have some familiarity with regression just from reading the news, where straight lines are overlaid on scatterplots. Linear models can be used for prediction or to evaluate whether there is a linear relationship between two numerical variables.</p>
   </introduction>
 
-  <section xml:id="">
+  <section xml:id="linRegrForTwoVar">
     <title>Fitting a line, residuals, and correlation</title>
 
     <p>It's helpful to think deeply about the line fitting process. In this section, we define the form of a linear model, explore criteria for what makes a good fit, and introduce a new statistic called <em>correlation</em>.</p>
-    <subsection xml:id="">
+    <subsection xml:id="fitting_line_to_data_section">
       <title>Fitting a line to data</title>
+      <me>y = 5 + 64.96 x</me>
+      <p>Consider what a perfect linear relationship means: we know the exact value of <m>y</m> just by knowing the value of <m>x</m>. This is unrealistic in almost any natural process. For example, if we took family income (<m>x</m>), this value would provide some useful information about how much financial support a college may offer a prospective student (<m>y</m>). However, the prediction would be far from perfect, since other factors play a role in financial support beyond a family's finances.</p>
       <figure xml:id="perfLinearModel">
         <caption>A scatterplot with a straight line fit to the data are shown for the date December 28th, 2018. The horizontal axis is "Number of Target Corporation Stocks to Purchase" and the vertical axis is "Total Cost of the Shares Purchase". Twelve data points are shown that all fall exactly on a straight line with an equation of y equals 5 plus 64.96 times x. Because the cost is computed using a linear formula, this explains why the linear fit is perfect.</caption>
         <image source="ch_regr_simple_linear/figures/perfLinearModel"/>
@@ -36,16 +38,14 @@
 
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>Using linear regression to predict possum head lengths</title>
       <p>Brushtail possums are a marsupial that lives in Australia, and a photo of one is shown in <xref ref="brushtail_possum"/>. Researchers captured 104 of these animals and took body measurements before releasing the animals back into the wild. We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.</p>
-      <p>\captionsetup{width=0.83\mycaptionwidth}</p>
       <figure xml:id="brushtail_possum">
         <caption>The common brushtail possum of Australia.\vspace{-1mm</caption>
         <image source="ch_regr_simple_linear/figures/brushtail_possum"/>
       </figure>
 
-      <p>\captionsetup{width=\mycaptionwidth}</p>
       <figure xml:id="scattHeadLTotalL">
         <caption>A scatterplot showing head length against total length for 104 brushtail possums, where the horizontal axis for total length runs from 75 centimeters to about 97 centimeters (2.5 to 3.3 feet) and the vertical axis for head length runs from about 82 millimeters up to about 104 millimeters (3 to 4 inches). For possums with a total length between 75 to 80 centimeters, there are three points shown, each with head lengths of about 85 millimeters. For possums with total length from 80 to 85 centimeters, most head lengths range from about 85 millimeters to 95 millimeters. For possums with total lengths from 85 to 90 centimeters, head lengths mostly lie between 90 millimeters and 97 millimeters. For possums with total lengths larger than 90 centimeters, the head lengths are mostly between 93 millimeters and 100 millimeters. The trend is evidently upward and approximately linear. A point representing a possum with head length 94.1mm and total length 89cm is highlighted (although not relevant for any other purpose than giving an example or reminder for how a point is read in a scatterplot).</caption>
         <image source="ch_regr_simple_linear/figures/scattHeadLTotalL"/>
@@ -55,8 +55,8 @@
       <me>\hat{y} = 41 + 0.59x</me>
       <p>A "hat" on <m>y</m> is used to signify that this is an estimate. We can use this line to discuss properties of possums. For instance, the equation predicts a possum with a total length of 80 cm will have a head length of</p>
       <md>
-        <mrow>\hat{y} &= 41 + 0.59\times 80</mrow>
-        <mrow>&= 88.2 % mm</mrow>
+        <mrow>\hat{y} = 41 + 0.59\times 80</mrow>
+        <mrow>= 88.2 % mm</mrow>
       </md>
       <p>The estimate may be viewed as an average: the equation predicts that possums with a total length of 80 cm will have an average head length of 88.2 mm. Absent further information about an 80 cm possum, the prediction for head length that uses the average is a reasonable estimate.</p>
       <figure xml:id="scattHeadLTotalLLine">
@@ -68,22 +68,27 @@
 
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>Residuals</title>
       <me>\text{Data} = \text{Fit} + \text{Residual}</me>
       <p>Each observation will have a residual, and three of the residuals for the linear model we fit for the \data{possum} data is shown in <xref ref="scattHeadLTotalLLine"/>. If an observation is above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals. One goal in picking the right linear model is for these residuals to be as small as possible.</p>
       <p>Let's look closer at the three residuals featured in <xref ref="scattHeadLTotalLLine"/>. The observation marked by an "<m>\times</m>" has a small, negative residual of about -1; the observation marked by "<m>+</m>" has a large residual of about +7; and the observation marked by "<m>\triangle</m>" has a moderate residual of about -4. The size of a residual is usually discussed in terms of its absolute value. For example, the residual for "<m>\triangle</m>" is larger than that of "<m>\times</m>" because <m>|-4|</m> is larger than <m>|-1|</m>.</p>
       <assemblage>
         <title>Residual: difference between observed and expected</title>
-        <p>The residual of the <m>i^{th}</m> observation <m>(x_i, y_i)</m> is the difference of the observed response (<m>y_i</m>) and the response we would predict based on the model fit (<m>\hat{y}_i</m>): \begin{eqnarray*} e_i = y_i - \hat{y}_i \end{eqnarray*} We typically identify <m>\hat{y}_i</m> by plugging <m>x_i</m> into the model.</p>
+        <p>The residual of the <m>i^{th}</m> observation <m>(x_i, y_i)</m> is the difference of the observed response (<m>y_i</m>) and the response we would predict based on the model fit (<m>\hat{y}_i</m>):</p>
+        <me>e_i = y_i - \hat{y}_i</me>
+        <p>We typically identify <m>\hat{y}_i</m> by plugging <m>x_i</m> into the model.</p>
       </assemblage>
 
       <example xml:id="">
         <title>The linear fit shown in Figure \ref{scattHeadLTotalLLine</title>
-        <p>Check it against the earlier visual estimate, -1.} We first compute the predicted value of point "<m>\times</m>" based on the model: \begin{eqnarray*} \hat{y}_{\times} = 41+0.59x_{\times} = 41+0.59\times 77.0 = 86.4 \end{eqnarray*} Next we compute the difference of the actual head length and the predicted head length: \begin{eqnarray*} e_{\times} = y_{\times} - \hat{y}_{\times} = 85.3 - 86.4 = -1.1 \end{eqnarray*} The model's error is <m>e_{\times} = -1.1</m>mm, which is very close to the visual estimate of -1mm. The negative residual indicates that the linear model overpredicted head length for this particular possum.</p>
+        <p>Check it against the earlier visual estimate, -1.} We first compute the predicted value of point "<m>\times</m>" based on the model:</p>
+        <me>\hat{y}_{\times} = 41+0.59x_{\times} = 41+0.59\times 77.0 = 86.4</me>
+        <p>Next we compute the difference of the actual head length and the predicted head length:</p>
+        <me>e_{\times} = y_{\times} - \hat{y}_{\times} = 85.3 -  86.4 = -1.1</me>
+        <p>The model's error is <m>e_{\times} = -1.1</m>mm, which is very close to the visual estimate of -1mm. The negative residual indicates that the linear model overpredicted head length for this particular possum.</p>
       </example>
 
-      <p>\footnotetext{If a model underestimates an observation, then the model estimate is below the actual. The residual, which is the actual observation value minus the model estimate, must then be positive. The opposite is true when the model overestimates the observation: the residual is negative.}</p>
       <p>\footnotetext{(<m>+</m>) First compute the predicted value based on the model:</p>
       <me>\hat{y}_{+} = 41+0.59x_{+} = 41+0.59\times 85.0 = 91.15</me>
       <p>Then the residual is given by</p>
@@ -109,7 +114,7 @@
 
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>Describing linear relationships with correlation</title>
       <assemblage>
         <title>Correlation: strength of a linear relationship</title>
@@ -127,41 +132,118 @@
       <figure xml:id="corForNonLinearPlots">
       </figure>
 
-      <p>\footnotetext{We'll leave it to you to draw the lines. In general, the lines you draw should be close to most points and reflect overall trends in the data.}</p>
-      <p>\FigureFullPath[A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random. If looking at the leftmost region of data, the observations are more broadly scattered around the line, while when moving further right the variability of the points around the line gets notably smaller by a factor of at least 5 (if using standard deviation).]{0.42}{ch_regr_simple_linear/figures/eoce/visualize_residuals/visualize_residuals_fan_back} \end{center} }{}</p>
-      <p>\FigureFullPath[A scatterplot of the residuals is shown. The points on the very left tend to be below the "y equals 0" line for the first 5 percent of the horizontal region, where the trend is sharply upwards to the "y equals 0" line. The points then tend to be stably clustered around "y equals 0", if not slightly above, with a slight downward trend evident in the observations on the right half of the plot. The vertical variability of observations is about stable throughout.]{0.42}{ch_regr_simple_linear/figures/eoce/trends_in_residuals/trends_in_residuals_log} \end{center} }{}</p>
-      <p>\FigureFullPath[A scatterplot is shown. The start on the lower left corner, only spanning about 20 percent of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_pos_strong} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the points are appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_pos_weak} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the observations are in concentrated in the bottom half of the plot but rise steadily. The trend peaks near the center of the plot, where nearly all the points in the (horizontal) center region of the scatterplot are concentrated in the upper half of the scatterplot. On the right side of the plot, the points show a trend downwards, with points concentrated in the lower quarter of the scatterplot for the rightmost handful of points.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_n} \FigureFullPath[A scatterplot is shown. The start on the upper left corner, only spanning about 20 percent of the vertical region of the plot, and have a steady downwards trend to the bottom right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_neg_strong} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the points are appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident or at least obvious.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_none} \end{center} }{}</p>
-      <p>\FigureFullPath[A scatterplot is shown. On the left side of the plot, the observations are concentrated around a region about 30 percent of the way up from the bottom-left corner of the plot, there is a slight downward trend that reaches the bottom area of the plot for about the center half of the plot, then the points rise gradually and then sharply in the last 25-30 percent of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_hockey_stick} \FigureFullPath[A scatterplot is shown. Pointers in the leftmost region of the plot are concentrated in the lower-left corner, ranging from the bottom up to about 25 percent of the way up the plot. The points follow a steady upward trend to the top-right corner of the plot and show consistent vertical variability around the trend throughout.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_lin_strong} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There might be a very slight upward trend.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_weak} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_weaker} \FigureFullPath[A scatterplot is shown. The points on the leftmost side are concentrated in the upper half of the plot, and the data trend steadily downwards and with consistent variability to the bottom right portion of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_neg_lin_weak} \end{center} }{}</p>
-      <p>\FigureFullPath[A scatterplot is shown. The horizontal axis represents "Husband's Height (in inches)" with values ranging from about 60 to 75. The vertical axis represents "Wife's Height (in inches)" with values ranging from about 55 to 70. When husband height is between 60 and 65, wife height mostly ranges from about 58 to 65 inches, though there are only about 10 points in this range, which is about 5 percent of the data. When husband height is between 65 and 70, wife height mostly ranges from 57 to 68 inches. When husband height is larger than 70 inches, wife height mostly ranges from 61 to about 74 inches.]{0.35}{ch_regr_simple_linear/figures/eoce/husbands_wives_correlation/husbands_wives_height} \end{center} \begin{parts}</p>
-      <li>
-        <p>Describe the relationship between husbands' and wives' ages.</p>
-      </li>
-      <li>
-        <p>Describe the relationship between husbands' and wives' heights.</p>
-      </li>
-      <li>
-        <p>Which plot shows a stronger correlation? Explain your reasoning.</p>
-      </li>
-      <li>
-        <p>Data on heights were originally collected in centimeters, and then converted to inches. Does this conversion affect the correlation between husbands' and wives' heights?</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\FigureFullPath[A scatterplot is shown. The start on the lower left corner, only spanning about 20 percent of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_2_strong_pos} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_3_weak_pos} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_4_weak_neg} \end{minipage} }{}</p>
-      <p>\FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_2_weak_pos} \FigureFullPath[A scatterplot is shown. The observations start in the lower left corner of the plot, trend sharply upwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster dropping to the lower right corner of the plot. The trend is approximately symmetric from left-to-right.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_3_n} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_4_weak_neg} \end{minipage} }{}</p>
-      <li>
-        <p>Describe the relationship between height and fastest speed.</p>
-      </li>
-      <li>
-        <p>Why do you think these variables are positively associated?</p>
-      </li>
-      <li>
-        <p>What role does gender play in the relationship between height and fastest driving speed?</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\end{minipage} }{}</p>
-      <p>\end{minipage} }{}</p>
-      <p>\end{minipage} }{}</p>
-      <p>\end{minipage} }{}</p>
+      <exercise xml:id="visualize_residuals">
+        <title>Visualize the residuals</title>
+        <statement>
+          <p>The scatterplots shown below each have a superimposed regression line. If we were to construct a residual plot (residuals versus <m>x</m>) for each, describe what those plots would look like. \begin{center} \FigureFullPath[A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random and have stable variability moving from left to right.]{0.42}{ch_regr_simple_linear/figures/eoce/visualize_residuals/visualize_residuals_linear} \FigureFullPath[A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random. If looking at the leftmost region of data, the observations are more broadly scattered around the line, while when moving further right the variability of the points around the line gets notably smaller by a factor of at least 5 (if using standard deviation).]{0.42}{ch_regr_simple_linear/figures/eoce/visualize_residuals/visualize_residuals_fan_back} \end{center}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="trends_in_residuals">
+        <title>Trends in the residuals</title>
+        <statement>
+          <p>Shown below are two plots of residuals remaining after fitting a linear model to two different sets of data. Describe important features and determine if a linear model would be appropriate for these data. Explain your reasoning. \begin{center} \FigureFullPath[A scatterplot of the residuals is shown. When looking at any horizontal region of the plot, the observations are consistently scattered around the "y equals 0" line. On the left, the points tend to be very close to this horizontal 0 line. The further moving to the right, the more variability that is evident in the observations around "y equals 0".]{0.42}{ch_regr_simple_linear/figures/eoce/trends_in_residuals/trends_in_residuals_fan} \FigureFullPath[A scatterplot of the residuals is shown. The points on the very left tend to be below the "y equals 0" line for the first 5 percent of the horizontal region, where the trend is sharply upwards to the "y equals 0" line. The points then tend to be stably clustered around "y equals 0", if not slightly above, with a slight downward trend evident in the observations on the right half of the plot. The vertical variability of observations is about stable throughout.]{0.42}{ch_regr_simple_linear/figures/eoce/trends_in_residuals/trends_in_residuals_log} \end{center}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="identify_relationships_1">
+        <title>Identify relationships, Part I</title>
+        <statement>
+          <p>For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable. \begin{center} \FigureFullPath[A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_u} \FigureFullPath[A scatterplot is shown. The start on the lower left corner, only spanning about 20 percent of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_pos_strong} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the points are appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_pos_weak} % \FigureFullPath[A scatterplot is shown. On the left side of the plot, the observations are in concentrated in the bottom half of the plot but rise steadily. The trend peaks near the center of the plot, where nearly all the points in the (horizontal) center region of the scatterplot are concentrated in the upper half of the scatterplot. On the right side of the plot, the points show a trend downwards, with points concentrated in the lower quarter of the scatterplot for the rightmost handful of points.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_n} \FigureFullPath[A scatterplot is shown. The start on the upper left corner, only spanning about 20 percent of the vertical region of the plot, and have a steady downwards trend to the bottom right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_neg_strong} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the points are appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident or at least obvious.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_none} \end{center}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="identify_relationships_2">
+        <title>Identify relationships, Part II</title>
+        <statement>
+          <p>For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable. \begin{center} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the observations are in concentrated in the upper corner of the plot, with a sharp trend downwards, before stabilizing, then rising slightly at halfway through the plot, reaching a peak, and then declining again, with a sharp decline on the right-most portion of the plot to the bottom-right corner of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_s} \FigureFullPath[A scatterplot is shown. On the left side of the plot, the observations are concentrated around a region about 30 percent of the way up from the bottom-left corner of the plot, there is a slight downward trend that reaches the bottom area of the plot for about the center half of the plot, then the points rise gradually and then sharply in the last 25-30 percent of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_hockey_stick} \FigureFullPath[A scatterplot is shown. Pointers in the leftmost region of the plot are concentrated in the lower-left corner, ranging from the bottom up to about 25 percent of the way up the plot. The points follow a steady upward trend to the top-right corner of the plot and show consistent vertical variability around the trend throughout.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_lin_strong} % \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There might be a very slight upward trend.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_weak} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_weaker} \FigureFullPath[A scatterplot is shown. The points on the leftmost side are concentrated in the upper half of the plot, and the data trend steadily downwards and with consistent variability to the bottom right portion of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_neg_lin_weak} \end{center}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="exams_grades_correlation">
+        <title>Exams and grades</title>
+        <statement>
+          <p>The two scatterplots below show the relationship between final and mid-semester exam grades recorded during several years for a Statistics course at a university. \begin{parts} \item Based on these graphs, which of the two exams has the strongest correlation with the final exam grade? Explain. \item Can you think of a reason why the correlation between the exam you chose in part (a) and the final exam is higher? \end{parts} \begin{center} \FigureFullPath[A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 1 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Only about ten Exam 1 scores are below 60, and these have Final Exam scores between about 55 and 85. Exam 1 scores between 60 and 80 represent about 50 percent of the points shown and have Final Exam scores mostly between 50 and 85. For the points where Midterm 1 scores are larger than 80, Final Exam scores mostly lie between 65 and 90, where a slightly upward trend is evident.]{0.485}{ch_regr_simple_linear/figures/eoce/exams_grades_correlation/exam_grades_1} % \FigureFullPath[A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 2 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Midterm 2 scores are roughly uniformly distributed across the full range. For Exam 2 scores below 60, these mostly have Final Exam scores between about 45 and 70. Exam 2 scores between 60 and 80 have Final Exam scores mostly between 55 and 80. For the points where Midterm 2 scores are larger than 80, Final Exam scores mostly lie between 70 and 90.]{0.485}{ch_regr_simple_linear/figures/eoce/exams_grades_correlation/exam_grades_2} \end{center}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="husbands_wives_correlation">
+        <title>Husbands and wives, Part I</title>
+        <statement>
+          <p>The Great Britain Office of Population Census and Surveys once collected data on a random sample of 170 married couples in Britain, recording the age (in years) and heights (converted here to inches) of the husbands and wives.\footfullcite{Hand:1994} The scatterplot on the left shows the wife's age plotted against her husband's age, and the plot on the right shows wife's height plotted against husband's height. \begin{center} \FigureFullPath[A scatterplot is shown. The horizontal axis represents "Husband's Age (in years)" with values ranging from about 20 to 65. The vertical axis represents "Wife's Age (in years)" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.]{0.35}{ch_regr_simple_linear/figures/eoce/husbands_wives_correlation/husbands_wives_age} \FigureFullPath[A scatterplot is shown. The horizontal axis represents "Husband's Height (in inches)" with values ranging from about 60 to 75. The vertical axis represents "Wife's Height (in inches)" with values ranging from about 55 to 70. When husband height is between 60 and 65, wife height mostly ranges from about 58 to 65 inches, though there are only about 10 points in this range, which is about 5 percent of the data. When husband height is between 65 and 70, wife height mostly ranges from 57 to 68 inches. When husband height is larger than 70 inches, wife height mostly ranges from 61 to about 74 inches.]{0.35}{ch_regr_simple_linear/figures/eoce/husbands_wives_correlation/husbands_wives_height} \end{center} \begin{parts} \item Describe the relationship between husbands' and wives' ages. \item Describe the relationship between husbands' and wives' heights. \item Which plot shows a stronger correlation? Explain your reasoning. \item Data on heights were originally collected in centimeters, and then converted to inches. Does this conversion affect the correlation between husbands' and wives' heights? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="match_corr_1">
+        <title>Match the correlation, Part I</title>
+        <statement>
+          <p>Match each correlation to the corresponding scatterplot. % \begin{parts} \item <m>R = -0.7</m> \item <m>R = 0.45</m> \item <m>R = 0.06</m> \item <m>R = 0.92</m> \end{parts} % \FigureFullPath[A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_1_u} \FigureFullPath[A scatterplot is shown. The start on the lower left corner, only spanning about 20 percent of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_2_strong_pos} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_3_weak_pos} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_4_weak_neg}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="match_corr_2">
+        <title>Match the correlation, Part II</title>
+        <statement>
+          <p>Match each correlation to the corresponding scatterplot. % \begin{parts} \item <m>R = 0.49</m> \item <m>R = -0.48</m> \item <m>R = -0.03</m> \item <m>R = -0.85</m> \end{parts} % \FigureFullPath[A scatterplot is shown. For the left half of the plot, the points are scattered around the upper half of the plot. On the right portion of the plot, the data show a clear downward trend, and for the points on the far right, they are concentrated in the lower 25 percent of the plot.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_1_strong_neg_curved} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_2_weak_pos} \FigureFullPath[A scatterplot is shown. The observations start in the lower left corner of the plot, trend sharply upwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster dropping to the lower right corner of the plot. The trend is approximately symmetric from left-to-right.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_3_n} \FigureFullPath[A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.]{0.245}{ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_4_weak_neg}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="speed_height_gender">
+        <title>Speed and height</title>
+        <statement>
+          <p>1,302 UCLA students were asked to fill out a survey where they were asked about their height, fastest speed they have ever driven, and gender. The scatterplot on the left displays the relationship between height and fastest speed, and the scatterplot on the right displays the breakdown by gender in this relationship. \begin{center} \FigureFullPath[A scatterplot is shown. The horizontal axis represents "Height (in inches)" with values ranging from about 50 to 80. The vertical axis represents "Fastest Speed (in mph)" and has values ranging from 0 to 150. First, it is worth noting that there several points along the bottom of the plot with a fastest speed of 0 mph. The remainder of the description will concentrate on the other points. A small portion of the points are shown with heights below 60 inches, and these have fastest speeds mostly ranging from about 70 to 110 mph. For points shown with heights between 60 and 70, fastest speeds mostly ranged from about 30 to 120 mph. For points shown with heights of 70 or more, fastest speeds mostly ranged from about 50 to 140 mph. There were no points corresponding to heights greater than 75 that had fastest speeds slower than about 75 mph, which left a sort of gap in the lower right portion of the scatterplot.]{0.4}{ch_regr_simple_linear/figures/eoce/speed_height_gender/speed_height} % \FigureFullPath[A scatterplot is shown, where points are colored to differentiate between males and females. The horizontal axis represents "Height (in inches)" with values ranging from about 50 to 80. The vertical axis represents "Fastest Speed (in mph)" and has values ranging from 0 to 150. Female heights are largely 70 inches or smaller, while Male heights are largely 65 inches and taller. When focusing exclusively on Females, no upward trend is evident, with about 95 percent of observations having Fastest Speed between about 30 mph and 120 mph. When focusing exclusively on Males, no upward trend is evident there either, with about 95 percent of observations having Fastest Speed between about 50 mph and 140 mph. In contrast, if we ignore the male/female differentiation, there is a slight upward trend in the points.]{0.4}{ch_regr_simple_linear/figures/eoce/speed_height_gender/speed_height_gender.pdf} \end{center} \begin{parts} \item Describe the relationship between height and fastest speed. \item Why do you think these variables are positively associated? \item What role does gender play in the relationship between height and fastest driving speed? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="guess_correlation">
+        <title>Guess the correlation</title>
+        <statement>
+          <p>Eduardo and Rosie are both collecting data on number of rainy days in a year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How will their correlation coefficients compare?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="coast_starlight_corr_units">
+        <title>The Coast Starlight, Part I</title>
+        <statement>
+          <p>The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes). {\raggedright\begin{parts} \item Describe the relationship between distance and travel time. \item How would the relationship change if travel time was instead measured in hours, and distance was instead measured in kilometers? \item The correlation between travel time (in miles) and distance (in minutes) is <m>r = 0.636</m>. Suppose we had instead measured travel time in hours and measured distance in kilometers (km). What would be the correlation in these different units? \end{parts}} <m>\:</m>\\ \FigureFullPath[A scatterplot is shown with about 15 points. The horizontal axis represents "Distance (miles)" with values ranging from just over 0 to about 350. The vertical axis represents "Travel Time (in minutes)" and has values ranging from about 20 to 380. The point with the smallest distance – about 10 miles – shows a travel time of about 40 minutes. Next, there is a cluster of 6 points with distances between 40 and 60 miles and travel times ranging from about 20 to 60 minutes. The remainder of the points are scattered pretty broadly but may show a slightly upward trend. A few points that highlight the widely varying nature of the data are located at the following approximate locations: (190 miles, 60 minutes), (240 miles, 250 minutes), (250 miles, 380 minutes), and (350 miles, 200 minutes).]{}{ch_regr_simple_linear/figures/eoce/coast_starlight_corr_units/coast_starlight}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="crawling_babies_corr_units">
+        <title>Crawling babies, Part I</title>
+        <statement>
+          <p>A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. \footfullcite{Benson:1993} Infants born during the study year were split into twelve groups, one for each birth month. We consider the average crawling age of babies in each group against the average temperature when the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in degrees Fahrenheit (\degree F) and age is measured in weeks. {\raggedright\begin{parts} \item Describe the relationship between temperature and crawling age. \item How would the relationship change if temperature was measured in degrees Celsius (\degree C) and age was measured in months? \item The correlation between temperature in \degree F and age in weeks was <m>r=-0.70</m>. If we converted the temperature to \degree C and age to months, what would the correlation be? \end{parts}} <m>\:</m>\\ \FigureFullPath[A scatterplot is shown with a dozen points. The horizontal axis is "Temperature (F)" with values ranging from 30 to 75. The vertical axis is "Average Crawling Age (weeks)" with values ranging from 28.5 to 34. For those points with temperatures from 30 to 40, average crawling ages range from 31.5 to 34. For the single point with temperatures between 40 to 50, average crawling age was about 33.5. For the two points with temperature between 50 and 60, average crawling age was 28.5 and 32.5. For the last 4 points with temperature above 60, average crawling ages were 32, 30, 30, and 30.5.]{}{ch_regr_simple_linear/figures/eoce/crawling_babies_corr_units/crawling_babies}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="body_measurements_shoulder_height_corr_units">
+        <title>Body measurements, Part I</title>
+        <statement>
+          <p>Researchers studying anthropometry collected body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender for 507 physically active individuals.\footfullcite{Heinz:2003} The scatterplot below shows the relationship between height and shoulder girth (over deltoid muscles), both measured in centimeters. % {\raggedright\begin{parts} \item Describe the relationship between shoulder girth and height. \item How would the relationship change if shoulder girth was measured in inches while the units of height remained in centimeters? \end{parts}} <m>\:</m>\\ \FigureFullPath[A scatter plot with several hundred points is shown. The horizontal axis represents "Shoulder Girth (cm)" with values ranging from about 85 to 135. The vertical axis represents "Height (cm)" with values ranging from about 145 to 200. For points where Shoulder Girth is smaller than 100, 95 percent of points have heights between 152 and 170. For points where Shoulder Girth is between 100 and 110, 95 percent of points have heights between 155 and 180. For points where Shoulder Girth is between 110 and 120, 95 percent of points have heights between 162 and 190. For points where Shoulder Girth larger than 120, 95 percent of points have heights between 170 and 190.]{}{ch_regr_simple_linear/figures/eoce/body_measurements_shoulder_height_corr_units/body_measurements_height_shoulder_girth}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="body_measurements_hip_weight_corr_units">
+        <title>Body measurements, Part II</title>
+        <statement>
+          <p>The scatterplot below shows the relationship between weight measured in kilograms and hip girth measured in centimeters from the data described in Exercise <xref ref="body_measurements_shoulder_height_corr_units"/>.% % {\raggedright\begin{parts} \item Describe the relationship between hip girth and weight. \item How would the relationship change if weight was measured in pounds while the units for hip girth remained in centimeters? \end{parts}} <m>\:</m>\\ \FigureFullPath[A scatter plot with several hundred points is shown. The horizontal axis represents "Hip Girth (cm)" with values ranging from about 80 to 115, with about 4 observations with larger hip girth up to about 130 cm. The vertical axis represents "Weight (kg)" with values ranging from about 40 to 105, with a few observations with larger weights up to 120. For points where Hip Girth is smaller than 90, 95 percent of points have weight between roughly 45 and 60. For points where Hip Girth is between 90 and 100, 95 percent of points have heights between roughly 50 and 80. For points where Hip Girth is between 100 and 110, 95 percent of points have heights between roughly 65 and 90. For points where Hip Girth is between 110 and 115, points have heights between roughly 70 and 105. There are four additional points located at about (115, 120), (115, 90), (118, 90), and (128, 105).]{}{ch_regr_simple_linear/figures/eoce/body_measurements_hip_weight_corr_units/body_measurements_weight_hip_girth.pdf}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="corr_husband_wife_age">
+        <title>Correlation, Part I</title>
+        <statement>
+          <p>What would be the correlation between the ages of husbands and wives if men always married woman who were \begin{parts} \item 3 years younger than themselves? \item 2 years older than themselves? \item half as old as themselves? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="corr_men_women_salary">
+        <title>Correlation, Part II</title>
+        <statement>
+          <p>What would be the correlation between the annual salaries of males and females at a company if for a certain type of position men always made \begin{parts} \item \$5,000 more than women? \item 25 percent more than women? \item 15 percent less than women? \end{parts}</p>
+        </statement>
+      </exercise>
+
   </subsection>
   </section>
 
@@ -169,16 +251,15 @@
     <title>Least squares regression</title>
 
     <p>Fitting linear models by eye is open to criticism since it is based on an individual's preference. In this section, we use <em>least squares regression</em> as a more rigorous approach.</p>
-    <subsection xml:id="">
+    <subsection>
       <title>Gift aid for freshman at Elmhurst College</title>
       <p>This section considers family income and gift aid data from a random sample of fifty students in the freshman class of Elmhurst College in Illinois. Gift aid is financial aid that does not need to be paid back, as opposed to a loan. A scatterplot of the data is shown in <xref ref="elmhurstScatterW2Lines"/> along with two linear fits. The lines follow a negative trend in the data; students who have higher family incomes tended to have lower gift aid from the university.</p>
       <figure xml:id="elmhurstScatterW2Lines">
       </figure>
 
-      <p>\footnotetext{Larger family incomes are associated with lower amounts of aid, so the correlation will be negative. Using a computer, the correlation can be computed: -0.499.}</p>
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>An objective measure for finding the best line</title>
       <p>We begin by thinking about what we mean by "best". Mathematically, we want a line that has small residuals. The first option that may come to mind is to minimize the sum of the residual magnitudes:</p>
       <me>|e_1| + |e_2| + \dots + |e_n|</me>
@@ -199,7 +280,7 @@
       <p>The first two reasons are largely for tradition and convenience; the last reason explains why the least squares criterion is typically most helpful.\footnote{There are applications where the sum of residual magnitudes may be more useful, and there are plenty of other criteria we might consider. However, this book only applies the least squares criterion.}</p>
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>Conditions for the least squares line</title>
       <dl>
         <li>
@@ -224,12 +305,13 @@
         <image source="ch_regr_simple_linear/figures/whatCanGoWrongWithLinearModel"/>
       </figure>
 
-      <p>\footnotetext{The trend appears to be linear, the data fall around the line with no obvious outliers, the variance is roughly constant. These are also not time series observations. Least squares regression can be applied to these data.}</p>
   </subsection>
 
     <subsection xml:id="findingTheLeastSquaresLineSection">
       <title>Finding the least squares line</title>
-      <p>For the Elmhurst data, we could write the equation of the least squares regression line as \begin{eqnarray*} \widehat{aid} = \beta_0 + \beta_{1}\times <em>family\us{</em>income} \end{eqnarray*} Here the equation is set up to predict gift aid based on a student's family income, which would be useful to students considering Elmhurst. These two values, <m>\beta_0</m> and <m>\beta_1</m>, are the parameters of the regression line.</p>
+      <p>For the Elmhurst data, we could write the equation of the least squares regression line as</p>
+      <me>\widehat{aid} = \beta_0 + \beta_{1}\times \textit{family\us{}income}</me>
+      <p>Here the equation is set up to predict gift aid based on a student's family income, which would be useful to students considering Elmhurst. These two values, <m>\beta_0</m> and <m>\beta_1</m>, are the parameters of the regression line.</p>
       <p>As in Chapters <xref ref="ch_foundations_for_inf"/>, <xref ref="ch_inference_for_props"/>, and <xref ref="ch_inference_for_means"/>, the parameters are estimated using observed data. In practice, this estimation is done using a computer in the same way that other estimates, like a sample mean, can be estimated using a computer or calculator. However, we can also find the parameter estimates by applying two properties of the least squares line:</p>
       <ul>
         <li>
@@ -246,7 +328,8 @@
         <caption>Summary statistics for family income and gift aid.</caption>
       </figure>
 
-      <p>\footnotetext{Compute the slope using the summary statistics from <xref ref="summaryStatsElmhurstRegr"/>: \begin{eqnarray*} b_1 = \frac{s_y}{s_x} R = \frac{\text{5,460}}{\text{63,200}}(-0.499) = -0.0431 \end{eqnarray*}}</p>
+      <p>\footnotetext{Compute the slope using the summary statistics from <xref ref="summaryStatsElmhurstRegr"/>:</p>
+      <me>b_1 = \frac{s_y}{s_x} R = \frac{\text{5,460}}{\text{63,200}}(-0.499) = -0.0431</me>
       <p>You might recall the <term>point-slope</term> form of a line from math class, which we can use to find the model fit, including the estimate of <m>b_0</m>. Given the slope of a line and a point on the line, <m>(x_0, y_0)</m>, the equation for the line can be written as</p>
       <me>y - y_0 = slope\times (x - x_0)</me>
       <assemblage>
@@ -266,10 +349,10 @@
       </assemblage>
 
       <example xml:id="">
-        <p>from the sample means and the slope estimate <m>b_1 = -0.0431</m> from Guided Practice <xref ref="findingTheSlopeOfTheLSRLineForIncomeAndAid"/>, find the least-squares line for predicting aid based on family income.} % Apply the point-slope equation using <m>(101.78, 19.94)</m> and the slope <m>b_1 = -0.0431</m>:</p>
+        <p>from the sample means and the slope estimate <m>b_1 = -0.0431</m> from Guided Practice <xref ref="findingTheSlopeOfTheLSRLineForIncomeAndAid"/>, find the least-squares line for predicting aid based on family income.} Apply the point-slope equation using <m>(101.78, 19.94)</m> and the slope <m>b_1 = -0.0431</m>:</p>
         <md>
-          <mrow>y - y_0    &= b_1 (x - x_0)</mrow>
-          <mrow>y - \text{19,940}  &= -0.0431(x - \text{101,780})</mrow>
+          <mrow>y - y_0 = b_1 (x - x_0)</mrow>
+          <mrow>y - \text{19,940} = -0.0431(x - \text{101,780})</mrow>
         </md>
         <p>Expanding the right side and then adding 19,940 to each side, the equation simplifies:</p>
         <me>\widehat{aid} = \text{24,327} - 0.0431 \times \textit{family\us{}income}</me>
@@ -290,7 +373,7 @@
 
   </subsection>
 
-    <subsection xml:id="">
+    <subsection xml:id="exampleToFindLSRLineOfElmhurstData">
       <title>Interpreting regression model parameter estimates</title>
       <example xml:id="">
         <p>the Elmhurst data are <m>b_0 = \text{24,319}</m> and <m>b_1 = -0.0431</m>. What do these numbers really mean?} Interpreting the slope parameter is helpful in almost any application. For each additional \$1,000 of family income, we would expect a student to receive a net difference of <m>\</m>\text{1,000}\times (-0.0431) = -<m>43.10</m> in aid on average, i.e. \$43.10 <em>less</em>. Note that a higher family income corresponds to less aid because the coefficient of family income is negative in the model. We must be cautious in this interpretation: while there is a real association, we cannot interpret a causal connection between the variables because these data are observational. That is, increasing a student's family income may not cause the student's aid to drop. (It would be reasonable to contact the college and ask if the relationship is causal, i.e. if Elmhurst College's aid decisions are partially based on students' family income.)</p>
@@ -304,7 +387,7 @@
 
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>Extrapolation is treacherous</title>
       <p>{\em\small When those blizzards hit the East Coast this winter, it proved to my satisfaction that global warming was a fraud. That snow was freezing cold. But in an alarming trend, temperatures this spring have risen. Consider this: On February <m>6^{th}</m> it was 10 degrees. Today it hit almost 80. At this rate, by August it will be 220 degrees. So clearly folks the climate debate rages on.}</p>
       <p>Stephen Colbert</p>
@@ -319,7 +402,7 @@
       <p>Applying a model estimate to values outside of the realm of the original data is called <term>extrapolation</term>. Generally, a linear model is only an approximation of the real relationship between two variables. If we extrapolate, we are making an unreliable bet that the approximate linear relationship will be valid in places where it has not been analyzed.</p>
   </subsection>
 
-    <subsection xml:id="">
+    <subsection>
       <title>Using <m>R^2</m> to describe the strength of a fit</title>
       <p>We evaluated the strength of the linear relationship between two variables earlier using the correlation, <m>R</m>. However, it is more common to explain the strength of a linear fit using <m>R^2</m>, called <term>R-squared</term>.  If provided with a linear model, we might like to describe how closely the data cluster around the linear fit.</p>
       <figure xml:id="elmhurstScatterWLSROnly">
@@ -328,7 +411,7 @@
       <p>The <m>R^2</m> of a linear model describes the amount of variation in the response that is explained by the least squares line. For example, consider the Elmhurst data, shown in <xref ref="elmhurstScatterWLSROnly"/>. The variance of the response variable, aid received, is about <m>s_{aid}^2 \approx 29.8</m> million. However, if we apply our least squares line, then this model reduces our uncertainty in predicting aid using a student's family income. The variability in the residuals describes how much variation remains after using the model: <m>s_{_{RES}}^2 \approx 22.4</m> million. In short, there was a reduction of</p>
       <me>\frac{s_{aid}^2 - s_{_{RES}}^2}{s_{aid}^2} = \frac{\text{29,800,000} - \text{22,400,000}} {\text{29,800,000}} = \frac{\text{7,500,000}}{\text{29,800,000}} = 0.25</me>
       <p>or about 25 percent in the data's variation by using information about family income for predicting aid using a linear model. This corresponds exactly to the R-squared value:</p>
-      <me>R &= -0.499 &R^2 &= 0.25</me>
+      <me>R = -0.499 R^2 = 0.25</me>
       <p>\footnotetext{About <m>R^2 = (-0.97)^2 = 0.94</m> or 94 percent of the variation is explained by the linear model.}</p>
   </subsection>
 
@@ -359,68 +442,76 @@
       </assemblage>
 
       <p>We'll elaborate further on this topic in <xref ref="ch_regr_mult_and_log"/>, where we examine the influence of many predictor variables simultaneously using multiple regression.</p>
-      <p>\FigureFullPath[A residual plot is shown. The horizontal axis represents "Number of tourists" and has values ranging from about 0 to about 27 million. Residuals are shown on the vertical axis and have values ranging from about -<m>1.5 billion to about \</m>1.2 billion. The points on the far left between 0 and 3 million tourists shows a "v" pattern. There are about 15 points with number of tourists between 3 million and 10 million, which shows an slight upward trend from about -<m>700 million to \</m>1.2 billion. There about 10 points with number of tourists greater than 10 million up to about 27 million, and these show a slight downward trend from about <m>1 billion to -\</m>1.5 billion.]{0.32}{ch_regr_simple_linear/figures/eoce/tourism_spending_reg_conds/tourism_spending_count_residuals} \FigureFullPath[A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about \$500 million.]{0.32}{ch_regr_simple_linear/figures/eoce/tourism_spending_reg_conds/tourism_spending_count_residuals_hist} \end{center} \begin{parts}</p>
-      <li>
-        <p>Describe the relationship between number of tourists and spending.</p>
-      </li>
-      <li>
-        <p>What are the explanatory and response variables?</p>
-      </li>
-      <li>
-        <p>Why might we want to fit a regression line to these data?</p>
-      </li>
-      <li>
-        <p>Do the data meet the conditions required for fitting a least squares line? In addition to the scatterplot, use the residual plot and histogram to answer this question.</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\FigureFullPath[A residual plot is shown with about 75 points. The horizontal axis represents "Calories" and has values ranging from about 100 to 500. The vertical axis represents "Residuals" and has values ranging from about -30 to 30. About 15 points are shown with fewer than 200 calories, and these have residuals roughly between -7 and positive 2. About 30 points are shown with 200 to 400 calories, and these residuals largely range from about -15 to positive 15. About 20 points are shown with more than 400 calories, and the residuals for these points mostly range between -20 and positive 20.]{0.32}{ch_regr_simple_linear/figures/eoce/starbucks_cals_carbos/starbucks_cals_carbos_residuals} \FigureFullPath[A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about 10.]{0.32}{ch_regr_simple_linear/figures/eoce/starbucks_cals_carbos/starbucks_cals_carbos_residuals_hist} \end{center} \begin{parts}</p>
-      <li>
-        <p>Describe the relationship between number of calories and amount of carbohydrates (in grams) that Starbucks food menu items contain.</p>
-      </li>
-      <li>
-        <p>In this scenario, what are the explanatory and response variables?</p>
-      </li>
-      <li>
-        <p>Why might we want to fit a regression line to these data?</p>
-      </li>
-      <li>
-        <p>Do these data meet the conditions required for fitting a least squares line?</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\hline & Estimate & Std. Error & t value & Pr(<m>></m><m>|</m>t<m>|</m>) \\ \hline (Intercept) & -29.901 & 7.789 & -3.839 & 0.001 \\ poverty percent & 2.559 & 0.390 & 6.562 & 0.000 \\ \hline \end{tabular} \\ <m>s = 5.512 \hfill R^2 = 70.52\% \hfill R^2_{adj} = 68.89\%</m> } \begin{parts}</p>
-      <li>
-        <p>Write out the linear model.</p>
-      </li>
-      <li>
-        <p>Interpret the intercept.</p>
-      </li>
-      <li>
-        <p>Interpret the slope.</p>
-      </li>
-      <li>
-        <p>Interpret <m>R^2</m>.</p>
-      </li>
-      <li>
-        <p>Calculate the correlation coefficient.</p>
-      </li>
-      <p>\end{parts} \end{minipage} \begin{minipage}[c]{0.02\textwidth} <m>\:</m>\\ \end{minipage} \begin{minipage}[c]{0.41\textwidth} \FigureFullPath[A scatterplot is shown with 20 points. The horizontal axis is "Percent in Poverty" and has values ranging from 14 percent to 26 percent. The vertical axis is "Annual Murders per Million" with values ranging from about 5 to 40. There are 6 points with poverty below 18 percent, and the Murder Rate for these values ranges from 5 to 13, with one exception of a point at about 17 percent with a murder rate of about 25. There are 9 points with a poverty rate of 18 percent to 22 percent, and the murder rate for these points largely range from 14 to 25, with one exception of a point at about 21 percent poverty and a murder rate of 35. There are 5 points where poverty is larger than 22 percent, and these have murder rates ranging from 25 to 40.]{}{ch_regr_simple_linear/figures/eoce/murders_poverty_reg/murders_poverty.pdf} \end{minipage} }{}</p>
-      <p>\hline & Estimate & Std. Error & t value & Pr(<m>></m><m>|</m>t<m>|</m>) \\ \hline (Intercept) & -0.357 & 0.692 & -0.515 & 0.607 \\ body wt & 4.034 & 0.250 & 16.119 & 0.000 \\ \hline \end{tabular} \\ <m>s = 1.452 \hfill R^2 = 64.66\% \hfill R^2_{adj} = 64.41\%</m> } \begin{parts}</p>
-      <li>
-        <p>Write out the linear model.</p>
-      </li>
-      <li>
-        <p>Interpret the intercept.</p>
-      </li>
-      <li>
-        <p>Interpret the slope.</p>
-      </li>
-      <li>
-        <p>Interpret <m>R^2</m>.</p>
-      </li>
-      <li>
-        <p>Calculate the correlation coefficient.</p>
-      </li>
-      <p>\end{parts} \end{minipage} \begin{minipage}[c]{0.02\textwidth} <m>\:</m>\\ \end{minipage} \begin{minipage}[c]{0.41\textwidth} \FigureFullPath[A scatterplot is shown with about 150 points. The horizontal axis is "Body weight, in kilograms" and has values ranging from 2 to 4. The vertical axis is "Heart weight, in grams" with values ranging from about 5 to 20. About 25 percent of the data has a body weight below 2.5 kilograms, and these have heart weights mostly ranging from 7 to 11 grams. About 35 percent of the data has body weights between 2.5 and 3 kilograms, and the heart weight for these values mostly ranges from 8 to 12 grams. About 30 percent of the data has body weights between 3 and 3.5 kilograms, and the heart weight for these values mostly ranges from 11 to 15 grams. About 10 percent of the data has body weights above 3.5 kilograms, and the heart weight for these values mostly ranges from 12 to 17 grams.]{}{ch_regr_simple_linear/figures/eoce/cat_body_heart_reg/cat_body_heart.pdf} \end{minipage} }{}</p>
+      <exercise xml:id="regression_units">
+        <title>Units of regression</title>
+        <statement>
+          <p>Consider a regression predicting weight (kg) from height (cm) for a sample of adult males. What are the units of the correlation coefficient, the intercept, and the slope?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="which_higher_scatter">
+        <title>Which is higher</title>
+        <statement>
+          <p>Determine if I or II is higher or if they are equal. Explain your reasoning. For a regression line, the uncertainty associated with the slope estimate, <m>b_1</m>, is higher when \begin{enumerate} \item[I.] there is a lot of scatter around the regression line or \item[II.] there is very little scatter around the regression line \end{enumerate}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="residual_apple_weight">
+        <title>Over-under, Part I</title>
+        <statement>
+          <p>Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="residual_sun_cancer">
+        <title>Over-under, Part II</title>
+        <statement>
+          <p>Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="tourism_spending_reg_conds">
+        <title>Tourism spending</title>
+        <statement>
+          <p>The Association of Turkish Travel Agencies reports the number of foreign tourists visiting Turkey and tourist spending by year. \footfullcite{data:turkeyTourism} Three plots are provided: scatterplot showing the relationship between these two variables along with the least squares fit, residuals plot, and histogram of residuals. \begin{center} \FigureFullPath[A scatterplot with a least squares regression line is fit based on about 50 points. The horizontal axis represents "Number of tourists" and has values ranging from about 0 to about 27 million. The vertical axis represents "Spending, in US dollars", with values ranging from about <m>0 to about \</m>17 billion. There are many points shown with the number of tourists between 0 and 5 million, which has spending between about <m>0 and \</m>3 billion, where even on this small scale a roughly linear trend is evident. The linear trend continues on across the plot and is quite strong – where residuals generally do not deviate from the least square line by more than very roughly <m>1 billion. The data are also more sparse for larger values in the plot. There is one region in the center of the plot where about 10 points in a row lie above the regression line. Also consider the next two plots before answering any questions for this exercise.]{0.32}{ch_regr_simple_linear/figures/eoce/tourism_spending_reg_conds/tourism_spending_count} \FigureFullPath[A residual plot is shown. The horizontal axis represents "Number of tourists" and has values ranging from about 0 to about 27 million. Residuals are shown on the vertical axis and have values ranging from about -\</m>1.5 billion to about <m>1.2 billion. The points on the far left between 0 and 3 million tourists shows a "v" pattern. There are about 15 points with number of tourists between 3 million and 10 million, which shows an slight upward trend from about -\</m>700 million to <m>1.2 billion. There about 10 points with number of tourists greater than 10 million up to about 27 million, and these show a slight downward trend from about \</m>1 billion to -<m>1.5 billion.]{0.32}{ch_regr_simple_linear/figures/eoce/tourism_spending_reg_conds/tourism_spending_count_residuals} \FigureFullPath[A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about \</m>500 million.]{0.32}{ch_regr_simple_linear/figures/eoce/tourism_spending_reg_conds/tourism_spending_count_residuals_hist} \end{center} \begin{parts} \item Describe the relationship between number of tourists and spending. \item What are the explanatory and response variables? \item Why might we want to fit a regression line to these data? \item Do the data meet the conditions required for fitting a least squares line? In addition to the scatterplot, use the residual plot and histogram to answer this question. \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="starbucks_cals_carbos">
+        <title>Nutrition at Starbucks, Part I</title>
+        <statement>
+          <p>The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain.\footfullcite{data:starbucksCals} Since Starbucks only lists the number of calories on the display items, we are interested in predicting the amount of carbs a menu item has based on its calorie content. \begin{center} \FigureFullPath[A scatterplot is shown with about 75 points and an overlaid regression line that trends upward. The horizontal axis represents "Calories" and has values ranging from about 100 to 500. The vertical axis represents "Carbs, in grams" and has values ranging from about 20 to 80. About 15 points are shown with fewer than 200 calories, and these have between about 18 and 25 grams of carbs. About 30 points are shown with 200 to 400 calories, and these mostly have between 30 and 60 grams of carbs. About 20 points are shown with more than 400 calories, and these mostly have between 35 and 80 grams of carbs.]{0.32}{ch_regr_simple_linear/figures/eoce/starbucks_cals_carbos/starbucks_cals_carbos} \FigureFullPath[A residual plot is shown with about 75 points. The horizontal axis represents "Calories" and has values ranging from about 100 to 500. The vertical axis represents "Residuals" and has values ranging from about -30 to 30. About 15 points are shown with fewer than 200 calories, and these have residuals roughly between -7 and positive 2. About 30 points are shown with 200 to 400 calories, and these residuals largely range from about -15 to positive 15. About 20 points are shown with more than 400 calories, and the residuals for these points mostly range between -20 and positive 20.]{0.32}{ch_regr_simple_linear/figures/eoce/starbucks_cals_carbos/starbucks_cals_carbos_residuals} \FigureFullPath[A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about 10.]{0.32}{ch_regr_simple_linear/figures/eoce/starbucks_cals_carbos/starbucks_cals_carbos_residuals_hist} \end{center} \begin{parts} \item Describe the relationship between number of calories and amount of carbohydrates (in grams) that Starbucks food menu items contain. \item In this scenario, what are the explanatory and response variables? \item Why might we want to fit a regression line to these data? \item Do these data meet the conditions required for fitting a least squares line? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="coast_starlight_reg">
+        <title>The Coast Starlight, Part II</title>
+        <statement>
+          <p>Exercise <xref ref="coast_starlight_corr_units"/> introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 mins, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636. \begin{parts} \item Write the equation of the regression line for predicting travel time. \item Interpret the slope and the intercept in this context. \item Calculate <m>R^2</m> of the regression line for predicting travel time from distance traveled for the Coast Starlight, and interpret <m>R^2</m> in the context of the application. \item The distance between Santa Barbara and Los Angeles is 103 miles. Use the model to estimate the time it takes for the Starlight to travel between these two cities. \item It actually takes the Coast Starlight about 168 mins to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value. \item Suppose Amtrak is considering adding a stop to the Coast Starlight 500 miles away from Los Angeles. Would it be appropriate to use this linear model to predict the travel time from Los Angeles to this point? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="body_measurements_shoulder_height_reg">
+        <title>Body measurements, Part III</title>
+        <statement>
+          <p>Exercise <xref ref="body_measurements_shoulder_height_corr_units"/> introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67. \begin{parts} \item Write the equation of the regression line for predicting height. \item Interpret the slope and the intercept in this context. \item Calculate <m>R^2</m> of the regression line for predicting height from shoulder girth, and interpret it in the context of the application. \item A randomly selected student from your class has a shoulder girth of 100 cm. Predict the height of this student using the model. \item The student from part (d) is 160 cm tall. Calculate the residual, and explain what this residual means. \item A one year old has a shoulder girth of 56 cm. Would it be appropriate to use this linear model to predict the height of this child? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="murders_poverty_reg">
+        <title>Murders and poverty, Part I</title>
+        <statement>
+          <p>The following regression output is for predicting annual murders per million from percentage living in poverty in a random sample of 20 metropolitan areas.\\[2mm] {\footnotesize \begin{tabular}{rrrrr} \hline &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \\ \hline (Intercept) &amp; -29.901 &amp; 7.789 &amp; -3.839 &amp; 0.001 \\ poverty percent &amp; 2.559 &amp; 0.390 &amp; 6.562 &amp; 0.000 \\ \hline \end{tabular} \\ <m>s = 5.512 R^2 = 70.52\% R^2_{adj} = 68.89\%</m> } \begin{parts} \item Write out the linear model. \item Interpret the intercept. \item Interpret the slope. \item Interpret <m>R^2</m>. \item Calculate the correlation coefficient. \end{parts} <m>\:</m>\\ \FigureFullPath[A scatterplot is shown with 20 points. The horizontal axis is "Percent in Poverty" and has values ranging from 14 percent to 26 percent. The vertical axis is "Annual Murders per Million" with values ranging from about 5 to 40. There are 6 points with poverty below 18 percent, and the Murder Rate for these values ranges from 5 to 13, with one exception of a point at about 17 percent with a murder rate of about 25. There are 9 points with a poverty rate of 18 percent to 22 percent, and the murder rate for these points largely range from 14 to 25, with one exception of a point at about 21 percent poverty and a murder rate of 35. There are 5 points where poverty is larger than 22 percent, and these have murder rates ranging from 25 to 40.]{}{ch_regr_simple_linear/figures/eoce/murders_poverty_reg/murders_poverty.pdf}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="cat_body_heart_reg">
+        <title>Cats, Part I</title>
+        <statement>
+          <p>The following regression output is for predicting the heart weight (in g) of cats from their body weight (in kg). The coefficients are estimated using a dataset of 144 domestic cats.\\[2mm] {\footnotesize \begin{tabular}{rrrrr} \hline &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \\ \hline (Intercept) &amp; -0.357 &amp; 0.692 &amp; -0.515 &amp; 0.607 \\ body wt &amp; 4.034 &amp; 0.250 &amp; 16.119 &amp; 0.000 \\ \hline \end{tabular} \\ <m>s = 1.452 R^2 = 64.66\% R^2_{adj} = 64.41\%</m> } \begin{parts} \item Write out the linear model. \item Interpret the intercept. \item Interpret the slope. \item Interpret <m>R^2</m>. \item Calculate the correlation coefficient. \end{parts} <m>\:</m>\\ \FigureFullPath[A scatterplot is shown with about 150 points. The horizontal axis is "Body weight, in kilograms" and has values ranging from 2 to 4. The vertical axis is "Heart weight, in grams" with values ranging from about 5 to 20. About 25 percent of the data has a body weight below 2.5 kilograms, and these have heart weights mostly ranging from 7 to 11 grams. About 35 percent of the data has body weights between 2.5 and 3 kilograms, and the heart weight for these values mostly ranges from 8 to 12 grams. About 30 percent of the data has body weights between 3 and 3.5 kilograms, and the heart weight for these values mostly ranges from 11 to 15 grams. About 10 percent of the data has body weights above 3.5 kilograms, and the heart weight for these values mostly ranges from 12 to 17 grams.]{}{ch_regr_simple_linear/figures/eoce/cat_body_heart_reg/cat_body_heart.pdf}</p>
+        </statement>
+      </exercise>
+
   </subsection>
   </section>
 
@@ -464,22 +555,47 @@
 
     <p>Points that fall horizontally far from the line are points of high leverage; these points can strongly influence the slope of the least squares line. If one of these high leverage points does appear to actually invoke its influence on the slope of the line – as in cases (3), (4), and (5) of <xref ref="outlierPlotsExample"/> – then we call it an <term>influential point</term>. Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.</p>
     <p>It is tempting to remove outliers. Don't do this without a very good reason. Models that ignore exceptional (and interesting) cases often perform poorly. For instance, if a financial firm ignored the largest market swings – the "outliers" – they would soon go bankrupt by making poorly thought-out investments.</p>
-    <p>\FigureFullPath[A clear downward trend is evident in the points on the left third of the plot with a regression line overlaying these points and extending to a single point on the far bottom right of the plot that is also almost exactly on the regression line.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_1/outliers_2_leverage} \FigureFullPath[A downward trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_1/outliers_3_outlier} \end{center} }{}</p>
-    <p>\FigureFullPath[A clear upward trend is evident in the points on the right half of the plot with a regression line approximately overlaying these points and extending towards a single point on the far bottom left of the plot, but the regression line is notably higher than this single point, which would have by far the largest residual (in absolute value) of all other points shown in the plot. Close inspection of the regression line fit over the bulk of points, it appears to be partially misfitting that data, "pulled" down on the left side.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_2/outliers_2_influential} \FigureFullPath[An upper trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_2/outliers_3_outlier} \end{center} }{}</p>
-    <p>\end{minipage} }{}</p>
+    <exercise xml:id="outliers_1">
+      <title>Outliers, Part I</title>
+      <statement>
+        <p>Identify the outliers in the scatterplots shown below, and determine what type of outliers they are. Explain your reasoning. \begin{center} \FigureFullPath[Most of the data is shown in the left third of the plot with a clear downward, linear trend extending from from the upper-left corner of the plot and to the bottom of the plot only a third of the way from the left side of the plot. A single point is shown on the bottom-right of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: On the furthest left portion, the line is below the points, crosses over the trend of the bulk of the data, then lies above the remainder of the bulk of the data. If it were shown fully, it would extend well below the single point on the bottom-right.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_1/outliers_1_influential} \FigureFullPath[A clear downward trend is evident in the points on the left third of the plot with a regression line overlaying these points and extending to a single point on the far bottom right of the plot that is also almost exactly on the regression line.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_1/outliers_2_leverage} \FigureFullPath[A downward trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_1/outliers_3_outlier} \end{center}</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="outliers_2">
+      <title>Outliers, Part II</title>
+      <statement>
+        <p>Identify the outliers in the scatterplots shown below and determine what type of outliers they are. Explain your reasoning. \begin{center} \FigureFullPath[Most of the data is shown in the right half of the plot with a clear upward, linear trend extending from from the bottom-center and extending to the upper-right corner of the plot. A single point is shown on the upper-left of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: Focusing first on the bulk of points at the bottom center of the plot, the regression line is well above these points, crosses over the trend of the bulk of the data about 25 percent from the right of the plot, then lies below the remainder of the bulk of the data in the upper-right. If it were shown fully, the regression line would extend well below the single point on the upper-left.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_2/outliers_1_influential} \FigureFullPath[A clear upward trend is evident in the points on the right half of the plot with a regression line approximately overlaying these points and extending towards a single point on the far bottom left of the plot, but the regression line is notably higher than this single point, which would have by far the largest residual (in absolute value) of all other points shown in the plot. Close inspection of the regression line fit over the bulk of points, it appears to be partially misfitting that data, "pulled" down on the left side.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_2/outliers_2_influential} \FigureFullPath[An upper trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.]{0.32}{ch_regr_simple_linear/figures/eoce/outliers_2/outliers_3_outlier} \end{center}</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="urban_homeowners_outlier">
+      <title>Urban homeowners, Part I</title>
+      <statement>
+        <p>The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. \footfullcite{data:urbanOwner} There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included. \begin{parts} \item Describe the relationship between the percent of families who own their home and the percent of the population living in urban areas. \item The outlier at the bottom right corner is District of Columbia, where 100 percent of the population is considered urban. What type of an outlier is this observation? \end{parts} <m>\:</m>\\ \FigureFullPath[A scatterplot is shown with about 50 points. The horizontal axis is for "Percent Urban Population" and has values ranging from 40 percent to 100 percent. The vertical axis is for "Percent Own Their Home" with values ranging from about 40 percent to about 75 percent. About 10 points have Urban Population with values smaller than 60 percent, and these have Homeownership rates between 65 percent and 75 percent, with most of those points above 70 percent. About 20 points have Urban Population with values between 60 percent and 70 percent, and these have Homeownership rates between 62 percent and 75 percent. About 20 points have Urban Population with values greater than 70 percent, and these have Homeownership rates between 55 percent and 73 percent, with one exception of a point with 100 percent urban population that has a homeownership rate of about 43 percent.]{0.95}{ch_regr_simple_linear/figures/eoce/urban_homeowners_outlier/urban_homeowners_outlier}</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="crawling_babies_outlier">
+      <title>Crawling babies, Part II</title>
+      <statement>
+        <p>Exercise <xref ref="crawling_babies_corr_units"/> introduces data on the average monthly temperature during the month babies first try to crawl (about 6 months after birth) and the average first crawling age for babies born in a given month. A scatterplot of these two variables reveals a potential outlying month when the average temperature is about 53\degree F and average crawling age is about 28.5 weeks. Does this point have high leverage? Is it an influential point?</p>
+      </statement>
+    </exercise>
+
   </section>
 
-  <section xml:id="inferenceForLinearRegression">
+  <section xml:id="outlierPlotsExample">
     <title>Inference for linear regression</title>
 
     <p>In this section, we discuss uncertainty in the estimates of the slope and y-intercept for a regression line. Just as we identified standard errors for point estimates in previous chapters, we first discuss standard errors for these new estimates.</p>
-    <subsection xml:id="">
+    <subsection xml:id="inferenceForLinearRegression">
       <title>Midterm elections and unemployment</title>
       <p>Elections for members of the United States House of Representatives occur every two years, coinciding every four years with the U.S. Presidential election. The set of House elections occurring during the middle of a Presidential term are called \indexthis{midterm elections}{midterm election}. In America's two-party system, one political theory suggests the higher the unemployment rate, the worse the President's party will do in the midterm elections.</p>
       <p>To assess the validity of this claim, we can compile historical data and look for a connection. We consider every midterm election from 1898 to 2018, with the exception of those elections during the Great Depression. <xref ref="unemploymentAndChangeInHouse"/> shows these data and the least-squares regression line:</p>
       <md>
-        <mrow>&\text{\% change in House seats for President's party}</mrow>
-        <mrow>&\qquad\qquad= -7.36 - 0.89 \times \text{(unemployment rate)}</mrow>
+        <mrow>\text{\% change in House seats for President's party}</mrow>
+        <mrow>\qquad\qquad= -7.36 - 0.89 \times \text{(unemployment rate)}</mrow>
       </md>
       <p>We consider the percent change in the number of seats of the President's party (e.g. percent change in the number of seats for Republicans in 2018) against the unemployment rate.</p>
       <p>Examining the data, there are no clear deviations from linearity, the constant variance condition, or substantial outliers. While the data are collected sequentially, a separate analysis was used to check for any apparent correlation between successive observations; no such correlation was found.</p>
@@ -527,7 +643,7 @@
 
       <example xml:id="">
         <title>Examine Figure \vref{elmhurstScatterWLSROnly</title>
-        <p>which relates the Elmhurst College aid and student family income. How sure are you that the slope is statistically significantly different from zero? That is, do you think a formal hypothesis test would reject the claim that the true slope of the line should be zero?} % While the relationship between the variables is not perfect, there is an evident decreasing trend in the data. This suggests the hypothesis test will reject the null claim that the slope is zero.</p>
+        <p>which relates the Elmhurst College aid and student family income. How sure are you that the slope is statistically significantly different from zero? That is, do you think a formal hypothesis test would reject the claim that the true slope of the line should be zero?} While the relationship between the variables is not perfect, there is an evident decreasing trend in the data. This suggests the hypothesis test will reject the null claim that the slope is zero.</p>
       </example>
 
       <li>
@@ -544,7 +660,7 @@
     <p>\newpage</p>
   </subsection>
 
-    <subsection xml:id="">
+    <subsection xml:id="overallAidIncomeInfAssessOfRegrLineSlope">
       <title>Confidence interval for a coefficient</title>
       <p>Similar to how we can conduct a hypothesis test for a model coefficient using regression output, we can also construct a confidence interval for that coefficient.</p>
       <example xml:id="">
@@ -562,72 +678,48 @@
       </assemblage>
 
       <p>On the topic of intervals in this book, we've focused exclusively on confidence intervals for model parameters. However, there are other types of intervals that may be of interest, including prediction intervals for a response value and also confidence intervals for a mean response value in the context of regression. These two interval types are introduced in an online extra that you may download at \begin{center} \oiRedirect{stat_extra_linear_regression_supp} {www.openintro.org/d?file=stat_extra_linear_regression_supp} \end{center}</p>
-      <p>\end{center} \end{minipage} \begin{minipage}[c]{0.6\textwidth} {\scriptsize \begin{center} \begin{tabular}{rrrrr} \hline & Estimate & Std. Error & t value & Pr(<m>></m><m>|</m>t<m>|</m>) \\ \hline (Intercept) & -105.0113 & 7.5394 & -13.93 & 0.0000 \\ height & 1.0176 & 0.0440 & 23.13 & 0.0000 \\ \hline \end{tabular} \end{center} } \end{minipage} \begin{parts}</p>
-      <li>
-        <p>Describe the relationship between height and weight.</p>
-      </li>
-      <li>
-        <p>Write the equation of the regression line. Interpret the slope and intercept in context.</p>
-      </li>
-      <li>
-        <p>Do the data provide strong evidence that an increase in height is associated with an increase in weight? State the null and alternative hypotheses, report the p-value, and state your conclusion.</p>
-      </li>
-      <li>
-        <p>The correlation coefficient for height and weight is 0.72. Calculate <m>R^2</m> and interpret it in context.</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\end{center} \end{minipage} \begin{minipage}[c]{0.6\textwidth} {\scriptsize \begin{center} \begin{tabular}{rrrrr} \hline & Estimate & Std. Error & t value & Pr(<m>></m><m>|</m>t<m>|</m>) \\ \hline (Intercept) & -0.0127 & 0.0126 & -1.00 & 0.3320 \\ beers & 0.0180 & 0.0024 & 7.48 & 0.0000 \\ \hline \end{tabular} \end{center} } \end{minipage} \begin{parts}</p>
-      <li>
-        <p>Describe the relationship between the number of cans of beer and BAC.</p>
-      </li>
-      <li>
-        <p>Write the equation of the regression line. Interpret the slope and intercept in context.</p>
-      </li>
-      <li>
-        <p>Do the data provide strong evidence that drinking more cans of beer is associated with an increase in blood alcohol? State the null and alternative hypotheses, report the p-value, and state your conclusion.</p>
-      </li>
-      <li>
-        <p>The correlation coefficient for number of cans of beer and BAC is 0.89. Calculate <m>R^2</m> and interpret it in context.</p>
-      </li>
-      <li>
-        <p>Suppose we visit a bar, ask people how many drinks they have had, and also take their BAC. Do you think the relationship between number of drinks and BAC would be as strong as the relationship found in the Ohio State study?</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\end{center} \end{minipage} \begin{minipage}[c]{0.6\textwidth} {\scriptsize \begin{center} \begin{tabular}{rrrrr} \hline & Estimate & Std. Error & t value & Pr(<m>></m><m>|</m>t<m>|</m>) \\ \hline (Intercept) & 43.5755 & 4.6842 & 9.30 & 0.0000 \\ height_husband & 0.2863 & 0.0686 & 4.17 & 0.0000 \\ \hline \end{tabular} \end{center} } \end{minipage} \begin{parts}</p>
-      <li>
-        <p>Is there strong evidence that taller men marry taller women? State the hypotheses and include any information used to conduct the test.</p>
-      </li>
-      <li>
-        <p>Write the equation of the regression line for predicting wife's height from husband's height.</p>
-      </li>
-      <li>
-        <p>Interpret the slope and intercept in the context of the application.</p>
-      </li>
-      <li>
-        <p>Given that <m>R^2 = 0.09</m>, what is the correlation of heights in this data set?</p>
-      </li>
-      <li>
-        <p>You meet a married man from Britain who is 5'9" (69 inches). What would you predict his wife's height to be? How reliable is this prediction?</p>
-      </li>
-      <li>
-        <p>You meet another married man from Britain who is 6'7" (79 inches). Would it be wise to use the same linear model to predict his wife's height? Why or why not?</p>
-      </li>
-      <p>\end{parts} }{}</p>
-      <p>\end{center} \end{minipage} }{}</p>
-      <p>\hline & Estimate & Std. Error & t value & Pr(<m>></m><m>|</m>t<m>|</m>) \\ \hline (Intercept) & -29.901 & 7.789 & -3.839 & 0.001 \\ poverty percent & 2.559 & 0.390 & 6.562 & 0.000 \\ \hline \end{tabular} <me> s = 5.512 \qquad R^2 = 70.52\% \qquad R^2_{adj} = 68.89\% </me> \end{center} \begin{parts}</p>
-      <li>
-        <p>What are the hypotheses for evaluating whether poverty percentage is a significant predictor of murder rate?</p>
-      </li>
-      <li>
-        <p>State the conclusion of the hypothesis test from part (a) in context of the data.</p>
-      </li>
-      <li>
-        <p>Calculate a 95 percent confidence interval for the slope of poverty percentage, and interpret it in context of the data.</p>
-      </li>
-      <li>
-        <p>Do your results from the hypothesis test and the confidence interval agree? Explain.</p>
-      </li>
-      <p>\end{parts} }{}</p>
+      <exercise xml:id="body_measurements_weight_height_inf">
+        <title>Body measurements, Part IV</title>
+        <statement>
+          <p>The scatterplot and least squares summary below show the relationship between weight measured in kilograms and height measured in centimeters of 507 physically active individuals. \begin{center} \FigureFullPath[A scatterplot is shown with around 500 points. The horizontal axis is for "Height, in centimeters" and takes values between about 150 to 200 centimeters. The vertical axis is for "Weight, in kilograms" and takes values between about 40 to 120 centimeters. For heights smaller than about 160 centimeters, weights mostly range between 45 and 70 kilograms. For heights between 160 and 175 centimeters, weights mostly range between 55 and 80 kilograms. For heights between 175 and 185 centimeters, weights mostly range between 65 and 90 kilograms. For heights between 185 and 195 centimeters, where there are fewer points, weights mostly range between 80 and 95 kilograms. There are two points with heights at about than 196cm, and these have weights of about 85 and 95 kilograms.]{}{ch_regr_simple_linear/figures/eoce/body_measurements_weight_height_inf/body_measurements_weight_height} \end{center} {\scriptsize \begin{center} \begin{tabular}{rrrrr} \hline &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \\ \hline (Intercept) &amp; -105.0113 &amp; 7.5394 &amp; -13.93 &amp; 0.0000 \\ height &amp; 1.0176 &amp; 0.0440 &amp; 23.13 &amp; 0.0000 \\ \hline \end{tabular} \end{center} } \begin{parts} \item Describe the relationship between height and weight. \item Write the equation of the regression line. Interpret the slope and intercept in context. \item Do the data provide strong evidence that an increase in height is associated with an increase in weight? State the null and alternative hypotheses, report the p-value, and state your conclusion. \item The correlation coefficient for height and weight is 0.72. Calculate <m>R^2</m> and interpret it in context. \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="beer_blood_alcohol_inf">
+        <title>Beer and blood alcohol content</title>
+        <statement>
+          <p>Many people believe that gender, weight, drinking habits, and many other factors are much more important in predicting blood alcohol content (BAC) than simply considering the number of drinks a person consumed. Here we examine data from sixteen student volunteers at Ohio State University who each drank a randomly assigned number of cans of beer. These students were evenly divided between men and women, and they differed in weight and drinking habits. Thirty minutes later, a police officer measured their blood alcohol content (BAC) in grams of alcohol per deciliter of blood. \footfullcite{Malkevitc+Lesser:2008} The scatterplot and regression table summarize the findings. \begin{center} \FigureFullPath[A scatterplot is shown with around 15 points. The horizontal axis is for "Cans of beer" and takes values between about 1 and 9. The vertical axis is for "Blood Alcohol Concentration (BAC), in grams per deciliter" and takes values between about 0.01 to 0.2 centimeters. The point at 1 can of beer is at 0.01 BAC, lower than any other values. For the four points at 2 and 3 cans of beer, BAC ranges from 0.02 to 0.07. For the six points at 4 and 5 cans of beer, BAC ranges from 0.05 to 0.10. Two points are at 7 cans of beer and have BAC of 0.09 and 0.10. There is a single point for 8 cans of beer, which has a BAC of 0.12, and one last point at 9 cans of beer, which has a BAC of about 0.19.]{}{ch_regr_simple_linear/figures/eoce/beer_blood_alcohol_inf/beer_blood_alcohol} \end{center} {\scriptsize \begin{center} \begin{tabular}{rrrrr} \hline &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \\ \hline (Intercept) &amp; -0.0127 &amp; 0.0126 &amp; -1.00 &amp; 0.3320 \\ beers &amp; 0.0180 &amp; 0.0024 &amp; 7.48 &amp; 0.0000 \\ \hline \end{tabular} \end{center} } \begin{parts} \item Describe the relationship between the number of cans of beer and BAC. \item Write the equation of the regression line. Interpret the slope and intercept in context. \item Do the data provide strong evidence that drinking more cans of beer is associated with an increase in blood alcohol? State the null and alternative hypotheses, report the p-value, and state your conclusion. \item The correlation coefficient for number of cans of beer and BAC is 0.89. Calculate <m>R^2</m> and interpret it in context. \item Suppose we visit a bar, ask people how many drinks they have had, and also take their BAC. Do you think the relationship between number of drinks and BAC would be as strong as the relationship found in the Ohio State study? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="husbands_wives_height_inf">
+        <title>Husbands and wives, Part II</title>
+        <statement>
+          <p>The scatterplot below summarizes husbands' and wives' heights in a random sample of 170 married couples in Britain, where both partners' ages are below 65 years. Summary output of the least squares fit for predicting wife's height from husband's height is also provided in the table. \begin{center} \FigureFullPath[A scatterplot is shown with around 200 points. The horizontal axis is for "Husband's height, in inches" and takes values between 60 and 75 inches. The vertical axis is for "Wife's height, in inches" and takes values between 55 and 70 inches. For the approximately fifteen husband heights smaller than 65 inches, wife heights are mostly between 59 and 65 inches. For the approximately 100 husband heights between 65 and 70 inches, wife heights are mostly between 59 and 66 inches. For the approximately 30 husband heights taller than 70 inches, wife heights are mostly between 62 and 67 inches.]{}{ch_regr_simple_linear/figures/eoce/husbands_wives_height_inf_2s/husbands_wives_height_inf_2s} \end{center} {\scriptsize \begin{center} \begin{tabular}{rrrrr} \hline &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \\ \hline (Intercept) &amp; 43.5755 &amp; 4.6842 &amp; 9.30 &amp; 0.0000 \\ height_husband &amp; 0.2863 &amp; 0.0686 &amp; 4.17 &amp; 0.0000 \\ \hline \end{tabular} \end{center} } \begin{parts} \item Is there strong evidence that taller men marry taller women? State the hypotheses and include any information used to conduct the test. \item Write the equation of the regression line for predicting wife's height from husband's height. \item Interpret the slope and intercept in the context of the application. \item Given that <m>R^2 = 0.09</m>, what is the correlation of heights in this data set? \item You meet a married man from Britain who is 5'9" (69 inches). What would you predict his wife's height to be? How reliable is this prediction? \item You meet another married man from Britain who is 6'7" (79 inches). Would it be wise to use the same linear model to predict his wife's height? Why or why not? \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="urban_homeowners_cond">
+        <title>Urban homeowners, Part II</title>
+        <statement>
+          <p>Exercise <xref ref="urban_homeowners_outlier"/> gives a scatterplot displaying the relationship between the percent of families that own their home and the percent of the population living in urban areas. Below is a similar scatterplot, excluding District of Columbia, as well as the residuals plot. There were 51 cases. {\raggedright\begin{parts} \item For these data, <m>R^2=0.28</m>. What is the correlation? How can you tell if it is positive or negative? \item Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for these data? \end{parts}} <m>\:</m> \\ \begin{center} \FigureFullPath[A scatterplot is shown. The horizontal axis represents "Husband's Age (in years)" with values ranging from about 20 to 65. The vertical axis represents "Wife's Age (in years)" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.]{}{ch_regr_simple_linear/figures/eoce/urban_homeowners_cond/urban_homeowners_cond} \end{center}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="murders_poverty_inf">
+        <title>Murders and poverty, Part II</title>
+        <statement>
+          <p>Exercise <xref ref="murders_poverty_reg"/> presents regression output from a model for predicting annual murders per million from percentage living in poverty based on a random sample of 20 metropolitan areas. The model output is also provided below. \begin{center} \begin{tabular}{rrrrr} \hline &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \\ \hline (Intercept) &amp; -29.901 &amp; 7.789 &amp; -3.839 &amp; 0.001 \\ poverty percent &amp; 2.559 &amp; 0.390 &amp; 6.562 &amp; 0.000 \\ \hline \end{tabular} <me> s = 5.512 \qquad R^2 = 70.52\% \qquad R^2_{adj} = 68.89\% </me> \end{center} \begin{parts} \item What are the hypotheses for evaluating whether poverty percentage is a significant predictor of murder rate? \item State the conclusion of the hypothesis test from part (a) in context of the data. \item Calculate a 95 percent confidence interval for the slope of poverty percentage, and interpret it in context of the data. \item Do your results from the hypothesis test and the confidence interval agree? Explain. \end{parts}</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="babies_head_gestation_inf">
+        <title>Babies</title>
+        <statement>
+          <p>Is the gestational age (time between conception and birth) of a low birth-weight baby useful in predicting head circumference at birth? Twenty-five low birth-weight babies were studied at a Harvard teaching hospital; the investigators calculated the regression of head circumference (measured in centimeters) against gestational age (measured in weeks). The estimated regression line is <me> \widehat{head~circumference} = 3.91 + 0.78 \times gestational~age </me> \begin{parts} \item What is the predicted head circumference for a baby whose gestational age is 28 weeks? \item The standard error for the coefficient of gestational age is 0. 35, which is associated with <m>df=23</m>. Does the model provide strong evidence that gestational age is significantly associated with head circumference? \end{parts}</p>
+        </statement>
+      </exercise>
+
   </subsection>
   </section>
 

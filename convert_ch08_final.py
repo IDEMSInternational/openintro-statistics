@@ -39,6 +39,15 @@ class LaTeXToPreTeXtConverter:
     def get_indent(self):
         return '  ' * self.indent_level
     
+    def escape_math_content(self, text):
+        """Escape XML special characters in math content"""
+        if not text:
+            return text
+        text = text.replace('&', '&amp;')
+        text = text.replace('<', '&lt;')
+        text = text.replace('>', '&gt;')
+        return text
+    
     def extract_macro(self, line):
         """Extract \newcommand definitions and store them"""
         match = re.match(r'\\newcommand\{\\([^}]+)\}\{([^}]*)\}', line)
@@ -80,8 +89,11 @@ class LaTeXToPreTeXtConverter:
         if not text or not text.strip():
             return text
         
-        # Skip if already XML tag
-        if text.strip().startswith('<') and '>' in text:
+        # Skip if entire text is already a single complete XML element
+        stripped = text.strip()
+        if (stripped.startswith('<') and stripped.endswith('>') and 
+            stripped.count('<') == stripped.count('>') == 2 and
+            '>' in stripped[1:]):  # Ensure there's a closing tag
             return text
         
         # Expand macros first
@@ -90,10 +102,20 @@ class LaTeXToPreTeXtConverter:
         # Store math temporarily to protect it
         math_placeholders = []
         
+        def clean_math_content(content):
+            """Clean LaTeX layout commands from math content"""
+            content = re.sub(r'\\hfill\s*', ' ', content)
+            content = re.sub(r'\\hspace\*?\{[^}]+\}', '', content)
+            content = re.sub(r'\\vspace\*?\{[^}]+\}', '', content)
+            content = re.sub(r'\\begin\{minipage\}(?:\[[^\]]*\])?\{[^}]*\}', '', content)
+            content = re.sub(r'\\end\{minipage\}', '', content)
+            return content
+        
         # Display math
         def store_display_math(match):
             idx = len(math_placeholders)
-            math_placeholders.append(('me', match.group(1)))
+            content = clean_math_content(match.group(1))
+            math_placeholders.append(('me', content))
             return f"__MATH_DISPLAY_{idx}__"
         
         text = re.sub(r'\$\$(.*?)\$\$', store_display_math, text, flags=re.DOTALL)
@@ -102,7 +124,8 @@ class LaTeXToPreTeXtConverter:
         # Inline math
         def store_inline_math(match):
             idx = len(math_placeholders)
-            math_placeholders.append(('m', match.group(1)))
+            content = clean_math_content(match.group(1))
+            math_placeholders.append(('m', content))
             return f"__MATH_INLINE_{idx}__"
         
         text = re.sub(r'\$([^\$]+?)\$', store_inline_math, text)
@@ -163,6 +186,9 @@ class LaTeXToPreTeXtConverter:
         text = re.sub(r'\\noindent\s*', '', text)
         text = re.sub(r'\\vspace\*?\{[^}]+\}', '', text)
         text = re.sub(r'\\hspace\*?\{[^}]+\}', '', text)
+        text = re.sub(r'\\hfill\s*', ' ', text)
+        text = re.sub(r'\\begin\{minipage\}(?:\[[^\]]*\])?\{[^}]*\}', '', text)
+        text = re.sub(r'\\end\{minipage\}', '', text)
         text = re.sub(r'\\setlength\{[^}]+\}\{[^}]+\}', '', text)
         text = re.sub(r'\\captionsetup\{[^}]*\}', '', text)
         text = re.sub(r'\\footnotetext\{[^}]*\}', '', text)
@@ -184,10 +210,36 @@ class LaTeXToPreTeXtConverter:
         
         # Restore math
         for idx, (tag, content) in enumerate(math_placeholders):
+            content = self.escape_math_content(content)
             if tag == 'me':
                 text = text.replace(f"__MATH_DISPLAY_{idx}__", f'<{tag}>{content}</{tag}>')
             else:
                 text = text.replace(f"__MATH_INLINE_{idx}__", f'<{tag}>{content}</{tag}>')
+        
+        # Escape any remaining special XML characters that aren't part of tags
+        # This handles cases like raw & in tabular environments
+        def escape_outside_tags(text):
+            """Escape special characters outside of XML tags"""
+            # Split text by XML tags, keeping the tags
+            parts = re.split(r'(<[^>]+>)', text)
+            result = []
+            for part in parts:
+                if part.startswith('<') and part.endswith('>'):
+                    # This is a tag, keep it as-is
+                    result.append(part)
+                else:
+                    # This is content outside tags, escape special chars
+                    # But don't double-escape already escaped entities
+                    escaped = part
+                    # Only escape & if it's not part of an entity like &amp; &lt; &gt;
+                    escaped = re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)', '&amp;', escaped)
+                    # Don't escape < or > as they should already be in tags or escaped
+                    # Actually, any literal < or > outside tags needs escaping
+                    # But we need to be careful not to double-escape
+                    result.append(escaped)
+            return ''.join(result)
+        
+        text = escape_outside_tags(text)
         
         # Clean up multiple spaces
         text = re.sub(r'\s+', ' ', text)
@@ -221,12 +273,14 @@ class LaTeXToPreTeXtConverter:
                 eq = re.sub(r'\s*&\s*', ' ', eq)  # Replace alignment markers with spaces
                 eq = re.sub(r'&\s*$', '', eq)  # Remove trailing &
                 if eq.strip():
-                    self.output.append(f'{self.get_indent()}  <mrow>{eq.strip()}</mrow>')
+                    eq_escaped = self.escape_math_content(eq.strip())
+                    self.output.append(f'{self.get_indent()}  <mrow>{eq_escaped}</mrow>')
             self.output.append(f'{self.get_indent()}</md>')
         elif equations:
             eq = equations[0]
             eq = re.sub(r'\s*&\s*', ' ', eq)
-            self.output.append(f'{self.get_indent()}<me>{eq.strip()}</me>')
+            eq_escaped = self.escape_math_content(eq.strip())
+            self.output.append(f'{self.get_indent()}<me>{eq_escaped}</me>')
         
         self.in_display_math = False
         return i + 1
