@@ -1,70 +1,70 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version = "1.0" encoding = "UTF-8" ?>
 
-<chapter xml:id="ch-multiple-logistic-regression" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id = "ch-multiple-logistic-regression" xmlns:xi = "http://www.w3.org/2001/XInclude">
   <title>Multiple and logistic regression</title>
 
   <introduction>
-    <p>The principles of simple linear regression lay the foundation for more sophisticated regression models used in a wide range of challenging settings. In <xref ref="multipleAndLogisticRegression"/>, we explore multiple regression, which introduces the possibility of more than one predictor in a linear model, and logistic regression, a technique for predicting categorical outcomes with two levels.</p>
+    <p>The principles of simple linear regression lay the foundation for more sophisticated regression models used in a wide range of challenging settings. In <xref ref = "multipleAndLogisticRegression"/>, we explore multiple regression, which introduces the possibility of more than one predictor in a linear model, and logistic regression, a technique for predicting categorical outcomes with two levels.</p>
   </introduction>
 
-  <section xml:id="multipleRegressionAndANOVA">
+  <section xml:id = "multipleRegressionAndANOVA">
     <title>Introduction to multiple regression</title>
 
     
     <p>Multiple regression extends simple two-variable regression to the case that still has one response but many predictors (denoted <m>x_1</m>, <m>x_2</m>, <m>x_3</m>, ...). The method is motivated by scenarios where many variables may be simultaneously connected to an output.</p>
-    <p>We will consider data about loans from the peer-to-peer lender, Lending Club, which is a data set we first encountered in Chapters <xref ref="ch_intro_to_data"/> and <xref ref="ch_summarizing_data"/>. The loan data includes terms of the loan as well as information about the borrower. The outcome variable we would like to better understand is the interest rate assigned to the loan. For instance, all other characteristics held constant, does it matter how much debt someone already has? Does it matter if their income has been verified? Multiple regression will help us answer these and other questions.</p>
-    <p>The data set loans includes results from 10,000 loans, and we'll be looking at a subset of the available variables, some of which will be new from those we saw in earlier chapters. The first six observations in the data set are shown in <xref ref="loansDataMatrix"/>, and descriptions for each variable are shown in <xref ref="loansVariables"/>. Notice that the past bankruptcy variable (bankruptcy) is an indicator variable, where it takes the value 1 if the borrower had a past bankruptcy in their record and 0 if not. Using an indicator variable in place of a category name allows for these variables to be directly used in regression. Two of the other variables are categorical (income_ver and issued), each of which can take one of a few different non-numerical values; we'll discuss how these are handled in the model in <xref ref="ind_and_cat_vars_as_predictors"/>.</p>
-    <figure xml:id="loansDataMatrix">
+    <p>We will consider data about loans from the peer-to-peer lender, Lending Club, which is a data set we first encountered in Chapters <xref ref = "ch_intro_to_data"/> and <xref ref = "ch_summarizing_data"/>. The loan data includes terms of the loan as well as information about the borrower. The outcome variable we would like to better understand is the interest rate assigned to the loan. For instance, all other characteristics held constant, does it matter how much debt someone already has? Does it matter if their income has been verified? Multiple regression will help us answer these and other questions.</p>
+    <p>The data set loans includes results from 10,000 loans, and we'll be looking at a subset of the available variables, some of which will be new from those we saw in earlier chapters. The first six observations in the data set are shown in <xref ref = "loansDataMatrix"/>, and descriptions for each variable are shown in <xref ref = "loansVariables"/>. Notice that the past bankruptcy variable (bankruptcy) is an indicator variable, where it takes the value 1 if the borrower had a past bankruptcy in their record and 0 if not. Using an indicator variable in place of a category name allows for these variables to be directly used in regression. Two of the other variables are categorical (income_ver and issued), each of which can take one of a few different non-numerical values; we'll discuss how these are handled in the model in <xref ref = "ind_and_cat_vars_as_predictors"/>.</p>
+    <figure xml:id = "loansDataMatrix">
       <caption>First six rows from the loans</caption>
     </figure>
 
-    <figure xml:id="loansVariables">
+    <figure xml:id = "loansVariables">
     </figure>
 
     
-    <subsection xml:id="introductionToMultipleRegression">
+    <subsection xml:id = "introductionToMultipleRegression">
       <title>Indicator and categorical variables as predictors</title>
       <p>Let's start by fitting a linear regression model for interest rate with a single predictor indicating whether or not a person has a bankruptcy in their record:</p>
-      <me>\widehat{rate = 12.33 + \pastbankrACoef{} \times bankruptcy</me>
-      <p>Results of this model are shown in <xref ref="intRateVsPastBankrModel"/>.</p>
-      <figure xml:id="intRateVsPastBankrModel">
+      <me>rate = 12.33 +  \times bankruptcy</me>
+      <p>Results of this model are shown in <xref ref = "intRateVsPastBankrModel"/>.</p>
+      <figure xml:id = "intRateVsPastBankrModel">
       </figure>
 
-      <example xml:id="">
-        <p>past bankruptcy variable in the model. Is this coefficient significantly different from 0?} The bankruptcy variable takes one of two values: 1 when the borrower has a bankruptcy in their history and 0 otherwise. A slope of 0.74 means that the model predicts a 0.74 percent higher interest rate for those borrowers with a bankruptcy in their record. (See <xref ref="categoricalPredictorsWithTwoLevels"/> for a review of the interpretation for two-level categorical predictor variables.) Examining the regression output in <xref ref="intRateVsPastBankrModel"/>, we can see that the p-value for bankruptcy is very close to zero, indicating there is strong evidence the coefficient is different from zero when using this simple one-predictor model.</p>
+      <example>
+        <p>past bankruptcy variable in the model. Is this coefficient significantly different from 0?} The bankruptcy variable takes one of two values: 1 when the borrower has a bankruptcy in their history and 0 otherwise. A slope of 0.74 means that the model predicts a 0.74 percent higher interest rate for those borrowers with a bankruptcy in their record. (See <xref ref = "categoricalPredictorsWithTwoLevels"/> for a review of the interpretation for two-level categorical predictor variables.) Examining the regression output in <xref ref = "intRateVsPastBankrModel"/>, we can see that the p-value for bankruptcy is very close to zero, indicating there is strong evidence the coefficient is different from zero when using this simple one-predictor model.</p>
       </example>
 
-      <p>Suppose we had fit a model using a 3-level categorical variable, such as income_ver. The output from software is shown in <xref ref="intRateVsVerIncomeModel"/>. This regression output provides multiple rows for the income_ver variable. Each row represents the relative difference for each level of income_ver. However, we are missing one of the levels: "not" (for <em>not verified</em>). The missing level is called the <term>reference level</term>, and it represents the default level that other levels are measured against.</p>
-      <figure xml:id="intRateVsVerIncomeModel">
+      <p>Suppose we had fit a model using a 3-level categorical variable, such as income_ver. The output from software is shown in <xref ref = "intRateVsVerIncomeModel"/>. This regression output provides multiple rows for the income_ver variable. Each row represents the relative difference for each level of income_ver. However, we are missing one of the levels: "not" (for <em>not verified</em>). The missing level is called the <term>reference level</term>, and it represents the default level that other levels are measured against.</p>
+      <figure xml:id = "intRateVsVerIncomeModel">
       </figure>
 
-      <example xml:id="">
+      <example>
         <statement><p>this regression model?}</p></statement>
-        <me>\widehat{rate} = 11.10 + 1.42 \times I(income_ver=source_only) + 3.25 \times I(income_ver=verified)</me>
-        <p>We use the notation <m>I(variable=level)</m> to represent indicator variables for when the categorical variable takes a particular value. For example, <m>I(income_ver=source_only)</m> would take a value of 1 if income_ver was "source_only" for a loan, and it would take a value of 0 otherwise. Likewise, <m>I(income_ver=verified)</m> would take a value of 1 if income_ver took a value of "verified" and 0 if it took any other value.</p>
+        <me>\widehat{rate = 11.10 + 1.42 \times \mathbb{1}(income_ver = source_only) + 3.25 \times \mathbb{1}(income_ver = verified)</me>
+        <p>We use the notation <m>\mathbb{1}(variable = level)</m> to represent indicator variables for when the categorical variable takes a particular value. For example, <m>\mathbb{1}(income_ver = source_only)</m> would take a value of 1 if income_ver was "source_only" for a loan, and it would take a value of 0 otherwise. Likewise, <m>\mathbb{1}(income_ver = verified)</m> would take a value of 1 if income_ver took a value of "verified" and 0 if it took any other value.</p>
       </example>
 
-      <p>The notation used in <xref ref="verIncomeEquationExample"/> may feel a bit confusing. Let's figure out how to use the equation for each level of the income_ver variable.</p>
-      <example xml:id="">
+      <p>The notation used in <xref ref = "verIncomeEquationExample"/> may feel a bit confusing. Let's figure out how to use the equation for each level of the income_ver variable.</p>
+      <example>
         <md>
-          <mrow>\widehat{rate} = 11.10 + 1.42 \times 0 + 3.25 \times 0</mrow>
-          <mrow>= 11.10</mrow>
+          <mrow>\widehat{rate = 11.10 + 1.42 \times 0 + 3.25 \times 0</mrow>
+          <mrow> = 11.10</mrow>
         </md>
         <p>The average interest rate for these borrowers is 11.1 percent. Because the "not" level does not have its own coefficient and it is the reference value, the indicators for the other levels for this variable all drop out.</p>
       </example>
 
-      <example xml:id="">
+      <example>
         <md>
-          <mrow>\widehat{rate} = 11.10 + 1.42 \times 1 + 3.25 \times 0</mrow>
-          <mrow>= 12.52</mrow>
+          <mrow>\widehat{rate = 11.10 + 1.42 \times 1 + 3.25 \times 0</mrow>
+          <mrow> = 12.52</mrow>
         </md>
         <p>The average interest rate for these borrowers is 12.52 percent.</p>
       </example>
 
-      <p>takes a value of "verified", then the corresponding variable takes a value of 1 while the other (<m>I(income_ver=source_only)</m>) is 0:</p>
+      <p>takes a value of "verified", then the corresponding variable takes a value of 1 while the other (<m>\mathbb{1}(income_ver = source_only)</m>) is 0:</p>
       <md>
-        <mrow>\widehat{rate} = 11.10 + 1.42 \times 0 + 3.25 \times 1</mrow>
-        <mrow>= 14.35</mrow>
+        <mrow>\widehat{rate = 11.10 + 1.42 \times 0 + 3.25 \times 1</mrow>
+        <mrow> = 14.35</mrow>
       </md>
       <p>The average interest rate for these borrowers is 14.35 percent.}</p>
       <assemblage>
@@ -74,114 +74,118 @@
 
       <p></p>
       <p>The higher interest rate for borrowers who have verified their income source or amount is surprising. Intuitively, we'd think that a loan would look <em>less</em> risky if the borrower's income has been verified. However, note that the situation may be more complex, and there may be confounding variables that we didn't account for. For example, perhaps lender require borrowers with poor credit to verify their income. That is, verifying income in our data set might be a signal of some concerns about the borrower rather than a reassurance that the borrower will pay back the loan. For this reason, the borrower could be deemed higher risk, resulting in a higher interest rate. (What other confounding variables might explain this counter-intuitive relationship suggested by the model?)</p>
-      <p> = \beta_0 + \beta_1\times I(income_ver=source_only) + \beta_2\times I(income_ver=verified) + \beta_3\times debt_to_income</mrow>
+      <md>
+        <mrow>rate = \beta_0 + \beta_1\times \mathbb{1}(income_ver = source_only) + \beta_2\times \mathbb{1}(income_ver = verified) + \beta_3\times debt_to_income</mrow>
         <mrow>\qquad\  + \beta_4 \times credit_util + \beta_5 \times bankruptcy + \beta_6 \times term</mrow>
-        <mrow>\qquad\  + \beta_7 \times I(issued=Jan2018) + \beta_8 \times I(issued=Mar2018) + \beta_9 \times credit_checks</mrow>
+        <mrow>\qquad\  + \beta_7 \times \mathbb{1}(issued = Jan2018) + \beta_8 \times \mathbb{1}(issued = Mar2018) + \beta_9 \times credit_checks</mrow>
       </md>
       <p>This equation represents a holistic approach for modeling all of the variables simultaneously. Notice that there are two coefficients for income_ver and also two coefficients for issued, since both are 3-level categorical variables.</p>
-      <p>We estimate the parameters <m>\beta_0</m>, <m>\beta_1</m>, <m>\beta_2</m>, ..., <m>\beta_9</m> in the same way as we did in the case of a single predictor. We select <m>b_0</m>, <m>b_1</m>, <m>b_2</m>, ..., <m>b_9</m> that minimize the sum of the squared residuals: \begin{} SSE = e_1^2 + e_2^2 + \dots + e_{10000}^2 = \sum_{i=1}^{10000} e_i^2 = \sum_{i=1}^{10000} \left(y_i - \hat{y}_i\right)^2 \end{} where <m>y_i</m> and <m>\hat{y}_i</m> represent the observed interest rates and their estimated values according to the model, respectively. 10,000 residuals are calculated, one for each observation. We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in <xref ref="loansFullModelOutput"/>. Using this output, we identify the point estimates <m>b_i</m> of each <m>\beta_i</m>, just as we did in the one-predictor case.</p>
-      <figure xml:id="loansFullModelOutput">
+      <p>We estimate the parameters <m>\beta_0</m>, <m>\beta_1</m>, <m>\beta_2</m>, ..., <m>\beta_9</m> in the same way as we did in the case of a single predictor. We select <m>b_0</m>, <m>b_1</m>, <m>b_2</m>, ..., <m>b_9</m> that minimize the sum of the squared residuals:</p>
+      <me>SSE = e_1^2 + e_2^2 + \dots + e_{10000}^2 = \sum_{i = 1}^{10000} e_i^2 = \sum_{i = 1}^{10000} \left(y_i - y}_i)^2</me>
+      <p>where <m>y_i</m> and <m>y}_i</m> represent the observed interest rates and their estimated values according to the model, respectively. 10,000 residuals are calculated, one for each observation. We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in <xref ref = "loansFullModelOutput"/>. Using this output, we identify the point estimates <m>b_i</m> of each <m>\beta_i</m>, just as we did in the one-predictor case.</p>
+      <figure xml:id = "loansFullModelOutput">
       </figure>
 
       <assemblage>
         <title>Multiple regression model</title>
         <p>A multiple regression model is a linear model with many predictors. In general, we write the model as</p>
-        <me>\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k</me>
+        <me>y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k</me>
         <p>when there are <m>k</m> predictors. We always estimate the <m>\beta_i</m> parameters using statistical software.</p>
       </assemblage>
 
-      <example xml:id="">
-        <p>the point estimates from <xref ref="loansFullModelOutput"/>. How many predictors are there in this model?}</p>
+      <example>
+        <p>the point estimates from <xref ref = "loansFullModelOutput"/>. How many predictors are there in this model?}</p>
       </example>
 
-      <p> using the equation identified in Guided Practice <xref ref="loansFullModelEqWCoef"/>.} To compute the residual, we first need the predicted value, which we compute by plugging values into the equation from <xref ref="loansFullModelEqWCoef"/>. For example, <m>I(income_ver=source_only)</m> takes a value of 0, <m>I(income_ver=verified)</m> takes a value of 1 (since the borrower's income source and amount were verified), debt_to_income was 18.01, and so on. This leads to a prediction of <m>\widehat{rate}_1 = 18.09</m>. The observed interest rate was 14.07 percent, which leads to a residual of <m>e_1 = 14.07 - 18.09 = -4.02</m>.</p>
+      <example>
+        <p> using the equation identified in Guided Practice <xref ref = "loansFullModelEqWCoef"/>.} To compute the residual, we first need the predicted value, which we compute by plugging values into the equation from <xref ref = "loansFullModelEqWCoef"/>. For example, <m>\mathbb{1}(income_ver = source_only)</m> takes a value of 0, <m>\mathbb{1}(income_ver = verified)</m> takes a value of 1 (since the borrower's income source and amount were verified), debt_to_income was 18.01, and so on. This leads to a prediction of <m>rate_1 = 18.09</m>. The observed interest rate was 14.07 percent, which leads to a residual of <m>e_1 = 14.07 - 18.09 = -4.02</m>.</p>
       </example>
 
-      <example xml:id="">
-        <p>bankruptcy in <xref ref="ind_and_cat_vars_as_predictors"/> of <m>b_4 = 0.74</m> with a standard error of <m>SE_{b_1} = 0.74SE{}</m> when using simple linear regression. Why is there a difference between that estimate and the estimated coefficient of 0.39 in the multiple regression setting?}</p>
+      <example>
+        <p>bankruptcy in <xref ref = "ind_and_cat_vars_as_predictors"/> of <m>b_4 = 0.74</m> with a standard error of <m>SE_{b_1 = 0.74SE{}</m> when using simple linear regression. Why is there a difference between that estimate and the estimated coefficient of 0.39 in the multiple regression setting?}</p>
       </example>
 
       <p></p>
   </subsection>
 
-    <subsection xml:id="includingAndAssessingManyVariablesInAModel">
+    <subsection xml:id = "includingAndAssessingManyVariablesInAModel">
       <title>Adjusted <m>R^2</m> as a better tool for multiple regression</title>
-      <p>We first used <m>R^2</m> in <xref ref="fittingALineByLSR"/> to determine the amount of variability in the response that was explained by the model:</p>
-      <me>R^2 = 1 - \frac{\text{variability in residuals}} {\text{variability in the outcome}} = 1 - \frac{Var(e_i)}{Var(y_i)}</me>
+      <p>We first used <m>R^2</m> in <xref ref = "fittingALineByLSR"/> to determine the amount of variability in the response that was explained by the model:</p>
+      <me>R^2 = 1 - variability in residuals}} {variability in the outcome} = 1 - Var(e_i)}{Var(y_i)}</me>
       <p>where <m>e_i</m> represents the residuals of the model and <m>y_i</m> the outcomes. This equation remains valid in the multiple regression framework, but a small enhancement can make it even more informative when comparing models.</p>
       <p>This strategy for estimating <m>R^2</m> is acceptable when there is just a single variable. However, it becomes less helpful when there are many variables. The regular <m>R^2</m> is a biased estimate of the amount of variability explained by the model when applied to a new sample of data. To get a better estimate, we use the adjusted <m>R^2</m>.</p>
       <assemblage>
         <title>Adjusted $R^2</title>
-        <p>model assessment The \termsub{adjusted <m>R^2</m>} {adjusted r squared@adjusted <m>R^2</m> (<m>R_{adj}^2</m>)} is computed as</p>
-        <me>R_{adj}^{2} = 1 - \frac{s_{\text{residuals}}^2 / (n-k-1)} {s_{\text{outcome}}^2 / (n-1)} = 1 - \frac{s_{\text{residuals}}^2}{s_{\text{outcome}}^2} \times \frac{n-1}{n-k-1}</me>
+        <p>model assessment The adjusted <m>R^2</m>} {adjusted r squared@adjusted <m>R^2</m> (<m>R_{adj}^2</m>)} is computed as</p>
+        <me>R_{adj}^{2 = 1 - s_{residuals}}^2 / (n-k-1)} {s_{outcome}}^2 / (n-1) = 1 - s_{residuals}}^2}{s_{outcome}}^2} \times n-1}{n-k-1}</me>
         <p>where <m>n</m> is the number of cases used to fit the model and <m>k</m> is the number of predictor variables in the model. Remember that a categorical predictor with <m>p</m> levels will contribute <m>p - 1</m> to the number of variables in the model.</p>
       </assemblage>
 
       <p>Because <m>k</m> is never negative, the adjusted <m>R^2</m> will be smaller – often times just a little smaller – than the unadjusted <m>R^2</m>. The reasoning behind the adjusted <m>R^2</m> lies in the <term>degrees of freedom</term> associated with each variance, which is equal to <m>n - k - 1</m> for the multiple regression context. If we were to make predictions for <em>new data</em> using our current model, we would find that the unadjusted <m>R^2</m> would tend to be slightly overly optimistic, while the adjusted <m>R^2</m> formula helps correct this bias.</p>
-      <p>^2 = 1 - \frac{18.53}{25.01}\times \frac{10000-1}{1000-9-1} = 0.2584$. While the difference is very small, it will be important when we fine tune the model in the next section.}</p>
+      <p>^2 = 1 - 18.53}{25.01}\times 10000-1}{1000-9-1 = 0.2584$. While the difference is very small, it will be important when we fine tune the model in the next section.}</p>
       <p></p>
-      <p>Adjusted <m>R^2</m> could have been used in <xref ref="linRegrForTwoVar"/>. However, when there is only <m>k = 1</m> predictors, adjusted <m>R^2</m> is very close to regular <m>R^2</m>, so this nuance isn't typically important when the model has only one predictor.</p>
-      <exercise xml:id="baby_weights_smoke">
+      <p>Adjusted <m>R^2</m> could have been used in <xref ref = "linRegrForTwoVar"/>. However, when there is only <m>k = 1</m> predictors, adjusted <m>R^2</m> is very close to regular <m>R^2</m>, so this nuance isn't typically important when the model has only one predictor.</p>
+      <exercise xml:id = "baby_weights_smoke">
         <title>Baby weights, Part I</title>
         <statement>
-          <p>The Child Health and Development Studies investigate a range of topics. One study considered all pregnancies between 1960 and 1967 among women in the Kaiser Foundation Health Plan in the San Francisco East Bay area. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, based on the smoking status of the mother. \footfullcite{data:babies}  The variability within the smokers and non-smokers are about equal and the distributions are symmetric. With these conditions satisfied, it is reasonable to apply the model. (Note that we don't need to check linearity since the predictor has only two levels.)  Write the equation of the regression model. Interpret the slope in this context, and calculate the predicted birth weight of babies born to smoker and non-smoker mothers. Is there a statistically significant relationship between the average birth weight and smoking? </p>
+          <p>The Child Health and Development Studies investigate a range of topics. One study considered all pregnancies between 1960 and 1967 among women in the Kaiser Foundation Health Plan in the San Francisco East Bay area. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, based on the smoking status of the mother.   The variability within the smokers and non-smokers are about equal and the distributions are symmetric. With these conditions satisfied, it is reasonable to apply the model. (Note that we don't need to check linearity since the predictor has only two levels.)  Write the equation of the regression model. Interpret the slope in this context, and calculate the predicted birth weight of babies born to smoker and non-smoker mothers. Is there a statistically significant relationship between the average birth weight and smoking? </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="baby_weights_parity">
+      <exercise xml:id = "baby_weights_parity">
         <title>Baby weights, Part II</title>
         <statement>
-          <p>Exercise <xref ref="baby_weights_smoke"/> introduces a data set on birth weight of babies. Another variable we consider is <c>parity</c>, which is 1 if the child is the first born, and 0 otherwise. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, from <c>parity</c>.   Write the equation of the regression model. Interpret the slope in this context, and calculate the predicted birth weight of first borns and others. Is there a statistically significant relationship between the average birth weight and parity? </p>
+          <p>Exercise <xref ref = "baby_weights_smoke"/> introduces a data set on birth weight of babies. Another variable we consider is <c>parity</c>, which is 1 if the child is the first born, and 0 otherwise. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, from <c>parity</c>.   Write the equation of the regression model. Interpret the slope in this context, and calculate the predicted birth weight of first borns and others. Is there a statistically significant relationship between the average birth weight and parity? </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="baby_weights_mlr">
+      <exercise xml:id = "baby_weights_mlr">
         <title>Baby weights, Part III</title>
         <statement>
-          <p>We considered the variables <c>smoke</c> and <c>parity</c>, one at a time, in modeling birth weights of babies in Exercises <xref ref="baby_weights_smoke"/> and <xref ref="baby_weights_parity"/>. A more realistic approach to modeling infant weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in days (<c>gestation</c>), mother's age in years (<c>age</c>), mother's height in inches (<c>height</c>), and mother's pregnancy weight in pounds (<c>weight</c>). Below are three observations from this data set.  The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables included in the data set.   Write the equation of the regression model that includes all of the variables. Interpret the slopes of <c>gestation</c> and <c>age</c> in this context. The coefficient for <c>parity</c> is different than in the linear model shown in Exercise <xref ref="baby_weights_parity"/>. Why might there be a difference? Calculate the residual for the first observation in the data set. The variance of the residuals is 249.28, and the variance of the birth weights of all babies in the data set is 332.57. Calculate the <m>R^2</m> and the adjusted <m>R^2</m>. Note that there are 1,236 observations in the data set. </p>
+          <p>We considered the variables <c>smoke</c> and <c>parity</c>, one at a time, in modeling birth weights of babies in Exercises <xref ref = "baby_weights_smoke"/> and <xref ref = "baby_weights_parity"/>. A more realistic approach to modeling infant weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in days (<c>gestation</c>), mother's age in years (<c>age</c>), mother's height in inches (<c>height</c>), and mother's pregnancy weight in pounds (<c>weight</c>). Below are three observations from this data set.  The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables included in the data set.   Write the equation of the regression model that includes all of the variables. Interpret the slopes of <c>gestation</c> and <c>age</c> in this context. The coefficient for <c>parity</c> is different than in the linear model shown in Exercise <xref ref = "baby_weights_parity"/>. Why might there be a difference? Calculate the residual for the first observation in the data set. The variance of the residuals is 249.28, and the variance of the birth weights of all babies in the data set is 332.57. Calculate the <m>R^2</m> and the adjusted <m>R^2</m>. Note that there are 1,236 observations in the data set. </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="absent_from_school_mlr">
+      <exercise xml:id = "absent_from_school_mlr">
         <title>Absenteeism, Part I</title>
         <statement>
-          <p>Researchers interested in the relationship between absenteeism from school and certain demographic characteristics of children collected data from 146 randomly sampled students in rural New South Wales, Australia, in a particular school year. Below are three observations from this data set.  The summary table below shows the results of a linear regression model for predicting the average number of days absent based on ethnic background (<c>eth</c>: 0 - aboriginal, 1 - not aboriginal), sex (<c>sex</c>: 0 - female, 1 - male), and learner status (<c>lrn</c>: 0 - average learner, 1 - slow learner). \footfullcite{data:quine}   Write the equation of the regression model. Interpret each one of the slopes in this context. Calculate the residual for the first observation in the data set: a student who is aboriginal, male, a slow learner, and missed 2 days of school. The variance of the residuals is 240.57, and the variance of the number of absent days for all students in the data set is 264.17. Calculate the <m>R^2</m> and the adjusted <m>R^2</m>. Note that there are 146 observations in the data set. </p>
+          <p>Researchers interested in the relationship between absenteeism from school and certain demographic characteristics of children collected data from 146 randomly sampled students in rural New South Wales, Australia, in a particular school year. Below are three observations from this data set.  The summary table below shows the results of a linear regression model for predicting the average number of days absent based on ethnic background (<c>eth</c>: 0 - aboriginal, 1 - not aboriginal), sex (<c>sex</c>: 0 - female, 1 - male), and learner status (<c>lrn</c>: 0 - average learner, 1 - slow learner).    Write the equation of the regression model. Interpret each one of the slopes in this context. Calculate the residual for the first observation in the data set: a student who is aboriginal, male, a slow learner, and missed 2 days of school. The variance of the residuals is 240.57, and the variance of the number of absent days for all students in the data set is 264.17. Calculate the <m>R^2</m> and the adjusted <m>R^2</m>. Note that there are 146 observations in the data set. </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="gpa">
+      <exercise xml:id = "gpa">
         <title>GPA</title>
         <statement>
           <p>A survey of 55 Duke University students asked about their GPA, number of hours they study at night, number of nights they go out, and their gender. Summary output of the regression model is shown below. Note that male is coded as 1.   Calculate a 95 percent confidence interval for the coefficient of gender in the model, and interpret it in the context of the data. Would you expect a 95 percent confidence interval for the slope of the remaining variables to include 0? Explain </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="cherry_trees">
+      <exercise xml:id = "cherry_trees">
         <title>Cherry trees</title>
         <statement>
-          <p>Timber yield is approximately equal to the volume of a tree, however, this value is difficult to measure without first cutting the tree down. Instead, other variables, such as height and diameter, may be used to predict a tree's volume and yield. Researchers wanting to understand the relationship between these variables for black cherry trees collected data from 31 such trees in the Allegheny National Forest, Pennsylvania. Height is measured in feet, diameter in inches (at 54 inches above ground), and volume in cubic feet.\footfullcite{Hand:1994} \begin{table}[ht]  \end{table}  Calculate a 95 percent confidence interval for the coefficient of height, and interpret it in the context of the data. One tree in this sample is 79 feet tall, has a diameter of 11.3 inches, and is 24.2 cubic feet in volume. Determine if the model overestimates or underestimates the volume of this tree, and by how much. </p>
+          <p>Timber yield is approximately equal to the volume of a tree, however, this value is difficult to measure without first cutting the tree down. Instead, other variables, such as height and diameter, may be used to predict a tree's volume and yield. Researchers wanting to understand the relationship between these variables for black cherry trees collected data from 31 such trees in the Allegheny National Forest, Pennsylvania. Height is measured in feet, diameter in inches (at 54 inches above ground), and volume in cubic feet. table}[ht]  table}  Calculate a 95 percent confidence interval for the coefficient of height, and interpret it in the context of the data. One tree in this sample is 79 feet tall, has a diameter of 11.3 inches, and is 24.2 cubic feet in volume. Determine if the model overestimates or underestimates the volume of this tree, and by how much. </p>
         </statement>
       </exercise>
 
   </subsection>
   </section>
 
-  <section xml:id="model_selection_section">
+  <section xml:id = "model_selection_section">
     <title>Model selection</title>
 
     <p>The best model is not always the most complicated. Sometimes including variables that are not evidently important can actually reduce the accuracy of predictions. In this section, we discuss model selection strategies, which will help us eliminate variables from the model that are found to be less important. It's common (and hip, at least in the statistical world) to refer to models that have undergone such variable pruning as <term>parsimonious</term>.</p>
     <p>In practice, the model that includes all available explanatory variables is often referred to as the <term>full model</term>. The full model may not be the best model, and if it isn't, we want to identify a smaller model that is preferable.</p>
-    <subsection xml:id="modelSelection">
+    <subsection xml:id = "modelSelection">
       <title>Identifying variables in the model that may not be helpful</title>
       <p>Adjusted <m>R^2</m> describes the strength of a model fit, and it is a useful tool for evaluating which predictors are adding value to the model, where <em>adding value</em> means they are (likely) improving the accuracy in predicting future outcomes.</p>
-      <p>Let's consider two models, which are shown in Tables <xref ref="loansFullModelModelSelectionSection"/> and <xref ref="loansModelAllButIssued"/>. The first table summarizes the full model since it includes all predictors, while the second does not include the issued variable.</p>
-      <figure xml:id="loansFullModelModelSelectionSection">
+      <p>Let's consider two models, which are shown in Tables <xref ref = "loansFullModelModelSelectionSection"/> and <xref ref = "loansModelAllButIssued"/>. The first table summarizes the full model since it includes all predictors, while the second does not include the issued variable.</p>
+      <figure xml:id = "loansFullModelModelSelectionSection">
       </figure>
 
-      <figure xml:id="loansModelAllButIssued">
+      <figure xml:id = "loansModelAllButIssued">
       </figure>
 
-      <example xml:id="">
+      <example>
         <title>Which of the two models is better?</title>
         <p>We compare the adjusted <m>R^2</m> of each model to determine which to choose. Since the first model has an <m>R^2_{adj}</m> smaller than the <m>R^2_{adj}</m> of the second model, we prefer the second model to the first.</p>
       </example>
@@ -192,22 +196,22 @@
     <subsection>
       <title>Two model selection strategies</title>
       <p>Two common strategies for adding or removing variables in a multiple regression model are called <em>backward elimination</em> and <em>forward selection</em>. These techniques are often referred to as <term>stepwise</term> model selection strategies, because they add or delete one variable at a time as they "step" through the candidate predictors.</p>
-      <example xml:id="">
-        <title>Results corresponding to the \emph{full model</title>
-        <p>for the loans data are shown in <xref ref="loansFullModelModelSelectionSection"/>. How should we proceed under the backward elimination strategy?} Our baseline adjusted <m>R^2</m> from the full model is <m>R^2_{adj} = 0.25843</m>, and we need to determine whether dropping a predictor will improve the adjusted <m>R^2</m>. To check, we fit models that each drop a different predictor, and we record the adjusted <m>R^2</m>:  The model without issued has the highest adjusted <m>R^2</m> of 0.25854, higher than the adjusted <m>R^2</m> for the full model. Because eliminating issued leads to a model with a higher adjusted <m>R^2</m>, we drop issued from the model.</p>
-        <p>Since we eliminated a predictor from the model in the first step, we see whether we should eliminate any additional predictors. Our baseline adjusted <m>R^2</m> is now <m>R^2_{adj} = 0.25854</m>. We now fit new models, which consider eliminating each of the remaining predictors in addition to issued:  None of these models lead to an improvement in adjusted <m>R^2</m>, so we do not eliminate any of the remaining predictors. That is, after backward elimination, we are left with the model that keeps all predictors except issued, which we can summarize using the coefficients from <xref ref="loansModelAllButIssued"/>:</p>
+      <example>
+        <title>Results corresponding to the full model</title>
+        <p>for the loans data are shown in <xref ref = "loansFullModelModelSelectionSection"/>. How should we proceed under the backward elimination strategy?} Our baseline adjusted <m>R^2</m> from the full model is <m>R^2_{adj = 0.25843</m>, and we need to determine whether dropping a predictor will improve the adjusted <m>R^2</m>. To check, we fit models that each drop a different predictor, and we record the adjusted <m>R^2</m>:  The model without issued has the highest adjusted <m>R^2</m> of 0.25854, higher than the adjusted <m>R^2</m> for the full model. Because eliminating issued leads to a model with a higher adjusted <m>R^2</m>, we drop issued from the model.</p>
+        <p>Since we eliminated a predictor from the model in the first step, we see whether we should eliminate any additional predictors. Our baseline adjusted <m>R^2</m> is now <m>R^2_{adj = 0.25854</m>. We now fit new models, which consider eliminating each of the remaining predictors in addition to issued:  None of these models lead to an improvement in adjusted <m>R^2</m>, so we do not eliminate any of the remaining predictors. That is, after backward elimination, we are left with the model that keeps all predictors except issued, which we can summarize using the coefficients from <xref ref = "loansModelAllButIssued"/>:</p>
         <md>
-          <mrow>\widehat{rate} = \ 1.921 + 0.974 \times I(income_ver=source_only) + 2.535 \times I(income_ver=verified)</mrow>
+          <mrow>\widehat{rate = \ 1.921 + 0.974 \times \mathbb{1}(income_ver = source_only) + 2.535 \times \mathbb{1}(income_ver = verified)</mrow>
           <mrow>\qquad + 0.021 \times debt_to_income + 4.896 \times credit_util + 0.387 \times bankruptcy</mrow>
           <mrow>\qquad + 0.154 \times term + 0.228 \times credit_check</mrow>
         </md>
       </example>
 
       <p>The <term>forward selection</term> strategy is the reverse of the backward elimination technique. Instead of eliminating variables one-at-a-time, we add variables one-at-a-time until we cannot find any variables that improve the model (as measured by adjusted <m>R^2</m>).</p>
-      <example xml:id="">
+      <example>
         <title>Construct a model for the loans</title>
         <p>set using the forward selection strategy. 
-        <p>We repeat the process again, this time considering 2-predictor models where one of the predictors is term and with a new baseline of <m>R^2_{adj} = 0.12855</m>:  The best second predictor, credit_util, has a higher adjusted <m>R^2</m> (0.20046) than the baseline (0.12855), so we also add credit_util to the model.</p>
+        <p>We repeat the process again, this time considering 2-predictor models where one of the predictors is term and with a new baseline of <m>R^2_{adj = 0.12855</m>:  The best second predictor, credit_util, has a higher adjusted <m>R^2</m> (0.20046) than the baseline (0.12855), so we also add credit_util to the model.</p>
         <p>Since we have again added a variable to the model, we continue and see whether it would be beneficial to add a third variable:  The model adding income_ver improved adjusted <m>R^2</m> (0.24183 to 0.20046), so we add income_ver to the model.</p>
         <p>We continue on in this way, next adding debt_to_income, then credit_checks, and bankruptcy. At this point, we come again to the issued variable: adding this variable leads to <m>R_{adj}^2 = 0.25843</m>, while keeping all the other variables but excluding issued leads to a higher <m>R_{adj}^2 = 0.25854</m>. This means we do not add issued. In this example, we have arrived at the same model that we identified from backward elimination.</p>
       </p>
@@ -221,7 +225,7 @@
       <p>Backward elimination and forward selection sometimes arrive at different final models. If trying both techniques and this happens, it's common to choose the model with the larger <m>R_{adj}^2</m>.</p>
   </subsection>
 
-    <subsection xml:id="loansBackwardElimEx">
+    <subsection xml:id = "loansBackwardElimEx">
       <title>The p-value approach, an alternative to adjusted <m>R^2</m></title>
       <dl>
         <li>
@@ -242,42 +246,42 @@
       </assemblage>
 
       <p>Regardless of whether you use <m>R_{adj}^2</m> or the p-value approach, or if you use the backward elimination of forward selection strategy, our job is not done after variable selection. We must still verify the model conditions are reasonable.</p>
-      <exercise xml:id="baby_weights_model_select_backward">
+      <exercise xml:id = "baby_weights_model_select_backward">
         <title>Baby weights, Part IV</title>
         <statement>
-          <p>Exercise <xref ref="baby_weights_mlr"/> considers a model that predicts a newborn's weight using several predictors (gestation length, parity, age of mother, height of mother, weight of mother, smoking status of mother). The table below shows the adjusted R-squared for the full model as well as adjusted R-squared values for all models we evaluate in the first step of the backwards elimination process.  Which, if any, variable should be removed from the model first?</p>
+          <p>Exercise <xref ref = "baby_weights_mlr"/> considers a model that predicts a newborn's weight using several predictors (gestation length, parity, age of mother, height of mother, weight of mother, smoking status of mother). The table below shows the adjusted R-squared for the full model as well as adjusted R-squared values for all models we evaluate in the first step of the backwards elimination process.  Which, if any, variable should be removed from the model first?</p>
         </statement>
       </exercise>
 
-      <exercise xml:id="absent_from_school_model_select_backward">
+      <exercise xml:id = "absent_from_school_model_select_backward">
         <title>Absenteeism, Part II</title>
         <statement>
-          <p>Exercise <xref ref="absent_from_school_mlr"/> considers a model that predicts the number of days absent using three predictors: ethnic background (eth), gender (sex), and learner status (lrn). The table below shows the adjusted R-squared for the model as well as adjusted R-squared values for all models we evaluate in the first step of the backwards elimination process.  Which, if any, variable should be removed from the model first?</p>
+          <p>Exercise <xref ref = "absent_from_school_mlr"/> considers a model that predicts the number of days absent using three predictors: ethnic background (eth), gender (sex), and learner status (lrn). The table below shows the adjusted R-squared for the model as well as adjusted R-squared values for all models we evaluate in the first step of the backwards elimination process.  Which, if any, variable should be removed from the model first?</p>
         </statement>
       </exercise>
 
-      <exercise xml:id="baby_weights_model_select_forward">
+      <exercise xml:id = "baby_weights_model_select_forward">
         <title>Baby weights, Part V</title>
         <statement>
-          <p>Exercise <xref ref="baby_weights_mlr"/> provides regression output for the full model (including all explanatory variables available in the data set) for predicting birth weight of babies. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted <m>R^2</m> of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first? </p>
+          <p>Exercise <xref ref = "baby_weights_mlr"/> provides regression output for the full model (including all explanatory variables available in the data set) for predicting birth weight of babies. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted <m>R^2</m> of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first? </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="absent_from_school_model_select_forward">
+      <exercise xml:id = "absent_from_school_model_select_forward">
         <title>Absenteeism, Part III</title>
         <statement>
-          <p>Exercise <xref ref="absent_from_school_mlr"/> provides regression output for the full model, including all explanatory variables available in the data set, for predicting the number of days absent from school. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted <m>R^2</m> of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first? </p>
+          <p>Exercise <xref ref = "absent_from_school_mlr"/> provides regression output for the full model, including all explanatory variables available in the data set, for predicting the number of days absent from school. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted <m>R^2</m> of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first? </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="movie_lovers_pval_select">
+      <exercise xml:id = "movie_lovers_pval_select">
         <title>Movie lovers, Part I</title>
         <statement>
           <p>Suppose a social scientist is interested in studying what makes audiences love or hate a movie. She collects a random sample of movies (genre, length, cast, director, budget, etc.) as well as a measure of the success of the movie (score on a film review aggregator website). If as part of her research she is interested in finding out which variables are significant predictors of movie success, what type of model selection method should she use?</p>
         </statement>
       </exercise>
 
-      <exercise xml:id="movie_lovers_adjrsq_select">
+      <exercise xml:id = "movie_lovers_adjrsq_select">
         <title>Movie lovers, Part II</title>
         <statement>
           <p>Suppose an online media streaming company is interested in building a movie recommendation system. The website maintains data on the movies in their database (genre, length, cast, director, budget, etc.) and additionally collects data from their subscribers ( demographic information, previously watched movies, how they rated previously watched movies, etc.). The recommendation system will be deemed successful if subscribers actually watch, and rate highly, the movies recommended to them. Should the company use the adjusted <m>R^2</m> or the p-value approach in selecting variables for their recommendation system?</p>
@@ -287,10 +291,10 @@
   </subsection>
   </section>
 
-  <section xml:id="multipleRegressionModelAssumptions">
+  <section xml:id = "multipleRegressionModelAssumptions">
     <title>Checking model conditions using graphs</title>
 
-    <me>\hat{y} = \beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots + \beta_kx_k</me>
+    <me>y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots + \beta_kx_k</me>
     <p>generally depend on the following four conditions:</p>
     <ol>
       <li>
@@ -306,39 +310,39 @@
         <p>each variable is linearly related to the outcome.</p>
       </li>
     </ol>
-    <subsection xml:id="diagnostic_plots_subsection">
+    <subsection xml:id = "diagnostic_plots_subsection">
       <title>Diagnostic plots</title>
       <md>
-        <mrow>\widehat{rate} = \ 1.921 + 0.974 \times I(income_ver=source_only) + 2.535 \times I(income_ver=verified)</mrow>
+        <mrow>\widehat{rate = \ 1.921 + 0.974 \times \mathbb{1}(income_ver = source_only) + 2.535 \times \mathbb{1}(income_ver = verified)</mrow>
         <mrow>\qquad + 0.021 \times debt_to_income + 4.896 \times credit_util + 0.387 \times bankruptcy</mrow>
         <mrow>\qquad + 0.154 \times term + 0.228 \times credit_check</mrow>
       </md>
       <dl>
         <li>
           <title>Check for outliers.</title>
-        <p>In theory, the distribution of the residuals should be nearly normal; in practice, normality can be relaxed for most applications. Instead, we examine a histogram of the residuals to check if there are any outliers: Figure~\ref{loansDiagNormalHistogram} is a histogram of these outliers. Since this is a very large data set, only particularly extreme observations would be a concern in this particular case. There are no extreme observations that might cause a~concern.</p>
-        <p>If we intended to construct what are called \termsub{prediction intervals}{prediction interval} for future observations, we would be more strict and require the residuals to be nearly normal. Prediction intervals are further discussed in an online extra on the OpenIntro website:\vspace{-2mm}</p>
+        <p>In theory, the distribution of the residuals should be nearly normal; in practice, normality can be relaxed for most applications. Instead, we examine a histogram of the residuals to check if there are any outliers: Figure~loansDiagNormalHistogram} is a histogram of these outliers. Since this is a very large data set, only particularly extreme observations would be a concern in this particular case. There are no extreme observations that might cause a~concern.</p>
+        <p>If we intended to construct what are called prediction intervals}{prediction interval} for future observations, we would be more strict and require the residuals to be nearly normal. Prediction intervals are further discussed in an online extra on the OpenIntro website:-2mm}</p>
         </li>
         
-        <figure xml:id="loansDiagNormalHistogram">
+        <figure xml:id = "loansDiagNormalHistogram">
           <caption>A histogram of the residuals.</caption>
         </figure>
 
         <li>
           <title>Absolute values of residuals against fitted values.</title>
-        <p>A plot of the absolute value of the residuals against their corresponding fitted values ($\hat{y}_i$) is shown in Figure~\ref{loansDiagEvsAbsF}. This plot is helpful to check the condition that the variance of the residuals is approximately constant, and a smoothed line has been added to represent the approximate trend in this plot. There is more evident variability for fitted values that are larger, which we'll discuss further.</p>
+        <p>A plot of the absolute value of the residuals against their corresponding fitted values ($y}_i$) is shown in Figure~loansDiagEvsAbsF}. This plot is helpful to check the condition that the variance of the residuals is approximately constant, and a smoothed line has been added to represent the approximate trend in this plot. There is more evident variability for fitted values that are larger, which we'll discuss further.</p>
         </li>
-        <figure xml:id="loansDiagEvsAbsF">
-          <caption>Comparing the absolute value of the residuals against the fitted values ($\hat{y</caption>
+        <figure xml:id = "loansDiagEvsAbsF">
+          <caption>Comparing the absolute value of the residuals against the fitted values ($y</caption>
         </figure>
 
         <li>
           <title>Residuals in order of their data collection.</title>
-        <p>This type of plot can be helpful when observations were collected in a sequence. Such a plot is helpful in identifying any connection between cases that are close to one another. The loans in this data set were issued over a 3 month period, and the month the loan was issued was not found to be important, suggesting this is not a concern for this data set. In cases where a data set does show some pattern for this check, \term{time series} methods may be useful.</p>
+        <p>This type of plot can be helpful when observations were collected in a sequence. Such a plot is helpful in identifying any connection between cases that are close to one another. The loans in this data set were issued over a 3 month period, and the month the loan was issued was not found to be important, suggesting this is not a concern for this data set. In cases where a data set does show some pattern for this check, time series} methods may be useful.</p>
         </li>
         <li>
           <title>Residuals against each predictor variable.</title>
-        <p>We consider a plot of the residuals against each of the predictors in Figure~\ref{loansDiagEvsVariables}. For those instances where there are only 2-3 groups, box plots are shown. For the numerical outcomes, a smoothed line has been fit to the data to make it easier to review. Ultimately, we are looking for any notable change in variability between groups or pattern in the data.</p>
+        <p>We consider a plot of the residuals against each of the predictors in Figure~loansDiagEvsVariables}. For those instances where there are only 2-3 groups, box plots are shown. For the numerical outcomes, a smoothed line has been fit to the data to make it easier to review. Ultimately, we are looking for any notable change in variability between groups or pattern in the data.</p>
         <p>Here are the things of importance from these plots:</p>
         </li>
         <ul>
@@ -352,7 +356,7 @@
             <p>The downward curve on the right side of the credit utilization and credit check plots suggests some minor misfitting for those larger values.</p>
           </li>
         </ul>
-        <figure xml:id="loansDiagEvsVariables">
+        <figure xml:id = "loansDiagEvsVariables">
         </figure>
 
       </dl>
@@ -362,14 +366,14 @@
     <subsection>
       <title>Options for improving the model fit</title>
       <p>There are several options for improvement of a model, including transforming variables, seeking out additional variables to fill model gaps, or using more advanced methods that would account for challenges around inconsistent variability or nonlinear relationships between predictors and the outcome.</p>
-      <p>The main concern for the initial model is that there is a notable nonlinear relationship between the debt-to-income variable observed in <xref ref="loansDiagEvsVariables"/>. To resolve this issue, we're going to consider a couple strategies for adjusting the relationship between the predictor variable and the outcome.</p>
-      <p>Let's start by taking a look at a histogram of debt_to_income in <xref ref="loansDebtToIncomeHist"/>. The variable is extremely skewed, and upper values will have a lot of leverage on the fit. Below are several options:</p>
+      <p>The main concern for the initial model is that there is a notable nonlinear relationship between the debt-to-income variable observed in <xref ref = "loansDiagEvsVariables"/>. To resolve this issue, we're going to consider a couple strategies for adjusting the relationship between the predictor variable and the outcome.</p>
+      <p>Let's start by taking a look at a histogram of debt_to_income in <xref ref = "loansDebtToIncomeHist"/>. The variable is extremely skewed, and upper values will have a lot of leverage on the fit. Below are several options:</p>
       <ul>
         <li>
-          <p>log transformation (<m>\log{x}</m>),</p>
+          <p>log transformation (<m>x}</m>),</p>
         </li>
         <li>
-          <p>square root transformation (<m>\sqrt{x}</m>),</p>
+          <p>square root transformation (<m>x}</m>),</p>
         </li>
         <li>
           <p>inverse transformation (<m>1 / x</m>),</p>
@@ -378,8 +382,8 @@
           <p>truncation (cap the max value possible)</p>
         </li>
       </ul>
-      <p>If we inspected the data more closely, we'd observe some instances where the variable takes a value of 0, and since <m>\log(0)</m> and <m>1 / x</m> are undefined when <m>x = 0</m>, we'll exclude these transformations from further consideration.\footnote{There are ways to make them work, but we'll leave those options to a later course.} A square root transformation is valid for all values the variable takes, and truncating some of the larger observations is also a valid approach. We'll consider both of these approaches.</p>
-      <figure xml:id="loansDebtToIncomeHist">
+      <p>If we inspected the data more closely, we'd observe some instances where the variable takes a value of 0, and since <m>\log(0)</m> and <m>1 / x</m> are undefined when <m>x = 0</m>, we'll exclude these transformations from further consideration.There are ways to make them work, but we'll leave those options to a later course.} A square root transformation is valid for all values the variable takes, and truncating some of the larger observations is also a valid approach. We'll consider both of these approaches.</p>
+      <figure xml:id = "loansDebtToIncomeHist">
         <caption>Histogram of debt_</caption>
       </figure>
 
@@ -387,21 +391,21 @@
       <dl>
         <li>
           <title>Square root.</title>
-        <p>We create a new variable, \var{sqrt_debt_to_income, where all the values are simply the square roots of the values in debt_to_income, and then refit the model as before. The result is shown in the left panel of Figure~\ref{loansDiagEvsTransformDebtToIncome}. The square root pulled in the higher values a bit, but the fit still doesn't look great since the smoothed line is still wavy.</p>
+          <p>We create a new variable, sqrt_debt_to_income, where all the values are simply the square roots of the values in debt_to_income, and then refit the model as before. The result is shown in the left panel of Figure~loansDiagEvsTransformDebtToIncome}. The square root pulled in the higher values a bit, but the fit still doesn't look great since the smoothed line is still wavy.</p>
         </li>
         <li>
           <title>Truncate at 50.</title>
-        <p>We create a new variable, debt_to_income_50, where any values in debt_to_income that are greater than 50 are shrunk to exactly 50. Refitting the model once more, the diagnostic plot for this new variable is shown in the right panel of Figure~\ref{loansDiagEvsTransformDebtToIncome}. Here the fit looks much more reasonable, so this appears to be a reasonable approach. 
+          <p>We create a new variable, debt_to_income_50, where any values in debt_to_income that are greater than 50 are shrunk to exactly 50. Refitting the model once more, the diagnostic plot for this new variable is shown in the right panel of Figure~loansDiagEvsTransformDebtToIncome}. Here the fit looks much more reasonable, so this appears to be a reasonable approach.</p>
         </li>
       </dl>
       <p>The downside of using transformations is that it reduces the ease of interpreting the results. Fortunately, since the truncation transformation only affects a relatively small number of cases, the interpretation isn't dramatically impacted.</p>
-      <figure xml:id="loansDiagEvsTransformDebtToIncome">
+      <figure xml:id = "loansDiagEvsTransformDebtToIncome">
         <caption>Histogram of debt_</caption>
       </figure>
 
-      <p>As a next step, we'd evaluate the new model using the truncated version of \var{debt_to_income, we would complete all the same procedures as before. The other two issues noted while inspecting diagnostics in <xref ref="diagnostic_plots_subsection"/> are still present in the updated model. If we choose to report this model, we would want to also discuss these shortcomings to be transparent in our work. Depending on what the model will be used for, we could either try to bring those under control, or we could stop since those issues aren't severe. Had the non-constant variance been a little more dramatic, it would be a higher priority. Ultimately we decided that the model was reasonable, and we report its final form here:</p>
+      <p>As a next step, we'd evaluate the new model using the truncated version of debt_to_income, we would complete all the same procedures as before. The other two issues noted while inspecting diagnostics in <xref ref = "diagnostic_plots_subsection"/> are still present in the updated model. If we choose to report this model, we would want to also discuss these shortcomings to be transparent in our work. Depending on what the model will be used for, we could either try to bring those under control, or we could stop since those issues aren't severe. Had the non-constant variance been a little more dramatic, it would be a higher priority. Ultimately we decided that the model was reasonable, and we report its final form here:</p>
       <md>
-        <mrow>\widehat{rate} = \ 1.562 + 1.002 \times I(income_ver=source_only) + 2.436 \times I(income_ver=verified)</mrow>
+        <mrow>rate = \ 1.562 + 1.002 \times \mathbb{1}(income_ver = source_only) + 2.436 \times \mathbb{1}(income_ver = verified)</mrow>
         <mrow>\qquad + 0.048 \times debt_to_income_50 + 4.694 \times credit_util + 0.394 \times bankruptcy</mrow>
         <mrow>\qquad + 0.153 \times term + 0.223 \times credit_check</mrow>
       </md>
@@ -410,100 +414,99 @@
         <p>but some are useful" -George E.P. Box} The truth is that no model is perfect. However, even imperfect models can be useful. Reporting a flawed model can be reasonable so long as we are clear and report the model's shortcomings.</p>
       </assemblage>
 
-      <p>Don't report results when conditions are grossly violated. While there is a little leeway in model conditions, don't go too far. If model conditions are very clearly violated, consider a new model, even if it means learning more statistical methods or hiring someone who can help. To help you get started, we've developed a couple additional sections that you may find on OpenIntro's website. These sections provide a light introduction to what are called <term>interaction terms</term>  and to fitting <term>nonlinear curves</term>
-      <exercise xml:id="baby_weights_conds">
+      <p>Don't report results when conditions are grossly violated. While there is a little leeway in model conditions, don't go too far. If model conditions are very clearly violated, consider a new model, even if it means learning more statistical methods or hiring someone who can help. To help you get started, we've developed a couple additional sections that you may find on OpenIntro's website. These sections provide a light introduction to what are called <term>interaction terms</term>  and to fitting <term>nonlinear curves</term>.</p>
+      
+      <exercise xml:id = "baby_weights_conds">
         <title>Baby weights, Part VI</title>
         <statement>
-          <p>Exercise <xref ref="baby_weights_mlr"/> presents a regression model for predicting the average birth weight of babies based on length of gestation, parity, height, weight, and smoking status of the mother. Determine if the model assumptions are met using the plots below. If not, describe how to proceed with the analysis. </p>
+          <p>Exercise <xref ref = "baby_weights_mlr"/> presents a regression model for predicting the average birth weight of babies based on length of gestation, parity, height, weight, and smoking status of the mother. Determine if the model assumptions are met using the plots below. If not, describe how to proceed with the analysis. </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="movie_returns_altogether">
+      <exercise xml:id = "movie_returns_altogether">
         <title>Movie returns, Part I</title>
         <statement>
-          <p>A FiveThirtyEight.com article reports that "Horror movies get nowhere near as much draw at the box office as the big-time summer blockbusters or action/adventure movies ... but there’s a huge incentive for studios to continue pushing them out. The return-on-investment potential for horror movies is absurd." To investigate how the return-on-investment compares between genres and how this relationship has changed over time, an introductory statistics student fit a model predicting the ratio of gross revenue of movies from genre and release year for 1,070 movies released between 2000 and 2018. Using the plots given below, determine if this regression model is appropriate for these data.\footfullcite{webpage:horrormovies} </p>
+          <p>A FiveThirtyEight.com article reports that "Horror movies get nowhere near as much draw at the box office as the big-time summer blockbusters or action/adventure movies ... but there’s a huge incentive for studios to continue pushing them out. The return-on-investment potential for horror movies is absurd." To investigate how the return-on-investment compares between genres and how this relationship has changed over time, an introductory statistics student fit a model predicting the ratio of gross revenue of movies from genre and release year for 1,070 movies released between 2000 and 2018. Using the plots given below, determine if this regression model is appropriate for these data. </p>
         </statement>
       </exercise>
 
   </subsection>
   </section>
 
-  <section xml:id="mario_kart_case_study">
+  <section xml:id = "mario_kart_case_study">
     <title>Multiple regression case study: Mario Kart</title>
 
     <subsection>
       <title>Data set and the full model</title>
-      <p>The mariokart data set includes results from 141 auctions. Four observations from this data set are shown in <xref ref="marioKartDataMatrix"/>, and descriptions for each variable are shown in <xref ref="marioKartVariables"/>. Notice that the condition and stock photo variables are indicator variables, similar to bankruptcy in the loan data set.</p>
-      <figure xml:id="marioKartDataMatrix">
+      <p>The mariokart data set includes results from 141 auctions. Four observations from this data set are shown in <xref ref = "marioKartDataMatrix"/>, and descriptions for each variable are shown in <xref ref = "marioKartVariables"/>. Notice that the condition and stock photo variables are indicator variables, similar to bankruptcy in the loan data set.</p>
+      <figure xml:id = "marioKartDataMatrix">
         <caption>Four observations from the mariokart</caption>
       </figure>
 
-      <figure xml:id="marioKartVariables">
+      <figure xml:id = "marioKartVariables">
       </figure>
 
-      <p>\hline &amp; &amp; &amp; &amp; &amp; Estimate &amp; Std. Error &amp; t value &amp; Pr(<m>&gt;</m><m>|</m>t<m>|</m>) \hline &amp; &amp; &amp; &amp; (Intercept) &amp; 42.8711 &amp; 0.8140 &amp; 52.67 &amp; <m>&lt;</m>0.0001 cond_new &amp; 10.8996 &amp; 1.2583 &amp; 8.66 &amp; <m>&lt;</m>0.0001 \hline &amp;&amp;&amp;\multicolumn{2{r}{<m>df=139</m>} \end{tabular} \end{center} Write down the equation for the model, note whether the slope is statistically different from zero, and interpret the coefficient. \end{nexercise} \end{exercisewrap}  = 42.87 + 10.90\times cond_new</me>
-      <p>Examining the regression output in Guided Practice <xref ref="condNewVarForMarioKartOnly"/>, we can see that the p-value for cond_new is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this simple one-variable model.</p>
+      <p>Examining the regression output in Guided Practice <xref ref = "condNewVarForMarioKartOnly"/>, we can see that the p-value for cond_new is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this simple one-variable model.</p>
       <p>The cond_new is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used. This means the 10.90 model coefficient predicts an extra \$10.90 for those games that are new versus those that are used.}</p>
       <p>Sometimes there are underlying structures or relationships between predictor variables. For instance, new games sold on Ebay tend to come with more Wii wheels, which may have led to higher prices for those auctions. We would like to fit a model that includes all potentially important variables simultaneously. This would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.</p>
-      <p>We want to construct a model that accounts for not only the game condition, as in Guided Practice <xref ref="condNewVarForMarioKartOnly"/>, but simultaneously accounts for three other variables:</p>
+      <p>We want to construct a model that accounts for not only the game condition, as in Guided Practice <xref ref = "condNewVarForMarioKartOnly"/>, but simultaneously accounts for three other variables:</p>
       <md>
-        <mrow>\widehat{price} = \beta_0 + \beta_1\times cond_new + \beta_2\times stock_photo</mrow>
+        <mrow>price = \beta_0 + \beta_1\times cond_new + \beta_2\times stock_photo</mrow>
         <mrow>\qquad\  + \beta_3 \times  duration + \beta_4 \times  wheels</mrow>
       </md>
-      <figure xml:id="MarioKartFullModelOutput">
+      <figure xml:id = "MarioKartFullModelOutput">
         <caption>Output for the regression model where price</caption>
       </figure>
 
-      <p>= 36.21 + 5.13 \times \var{cond_new + 1.08 \times stock_photo - 0.03 \times duration + 7.29 \times wheels$, with the <m>k=4</m> predictors.}</p>
+      <me>36.21 + 5.13 \times cond_new + 1.08 \times stock_photo - 0.03 \times duration + 7.29 \times wheels$, with the <m>k = 4</m> predictors.</me>
       <p></p>
-      <p> = 51.55 - 49.62 = 1.93</m>, where 49.62 was computed using the variables values from the observation and the equation identified in Guided Practice <xref ref="eqForMultRegrOfTotalPrForAllPredWithCoef"/>.}</p>
-      <example xml:id="">
-        <p>cond_new in <xref ref="condNewVarForMarioKartOnly"/> of <m>b_1 = 10.90</m> with a standard error of <m>SE_{b_1} = 1.26</m> when using simple linear regression. Why might there be a difference between that estimate and the one in the multiple regression setting?} If we examined the data carefully, we would see that there is collinearity among some predictors. For instance, when we estimated the connection of the outcome price and predictor cond_new using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction. That model was biased by the confounding variable wheels. When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).</p>
+      <p><m>residual = 51.55 - 49.62 = 1.93</m>, where 49.62 was computed using the variables values from the observation and the equation identified in Guided Practice <xref ref = "eqForMultRegrOfTotalPrForAllPredWithCoef"/>.}</p>
+      <example>
+        <p>cond_new in <xref ref = "condNewVarForMarioKartOnly"/> of <m>b_1 = 10.90</m> with a standard error of <m>SE_{b_1 = 1.26</m> when using simple linear regression. Why might there be a difference between that estimate and the one in the multiple regression setting?} If we examined the data carefully, we would see that there is collinearity among some predictors. For instance, when we estimated the connection of the outcome price and predictor cond_new using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction. That model was biased by the confounding variable wheels. When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).</p>
       </example>
 
   </subsection>
 
-    <subsection xml:id="colinearityOfCondNewAndStockPhoto">
+    <subsection xml:id = "colinearityOfCondNewAndStockPhoto">
       <title>Model selection</title>
-      <me>\widehat{price} = 36.21 + 5.13 \times cond_new + 1.08 \times stock_photo - 0.03 \times duration + 7.29 \times wheels</me>
-      <example xml:id="">
+      <me>price = 36.21 + 5.13 \times cond_new + 1.08 \times stock_photo - 0.03 \times duration + 7.29 \times wheels</me>
+      <example>
         <p>for the mariokart data were shown in Figure . For this model, we consider what would happen if dropping each of the variables in the model:  For the full model, <m>R_{adj}^2 = 0.7108</m>. How should we proceed under the backward elimination strategy?} The third model without duration has the highest <m>R_{adj}^2</m> of 0.7128, so we compare it to <m>R_{adj}^2</m> for the full model. Because eliminating duration leads to a model with a higher <m>R_{adj}^2</m>, we drop duration from the model.</p>
       </example>
 
-      <p>Exclude duration and ... &amp; cond_new &amp; stock_photo &amp; wheels &amp; <m>R^2_{adj} = 0.6587</m> &amp; <m>R^2_{adj} = 0.7124</m> &amp; <m>R^2_{adj} = 0.3414</m> \end{tabular} \end{center} Should we eliminate any additional variable, and if so, which variable should we eliminate? \end{nexercise} \end{exercisewrap} ^2</m>, so we should not remove any additional variables from the model after we removed duration.}</p>
       <p>"1" for stock_photo, and "2" for wheels into the equation, which would return \$51.77, which is the total price we would expect for the auction.}</p>
       <p></p>
   </subsection>
 
-    <subsection xml:id="backwardEliminationExampleWMarioKartData">
+    <subsection xml:id = "backwardEliminationExampleWMarioKartData">
       <title>Checking model conditions using graphs</title>
       <dl>
         <li>
           <title>Check for outliers.</title>
-        <p>A histogram of the residuals is shown in Figure~\ref{mkDiagResHist}. With a data set well over a hundred, we're primarily looking for major outliers. While one minor outlier appears on the upper end, it is not a concern for this large of a data set.</p>
+        <p>A histogram of the residuals is shown in Figure~mkDiagResHist}. With a data set well over a hundred, we're primarily looking for major outliers. While one minor outlier appears on the upper end, it is not a concern for this large of a data set.</p>
         </li>
-        <figure xml:id="mkDiagResHist">
+        <figure xml:id = "mkDiagResHist">
         </figure>
 
         <li>
           <title>Absolute values of residuals against fitted values.</title>
-        <p>A plot of the absolute value of the residuals against their corresponding fitted values ($\hat{y}_i$) is shown in Figure~\ref{mkDiagnosticEvsAbsF}. We don't see any obvious deviations from constant variance in this example.</p>
+        <p>A plot of the absolute value of the residuals against their corresponding fitted values ($y}_i$) is shown in Figure~mkDiagnosticEvsAbsF}. We don't see any obvious deviations from constant variance in this example.</p>
         </li>
-        <figure xml:id="mkDiagnosticEvsAbsF">
+        <figure xml:id = "mkDiagnosticEvsAbsF">
         </figure>
 
         <li>
           <title>Residuals in order of their data collection.</title>
-        <p>A plot of the residuals in the order their corresponding auctions were observed is shown in Figure~\ref{mkDiagnosticInOrder}. Here we see no structure that indicates a problem.</p>
+        <p>A plot of the residuals in the order their corresponding auctions were observed is shown in Figure~mkDiagnosticInOrder}. Here we see no structure that indicates a problem.</p>
         </li>
-        <figure xml:id="mkDiagnosticInOrder">
+        <figure xml:id = "mkDiagnosticInOrder">
         </figure>
 
         <li>
           <title>Residuals against each predictor variable.</title>
-        <p>We consider a plot of the residuals against the cond_new variable, the residuals against the stock_photo variable, and the residuals against the wheels variable. These plots are shown in Figure~\ref{mkDiagnosticEvsVariables}. For the two-level condition variable, we are guaranteed not to see any remaining trend, and instead we are checking that the variability doesn't fluctuate across groups, which it does not. However, looking at the stock photo variable, we find that there is some difference in the variability of the residuals in the two groups. Additionally, when we consider the residuals against the wheels variable, we see some possible structure. There appears to be curvature in the residuals, indicating the relationship is probably not linear.</p>
+        <p>We consider a plot of the residuals against the cond_new variable, the residuals against the stock_photo variable, and the residuals against the wheels variable. These plots are shown in Figure~mkDiagnosticEvsVariables}. For the two-level condition variable, we are guaranteed not to see any remaining trend, and instead we are checking that the variability doesn't fluctuate across groups, which it does not. However, looking at the stock photo variable, we find that there is some difference in the variability of the residuals in the two groups. Additionally, when we consider the residuals against the wheels variable, we see some possible structure. There appears to be curvature in the residuals, indicating the relationship is probably not linear.</p>
         </li>
-        <figure xml:id="mkDiagnosticEvsVariables">
+        <figure xml:id = "mkDiagnosticEvsVariables">
         </figure>
 
       </dl>
@@ -511,100 +514,100 @@
   </subsection>
   </section>
 
-  <section xml:id="logisticRegression">
+  <section xml:id = "logisticRegression">
     <title>Introduction to logistic regression</title>
 
     
     <p>GLMs can be thought of as a two-stage modeling approach. We first model the response variable using a probability distribution, such as the binomial or Poisson distribution. Second, we model the parameter of the distribution using a collection of predictors and a special form of multiple regression. Ultimately, the application of a GLM will feel very similar to multiple regression, even if some of the details are different.</p>
     <subsection>
       <title>Resume data</title>
-      <p>We will consider experiment data from a study that sought to understand the effect of race and sex on job application callback rates; details of the study and a link to the data set may be found in Appendix <xref ref="ch_regr_mult_and_log_data"/>. To evaluate which factors were important, job postings were identified in Boston and Chicago for the study, and researchers created many fake resumes to send off to these jobs to see which would elicit a callback. The researchers enumerated important characteristics, such as years of experience and education details, and they used these characteristics to randomly generate the resumes. Finally, they randomly assigned a name to each resume, where the name would imply the applicant's sex and race.</p>
-      <p>The first names that were used and randomly assigned in this experiment were selected so that they would predominantly be recognized as belonging to Black or White individuals; other races were not considered in this study. While no name would definitively be inferred as pertaining to a Black individual or to a White individual, the researchers conducted a survey to check for racial association of the names; names that did not pass this survey check were excluded from usage in the experiment. You can find the full set of names that did pass the survey test and were ultimately used in the study in <xref ref="resumeFirstName"/>. For example, Lakisha was a name that their survey indicated would be interpreted as a Black woman, while Greg was a name that would generally be interpreted to be associated with a White male.</p>
-      <figure xml:id="resumeFirstName">
+      <p>We will consider experiment data from a study that sought to understand the effect of race and sex on job application callback rates; details of the study and a link to the data set may be found in Appendix <xref ref = "ch_regr_mult_and_log_data"/>. To evaluate which factors were important, job postings were identified in Boston and Chicago for the study, and researchers created many fake resumes to send off to these jobs to see which would elicit a callback. The researchers enumerated important characteristics, such as years of experience and education details, and they used these characteristics to randomly generate the resumes. Finally, they randomly assigned a name to each resume, where the name would imply the applicant's sex and race.</p>
+      <p>The first names that were used and randomly assigned in this experiment were selected so that they would predominantly be recognized as belonging to Black or White individuals; other races were not considered in this study. While no name would definitively be inferred as pertaining to a Black individual or to a White individual, the researchers conducted a survey to check for racial association of the names; names that did not pass this survey check were excluded from usage in the experiment. You can find the full set of names that did pass the survey test and were ultimately used in the study in <xref ref = "resumeFirstName"/>. For example, Lakisha was a name that their survey indicated would be interpreted as a Black woman, while Greg was a name that would generally be interpreted to be associated with a White male.</p>
+      <figure xml:id = "resumeFirstName">
         <caption>List of all 36{</caption>
       </figure>
 
-      <p>The response variable of interest is whether or not there was a callback from the employer for the applicant, and there were 4870umPred{} attributes that were randomly assigned that we'll consider, with special interest in the race and sex variables. Race and sex are <term>protected classes</term> in the United States, meaning they are not legally permitted factors for hiring or employment decisions. The full set of attributes considered is provided in <xref ref="resumeVariables"/>.</p>
-      <figure xml:id="resumeVariables">
+      <p>The response variable of interest is whether or not there was a callback from the employer for the applicant, and there were 4870umPred{} attributes that were randomly assigned that we'll consider, with special interest in the race and sex variables. Race and sex are <term>protected classes</term> in the United States, meaning they are not legally permitted factors for hiring or employment decisions. The full set of attributes considered is provided in <xref ref = "resumeVariables"/>.</p>
+      <figure xml:id = "resumeVariables">
         <caption>Descriptions for the callback</caption>
       </figure>
 
       <p>All of the attributes listed on each resume were randomly assigned. This means that no attributes that might be favorable or detrimental to employment would favor one demographic over another on these resumes. Importantly, due to the experimental nature of this study, we can infer causation between these variables and the callback rate, if the variable is statistically significant. Our analysis will allow us to compare the practical importance of each of the variables relative to each other.</p>
   </subsection>
 
-    <subsection xml:id="modelingTheProbabilityOfAnEvent">
+    <subsection xml:id = "modelingTheProbabilityOfAnEvent">
       <title>Modeling the probability of an event</title>
       <p>Logistic regression is a generalized linear model where the outcome is a two-level categorical variable. The outcome, <m>Y_i</m>, takes the value 1 (in our application, this represents a callback for the resume) with probability <m>p_i</m> and the value 0 with probability <m>1 - p_i</m>. Because each observation has a slightly different context, e.g. different education level or a different number of years of experience, the probability <m>p_i</m> will differ for each observation. Ultimately, it is this probability that we model in relation to the predictor variables: we will examine which resume characteristics correspond to higher or lower callback rates.</p>
       <assemblage>
         <title>Notation for a logistic regression model</title>
-        <p>The outcome variable for a GLM is denoted by <m>Y_i</m>, where the index <m>i</m> is used to represent observation <m>i</m>. In the resume application, <m>Y_i</m> will be used to represent whether resume <m>i</m> received a callback (<m>Y_i=1</m>) or not (<m>Y_i=0</m>).</p>
+        <p>The outcome variable for a GLM is denoted by <m>Y_i</m>, where the index <m>i</m> is used to represent observation <m>i</m>. In the resume application, <m>Y_i</m> will be used to represent whether resume <m>i</m> received a callback (<m>Y_i = 1</m>) or not (<m>Y_i = 0</m>).</p>
         <p>The predictor variables are represented as follows: <m>x_{1,i</m> is the value of variable 1 for observation <m>i</m>, <m>x_{2,i}</m> is the value of variable 2 for observation <m>i</m>, and so on.</p>
       </assemblage>
 
-      <p>The logistic regression model relates the probability a resume would receive a callback (<m>p_i</m>) to the predictors <m>x_{1,i}</m>, <m>x_{2,i}</m>, ..., <m>x_{k,i}</m> through a framework much like that of multiple regression: \begin{} transformation(p_{i}) = \beta_0 + \beta_1x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i} \end{} We want to choose a transformation in the equation that makes practical and mathematical sense. For example, we want a transformation that makes the range of possibilities on the left hand side of the equation equal to the range of possibilities for the right hand side; if there was no transformation for this equation, the left hand side could only take values between 0 and 1, but the right hand side could take values outside of this range. A common transformation for <m>p_i</m> is the <term>logit transformation</term>, which may be written as</p>
-      <me>logit(p_i) = \log_{e}\left( \frac{p_i}{1-p_i} \right)</me>
-      <p>The logit transformation is shown in <xref ref="logitTransformationFigureHoriz"/>. Below, we rewrite the equation relating <m>Y_i</m> to its predictors using the logit transformation of <m>p_i</m>:</p>
-      <me>\log_{e}\left( \frac{p_i}{1-p_i} \right) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}</me>
+      <p>The logistic regression model relates the probability a resume would receive a callback (<m>p_i</m>) to the predictors <m>x_{1,i}</m>, <m>x_{2,i}</m>, ..., <m>x_{k,i}</m> through a framework much like that of multiple regression:  transformation(p_{i}) = \beta_0 + \beta_1x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}  We want to choose a transformation in the equation that makes practical and mathematical sense. For example, we want a transformation that makes the range of possibilities on the left hand side of the equation equal to the range of possibilities for the right hand side; if there was no transformation for this equation, the left hand side could only take values between 0 and 1, but the right hand side could take values outside of this range. A common transformation for <m>p_i</m> is the <term>logit transformation</term>, which may be written as</p>
+      <me>logit(p_i) = \log_{e}\left( p_i}{1-p_i} )</me>
+      <p>The logit transformation is shown in <xref ref = "logitTransformationFigureHoriz"/>. Below, we rewrite the equation relating <m>Y_i</m> to its predictors using the logit transformation of <m>p_i</m>:</p>
+      <me>\log_{e}\left( p_i}{1-p_i} ) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}</me>
       <p>In our resume example, there are 4870umPred{} predictor variables, so <m>k = 4870umPred{}</m>. While the precise choice of a logit function isn't intuitive, it is based on theory that underpins generalized linear models, which is beyond the scope of this book. Fortunately, once we fit a model using software, it will start to feel like we're back in the multiple regression context, even if the interpretation of the coefficients is more complex.</p>
-      <figure xml:id="logitTransformationFigureHoriz">
+      <figure xml:id = "logitTransformationFigureHoriz">
         <caption>Values of <m>p_i</m> against values of <m>logit(p_i)</m>.</caption>
       </figure>
 
-      <example xml:id="">
+      <example>
         <p>predictor: honors. This variable indicates whether the applicant had any type of honors listed on their resume, such as employee of the month. The following logistic regression model was fit using statistical software:</p>
-        <me>\log_e \left( \frac{p_i}{1-p_i} \right) = \resHonorsInt{} + \resHonorsCoef{} \times\text{honors}</me>
+        <me>\log_e \left( p_i}{1-p_i} ) = +  \timeshonors}</me>
         <p>(a) If a resume is randomly selected from the study and it does not have any honors listed, what is the probability resulted in a callback?</p>
         <p>(b) What would the probability be if the resume did list some honors?} 
-        <p>(b) If the resume had listed some honors, then the right side of the model equation is $-2.4998 + 0.8668 \times 1 = -2.4998PlusCoef{}$, which corresponds to a probability <m>\hat{p}_i = 0.163</m>.</p>
-        <p>Notice that we could examine -2.4998 and -2.4998PlusCoef{} in <xref ref="logitTransformationFigureHoriz"/> to estimate the probability before formally calculating the value.</p>
+        <p>(b) If the resume had listed some honors, then the right side of the model equation is $-2.4998 + 0.8668 \times 1 = -2.4998PlusCoef{}$, which corresponds to a probability <m>p_i = 0.163</m>.</p>
+        <p>Notice that we could examine -2.4998 and -2.4998PlusCoef{} in <xref ref = "logitTransformationFigureHoriz"/> to estimate the probability before formally calculating the value.</p>
       </p>
       </example>
 
-      <p>To convert from values on the logistic regression scale (e.g. -2.4998 and -2.4998PlusCoef{} in <xref ref="logisticExampleWithHonors"/>), use the following formula, which is the result of solving for <m>p_i</m> in the regression model: {e^{\beta_0 + \beta_1 x_{1,i}+\cdots+\beta_k x_{k,i}}}
-      <me>p_i = \frac{\exponentialToSolveForPi{}} {\ 1\ \ +\ \ \exponentialToSolveForPi{}\ }</me>
-      <p>As with most applied data problems, we substitute the point estimates for the parameters (the <m>\beta_i</m>) so that we can make use of this formula. In <xref ref="logisticExampleWithHonors"/>, the probabilities were calculated as</p>
-      <me>\frac{\ e^{\resHonorsInt{}}\ } {\ 1\ +\ e^{\resHonorsInt{}}\ } = \resHonorsNotProb{}  \frac{\ e^{\resHonorsInt{} + \resHonorsCoef{}}\ } {\ 1\ +\ e^{\resHonorsInt{} + \resHonorsCoef{}}\ } = \resHonorsProb{}</me>
+      <p>To convert from values on the logistic regression scale (e.g. -2.4998 and -2.4998PlusCoef{} in <xref ref = "logisticExampleWithHonors"/>), use the following formula, which is the result of solving for <m>p_i</m> in the regression model:</p>
+      <me>p_i = e^{\beta_0 + \beta_1 x_{1,i}+\cdots+\beta_k x_{k,i}}} {1 + e^{\beta_0 + \beta_1 x_{1,i}+\cdots+\beta_k x_{k,i}}}</me>
+      <p>As with most applied data problems, we substitute the point estimates for the parameters (the <m>\beta_i</m>) so that we can make use of this formula. In <xref ref = "logisticExampleWithHonors"/>, the probabilities were calculated as</p>
+      <me>\ e^{}\ } {\ 1\ +\ e^{}\ = \ e^{ + }\ } {\ 1\ +\ e^{ + }\ = </me>
       <p>While knowing whether a resume listed honors provides some signal when predicting whether or not the employer would call, we would like to account for many different variables at once to understand how each of the different resume characteristics affected the chance of a callback.</p>
   </subsection>
 
-    <subsection xml:id="linkTransformationEquation">
+    <subsection xml:id = "linkTransformationEquation">
       <title>Building the logistic model with many variables</title>
-      <p>We used statistical software to fit the logistic regression model with all 4870umPred{} predictors described in <xref ref="resumeVariables"/>. Like multiple regression, the result may be presented in a summary table, which is shown in <xref ref="resumeLogisticModelResults"/>. The structure of this table is almost identical to that of multiple regression; the only notable difference is that the p-values are calculated using the normal distribution rather than the <m>t</m>-distribution.</p>
-      <figure xml:id="resumeLogisticModelResults">
+      <p>We used statistical software to fit the logistic regression model with all 4870umPred{} predictors described in <xref ref = "resumeVariables"/>. Like multiple regression, the result may be presented in a summary table, which is shown in <xref ref = "resumeLogisticModelResults"/>. The structure of this table is almost identical to that of multiple regression; the only notable difference is that the p-values are calculated using the normal distribution rather than the <m>t</m>-distribution.</p>
+      <figure xml:id = "resumeLogisticModelResults">
       </figure>
 
-      <p>Just like multiple regression, we could trim some variables from the model. Here we'll use a statistic called <term>Akaike information criterion (AIC)</term>, which is an analog to how we used adjusted R-squared in multiple regression, and we look for models with a lower AIC through a backward elimination strategy. After using this criteria, the college_degree variable is eliminated, giving the smaller model summarized in <xref ref="resumeLogisticReducedModel"/>, which is what we'll rely on for the remainder of this section.</p>
-      <figure xml:id="resumeLogisticReducedModel">
+      <p>Just like multiple regression, we could trim some variables from the model. Here we'll use a statistic called <term>Akaike information criterion (AIC)</term>, which is an analog to how we used adjusted R-squared in multiple regression, and we look for models with a lower AIC through a backward elimination strategy. After using this criteria, the college_degree variable is eliminated, giving the smaller model summarized in <xref ref = "resumeLogisticReducedModel"/>, which is what we'll rely on for the remainder of this section.</p>
+      <figure xml:id = "resumeLogisticReducedModel">
       </figure>
 
-      <example xml:id="">
+      <example>
         <title>The race</title>
         <p>only two levels: "black" and "white". Based on the model results, was race a meaningful factor for if a prospective employer would call back? We see that the p-value for this coefficient is very small (very nearly zero), which implies that race played a statistically significant role in whether a candidate received a callback. Additionally, we see that the coefficient shown corresponds to the level of "white", and it is positive. This positive coefficient reflects a positive gain in callback rate for resumes where the candidate's first name implied they were White. The data provide very strong evidence of racism by prospective employers that favors resumes where the first name is typically interpreted to be White.</p>
       </example>
 
-      <p>The coefficient of <m>I(race=white)</m> in the full model in <xref ref="resumeLogisticModelResults"/>, is nearly identical to the model shown in <xref ref="resumeLogisticReducedModel"/>. The predictors in this experiment were thoughtfully laid out so that the coefficient estimates would typically not be much influenced by which other predictors were in the model, which aligned with the motivation of the study to tease out which effects were important to getting a callback. In most observational data, it's common for point estimates to change a little, and sometimes a lot, depending on which other variables are included in the model.</p>
-      <example xml:id="">
+      <p>The coefficient of <m>\mathbb{1}(race = white)</m> in the full model in <xref ref = "resumeLogisticModelResults"/>, is nearly identical to the model shown in <xref ref = "resumeLogisticReducedModel"/>. The predictors in this experiment were thoughtfully laid out so that the coefficient estimates would typically not be much influenced by which other predictors were in the model, which aligned with the motivation of the study to tease out which effects were important to getting a callback. In most observational data, it's common for point estimates to change a little, and sometimes a lot, depending on which other variables are included in the model.</p>
+      <example>
         <md>
-          <mrow>log_e \left(\frac{p}{1 - p}\right)</mrow>
-          <mrow>\quad= - 2.7162 - 0.4364 \times I(job_city=Chicago) + 0.0206 \times years_experience + 0.7634 \times honors</mrow>
-          <mrow>\quad\qquad - 0.3443 \times military + 0.2221 \times email + 0.4429 \times I(race=white) - 0.1959 \times I(sex=male)</mrow>
-          <mrow>\quad= - 2.7162 - 0.4364 \times 1 + 0.0206 \times 14 + 0.7634 \times 0</mrow>
+          <mrow>log_e \left(\hat{p}/(1 - \hat{p})</mrow>
+          <mrow>\quad = - 2.7162 - 0.4364 \times \mathbb{1}(job_city = Chicago) + 0.0206 \times years_experience + 0.7634 \times honors</mrow>
+          <mrow>\quad\qquad - 0.3443 \times military + 0.2221 \times email + 0.4429 \times \mathbb{1}(race = white) - 0.1959 \times \mathbb{1}(sex = male)</mrow>
+          <mrow>\quad = - 2.7162 - 0.4364 \times 1 + 0.0206 \times 14 + 0.7634 \times 0</mrow>
           <mrow>\quad\qquad - 0.3443 \times 0 + 0.2221 \times 1 + 0.4429 \times 1 - 0.1959 \times 1</mrow>
-          <mrow>\quad= - 2.3955</mrow>
+          <mrow>\quad = - 2.3955</mrow>
         </md>
         <p>We can now back-solve for <m>p</m>: the chance such an individual will receive a callback is about 8.35 percent.</p>
       </example>
 
-      <example xml:id="">
-        <p>for an individual with a name commonly inferred to be from a Black male but who otherwise has the same characteristics as the one described in <xref ref="exampleForResumeAndWhiteQuantified"/>.} 
-        <p>In practical terms, an individual perceived as White based on their first name would need to apply to <m>\frac{1}{0.0835} \approx 12</m> jobs on average to receive a callback, while an individual perceived as Black based on their first name would need to apply to <m>\frac{1}{0.0553} \approx 18</m> jobs on average to receive a callback. That is, applicants who are perceived as Black need to apply to 50 percent more employers to receive a callback than someone who is perceived as White based on their first name for jobs like those in the study.</p>
+      <example>
+        <p>for an individual with a name commonly inferred to be from a Black male but who otherwise has the same characteristics as the one described in <xref ref = "exampleForResumeAndWhiteQuantified"/>.} 
+        <p>In practical terms, an individual perceived as White based on their first name would need to apply to <m>1}{0.0835} \approx 12</m> jobs on average to receive a callback, while an individual perceived as Black based on their first name would need to apply to <m>1}{0.0553} \approx 18</m> jobs on average to receive a callback. That is, applicants who are perceived as Black need to apply to 50 percent more employers to receive a callback than someone who is perceived as White based on their first name for jobs like those in the study.</p>
       </p>
       </example>
 
       <p>What we've quantified in this section is alarming and disturbing. However, one aspect that makes this racism so difficult to address is that the experiment, as well-designed as it is, cannot send us much signal about which employers are discriminating. It is only possible to say that discrimination is happening, even if we cannot say which particular callbacks – or non-callbacks – represent discrimination. Finding strong evidence of racism for individual cases is a persistent challenge in enforcing anti-discrimination laws.</p>
   </subsection>
 
-    <subsection xml:id="exampleForResumeAndWhiteQuantified">
+    <subsection xml:id = "exampleForResumeAndWhiteQuantified">
       <title>Diagnostics for the callback rate model</title>
       <assemblage>
         <title>Logistic regression conditions</title>
@@ -620,8 +623,8 @@
       </assemblage>
 
       <p>The first logistic regression model condition – independence of the outcomes – is reasonable for the experiment since characteristics of resumes were randomly assigned to the resumes that were sent out.</p>
-      <p>The second condition of the logistic regression model is not easily checked without a fairly sizable amount of data. Luckily, we have 4870 resume submissions in the data set! Let's first visualize these data by plotting the true classification of the resumes against the model's fitted probabilities, as shown in <xref ref="logisticModelPredict"/>.</p>
-      <figure xml:id="logisticModelPredict">
+      <p>The second condition of the logistic regression model is not easily checked without a fairly sizable amount of data. Luckily, we have 4870 resume submissions in the data set! Let's first visualize these data by plotting the true classification of the resumes against the model's fitted probabilities, as shown in <xref ref = "logisticModelPredict"/>.</p>
+      <figure xml:id = "logisticModelPredict">
       </figure>
 
       <p>We'd like to assess the quality of the model. For example, we might ask: if we look at resumes that we modeled as having a 10 percent chance of getting a callback, do we find about 10 percent of them actually receive a callback? We can check this for groups of the data by constructing a plot as follows:</p>
@@ -639,51 +642,51 @@
           <p>Plot the observed probabilities (with 95 percent confidence intervals) against the average predicted probabilities for each group.</p>
         </li>
       </ol>
-      <p>The points plotted should fall close to the line <m>y = x</m>, since the predicted probabilities should be similar to the observed probabilities. We can use the confidence intervals to roughly gauge whether anything might be amiss. Such a plot is shown in <xref ref="logisticModelBucketDiag"/>.</p>
-      <figure xml:id="logisticModelSpline">
+      <p>The points plotted should fall close to the line <m>y = x</m>, since the predicted probabilities should be similar to the observed probabilities. We can use the confidence intervals to roughly gauge whether anything might be amiss. Such a plot is shown in <xref ref = "logisticModelBucketDiag"/>.</p>
+      <figure xml:id = "logisticModelSpline">
       </figure>
 
-      <p>Additional diagnostics may be created that are similar to those featured in <xref ref="multipleRegressionModelAssumptions"/>. For instance, we could compute residuals as the observed outcome minus the expected outcome (<m>e_i = Y_i - \hat{p}_i</m>), and then we could create plots of these residuals against each predictor. We might also create a plot like that in <xref ref="logisticModelBucketDiag"/> to better understand the deviations.</p>
+      <p>Additional diagnostics may be created that are similar to those featured in <xref ref = "multipleRegressionModelAssumptions"/>. For instance, we could compute residuals as the observed outcome minus the expected outcome (<m>e_i = Y_i - p_i</m>), and then we could create plots of these residuals against each predictor. We might also create a plot like that in <xref ref = "logisticModelBucketDiag"/> to better understand the deviations.</p>
   </subsection>
 
-    <subsection xml:id="logistic_regr_diagnostics_subsection">
+    <subsection xml:id = "logistic_regr_diagnostics_subsection">
       <title>Exploring discrimination between groups of different sizes</title>
       <p>Any form of discrimination is concerning, and this is why we decided it was so important to discuss this topic using data. The resume study also only examined discrimination in a single aspect: whether a prospective employer would call a candidate who submitted their resume. There was a 50 percent higher barrier for resumes simply when the candidate had a first name that was perceived to be from a Black individual. It's unlikely that discrimination would stop there.</p>
-      <example xml:id="">
-        <p>company that consists of 20 percent women and 80 percent men, and we'll suppose that the company is very large, consisting of perhaps 20,000 employees. Suppose when someone goes up for promotion at this company, 5 of their colleagues are randomly chosen to provide feedback on their work. \exspace{}</p>
-        <p>Now let's imagine that 10 percent of the people in the company are prejudiced against the other sex. That is, 10 percent of men are prejudiced against women, and similarly, 10 percent of women are prejudiced against men. \exspace{}</p>
+      <example>
+        <p>company that consists of 20 percent women and 80 percent men, and we'll suppose that the company is very large, consisting of perhaps 20,000 employees. Suppose when someone goes up for promotion at this company, 5 of their colleagues are randomly chosen to provide feedback on their work. </p>
+        <p>Now let's imagine that 10 percent of the people in the company are prejudiced against the other sex. That is, 10 percent of men are prejudiced against women, and similarly, 10 percent of women are prejudiced against men. </p>
         <p>Who is discriminated against more at the company, men or women?} Let's suppose we took 100 men who have gone up for promotion in the past few years. For these men, <m>5 \times 100 = 500</m> random colleagues will be tapped for their feedback, of which about 20 percent will be women (100 women). Of these 100 women, 10 are expected to be biased against the man they are reviewing. Then, of the 500 colleagues reviewing them, men will experience discrimination by about 2 percent of their colleagues when they go up for promotion.</p>
         <p>Let's do a similar calculation for 100 women who have gone up for promotion in the last few years. They will also have 500 random colleagues providing feedback, of which about 400 (80 percent) will be men. Of these 400 men, about 40 (10 percent) hold a bias against women. Of the 500 colleagues providing feedback on the promotion packet for these women, 8 percent of the colleagues hold a bias against the women.</p>
       </example>
 
       <p></p>
-      <p>Of course, there are other considerable real-world omissions from the hypothetical example. For example, studies have found instances where people from an oppressed group also discriminate against others within their own oppressed group. As another example, there are also instances where a majority group can be oppressed, with apartheid in South Africa being one such historic example. Ultimately, discrimination is complex, and there are many factors at play beyond the mathematics property we observed in <xref ref="sex_imbalance_leads_to_discrimination"/>.</p>
+      <p>Of course, there are other considerable real-world omissions from the hypothetical example. For example, studies have found instances where people from an oppressed group also discriminate against others within their own oppressed group. As another example, there are also instances where a majority group can be oppressed, with apartheid in South Africa being one such historic example. Ultimately, discrimination is complex, and there are many factors at play beyond the mathematics property we observed in <xref ref = "sex_imbalance_leads_to_discrimination"/>.</p>
       <p>We close this book on this serious topic, and we hope it inspires you to think about the power of reasoning with data. Whether it is with a formal statistical model or by using critical thinking skills to structure a problem, we hope the ideas you have learned will help you do more and do better in life.</p>
-      <exercise xml:id="possum_classification_model_select">
+      <exercise xml:id = "possum_classification_model_select">
         <title>Possum classification, Part I</title>
         <statement>
           <p>The common brushtail possum of the Australia region is a bit cuter than its distant cousin, the American opossum (see Figure ). We consider 104 brushtail possums from two regions in Australia, where the possums may be considered a random sample from the population. The first region is Victoria, which is in the eastern half of Australia and traverses the southern coast. The second region consists of New South Wales and Queensland, which make up eastern and northeastern Australia. We use logistic regression to differentiate between possums in these two regions. The outcome variable, called population, takes value 1 when a possum is from Victoria and 0 when it is from New South Wales or Queensland. We consider five predictors: sex_male (an indicator for a possum being male), head_length, skull_ width, total_length, and tail_length. Each variable is summarized in a histogram. The full logistic regression model and a reduced model after variable selection are summarized in the table.    Examine each of the predictors. Are there any outliers that are likely to have a very large influence on the logistic regression model? The summary table for the full model indicates that at least one variable should be eliminated when using the p-value approach for variable selection: head_length. The second component of the table summarizes the reduced model following variable selection. Explain why the remaining estimates change between the two models. </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="challenger_disaster_model_select">
+      <exercise xml:id = "challenger_disaster_model_select">
         <title>Challenger disaster, Part I</title>
         <statement>
           <p>On January 28, 1986, a routine launch was anticipated for the Challenger space shuttle. Seventy-three seconds into the flight, disaster happened: the shuttle broke apart, killing all seven crew members on board. An investigation into the cause of the disaster focused on a critical seal called an O-ring, and it is believed that damage to these O-rings during a shuttle launch may be related to the ambient temperature during the launch. The table below summarizes observational data on O-rings for 23 shuttle missions, where the mission order is based on the temperature at the time of the launch. <em>Temp</em> gives the temperature in Fahrenheit, <em>Damaged</em> represents the number of damaged O- rings, and <em>Undamaged</em> represents the number of O-rings that were not damaged.   Each column of the table above represents a different shuttle mission. Examine these data and describe what you observe with respect to the relationship between temperatures and damaged O-rings. Failures have been coded as 1 for a damaged O-ring and 0 for an undamaged O-ring, and a logistic regression model was fit to these data. A summary of this model is given below. Describe the key components of this summary table in words.  Write out the logistic model using the point estimates of the model parameters. Based on the model, do you think concerns regarding O-rings are justified? Explain. </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="possum_classification_predict">
+      <exercise xml:id = "possum_classification_predict">
         <title>Possum classification, Part II</title>
         <statement>
-          <p>A logistic regression model was proposed for classifying common brushtail possums into their two regions in Exercise <xref ref="possum_classification_model_select"/>. The outcome variable took value 1 if the possum was from Victoria and 0 otherwise.   Write out the form of the model. Also identify which of the variables are positively associated when controlling for other variables. Suppose we see a brushtail possum at a zoo in the US, and a sign says the possum had been captured in the wild in Australia, but it doesn't say which part of Australia. However, the sign does indicate that the possum is male, its skull is about 63 mm wide, its tail is 37 cm long, and its total length is 83 cm. What is the reduced model's computed probability that this possum is from Victoria? How confident are you in the model's accuracy of this probability calculation? 
+          <p>A logistic regression model was proposed for classifying common brushtail possums into their two regions in Exercise <xref ref = "possum_classification_model_select"/>. The outcome variable took value 1 if the possum was from Victoria and 0 otherwise. Write out the form of the model. Also identify which of the variables are positively associated when controlling for other variables. Suppose we see a brushtail possum at a zoo in the US, and a sign says the possum had been captured in the wild in Australia, but it doesn't say which part of Australia. However, the sign does indicate that the possum is male, its skull is about 63 mm wide, its tail is 37 cm long, and its total length is 83 cm. What is the reduced model's computed probability that this possum is from Victoria? How confident are you in the model's accuracy of this probability calculation?</p>
         </statement>
       </exercise>
 
-      <exercise xml:id="challenger_disaster_predict">
+      <exercise xml:id = "challenger_disaster_predict">
         <title>Challenger disaster, Part II</title>
         <statement>
-          <p>Exercise <xref ref="challenger_disaster_model_select"/> introduced us to O-rings that were identified as a plausible explanation for the breakup of the Challenger space shuttle 73 seconds into takeoff in 1986. The investigation found that the ambient temperature at the time of the shuttle launch was closely related to the damage of O-rings, which are a critical component of the shuttle. See this earlier exercise if you would like to browse the original data.   The data provided in the previous exercise are shown in the plot. The logistic model fit to these data may be written as \begin{*} \log\left( \frac{\hat{p}}{1 - \hat{p}} \right) = 11.6630 - 0.2162\times Temperature \end{*} where <m>\hat{p}</m> is the model-estimated probability that an O-ring will become damaged. Use the model to calculate the probability that an O-ring will become damaged at each of the following ambient temperatures: 51, 53, and 55 degrees Fahrenheit. The model-estimated probabilities for several additional ambient temperatures are provided below, where subscripts indicate the temperature: \begin{*} &amp;\hat{p}_{57} = 0.341 &amp;&amp; \hat{p}_{59} = 0.251 &amp;&amp; \hat{p}_{61} = 0.179 &amp;&amp; \hat{p}_{63} = 0.124 &amp;\hat{p}_{65} = 0.084 &amp;&amp; \hat{p}_{67} = 0.056 &amp;&amp; \hat{p}_{69} = 0.037 &amp;&amp; \hat{p}_{71} = 0.024 \end{*} Add the model-estimated probabilities from part (a) on the plot, then connect these dots using a smooth curve to represent the model-estimated probabilities. Describe any concerns you may have regarding applying logistic regression in this application, and note any assumptions that are required to accept the model's validity. </p>
+          <p>Exercise <xref ref = "challenger_disaster_model_select"/> introduced us to O-rings that were identified as a plausible explanation for the breakup of the Challenger space shuttle 73 seconds into takeoff in 1986. The investigation found that the ambient temperature at the time of the shuttle launch was closely related to the damage of O-rings, which are a critical component of the shuttle. See this earlier exercise if you would like to browse the original data.   The data provided in the previous exercise are shown in the plot. The logistic model fit to these data may be written as  \log( \hat{p}/(1 - \hat{p} ) = 11.6630 - 0.2162\times Temperature  where <m>p</m> is the model-estimated probability that an O-ring will become damaged. Use the model to calculate the probability that an O-ring will become damaged at each of the following ambient temperatures: 51, 53, and 55 degrees Fahrenheit. The model-estimated probabilities for several additional ambient temperatures are provided below, where subscripts indicate the temperature:  &amp;p_{57 = 0.341 &amp;&amp; p_{59 = 0.251 &amp;&amp; p_{61 = 0.179 &amp;&amp; p_{63 = 0.124 &amp;p_{65 = 0.084 &amp;&amp; p_{67 = 0.056 &amp;&amp; p_{69 = 0.037 &amp;&amp; p_{71 = 0.024  Add the model-estimated probabilities from part (a) on the plot, then connect these dots using a smooth curve to represent the model-estimated probabilities. Describe any concerns you may have regarding applying logistic regression in this application, and note any assumptions that are required to accept the model's validity. </p>
         </statement>
       </exercise>
 
