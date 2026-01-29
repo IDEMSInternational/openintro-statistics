@@ -1691,182 +1691,525 @@ sum(sampled_entries == "support") / 1000
     
     <introduction>
       <p>
-        The hypothesis testing framework is used to rigorously evaluate competing ideas and
-        claims. In this section, we'll explore how to formally test claims about population
-        proportions using data from samples.
+        The following question comes from a book written by
+        Hans Rosling, Anna Rosling Rönnlund, and Ola Rosling
+        called <em>Factfulness</em>:
+      </p>
+      <blockquote>
+        <p>
+          <em>How many of the world's 1 year old children today
+          have been vaccinated against some disease:</em>
+        </p>
+        <ol marker="a.">
+          <li>20%</li>
+          <li>50%</li>
+          <li>80%</li>
+        </ol>
+      </blockquote>
+      <p>
+        Write down what your answer (or guess),
+        and when you're ready, find the answer in the
+        footnote.<fn>The correct answer is (c):
+        80% of the world's 1 year olds have been vaccinated
+        against some disease.</fn>
+      </p>
+      
+      <p>
+        In this section,
+        we'll be exploring how people with a 4-year college
+        degree perform on this and other world health questions
+        as we learn about hypothesis tests, which are
+        a framework used to rigorously evaluate competing
+        ideas and claims.
       </p>
     </introduction>
     
     <subsection xml:id="subsec-ht-framework">
-      <title>Hypothesis Testing Framework</title>
+      <title>Hypothesis testing framework</title>
       
       <p>
-        In hypothesis testing, we consider two competing hypotheses:
+        We're interested in understanding how much people know
+        about world health and development.
+        If we take a multiple choice
+        world health question, then we might like to understand if
+      </p>
+      <dl>
+        <li>
+          <title><m>\mathbf{H_0}</m>:</title>
+          <p>
+            People never learn these particular topics and their
+            responses are simply equivalent to random guesses.
+          </p>
+        </li>
+        <li>
+          <title><m>\mathbf{H_A}</m>:</title>
+          <p>
+            People have knowledge that helps them do better
+            than random guessing, or perhaps, they have false knowledge
+            that leads them to actually do worse than random guessing.
+          </p>
+        </li>
+      </dl>
+      <p>
+        These competing ideas are called <term>hypotheses</term>.
+        We call <m>H_0</m> the null hypothesis and <m>H_A</m> the alternative
+        hypothesis.
+        When there is a subscript 0 like in <m>H_0</m>,
+        data scientists pronounce it as <q>nought</q>
+        (e.g. <m>H_0</m> is pronounced <q>H-nought</q>).
       </p>
       
-      <definition xml:id="def-null-hypothesis">
-        <title>Null Hypothesis</title>
-        <statement>
-          <p>
-            The <term>null hypothesis</term> (<m>H_0</m>) often represents a skeptical
-            perspective or a claim to be tested. It typically represents a position of
-            no difference or no effect.
-          </p>
-        </statement>
-      </definition>
-      
-      <definition xml:id="def-alternative-hypothesis">
-        <title>Alternative Hypothesis</title>
-        <statement>
-          <p>
-            The <term>alternative hypothesis</term> (<m>H_A</m>) represents an alternative
-            claim under consideration. It is often represented by a range of possible
-            parameter values and is what the researcher hopes to show evidence for.
-          </p>
-        </statement>
-      </definition>
+      <assemblage xml:id="def-null-alternative-hypotheses">
+        <title>Null and alternative hypotheses</title>
+        <p>
+          The <term>null hypothesis (<m>H_0</m>)</term> often represents
+          a skeptical perspective or a claim to be tested.
+          The <term>alternative hypothesis (<m>H_A</m>)</term> represents an
+          alternative claim under consideration and is often
+          represented by a range of possible parameter values.
+        </p>
+        <p>
+          Our job as data scientists is to play the role of a skeptic:
+          before we buy into the alternative hypothesis, we need to
+          see strong supporting evidence.
+        </p>
+      </assemblage>
       
       <p>
-        Our job as data scientists is to play the role of a skeptic: before we buy into the
-        alternative hypothesis, we need to see strong supporting evidence. Even if we fail to
-        reject the null hypothesis, we typically do not accept it as true; failing to find
-        strong evidence for the alternative hypothesis is not equivalent to accepting the
-        null hypothesis.
+        The null hypothesis often represents a skeptical position
+        or a perspective of <q>no difference</q>.
+        In our first example, we'll consider whether
+        the typical person does any different than random guessing
+        on Roslings' question about infant vaccinations.
       </p>
       
-      <definition xml:id="def-null-value">
-        <title>Null Value</title>
-        <statement>
-          <p>
-            The <term>null value</term> is the value of the parameter under the null
-            hypothesis. It is common to label the null value with a subscript 0. For example,
-            if the null hypothesis is <m>p = 0.5</m>, then the null value is <m>p_0 = 0.5</m>.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        The alternative hypothesis generally represents a new
+        or stronger perspective. In the case of the question
+        about infant vaccinations,
+        it would certainly be interesting to learn whether
+        people do better than random guessing, since that would
+        mean that the typical person knows something about
+        world health statistics.
+        It would also be very interesting if we learned
+        that people do <em>worse</em> than random guessing,
+        which would suggest people believe
+        incorrect information about world health.
+      </p>
       
-      <example xml:id="ex-coal-hypotheses">
-        <title>Setting up hypotheses for coal energy</title>
+      <p>
+        The hypothesis testing framework is a very general tool, and we often use it without a second thought. If a person makes a somewhat unbelievable claim, we are initially skeptical. However, if there is sufficient evidence that supports the claim, we set aside our skepticism and reject the null hypothesis in favor of the alternative. The hallmarks of hypothesis testing are also found in the US court system.
+      </p>
+      
+      <exercise>
         <statement>
           <p>
-            Pew Research asked a random sample of 1,000 American adults whether they
-            supported the increased usage of coal to produce energy. Set up hypotheses
-            to evaluate whether a majority of American adults support or oppose the
-            increased usage of coal.
+            A US court considers two possible claims about a defendant: she is either innocent or guilty. If we set these claims up in a hypothesis framework, which would be the null hypothesis and which the alternative?
           </p>
         </statement>
         <solution>
           <p>
-            The uninteresting result is that there is no majority either way: half support
-            and half oppose. The alternative hypothesis would be that there is a majority
-            support or oppose (though we don't know which).
+            The jury considers whether the evidence is so
+            convincing (strong) that there is no reasonable doubt
+            regarding the person's guilt;
+            in such a case, the jury rejects innocence
+            (the null hypothesis) and concludes the defendant
+            is guilty (alternative hypothesis).
           </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        Jurors examine the evidence to see whether it convincingly
+        shows a defendant is guilty.
+        Even if the jurors leave unconvinced of guilt beyond
+        a reasonable doubt, this does not mean they believe the
+        defendant is innocent.
+        This is also the case with hypothesis testing:
+        <em>even if we fail to reject the null hypothesis,
+        we typically do not accept the null hypothesis as true</em>.
+        Failing to find strong evidence for the alternative
+        hypothesis is not equivalent to accepting
+        the null hypothesis.
+      </p>
+      
+      <p>
+        When considering Roslings' question about infant vaccination,
+        the null hypothesis represents the notion that the people
+        we will be considering -- college-educated adults --
+        are as accurate as random guessing.
+        That is, the proportion
+        <m>p</m> of respondents who pick the correct
+        answer, that 80% of 1 year olds have been vaccinated
+        against some disease, is about 33.3%
+        (or 1-in-3 if wanting to be perfectly precise).
+        The alternative hypothesis is that this proportion is something
+        other than 33.3%. While it's helpful to write these hypotheses
+        in words, it can be useful to write them using mathematical
+        notation:
+      </p>
+      <dl>
+        <li>
+          <title><m>H_0</m>:</title>
+          <p><m>p = 0.333</m></p>
+        </li>
+        <li>
+          <title><m>H_A</m>:</title>
+          <p><m>p \neq 0.333</m></p>
+        </li>
+      </dl>
+      <p>
+        In this hypothesis setup, we want to make a conclusion about
+        the population parameter <m>p</m>. The value we are comparing the
+        parameter to is called the <term>null value</term>, which in this
+        case is 0.333. It's common to label the null value with the
+        same symbol as the parameter but with a subscript `0'.
+        That is, in this case, the null value is <m>p_0 = 0.333</m>
+        (pronounced <q>p-nought equals 0.333</q>).
+      </p>
+      
+      <example>
+        <statement>
           <p>
-            If <m>p</m> represents the proportion supporting, we write the hypotheses as:
+            It may seem impossible that the
+            proportion of people who get the correct answer
+            is <em>exactly</em> 33.3%. If we don't believe the
+            null hypothesis, should we simply reject it?
           </p>
-          <md>
-            <mrow>H_0: \amp\ p = 0.5 \quad \text{(no majority either way)}</mrow>
-            <mrow>H_A: \amp\ p \neq 0.5 \quad \text{(there is a majority)}</mrow>
-          </md>
+        </statement>
+        <solution>
           <p>
-            In this case, the null value is <m>p_0 = 0.5</m>. This is a <em>two-sided</em>
-            test because the alternative hypothesis includes values both less than and
-            greater than 0.5.
+            No. While we may not buy into the notion that
+            the proportion is exactly 33.3%, the hypothesis testing
+            framework requires that there be strong evidence before
+            we reject the null hypothesis and conclude something
+            more interesting.
+          </p>
+          
+          <p>
+            After all, even if we don't believe the proportion is
+            <em>exactly</em> 33.3%, that doesn't really tell us anything
+            useful! We would still be stuck with the original question:
+            do people do better or worse than random guessing on
+            Roslings' question?
+            Without data that strongly
+            points in one direction or the other, it is both
+            uninteresting and pointless to reject <m>H_0</m>.
           </p>
         </solution>
       </example>
+      
+      <exercise>
+        <statement>
+          <p>
+            Another example of a real-world hypothesis testing situation
+            is evaluating whether a new drug is better or worse
+            than an existing drug at treating a particular disease.
+            What should we use for the null and alternative hypotheses in
+            this case?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The null hypothesis (<m>H_0</m>) in this case is
+            the declaration of <em>no difference</em>: the drugs are equally
+            effective. The alternative hypothesis (<m>H_A</m>) is that the
+            new drug performs differently than the original,
+            i.e. it could perform better or worse.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
     
     <subsection xml:id="subsec-ht-confidence-intervals">
-      <title>Testing Hypotheses Using Confidence Intervals</title>
+      <title>Testing hypotheses using confidence intervals</title>
       
       <p>
-        We can use confidence intervals to evaluate hypothesis tests. If the null value
-        falls within the confidence interval, we cannot say the null value is implausible,
-        so we cannot reject the null hypothesis. If the null value falls outside the
-        confidence interval, it is implausible and we reject the null hypothesis.
+        We will use the Rosling responses
+        data set to evaluate
+        the hypothesis test evaluating whether college-educated adults
+        who get the question about infant vaccination correct is different
+        from 33.3%.
+        This data set summarizes the answers of 50
+        college-educated adults.
+        Of these 50 adults, 24% of
+        respondents got the question correct that 80% of 1 year olds
+        have been vaccinated against some disease.
       </p>
       
-      <example xml:id="ex-coal-ci-test">
-        <title>Testing coal hypothesis using confidence interval</title>
+      <p>
+        Up until now, our discussion has been philosophical.
+        However, now that we have data, we might ask ourselves:
+        does the data provide strong evidence that the proportion
+        of all college-educated adults who would answer this
+        question correctly is different than 33.3%?
+      </p>
+      
+      <p>
+        We learned in <xref ref="sec-point-estimates"/> that there is
+        fluctuation from one sample to another, and it is unlikely
+        that our sample proportion, <m>\hat{p}</m>,
+        will exactly equal <m>p</m>, but we want to make
+        a conclusion about <m>p</m>.
+        We have a nagging concern:
+        is this deviation of 24%
+        from 33.3% simply due to chance,
+        or does the data provide strong evidence that the
+        population proportion is different from 33.3%?
+      </p>
+      
+      <p>
+        In <xref ref="sec-confidence-intervals"/>, we learned how to
+        quantify the uncertainty in our estimate using confidence
+        intervals.
+        The same method for measuring variability can be useful
+        for the hypothesis test.
+      </p>
+      
+      <example>
         <statement>
           <p>
-            In the Pew Research poll, 370 out of 1,000 respondents (37%) supported
-            expanding coal energy. Does this provide evidence that a majority opposes
-            coal energy expansion? Use a 95% confidence interval.
+            Check whether it is reasonable to construct
+            a confidence interval for <m>p</m> using the sample data, and
+            if so, construct a 95% confidence interval.
           </p>
         </statement>
         <solution>
           <p>
-            First, construct a 95% confidence interval:
-            <md>
-              <mrow>SE \amp= \sqrt{\frac{0.37 \times 0.63}{1000}} = 0.0153</mrow>
-              <mrow>CI \amp= 0.37 \pm 1.96 \times 0.0153</mrow>
-              <mrow>\amp= (0.340, 0.400)</mrow>
-            </md>
+            The conditions are met for <m>\hat{p}</m> to be approximately
+            normal: the data come from a simple random sample (satisfies
+            independence), and <m>n\hat{p} = 12</m> and
+            <m>n(1 - \hat{p}) = 38</m> are both
+            at least 10 (success-failure condition).
           </p>
+          
           <p>
-            The null value <m>p_0 = 0.5</m> is not in this interval (34.0% to 40.0%).
-            Therefore, we reject the null hypothesis. We have strong evidence that a
-            majority of American adults oppose expanding coal energy production.
+            To construct the confidence interval, we will need to identify
+            the point estimate (<m>\hat{p} = 0.24</m>),
+            the critical value for
+            the 95% confidence level (<m>z^{\star} = 1.96</m>), and the standard
+            error of <m>\hat{p}</m>
+            (<m>SE_{\hat{p}} = \sqrt{\hat{p}(1 - \hat{p}) / n} = 0.060</m>).
+            With those pieces, the confidence interval for <m>p</m> can be
+            constructed:
+          </p>
+          <md>
+            <mrow>\amp\hat{p} \pm z^{\star} \times SE_{\hat{p}}</mrow>
+            <mrow>\amp 0.24 \pm 1.96 \times 0.060</mrow>
+            <mrow>\amp (0.122, 0.358)</mrow>
+          </md>
+          <p>
+            We are 95% confident that the proportion of all
+            college-educated adults to correctly answer this
+            particular question about infant vaccination is between
+            12.2% and 35.8%.
           </p>
         </solution>
       </example>
       
-      <example xml:id="ex-rosling-infant-vaccination">
-        <title>Infant vaccination knowledge using CI</title>
+      <p>
+        Because the null value in the hypothesis test is <m>p_0 = 0.333</m>,
+        which falls within the range of plausible values from the
+        confidence interval, we cannot say the null value is
+        implausible.<fn>Arguably this method is slightly imprecise.
+        As we'll see in a few pages, the standard error is often
+        computed slightly differently in the context of a hypothesis
+        test for a proportion.</fn>
+        That is, the data do not provide sufficient evidence to reject
+        the notion that the performance of college-educated
+        adults was different than random guessing,
+        and we do not reject the null hypothesis, <m>H_0</m>.
+      </p>
+      
+      <example>
         <statement>
           <p>
-            The Rosling Foundation studies public knowledge about global health and
-            development. In one study, 50 college-educated adults were asked: "What
-            percentage of 1-year-old children in the world today have been vaccinated
-            against some disease?" The choices were: (A) 20%, (B) 50%, or (C) 80%.
-            Only 12 out of 50 respondents (24%) chose the correct answer (C: 80%).
-          </p>
-          <p>
-            If respondents were simply guessing among the three options, we would
-            expect about 33.3% to get it right by chance. Does the data provide
-            strong evidence that college-educated adults perform differently than
-            random guessing? Test using a 95% confidence interval.
+            Explain why we cannot conclude that
+            college-educated adults simply guessed on the
+            infant vaccination question.
           </p>
         </statement>
         <solution>
           <p>
-            First, check conditions. The data come from a simple random sample
-            (independence), and <m>n\hat{p} = 50 \times 0.24 = 12 \geq 10</m> and
-            <m>n(1-\hat{p}) = 50 \times 0.76 = 38 \geq 10</m> (success-failure).
-            Conditions are met.
-          </p>
-          <p>
-            Calculate the standard error:
-            <me>SE = \sqrt{\frac{0.24 \times 0.76}{50}} = 0.060</me>
-          </p>
-          <p>
-            Construct the 95% confidence interval:
-            <md>
-              <mrow>0.24 \pm 1.96 \times 0.060 \amp= 0.24 \pm 0.118</mrow>
-              <mrow>\amp= (0.122, 0.358)</mrow>
-            </md>
-          </p>
-          <p>
-            The null value is <m>p_0 = 0.333</m> (33.3%), which falls within the
-            confidence interval of 12.2% to 35.8%. Therefore, we cannot reject the
-            null hypothesis. The data do not provide sufficient evidence that
-            college-educated adults perform differently than random guessing on this
-            question.
-          </p>
-          <p>
-            <strong>Important note:</strong> Failing to reject <m>H_0</m> does not
-            mean we've proven the null hypothesis is true. Perhaps there was an
-            actual difference, but we were not able to detect it with the relatively
-            small sample of 50 respondents.
+            While we failed to reject <m>H_0</m>, that does not
+            necessarily mean the null hypothesis is true.
+            Perhaps there was an actual difference,
+            but we were not able to detect it with the
+            relatively small sample of 50.
           </p>
         </solution>
       </example>
+      
+      <assemblage>
+        <title>Double negatives can sometimes be used in statistics</title>
+        <p>
+          In many statistical explanations, we use double negatives.
+          For instance, we might say that the null hypothesis is
+          <em>not implausible</em> or we <em>failed to reject</em>
+          the null hypothesis.
+          Double negatives are used to communicate that while we
+          are not rejecting a position, we are also not saying it
+          is correct.
+        </p>
+      </assemblage>
+      
+      <exercise>
+        <statement>
+          <p>
+            Let's move onto a second question posed by the Roslings:
+          </p>
+          <blockquote>
+            <p>
+              <em>There are 2 billion children in the world today
+              aged 0-15 years old, how many children will there
+              be in year 2100 according to the United Nations?</em>
+            </p>
+            <ol marker="a.">
+              <li>4 billion.</li>
+              <li>3 billion.</li>
+              <li>2 billion.</li>
+            </ol>
+          </blockquote>
+          <p>
+            Set up appropriate hypotheses to evaluate whether
+            college-educated adults are better than random guessing
+            on this question.
+            Also, see if you can guess the correct answer before checking
+            the answer in the solution!
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The appropriate hypotheses are:
+          </p>
+          <p>
+            <m>H_0</m>: the proportion who get the answer correct is the same
+            as random guessing: 1-in-3, or <m>p = 0.333</m>.
+          </p>
+          <p>
+            <m>H_A</m>: the proportion who get the answer correct is different
+            than random guessing, <m>p \neq 0.333</m>.
+          </p>
+          <p>
+            The correct answer to the question is 2 billion.
+            While the world population is projected to increase,
+            the average age is also expected to rise.
+            That is, the majority of the population growth will
+            happen in older age groups, meaning people are projected
+            to live longer in the future across much of the world.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <statement>
+          <p>
+            This time we took a larger sample of
+            228 college-educated adults,
+            34 (14.9%) selected the correct
+            answer to the question above: 2 billion.
+            Can we model the sample proportion using a normal distribution
+            and construct a confidence interval?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We check both conditions, which are satisfied,
+            so it is reasonable to use
+            a normal distribution for <m>\hat{p}</m>:
+          </p>
+          <p>
+            <strong>Independence.</strong> Since the data are from a simple
+            random sample, the observations are independent.
+          </p>
+          <p>
+            <strong>Success-failure.</strong> We'll use <m>\hat{p}</m> in place of <m>p</m>
+            to check: <m>n\hat{p} = 34</m>
+            and <m>n(1 - \hat{p}) = 194</m>.
+            Both are greater than 10, so the success-failure condition
+            is satisfied.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example>
+        <statement>
+          <p>
+            Compute a 95% confidence interval for the
+            fraction of college-educated adults who answered the
+            children-in-2100 question correctly, and evaluate the
+            hypotheses from the previous exercise.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            To compute the standard error, we'll again use
+            <m>\hat{p}</m>
+            in place of <m>p</m> for the calculation:
+          </p>
+          <md>
+            <mrow>SE_{\hat{p}}
+                \amp= \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}</mrow>
+            <mrow>\amp= \sqrt{\frac{0.149(1 - 0.149)}
+                {228}}</mrow>
+            <mrow>\amp= 0.024</mrow>
+          </md>
+          <p>
+            In the previous exercise,
+            we found that <m>\hat{p}</m> can be modeled using
+            a normal distribution,
+            which ensures a 95% confidence interval may be accurately
+            constructed as
+          </p>
+          <md>
+            <mrow>\hat{p}\ \amp\pm\ z^{\star} \times SE</mrow>
+            <mrow>\amp\quad\to\quad
+            0.149\ \pm\ 1.96 \times 0.024</mrow>
+            <mrow>\amp\quad\to\quad
+            (0.103, 0.195)</mrow>
+          </md>
+          <p>
+            Because the null value, <m>p_0 = 0.333</m>, is not in the
+            confidence interval, a population proportion of 0.333
+            is implausible and we reject the null hypothesis.
+            That is, the data provide statistically significant
+            evidence that the actual proportion of college adults
+            who get the children-in-2100 question correct is
+            different from random guessing. Because the entire
+            95% confidence interval
+            is below 0.333, we can conclude college-educated adults
+            do <em>worse</em> than random guessing on this question.
+          </p>
+          
+          <p>
+            One subtle consideration is that we used a
+            95% confidence interval.
+            What if we had used a 99% confidence level?
+            Or even a 99.9% confidence level?
+            It's possible to come to a different conclusion
+            if using a different confidence level.
+            Therefore, when we make a conclusion based
+            on confidence interval, we should also be sure
+            it is clear what confidence level we used.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        The worse-than-random performance on this
+        last question is not a fluke:
+        there are many such world health questions where people
+        do worse than random guessing.
+        In general, the answers suggest that people tend to be
+        more pessimistic about progress than reality suggests.
+        This topic is discussed in much greater detail in
+        the Roslings' book,
+        <em>Factfulness</em>.
+      </p>
     </subsection>
     
     <subsection xml:id="subsec-decision-errors">
-      <title>Decision Errors in Hypothesis Testing</title>
+      <title>Decision errors</title>
       
       <p>
         Hypothesis tests are not flawless: we can make an incorrect decision based on the data.
