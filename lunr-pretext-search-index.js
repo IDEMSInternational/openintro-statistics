@@ -484,295 +484,376 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.3",
   "title": "Sampling principles and strategies",
-  "body": " Sampling principles and strategies   The first step in research is to pose a clear question, then decide what subjects to study and how to collect reliable data. Careful sampling is essential for trustworthy conclusions.    Populations and samples  Each research question targets a population. Often it is too expensive to measure every case, so we select a sample—a subset of the population—to estimate the quantity of interest.   Identifying populations   Consider: (1) the average mercury content in Atlantic swordfish, (2) the average time to degree for Duke undergrads in the last 5 years, (3) whether a new drug reduces deaths in patients with severe heart disease. Each has a population and cases; samples are used to estimate population features.     Identifying populations   For questions (2) and (3) above, identify the target population and what represents a single case.    Graduated Duke undergrads in the last five years; each graduate is a case. People with severe heart disease; each patient is a case.      Anecdotal evidence  Conclusions based on a few striking cases—anecdotal evidence—may not represent the population. Such cases are memorable but rarely typical.   Anecdotal evidence can mislead   Snowy trees after a storm; one storm in one region says little about global climate.     Be cautious with anecdotal evidence: it may be true but not representative.     Sampling from a population  We typically use a random sample to avoid bias. In a simple random sample each case has equal chance of selection and selection of one case gives no information about others.   Selecting a random sample   Randomly selecting cases from a population to form a sample.     Unintentional bias   Letting a nutrition major hand-pick graduates might overrepresent health-related fields. Hand selection risks bias even when unintended.     Biased selection   Sampling only from a subset (e.g., health-related majors) introduces bias.    Non-response can also bias results: if only a fraction respond, the sample may not represent the population.   Effect of non-response   Surveys may only capture a subset of the intended population.     Interpreting online reviews   Product ratings online come from those who choose to post. If 50% of reviews are negative, does that imply 50% of buyers are dissatisfied?    Likely not; reviewers are self-selected and may be more motivated when dissatisfied, creating negative bias.      Observational studies  Observational data arise without assigning treatments. They can show association but cannot alone establish causation due to possible confounding variables.   Sunscreen and skin cancer   Suppose an observational study finds sunscreen use associated with higher skin cancer. Does sunscreen cause cancer?    No. Sun exposure confounds: more sun leads to both more sunscreen and higher cancer risk.    Confounding variables affect both explanatory and response variables. Observational studies may be prospective (following subjects forward) or retrospective (using past records).    Four sampling methods  Randomness underlies most statistical methods. Common designs:   Simple random sample: every case equally likely, independent selection.  Stratified sample: divide into similar strata, then sample within each.  Cluster sample: divide into clusters, sample clusters, include all cases in chosen clusters.  Multistage sample: sample clusters, then sample within clusters.    Simple random vs. stratified sampling   Comparison of selecting individuals directly versus sampling within strata.     Cluster and multistage sampling   Sampling entire clusters or sampling within selected clusters.     Choosing a sampling design   Estimating malaria rate across 30 similar villages: cluster or multistage sampling (select villages, then people) is cost-effective and yields reliable estimates with appropriate analysis.      Exercises    Air pollution and birth outcomes, scope of inference   For the air pollution and preterm births study: identify population and sample; discuss generalizability and causality.     Cheaters, scope of inference   For the honesty study on 160 children: identify population and sample; discuss generalizability and causality.     Buteyko method, scope of inference   For the Buteyko asthma study: identify population and sample; discuss generalizability and causality.     Stealers, scope of inference   For the socio-economic class and candy study: identify population and sample; discuss generalizability and causality.     Relaxing after work   Classify observation, variable, statistic, parameter for the relaxing time survey (mean 1.65 hours).     Cats on YouTube   Classify observation, variable, statistic, parameter for estimating percent cat videos.     Course satisfaction across sections   Large class with four lab sections: identify study type and propose sampling strategy.     Housing proposal across dorms   Survey opinions across east\/west campus dorms ensuring equal year representation: identify study type and sampling plan.     Internet use and life expectancy   Interpret the life expectancy vs. internet use scatterplot; identify study type and a confounder.     Stressed out, Part I   Stress and muscle cramps observational study: study type, causality, possible confounders.     Evaluate sampling methods   Assess reasonableness of three proposed sampling designs for a student fee survey.     Random digit dialing   Why Gallup uses random digit dialing instead of the phone book.     Haters are gonna hate, study confirms   Dispositional attitude study with fake microwave reviews: identify cases, variables, sampling, design, causality, generalization.     Family size   Surveying elementary students about family size: is the estimate biased and in which direction?     Sampling strategies   Classify four proposed sampling methods for a social networking survey and discuss bias.     Reading the paper   Evaluate conclusions in two news articles: smoking and dementia; sleep disorders and bullying.     "
+  "body": " Sampling principles and strategies   The first step in conducting research is to identify topics or questions that are to be investigated. A clearly laid out research question is helpful in identifying what subjects or cases should be studied and what variables are important. It is also important to consider how data are collected so that they are reliable and help achieve the research goals.    Populations and samples  Consider the following three research questions:    What is the average mercury content in swordfish in the Atlantic Ocean?    Over the last 5 years, what is the average time to complete a degree for Duke undergrads?    Does a new drug reduce the number of deaths in patients with severe heart disease?    Each research question refers to a target population . In the first question, the target population is all swordfish in the Atlantic Ocean, and each fish represents a case. Often times, it is too expensive to collect data for every case in a population. Instead, a sample is taken. A sample represents a subset of the cases and is often a small fraction of the population. For instance, 60 swordfish (or some other number) in the population might be selected, and this sample data may be used to provide an estimate of the population average and answer the research question.   Identifying populations   For the second and third questions above, identify the target population and what represents an individual case.    (2) This question is only relevant to students who complete their degree; the average cannot be computed using a student who never finished her degree. Thus, only Duke undergrads who graduated in the last five years represent cases in the population under consideration. Each such student is an individual case. (3) A person with severe heart disease represents a case. The population includes all people with severe heart disease.      Anecdotal evidence  Consider the following possible responses to the three research questions:    A man on the news got mercury poisoning from eating swordfish, so the average mercury concentration in swordfish must be dangerously high.    I met two students who took more than 7 years to graduate from Duke, so it must take longer to graduate at Duke than at many other colleges.    My friend's dad had a heart attack and died after they gave him a new heart disease drug, so the drug must not work.    Each conclusion is based on data. However, there are two problems. First, the data only represent one or two cases. Second, and more importantly, it is unclear whether these cases are actually representative of the population. Data collected in this haphazard fashion are called anecdotal evidence .   In February 2010, some media pundits cited one large snow storm as valid evidence against global warming. As comedian Jon Stewart pointed out, It's one storm, in one region, of one country.    A wintery scene, where the trees are covered in snow, and there are large piles of snow on the sides of the roads.     Anecdotal evidence  Be careful of data collected in a haphazard fashion. Such evidence may be true and verifiable, but it may only represent extraordinary cases.   Anecdotal evidence typically is composed of unusual cases that we recall based on their striking characteristics. For instance, we are more likely to remember the two people we met who took 7 years to graduate than the six others who graduated in four years. Instead of looking at the most unusual cases, we should examine a sample of many cases that represent the population.    Sampling from a population  We might try to estimate the time to graduation for Duke undergraduates in the last 5 years by collecting a sample of students. All graduates in the last 5 years represent the population , and graduates who are selected for review are collectively called the sample . In general, we always seek to randomly select a sample from a population. The most basic type of random selection is equivalent to how raffles are conducted. For example, in selecting graduates, we could write each graduate's name on a raffle ticket and draw 100 tickets. The selected names would represent a random sample of 100 graduates. We pick samples randomly to reduce the chance we introduce biases.   In this graphic, five graduates are randomly selected from the population to be included in the sample.   Graphic showing a larger circle on the left for all graduates and a smaller circle on the right for sample. Five graduates are randomly selected with arrows showing the selection.     Unintentional bias   Suppose we ask a student who happens to be majoring in nutrition to select several graduates for the study. What kind of students do you think she might collect? Do you think her sample would be representative of all graduates?  Perhaps she would pick a disproportionate number of graduates from health-related fields. Or perhaps her selection would be a good representation of the population. When selecting samples by hand, we run the risk of picking a biased sample, even if their bias isn't intended.     Asked to pick a sample of graduates, a nutrition major might inadvertently pick a disproportionate number of graduates from health-related majors.   Graphic showing sampling only from a subset (health-related fields) introduces bias.    If someone was permitted to pick and choose exactly which graduates were included in the sample, it is entirely possible that the sample could be skewed to that person's interests, which may be entirely unintentional. This introduces bias into a sample. Sampling randomly helps resolve this problem. The most basic random sample is called a simple random sample , which is equivalent to using a raffle to select cases. This means that each case in the population has an equal chance of being included and there is no implied connection between the cases in the sample.  The act of taking a simple random sample helps minimize bias. However, bias can crop up in other ways. Even when people are picked at random, e.g. for surveys, caution must be exercised if the non-response rate is high. For instance, if only 30% of the people randomly sampled for a survey actually respond, then it is unclear whether the results are representative of the entire population. This non-response bias can skew results.   Due to the possibility of non-response, survey studies may only reach a certain group within the population. It is difficult, and often times impossible, to completely fix this problem.   Graphic showing a population of interest with a smaller circle representing the population actually sampled, from which a sample is drawn.    Another common downfall is a convenience sample , where individuals who are easily accessible are more likely to be included in the sample. For instance, if a political survey is done by stopping people walking in the Bronx, this will not represent all of New York City. It is often difficult to discern what sub-population a convenience sample represents.   Interpreting online reviews   We can easily access ratings for products, sellers, and companies through websites. These ratings are based only on those people who go out of their way to provide a rating. If 50% of online reviews for a product are negative, do you think this means that 50% of buyers are dissatisfied with the product?    Answers will vary. From our own anecdotal experiences, we believe people tend to rant more about products that fell below expectations than rave about those that perform as expected. For this reason, we suspect there is a negative bias in product ratings on sites like Amazon. However, since our experiences may not be representative, we also keep an open mind.      Observational studies  Data where no treatment has been explicitly applied (or explicitly withheld) is called observational data . For instance, the loan data and county data described in are both examples of observational data. Making causal conclusions based on experiments is often reasonable. However, making the same causal conclusions based on observational data can be treacherous and is not recommended. Thus, observational studies are generally only sufficient to show associations or form hypotheses that we later check using experiments.   Sunscreen and skin cancer   Suppose an observational study tracked sunscreen use and skin cancer, and it was found that the more sunscreen someone used, the more likely the person was to have skin cancer. Does this mean sunscreen causes skin cancer?    No. See the paragraph following the exercise for an explanation.    Some previous research tells us that using sunscreen actually reduces skin cancer risk, so maybe there is another variable that can explain this hypothetical association between sunscreen usage and skin cancer. One important piece of information that is absent is sun exposure. If someone is out in the sun all day, she is more likely to use sunscreen and more likely to get skin cancer. Exposure to the sun is unaccounted for in the simple investigation.   Sun exposure is a confounding variable that is associated with both sunscreen use and skin cancer.   Diagram showing three boxes in a triangle: sun exposure at the top with arrows pointing to use sunscreen and skin cancer below, with a question mark on a lighter arrow between use sunscreen and skin cancer.    Sun exposure is what is called a confounding variable , Also called a lurking variable , confounding factor , or a confounder . which is a variable that is correlated with both the explanatory and response variables. While one method to justify making causal conclusions from observational studies is to exhaust the search for confounding variables, there is no guarantee that all confounding variables can be examined or measured.   Confounding in county data   Figure shows a negative association between the homeownership rate and the percentage of multi-unit structures in a county. However, it is unreasonable to conclude that there is a causal relationship between the two variables. Suggest a variable that might explain the negative relationship.    Answers will vary. Population density may be important. If a county is very dense, then this may require a larger fraction of residents to live in multi-unit structures. Additionally, the high density may contribute to increases in property value, making homeownership infeasible for many residents.    Observational studies come in two forms: prospective and retrospective studies. A prospective study identifies individuals and collects information as events unfold. For instance, medical researchers may identify and follow a group of patients over many years to assess the possible influences of behavior on cancer risk. One example of such a study is The Nurses' Health Study, started in 1976 and expanded in 1989. This prospective study recruits registered nurses and then collects data from them using questionnaires. Retrospective studies collect data after events have taken place, e.g. researchers may review past events in medical records. Some data sets may contain both prospectively- and retrospectively-collected variables.    Four sampling methods  Almost all statistical methods are based on the notion of implied randomness. If observational data are not collected in a random framework from a population, these statistical methods the estimates and errors associated with the estimates are not reliable. Here we consider four random sampling techniques: simple, stratified, cluster, and multistage sampling. and provide graphical representations of these techniques.   Examples of simple random and stratified sampling. In the top panel, simple random sampling was used to randomly select the 18 cases. In the bottom panel, stratified sampling was used: cases were grouped into strata, then simple random sampling was employed within each stratum.   Two figures showing simple random sampling (top) with 18 randomly selected points, and stratified sampling (bottom) with 6 strata and 3 points selected from each stratum.     Simple random sampling is probably the most intuitive form of random sampling. Consider the salaries of Major League Baseball (MLB) players, where each player is a member of one of the league's 30 teams. To take a simple random sample of 120 baseball players and their salaries, we could write the names of that season's several hundreds of players onto slips of paper, drop the slips into a bucket, shake the bucket around until we are sure the names are all mixed up, then draw out slips until we have the sample of 120 players. In general, a sample is referred to as simple random if each case in the population has an equal chance of being included in the final sample and knowing that a case is included in a sample does not provide useful information about which other cases are included.   Stratified sampling is a divide-and-conquer sampling strategy. The population is divided into groups called strata . The strata are chosen so that similar cases are grouped together, then a second sampling method, usually simple random sampling, is employed within each stratum. In the baseball salary example, the teams could represent the strata, since some teams have a lot more money (up to 4 times as much!). Then we might randomly sample 4 players from each team for a total of 120 players.  Stratified sampling is especially useful when the cases in each stratum are very similar with respect to the outcome of interest. The downside is that analyzing data from a stratified sample is a more complex task than analyzing data from a simple random sample. The analysis methods introduced in this book would need to be extended to analyze data collected using stratified sampling.   Benefits of stratified sampling   Why would it be good for cases within each stratum to be very similar?  We might get a more stable estimate for the subpopulation in a stratum if the cases are very similar, leading to more precise estimates within each group. When we combine these estimates into a single estimate for the full population, that population estimate will tend to be more precise since each individual group estimate is itself more precise.    In a cluster sample , we break up the population into many groups, called clusters . Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample. A multistage sample is like a cluster sample, but rather than keeping all observations in each cluster, we collect a random sample within each selected cluster.   Examples of cluster and multistage sampling. In the top panel, cluster sampling was used: data were binned into nine clusters, three of these clusters were sampled, and all observations within these three clusters were included in the sample. In the bottom panel, multistage sampling was used, which differs from cluster sampling only in that we randomly select a subset of each cluster to be included in the sample rather than measuring every case in each sampled cluster.   Two figures showing cluster sampling (top) with all observations from selected clusters, and multistage sampling (bottom) with random samples from within selected clusters.    Sometimes cluster or multistage sampling can be more economical than the alternative sampling techniques. Also, unlike stratified sampling, these approaches are most helpful when there is a lot of case-to-case variability within a cluster but the clusters themselves don't look very different from one another. For example, if neighborhoods represented clusters, then cluster or multistage sampling work best when the neighborhoods are very diverse. A downside of these methods is that more advanced techniques are typically required to analyze the data, though the methods in this book can be extended to handle such data.   Choosing a sampling design   Suppose we are interested in estimating the malaria rate in a densely tropical portion of rural Indonesia. We learn that there are 30 villages in that part of the Indonesian jungle, each more or less similar to the next. Our goal is to test 150 individuals for malaria. What sampling method should be employed?  A simple random sample would likely draw individuals from all 30 villages, which could make data collection extremely expensive. Stratified sampling would be a challenge since it is unclear how we would build strata of similar individuals. However, cluster sampling or multistage sampling seem like very good ideas. If we decided to use multistage sampling, we might randomly select half of the villages, then randomly select 10 people from each. This would probably reduce our data collection costs substantially in comparison to a simple random sample, and the cluster sample would still give us reliable information, even if we would need to analyze the data with slightly more advanced methods than we discuss in this book.      Exercises   Air pollution and birth outcomes, scope of inference   Exercise introduces a study where researchers collected data to examine the relationship between air pollutants and preterm births in Southern California. During the study air pollution levels were measured by air quality monitoring stations. Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.       Cheaters, scope of inference   Exercise introduces a study where researchers studying the relationship between honesty, age, and self-control conducted an experiment on 160 children between the ages of 5 and 15. The researchers asked each child to toss a fair coin in private and to record the outcome (white or black) on a paper sheet, and said they would only reward children who report white. Half the students were explicitly told not to cheat and the others were not given any explicit instructions. Differences were observed in the cheating rates in the instruction and no instruction groups, as well as some differences across children's characteristics within each group.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.       Buteyko method, scope of inference   Exercise introduces a study on using the Buteyko shallow breathing technique to reduce asthma symptoms and improve quality of life. As part of this study 600 asthma patients aged 18-69 who relied on medication for asthma treatment were recruited and randomly assigned to two groups: one practiced the Buteyko method and the other did not. Those in the Buteyko group experienced, on average, a significant reduction in asthma symptoms and an improvement in quality of life.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.       Stealers, scope of inference   Exercise introduces a study on the relationship between socio-economic class and unethical behavior. As part of this study 129 University of California Berkeley undergraduates were asked to identify themselves as having low or high social-class by comparing themselves to others with the most (least) money, most (least) education, and most (least) respected jobs. They were also presented with a jar of individually wrapped candies and informed that the candies were for children in a nearby laboratory, but that they could take some if they wanted. After completing some unrelated tasks, participants reported the number of candies they had taken. It was found that those who were identified as upper-class took more candy than others.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.       Relaxing after work   The General Social Survey asked the question, \"After an average work day, about how many hours do you have to relax or pursue activities that you enjoy?\" to a random sample of 1,155 Americans. The average relaxing time was found to be 1.65 hours. Determine which of the following is an observation, a variable, a sample statistic (value calculated based on the observed sample), or a population parameter.    An American in the sample.    Number of hours spent relaxing after an average work day.    1.65.    Average number of hours all Americans spend relaxing after an average work day.       Cats on YouTube   Suppose you want to estimate the percentage of videos on YouTube that are cat videos. It is impossible for you to watch all videos on YouTube so you use a random video picker to select 1000 videos for you. You find that 2% of these videos are cat videos. Determine which of the following is an observation, a variable, a sample statistic (value calculated based on the observed sample), or a population parameter.    Percentage of all videos on YouTube that are cat videos.    2%.    A video in your sample.    Whether or not a video is a cat video.       Course satisfaction across sections   A large college class has 160 students. All 160 students attend the lectures together, but the students are divided into 4 groups, each of 40 students, for lab sections administered by different teaching assistants. The professor wants to conduct a survey about how satisfied the students are with the course, and he believes that the lab section a student is in might affect the student's overall satisfaction with the course.    What type of study is this?    Suggest a sampling strategy for carrying out this study.       Housing proposal across dorms   On a large college campus first-year students and sophomores live in dorms located on the eastern part of the campus and juniors and seniors live in dorms located on the western part of the campus. Suppose you want to collect student opinions on a new housing structure the college administration is proposing and you want to make sure your survey equally represents opinions from students from all years.    What type of study is this?    Suggest a sampling strategy for carrying out this study.       Internet use and life expectancy   The following scatterplot was created as part of a study evaluating the relationship between estimated life expectancy at birth (as of 2014) and percentage of internet users (as of 2009) in 208 countries for which such data were available. Citation: data:ciaFactbook     Describe the relationship between life expectancy and percentage of internet users.    What type of study is this?    State a possible confounding variable that might explain this relationship and describe its potential effect.    [Figure: internet_life_expectancy - Scatterplot with \"percent of internet users\" (0% to 100%) along the horizontal axis and \"life expectancy at birth\" (50 to 90) along the vertical axis. For 0% to 15%, about 100 points are evenly spread between 50 and 75. Then for 15% to 90%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.]     Stressed out, Part I   A study that surveyed a random sample of otherwise healthy high school students found that they are more likely to get muscle cramps when they are stressed. The study also noted that students drink more coffee and sleep less when they are stressed.    What type of study is this?    Can this study be used to conclude a causal relationship between increased stress and muscle cramps?    State possible confounding variables that might explain the observed relationship between increased stress and muscle cramps.       Evaluate sampling methods   A university wants to determine what fraction of its undergraduate student body support a new \\$25 annual fee to improve the student union. For each proposed method below, indicate whether the method is reasonable or not.    Survey a simple random sample of 500 students.    Stratify students by their field of study, then sample 10% of students from each stratum.    Cluster students by their ages (e.g. 18 years old in one cluster, 19 years old in one cluster, etc.), then randomly sample three clusters and survey all students in those clusters.       Random digit dialing   The Gallup Poll uses a procedure called random digit dialing, which creates phone numbers based on a list of all area codes in America in conjunction with the associated number of residential households in each area code. Give a possible reason the Gallup Poll chooses to use random digit dialing instead of picking phone numbers from the phone book.     Haters are gonna hate, study confirms   A study published in the Journal of Personality and Social Psychology asked a group of 200 randomly sampled men and women to evaluate how they felt about various subjects, such as camping, health care, architecture, taxidermy, crossword puzzles, and Japan in order to measure their attitude towards mostly independent stimuli. Then, they presented the participants with information about a new product: a microwave oven. This microwave oven does not exist, but the participants didn't know this, and were given three positive and three negative fake reviews. People who reacted positively to the subjects on the dispositional attitude measurement also tended to react positively to the microwave oven, and those who reacted negatively tended to react negatively to it. Researchers concluded that \"some people tend to like things, whereas others tend to dislike things, and a more thorough understanding of this tendency will lead to a more thorough understanding of the psychology of attitudes.\" Citation: Hepler:2013     What are the cases?    What is (are) the response variable(s) in this study?    What is (are) the explanatory variable(s) in this study?    Does the study employ random sampling?    Is this an observational study or an experiment? Explain your reasoning.    Can we establish a causal link between the explanatory and response variables?    Can the results of the study be generalized to the population at large?       Family size   Suppose we want to estimate household size, where a \"household\" is defined as people living together in the same dwelling, and sharing living accommodations. If we select students at random at an elementary school and ask them what their family size is, will this be a good measure of household size? Or will our average be biased? If so, will it overestimate or underestimate the true value?     Sampling strategies   A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey. Various research strategies for collecting data are described below. In each, name the sampling method proposed and any bias you might expect.    He randomly samples 40 students from the study's population, gives them the survey, asks them to fill it out and bring it back the next day.    He gives out the survey only to his friends, making sure each one of them fills out the survey.    He posts a link to an online survey on Facebook and asks his friends to fill out the survey.    He randomly samples 5 classes and asks a random sample of students from those classes to fill out the survey.       Reading the paper   Below are excerpts from two articles published in the NY Times :    An article titled Risks: Smokers Found More Prone to Dementia states the following: Citation: news:smokingDementia   \"Researchers analyzed data from 23,123 health plan members who participated in a voluntary exam and health behavior survey from 1978 to 1985, when they were 50-60 years old. 23 years later, about 25% of the group had dementia, including 1,136 with Alzheimer's disease and 416 with vascular dementia. After adjusting for other factors, the researchers concluded that pack-a-day smokers were 37% more likely than nonsmokers to develop dementia, and the risks went up with increased smoking; 44% for one to two packs a day; and twice the risk for more than two packs.\"  Based on this study, can we conclude that smoking causes dementia later in life? Explain your reasoning.    Another article titled The School Bully Is Sleepy states the following: Citation: news:bullySleep   \"The University of Michigan study, collected survey data from parents on each child's sleep habits and asked both parents and teachers to assess behavioral concerns. About a third of the students studied were identified by parents or teachers as having problems with disruptive behavior or bullying. The researchers found that children who had behavioral issues and those who were identified as bullies were twice as likely to have shown symptoms of sleep disorders.\"  A friend of yours who read the article says, \"The study shows that sleep disorders lead to bullying in school children.\" Is this statement justified? If not, how best can you describe the conclusion that can be drawn from this study?       "
 },
 {
-  "id": "ex-population-examples",
+  "id": "subsec-populations-samples-4",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-population-examples",
-  "type": "Example",
-  "number": "1.3.1",
-  "title": "Identifying populations.",
-  "body": " Identifying populations   Consider: (1) the average mercury content in Atlantic swordfish, (2) the average time to degree for Duke undergrads in the last 5 years, (3) whether a new drug reduces deaths in patients with severe heart disease. Each has a population and cases; samples are used to estimate population features.   "
+  "url": "sec-sampling-principles.html#subsec-populations-samples-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "population sample "
 },
 {
   "id": "gp-population-identification",
   "level": "2",
   "url": "sec-sampling-principles.html#gp-population-identification",
   "type": "Checkpoint",
-  "number": "1.3.2",
+  "number": "1.3.1",
   "title": "Identifying populations.",
-  "body": " Identifying populations   For questions (2) and (3) above, identify the target population and what represents a single case.    Graduated Duke undergrads in the last five years; each graduate is a case. People with severe heart disease; each patient is a case.   "
+  "body": " Identifying populations   For the second and third questions above, identify the target population and what represents an individual case.    (2) This question is only relevant to students who complete their degree; the average cannot be computed using a student who never finished her degree. Thus, only Duke undergrads who graduated in the last five years represent cases in the population under consideration. Each such student is an individual case. (3) A person with severe heart disease represents a case. The population includes all people with severe heart disease.   "
+},
+{
+  "id": "subsec-anecdotal-evidence-4",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-anecdotal-evidence-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "anecdotal evidence "
 },
 {
   "id": "fig-mn-winter",
   "level": "2",
   "url": "sec-sampling-principles.html#fig-mn-winter",
   "type": "Figure",
-  "number": "1.3.3",
+  "number": "1.3.2",
   "title": "",
-  "body": " Anecdotal evidence can mislead   Snowy trees after a storm; one storm in one region says little about global climate.   "
+  "body": " In February 2010, some media pundits cited one large snow storm as valid evidence against global warming. As comedian Jon Stewart pointed out, It's one storm, in one region, of one country.    A wintery scene, where the trees are covered in snow, and there are large piles of snow on the sides of the roads.   "
 },
 {
   "id": "fig-pop-to-sample",
   "level": "2",
   "url": "sec-sampling-principles.html#fig-pop-to-sample",
   "type": "Figure",
-  "number": "1.3.4",
+  "number": "1.3.3",
   "title": "",
-  "body": " Selecting a random sample   Randomly selecting cases from a population to form a sample.   "
+  "body": " In this graphic, five graduates are randomly selected from the population to be included in the sample.   Graphic showing a larger circle on the left for all graduates and a smaller circle on the right for sample. Five graduates are randomly selected with arrows showing the selection.   "
 },
 {
   "id": "ex-bias-example",
   "level": "2",
   "url": "sec-sampling-principles.html#ex-bias-example",
   "type": "Example",
-  "number": "1.3.5",
+  "number": "1.3.4",
   "title": "Unintentional bias.",
-  "body": " Unintentional bias   Letting a nutrition major hand-pick graduates might overrepresent health-related fields. Hand selection risks bias even when unintended.   "
+  "body": " Unintentional bias   Suppose we ask a student who happens to be majoring in nutrition to select several graduates for the study. What kind of students do you think she might collect? Do you think her sample would be representative of all graduates?  Perhaps she would pick a disproportionate number of graduates from health-related fields. Or perhaps her selection would be a good representation of the population. When selecting samples by hand, we run the risk of picking a biased sample, even if their bias isn't intended.   "
 },
 {
   "id": "fig-pop-to-sub-sample",
   "level": "2",
   "url": "sec-sampling-principles.html#fig-pop-to-sub-sample",
   "type": "Figure",
-  "number": "1.3.6",
+  "number": "1.3.5",
   "title": "",
-  "body": " Biased selection   Sampling only from a subset (e.g., health-related majors) introduces bias.   "
+  "body": " Asked to pick a sample of graduates, a nutrition major might inadvertently pick a disproportionate number of graduates from health-related majors.   Graphic showing sampling only from a subset (health-related fields) introduces bias.   "
+},
+{
+  "id": "subsec-sampling-population-6",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-sampling-population-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "bias simple random sample "
+},
+{
+  "id": "subsec-sampling-population-7",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-sampling-population-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "non-response rate representative non-response bias "
 },
 {
   "id": "fig-survey-sample",
   "level": "2",
   "url": "sec-sampling-principles.html#fig-survey-sample",
   "type": "Figure",
-  "number": "1.3.7",
+  "number": "1.3.6",
   "title": "",
-  "body": " Effect of non-response   Surveys may only capture a subset of the intended population.   "
+  "body": " Due to the possibility of non-response, survey studies may only reach a certain group within the population. It is difficult, and often times impossible, to completely fix this problem.   Graphic showing a population of interest with a smaller circle representing the population actually sampled, from which a sample is drawn.   "
+},
+{
+  "id": "subsec-sampling-population-9",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-sampling-population-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "convenience sample "
 },
 {
   "id": "gp-online-reviews",
   "level": "2",
   "url": "sec-sampling-principles.html#gp-online-reviews",
   "type": "Checkpoint",
-  "number": "1.3.8",
+  "number": "1.3.7",
   "title": "Interpreting online reviews.",
-  "body": " Interpreting online reviews   Product ratings online come from those who choose to post. If 50% of reviews are negative, does that imply 50% of buyers are dissatisfied?    Likely not; reviewers are self-selected and may be more motivated when dissatisfied, creating negative bias.   "
+  "body": " Interpreting online reviews   We can easily access ratings for products, sellers, and companies through websites. These ratings are based only on those people who go out of their way to provide a rating. If 50% of online reviews for a product are negative, do you think this means that 50% of buyers are dissatisfied with the product?    Answers will vary. From our own anecdotal experiences, we believe people tend to rant more about products that fell below expectations than rave about those that perform as expected. For this reason, we suspect there is a negative bias in product ratings on sites like Amazon. However, since our experiences may not be representative, we also keep an open mind.   "
+},
+{
+  "id": "subsec-observational-studies-2",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-observational-studies-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "observational data "
 },
 {
   "id": "gp-sunscreen-confounding",
   "level": "2",
   "url": "sec-sampling-principles.html#gp-sunscreen-confounding",
   "type": "Checkpoint",
-  "number": "1.3.9",
+  "number": "1.3.8",
   "title": "Sunscreen and skin cancer.",
-  "body": " Sunscreen and skin cancer   Suppose an observational study finds sunscreen use associated with higher skin cancer. Does sunscreen cause cancer?    No. Sun exposure confounds: more sun leads to both more sunscreen and higher cancer risk.   "
+  "body": " Sunscreen and skin cancer   Suppose an observational study tracked sunscreen use and skin cancer, and it was found that the more sunscreen someone used, the more likely the person was to have skin cancer. Does this mean sunscreen causes skin cancer?    No. See the paragraph following the exercise for an explanation.   "
 },
 {
-  "id": "subsec-four-sampling-methods-3-1-1",
+  "id": "fig-sun-causes-cancer",
   "level": "2",
-  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-3-1-1",
+  "url": "sec-sampling-principles.html#fig-sun-causes-cancer",
+  "type": "Figure",
+  "number": "1.3.9",
+  "title": "",
+  "body": " Sun exposure is a confounding variable that is associated with both sunscreen use and skin cancer.   Diagram showing three boxes in a triangle: sun exposure at the top with arrows pointing to use sunscreen and skin cancer below, with a question mark on a lighter arrow between use sunscreen and skin cancer.   "
+},
+{
+  "id": "subsec-observational-studies-6",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-observational-studies-6",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Simple random sample: "
+  "body": "confounding variable lurking variable confounding factor confounder "
 },
 {
-  "id": "subsec-four-sampling-methods-3-2-1",
+  "id": "gp-multiunit-ownership",
   "level": "2",
-  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-3-2-1",
+  "url": "sec-sampling-principles.html#gp-multiunit-ownership",
+  "type": "Checkpoint",
+  "number": "1.3.10",
+  "title": "Confounding in county data.",
+  "body": " Confounding in county data   Figure shows a negative association between the homeownership rate and the percentage of multi-unit structures in a county. However, it is unreasonable to conclude that there is a causal relationship between the two variables. Suggest a variable that might explain the negative relationship.    Answers will vary. Population density may be important. If a county is very dense, then this may require a larger fraction of residents to live in multi-unit structures. Additionally, the high density may contribute to increases in property value, making homeownership infeasible for many residents.   "
+},
+{
+  "id": "subsec-observational-studies-8",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-observational-studies-8",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Stratified sample: "
-},
-{
-  "id": "subsec-four-sampling-methods-3-3-1",
-  "level": "2",
-  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-3-3-1",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "Cluster sample: "
-},
-{
-  "id": "subsec-four-sampling-methods-3-4-1",
-  "level": "2",
-  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-3-4-1",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "Multistage sample: "
+  "body": "prospective study Retrospective studies "
 },
 {
   "id": "fig-simple-stratified",
   "level": "2",
   "url": "sec-sampling-principles.html#fig-simple-stratified",
   "type": "Figure",
-  "number": "1.3.10",
+  "number": "1.3.11",
   "title": "",
-  "body": " Simple random vs. stratified sampling   Comparison of selecting individuals directly versus sampling within strata.   "
+  "body": " Examples of simple random and stratified sampling. In the top panel, simple random sampling was used to randomly select the 18 cases. In the bottom panel, stratified sampling was used: cases were grouped into strata, then simple random sampling was employed within each stratum.   Two figures showing simple random sampling (top) with 18 randomly selected points, and stratified sampling (bottom) with 6 strata and 3 points selected from each stratum.   "
+},
+{
+  "id": "subsec-four-sampling-methods-4",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Simple random sampling "
+},
+{
+  "id": "subsec-four-sampling-methods-5",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Stratified sampling strata "
+},
+{
+  "id": "ex-stratified-advantage",
+  "level": "2",
+  "url": "sec-sampling-principles.html#ex-stratified-advantage",
+  "type": "Example",
+  "number": "1.3.12",
+  "title": "Benefits of stratified sampling.",
+  "body": " Benefits of stratified sampling   Why would it be good for cases within each stratum to be very similar?  We might get a more stable estimate for the subpopulation in a stratum if the cases are very similar, leading to more precise estimates within each group. When we combine these estimates into a single estimate for the full population, that population estimate will tend to be more precise since each individual group estimate is itself more precise.   "
+},
+{
+  "id": "subsec-four-sampling-methods-8",
+  "level": "2",
+  "url": "sec-sampling-principles.html#subsec-four-sampling-methods-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cluster sample clusters multistage sample "
 },
 {
   "id": "fig-cluster-multistage",
   "level": "2",
   "url": "sec-sampling-principles.html#fig-cluster-multistage",
   "type": "Figure",
-  "number": "1.3.11",
+  "number": "1.3.13",
   "title": "",
-  "body": " Cluster and multistage sampling   Sampling entire clusters or sampling within selected clusters.   "
+  "body": " Examples of cluster and multistage sampling. In the top panel, cluster sampling was used: data were binned into nine clusters, three of these clusters were sampled, and all observations within these three clusters were included in the sample. In the bottom panel, multistage sampling was used, which differs from cluster sampling only in that we randomly select a subset of each cluster to be included in the sample rather than measuring every case in each sampled cluster.   Two figures showing cluster sampling (top) with all observations from selected clusters, and multistage sampling (bottom) with random samples from within selected clusters.   "
 },
 {
   "id": "ex-malaria-sampling",
   "level": "2",
   "url": "sec-sampling-principles.html#ex-malaria-sampling",
   "type": "Example",
-  "number": "1.3.12",
+  "number": "1.3.14",
   "title": "Choosing a sampling design.",
-  "body": " Choosing a sampling design   Estimating malaria rate across 30 similar villages: cluster or multistage sampling (select villages, then people) is cost-effective and yields reliable estimates with appropriate analysis.   "
+  "body": " Choosing a sampling design   Suppose we are interested in estimating the malaria rate in a densely tropical portion of rural Indonesia. We learn that there are 30 villages in that part of the Indonesian jungle, each more or less similar to the next. Our goal is to test 150 individuals for malaria. What sampling method should be employed?  A simple random sample would likely draw individuals from all 30 villages, which could make data collection extremely expensive. Stratified sampling would be a challenge since it is unclear how we would build strata of similar individuals. However, cluster sampling or multistage sampling seem like very good ideas. If we decided to use multistage sampling, we might randomly select half of the villages, then randomly select 10 people from each. This would probably reduce our data collection costs substantially in comparison to a simple random sample, and the cluster sample would still give us reliable information, even if we would need to analyze the data with slightly more advanced methods than we discuss in this book.   "
 },
 {
-  "id": "ex-air-pollution-scope",
+  "id": "scope_airpoll",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-air-pollution-scope",
+  "url": "sec-sampling-principles.html#scope_airpoll",
   "type": "Exercise",
   "number": "1.3.6.1",
   "title": "Air pollution and birth outcomes, scope of inference.",
-  "body": " Air pollution and birth outcomes, scope of inference   For the air pollution and preterm births study: identify population and sample; discuss generalizability and causality.   "
+  "body": " Air pollution and birth outcomes, scope of inference   Exercise introduces a study where researchers collected data to examine the relationship between air pollutants and preterm births in Southern California. During the study air pollution levels were measured by air quality monitoring stations. Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.     "
 },
 {
-  "id": "ex-cheaters-scope",
+  "id": "scope_cheaters",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-cheaters-scope",
+  "url": "sec-sampling-principles.html#scope_cheaters",
   "type": "Exercise",
   "number": "1.3.6.2",
   "title": "Cheaters, scope of inference.",
-  "body": " Cheaters, scope of inference   For the honesty study on 160 children: identify population and sample; discuss generalizability and causality.   "
+  "body": " Cheaters, scope of inference   Exercise introduces a study where researchers studying the relationship between honesty, age, and self-control conducted an experiment on 160 children between the ages of 5 and 15. The researchers asked each child to toss a fair coin in private and to record the outcome (white or black) on a paper sheet, and said they would only reward children who report white. Half the students were explicitly told not to cheat and the others were not given any explicit instructions. Differences were observed in the cheating rates in the instruction and no instruction groups, as well as some differences across children's characteristics within each group.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.     "
 },
 {
-  "id": "ex-buteyko-scope",
+  "id": "scope_buteyko",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-buteyko-scope",
+  "url": "sec-sampling-principles.html#scope_buteyko",
   "type": "Exercise",
   "number": "1.3.6.3",
   "title": "Buteyko method, scope of inference.",
-  "body": " Buteyko method, scope of inference   For the Buteyko asthma study: identify population and sample; discuss generalizability and causality.   "
+  "body": " Buteyko method, scope of inference   Exercise introduces a study on using the Buteyko shallow breathing technique to reduce asthma symptoms and improve quality of life. As part of this study 600 asthma patients aged 18-69 who relied on medication for asthma treatment were recruited and randomly assigned to two groups: one practiced the Buteyko method and the other did not. Those in the Buteyko group experienced, on average, a significant reduction in asthma symptoms and an improvement in quality of life.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.     "
 },
 {
-  "id": "ex-stealers-scope",
+  "id": "scope_stealers",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-stealers-scope",
+  "url": "sec-sampling-principles.html#scope_stealers",
   "type": "Exercise",
   "number": "1.3.6.4",
   "title": "Stealers, scope of inference.",
-  "body": " Stealers, scope of inference   For the socio-economic class and candy study: identify population and sample; discuss generalizability and causality.   "
+  "body": " Stealers, scope of inference   Exercise introduces a study on the relationship between socio-economic class and unethical behavior. As part of this study 129 University of California Berkeley undergraduates were asked to identify themselves as having low or high social-class by comparing themselves to others with the most (least) money, most (least) education, and most (least) respected jobs. They were also presented with a jar of individually wrapped candies and informed that the candies were for children in a nearby laboratory, but that they could take some if they wanted. After completing some unrelated tasks, participants reported the number of candies they had taken. It was found that those who were identified as upper-class took more candy than others.    Identify the population of interest and the sample in this study.    Comment on whether or not the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.     "
 },
 {
-  "id": "ex-relax-after-work-definitions",
+  "id": "relax_after_work_definitions",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-relax-after-work-definitions",
+  "url": "sec-sampling-principles.html#relax_after_work_definitions",
   "type": "Exercise",
   "number": "1.3.6.5",
   "title": "Relaxing after work.",
-  "body": " Relaxing after work   Classify observation, variable, statistic, parameter for the relaxing time survey (mean 1.65 hours).   "
+  "body": " Relaxing after work   The General Social Survey asked the question, \"After an average work day, about how many hours do you have to relax or pursue activities that you enjoy?\" to a random sample of 1,155 Americans. The average relaxing time was found to be 1.65 hours. Determine which of the following is an observation, a variable, a sample statistic (value calculated based on the observed sample), or a population parameter.    An American in the sample.    Number of hours spent relaxing after an average work day.    1.65.    Average number of hours all Americans spend relaxing after an average work day.     "
 },
 {
-  "id": "ex-cats-on-youtube-definitions",
+  "id": "cats_on_youtube_definitions",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-cats-on-youtube-definitions",
+  "url": "sec-sampling-principles.html#cats_on_youtube_definitions",
   "type": "Exercise",
   "number": "1.3.6.6",
   "title": "Cats on YouTube.",
-  "body": " Cats on YouTube   Classify observation, variable, statistic, parameter for estimating percent cat videos.   "
+  "body": " Cats on YouTube   Suppose you want to estimate the percentage of videos on YouTube that are cat videos. It is impossible for you to watch all videos on YouTube so you use a random video picker to select 1000 videos for you. You find that 2% of these videos are cat videos. Determine which of the following is an observation, a variable, a sample statistic (value calculated based on the observed sample), or a population parameter.    Percentage of all videos on YouTube that are cat videos.    2%.    A video in your sample.    Whether or not a video is a cat video.     "
 },
 {
-  "id": "ex-course-satisfaction-sections",
+  "id": "course_satisfaction_sections",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-course-satisfaction-sections",
+  "url": "sec-sampling-principles.html#course_satisfaction_sections",
   "type": "Exercise",
   "number": "1.3.6.7",
   "title": "Course satisfaction across sections.",
-  "body": " Course satisfaction across sections   Large class with four lab sections: identify study type and propose sampling strategy.   "
+  "body": " Course satisfaction across sections   A large college class has 160 students. All 160 students attend the lectures together, but the students are divided into 4 groups, each of 40 students, for lab sections administered by different teaching assistants. The professor wants to conduct a survey about how satisfied the students are with the course, and he believes that the lab section a student is in might affect the student's overall satisfaction with the course.    What type of study is this?    Suggest a sampling strategy for carrying out this study.     "
 },
 {
-  "id": "ex-housing-proposal",
+  "id": "housing_proposal_dorms",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-housing-proposal",
+  "url": "sec-sampling-principles.html#housing_proposal_dorms",
   "type": "Exercise",
   "number": "1.3.6.8",
   "title": "Housing proposal across dorms.",
-  "body": " Housing proposal across dorms   Survey opinions across east\/west campus dorms ensuring equal year representation: identify study type and sampling plan.   "
+  "body": " Housing proposal across dorms   On a large college campus first-year students and sophomores live in dorms located on the eastern part of the campus and juniors and seniors live in dorms located on the western part of the campus. Suppose you want to collect student opinions on a new housing structure the college administration is proposing and you want to make sure your survey equally represents opinions from students from all years.    What type of study is this?    Suggest a sampling strategy for carrying out this study.     "
 },
 {
-  "id": "ex-internet-life-expectancy-scope",
+  "id": "internet_life_expectancy",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-internet-life-expectancy-scope",
+  "url": "sec-sampling-principles.html#internet_life_expectancy",
   "type": "Exercise",
   "number": "1.3.6.9",
   "title": "Internet use and life expectancy.",
-  "body": " Internet use and life expectancy   Interpret the life expectancy vs. internet use scatterplot; identify study type and a confounder.   "
+  "body": " Internet use and life expectancy   The following scatterplot was created as part of a study evaluating the relationship between estimated life expectancy at birth (as of 2014) and percentage of internet users (as of 2009) in 208 countries for which such data were available. Citation: data:ciaFactbook     Describe the relationship between life expectancy and percentage of internet users.    What type of study is this?    State a possible confounding variable that might explain this relationship and describe its potential effect.    [Figure: internet_life_expectancy - Scatterplot with \"percent of internet users\" (0% to 100%) along the horizontal axis and \"life expectancy at birth\" (50 to 90) along the vertical axis. For 0% to 15%, about 100 points are evenly spread between 50 and 75. Then for 15% to 90%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.]   "
 },
 {
-  "id": "ex-stressed-out-observational",
+  "id": "stressed_out_observational",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-stressed-out-observational",
+  "url": "sec-sampling-principles.html#stressed_out_observational",
   "type": "Exercise",
   "number": "1.3.6.10",
   "title": "Stressed out, Part I.",
-  "body": " Stressed out, Part I   Stress and muscle cramps observational study: study type, causality, possible confounders.   "
+  "body": " Stressed out, Part I   A study that surveyed a random sample of otherwise healthy high school students found that they are more likely to get muscle cramps when they are stressed. The study also noted that students drink more coffee and sleep less when they are stressed.    What type of study is this?    Can this study be used to conclude a causal relationship between increased stress and muscle cramps?    State possible confounding variables that might explain the observed relationship between increased stress and muscle cramps.     "
 },
 {
-  "id": "ex-evaluate-sampling-methods-union",
+  "id": "evaluate_sampling_methods",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-evaluate-sampling-methods-union",
+  "url": "sec-sampling-principles.html#evaluate_sampling_methods",
   "type": "Exercise",
   "number": "1.3.6.11",
   "title": "Evaluate sampling methods.",
-  "body": " Evaluate sampling methods   Assess reasonableness of three proposed sampling designs for a student fee survey.   "
+  "body": " Evaluate sampling methods   A university wants to determine what fraction of its undergraduate student body support a new \\$25 annual fee to improve the student union. For each proposed method below, indicate whether the method is reasonable or not.    Survey a simple random sample of 500 students.    Stratify students by their field of study, then sample 10% of students from each stratum.    Cluster students by their ages (e.g. 18 years old in one cluster, 19 years old in one cluster, etc.), then randomly sample three clusters and survey all students in those clusters.     "
 },
 {
-  "id": "ex-random-digit-dialing-gallup",
+  "id": "random_digit_dialing",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-random-digit-dialing-gallup",
+  "url": "sec-sampling-principles.html#random_digit_dialing",
   "type": "Exercise",
   "number": "1.3.6.12",
   "title": "Random digit dialing.",
-  "body": " Random digit dialing   Why Gallup uses random digit dialing instead of the phone book.   "
+  "body": " Random digit dialing   The Gallup Poll uses a procedure called random digit dialing, which creates phone numbers based on a list of all area codes in America in conjunction with the associated number of residential households in each area code. Give a possible reason the Gallup Poll chooses to use random digit dialing instead of picking phone numbers from the phone book.   "
 },
 {
-  "id": "ex-haters-scope",
+  "id": "scope_haters",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-haters-scope",
+  "url": "sec-sampling-principles.html#scope_haters",
   "type": "Exercise",
   "number": "1.3.6.13",
   "title": "Haters are gonna hate, study confirms.",
-  "body": " Haters are gonna hate, study confirms   Dispositional attitude study with fake microwave reviews: identify cases, variables, sampling, design, causality, generalization.   "
+  "body": " Haters are gonna hate, study confirms   A study published in the Journal of Personality and Social Psychology asked a group of 200 randomly sampled men and women to evaluate how they felt about various subjects, such as camping, health care, architecture, taxidermy, crossword puzzles, and Japan in order to measure their attitude towards mostly independent stimuli. Then, they presented the participants with information about a new product: a microwave oven. This microwave oven does not exist, but the participants didn't know this, and were given three positive and three negative fake reviews. People who reacted positively to the subjects on the dispositional attitude measurement also tended to react positively to the microwave oven, and those who reacted negatively tended to react negatively to it. Researchers concluded that \"some people tend to like things, whereas others tend to dislike things, and a more thorough understanding of this tendency will lead to a more thorough understanding of the psychology of attitudes.\" Citation: Hepler:2013     What are the cases?    What is (are) the response variable(s) in this study?    What is (are) the explanatory variable(s) in this study?    Does the study employ random sampling?    Is this an observational study or an experiment? Explain your reasoning.    Can we establish a causal link between the explanatory and response variables?    Can the results of the study be generalized to the population at large?     "
 },
 {
-  "id": "ex-family-size-bias-question",
+  "id": "family_size",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-family-size-bias-question",
+  "url": "sec-sampling-principles.html#family_size",
   "type": "Exercise",
   "number": "1.3.6.14",
   "title": "Family size.",
-  "body": " Family size   Surveying elementary students about family size: is the estimate biased and in which direction?   "
+  "body": " Family size   Suppose we want to estimate household size, where a \"household\" is defined as people living together in the same dwelling, and sharing living accommodations. If we select students at random at an elementary school and ask them what their family size is, will this be a good measure of household size? Or will our average be biased? If so, will it overestimate or underestimate the true value?   "
 },
 {
-  "id": "ex-sampling-strategies-social",
+  "id": "sampling_strategies",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-sampling-strategies-social",
+  "url": "sec-sampling-principles.html#sampling_strategies",
   "type": "Exercise",
   "number": "1.3.6.15",
   "title": "Sampling strategies.",
-  "body": " Sampling strategies   Classify four proposed sampling methods for a social networking survey and discuss bias.   "
+  "body": " Sampling strategies   A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey. Various research strategies for collecting data are described below. In each, name the sampling method proposed and any bias you might expect.    He randomly samples 40 students from the study's population, gives them the survey, asks them to fill it out and bring it back the next day.    He gives out the survey only to his friends, making sure each one of them fills out the survey.    He posts a link to an online survey on Facebook and asks his friends to fill out the survey.    He randomly samples 5 classes and asks a random sample of students from those classes to fill out the survey.     "
 },
 {
-  "id": "ex-reading-paper",
+  "id": "reading_paper",
   "level": "2",
-  "url": "sec-sampling-principles.html#ex-reading-paper",
+  "url": "sec-sampling-principles.html#reading_paper",
   "type": "Exercise",
   "number": "1.3.6.16",
   "title": "Reading the paper.",
-  "body": " Reading the paper   Evaluate conclusions in two news articles: smoking and dementia; sleep disorders and bullying.   "
+  "body": " Reading the paper   Below are excerpts from two articles published in the NY Times :    An article titled Risks: Smokers Found More Prone to Dementia states the following: Citation: news:smokingDementia   \"Researchers analyzed data from 23,123 health plan members who participated in a voluntary exam and health behavior survey from 1978 to 1985, when they were 50-60 years old. 23 years later, about 25% of the group had dementia, including 1,136 with Alzheimer's disease and 416 with vascular dementia. After adjusting for other factors, the researchers concluded that pack-a-day smokers were 37% more likely than nonsmokers to develop dementia, and the risks went up with increased smoking; 44% for one to two packs a day; and twice the risk for more than two packs.\"  Based on this study, can we conclude that smoking causes dementia later in life? Explain your reasoning.    Another article titled The School Bully Is Sleepy states the following: Citation: news:bullySleep   \"The University of Michigan study, collected survey data from parents on each child's sleep habits and asked both parents and teachers to assess behavioral concerns. About a third of the students studied were identified by parents or teachers as having problems with disruptive behavior or bullying. The researchers found that children who had behavioral issues and those who were identified as bullies were twice as likely to have shown symptoms of sleep disorders.\"  A friend of yours who read the article says, \"The study shows that sleep disorders lead to bullying in school children.\" Is this statement justified? If not, how best can you describe the conclusion that can be drawn from this study?     "
 },
 {
   "id": "sec-experiments",
@@ -781,7 +862,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Experiments",
-  "body": " Experiments   In experiments, researchers assign treatments to cases. Randomized experiments are the gold standard for establishing causation.    Principles of experimental design  Four core principles:   Controlling: hold other factors constant across groups.  Randomization: randomly assign cases to treatments to balance unmeasured factors.  Replication: use enough cases (and replicate studies) to estimate effects precisely.  Blocking: when a known factor affects the response, group by that factor and randomize within blocks.    Blocking on patient risk   Patients split into low\/high risk blocks, then randomized within blocks to control and treatment.      Reducing bias in human experiments  To avoid placebo and observer effects, patients are blinded to treatment via placebos; double-blind designs also blind caregivers\/researchers interacting with patients.   Blinding in the stent study   Was the stent study an experiment? Was it blind or double-blind?    It was an experiment (researchers assigned treatments). It was not blind, so not double-blind.     Placebos via sham surgery   Could the stent study have used a placebo? What would it look like?    A sham surgery—performing surgical steps without implanting the stent—could serve as a placebo, though with ethical considerations.      Exercises   Light and exam performance   Design: compare lighting types on exam performance, blocking by sex. Identify response, explanatory variable (with levels), and blocking variable.     Vitamin supplements   Study with placebo, 1g, 3g vitamin C, 3g vitamin C plus additives; appearance identical. Nurses know assignments; assessors are blinded. No significant differences found.   Experiment or observational?  Explanatory and response variables?  Were patients blinded?  Was it double-blind?  Does non-adherence introduce confounding?      Light, noise, and exam performance   Design tests light (3 levels) and noise (3 levels) on exam performance, blocking by sex.   What type of study?  How many factors? List factors and levels.  Role of sex variable?      Music and learning   Outline an experiment comparing study with no music, instrumental music, or music with lyrics.     Soda preference   Outline an experiment to compare regular Coke vs. Diet Coke preference.     Exercise and mental health   A stratified randomized study assigns half of each age group (18-30, 31-40, 41-55) to exercise twice a week and half to no exercise; mental health measured pre\/post.   Study type?  Treatment and control groups?  Is blocking used? What variable?  Is blinding used?  Can results establish causation and generalize? Explain.  Any reservations about funding this study?      "
+  "body": " Experiments   In experiments, researchers assign treatments to cases. Randomized experiments are the gold standard for establishing causation.    Principles of experimental design  Four core principles:   Controlling: hold other factors constant across groups.  Randomization: randomly assign cases to treatments to balance unmeasured factors.  Replication: use enough cases (and replicate studies) to estimate effects precisely.  Blocking: when a known factor affects the response, group by that factor and randomize within blocks.    Blocking on patient risk   Patients split into low\/high risk blocks, then randomized within blocks to control and treatment.      Reducing bias in human experiments  To avoid placebo and observer effects, patients are blinded to treatment via placebos; double-blind designs also blind caregivers\/researchers interacting with patients.   Blinding in the stent study   Was the stent study an experiment? Was it blind or double-blind?    It was an experiment (researchers assigned treatments). It was not blind, so not double-blind.     Placebos via sham surgery   Could the stent study have used a placebo? What would it look like?    A sham surgery—performing surgical steps without implanting the stent—could serve as a placebo, though with ethical considerations.      Exercises   Light and exam performance   A study is designed to test the effect of light level on exam performance of students. The researcher believes that light levels might have different effects on males and females, so wants to make sure both are equally represented in each treatment. The treatments are fluorescent overhead lighting, yellow overhead lighting, no overhead lighting (only desk lamps).    What is the response variable?    What is the explanatory variable? What are its levels?    What is the blocking variable? What are its levels?       Vitamin supplements   To assess the effectiveness of taking large doses of vitamin C in reducing the duration of the common cold, researchers recruited 400 healthy volunteers from staff and students at a university. A quarter of the patients were assigned a placebo, and the rest were evenly divided between 1g Vitamin C, 3g Vitamin C, or 3g Vitamin C plus additives to be taken at onset of a cold for the following two days. All tablets had identical appearance and packaging. The nurses who handed the prescribed pills to the patients knew which patient received which treatment, but the researchers assessing the patients when they were sick did not. No significant differences were observed in any measure of cold duration or severity between the four groups, and the placebo group had the shortest duration of symptoms. Citation: Audera:2001     Was this an experiment or an observational study? Why?    What are the explanatory and response variables in this study?    Were the patients blinded to their treatment?    Was this study double-blind?    Participants are ultimately able to choose whether or not to use the pills prescribed to them. We might expect that not all of them will adhere and take their pills. Does this introduce a confounding variable to the study? Explain your reasoning.       Light, noise, and exam performance   A study is designed to test the effect of light level and noise level on exam performance of students. The researcher believes that light and noise levels might have different effects on males and females, so wants to make sure both are equally represented in each treatment. The light treatments considered are fluorescent overhead lighting, yellow overhead lighting, no overhead lighting (only desk lamps). The noise treatments considered are no noise, construction noise, and human chatter noise.    What type of study is this?    How many factors are considered in this study? Identify them, and describe their levels.    What is the role of the sex variable in this study?       Music and learning   You would like to conduct an experiment in class to see if students learn better if they study without any music, with music that has no lyrics (instrumental), or with music that has lyrics. Briefly outline a design for this study.     Soda preference   You would like to conduct an experiment in class to see if your classmates prefer the taste of regular Coke or Diet Coke. Briefly outline a design for this study.     Exercise and mental health   A researcher is interested in the effects of exercise on mental health and he proposes the following study: Use stratified random sampling to ensure representative proportions of 18-30, 31-40 and 41- 55 year olds from the population. Next, randomly assign half the subjects from each age group to exercise twice a week, and instruct the rest not to exercise. Conduct a mental health exam at the beginning and at the end of the study, and compare the results.    What type of study is this?    What are the treatment and control groups in this study?    Does this study make use of blocking? If so, what is the blocking variable?    Does this study make use of blinding?    Comment on whether or not the results of the study can be used to establish a causal relationship between exercise and mental health, and indicate whether or not the conclusions can be generalized to the population at large.    Suppose you are given the task of determining if this proposed study should get funding. Would you have any reservations about the study proposal?       "
 },
 {
   "id": "fig-blocking",
@@ -811,58 +892,58 @@ var ptx_lunr_docs = [
   "body": " Placebos via sham surgery   Could the stent study have used a placebo? What would it look like?    A sham surgery—performing surgical steps without implanting the stent—could serve as a placebo, though with ethical considerations.   "
 },
 {
-  "id": "ex-light-exam-performance",
+  "id": "light_exam_performance",
   "level": "2",
-  "url": "sec-experiments.html#ex-light-exam-performance",
+  "url": "sec-experiments.html#light_exam_performance",
   "type": "Exercise",
   "number": "1.4.3.1",
   "title": "Light and exam performance.",
-  "body": " Light and exam performance   Design: compare lighting types on exam performance, blocking by sex. Identify response, explanatory variable (with levels), and blocking variable.   "
+  "body": " Light and exam performance   A study is designed to test the effect of light level on exam performance of students. The researcher believes that light levels might have different effects on males and females, so wants to make sure both are equally represented in each treatment. The treatments are fluorescent overhead lighting, yellow overhead lighting, no overhead lighting (only desk lamps).    What is the response variable?    What is the explanatory variable? What are its levels?    What is the blocking variable? What are its levels?     "
 },
 {
-  "id": "ex-vitamin-supplement",
+  "id": "vitamin_supplement",
   "level": "2",
-  "url": "sec-experiments.html#ex-vitamin-supplement",
+  "url": "sec-experiments.html#vitamin_supplement",
   "type": "Exercise",
   "number": "1.4.3.2",
   "title": "Vitamin supplements.",
-  "body": " Vitamin supplements   Study with placebo, 1g, 3g vitamin C, 3g vitamin C plus additives; appearance identical. Nurses know assignments; assessors are blinded. No significant differences found.   Experiment or observational?  Explanatory and response variables?  Were patients blinded?  Was it double-blind?  Does non-adherence introduce confounding?    "
+  "body": " Vitamin supplements   To assess the effectiveness of taking large doses of vitamin C in reducing the duration of the common cold, researchers recruited 400 healthy volunteers from staff and students at a university. A quarter of the patients were assigned a placebo, and the rest were evenly divided between 1g Vitamin C, 3g Vitamin C, or 3g Vitamin C plus additives to be taken at onset of a cold for the following two days. All tablets had identical appearance and packaging. The nurses who handed the prescribed pills to the patients knew which patient received which treatment, but the researchers assessing the patients when they were sick did not. No significant differences were observed in any measure of cold duration or severity between the four groups, and the placebo group had the shortest duration of symptoms. Citation: Audera:2001     Was this an experiment or an observational study? Why?    What are the explanatory and response variables in this study?    Were the patients blinded to their treatment?    Was this study double-blind?    Participants are ultimately able to choose whether or not to use the pills prescribed to them. We might expect that not all of them will adhere and take their pills. Does this introduce a confounding variable to the study? Explain your reasoning.     "
 },
 {
-  "id": "ex-light-noise-exam",
+  "id": "light_noise_exam_performance",
   "level": "2",
-  "url": "sec-experiments.html#ex-light-noise-exam",
+  "url": "sec-experiments.html#light_noise_exam_performance",
   "type": "Exercise",
   "number": "1.4.3.3",
   "title": "Light, noise, and exam performance.",
-  "body": " Light, noise, and exam performance   Design tests light (3 levels) and noise (3 levels) on exam performance, blocking by sex.   What type of study?  How many factors? List factors and levels.  Role of sex variable?    "
+  "body": " Light, noise, and exam performance   A study is designed to test the effect of light level and noise level on exam performance of students. The researcher believes that light and noise levels might have different effects on males and females, so wants to make sure both are equally represented in each treatment. The light treatments considered are fluorescent overhead lighting, yellow overhead lighting, no overhead lighting (only desk lamps). The noise treatments considered are no noise, construction noise, and human chatter noise.    What type of study is this?    How many factors are considered in this study? Identify them, and describe their levels.    What is the role of the sex variable in this study?     "
 },
 {
-  "id": "ex-music-learning",
+  "id": "music_learning",
   "level": "2",
-  "url": "sec-experiments.html#ex-music-learning",
+  "url": "sec-experiments.html#music_learning",
   "type": "Exercise",
   "number": "1.4.3.4",
   "title": "Music and learning.",
-  "body": " Music and learning   Outline an experiment comparing study with no music, instrumental music, or music with lyrics.   "
+  "body": " Music and learning   You would like to conduct an experiment in class to see if students learn better if they study without any music, with music that has no lyrics (instrumental), or with music that has lyrics. Briefly outline a design for this study.   "
 },
 {
-  "id": "ex-soda-preference",
+  "id": "soda_preference",
   "level": "2",
-  "url": "sec-experiments.html#ex-soda-preference",
+  "url": "sec-experiments.html#soda_preference",
   "type": "Exercise",
   "number": "1.4.3.5",
   "title": "Soda preference.",
-  "body": " Soda preference   Outline an experiment to compare regular Coke vs. Diet Coke preference.   "
+  "body": " Soda preference   You would like to conduct an experiment in class to see if your classmates prefer the taste of regular Coke or Diet Coke. Briefly outline a design for this study.   "
 },
 {
-  "id": "ex-exercise-mental-health",
+  "id": "exercise_mental_health",
   "level": "2",
-  "url": "sec-experiments.html#ex-exercise-mental-health",
+  "url": "sec-experiments.html#exercise_mental_health",
   "type": "Exercise",
   "number": "1.4.3.6",
   "title": "Exercise and mental health.",
-  "body": " Exercise and mental health   A stratified randomized study assigns half of each age group (18-30, 31-40, 41-55) to exercise twice a week and half to no exercise; mental health measured pre\/post.   Study type?  Treatment and control groups?  Is blocking used? What variable?  Is blinding used?  Can results establish causation and generalize? Explain.  Any reservations about funding this study?    "
+  "body": " Exercise and mental health   A researcher is interested in the effects of exercise on mental health and he proposes the following study: Use stratified random sampling to ensure representative proportions of 18-30, 31-40 and 41- 55 year olds from the population. Next, randomly assign half the subjects from each age group to exercise twice a week, and instruct the rest not to exercise. Conduct a mental health exam at the beginning and at the end of the study, and compare the results.    What type of study is this?    What are the treatment and control groups in this study?    Does this study make use of blocking? If so, what is the blocking variable?    Does this study make use of blinding?    Comment on whether or not the results of the study can be used to establish a causal relationship between exercise and mental health, and indicate whether or not the conclusions can be generalized to the population at large.    Suppose you are given the task of determining if this proposed study should get funding. Would you have any reservations about the study proposal?     "
 },
 {
   "id": "sec-review-exercises",
@@ -871,97 +952,97 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.5",
   "title": "Review exercises",
-  "body": " Review exercises   Review exercises   Pet names   Seattle pet registry data show proportions of cats and dogs with each name. A scatterplot compares name popularity.   Cat vs. dog name popularity   Scatterplot of name proportions for cats and dogs; includes diagonal x=y line.     Experiment or observational study?  Most common dog and cat names?  Which names are more common for cats than dogs?  Is the relationship positive or negative? Interpret.      Stressed out, Part II   Half of subjects are randomly assigned to a stressful falling-elevator experience; half to no stress. Determine study type and whether causation can be concluded.     Chia seeds and weight loss   38 men and 38 women randomly assigned to chia seeds or placebo for 12 weeks; volunteers. No significant differences found.   Study type?  Experimental and control treatments?  Was blocking used? If so, what variable?  Was blinding used?  Can we make causal statements? Can we generalize?      City council survey   Household survey across diverse neighborhoods. For each sampling plan (simple random; stratified by neighborhood; cluster; multistage; convenience), name the method and discuss pros\/cons.     Flawed reasoning   Identify flaws and improvements in three scenarios: parent questionnaires on work schedule; follow-up survey with attrition; doctor surveying runners about joint problems.     Income and education in US counties   Scatterplot of per capita income vs. percent with bachelor’s degree for US counties.   Income vs. education   Scatterplot of income vs percent with bachelor’s degree for US counties.     Identify explanatory and response variables.  Describe the relationship and any unusual observations.  Can we conclude having a bachelor’s degree increases income?      Eat better, feel better   Randomized study of three interventions to increase fruit\/vegetable intake among university students; only the group given servings showed improved psychological well-being.   Study type?  Explanatory and response variables?  Can results be generalized?  Can results establish causality?  Revise a headline claiming “proof” accordingly.      Screens, teens, and psychological well-being   Large observational diary study of screen time and well-being for teens (n=17,247) with covariates. Concluded little clear evidence of harm.   Study type?  Explanatory variables?  Response variable?  Can results be generalized? Why?  Can results establish causation?      Stanford Open Policing   Summary table shows stops per year, search and arrest rates by county, state, and driver race.   List variables collected per traffic stop.  Classify each variable (numerical\/categorical; continuous\/discrete; ordinal).  For analyzing search rates by race, identify response and explanatory variables.      Space launches   Table shows launch outcomes by agency type (Private, State, Startup) and era (1957-1999, 2000-2018).   Variables collected per launch?  Classify each variable.  For studying success rates across agencies and time, identify response and explanatory variables.      "
+  "body": " Review exercises   Review exercises   Pet names   The city of Seattle, WA has an open data portal that includes pets registered in the city. For each registered pet, we have information on the pet's name and species. The following visualization plots the proportion of dogs with a given name versus the proportion of cats with the same name. The 20 most common cat and dog names are displayed. The diagonal line on the plot is the line; if a name appeared on this line, the name's popularity would be exactly the same for dogs and cats.    Are these data collected as part of an experiment or an observational study?    What is the most common dog name? What is the most common cat name?    What names are more common for cats than dogs?    Is the relationship between the two variables positive or negative? What does this mean in context of the data?    \\  [Figure: seattle_pet_names - A scatterplot is shown, where each point is labeled with a pet name. The horizontal axis represents \"Proportion of cats\" and runs from 0.002 to 0.010. The vertical axis represents \"Proportion of dogs\" and runs from 0.002 to 0.010. There is also a diagonal line (y = x), and only two points fall below this line: \"Oliver\" at about (0.0045, 0.004) and \"Lily\" at about (0.005, 0.004). There is a slightly positive trend in the data, the most extreme cases (highest proportions for dogs or cats) are \"Lucy\" at (0.006, 0.0095), \"Charlie\" at (0.005, 0.009), \"Luna\" at (0.0065, 0.007), and \"Bella\" at (0.005, 0.007).]     Stressed out, Part II   In a study evaluating the relationship between stress and muscle cramps, half the subjects are randomly assigned to be exposed to increased stress by being placed into an elevator that falls rapidly and stops abruptly and the other half are left at no or baseline stress.    What type of study is this?    Can this study be used to conclude a causal relationship between increased stress and muscle cramps?       Chia seeds and weight loss   Chia Pets -- those terra-cotta figurines that sprout fuzzy green hair -- made the chia plant a household name. But chia has gained an entirely new reputation as a diet supplement. In one 2009 study, a team of researchers recruited 38 men and divided them randomly into two groups: treatment or control. They also recruited 38 women, and they randomly placed half of these participants into the treatment group and the other half into the control group. One group was given 25 grams of chia seeds twice a day, and the other was given a placebo. The subjects volunteered to be a part of the study. After 12 weeks, the scientists found no significant difference between the groups in appetite or weight loss. Citation: Nieman:2009     What type of study is this?    What are the experimental and control treatments in this study?    Has blocking been used in this study? If so, what is the blocking variable?    Has blinding been used in this study?    Comment on whether or not we can make a causal statement, and indicate whether or not we can generalize the conclusion to the population at large.       City council survey   A city council has requested a household survey be conducted in a suburban area of their city. The area is broken into many distinct and unique neighborhoods, some including large homes, some with only apartments, and others a diverse mixture of housing structures. For each part below, identify the sampling methods described, and describe the statistical pros and cons of the method in the city's context.    Randomly sample 200 households from the city.    Divide the city into 20 neighborhoods, and sample 10 households from each neighborhood.    Divide the city into 20 neighborhoods, randomly sample 3 neighborhoods, and then sample all households from those 3 neighborhoods.    Divide the city into 20 neighborhoods, randomly sample 8 neighborhoods, and then randomly sample 50 households from those neighborhoods.    Sample the 200 households closest to the city council offices.       Flawed reasoning   Identify the flaw(s) in reasoning in the following scenarios. Explain what the individuals in the study should have done differently if they wanted to make such strong conclusions.    Students at an elementary school are given a questionnaire that they are asked to return after their parents have completed it. One of the questions asked is, \"Do you find that your work schedule makes it difficult for you to spend time with your kids after school?\" Of the parents who replied, 85% said \"no\". Based on these results, the school officials conclude that a great majority of the parents have no difficulty spending time with their kids after school.    A survey is conducted on a simple random sample of 1,000 women who recently gave birth, asking them about whether or not they smoked during pregnancy. A follow-up survey asking if the children have respiratory problems is conducted 3 years later. However, only 567 of these women are reached at the same address. The researcher reports that these 567 women are representative of all mothers.    An orthopedist administers a questionnaire to 30 of his patients who do not have any joint problems and finds that 20 of them regularly go running. He concludes that running decreases the risk of joint problems.       Income and education in US counties   The scatterplot below shows the relationship between per capita income (in thousands of dollars) and percent of population with a bachelor's degree in 3,143 counties in the US in 2010.    What are the explanatory and response variables?    Describe the relationship between the two variables. Make sure to discuss unusual observations, if any.    Can we conclude that having a bachelor's degree increases one's income?    [Figure: county_income_education_scatterplot - A scatterplot is shown, with \"Percent with Bachelor's Degree\" on the horizontal axis (running 0% to 80%) and \"Per Capita Income\" on the vertical axis (running $0 to $65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0% to 20%, the points typically lie between the vertical ranges of $10,000 and $25,000. For those between 20% to 40% on the horizontal, the points lie mostly between $15,000 and $35,000 on the vertical. For those between 40% and 60%, the points mostly lie between $25,000 and $45,000. There are only about 5 points with percentages larger than 60%, and these all lie above $45,000 on the vertical.]     Eat better, feel better   In a public health study on the effects of consumption of fruits and vegetables on psychological well-being in young adults, participants were randomly assigned to three groups: (1) diet-as-usual, (2) an ecological momentary intervention involving text message reminders to increase their fruits and vegetable consumption plus a voucher to purchase them, or (3) a fruit and vegetable intervention in which participants were given two additional daily servings of fresh fruits and vegetables to consume on top of their normal diet. Participants were asked to take a nightly survey on their smartphones. Participants were student volunteers at the University of Otago, New Zealand. At the end of the 14-day study, only participants in the third group showed improvements to their psychological well-being across the 14-days relative to the other groups. Citation: conner2017let     What type of study is this?    Identify the explanatory and response variables.    Comment on whether the results of the study can be generalized to the population.    Comment on whether the results of the study can be used to establish causal relationships.    A newspaper article reporting on the study states, \"The results of this study provide proof that giving young adults fresh fruits and vegetables to eat can have psychological benefits, even over a brief period of time.\" How would you suggest revising this statement so that it can be supported by the study?       Screens, teens, and psychological well-being   In a study of three nationally representative large-scale data sets from Ireland, the United States, and the United Kingdom (n = 17,247), teenagers between the ages of 12 to 15 were asked to keep a diary of their screen time and answer questions about how they felt or acted. The answers to these questions were then used to compute a psychological well-being score. Additional data were collected and included in the analysis, such as each child's sex and age, and on the mother’s education, ethnicity, psychological distress, and employment. The study concluded that there is little clear-cut evidence that screen time decreases adolescent well-being. Citation: orben2018screens     What type of study is this?    Identify the explanatory variables.    Identify the response variable.    Comment on whether the results of the study can be generalized to the population, and why.    Comment on whether the results of the study can be used to establish causal relationships.       Stanford Open Policing   The Stanford Open Policing project gathers, analyzes, and releases records from traffic stops by law enforcement agencies across the United States. Their goal is to help researchers, journalists, and policymakers investigate and improve interactions between police and the public. Citation: pierson2017large The following is an excerpt from a summary table created based off of the data collected as part of this project.   Stanford Open Policing data excerpt    County  State  Driver's race  No. of stops per year  % of stopped        cars searched  drivers arrested    Apache County  Arizona  Black  266  0.08  0.02    Apache County  Arizona  Hispanic  1008  0.05  0.02    Apache County  Arizona  White  6322  0.02  0.01    Cochise County  Arizona  Black  1169  0.05  0.01    Cochise County  Arizona  Hispanic  9453  0.04  0.01    Cochise County  Arizona  White  10826  0.02  0.01            Wood County  Wisconsin  Black  16  0.24  0.10    Wood County  Wisconsin  Hispanic  27  0.04  0.03    Wood County  Wisconsin  White  1157  0.03  0.03       What variables were collected on each individual traffic stop in order to create to the summary table above?    State whether each variable is numerical or categorical. If numerical, state whether it is continuous or discrete. If categorical, state whether it is ordinal or not.    Suppose we wanted to evaluate whether vehicle search rates are different for drivers of different races. In this analysis, which variable would be the response variable and which variable would be the explanatory variable?       Space launches   The following summary table shows the number of space launches in the US by the type of launching agency and the outcome of the launch (success or failure). Citation: data:spacelaunches    Space launches by agency type and era     1957 - 1999  2000 - 2018     Failure  Success  Failure  Success    Private  13  295  10  562    State  281  3751  33  711    Startup  -  -  5  65       What variables were collected on each launch in order to create to the summary table above?    State whether each variable is numerical or categorical. If numerical, state whether it is continuous or discrete. If categorical, state whether it is ordinal or not.    Suppose we wanted to study how the success rate of launches vary between launching agencies and over time. In this analysis, which variable would be the response variable and which variable would be the explanatory variable?       "
 },
 {
-  "id": "ex-pet-names",
+  "id": "seattle_pet_names",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-pet-names",
+  "url": "sec-review-exercises.html#seattle_pet_names",
   "type": "Exercise",
   "number": "1.5.1",
   "title": "Pet names.",
-  "body": " Pet names   Seattle pet registry data show proportions of cats and dogs with each name. A scatterplot compares name popularity.   Cat vs. dog name popularity   Scatterplot of name proportions for cats and dogs; includes diagonal x=y line.     Experiment or observational study?  Most common dog and cat names?  Which names are more common for cats than dogs?  Is the relationship positive or negative? Interpret.    "
+  "body": " Pet names   The city of Seattle, WA has an open data portal that includes pets registered in the city. For each registered pet, we have information on the pet's name and species. The following visualization plots the proportion of dogs with a given name versus the proportion of cats with the same name. The 20 most common cat and dog names are displayed. The diagonal line on the plot is the line; if a name appeared on this line, the name's popularity would be exactly the same for dogs and cats.    Are these data collected as part of an experiment or an observational study?    What is the most common dog name? What is the most common cat name?    What names are more common for cats than dogs?    Is the relationship between the two variables positive or negative? What does this mean in context of the data?    \\  [Figure: seattle_pet_names - A scatterplot is shown, where each point is labeled with a pet name. The horizontal axis represents \"Proportion of cats\" and runs from 0.002 to 0.010. The vertical axis represents \"Proportion of dogs\" and runs from 0.002 to 0.010. There is also a diagonal line (y = x), and only two points fall below this line: \"Oliver\" at about (0.0045, 0.004) and \"Lily\" at about (0.005, 0.004). There is a slightly positive trend in the data, the most extreme cases (highest proportions for dogs or cats) are \"Lucy\" at (0.006, 0.0095), \"Charlie\" at (0.005, 0.009), \"Luna\" at (0.0065, 0.007), and \"Bella\" at (0.005, 0.007).]   "
 },
 {
-  "id": "ex-stressed-out-part2",
+  "id": "stressed_out_experiment",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-stressed-out-part2",
+  "url": "sec-review-exercises.html#stressed_out_experiment",
   "type": "Exercise",
   "number": "1.5.2",
   "title": "Stressed out, Part II.",
-  "body": " Stressed out, Part II   Half of subjects are randomly assigned to a stressful falling-elevator experience; half to no stress. Determine study type and whether causation can be concluded.   "
+  "body": " Stressed out, Part II   In a study evaluating the relationship between stress and muscle cramps, half the subjects are randomly assigned to be exposed to increased stress by being placed into an elevator that falls rapidly and stops abruptly and the other half are left at no or baseline stress.    What type of study is this?    Can this study be used to conclude a causal relationship between increased stress and muscle cramps?     "
 },
 {
-  "id": "ex-chia-weight-loss",
+  "id": "chia_weight_loss",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-chia-weight-loss",
+  "url": "sec-review-exercises.html#chia_weight_loss",
   "type": "Exercise",
   "number": "1.5.3",
   "title": "Chia seeds and weight loss.",
-  "body": " Chia seeds and weight loss   38 men and 38 women randomly assigned to chia seeds or placebo for 12 weeks; volunteers. No significant differences found.   Study type?  Experimental and control treatments?  Was blocking used? If so, what variable?  Was blinding used?  Can we make causal statements? Can we generalize?    "
+  "body": " Chia seeds and weight loss   Chia Pets -- those terra-cotta figurines that sprout fuzzy green hair -- made the chia plant a household name. But chia has gained an entirely new reputation as a diet supplement. In one 2009 study, a team of researchers recruited 38 men and divided them randomly into two groups: treatment or control. They also recruited 38 women, and they randomly placed half of these participants into the treatment group and the other half into the control group. One group was given 25 grams of chia seeds twice a day, and the other was given a placebo. The subjects volunteered to be a part of the study. After 12 weeks, the scientists found no significant difference between the groups in appetite or weight loss. Citation: Nieman:2009     What type of study is this?    What are the experimental and control treatments in this study?    Has blocking been used in this study? If so, what is the blocking variable?    Has blinding been used in this study?    Comment on whether or not we can make a causal statement, and indicate whether or not we can generalize the conclusion to the population at large.     "
 },
 {
-  "id": "ex-city-council-survey",
+  "id": "city_council_survey",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-city-council-survey",
+  "url": "sec-review-exercises.html#city_council_survey",
   "type": "Exercise",
   "number": "1.5.4",
   "title": "City council survey.",
-  "body": " City council survey   Household survey across diverse neighborhoods. For each sampling plan (simple random; stratified by neighborhood; cluster; multistage; convenience), name the method and discuss pros\/cons.   "
+  "body": " City council survey   A city council has requested a household survey be conducted in a suburban area of their city. The area is broken into many distinct and unique neighborhoods, some including large homes, some with only apartments, and others a diverse mixture of housing structures. For each part below, identify the sampling methods described, and describe the statistical pros and cons of the method in the city's context.    Randomly sample 200 households from the city.    Divide the city into 20 neighborhoods, and sample 10 households from each neighborhood.    Divide the city into 20 neighborhoods, randomly sample 3 neighborhoods, and then sample all households from those 3 neighborhoods.    Divide the city into 20 neighborhoods, randomly sample 8 neighborhoods, and then randomly sample 50 households from those neighborhoods.    Sample the 200 households closest to the city council offices.     "
 },
 {
-  "id": "ex-flawed-reasoning",
+  "id": "flawed_reasoning",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-flawed-reasoning",
+  "url": "sec-review-exercises.html#flawed_reasoning",
   "type": "Exercise",
   "number": "1.5.5",
   "title": "Flawed reasoning.",
-  "body": " Flawed reasoning   Identify flaws and improvements in three scenarios: parent questionnaires on work schedule; follow-up survey with attrition; doctor surveying runners about joint problems.   "
+  "body": " Flawed reasoning   Identify the flaw(s) in reasoning in the following scenarios. Explain what the individuals in the study should have done differently if they wanted to make such strong conclusions.    Students at an elementary school are given a questionnaire that they are asked to return after their parents have completed it. One of the questions asked is, \"Do you find that your work schedule makes it difficult for you to spend time with your kids after school?\" Of the parents who replied, 85% said \"no\". Based on these results, the school officials conclude that a great majority of the parents have no difficulty spending time with their kids after school.    A survey is conducted on a simple random sample of 1,000 women who recently gave birth, asking them about whether or not they smoked during pregnancy. A follow-up survey asking if the children have respiratory problems is conducted 3 years later. However, only 567 of these women are reached at the same address. The researcher reports that these 567 women are representative of all mothers.    An orthopedist administers a questionnaire to 30 of his patients who do not have any joint problems and finds that 20 of them regularly go running. He concludes that running decreases the risk of joint problems.     "
 },
 {
-  "id": "ex-income-education-county",
+  "id": "income_education_county",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-income-education-county",
+  "url": "sec-review-exercises.html#income_education_county",
   "type": "Exercise",
   "number": "1.5.6",
   "title": "Income and education in US counties.",
-  "body": " Income and education in US counties   Scatterplot of per capita income vs. percent with bachelor’s degree for US counties.   Income vs. education   Scatterplot of income vs percent with bachelor’s degree for US counties.     Identify explanatory and response variables.  Describe the relationship and any unusual observations.  Can we conclude having a bachelor’s degree increases income?    "
+  "body": " Income and education in US counties   The scatterplot below shows the relationship between per capita income (in thousands of dollars) and percent of population with a bachelor's degree in 3,143 counties in the US in 2010.    What are the explanatory and response variables?    Describe the relationship between the two variables. Make sure to discuss unusual observations, if any.    Can we conclude that having a bachelor's degree increases one's income?    [Figure: county_income_education_scatterplot - A scatterplot is shown, with \"Percent with Bachelor's Degree\" on the horizontal axis (running 0% to 80%) and \"Per Capita Income\" on the vertical axis (running $0 to $65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0% to 20%, the points typically lie between the vertical ranges of $10,000 and $25,000. For those between 20% to 40% on the horizontal, the points lie mostly between $15,000 and $35,000 on the vertical. For those between 40% and 60%, the points mostly lie between $25,000 and $45,000. There are only about 5 points with percentages larger than 60%, and these all lie above $45,000 on the vertical.]   "
 },
 {
-  "id": "ex-eat-better-feel-better",
+  "id": "eat_better_feel_better",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-eat-better-feel-better",
+  "url": "sec-review-exercises.html#eat_better_feel_better",
   "type": "Exercise",
   "number": "1.5.7",
   "title": "Eat better, feel better.",
-  "body": " Eat better, feel better   Randomized study of three interventions to increase fruit\/vegetable intake among university students; only the group given servings showed improved psychological well-being.   Study type?  Explanatory and response variables?  Can results be generalized?  Can results establish causality?  Revise a headline claiming “proof” accordingly.    "
+  "body": " Eat better, feel better   In a public health study on the effects of consumption of fruits and vegetables on psychological well-being in young adults, participants were randomly assigned to three groups: (1) diet-as-usual, (2) an ecological momentary intervention involving text message reminders to increase their fruits and vegetable consumption plus a voucher to purchase them, or (3) a fruit and vegetable intervention in which participants were given two additional daily servings of fresh fruits and vegetables to consume on top of their normal diet. Participants were asked to take a nightly survey on their smartphones. Participants were student volunteers at the University of Otago, New Zealand. At the end of the 14-day study, only participants in the third group showed improvements to their psychological well-being across the 14-days relative to the other groups. Citation: conner2017let     What type of study is this?    Identify the explanatory and response variables.    Comment on whether the results of the study can be generalized to the population.    Comment on whether the results of the study can be used to establish causal relationships.    A newspaper article reporting on the study states, \"The results of this study provide proof that giving young adults fresh fruits and vegetables to eat can have psychological benefits, even over a brief period of time.\" How would you suggest revising this statement so that it can be supported by the study?     "
 },
 {
-  "id": "ex-screen-time-well-being",
+  "id": "screen_time_well_being",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-screen-time-well-being",
+  "url": "sec-review-exercises.html#screen_time_well_being",
   "type": "Exercise",
   "number": "1.5.8",
   "title": "Screens, teens, and psychological well-being.",
-  "body": " Screens, teens, and psychological well-being   Large observational diary study of screen time and well-being for teens (n=17,247) with covariates. Concluded little clear evidence of harm.   Study type?  Explanatory variables?  Response variable?  Can results be generalized? Why?  Can results establish causation?    "
+  "body": " Screens, teens, and psychological well-being   In a study of three nationally representative large-scale data sets from Ireland, the United States, and the United Kingdom (n = 17,247), teenagers between the ages of 12 to 15 were asked to keep a diary of their screen time and answer questions about how they felt or acted. The answers to these questions were then used to compute a psychological well-being score. Additional data were collected and included in the analysis, such as each child's sex and age, and on the mother’s education, ethnicity, psychological distress, and employment. The study concluded that there is little clear-cut evidence that screen time decreases adolescent well-being. Citation: orben2018screens     What type of study is this?    Identify the explanatory variables.    Identify the response variable.    Comment on whether the results of the study can be generalized to the population, and why.    Comment on whether the results of the study can be used to establish causal relationships.     "
 },
 {
-  "id": "ex-stanford-open-policing",
+  "id": "stanford_open_policing",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-stanford-open-policing",
+  "url": "sec-review-exercises.html#stanford_open_policing",
   "type": "Exercise",
   "number": "1.5.9",
   "title": "Stanford Open Policing.",
-  "body": " Stanford Open Policing   Summary table shows stops per year, search and arrest rates by county, state, and driver race.   List variables collected per traffic stop.  Classify each variable (numerical\/categorical; continuous\/discrete; ordinal).  For analyzing search rates by race, identify response and explanatory variables.    "
+  "body": " Stanford Open Policing   The Stanford Open Policing project gathers, analyzes, and releases records from traffic stops by law enforcement agencies across the United States. Their goal is to help researchers, journalists, and policymakers investigate and improve interactions between police and the public. Citation: pierson2017large The following is an excerpt from a summary table created based off of the data collected as part of this project.   Stanford Open Policing data excerpt    County  State  Driver's race  No. of stops per year  % of stopped        cars searched  drivers arrested    Apache County  Arizona  Black  266  0.08  0.02    Apache County  Arizona  Hispanic  1008  0.05  0.02    Apache County  Arizona  White  6322  0.02  0.01    Cochise County  Arizona  Black  1169  0.05  0.01    Cochise County  Arizona  Hispanic  9453  0.04  0.01    Cochise County  Arizona  White  10826  0.02  0.01            Wood County  Wisconsin  Black  16  0.24  0.10    Wood County  Wisconsin  Hispanic  27  0.04  0.03    Wood County  Wisconsin  White  1157  0.03  0.03       What variables were collected on each individual traffic stop in order to create to the summary table above?    State whether each variable is numerical or categorical. If numerical, state whether it is continuous or discrete. If categorical, state whether it is ordinal or not.    Suppose we wanted to evaluate whether vehicle search rates are different for drivers of different races. In this analysis, which variable would be the response variable and which variable would be the explanatory variable?     "
 },
 {
-  "id": "ex-space-launches",
+  "id": "space_launches",
   "level": "2",
-  "url": "sec-review-exercises.html#ex-space-launches",
+  "url": "sec-review-exercises.html#space_launches",
   "type": "Exercise",
   "number": "1.5.10",
   "title": "Space launches.",
-  "body": " Space launches   Table shows launch outcomes by agency type (Private, State, Startup) and era (1957-1999, 2000-2018).   Variables collected per launch?  Classify each variable.  For studying success rates across agencies and time, identify response and explanatory variables.    "
+  "body": " Space launches   The following summary table shows the number of space launches in the US by the type of launching agency and the outcome of the launch (success or failure). Citation: data:spacelaunches    Space launches by agency type and era     1957 - 1999  2000 - 2018     Failure  Success  Failure  Success    Private  13  295  10  562    State  281  3751  33  711    Startup  -  -  5  65       What variables were collected on each launch in order to create to the summary table above?    State whether each variable is numerical or categorical. If numerical, state whether it is continuous or discrete. If categorical, state whether it is ordinal or not.    Suppose we wanted to study how the success rate of launches vary between launching agencies and over time. In this analysis, which variable would be the response variable and which variable would be the explanatory variable?     "
 },
 {
   "id": "sec-numerical-data",
