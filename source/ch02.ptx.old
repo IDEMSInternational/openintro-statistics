@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<chapter xml:id="ch-summarizing-data" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Summarizing data</title>
+
+  <introduction>
+    <p>
+      This chapter covers techniques for summarizing and visualizing data, including
+      categorical and numerical data summaries.
+    </p>
+    <p>
+      <alert>To be converted from:</alert>
+      <ul>
+        <li><c>ch_summarizing_data/TeX/case_study_malaria_vaccine.tex</c></li>
+        <li><c>ch_summarizing_data/TeX/considering_categorical_data.tex</c></li>
+        <li><c>ch_summarizing_data/TeX/examining_numerical_data.tex</c></li>
+        <li><c>ch_summarizing_data/TeX/review_exercises.tex</c></li>
+      </ul>
+    </p>
+  </introduction>
+
+  <section xml:id="sec-malaria-vaccine">
+    <title>Case study: Malaria vaccine</title>
+    <example xml:id="ex-left-right-apple">
+      <title>Left vs. right side ownership</title>
+      <statement>
+        <p>Suppose students in class are split into left and right sides. Let $\hat p_L$ and $\hat p_R$ be the proportions owning an Apple product on each side. Would it be surprising if $\hat p_L$ were not exactly equal to $\hat p_R$?</p>
+      </statement>
+      <solution>
+        <p>They would likely be close but not exactly equal; small differences are expected by chance.</p>
+      </solution>
+    </example>
+
+    <exercise xml:id="ex-apple-independence">
+      <title>Independence assumption</title>
+      <statement>
+        <p>If seating side and Apple ownership are unrelated, what assumption are we making about these variables?</p>
+      </statement>
+      <solution>
+        <p>We assume the variables are independent.</p>
+      </solution>
+    </exercise>
+
+    <subsection xml:id="subsec-variability-within-data">
+      <title>Variability within data</title>
+
+      <p>A clinical study tested a malaria vaccine (PfSPZ). Fourteen patients were randomized to receive the vaccine and six to a placebo. Nineteen weeks later all 20 were exposed to a drug-sensitive parasite strain so any infections could be treated effectively. Nine of the 14 vaccinated patients showed no infection, while all six placebo patients showed baseline signs of infection.</p>
+
+      <table xml:id="tbl-malaria-summary">
+        <title>Summary results for the malaria vaccine experiment</title>
+        <tabular>
+          <row header="yes">
+            <cell></cell>
+            <cell>Outcome</cell>
+            <cell>Infection</cell>
+            <cell>No infection</cell>
+          </row>
+          <row>
+            <cell>Vaccine</cell>
+            <cell>5</cell>
+            <cell>9</cell>
+            <cell>14</cell>
+          </row>
+          <row>
+            <cell>Placebo</cell>
+            <cell>6</cell>
+            <cell>0</cell>
+            <cell>6</cell>
+          </row>
+          <row>
+            <cell>Total</cell>
+            <cell>11</cell>
+            <cell>9</cell>
+            <cell>20</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <exercise xml:id="ex-malaria-study-type">
+        <title>Study type</title>
+        <statement>
+          <p>Is this an observational study or an experiment? What does that imply about causal conclusions?</p>
+        </statement>
+        <solution>
+          <p>It is an experiment (random assignment). Causal conclusions about the vaccine’s effect are appropriate.</p>
+        </solution>
+      </exercise>
+
+      <example xml:id="ex-malaria-evidence">
+        <title>What counts as convincing?</title>
+        <statement>
+          <p>The observed infection rates were 35.7% for vaccine vs. 100% for placebo. Does this provide convincing evidence the vaccine works?</p>
+        </statement>
+        <solution>
+          <p>The large difference suggests effectiveness, but the small sample means the difference could be due to chance. We need to evaluate how likely such a gap is under no effect.</p>
+        </solution>
+      </example>
+
+      <p>We compare two competing claims:</p>
+      <ul>
+        <li><p><b>Independence model (<m>H_0</m>):</b> Treatment and outcome are independent; the 64.3% difference in infection rates arose by chance.</p></li>
+        <li><p><b>Alternative model (<m>H_A</m>):</b> Treatment and outcome are not independent; the vaccine affected infection rates.</p></li>
+      </ul>
+      <p>If <m>H_0</m> is true, 11 patients would be infected and 9 uninfected regardless of assignment, so any difference is random. If <m>H_A</m> is true, we expect some real difference between groups.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-simulating-the-study">
+      <title>Simulating the study</title>
+      <p>Assume the vaccine has no effect. To gauge how unusual the observed difference is, simulate new random assignments: write “infection” on 11 cards and “no infection” on 9 cards, shuffle, deal 14 to vaccine and 6 to placebo, and tabulate infection counts.</p>
+
+      <table xml:id="tbl-malaria-sim1">
+        <title>Simulation results under independence (one shuffle)</title>
+        <tabular>
+          <row header="yes">
+            <cell></cell>
+            <cell>Outcome</cell>
+            <cell>Infection</cell>
+            <cell>No infection</cell>
+          </row>
+          <row>
+            <cell>Vaccine (sim.)</cell>
+            <cell>7</cell>
+            <cell>7</cell>
+            <cell>14</cell>
+          </row>
+          <row>
+            <cell>Placebo (sim.)</cell>
+            <cell>4</cell>
+            <cell>2</cell>
+            <cell>6</cell>
+          </row>
+          <row>
+            <cell>Total</cell>
+            <cell>11</cell>
+            <cell>9</cell>
+            <cell>20</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <exercise xml:id="ex-malaria-sim-diff">
+        <title>Difference in a simulation</title>
+        <statement>
+          <p>Compute the infection-rate difference for the simulation above (placebo minus vaccine). How does it compare to the observed 64.3% gap?</p>
+        </statement>
+        <solution>
+          <p>Difference is $4/6 - 7/14 \approx 0.167$ (16.7%), much smaller than the observed 64.3% gap.</p>
+        </solution>
+      </exercise>
+    </subsection>
+
+    <subsection xml:id="subsec-checking-independence">
+      <title>Checking for independence</title>
+      <p>Repeat the randomization many times by computer. The simulated differences (placebo rate minus vaccine rate) form a distribution centered near 0. Figure shows 100 simulations.</p>
+
+      <figure xml:id="fig-malaria-rand-dot-plot">
+        <caption>Differences from 100 simulations under independence.</caption>
+        <image source="ch_summarizing_data/figures/malaria_rand_dot_plot/malaria_rand_dot_plot.png" width="85%">
+          <description>Stacked dot plot of simulated infection-rate differences; only two simulations reach the observed 64.3% difference.</description>
+        </image>
+      </figure>
+
+      <example xml:id="ex-malaria-rare">
+        <title>How rare is 64.3%?</title>
+        <statement>
+          <p>According to the simulations, how often does a difference of at least 64.3% occur?</p>
+        </statement>
+        <solution>
+          <p>About 2% of simulations reach that difference—rare under independence.</p>
+        </solution>
+      </example>
+
+      <p>The rare occurrence of such a large difference leaves two options:</p>
+      <ul>
+        <li><p><b><m>H_0</m>:</b> Vaccine has no effect and we observed a rare chance event.</p></li>
+        <li><p><b><m>H_A</m>:</b> Vaccine reduces infections; the observed difference reflects efficacy.</p></li>
+      </ul>
+      <p>In formal studies we typically reject <m>H_0</m> when faced with such rare outcomes. Here we conclude the data provide strong evidence the vaccine offers protection in this clinical setting.</p>
+    </subsection>
+
+    <exercises xml:id="exercises-malaria-case">
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-randomization-avandia">
+        <title>Side effects of Avandia</title>
+        <statement>
+          <p>A retrospective study compared cardiovascular problems between rosiglitazone (Avandia) and pioglitazone (Actos) users (counts below).</p>
+          <table cols="4">
+            <tgroup cols="4">
+              <thead>
+                <row>
+                  <entry></entry>
+                  <entry></entry>
+                  <entry>Yes</entry>
+                  <entry>No</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry rowspan="2">Treatment</entry>
+                  <entry>Rosiglitazone</entry>
+                  <entry>2,593</entry>
+                  <entry>65,000</entry>
+                </row>
+                <row>
+                  <entry>Pioglitazone</entry>
+                  <entry>5,386</entry>
+                  <entry>154,592</entry>
+                </row>
+                <row>
+                  <entry></entry>
+                  <entry>Total</entry>
+                  <entry>7,979</entry>
+                  <entry>219,592</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+          <ol marker="a.">
+            <li><p>Assess true/false for four claims (rate comparisons, causation, chance).</p></li>
+            <li><p>What proportion of all patients had cardiovascular problems?</p></li>
+            <li><p>If treatment and outcome were independent, expected rosiglitazone problems?</p></li>
+            <li><p>A randomization simulation produced a histogram of rosiglitazone problem counts. Use it to identify claims, direction supporting $H_A$, and what the simulation suggests.</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-randomization-heart-transplant">
+        <title>Heart transplants</title>
+        <statement>
+          <p>Stanford heart-transplant program: control 34 patients (30 died), treatment 69 (45 died). Plots show survival mosaic and survival-time box plots; a randomization dotplot compares differences.</p>
+          <ol marker="a.">
+            <li><p>From the mosaic, is survival independent of transplant? Explain.</p></li>
+            <li><p>What do the box plots suggest about efficacy?</p></li>
+            <li><p>Compute death proportions in treatment vs. control.</p></li>
+            <li><p>Fill blanks for a card-shuffle randomization description; what do simulation results indicate about effectiveness?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="sec-categorical-data">
+    <title>Considering categorical data</title>
+    <p>Categorical summaries often rely on contingency tables and mosaic/bar/pie displays. Use these exercises to practice reading and interpreting such plots.</p>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-antibiotic-use-children">
+        <title>Antibiotic use in children</title>
+        <statement>
+          <p>Medical conditions of children in a tracheitis study are shown in bar and pie charts.</p>
+          <figure xml:id="fig-antibiotic-use-children">
+            <caption>Pre-existing conditions</caption>
+            <image source="ch_summarizing_data/figures/eoce/antibiotic_use_children/antibiotic_use_children_bar.png" width="45%"/>
+            <image source="ch_summarizing_data/figures/eoce/antibiotic_use_children/antibiotic_use_children_pie.png" width="45%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Features visible in the bar plot but not the pie?</p></li>
+            <li><p>Features visible in the pie but not the bar?</p></li>
+            <li><p>Which graph would you prefer for these data?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-immigration-views">
+        <title>Views on immigration</title>
+        <statement>
+          <p>Contingency table: political ideology vs. views on whether undocumented workers should (i) apply for citizenship, (ii) guest worker only, (iii) leave the country, or (iv) not sure.</p>
+          <table cols="5">
+            <tgroup cols="5">
+              <thead>
+                <row>
+                  <entry></entry>
+                  <entry></entry>
+                  <entry>Conservative</entry>
+                  <entry>Moderate</entry>
+                  <entry>Liberal</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry rowspan="4">Response</entry>
+                  <entry>Apply for citizenship</entry>
+                  <entry>57</entry>
+                  <entry>120</entry>
+                  <entry>101</entry>
+                </row>
+                <row>
+                  <entry>Guest worker</entry>
+                  <entry>121</entry>
+                  <entry>113</entry>
+                  <entry>28</entry>
+                </row>
+                <row>
+                  <entry>Leave the country</entry>
+                  <entry>179</entry>
+                  <entry>126</entry>
+                  <entry>45</entry>
+                </row>
+                <row>
+                  <entry>Not sure</entry>
+                  <entry>15</entry>
+                  <entry>4</entry>
+                  <entry>1</entry>
+                </row>
+                <row>
+                  <entry></entry>
+                  <entry>Total</entry>
+                  <entry>372</entry>
+                  <entry>363</entry>
+                  <entry>175</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+          <ol marker="a.">
+            <li><p>% identifying as conservative?</p></li>
+            <li><p>% favoring citizenship option?</p></li>
+            <li><p>% conservative and favor citizenship?</p></li>
+            <li><p>Among conservatives/moderates/liberals, % favoring citizenship?</p></li>
+            <li><p>Do ideology and view appear independent?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-dream-act-mosaic">
+        <title>Views on the DREAM Act</title>
+        <statement>
+          <p>Mosaic plot: political ideology vs. support for DREAM Act.</p>
+          <figure xml:id="fig-dream-act-mosaic">
+            <caption>DREAM Act support by ideology</caption>
+            <image source="ch_summarizing_data/figures/eoce/dream_act_mosaic/dream_act_mosaic.png" width="80%"/>
+          </figure>
+          <p>Do the variables appear independent? Explain.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-raise-taxes-mosaic">
+        <title>Raise taxes</title>
+        <statement>
+          <p>Mosaic plot: political affiliation vs. opinion on raising taxes on rich vs. poor vs. not sure.</p>
+          <figure xml:id="fig-raise-taxes-mosaic">
+            <caption>Tax views by party</caption>
+            <image source="ch_summarizing_data/figures/eoce/raise_taxes_mosaic/raise_taxes_mosaic.png" width="75%"/>
+          </figure>
+          <p>Do affiliation and tax views appear independent? Explain.</p>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="sec-numerical-data">
+    <title>Examining numerical data</title>
+    <p>These exercises review associations, center and spread, robustness, shapes, and transformations for numerical variables.</p>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-mammal-life-spans">
+        <title>Mammal life spans</title>
+        <statement>
+          <p>Scatterplot of gestation length (days) vs. life span (years) for 62 mammals.</p>
+          <figure xml:id="fig-mammal-life-spans">
+            <caption>Gestation vs. life span</caption>
+            <image source="ch_summarizing_data/figures/eoce/mammal_life_spans/mammal_life_spans_scatterplot.png" width="86%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Association direction/shape?</p></li>
+            <li><p>If axes reversed, what association?</p></li>
+            <li><p>Are variables independent?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-association-plots">
+        <title>Associations</title>
+        <statement>
+          <p>Classify four scatterplots (positive/negative/none; linear/nonlinear).</p>
+          <figure xml:id="fig-association-plots">
+            <caption>Unlabeled scatterplots</caption>
+            <image source="ch_summarizing_data/figures/eoce/association_plots/association_plots.png" width="95%"/>
+          </figure>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-reproducing-bacteria">
+        <title>Reproducing bacteria</title>
+        <statement>
+          <p>Sketch number of bacterial cells over time in a dish with limited capacity (logistic growth).</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-office-productivity">
+        <title>Office productivity</title>
+        <statement>
+          <p>Sketch productivity vs. stress (low at extremes, higher moderate).</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-parameters-statistics">
+        <title>Parameters and statistics</title>
+        <statement>
+          <p>Identify sample mean vs. claimed population mean in two scenarios (Halloween spending; GPA).</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-college-sleeping">
+        <title>Sleeping in college</title>
+        <statement>
+          <p>Sample mean 6.25 hrs (n=25) vs. claimed population mean 5.5 hrs: identify each.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-days-off-mining">
+        <title>Days off at a mining plant</title>
+        <statement>
+          <p>Manager wants to fire 10 workers to raise average vacation days (current avg 35). Fire which workers to increase mean?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-medians-iqr">
+        <title>Medians and IQRs</title>
+        <statement>
+          <p>Compare four distribution pairs (give relative medians/IQRs).</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-means-sds">
+        <title>Means and SDs</title>
+        <statement>
+          <p>Compare means and SDs for four distribution pairs.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-hist-box-match">
+        <title>Mix-and-match</title>
+        <statement>
+          <p>Match three histograms to three box plots; describe distributions.</p>
+          <figure xml:id="fig-hist-box-match">
+            <caption>Histograms and box plots</caption>
+            <image source="ch_summarizing_data/figures/eoce/hist_box_match/hist_box_match.png" width="95%"/>
+          </figure>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-air-quality-durham">
+        <title>Air quality</title>
+        <statement>
+          <p>Relative frequency histogram of AQI (n=91 days, Durham NC).</p>
+          <figure xml:id="fig-air-quality-durham">
+            <caption>AQI distribution</caption>
+            <image source="ch_summarizing_data/figures/eoce/air_quality_durham/air_quality_durham_rel_freq_hist.png" width="70%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Estimate median.</p></li>
+            <li><p>Is mean likely above/below median?</p></li>
+            <li><p>Estimate Q1, Q3, IQR.</p></li>
+            <li><p>Any unusually low/high days?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-estimate-mean-median-simple">
+        <title>Median vs. mean</title>
+        <statement>
+          <p>Estimate median from histogram (400 obs) and whether mean is higher or lower.</p>
+          <figure xml:id="fig-estimate-mean-median-simple">
+            <caption>Score distribution</caption>
+            <image source="ch_summarizing_data/figures/eoce/estimate_mean_median_simple/estimate_mean_median_simple.png" width="60%"/>
+          </figure>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-hist-vs-box">
+        <title>Histograms vs. box plots</title>
+        <statement>
+          <p>Compare what each plot reveals for the same data.</p>
+          <figure xml:id="fig-hist-vs-box">
+            <caption>Histogram and box plot</caption>
+            <image source="ch_summarizing_data/figures/eoce/hist_vs_box/hist_vs_box.png" width="60%"/>
+          </figure>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-dist-shape-fb-friends">
+        <title>Facebook friends</title>
+        <statement>
+          <p>Median=100, mean=190 friends. What does this suggest about shape?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-dist-shape-pets-distance-height">
+        <title>Distributions and appropriate statistics I</title>
+        <statement>
+          <p>For pets per household, distance to work, heights of adult males: predict shape; choose mean/median and SD/IQR.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-dist-shape-housing-alcohol-salary">
+        <title>Distributions and appropriate statistics II</title>
+        <statement>
+          <p>Do the same for two housing-price scenarios, drinks per week, and Fortune 500 salaries.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-income-coffee-shop">
+        <title>Income at the coffee shop</title>
+        <statement>
+          <p>Two high earners added to income distribution (histograms and summary stats provided).</p>
+          <figure xml:id="fig-income-coffee-shop">
+            <caption>Income before/after outliers</caption>
+            <image source="ch_summarizing_data/figures/eoce/income_coffee_shop/income_coffee_shop.png" width="57%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Which center (mean/median) is more representative? Discuss robustness.</p></li>
+            <li><p>Which spread (SD/IQR) better represents variability? Discuss robustness.</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-midrange">
+        <title>Midrange</title>
+        <statement>
+          <p>Is the midrange (avg of min and max) robust to outliers/skew?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-county-commute-times">
+        <title>Commute times</title>
+        <statement>
+          <p>Histogram and map of mean work travel time (minutes) for 3,142 US counties.</p>
+          <figure xml:id="fig-county-commute-times">
+            <caption>Commute time distribution and map</caption>
+            <image source="ch_summarizing_data/figures/eoce/county_commute_times/county_commute_times_hist.png" width="48%"/>
+            <image source="ch_summarizing_data/figures/eoce/county_commute_times/county_commute_times_map.png" width="48%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Describe numerical distribution; recommend log transform?</p></li>
+            <li><p>Describe spatial pattern.</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-county-hispanic-pop">
+        <title>Hispanic population</title>
+        <statement>
+          <p>Histogram of percent Hispanic in US counties plus log-transformed histogram and map.</p>
+          <figure xml:id="fig-county-hispanic-pop">
+            <caption>Percent Hispanic distributions</caption>
+            <image source="ch_summarizing_data/figures/eoce/county_hispanic_pop/county_hispanic_pop_hist.png" width="48%"/>
+            <image source="ch_summarizing_data/figures/eoce/county_hispanic_pop/county_hispanic_pop_log_hist.png" width="48%"/>
+            <image source="ch_summarizing_data/figures/eoce/county_hispanic_pop/county_hispanic_pop_map.png" width="48%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Describe distribution and why logs may help.</p></li>
+            <li><p>Features apparent in map vs. histogram and vice versa?</p></li>
+            <li><p>Is one visualization more helpful? Why?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
+  <section xml:id="sec-ch02-review">
+    <title>Review exercises</title>
+    <exercises>
+      <title>Review exercises</title>
+
+      <exercise xml:id="ex-makeup-exam">
+        <title>Make-up exam</title>
+        <statement>
+          <p>Class of 25: first 24 scored mean 74 (SD 8.9). Make-up student scored 64. Does mean increase/decrease? New mean? Effect on SD?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-infant-mortality">
+        <title>Infant mortality</title>
+        <statement>
+          <p>Histogram of infant deaths per 1,000 live births for 224 countries.</p>
+          <figure xml:id="fig-infant-mortality">
+            <caption>Infant mortality distribution</caption>
+            <image source="ch_summarizing_data/figures/eoce/infant_mortality_rel_freq/infant_mortality_rel_freq_hist.png" width="85%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Estimate Q1, median, Q3.</p></li>
+            <li><p>Is mean likely smaller or larger than median?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-tv-watchers">
+        <title>TV watchers</title>
+        <statement>
+          <p>AP Stats class: mean 4.71 hrs, SD 4.18 hrs per week. Is distribution symmetric? Likely shape?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-new-stat">
+        <title>A new statistic</title>
+        <statement>
+          <p>For $x_i>0$, interpret distribution shape when $\bar x / \text{median}$ equals 1, less than 1, greater than 1.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-oscar-winners">
+        <title>Oscar winners</title>
+        <statement>
+          <p>Histograms and summary stats for age of Best Actor vs. Actress winners (1929–2018).</p>
+          <figure xml:id="fig-oscar-winners">
+            <caption>Oscar winner ages</caption>
+            <image source="ch_summarizing_data/figures/eoce/oscar_winners/oscars_winners_hist.png" width="95%"/>
+          </figure>
+          <p>Compare distributions.</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-exam-scores">
+        <title>Exam scores</title>
+        <statement>
+          <p>History exam mean 85, SD 15 (out of 100). Is distribution symmetric? Likely shape?</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-stats-scores-box">
+        <title>Stats scores</title>
+        <statement>
+          <p>Twenty scores listed; create a box plot (five-number summary provided).</p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-marathon-winners">
+        <title>Marathon winners</title>
+        <statement>
+          <p>Histogram and box plot of NYC Marathon winning times (1970–1999) plus gender boxplots and time series.</p>
+          <figure xml:id="fig-marathon-winners-hist-box">
+            <caption>Overall winning times</caption>
+            <image source="ch_summarizing_data/figures/eoce/marathon_winners/marathon_winners_hist_box.png" width="56%"/>
+          </figure>
+          <figure xml:id="fig-marathon-winners-gender-box">
+            <caption>Winning times by gender</caption>
+            <image source="ch_summarizing_data/figures/eoce/marathon_winners/marathon_winners_gender_box.png" width="56%"/>
+          </figure>
+          <figure xml:id="fig-marathon-winners-time">
+            <caption>Winning times over years</caption>
+            <image source="ch_summarizing_data/figures/eoce/marathon_winners/marathon_winners_time_series.png" width="60%"/>
+          </figure>
+          <ol marker="a.">
+            <li><p>Histogram vs. box plot: what each shows?</p></li>
+            <li><p>Why bimodal overall distribution?</p></li>
+            <li><p>Compare men vs. women times (boxplots).</p></li>
+            <li><p>What does the time series reveal?</p></li>
+          </ol>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
+</chapter>
