@@ -1752,7 +1752,7 @@ work day.
             Suppose you want to 
 estimate the percentage of videos on YouTube that are cat videos. It is 
 impossible for you to watch all videos on YouTube so you use a random video 
-picker to select 1000 videos for you. You find that 2\% of these videos are 
+picker to select 1000 videos for you. You find that 2% of these videos are 
 cat videos.
 Determine which of the following is an observation, a variable, 
 a sample statistic (value calculated based on the observed sample), 
@@ -1766,7 +1766,7 @@ or a population parameter.
             </li>
             <li>
               <p>
-                2\%.
+                2%.
               </p>
             </li>
             <li>
@@ -1845,9 +1845,6 @@ relationship between estimated life expectancy at birth (as of 2014) and
 percentage of internet users (as of 2009) in 208 countries for which such 
 data were available.<fn>Citation: data:ciaFactbook</fn>
           </p>
-          <p>
-            \begin{minipage}[c]{0.44\textwidth}
-          </p>
           <ol marker="a">
             <li>
               <p>
@@ -1868,8 +1865,7 @@ and describe its potential effect.
             </li>
           </ol>
           <p>
-            %
-[Figure: internet_life_expectancy - Scatterplot with "percent of internet users" (0\% to 100\%) along the horizontal axis and "life expectancy at birth" (50 to 90) along the vertical axis. For 0\% to 15\%, about 100 points are evenly spread between 50 and 75. Then for 15\% to 90\%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.]
+[Figure: internet_life_expectancy - Scatterplot with "percent of internet users" (0% to 100%) along the horizontal axis and "life expectancy at birth" (50 to 90) along the vertical axis. For 0% to 15%, about 100 points are evenly spread between 50 and 75. Then for 15% to 90%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.]
           </p>
         </statement>
       </exercise>
@@ -1923,7 +1919,7 @@ the method is reasonable or not.
             </li>
             <li>
               <p>
-                Stratify students by their field of study, then sample 10\% of students from 
+                Stratify students by their field of study, then sample 10% of students from 
 each stratum.
               </p>
             </li>
@@ -2074,16 +2070,18 @@ articles published in the <em>NY Times</em>:
               <p>
                 An article titled <em>Risks: Smokers Found More Prone to Dementia</em> 
 states the following: <fn>Citation: news:smokingDementia</fn>
-
-{\footnotesize "Researchers analyzed data from 23,123 health plan members who 
+              </p>
+              <p>
+"Researchers analyzed data from 23,123 health plan members who 
 participated in a voluntary exam and health behavior survey from 1978 to 1985, 
-when they were 50-60 years old. 23 years later, about 25\% of the group had 
+when they were 50-60 years old. 23 years later, about 25% of the group had 
 dementia, including 1,136 with Alzheimer's disease and 416 with vascular 
 dementia. After adjusting for other factors, the researchers concluded that 
-pack-a-day smokers were 37\% more likely than nonsmokers to develop dementia, 
-and the risks went up with increased smoking; 44\% for one to two packs a day; 
-and twice the risk for more than two packs."}
-
+pack-a-day smokers were 37% more likely than nonsmokers to develop dementia, 
+and the risks went up with increased smoking; 44% for one to two packs a day; 
+and twice the risk for more than two packs."
+              </p>
+              <p>
 Based on this study, can we conclude that smoking causes dementia later in 
 life? Explain your reasoning.
               </p>
@@ -2092,15 +2090,17 @@ life? Explain your reasoning.
               <p>
                 Another article titled <em>The School Bully Is Sleepy</em> states the 
 following: <fn>Citation: news:bullySleep</fn>
-
-{\footnotesize "The University of Michigan study, collected survey data from 
+              </p>
+              <p>
+"The University of Michigan study, collected survey data from 
 parents on each child's sleep habits and asked both parents and teachers to 
 assess behavioral concerns. About a third of the students studied were 
 identified by parents or teachers as having problems with disruptive behavior 
 or bullying. The researchers found that children who had behavioral issues and 
 those who were identified as bullies were twice as likely to have shown 
-symptoms of sleep disorders."}
-
+symptoms of sleep disorders."
+              </p>
+              <p>
 A friend of yours who read the article says, "The study shows that sleep 
 disorders lead to bullying in school children." Is this statement justified? 
 If not, how best can you describe the conclusion that can be drawn from this 
@@ -2443,7 +2443,7 @@ and muscle cramps?
         </statement>
       </exercise>
 
-      <exercise xml:id="chia_weight_lostt">
+      <exercise xml:id="chia_weight_loss">
         <title>Chia seeds and weight loss</title>
         <statement>
           <p>
@@ -2553,7 +2553,7 @@ have done differently if they wanted to make such strong conclusions.
                 Students at an elementary school are given a questionnaire that they 
 are asked to return after their parents have completed it. One of the questions 
 asked is, "Do you find that your work schedule makes it difficult for you to 
-spend time with your kids after school?" Of the parents who replied, 85\% said 
+spend time with your kids after school?" Of the parents who replied, 85% said 
 "no". Based on these results, the school officials conclude that a great 
 majority of the parents have no difficulty spending time with their kids 
 after school.
@@ -2589,9 +2589,6 @@ He concludes that running decreases the risk of joint problems.
 (in thousands of dollars) and percent of population with a bachelor's 
 degree in 3,143 counties in the US in 2010.
           </p>
-          <p>
-            \begin{minipage}[c]{0.44\textwidth}
-          </p>
           <ol marker="a">
             <li>
               <p>
@@ -2611,7 +2608,7 @@ unusual observations, if any.
             </li>
           </ol>
           <p>
-            [Figure: county_income_education_scatterplot - A scatterplot is shown, with "Percent with Bachelor's Degree" on the horizontal axis (running 0\% to 80\%) and "Per Capita Income" on the vertical axis (running \<m>0 to \</m>65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0\% to 20\%, the points typically lie between the vertical ranges of \<m>10,000 and \</m>25,000. For those between 20\% to 40\% on the horizontal, the points lie mostly between \<m>15,000 and \</m>35,000 on the vertical. For those between 40\% and 60\%, the points mostly lie between \<m>25,000 and \</m>45,000. There are only about 5 points with percentages larger than 60\%, and these all lie above \$45,000 on the vertical.]
+[Figure: county_income_education_scatterplot - A scatterplot is shown, with "Percent with Bachelor's Degree" on the horizontal axis (running 0% to 80%) and "Per Capita Income" on the vertical axis (running $0 to $65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0% to 20%, the points typically lie between the vertical ranges of $10,000 and $25,000. For those between 20% to 40% on the horizontal, the points lie mostly between $15,000 and $35,000 on the vertical. For those between 40% and 60%, the points mostly lie between $25,000 and $45,000. There are only about 5 points with percentages larger than 60%, and these all lie above $45,000 on the vertical.]
           </p>
         </statement>
       </exercise>
