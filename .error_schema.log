@@ -1,4 +1,0 @@
-file:/C:/Users/lclem/OneDrive/Documents/GitHub/PreTeXt%20books/OpenIntro%20Statistics/openintro-statistics-1/source/main.ptx:46:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element biography, got colophon
-file:/C:/Users/lclem/OneDrive/Documents/GitHub/PreTeXt%20books/OpenIntro%20Statistics/openintro-statistics-1/source/main.ptx:27:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element subtitle there
-file:/C:/Users/lclem/OneDrive/Documents/GitHub/PreTeXt%20books/OpenIntro%20Statistics/openintro-statistics-1/source/main.ptx:25:0:ERROR:RELAXNGV:RELAXNG_ERR_CONTENTVALID: Element book failed to validate content
-file:/C:/Users/lclem/OneDrive/Documents/GitHub/PreTeXt%20books/OpenIntro%20Statistics/openintro-statistics-1/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element docinfo, got pretext
