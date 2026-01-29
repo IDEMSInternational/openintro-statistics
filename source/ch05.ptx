@@ -45,119 +45,158 @@
       
       <p>
         When the parameter is a proportion, it is often denoted by <m>p</m>, and we often
-        refer to the sample proportion as <m>\hat{p}</m> (pronounced <em>p-hat</em>). Unless
-        we collect responses from every individual in the population, <m>p</m> remains
+        refer to the sample proportion as <m>\hat{p}</m> (pronounced <em>p-hat</em><fn>Not to
+        be confused with <em>phat</em>, the slang term used for something cool, like this book.</fn>).
+        Unless we collect responses from every individual in the population, <m>p</m> remains
         unknown, and we use <m>\hat{p}</m> as our estimate of <m>p</m>. The difference we
         observe from the poll versus the parameter is called the <term>error</term> in the
         estimate.
       </p>
       
       <p>
-        Generally, the error consists of two aspects: <term>sampling error</term> and
-        <term>bias</term>.
+        Generally, the error consists of two aspects: sampling error and bias.
       </p>
       
-      <definition xml:id="def-sampling-error">
-        <statement>
-          <p>
-            <term>Sampling error</term>, sometimes called <em>sampling uncertainty</em>,
-            describes how much an estimate will tend to vary from one sample to the next.
-            For instance, the estimate from one sample might be 1% too low while in another
-            it may be 3% too high. The <term>sample size</term> is often represented by the
-            letter <m>n</m>.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        <term>Sampling error</term>, sometimes called <em>sampling uncertainty</em>,
+        describes how much an estimate will tend to vary from one sample to the next.
+        For instance, the estimate from one sample might be 1% too low while in another
+        it may be 3% too high. Much of statistics, including much of this book, is focused
+        on understanding and quantifying sampling error, and we will find it useful to
+        consider a sample's size to help us quantify this error; the <term>sample size</term>
+        is often represented by the letter <m>n</m>.
+      </p>
       
-      <definition xml:id="def-bias">
-        <statement>
-          <p>
-            <term>Bias</term> describes a systematic tendency to over- or under-estimate
-            the true population value. We try to minimize bias through thoughtful data
-            collection procedures.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        <term>Bias</term> describes a systematic tendency to over- or under-estimate the
+        true population value. For example, if we were taking a student poll asking about
+        support for a new college stadium, we'd probably get a biased estimate of the
+        stadium's level of student support by wording the question as, <em>Do you support
+        your school by supporting funding for the new stadium?</em> We try to minimize bias
+        through thoughtful data collection procedures, which were discussed in
+        Chapter 1 and are the topic of many other books.
+      </p>
     </subsection>
     
     <subsection xml:id="subsec-variability-point-estimate">
       <title>Understanding the Variability of a Point Estimate</title>
       
       <p>
-        To understand how a sample proportion behaves, consider a scenario where the
-        proportion of American adults who support expanding solar energy is <m>p = 0.88</m>.
-        If we were to take a poll of 1000 American adults on this topic, how close might we
-        expect the sample proportion to be to 0.88?
+        Suppose the proportion of American adults who support the expansion of solar energy is
+        <m>p = 0.88</m>, which is our parameter of interest.<fn>We haven't actually conducted
+        a census to measure this value perfectly. However, a very large sample has suggested
+        the actual level of support is about 88%.</fn> If we were to take a poll of 1000 American
+        adults on this topic, the estimate would not be perfect, but how close might we expect
+        the sample proportion in the poll would be to 88%? We want to understand, <em>how does
+        the sample proportion <m>\hat{p}</m> behave when the true population proportion is 0.88</em>.<fn>88%
+        written as a proportion would be 0.88. It is common to switch between proportion and percent.
+        However, formulas presented in this book always refer to the proportion, not the percent.</fn>
+        Let's find out!
       </p>
       
       <p>
         We can simulate responses we would get from a simple random sample of 1000 American
-        adults through the following steps:
+        adults, which is only possible because we know the actual support for expanding solar
+        energy is 0.88. Here's how we might go about constructing such a simulation:
       </p>
       
       <ol>
-        <li>Create a set of entries representing all American adults, where 88% say "support"
-            and 12% say "not".</li>
-        <li>Mix up the entries and pull out 1000 entries to represent our sample.</li>
-        <li>Compute the fraction that say "support".</li>
+        <li>There were about 250 million American adults in 2018. On 250 million pieces of paper,
+            write <q>support</q> on 88% of them and <q>not</q> on the other 12%.</li>
+        <li>Mix up the pieces of paper and pull out 1000 pieces to represent our sample of 1000
+            American adults.</li>
+        <li>Compute the fraction of the sample that say <q>support</q>.</li>
       </ol>
       
       <p>
-        If we conduct this simulation 10,000 times, we create a <term>sampling distribution</term>
-        of the sample proportions. <xref ref="fig-sampling-distribution-solar"/> shows a histogram
-        of the results from such a simulation.
+        Any volunteers to conduct this simulation? Probably not. Running this simulation with
+        250 million pieces of paper would be time-consuming and very costly, but we can simulate
+        it using computer code; we've written a short program in <xref ref="fig-solar-poll-r-code"/>
+        in case you are curious what the computer code looks like. In this simulation, the sample
+        gave a point estimate of <m>\hat{p}_1 = 0.894</m>. We know the population proportion for
+        the simulation was <m>p = 0.88</m>, so we know the estimate had an error of
+        <m>0.894 - 0.88 = +0.014</m>.
       </p>
       
-      <figure xml:id="fig-sampling-distribution-solar">
-        <caption>A histogram of 10,000 sample proportions, where each sample includes 1,000 respondents from a population where <m>p = 0.88</m>.</caption>
-        <image source="images/ch_foundations_for_inf/figures/sampling_10k_prop_88p/sampling_10k_prop_88p.pdf" width="70%">
-          <description>Histogram showing distribution of sample proportions centered at 0.88</description>
-        </image>
+      <figure xml:id="fig-solar-poll-r-code">
+        <caption>For those curious, this is code for a single <m>\hat{p}</m> simulation using the
+        statistical software called R. Each line that starts with <c>#</c> is a <em>code comment</em>,
+        which is used to describe in regular language what the code is doing. We've provided
+        software labs in R at <url href="https://www.openintro.org/book/os">openintro.org/book/os</url>
+        for anyone interested in learning more.</caption>
+        <program language="r">
+          <input>
+# 1. Create a set of 250 million entries,
+#    where 88% of them are "support" and 12% are "not".
+pop_size &lt;- 250000000
+possible_entries &lt;- c(rep("support", 0.88 * pop_size),
+                       rep("not", 0.12 * pop_size))
+
+# 2. Sample 1000 entries without replacement.
+sampled_entries &lt;- sample(possible_entries, size = 1000)
+
+# 3. Compute p-hat: count the number that are "support",
+#    then divide by the sample size.
+sum(sampled_entries == "support") / 1000
+          </input>
+        </program>
       </figure>
       
       <p>
-        This distribution has important characteristics:
+        One simulation isn't enough to get a great sense of the distribution of estimates we
+        might expect in the simulation, so we should run more simulations. In a second simulation,
+        we get <m>\hat{p}_2 = 0.885</m>, which has an error of +0.005. In another,
+        <m>\hat{p}_3 = 0.878</m> for an error of -0.002. And in another, an estimate of
+        <m>\hat{p}_4 = 0.859</m> with an error of -0.021. With the help of a computer, we've
+        run the simulation 10,000 times and created a histogram of the results from all 10,000
+        simulations in <xref ref="fig-sampling-distribution-solar"/>. This distribution of
+        sample proportions is called a <term>sampling distribution</term>. We can characterize
+        this sampling distribution as follows:
       </p>
       
       <ul>
-        <li><strong>Center:</strong> The center of the distribution equals the population proportion, <m>p = 0.88</m>.</li>
-        <li><strong>Spread:</strong> The standard deviation, which describes the typical deviation from the mean,
-            is called the <term>standard error (SE)</term>. For this simulation, <m>SE = 0.0103</m>.</li>
-        <li><strong>Shape:</strong> The distribution is approximately normal (bell-shaped).</li>
+        <li><strong>Center.</strong> The center of the distribution is
+            <m>\bar{x}_{\hat{p}} = 0.880</m>, which is the same as the parameter. Notice that
+            the simulation mimicked a simple random sample of the population, which is a
+            straightforward sampling strategy that helps avoid sampling bias.</li>
+        <li><strong>Spread.</strong> The standard deviation of the distribution is
+            <m>s_{\hat{p}} = 0.010</m>. When we're talking about a sampling distribution or
+            the variability of a point estimate, we typically use the term <term>standard error</term>
+            rather than <em>standard deviation</em>, and the notation <m>SE_{\hat{p}}</m> is used
+            for the standard error associated with the sample proportion.</li>
+        <li><strong>Shape.</strong> The distribution is symmetric and bell-shaped, and it
+            <em>resembles a normal distribution</em>.</li>
       </ul>
       
-      <assemblage xml:id="note-standard-error-vs-sd">
-        <title>Standard error versus standard deviation</title>
-        <p>
-          The term <term>standard error</term> refers to the standard deviation associated with
-          an estimate. It describes the typical deviation we expect to see in estimates from one
-          sample to another. The term <term>standard deviation</term> refers to the variability
-          in the data or population.
-        </p>
-      </assemblage>
-      
       <p>
-        <xref ref="fig-normal-approximation-solar"/> shows the normal approximation to the
-        sampling distribution, illustrating that about 95% of the sample proportions fall
-        within 2 standard errors of the true proportion.
+        These findings are encouraging! When the population proportion is <m>p = 0.88</m> and
+        the sample size is <m>n = 1000</m>, the sample proportion <m>\hat{p}</m> tends to give
+        a pretty good estimate of the population proportion. We also have the interesting
+        observation that the histogram resembles a normal distribution.
       </p>
       
-      <figure xml:id="fig-normal-approximation-solar">
-        <caption>The sampling distribution from <xref ref="fig-sampling-distribution-solar"/>, shown with its mean and standard error, and the normal curve.</caption>
-        <image source="images/ch_foundations_for_inf/figures/p-hat_from_86_and_90/p-hat_from_86_and_90.pdf" width="70%">
-          <description>Normal distribution with shaded middle region showing 95% of values</description>
+      <figure xml:id="fig-sampling-distribution-solar">
+        <caption>A histogram of 10,000 sample proportions, where each sample is taken from a
+        population where the population proportion is 0.88 and the sample size is <m>n = 1000</m>.</caption>
+        <image source="images/ch_foundations_for_inf/figures/sampling_10k_prop_88p/sampling_10k_prop_88p.pdf" width="80%">
+          <description>A histogram is shown for 10,000 sample proportions where each sample is
+          taken from a population where the population proportion is 0.88 and the sample size is
+          n = 1000. The distribution is bell-shaped (appears nearly normal), is centered at 0.88
+          and has a standard deviation of about 0.01.</description>
         </image>
       </figure>
       
-      <important>
+      <assemblage>
+        <title>Sampling distributions are never observed, but we keep them in mind</title>
         <p>
-          Sampling distributions are never observed in practice, but we keep them in mind
-          as they help us understand and characterize the point estimates we do observe.
+          In real-world applications, we never actually observe the sampling distribution, yet
+          it is useful to always think of a point estimate as coming from such a hypothetical
+          distribution. Understanding the sampling distribution will help us characterize and
+          make sense of the point estimates that we do observe.
         </p>
-      </important>
+      </assemblage>
       
       <example xml:id="ex-smaller-sample-size">
-        <title>Effect of smaller sample size</title>
         <statement>
           <p>
             If we used a much smaller sample size of <m>n = 50</m>, would you guess that
@@ -171,259 +210,471 @@
             that is correct! The typical error when <m>p = 0.88</m> and <m>n = 50</m>
             would be larger than the error we would expect when <m>n = 1000</m>.
           </p>
-          <p>
-            This highlights an important property we will see again and again: a bigger
-            sample tends to provide a more precise point estimate than a smaller sample.
-          </p>
         </solution>
       </example>
+      
+      <p>
+        Example <xref ref="ex-smaller-sample-size"/> highlights an important property we will
+        see again and again: a bigger sample tends to provide a more precise point estimate
+        than a smaller sample.
+      </p>
     </subsection>
     
     <subsection xml:id="subsec-central-limit-theorem">
       <title>Central Limit Theorem</title>
       
       <p>
-        The examples in the previous subsection highlight three important properties of the
-        sampling distribution of a sample proportion:
+        The distribution in <xref ref="fig-sampling-distribution-solar"/> looks an awful lot
+        like a normal distribution. That is no anomaly; it is the result of a general principle
+        called the <term>Central Limit Theorem</term>.
       </p>
       
-      <ol>
-        <li>The mean of the sampling distribution is <m>p</m>.</li>
-        <li>The standard deviation of the sampling distribution, called the standard error,
-            can be calculated as <m>SE = \sqrt{\frac{p(1-p)}{n}}</m>.</li>
-        <li>When the sample size is sufficiently large, the sampling distribution is
-            approximately normal.</li>
-      </ol>
-      
-      <theorem xml:id="thm-central-limit-theorem">
-        <title>Central Limit Theorem for proportions</title>
-        <statement>
-          <p>
-            When observations are independent and the sample size is sufficiently large,
-            the sample proportion <m>\hat{p}</m> will tend to follow a normal distribution with:
-          </p>
-          <md>
-            <mrow>\text{Mean:}\amp\ \mu_{\hat{p}} = p</mrow>
-            <mrow>\text{Standard Error:}\amp\ SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}</mrow>
-          </md>
-        </statement>
-      </theorem>
+      <assemblage>
+        <title>Central Limit Theorem and the success-failure condition</title>
+        <p>
+          When observations are independent and the sample size is sufficiently large, the
+          sample proportion <m>\hat{p}</m> will tend to follow a normal distribution with the
+          following mean and standard error:
+        </p>
+        <md>
+          <mrow>\mu_{\hat{p}} \amp= p</mrow>
+          <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
+        </md>
+        <p>
+          In order for the Central Limit Theorem to hold, the sample size is typically
+          considered sufficiently large when <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>,
+          which is called the <term>success-failure condition</term>.
+        </p>
+      </assemblage>
       
       <p>
-        The Central Limit Theorem is incredibly important and provides a foundation for much
-        of statistics. Be mindful of the two technical conditions:
+        The Central Limit Theorem is incredibly important, and it provides a foundation for much
+        of statistics. As we begin applying the Central Limit Theorem, be mindful of the two
+        technical conditions: the observations must be independent, and the sample size must be
+        sufficiently large such that <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>.
       </p>
-      
-      <ol>
-        <li><strong>Independence</strong>: The observations must be independent. This is
-            satisfied for a random sample from a population.</li>
-        <li><strong>Success-failure condition</strong>: The sample size must be sufficiently
-            large. We consider the sample size large enough when <m>np \geq 10</m> and
-            <m>n(1-p) \geq 10</m>.</li>
-      </ol>
-      
-      <p>
-        It's important to understand what happens when these conditions are not met.
-        <xref ref="fig-sampling-10-prop-25"/> shows what happens when the success-failure
-        condition is violated. The distribution on the left is from simulations when
-        <m>n = 10</m> and <m>p = 0.25</m>. Notice that <m>np = 10 \times 0.25 = 2.5</m>,
-        which is less than 10, so the success-failure condition is not met. The distribution
-        is noticeably skewed and does not resemble a normal distribution. The distribution
-        on the right shows a normal distribution with the same mean and standard deviation
-        for comparison - the fit is poor, highlighting why the success-failure condition
-        is important.
-      </p>
-      
-      <figure xml:id="fig-sampling-10-prop-25">
-        <caption>Left: 10,000 simulations of <m>\hat{p}</m> when <m>n = 10</m> and <m>p = 0.25</m>. The success-failure condition is not met (<m>np = 2.5 &lt; 10</m>), resulting in a skewed distribution. Right: A normal distribution with the same mean (0.25) and standard deviation (0.137) for comparison.</caption>
-        <image source="images/ch_foundations_for_inf/figures/sampling_10_prop_25p/sampling_10_prop_25p.pdf" width="80%">
-          <description>Two side-by-side plots showing a skewed sampling distribution when success-failure condition fails versus a normal curve</description>
-        </image>
-      </figure>
       
       <example xml:id="ex-confirm-clt-applies">
-        <title>Confirming the Central Limit Theorem applies</title>
         <statement>
           <p>
-            Earlier we estimated the mean and standard error of <m>\hat{p}</m> using
-            simulated data when <m>p = 0.88</m> and <m>n = 1000</m>. Confirm that the
-            Central Limit Theorem applies and the sampling distribution is approximately
-            normal.
+            Earlier we estimated the mean and standard error of <m>\hat{p}</m> using simulated
+            data when <m>p = 0.88</m> and <m>n = 1000</m>. Confirm that the Central Limit Theorem
+            applies and the sampling distribution is approximately normal.
           </p>
         </statement>
         <solution>
           <ol>
             <li>
               <p>
-                <strong>Independence.</strong> There are <m>n = 1000</m> observations for
-                each sample proportion <m>\hat{p}</m>, and each of those observations are
-                independent draws. The most common way for observations to be considered
-                independent is if they are from a simple random sample.
+                <strong>Independence.</strong> There are <m>n = 1000</m> observations for each
+                sample proportion <m>\hat{p}</m>, and each of those observations are independent
+                draws. <em>The most common way for observations to be considered independent is if
+                they are from a simple random sample.</em>
               </p>
             </li>
             <li>
               <p>
-                <strong>Success-failure condition.</strong> We can confirm the sample size
-                is sufficiently large by checking the success-failure condition and
-                confirming the two calculated values are greater than 10:
+                <strong>Success-failure condition.</strong> We can confirm the sample size is
+                sufficiently large by checking the success-failure condition and confirming
+                the two calculated values are greater than 10:
                 <md>
-                  <mrow>np \amp= 1000 \times 0.88 = 880 \geq 10 \checkmark</mrow>
-                  <mrow>n(1-p) \amp= 1000 \times 0.12 = 120 \geq 10 \checkmark</mrow>
+                  <mrow>np \amp= 1000 \times 0.88 = 880 \geq 10</mrow>
+                  <mrow>n(1-p) \amp= 1000 \times (1 - 0.88) = 120 \geq 10</mrow>
                 </md>
               </p>
             </li>
           </ol>
           <p>
-            The independence and success-failure conditions are both satisfied, so the
-            Central Limit Theorem applies, and it's reasonable to model <m>\hat{p}</m>
-            using a normal distribution.
+            The independence and success-failure conditions are both satisfied, so the Central
+            Limit Theorem applies, and it's reasonable to model <m>\hat{p}</m> using a normal
+            distribution.
           </p>
         </solution>
       </example>
       
+      <assemblage>
+        <title>How to verify sample observations are independent</title>
+        <p>
+          Subjects in an experiment are considered independent if they undergo random assignment
+          to the treatment groups.
+        </p>
+        <p>
+          If the observations are from a simple random sample, then they are independent.
+        </p>
+        <p>
+          If a sample is from a seemingly random process, e.g. an occasional error on an assembly
+          line, checking independence is more difficult. In this case, use your best judgement.
+        </p>
+      </assemblage>
+      
+      <p>
+        An additional condition that is sometimes added for samples from a population is that
+        they are no larger than 10% of the population. When the sample exceeds 10% of the
+        population size, the methods we discuss tend to overestimate the sampling error slightly
+        versus what we would get using more advanced methods.<fn>For example, we could use what's
+        called the <em>finite population correction factor</em>: if the sample is of size <m>n</m>
+        and the population size is <m>N</m>, then we can multiply the typical standard error formula
+        by <m>\sqrt{\frac{N-n}{N-1}}</m> to obtain a smaller, more precise estimate of the actual
+        standard error. When <m>n &lt; 0.1 \times N</m>, this correction factor is relatively small.</fn>
+        This is very rarely an issue, and when it is an issue, our methods tend to be conservative,
+        so we consider this additional check as optional.
+      </p>
+      
       <example xml:id="ex-se-calculation">
-        <title>Computing mean and standard error</title>
         <statement>
           <p>
-            Compute the theoretical mean and standard error of <m>\hat{p}</m> when
-            <m>p = 0.88</m> and <m>n = 1000</m>, according to the Central Limit Theorem.
+            Compute the theoretical mean and standard error of <m>\hat{p}</m> when <m>p = 0.88</m>
+            and <m>n = 1000</m>, according to the Central Limit Theorem.
           </p>
         </statement>
         <solution>
           <p>
-            The mean of <m>\hat{p}</m> is simply the population proportion:
+            The mean of the <m>\hat{p}</m>'s is simply the population proportion:
             <me>\mu_{\hat{p}} = 0.88</me>
           </p>
           <p>
-            The standard error of <m>\hat{p}</m> is calculated using:
+            The calculation of the standard error of <m>\hat{p}</m> uses the following formula:
             <md>
               <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
-              <mrow>\amp= \sqrt{\frac{0.88 \times 0.12}{1000}}</mrow>
-              <mrow>\amp= 0.0103</mrow>
+              <mrow>\amp= \sqrt{\frac{0.88 \times (1 - 0.88)}{1000}}</mrow>
+              <mrow>\amp= 0.010</mrow>
             </md>
           </p>
         </solution>
       </example>
       
       <example xml:id="ex-normal-prob-sample-prop">
-        <title>Normal probability for sample proportion</title>
         <statement>
           <p>
             Estimate how frequently the sample proportion <m>\hat{p}</m> should be within
-            0.02 (2%) of the population value, <m>p = 0.88</m>. Based on the previous
-            examples, we know that the distribution is approximately
-            <m>N(\mu_{\hat{p}} = 0.88, SE_{\hat{p}} = 0.0103)</m>.
+            0.02 (2%) of the population value, <m>p = 0.88</m>. Based on
+            Examples <xref ref="ex-confirm-clt-applies"/> and <xref ref="ex-se-calculation"/>,
+            we know that the distribution is approximately
+            <m>N(\mu_{\hat{p}} = 0.88, SE_{\hat{p}} = 0.010)</m>.
           </p>
         </statement>
         <solution>
           <p>
-            We would like to understand the fraction of <m>\hat{p}</m>'s between 0.86 and
-            0.90. With <m>\mu_{\hat{p}} = 0.88</m> and <m>SE_{\hat{p}} = 0.0103</m>, we
-            can compute the Z-score for both the left and right cutoffs:
+            After so much practice in Section 4.1, this normal distribution example will
+            hopefully feel familiar! We would like to understand the fraction of <m>\hat{p}</m>'s
+            between 0.86 and 0.90:
+          </p>
+          <figure xml:id="fig-p-hat-from-86-and-90">
+            <caption>A normal distribution centered at 0.88 with a standard deviation of 0.01
+            is shown, where the region between 0.86 and 0.90 has been shaded.</caption>
+            <image source="images/ch_foundations_for_inf/figures/p-hat_from_86_and_90/p-hat_from_86_and_90.pdf" width="35%">
+              <description>Normal curve centered at 0.88 with shaded region between 0.86 and 0.90</description>
+            </image>
+          </figure>
+          <p>
+            With <m>\mu_{\hat{p}} = 0.88</m> and <m>SE_{\hat{p}} = 0.010</m>, we can compute
+            the Z-score for both the left and right cutoffs:
             <md>
-              <mrow>Z_{0.86} \amp= \frac{0.86 - 0.88}{0.0103} = -1.94 \approx -2</mrow>
-              <mrow>Z_{0.90} \amp= \frac{0.90 - 0.88}{0.0103} = 1.94 \approx 2</mrow>
+              <mrow>Z_{0.86} \amp= \frac{0.86 - 0.88}{0.010} = -2</mrow>
+              <mrow>Z_{0.90} \amp= \frac{0.90 - 0.88}{0.010} = 2</mrow>
             </md>
           </p>
           <p>
-            We can use either statistical software, a graphing calculator, or a table to
-            find the areas in the tails, and in any case we will find that they are each
-            0.0228. The total tail areas are <m>2 \times 0.0228 = 0.0456</m>, which
-            leaves the shaded area of 0.9544. That is, about 95.44% of the sampling
-            distribution is within <m>\pm 0.02</m> of the population proportion,
-            <m>p = 0.88</m>.
+            We can use either statistical software, a graphing calculator, or a table to find
+            the areas to the tails, and in any case we will find that they are each 0.0228. The
+            total tail areas are <m>2 \times 0.0228 = 0.0456</m>, which leaves the shaded area
+            of 0.9544. That is, about 95.44% of the sampling distribution in
+            <xref ref="fig-sampling-distribution-solar"/> is within <m>\pm 0.02</m> of the
+            population proportion, <m>p = 0.88</m>.
           </p>
         </solution>
       </example>
       
+      <exercise>
+        <statement>
+          <p>
+            In Example <xref ref="ex-smaller-sample-size"/> we discussed how a smaller sample
+            would tend to produce a less reliable estimate. Explain how this intuition is
+            reflected in the formula for
+            <m>SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}</m>.<fn>Since the sample size <m>n</m> is
+            in the denominator (on the bottom) of the fraction, a bigger sample size means the
+            entire expression when calculated will tend to be smaller. That is, a larger sample
+            size would correspond to a smaller standard error.</fn>
+          </p>
+        </statement>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="subsec-more-details-clt">
+      <title>More details regarding the Central Limit Theorem</title>
+      
       <p>
-        <xref ref="fig-clt-grid"/> shows how the sampling distribution changes with different
-        values of <m>p</m> and <m>n</m>. Notice that:
+        We've applied the Central Limit Theorem in numerous examples so far this chapter:
       </p>
       
-      <ul>
-        <li>Larger sample sizes produce narrower, more precise distributions.</li>
-        <li>The distribution becomes more symmetric when <m>p</m> is near 0.5.</li>
-        <li>All distributions are centered at their respective <m>p</m> values.</li>
-      </ul>
+      <blockquote>
+        <p>
+          <em>When observations are independent and the sample size is sufficiently large,
+          the distribution of <m>\hat{p}</m> resembles a normal distribution with</em>
+          <md>
+            <mrow>\mu_{\hat{p}} \amp= p</mrow>
+            <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
+          </md>
+          <em>The sample size is considered sufficiently large when <m>np \geq 10</m> and
+          <m>n(1-p) \geq 10</m>.</em>
+        </p>
+      </blockquote>
       
-      <figure xml:id="fig-clt-grid">
-        <caption>Sampling distributions for different values of <m>p</m> and <m>n</m> with smaller sample sizes. Rows represent <m>p = 0.10, 0.20, 0.50, 0.80, 0.90</m>. Columns represent <m>n = 10</m> and <m>n = 25</m>.</caption>
-        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_1.pdf" width="80%">
-          <description>Grid of sampling distributions showing effect of sample size and proportion for n=10 and n=25</description>
+      <p>
+        In this section, we'll explore the success-failure condition and seek to better
+        understand the Central Limit Theorem.
+      </p>
+      
+      <p>
+        An interesting question to answer is, <em>what happens when <m>np &lt; 10</m> or
+        <m>n(1-p) &lt; 10</m>?</em> As we did in
+        Section <xref ref="subsec-variability-point-estimate"/>, we can simulate drawing
+        samples of different sizes where, say, the true proportion is <m>p = 0.25</m>. Here's
+        a sample of size 10:
+      </p>
+      
+      <blockquote>
+        <p>
+          no, no, yes, yes, no, no, no, no, no, no
+        </p>
+      </blockquote>
+      
+      <p>
+        In this sample, we observe a sample proportion of yeses of
+        <m>\hat{p} = \frac{2}{10} = 0.2</m>. We can simulate many such proportions to
+        understand the sampling distribution of <m>\hat{p}</m> when <m>n = 10</m> and
+        <m>p = 0.25</m>, which we've plotted in <xref ref="fig-sampling-10-prop-25p"/>
+        alongside a normal distribution with the same mean and variability. These distributions
+        have a number of important differences.
+      </p>
+      
+      <figure xml:id="fig-sampling-10-prop-25p">
+        <caption>Left: simulations of <m>\hat{p}</m> when the sample size is <m>n = 10</m> and
+        the population proportion is <m>p = 0.25</m>. Right: a normal distribution with the same
+        mean (0.25) and standard deviation (0.137).</caption>
+        <image source="images/ch_foundations_for_inf/figures/sampling_10_prop_25p/sampling_10_prop_25p.pdf" width="97%">
+          <description>There are two plots. The first plot is a histogram of 10,000 simulations
+          of p-hat when the sample size is n equals 10 and the population proportion is p equals
+          0.25. The possible values are 0.0, 0.1, 0.2, and so on up to 1.0, though the graph only
+          shows values up to 0.8. The distribution is centered at about 0.25, and is slightly
+          right-skewed. The frequencies are about 500 for 0.0, 1900 for 0.1, 2800 for 0.2, 2400
+          for 0.3, 1500 for 0.4, 500 for 0.5, 100 for 0.6, and the bin heights for the remaining
+          values have bin heights that are not visually distinguishable from zero. The second plot
+          shows a normal distribution centered at 0.25 with a standard deviation of 0.137. The
+          plot has a vertical line located at 0.0, which makes it more visually evident that a
+          portion of the area under the normal distribution -- about 5% of this area -- represents
+          values below 0.0.</description>
+        </image>
+      </figure>
+      
+      <p>
+        <xref ref="fig-clt-grid-1"/> and <xref ref="fig-clt-grid-2"/> show sampling
+        distributions for several scenarios of <m>p</m> and <m>n</m>.
+      </p>
+      
+      <figure xml:id="fig-clt-grid-1">
+        <caption>Sampling distributions for several scenarios of <m>p</m> and <m>n</m>.
+        Rows: <m>p = 0.10</m>, <m>p = 0.20</m>, <m>p = 0.50</m>, <m>p = 0.80</m>, and
+        <m>p = 0.90</m>. Columns: <m>n = 10</m> and <m>n = 25</m>.</caption>
+        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_1.pdf" width="97%">
+          <description>Sampling distributions are shown for several scenarios for parameters p
+          and n. The graphs are arranged in a grid of 5 rows representing proportions 0.1, 0.2,
+          0.5, 0.8, and 0.9 and 2 columns of sample sizes n equals 10 and 25. In each graph, the
+          distribution is centered at the proportion. Given that these are proportions based on
+          relatively small sample sizes, the bins do look relatively discrete (jumpy from one to
+          the next), though less so for the distributions based on n equals 25. In cases where the
+          true underlying proportion is near the lower bound of 0 or the upper bound of 1, the
+          distribution tends to skew away from that boundary. This is most noticeable for both the
+          distributions representing proportions closer to either boundary and for the smaller
+          sample size. One distribution stands out among the 10 shown: the sample with p equals
+          0.5 and n equals 25, which shows a bell-shaped distribution resembling the normal
+          distribution, though the data are still somewhat discrete.</description>
         </image>
       </figure>
       
       <figure xml:id="fig-clt-grid-2">
-        <caption>Sampling distributions for different values of <m>p</m> and <m>n</m> with larger sample sizes. Rows represent <m>p = 0.10, 0.20, 0.50, 0.80, 0.90</m>. Columns represent <m>n = 50, 100, 250</m>. Notice that as sample size increases, the distributions become more symmetric and closely resemble the normal distribution, with smaller standard deviations.</caption>
-        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_2.pdf" width="90%">
-          <description>Grid of sampling distributions showing effect of sample size and proportion for n=50, n=100, and n=250, demonstrating convergence to normal distribution</description>
+        <caption>Sampling distributions for several scenarios of <m>p</m> and <m>n</m>.
+        Rows: <m>p = 0.10</m>, <m>p = 0.20</m>, <m>p = 0.50</m>, <m>p = 0.80</m>, and
+        <m>p = 0.90</m>. Columns: <m>n = 50</m>, <m>n = 100</m>, and <m>n = 250</m>.</caption>
+        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_2.pdf" width="97%">
+          <description>Sampling distributions are shown for several scenarios for parameters p
+          and n. The graphs are arranged in a grid of 5 rows representing proportions 0.1, 0.2,
+          0.5, 0.8, and 0.9 and 3 columns of sample sizes n equals 50, 100, and 250. Relative to
+          the previous figure, which considered similar proportion scenarios but with n equals 10
+          and 25, the data in these graphs looks less discrete -- that is, they appear to almost
+          be continuous. This is most evident for the largest sample sizes. Nearly all of the
+          graphs shown also closely resemble the normal distribution, in some cases with the larger
+          sample sizes that it resembles it so closely that there are not substantial visual
+          differences. One aspect less evident -- but still present -- in the last figure but that
+          continues into and becomes much more obvious in this figure, is that the distributions of
+          the sample proportions tend to have a much smaller standard deviation with the larger
+          sample sizes. That is, the sample proportion distributions for larger sample sizes tend
+          to be smaller than they were for smaller sample sizes. Also, the variability within a
+          graph also appears to be largest for the proportion p equals 0.5 than it is for the other
+          proportions when considering a single proportion -- and this property is apparent upon
+          inspection of a distribution based on any of the considered sample sizes.</description>
         </image>
       </figure>
+      
+      <table>
+        <title>Comparison of distributions</title>
+        <tabular>
+          <row header="yes">
+            <cell></cell>
+            <cell>Unimodal?</cell>
+            <cell>Smooth?</cell>
+            <cell>Symmetric?</cell>
+          </row>
+          <row>
+            <cell>Normal: <m>N(0.25, 0.14)</m></cell>
+            <cell>Yes</cell>
+            <cell>Yes</cell>
+            <cell>Yes</cell>
+          </row>
+          <row>
+            <cell><m>n = 10</m>, <m>p = 0.25</m></cell>
+            <cell>Yes</cell>
+            <cell>No</cell>
+            <cell>No</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>
+        Notice that the success-failure condition was not satisfied when <m>n = 10</m> and
+        <m>p = 0.25</m>:
+        <md>
+          <mrow>np = 10 \times 0.25 = 2.5 \amp\amp n(1-p) = 10 \times 0.75 = 7.5</mrow>
+        </md>
+        This single sampling distribution does not show that the success-failure condition is
+        the perfect guideline, but we have found that the guideline did correctly identify that
+        a normal distribution might not be appropriate.
+      </p>
+      
+      <p>
+        We can complete several additional simulations, shown in
+        <xref ref="fig-clt-grid-1"/> and <xref ref="fig-clt-grid-2"/>, and we can see some
+        trends:
+      </p>
+      
+      <ol>
+        <li>When either <m>np</m> or <m>n(1-p)</m> is small, the distribution is more
+            <term>discrete</term>, i.e. <em>not continuous</em>.</li>
+        <li>When <m>np</m> or <m>n(1-p)</m> is smaller than 10, the skew in the distribution
+            is more noteworthy.</li>
+        <li>The larger both <m>np</m> <em>and</em> <m>n(1-p)</m>, the more normal the
+            distribution. This may be a little harder to see for the larger sample size in these
+            plots as the variability also becomes much smaller.</li>
+        <li>When <m>np</m> and <m>n(1-p)</m> are both very large, the distribution's
+            discreteness is hardly evident, and the distribution looks much more like a normal
+            distribution.</li>
+      </ol>
+      
+      <p>
+        So far we've only focused on the skew and discreteness of the distributions. We haven't
+        considered how the mean and standard error of the distributions change. Take a moment to
+        look back at the graphs, and pay attention to three things:
+      </p>
+      
+      <ol>
+        <li>The centers of the distribution are always at the population proportion, <m>p</m>,
+            that was used to generate the simulation. Because the sampling distribution of
+            <m>\hat{p}</m> is always centered at the population parameter <m>p</m>, it means
+            the sample proportion <m>\hat{p}</m> is <term>unbiased</term> when the data are
+            independent and drawn from such a population.</li>
+        <li>For a particular population proportion <m>p</m>, the variability in the sampling
+            distribution decreases as the sample size <m>n</m> becomes larger. This will likely
+            align with your intuition: an estimate based on a larger sample size will tend to be
+            more accurate.</li>
+        <li>For a particular sample size, the variability will be largest when <m>p = 0.5</m>.
+            The differences may be a little subtle, so take a close look. This reflects the role
+            of the proportion <m>p</m> in the standard error formula:
+            <m>SE = \sqrt{\frac{p(1-p)}{n}}</m>. The standard error is largest when
+            <m>p = 0.5</m>.</li>
+      </ol>
+      
+      <p>
+        At no point will the distribution of <m>\hat{p}</m> look <em>perfectly</em> normal,
+        since <m>\hat{p}</m> will always take discrete values (<m>x/n</m>). It is always a
+        matter of degree, and we will use the standard success-failure condition with minimums
+        of 10 for <m>np</m> and <m>n(1-p)</m> as our guideline within this book.
+      </p>
     </subsection>
     
     <subsection xml:id="subsec-clt-real-world">
-      <title>Applying the Central Limit Theorem to Real-World Settings</title>
+      <title>Applying the Central Limit Theorem to a real-world setting</title>
       
       <p>
-        In practice, we don't know the population proportion <m>p</m>, which creates a
-        challenge: we can't calculate the standard error exactly because it requires <m>p</m>.
-        However, we can use the <term>substitution approximation</term> (also called the
-        <em>plug-in principle</em>) where we use <m>\hat{p}</m> in place of <m>p</m>:
+        We do not actually know the population proportion unless we conduct an expensive poll of
+        all individuals in the population. Our earlier value of <m>p = 0.88</m> was based on poll
+        conducted by Pew Research of 1000 American adults that found <m>\hat{p} = 0.887</m>
+        of them favored expanding solar energy. The researchers might have wondered: does the
+        sample proportion from the poll approximately follow a normal distribution? We can check
+        the conditions from the Central Limit Theorem:
       </p>
       
-      <md>
-        <mrow>SE_{\hat{p}} \approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
-      </md>
+      <ol>
+        <li>
+          <p>
+            <strong>Independence.</strong> The poll is a simple random sample of American adults,
+            which means that the observations are independent.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Success-failure condition.</strong> To check this condition, we need the
+            population proportion, <m>p</m>, to check if both <m>np</m> and <m>n(1-p)</m> are
+            greater than 10. However, we do not actually know <m>p</m>, which is exactly why the
+            pollsters would take a sample! In cases like these, we often use <m>\hat{p}</m> as
+            our next best way to check the success-failure condition:
+            <md>
+              <mrow>n\hat{p} \amp= 1000 \times 0.887 = 887</mrow>
+              <mrow>n(1-\hat{p}) \amp= 1000 \times (1 - 0.887) = 113</mrow>
+            </md>
+            The sample proportion <m>\hat{p}</m> acts as a reasonable substitute for <m>p</m>
+            during this check, and each value in this case is well above the minimum of 10.
+          </p>
+        </li>
+      </ol>
       
       <p>
-        This approximation works well when the sample size is reasonably large. We also
-        use <m>\hat{p}</m> in place of <m>p</m> when checking the success-failure condition
-        in real applications.
+        This <term>substitution approximation</term> of using <m>\hat{p}</m> in place of
+        <m>p</m> is also useful when computing the standard error of the sample proportion:
+        <md>
+          <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
+          <mrow>\amp\approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
+          <mrow>\amp= \sqrt{\frac{0.887 \times (1 - 0.887)}{1000}}</mrow>
+          <mrow>\amp= 0.010</mrow>
+        </md>
+        This substitution technique is sometimes referred to as the <q>plug-in principle</q>.
+        In this case, <m>SE_{\hat{p}}</m> didn't change enough to be detected using only 3
+        decimal places versus when we completed the calculation with 0.88 earlier. The computed
+        standard error tends to be reasonably stable even when observing slightly different
+        proportions in one sample or another.
       </p>
-      
-      <assemblage xml:id="conditions-for-CLT">
-        <title>Conditions for using the Central Limit Theorem for proportions</title>
-        <p>
-          To apply the Central Limit Theorem for a sample proportion, the following
-          conditions should be met:
-        </p>
-        <ol>
-          <li><strong>Independence</strong>: The observations are independent, typically
-              satisfied by random sampling or random assignment.</li>
-          <li><strong>Success-failure condition</strong>: We expect at least 10 successes
-              and 10 failures in our sample: <m>n\hat{p} \geq 10</m> and
-              <m>n(1-\hat{p}) \geq 10</m>.</li>
-        </ol>
-      </assemblage>
     </subsection>
     
     <subsection xml:id="subsec-extending-framework">
-      <title>Extending the Framework for Other Statistics</title>
+      <title>Extending the framework for other statistics</title>
       
       <p>
-        The strategy of using a sample statistic to estimate a parameter is quite common and
-        can be applied to other statistics besides a proportion. For instance, to estimate
-        the average salary for graduates from a particular college, we could survey a random
-        sample of recent graduates and use the sample mean <m>\bar{x}</m> to estimate the
-        population mean <m>\mu</m>.
+        The strategy of using a sample statistic to estimate a parameter is quite common, and
+        it's a strategy that we can apply to other statistics besides a proportion. For instance,
+        if we want to estimate the average salary for graduates from a particular college, we
+        could survey a random sample of recent graduates; in that example, we'd be using a sample
+        mean <m>\bar{x}</m> to estimate the population mean <m>\mu</m> for all graduates. As
+        another example, if we want to estimate the difference in product prices for two websites,
+        we might take a random sample of products available on both sites, check the prices on
+        each, and then compute the average difference; this strategy certainly would give us some
+        idea of the actual difference through a point estimate.
       </p>
       
       <p>
-        The principles and general ideas are the same across different contexts:
-      </p>
-      
-      <ul>
-        <li>A point estimate from a sample is used to estimate an unknown parameter.</li>
-        <li>The sampling distribution describes how the estimate varies from sample to sample.</li>
-        <li>The standard error quantifies the typical deviation in the estimates.</li>
-        <li>Under certain conditions, the Central Limit Theorem tells us the sampling
-            distribution is approximately normal.</li>
-      </ul>
-      
-      <p>
-        While this chapter emphasizes a single proportion context, these methods will be
-        applied to many different contexts throughout this book.
+        While this chapter emphasizes a single proportion context, we'll encounter many different
+        contexts throughout this book where these methods will be applied. The principles and
+        general ideas are the same, even if the details change a little. We've also sprinkled
+        some other contexts into the exercises to help you start thinking about how the ideas
+        generalize.
       </p>
     </subsection>
     
