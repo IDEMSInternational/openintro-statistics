@@ -1627,55 +1627,83 @@
 
   <!-- Section 2.3: Case study: Malaria vaccine -->
   <section xml:id="sec-malaria-vaccine">
-    <title>Case study: Malaria vaccine</title>
+    <title>Case study: malaria vaccine</title>
     
-    <example xml:id="ex-left-right-apple">
-      <title>Left vs. right side ownership</title>
+    <example xml:id="ex-class-right-left-side-apple">
+      <title>Class seating and Apple ownership</title>
       <statement>
-        <p>Suppose students in class are split into left and right sides. Let <m>\hat p_L</m> and <m>\hat p_R</m> be the proportions owning an Apple product on each side. Would it be surprising if <m>\hat p_L</m> were not exactly equal to <m>\hat p_R</m>?</p>
+        <p>
+          Suppose your professor splits the students in class into two groups: students on the left and students on
+          the right. If <m>\hat{p}_L</m> and <m>\hat{p}_R</m> represent the proportion of students who own an Apple
+          product on the left and right, respectively, would you be surprised if <m>\hat{p}_L</m> did not exactly equal
+          <m>\hat{p}_R</m>?
+        </p>
       </statement>
       <solution>
-        <p>They would likely be close but not exactly equal; small differences are expected by chance.</p>
+        <p>
+          While the proportions would probably be close to each other, it would be unusual for them to be exactly the
+          same. We would probably observe a small difference due to chance.
+        </p>
       </solution>
     </example>
 
-    <exercise xml:id="ex-apple-independence">
-      <title>Independence assumption</title>
+    <exercise xml:id="guided-practice-apple-independence">
+      <title>Independence between seating and ownership</title>
       <statement>
-        <p>If seating side and Apple ownership are unrelated, what assumption are we making about these variables?</p>
+        <p>
+          If we don't think the side of the room a person sits on in class is related to whether the person owns an
+          Apple product, what assumption are we making about the relationship between these two variables?
+        </p>
       </statement>
       <solution>
-        <p>We assume the variables are independent.</p>
+        <p>We would be assuming that these two variables are independent.</p>
       </solution>
     </exercise>
 
     <subsection xml:id="subsec-variability-within-data">
       <title>Variability within data</title>
 
-      <p>A clinical study tested a malaria vaccine (PfSPZ). Fourteen patients were randomized to receive the vaccine and six to a placebo. Nineteen weeks later all 20 were exposed to a drug-sensitive parasite strain so any infections could be treated effectively. Nine of the 14 vaccinated patients showed no infection, while all six placebo patients showed baseline signs of infection.</p>
+      <p>
+        We consider a study on a new malaria vaccine called PfSPZ. In this study, volunteer patients were randomized
+        into one of two experiment groups: 14 patients received an experimental vaccine and 6 patients received a
+        placebo vaccine. Nineteen weeks later, all 20 patients were exposed to a drug-sensitive malaria parasite
+        strain; the motivation of using a drug-sensitive strain of parasite here is for ethical considerations,
+        allowing any infections to be treated effectively. The results are summarized in
+        <xref ref="table-malaria-vaccine-summary"/>, where 9 of the 14 treatment patients remained free of signs of
+        infection while all of the 6 patients in the control group patients showed some baseline signs of infection.
+      </p>
 
-      <table xml:id="tbl-malaria-summary">
+      <table xml:id="table-malaria-vaccine-summary">
         <title>Summary results for the malaria vaccine experiment</title>
         <tabular>
-          <row header="yes">
+          <row header="yes" bottom="minor">
             <cell></cell>
-            <cell>Outcome</cell>
-            <cell>Infection</cell>
-            <cell>No infection</cell>
+            <cell></cell>
+            <cell colspan="2" halign="center"><c>outcome</c></cell>
+            <cell>Total</cell>
+          </row>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell>infection</cell>
+            <cell>no infection</cell>
+            <cell></cell>
           </row>
           <row>
-            <cell>Vaccine</cell>
+            <cell rowspan="2" valign="middle"><c>treatment</c></cell>
+            <cell>vaccine</cell>
             <cell>5</cell>
             <cell>9</cell>
             <cell>14</cell>
           </row>
-          <row>
-            <cell>Placebo</cell>
+          <row bottom="minor">
+            <cell>placebo</cell>
             <cell>6</cell>
             <cell>0</cell>
             <cell>6</cell>
           </row>
-          <row>
+          <row bottom="minor">
+            <cell></cell>
             <cell>Total</cell>
             <cell>11</cell>
             <cell>9</cell>
@@ -1684,60 +1712,156 @@
         </tabular>
       </table>
 
-      <exercise xml:id="ex-malaria-study-type">
-        <title>Study type</title>
+      <exercise xml:id="guided-practice-malaria-study-type">
+        <title>Study design and implications</title>
         <statement>
-          <p>Is this an observational study or an experiment? What does that imply about causal conclusions?</p>
+          <p>
+            Is this an observational study or an experiment? What implications does the study type have on what can be
+            inferred from the results?
+          </p>
         </statement>
         <solution>
-          <p>It is an experiment (random assignment). Causal conclusions about the vaccine's effect are appropriate.</p>
+          <p>
+            The study is an experiment, as patients were randomly assigned an experiment group. Since this is an
+            experiment, the results can be used to evaluate a causal relationship between the malaria vaccine and
+            whether patients showed signs of an infection.
+          </p>
         </solution>
       </exercise>
 
-      <example xml:id="ex-malaria-evidence">
-        <title>What counts as convincing?</title>
+      <p>
+        In this study, a smaller proportion of patients who received the vaccine showed signs of an infection (35.7%
+        versus 100%). However, the sample is very small, and it is unclear whether the difference provides
+        <em>convincing evidence</em> that the vaccine is effective.
+      </p>
+
+      <example xml:id="ex-malaria-vaccine-convincing">
+        <title>Assessing the evidence</title>
         <statement>
-          <p>The observed infection rates were 35.7% for vaccine vs. 100% for placebo. Does this provide convincing evidence the vaccine works?</p>
+          <p>
+            Data scientists are sometimes called upon to evaluate the strength of evidence. When looking at the rates
+            of infection for patients in the two groups in this study, what comes to mind as we try to determine
+            whether the data show convincing evidence of a real difference?
+          </p>
         </statement>
         <solution>
-          <p>The large difference suggests effectiveness, but the small sample means the difference could be due to chance. We need to evaluate how likely such a gap is under no effect.</p>
+          <p>
+            The observed infection rates (35.7% for the treatment group versus 100% for the control group) suggest the
+            vaccine may be effective. However, we cannot be sure if the observed difference represents the vaccine's
+            efficacy or is just from random chance. Generally there is a little bit of fluctuation in sample data, and
+            we wouldn't expect the sample proportions to be <em>exactly</em> equal, even if the truth was that the
+            infection rates were independent of getting the vaccine. Additionally, with such small samples, perhaps
+            it's common to observe such large differences when we randomly split a group due to chance alone!
+          </p>
         </solution>
       </example>
 
-      <p>We compare two competing claims:</p>
-      <ul>
-        <li><p><strong>Independence model (<m>H_0</m>):</strong> Treatment and outcome are independent; the 64.3% difference in infection rates arose by chance.</p></li>
-        <li><p><strong>Alternative model (<m>H_A</m>):</strong> Treatment and outcome are not independent; the vaccine affected infection rates.</p></li>
-      </ul>
-      <p>If <m>H_0</m> is true, 11 patients would be infected and 9 uninfected regardless of assignment, so any difference is random. If <m>H_A</m> is true, we expect some real difference between groups.</p>
+      <p>
+        Example <xref ref="ex-malaria-vaccine-convincing"/> is a reminder that the observed outcomes in the data
+        sample may not perfectly reflect the true relationships between variables since there is <term>random
+        noise</term>. While the observed difference in rates of infection is large, the sample size for the study is
+        small, making it unclear if this observed difference represents efficacy of the vaccine or whether it is simply
+        due to chance. We label these two competing claims, <m>H_0</m> and <m>H_A</m>, which are spoken as
+        "H-nought" and "H-A":
+      </p>
+
+      <p>
+        <ul>
+          <li>
+            <p>
+              <m>H_0</m>: <term>Independence model.</term> The variables <c>treatment</c> and <c>outcome</c> are
+              independent. They have no relationship, and the observed difference between the proportion of patients who
+              developed an infection in the two groups, 64.3%, was due to chance.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>H_A</m>: <term>Alternative model.</term> The variables are <em>not</em> independent. The difference in
+              infection rates of 64.3% was not due to chance, and vaccine affected the rate of infection.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        What would it mean if the independence model, which says the vaccine had no influence on the rate of infection,
+        is true? It would mean 11 patients were going to develop an infection <em>no matter which group they were
+        randomized into</em>, and 9 patients would not develop an infection <em>no matter which group they were
+        randomized into</em>. That is, if the vaccine did not affect the rate of infection, the difference in the
+        infection rates was due to chance alone in how the patients were randomized.
+      </p>
+
+      <p>
+        Now consider the alternative model: infection rates were influenced by whether a patient received the vaccine
+        or not. If this was true, and especially if this influence was substantial, we would expect to see some
+        difference in the infection rates of patients in the groups.
+      </p>
+
+      <p>
+        We choose between these two competing claims by assessing if the data conflict so much with <m>H_0</m> that the
+        independence model cannot be deemed reasonable. If this is the case, and the data support <m>H_A</m>, then we
+        will reject the notion of independence and conclude the vaccine was effective.
+      </p>
     </subsection>
 
     <subsection xml:id="subsec-simulating-the-study">
       <title>Simulating the study</title>
-      <p>Assume the vaccine has no effect. To gauge how unusual the observed difference is, simulate new random assignments: write "infection" on 11 cards and "no infection" on 9 cards, shuffle, deal 14 to vaccine and 6 to placebo, and tabulate infection counts.</p>
 
-      <table xml:id="tbl-malaria-sim1">
-        <title>Simulation results under independence (one shuffle)</title>
+      <p>
+        We're going to implement <term>simulations</term>, where we will pretend we know that the malaria vaccine
+        being tested does <em>not</em> work. Ultimately, we want to understand if the large difference we observed is
+        common in these simulations. If it is common, then maybe the difference we observed was purely due to chance.
+        If it is very uncommon, then the possibility that the vaccine was helpful seems more plausible.
+      </p>
+
+      <p>
+        <xref ref="table-malaria-vaccine-summary"/> shows that 11 patients developed infections and 9 did not. For our
+        simulation, we will suppose the infections were independent of the vaccine and we were able to <em>rewind</em>
+        back to when the researchers randomized the patients in the study. If we happened to randomize the patients
+        differently, we may get a different result in this hypothetical world where the vaccine doesn't influence the
+        infection. Let's complete another <term>randomization</term> using a simulation.
+      </p>
+
+      <p>
+        In this <term>simulation</term>, we take 20 notecards to represent the 20 patients, where we write down
+        "infection" on 11 cards and "no infection" on 9 cards. In this hypothetical world, we believe each patient
+        that got an infection was going to get it regardless of which group they were in, so let's see what happens if
+        we randomly assign the patients to the treatment and control groups again. We thoroughly shuffle the notecards
+        and deal 14 into a <em>vaccine</em> pile and 6 into a <em>placebo</em> pile. Finally, we tabulate the results,
+        which are shown in <xref ref="table-malaria-vaccine-sim-1"/>.
+      </p>
+
+      <table xml:id="table-malaria-vaccine-sim-1">
+        <title>Simulation results, where any difference in infection rates is purely due to chance</title>
         <tabular>
-          <row header="yes">
+          <row header="yes" bottom="minor">
             <cell></cell>
-            <cell>Outcome</cell>
-            <cell>Infection</cell>
-            <cell>No infection</cell>
+            <cell></cell>
+            <cell colspan="2" halign="center"><c>outcome</c></cell>
+            <cell>Total</cell>
+          </row>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell>infection</cell>
+            <cell>no infection</cell>
+            <cell></cell>
           </row>
           <row>
-            <cell>Vaccine (sim.)</cell>
+            <cell rowspan="2" valign="middle">treatment (simulated)</cell>
+            <cell>vaccine</cell>
             <cell>7</cell>
             <cell>7</cell>
             <cell>14</cell>
           </row>
-          <row>
-            <cell>Placebo (sim.)</cell>
+          <row bottom="minor">
+            <cell>placebo</cell>
             <cell>4</cell>
             <cell>2</cell>
             <cell>6</cell>
           </row>
-          <row>
+          <row bottom="minor">
+            <cell></cell>
             <cell>Total</cell>
             <cell>11</cell>
             <cell>9</cell>
@@ -1746,44 +1870,117 @@
         </tabular>
       </table>
 
-      <exercise xml:id="ex-malaria-sim-diff">
-        <title>Difference in a simulation</title>
+      <exercise xml:id="guided-practice-malaria-sim-diff">
+        <title>Simulated difference</title>
         <statement>
-          <p>Compute the infection-rate difference for the simulation above (placebo minus vaccine). How does it compare to the observed 64.3% gap?</p>
+          <p>
+            What is the difference in infection rates between the two simulated groups in
+            <xref ref="table-malaria-vaccine-sim-1"/>? How does this compare to the observed 64.3% difference in the
+            actual data?
+          </p>
         </statement>
         <solution>
-          <p>Difference is <m>4/6 - 7/14 \approx 0.167</m> (16.7%), much smaller than the observed 64.3% gap.</p>
+          <p>
+            <m>4/6 - 7/14 = 0.167</m> or about 16.7% in favor of the vaccine. This difference due to chance is much
+            smaller than the difference observed in the actual groups.
+          </p>
         </solution>
       </exercise>
     </subsection>
 
     <subsection xml:id="subsec-checking-independence">
       <title>Checking for independence</title>
-      <p>Repeat the randomization many times by computer. The simulated differences (placebo rate minus vaccine rate) form a distribution centered near 0. Figure shows 100 simulations.</p>
+
+      <p>
+        We computed one possible difference under the independence model in Guided Practice
+        <xref ref="guided-practice-malaria-sim-diff"/>, which represents one difference due to chance. While in this
+        first simulation, we physically dealt out notecards to represent the patients, it is more efficient to perform
+        this simulation using a computer. Repeating the simulation on a computer, we get another difference due to
+        chance:
+        <me>2/6 - 9/14 = -0.310</me>
+        And another:
+        <me>3/6 - 8/14 = -0.071</me>
+        And so on until we repeat the simulation enough times that we have a good idea of what represents the
+        <em>distribution of differences from chance alone</em>. <xref ref="fig-malaria-rand-dot-plot"/> shows a stacked
+        plot of the differences found from 100 simulations, where each dot represents a simulated difference between
+        the infection rates (control rate minus treatment rate).
+      </p>
 
       <figure xml:id="fig-malaria-rand-dot-plot">
-        <caption>Differences from 100 simulations under independence</caption>
+        <caption>Differences from 100 simulations under the independence model</caption>
         <image source="ch_summarizing_data/figures/malaria_rand_dot_plot/malaria_rand_dot_plot.png" width="85%">
-          <description>Stacked dot plot of simulated infection-rate differences; only two simulations reach the observed 64.3% difference.</description>
+          <description>
+            A stacked dot plot is shown. The horizontal axis represents "difference in infection rates" and has a range
+            of -0.6 to 0.8. There are six stacks of dots shown in the plot, with 3 points shown at -0.55, 20-25 points
+            shown at -0.32, 30-35 points shown at -0.08, 25-30 points shown at 0.18, 10-12 points shown at 0.41, and 2
+            points shown at 0.64.
+          </description>
         </image>
       </figure>
 
-      <example xml:id="ex-malaria-rare">
-        <title>How rare is 64.3%?</title>
+      <p>
+        Note that the distribution of these simulated differences is centered around 0. We simulated these differences
+        assuming that the independence model was true, and under this condition, we expect the difference to be near
+        zero with some random fluctuation, where <em>near</em> is pretty generous in this case since the sample sizes
+        are so small in this study.
+      </p>
+
+      <example xml:id="ex-malaria-rare-event">
+        <title>Rarity of the observed difference</title>
         <statement>
-          <p>According to the simulations, how often does a difference of at least 64.3% occur?</p>
+          <p>
+            How often would you observe a difference of at least 64.3% (0.643) according to
+            <xref ref="fig-malaria-rand-dot-plot"/>? Often, sometimes, rarely, or never?
+          </p>
         </statement>
         <solution>
-          <p>About 2% of simulations reach that difference—rare under independence.</p>
+          <p>
+            It appears that a difference of at least 64.3% due to chance alone would only happen about 2% of the time
+            according to <xref ref="fig-malaria-rand-dot-plot"/>. Such a low probability indicates a rare event.
+          </p>
         </solution>
       </example>
 
-      <p>The rare occurrence of such a large difference leaves two options:</p>
-      <ul>
-        <li><p><strong><m>H_0</m>:</strong> Vaccine has no effect and we observed a rare chance event.</p></li>
-        <li><p><strong><m>H_A</m>:</strong> Vaccine reduces infections; the observed difference reflects efficacy.</p></li>
-      </ul>
-      <p>In formal studies we typically reject <m>H_0</m> when faced with such rare outcomes. Here we conclude the data provide strong evidence the vaccine offers protection in this clinical setting.</p>
+      <p>
+        The difference of 64.3% being a rare event suggests two possible interpretations of the results of the study:
+      </p>
+
+      <p>
+        <ul>
+          <li>
+            <p>
+              <m>H_0</m>: <term>Independence model.</term> The vaccine has no effect on infection rate, and we just
+              happened to observe a difference that would only occur on a rare occasion.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>H_A</m>: <term>Alternative model.</term> The vaccine has an effect on infection rate, and the
+              difference we observed was actually due to the vaccine being effective at combatting malaria, which
+              explains the large difference of 64.3%.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        Based on the simulations, we have two options. (1) We conclude that the study results do not provide strong
+        evidence against the independence model. That is, we do not have sufficiently strong evidence to conclude the
+        vaccine had an effect in this clinical setting. (2) We conclude the evidence is sufficiently strong to reject
+        <m>H_0</m> and assert that the vaccine was useful. When we conduct formal studies, usually we reject the notion
+        that we just happened to observe a rare event. So in this case, we reject the independence model in favor of
+        the alternative. That is, we are concluding the data provide strong evidence that the vaccine provides some
+        protection against malaria in this clinical setting.
+      </p>
+
+      <p>
+        One field of statistics, statistical inference, is built on evaluating whether such differences are due to
+        chance. In statistical inference, data scientists evaluate which model is most reasonable given the data. Errors
+        do occur, just like rare events, and we might choose the wrong model. While we do not always choose correctly,
+        statistical inference gives us tools to control and evaluate how often these errors occur. In Chapter 3, we give
+        a formal introduction to the problem of model selection. We spend the next two chapters building a foundation of
+        probability and theory necessary to make that discussion rigorous.
+      </p>
     </subsection>
 
     <exercises xml:id="exercises-malaria-case">
