@@ -2253,27 +2253,54 @@ study?
     <title>Experiments</title>
     <introduction>
       <p>
-        In experiments, researchers assign treatments to cases. Randomized experiments are the gold standard for establishing causation.
+        Studies where the researchers assign treatments to cases are called <term>experiments</term>. When this assignment includes randomization, e.g. using a coin flip to decide which treatment a patient receives, it is called a <term>randomized experiment</term>. Randomized experiments are fundamentally important when trying to show a causal connection between two variables.
       </p>
     </introduction>
 
     <subsection xml:id="subsec-experimental-design">
       <title>Principles of experimental design</title>
 
-      <p>Four core principles:</p>
-      <description>
-        <item><term>Controlling:</term> hold other factors constant across groups.</item>
-        <item><term>Randomization:</term> randomly assign cases to treatments to balance unmeasured factors.</item>
-        <item><term>Replication:</term> use enough cases (and replicate studies) to estimate effects precisely.</item>
-        <item><term>Blocking:</term> when a known factor affects the response, group by that factor and randomize within blocks.</item>
-      </description>
+      <p>
+        Randomized experiments are generally built on four principles.
+      </p>
 
-      <figure xml:id="fig-blocking">
-        <caption>Blocking on patient risk</caption>
-        <image source="ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" width="80%">
-          <description>Patients split into low/high risk blocks, then randomized within blocks to control and treatment.</description>
-        </image>
-      </figure>
+      <dl>
+        <li>
+          <title>Controlling.</title>
+          <p>
+            Researchers assign treatments to cases, and they do their best to <term>control</term> any other differences in the groups.<fn>This is a different concept than a <em>control group</em>, which we discuss in the second principle and in <xref ref="subsec-reducing-bias" />.</fn> For example, when patients take a drug in pill form, some patients take the pill with only a sip of water while others may have it with an entire glass of water. To control for the effect of water consumption, a doctor may ask all patients to drink a 12 ounce glass of water with the pill.
+          </p>
+        </li>
+        <li>
+          <title>Randomization.</title>
+          <p>
+            Researchers randomize patients into treatment groups to account for variables that cannot be controlled. For example, some patients may be more susceptible to a disease than others due to their dietary habits. Randomizing patients into the treatment or control group helps even out such differences, and it also prevents accidental bias from entering the study.
+          </p>
+        </li>
+        <li>
+          <title>Replication.</title>
+          <p>
+            The more cases researchers observe, the more accurately they can estimate the effect of the explanatory variable on the response. In a single study, we <term>replicate</term> by collecting a sufficiently large sample. Additionally, a group of scientists may replicate an entire study to verify an earlier finding.
+          </p>
+
+          <figure xml:id="fig-blocking">
+            <caption>Blocking using a variable depicting patient risk. Patients are first divided into low-risk and high-risk blocks, then each block is evenly separated into the treatment groups using randomization. This strategy ensures an equal representation of patients in each treatment group from both the low-risk and high-risk categories.</caption>
+            <image source="ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" width="82%">
+              <description>There are three main stages shown in this figure, from top to bottom. The upper stage shows the numbering of patients as a rectangle containing 54 dots in a grid that are labeled with numbers 1 through 54. The dots are one of two colors: blue (high risk) and red (low risk). The second stage shows the two colored dots broken into two blocks. On the left are the low-risk patients (red) and on the right are the high-risk patients (blue). Going into the bottom third stage, are two boxes labeled "control" and "treatment", where half of the low-risk (red) and half of the blue (high risk) points have been randomly placed into each of these two experiment groups.</description>
+            </image>
+          </figure>
+        </li>
+        <li>
+          <title>Blocking.</title>
+          <p>
+            Researchers sometimes know or suspect that variables, other than the treatment, influence the response. Under these circumstances, they may first group individuals based on this variable into <term>blocks</term> and then randomize cases within each block to the treatment groups. This strategy is often referred to as <term>blocking</term>. For instance, if we are looking at the effect of a drug on heart attacks, we might first split patients in the study into low-risk and high-risk blocks, then randomly assign half the patients from each block to the control group and the other half to the treatment group, as shown in <xref ref="fig-blocking" />. This strategy ensures each treatment group has an equal number of low-risk and high-risk patients.
+          </p>
+        </li>
+      </dl>
+
+      <p>
+        It is important to incorporate the first three experimental design principles into any study, and this book describes applicable methods for analyzing data from such experiments. Blocking is a slightly more advanced technique, and statistical methods in this book may be extended to analyze data collected using blocking.
+      </p>
     </subsection>
 
     <subsection xml:id="subsec-reducing-bias">
