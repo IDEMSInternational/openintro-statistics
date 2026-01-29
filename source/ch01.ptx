@@ -2282,13 +2282,6 @@ study?
           <p>
             The more cases researchers observe, the more accurately they can estimate the effect of the explanatory variable on the response. In a single study, we <term>replicate</term> by collecting a sufficiently large sample. Additionally, a group of scientists may replicate an entire study to verify an earlier finding.
           </p>
-
-          <figure xml:id="fig-blocking">
-            <caption>Blocking using a variable depicting patient risk. Patients are first divided into low-risk and high-risk blocks, then each block is evenly separated into the treatment groups using randomization. This strategy ensures an equal representation of patients in each treatment group from both the low-risk and high-risk categories.</caption>
-            <image source="ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" width="82%">
-              <description>There are three main stages shown in this figure, from top to bottom. The upper stage shows the numbering of patients as a rectangle containing 54 dots in a grid that are labeled with numbers 1 through 54. The dots are one of two colors: blue (high risk) and red (low risk). The second stage shows the two colored dots broken into two blocks. On the left are the low-risk patients (red) and on the right are the high-risk patients (blue). Going into the bottom third stage, are two boxes labeled "control" and "treatment", where half of the low-risk (red) and half of the blue (high risk) points have been randomly placed into each of these two experiment groups.</description>
-            </image>
-          </figure>
         </li>
         <li>
           <title>Blocking.</title>
@@ -2297,6 +2290,13 @@ study?
           </p>
         </li>
       </dl>
+
+      <figure xml:id="fig-blocking">
+        <caption>Blocking using a variable depicting patient risk. Patients are first divided into low-risk and high-risk blocks, then each block is evenly separated into the treatment groups using randomization. This strategy ensures an equal representation of patients in each treatment group from both the low-risk and high-risk categories.</caption>
+        <image source="ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" width="82%">
+          <description>There are three main stages shown in this figure, from top to bottom. The upper stage shows the numbering of patients as a rectangle containing 54 dots in a grid that are labeled with numbers 1 through 54. The dots are one of two colors: blue (high risk) and red (low risk). The second stage shows the two colored dots broken into two blocks. On the left are the low-risk patients (red) and on the right are the high-risk patients (blue). Going into the bottom third stage, are two boxes labeled "control" and "treatment", where half of the low-risk (red) and half of the blue (high risk) points have been randomly placed into each of these two experiment groups.</description>
+        </image>
+      </figure>
 
       <p>
         It is important to incorporate the first three experimental design principles into any study, and this book describes applicable methods for analyzing data from such experiments. Blocking is a slightly more advanced technique, and statistical methods in this book may be extended to analyze data collected using blocking.
