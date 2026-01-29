@@ -346,8 +346,8 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-point-estimates-error" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Point Estimates and Error</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-variability-point-estimate" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Understanding the Variability of a Point Estimate</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-central-limit-theorem" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-more-details-clt" class="internal"><span class="codenumber">5.1.4</span> <span class="title">More details regarding the Central Limit Theorem</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-clt-real-world" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Applying the Central Limit Theorem to a real-world setting</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-clt-real-world" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to a real-world setting</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-more-details-clt" class="internal"><span class="codenumber">5.1.5</span> <span class="title">More details regarding the Central Limit Theorem</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-extending-framework" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Extending the framework for other statistics</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-point-estimates.html#sec-point-estimates-9" class="internal"><span class="codenumber">5.1.7</span> <span class="title">Section 5.1 Exercises</span></a></div></li>
 </ul>
@@ -788,8 +788,47 @@ Z_{0.90} \amp= \frac{0.90 - 0.88}{0.010} = 2
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="subsec-central-limit-theorem-10-1-1">In Example <a href="sec-point-estimates.html#ex-smaller-sample-size" class="xref" data-knowl="./knowl/xref/ex-smaller-sample-size.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.1.3">Example 5.1.3</a> we discussed how a smaller sample would tend to produce a less reliable estimate. Explain how this intuition is reflected in the formula for <span class="process-math">\(SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="subsec-central-limit-theorem-10-1-1-3"><summary class="ptx-footnote__number" title="Footnote 5.1.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="subsec-central-limit-theorem-10-1-1-3">Since the sample size <span class="process-math">\(n\)</span> is in the denominator (on the bottom) of the fraction, a bigger sample size means the entire expression when calculated will tend to be smaller. That is, a larger sample size would correspond to a smaller standard error.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#subsec-central-limit-theorem-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 5.1.8"><a href="#subsec-central-limit-theorem-10" title="Copy heading and permalink for Checkpoint 5.1.8" aria-label="Copy heading and permalink for Checkpoint 5.1.8">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.1.3: Central Limit Theorem"><a href="#subsec-central-limit-theorem" title="Copy heading and permalink for Subsection 5.1.3: Central Limit Theorem" aria-label="Copy heading and permalink for Subsection 5.1.3: Central Limit Theorem">🔗</a></div></section><section class="subsection" id="subsec-more-details-clt"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More details regarding the Central Limit Theorem</span>
+<div class="autopermalink" data-description="Checkpoint 5.1.8"><a href="#subsec-central-limit-theorem-10" title="Copy heading and permalink for Checkpoint 5.1.8" aria-label="Copy heading and permalink for Checkpoint 5.1.8">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.1.3: Central Limit Theorem"><a href="#subsec-central-limit-theorem" title="Copy heading and permalink for Subsection 5.1.3: Central Limit Theorem" aria-label="Copy heading and permalink for Subsection 5.1.3: Central Limit Theorem">🔗</a></div></section><section class="subsection" id="subsec-clt-real-world"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Applying the Central Limit Theorem to a real-world setting</span>
+</h3>
+<div class="para" id="subsec-clt-real-world-2">We do not actually know the population proportion unless we conduct an expensive poll of all individuals in the population. Our earlier value of <span class="process-math">\(p = 0.88\)</span> was based on poll conducted by Pew Research of 1000 American adults that found <span class="process-math">\(\hat{p} = 0.887\)</span> of them favored expanding solar energy. The researchers might have wondered: does the sample proportion from the poll approximately follow a normal distribution? We can check the conditions from the Central Limit Theorem:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal" id="subsec-clt-real-world-3">
+<li id="subsec-clt-real-world-3-1">
+<div class="para" id="subsec-clt-real-world-3-1-1">Independence. The poll is a simple random sample of American adults, which means that the observations are independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-clt-real-world-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-clt-real-world-3-2">
+<div class="para logical" id="subsec-clt-real-world-3-2-1">
+<div class="para">Success-failure condition. To check this condition, we need the population proportion, <span class="process-math">\(p\text{,}\)</span> to check if both <span class="process-math">\(np\)</span> and <span class="process-math">\(n(1-p)\)</span> are greater than 10. However, we do not actually know <span class="process-math">\(p\text{,}\)</span> which is exactly why the pollsters would take a sample! In cases like these, we often use <span class="process-math">\(\hat{p}\)</span> as our next best way to check the success-failure condition:</div>
+<div class="displaymath process-math" id="subsec-clt-real-world-3-2-1-7">
+\begin{align*}
+n\hat{p} \amp= 1000 \times 0.887 = 887\\
+n(1-\hat{p}) \amp= 1000 \times (1 - 0.887) = 113
+\end{align*}
+</div>
+<div class="para">The sample proportion <span class="process-math">\(\hat{p}\)</span> acts as a reasonable substitute for <span class="process-math">\(p\)</span> during this check, and each value in this case is well above the minimum of 10.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-clt-real-world-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="para logical" id="subsec-clt-real-world-4">
+<div class="para">This <dfn class="terminology">substitution approximation</dfn> of using <span class="process-math">\(\hat{p}\)</span> in place of <span class="process-math">\(p\)</span> is also useful when computing the standard error of the sample proportion:</div>
+<div class="displaymath process-math" id="subsec-clt-real-world-4-4">
+\begin{align*}
+SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}\\
+\amp\approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\\
+\amp= \sqrt{\frac{0.887 \times (1 - 0.887)}{1000}}\\
+\amp= 0.010
+\end{align*}
+</div>
+<div class="para">This substitution technique is sometimes referred to as the “plug-in principle”. In this case, <span class="process-math">\(SE_{\hat{p}}\)</span> didn’t change enough to be detected using only 3 decimal places versus when we completed the calculation with 0.88 earlier. The computed standard error tends to be reasonably stable even when observing slightly different proportions in one sample or another.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 5.1.4: Applying the Central Limit Theorem to a real-world setting"><a href="#subsec-clt-real-world" title="Copy heading and permalink for Subsection 5.1.4: Applying the Central Limit Theorem to a real-world setting" aria-label="Copy heading and permalink for Subsection 5.1.4: Applying the Central Limit Theorem to a real-world setting">🔗</a></div></section><section class="subsection" id="subsec-more-details-clt"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More details regarding the Central Limit Theorem</span>
 </h3>
 <div class="para" id="subsec-more-details-clt-2">We’ve applied the Central Limit Theorem in numerous examples so far this chapter:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-more-details-clt-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -896,46 +935,7 @@ np = 10 \times 0.25 = 2.5 \amp\amp n(1-p) = 10 \times 0.75 = 7.5
 </ol>
 <div class="para" id="subsec-more-details-clt-18">At no point will the distribution of <span class="process-math">\(\hat{p}\)</span> look <em class="emphasis">perfectly</em> normal, since <span class="process-math">\(\hat{p}\)</span> will always take discrete values (<span class="process-math">\(x/n\)</span>). It is always a matter of degree, and we will use the standard success-failure condition with minimums of 10 for <span class="process-math">\(np\)</span> and <span class="process-math">\(n(1-p)\)</span> as our guideline within this book.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-more-details-clt-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 5.1.4: More details regarding the Central Limit Theorem"><a href="#subsec-more-details-clt" title="Copy heading and permalink for Subsection 5.1.4: More details regarding the Central Limit Theorem" aria-label="Copy heading and permalink for Subsection 5.1.4: More details regarding the Central Limit Theorem">🔗</a></div></section><section class="subsection" id="subsec-clt-real-world"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Applying the Central Limit Theorem to a real-world setting</span>
-</h3>
-<div class="para" id="subsec-clt-real-world-2">We do not actually know the population proportion unless we conduct an expensive poll of all individuals in the population. Our earlier value of <span class="process-math">\(p = 0.88\)</span> was based on poll conducted by Pew Research of 1000 American adults that found <span class="process-math">\(\hat{p} = 0.887\)</span> of them favored expanding solar energy. The researchers might have wondered: does the sample proportion from the poll approximately follow a normal distribution? We can check the conditions from the Central Limit Theorem:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<ol class="decimal" id="subsec-clt-real-world-3">
-<li id="subsec-clt-real-world-3-1">
-<div class="para" id="subsec-clt-real-world-3-1-1">Independence. The poll is a simple random sample of American adults, which means that the observations are independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1"><a href="#subsec-clt-real-world-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
-</li>
-<li id="subsec-clt-real-world-3-2">
-<div class="para logical" id="subsec-clt-real-world-3-2-1">
-<div class="para">Success-failure condition. To check this condition, we need the population proportion, <span class="process-math">\(p\text{,}\)</span> to check if both <span class="process-math">\(np\)</span> and <span class="process-math">\(n(1-p)\)</span> are greater than 10. However, we do not actually know <span class="process-math">\(p\text{,}\)</span> which is exactly why the pollsters would take a sample! In cases like these, we often use <span class="process-math">\(\hat{p}\)</span> as our next best way to check the success-failure condition:</div>
-<div class="displaymath process-math" id="subsec-clt-real-world-3-2-1-7">
-\begin{align*}
-n\hat{p} \amp= 1000 \times 0.887 = 887\\
-n(1-\hat{p}) \amp= 1000 \times (1 - 0.887) = 113
-\end{align*}
-</div>
-<div class="para">The sample proportion <span class="process-math">\(\hat{p}\)</span> acts as a reasonable substitute for <span class="process-math">\(p\)</span> during this check, and each value in this case is well above the minimum of 10.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 2"><a href="#subsec-clt-real-world-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
-</li>
-</ol>
-<div class="para logical" id="subsec-clt-real-world-4">
-<div class="para">This <dfn class="terminology">substitution approximation</dfn> of using <span class="process-math">\(\hat{p}\)</span> in place of <span class="process-math">\(p\)</span> is also useful when computing the standard error of the sample proportion:</div>
-<div class="displaymath process-math" id="subsec-clt-real-world-4-4">
-\begin{align*}
-SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}\\
-\amp\approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\\
-\amp= \sqrt{\frac{0.887 \times (1 - 0.887)}{1000}}\\
-\amp= 0.010
-\end{align*}
-</div>
-<div class="para">This substitution technique is sometimes referred to as the “plug-in principle”. In this case, <span class="process-math">\(SE_{\hat{p}}\)</span> didn’t change enough to be detected using only 3 decimal places versus when we completed the calculation with 0.88 earlier. The computed standard error tends to be reasonably stable even when observing slightly different proportions in one sample or another.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#subsec-clt-real-world-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Subsection 5.1.5: Applying the Central Limit Theorem to a real-world setting"><a href="#subsec-clt-real-world" title="Copy heading and permalink for Subsection 5.1.5: Applying the Central Limit Theorem to a real-world setting" aria-label="Copy heading and permalink for Subsection 5.1.5: Applying the Central Limit Theorem to a real-world setting">🔗</a></div></section><section class="subsection" id="subsec-extending-framework"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 5.1.5: More details regarding the Central Limit Theorem"><a href="#subsec-more-details-clt" title="Copy heading and permalink for Subsection 5.1.5: More details regarding the Central Limit Theorem" aria-label="Copy heading and permalink for Subsection 5.1.5: More details regarding the Central Limit Theorem">🔗</a></div></section><section class="subsection" id="subsec-extending-framework"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extending the framework for other statistics</span>
 </h3>
 <div class="para" id="subsec-extending-framework-2">The strategy of using a sample statistic to estimate a parameter is quite common, and it’s a strategy that we can apply to other statistics besides a proportion. For instance, if we want to estimate the average salary for graduates from a particular college, we could survey a random sample of recent graduates; in that example, we’d be using a sample mean <span class="process-math">\(\bar{x}\)</span> to estimate the population mean <span class="process-math">\(\mu\)</span> for all graduates. As another example, if we want to estimate the difference in product prices for two websites, we might take a random sample of products available on both sites, check the prices on each, and then compute the average difference; this strategy certainly would give us some idea of the actual difference through a point estimate.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-extending-framework-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -945,167 +945,179 @@ SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}\\
 <div class="autopermalink" data-description="Subsection 5.1.6: Extending the framework for other statistics"><a href="#subsec-extending-framework" title="Copy heading and permalink for Subsection 5.1.6: Extending the framework for other statistics" aria-label="Copy heading and permalink for Subsection 5.1.6: Extending the framework for other statistics">🔗</a></div></section><section class="exercises" id="sec-point-estimates-9"><h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Section 5.1 Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ex-identify-parameter-1"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="ex-identify-parameter-1-1-1">For each of the following situations, state whether the parameter of interest is a mean or a proportion. It may be helpful to examine whether individual responses are numerical or categorical.<div class="autopermalink" data-description="Paragraph"><a href="#ex-identify-parameter-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-identify-parameter-1-1-2">
-<li id="ex-identify-parameter-1-1-2-1">
-<div class="para" id="p-derived-ex-identify-parameter-1-1-2-1">In a survey, one hundred college students are asked how many hours per week they spend on the Internet.</div>
-<div class="autopermalink" data-description="Item 5.1.7.1.a"><a href="#ex-identify-parameter-1-1-2-1" title="Copy heading and permalink for Item 5.1.7.1.a" aria-label="Copy heading and permalink for Item 5.1.7.1.a">🔗</a></div>
+<article class="exercise exercise-like" id="ex-identify-parameter-1"><h4 class="heading">
+<span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Identify the parameter, Part I.</span>
+</h4>
+<div class="para" id="ex-identify-parameter-1-2-1">For each of the following situations, state whether the parameter of interest is a mean or a proportion. It may be helpful to examine whether individual responses are numerical or categorical.<div class="autopermalink" data-description="Paragraph"><a href="#ex-identify-parameter-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-identify-parameter-1-2-2">
+<li id="ex-identify-parameter-1-2-2-1">
+<div class="para" id="p-derived-ex-identify-parameter-1-2-2-1">In a survey, one hundred college students are asked how many hours per week they spend on the Internet.</div>
+<div class="autopermalink" data-description="Item 5.1.7.1.a"><a href="#ex-identify-parameter-1-2-2-1" title="Copy heading and permalink for Item 5.1.7.1.a" aria-label="Copy heading and permalink for Item 5.1.7.1.a">🔗</a></div>
 </li>
-<li id="ex-identify-parameter-1-1-2-2">
-<div class="para" id="p-derived-ex-identify-parameter-1-1-2-2">In a survey, one hundred college students are asked: "What percentage of the time you spend on the Internet is part of your course work?"</div>
-<div class="autopermalink" data-description="Item 5.1.7.1.b"><a href="#ex-identify-parameter-1-1-2-2" title="Copy heading and permalink for Item 5.1.7.1.b" aria-label="Copy heading and permalink for Item 5.1.7.1.b">🔗</a></div>
+<li id="ex-identify-parameter-1-2-2-2">
+<div class="para" id="p-derived-ex-identify-parameter-1-2-2-2">In a survey, one hundred college students are asked: "What percentage of the time you spend on the Internet is part of your course work?"</div>
+<div class="autopermalink" data-description="Item 5.1.7.1.b"><a href="#ex-identify-parameter-1-2-2-2" title="Copy heading and permalink for Item 5.1.7.1.b" aria-label="Copy heading and permalink for Item 5.1.7.1.b">🔗</a></div>
 </li>
-<li id="ex-identify-parameter-1-1-2-3">
-<div class="para" id="p-derived-ex-identify-parameter-1-1-2-3">In a survey, one hundred college students are asked whether or not they cited information from Wikipedia in their papers.</div>
-<div class="autopermalink" data-description="Item 5.1.7.1.c"><a href="#ex-identify-parameter-1-1-2-3" title="Copy heading and permalink for Item 5.1.7.1.c" aria-label="Copy heading and permalink for Item 5.1.7.1.c">🔗</a></div>
+<li id="ex-identify-parameter-1-2-2-3">
+<div class="para" id="p-derived-ex-identify-parameter-1-2-2-3">In a survey, one hundred college students are asked whether or not they cited information from Wikipedia in their papers.</div>
+<div class="autopermalink" data-description="Item 5.1.7.1.c"><a href="#ex-identify-parameter-1-2-2-3" title="Copy heading and permalink for Item 5.1.7.1.c" aria-label="Copy heading and permalink for Item 5.1.7.1.c">🔗</a></div>
 </li>
-<li id="ex-identify-parameter-1-1-2-4">
-<div class="para" id="p-derived-ex-identify-parameter-1-1-2-4">In a survey, one hundred college students are asked what percentage of their total weekly spending is on alcoholic beverages.</div>
-<div class="autopermalink" data-description="Item 5.1.7.1.d"><a href="#ex-identify-parameter-1-1-2-4" title="Copy heading and permalink for Item 5.1.7.1.d" aria-label="Copy heading and permalink for Item 5.1.7.1.d">🔗</a></div>
+<li id="ex-identify-parameter-1-2-2-4">
+<div class="para" id="p-derived-ex-identify-parameter-1-2-2-4">In a survey, one hundred college students are asked what percentage of their total weekly spending is on alcoholic beverages.</div>
+<div class="autopermalink" data-description="Item 5.1.7.1.d"><a href="#ex-identify-parameter-1-2-2-4" title="Copy heading and permalink for Item 5.1.7.1.d" aria-label="Copy heading and permalink for Item 5.1.7.1.d">🔗</a></div>
 </li>
-<li id="ex-identify-parameter-1-1-2-5">
-<div class="para" id="p-derived-ex-identify-parameter-1-1-2-5">In a sample of one hundred recent college graduates, it is found that 85 percent expect to get a job within one year of their graduation date.</div>
-<div class="autopermalink" data-description="Item 5.1.7.1.e"><a href="#ex-identify-parameter-1-1-2-5" title="Copy heading and permalink for Item 5.1.7.1.e" aria-label="Copy heading and permalink for Item 5.1.7.1.e">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 5.1.7.1"><a href="#ex-identify-parameter-1" title="Copy heading and permalink for Exercise 5.1.7.1" aria-label="Copy heading and permalink for Exercise 5.1.7.1">🔗</a></div></article><article class="exercise exercise-like" id="ex-identify-parameter-2"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="ex-identify-parameter-2-1-1">For each of the following situations, state whether the parameter of interest is a mean or a proportion.<div class="autopermalink" data-description="Paragraph"><a href="#ex-identify-parameter-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-identify-parameter-2-1-2">
-<li id="ex-identify-parameter-2-1-2-1">
-<div class="para" id="p-derived-ex-identify-parameter-2-1-2-1">A poll shows that 64% of Americans personally worry a great deal about federal spending and the budget deficit.</div>
-<div class="autopermalink" data-description="Item 5.1.7.2.a"><a href="#ex-identify-parameter-2-1-2-1" title="Copy heading and permalink for Item 5.1.7.2.a" aria-label="Copy heading and permalink for Item 5.1.7.2.a">🔗</a></div>
-</li>
-<li id="ex-identify-parameter-2-1-2-2">
-<div class="para" id="p-derived-ex-identify-parameter-2-1-2-2">A survey reports that local TV news has shown a 17% increase in revenue within a two year period while newspaper revenues decreased by 6.4% during this time period.</div>
-<div class="autopermalink" data-description="Item 5.1.7.2.b"><a href="#ex-identify-parameter-2-1-2-2" title="Copy heading and permalink for Item 5.1.7.2.b" aria-label="Copy heading and permalink for Item 5.1.7.2.b">🔗</a></div>
-</li>
-<li id="ex-identify-parameter-2-1-2-3">
-<div class="para" id="p-derived-ex-identify-parameter-2-1-2-3">In a survey, high school and college students are asked whether or not they use geolocation services on their smart phones.</div>
-<div class="autopermalink" data-description="Item 5.1.7.2.c"><a href="#ex-identify-parameter-2-1-2-3" title="Copy heading and permalink for Item 5.1.7.2.c" aria-label="Copy heading and permalink for Item 5.1.7.2.c">🔗</a></div>
-</li>
-<li id="ex-identify-parameter-2-1-2-4">
-<div class="para" id="p-derived-ex-identify-parameter-2-1-2-4">In a survey, smart phone users are asked whether or not they use a web-based taxi service.</div>
-<div class="autopermalink" data-description="Item 5.1.7.2.d"><a href="#ex-identify-parameter-2-1-2-4" title="Copy heading and permalink for Item 5.1.7.2.d" aria-label="Copy heading and permalink for Item 5.1.7.2.d">🔗</a></div>
-</li>
-<li id="ex-identify-parameter-2-1-2-5">
-<div class="para" id="p-derived-ex-identify-parameter-2-1-2-5">In a survey, smart phone users are asked how many times they used a web-based taxi service over the last year.</div>
-<div class="autopermalink" data-description="Item 5.1.7.2.e"><a href="#ex-identify-parameter-2-1-2-5" title="Copy heading and permalink for Item 5.1.7.2.e" aria-label="Copy heading and permalink for Item 5.1.7.2.e">🔗</a></div>
+<li id="ex-identify-parameter-1-2-2-5">
+<div class="para" id="p-derived-ex-identify-parameter-1-2-2-5">In a sample of one hundred recent college graduates, it is found that 85 percent expect to get a job within one year of their graduation date.</div>
+<div class="autopermalink" data-description="Item 5.1.7.1.e"><a href="#ex-identify-parameter-1-2-2-5" title="Copy heading and permalink for Item 5.1.7.1.e" aria-label="Copy heading and permalink for Item 5.1.7.1.e">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 5.1.7.2"><a href="#ex-identify-parameter-2" title="Copy heading and permalink for Exercise 5.1.7.2" aria-label="Copy heading and permalink for Exercise 5.1.7.2">🔗</a></div></article><article class="exercise exercise-like" id="ex-quality-control"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="ex-quality-control-1-1">As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.<div class="autopermalink" data-description="Paragraph"><a href="#ex-quality-control-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-quality-control-1-2">
-<li id="ex-quality-control-1-2-1">
-<div class="para" id="p-derived-ex-quality-control-1-2-1">What population is under consideration in the data set?</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.a"><a href="#ex-quality-control-1-2-1" title="Copy heading and permalink for Item 5.1.7.3.a" aria-label="Copy heading and permalink for Item 5.1.7.3.a">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 5.1.7.1: Identify the parameter, Part I"><a href="#ex-identify-parameter-1" title="Copy heading and permalink for Exercise 5.1.7.1: Identify the parameter, Part I" aria-label="Copy heading and permalink for Exercise 5.1.7.1: Identify the parameter, Part I">🔗</a></div></article><article class="exercise exercise-like" id="ex-identify-parameter-2"><h4 class="heading">
+<span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Identify the parameter, Part II.</span>
+</h4>
+<div class="para" id="ex-identify-parameter-2-2-1">For each of the following situations, state whether the parameter of interest is a mean or a proportion.<div class="autopermalink" data-description="Paragraph"><a href="#ex-identify-parameter-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-identify-parameter-2-2-2">
+<li id="ex-identify-parameter-2-2-2-1">
+<div class="para" id="p-derived-ex-identify-parameter-2-2-2-1">A poll shows that 64% of Americans personally worry a great deal about federal spending and the budget deficit.</div>
+<div class="autopermalink" data-description="Item 5.1.7.2.a"><a href="#ex-identify-parameter-2-2-2-1" title="Copy heading and permalink for Item 5.1.7.2.a" aria-label="Copy heading and permalink for Item 5.1.7.2.a">🔗</a></div>
 </li>
-<li id="ex-quality-control-1-2-2">
-<div class="para" id="p-derived-ex-quality-control-1-2-2">What parameter is being estimated?</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.b"><a href="#ex-quality-control-1-2-2" title="Copy heading and permalink for Item 5.1.7.3.b" aria-label="Copy heading and permalink for Item 5.1.7.3.b">🔗</a></div>
+<li id="ex-identify-parameter-2-2-2-2">
+<div class="para" id="p-derived-ex-identify-parameter-2-2-2-2">A survey reports that local TV news has shown a 17% increase in revenue within a two year period while newspaper revenues decreased by 6.4% during this time period.</div>
+<div class="autopermalink" data-description="Item 5.1.7.2.b"><a href="#ex-identify-parameter-2-2-2-2" title="Copy heading and permalink for Item 5.1.7.2.b" aria-label="Copy heading and permalink for Item 5.1.7.2.b">🔗</a></div>
 </li>
-<li id="ex-quality-control-1-2-3">
-<div class="para" id="p-derived-ex-quality-control-1-2-3">What is the point estimate for the parameter?</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.c"><a href="#ex-quality-control-1-2-3" title="Copy heading and permalink for Item 5.1.7.3.c" aria-label="Copy heading and permalink for Item 5.1.7.3.c">🔗</a></div>
+<li id="ex-identify-parameter-2-2-2-3">
+<div class="para" id="p-derived-ex-identify-parameter-2-2-2-3">In a survey, high school and college students are asked whether or not they use geolocation services on their smart phones.</div>
+<div class="autopermalink" data-description="Item 5.1.7.2.c"><a href="#ex-identify-parameter-2-2-2-3" title="Copy heading and permalink for Item 5.1.7.2.c" aria-label="Copy heading and permalink for Item 5.1.7.2.c">🔗</a></div>
 </li>
-<li id="ex-quality-control-1-2-4">
-<div class="para" id="p-derived-ex-quality-control-1-2-4">What is the name of the statistic we use to measure the uncertainty of the point estimate?</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.d"><a href="#ex-quality-control-1-2-4" title="Copy heading and permalink for Item 5.1.7.3.d" aria-label="Copy heading and permalink for Item 5.1.7.3.d">🔗</a></div>
+<li id="ex-identify-parameter-2-2-2-4">
+<div class="para" id="p-derived-ex-identify-parameter-2-2-2-4">In a survey, smart phone users are asked whether or not they use a web-based taxi service.</div>
+<div class="autopermalink" data-description="Item 5.1.7.2.d"><a href="#ex-identify-parameter-2-2-2-4" title="Copy heading and permalink for Item 5.1.7.2.d" aria-label="Copy heading and permalink for Item 5.1.7.2.d">🔗</a></div>
 </li>
-<li id="ex-quality-control-1-2-5">
-<div class="para" id="p-derived-ex-quality-control-1-2-5">Compute this value for this context.</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.e"><a href="#ex-quality-control-1-2-5" title="Copy heading and permalink for Item 5.1.7.3.e" aria-label="Copy heading and permalink for Item 5.1.7.3.e">🔗</a></div>
-</li>
-<li id="ex-quality-control-1-2-6">
-<div class="para" id="p-derived-ex-quality-control-1-2-6">The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week?</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.f"><a href="#ex-quality-control-1-2-6" title="Copy heading and permalink for Item 5.1.7.3.f" aria-label="Copy heading and permalink for Item 5.1.7.3.f">🔗</a></div>
-</li>
-<li id="ex-quality-control-1-2-7">
-<div class="para" id="p-derived-ex-quality-control-1-2-7">Suppose the true population value was found to be 10%. If we use this proportion to recompute the value in part (e) using <span class="process-math">\(p = 0.1\)</span> instead of <span class="process-math">\(\hat{p}\text{,}\)</span> does the resulting value change much?</div>
-<div class="autopermalink" data-description="Item 5.1.7.3.g"><a href="#ex-quality-control-1-2-7" title="Copy heading and permalink for Item 5.1.7.3.g" aria-label="Copy heading and permalink for Item 5.1.7.3.g">🔗</a></div>
+<li id="ex-identify-parameter-2-2-2-5">
+<div class="para" id="p-derived-ex-identify-parameter-2-2-2-5">In a survey, smart phone users are asked how many times they used a web-based taxi service over the last year.</div>
+<div class="autopermalink" data-description="Item 5.1.7.2.e"><a href="#ex-identify-parameter-2-2-2-5" title="Copy heading and permalink for Item 5.1.7.2.e" aria-label="Copy heading and permalink for Item 5.1.7.2.e">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 5.1.7.3"><a href="#ex-quality-control" title="Copy heading and permalink for Exercise 5.1.7.3" aria-label="Copy heading and permalink for Exercise 5.1.7.3">🔗</a></div></article><article class="exercise exercise-like" id="ex-unexpected-expense"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="ex-unexpected-expense-1-1">In a random sample of 765 adults in the United States, 322 say they could not cover a $400 unexpected expense without borrowing money or going into debt.<div class="autopermalink" data-description="Paragraph"><a href="#ex-unexpected-expense-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-unexpected-expense-1-2">
-<li id="ex-unexpected-expense-1-2-1">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-1">What population is under consideration in the data set?</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.a"><a href="#ex-unexpected-expense-1-2-1" title="Copy heading and permalink for Item 5.1.7.4.a" aria-label="Copy heading and permalink for Item 5.1.7.4.a">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 5.1.7.2: Identify the parameter, Part II"><a href="#ex-identify-parameter-2" title="Copy heading and permalink for Exercise 5.1.7.2: Identify the parameter, Part II" aria-label="Copy heading and permalink for Exercise 5.1.7.2: Identify the parameter, Part II">🔗</a></div></article><article class="exercise exercise-like" id="ex-quality-control"><h4 class="heading">
+<span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quality control.</span>
+</h4>
+<div class="para" id="ex-quality-control-2-1">As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.<div class="autopermalink" data-description="Paragraph"><a href="#ex-quality-control-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-quality-control-2-2">
+<li id="ex-quality-control-2-2-1">
+<div class="para" id="p-derived-ex-quality-control-2-2-1">What population is under consideration in the data set?</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.a"><a href="#ex-quality-control-2-2-1" title="Copy heading and permalink for Item 5.1.7.3.a" aria-label="Copy heading and permalink for Item 5.1.7.3.a">🔗</a></div>
 </li>
-<li id="ex-unexpected-expense-1-2-2">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-2">What parameter is being estimated?</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.b"><a href="#ex-unexpected-expense-1-2-2" title="Copy heading and permalink for Item 5.1.7.4.b" aria-label="Copy heading and permalink for Item 5.1.7.4.b">🔗</a></div>
+<li id="ex-quality-control-2-2-2">
+<div class="para" id="p-derived-ex-quality-control-2-2-2">What parameter is being estimated?</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.b"><a href="#ex-quality-control-2-2-2" title="Copy heading and permalink for Item 5.1.7.3.b" aria-label="Copy heading and permalink for Item 5.1.7.3.b">🔗</a></div>
 </li>
-<li id="ex-unexpected-expense-1-2-3">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-3">What is the point estimate for the parameter?</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.c"><a href="#ex-unexpected-expense-1-2-3" title="Copy heading and permalink for Item 5.1.7.4.c" aria-label="Copy heading and permalink for Item 5.1.7.4.c">🔗</a></div>
+<li id="ex-quality-control-2-2-3">
+<div class="para" id="p-derived-ex-quality-control-2-2-3">What is the point estimate for the parameter?</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.c"><a href="#ex-quality-control-2-2-3" title="Copy heading and permalink for Item 5.1.7.3.c" aria-label="Copy heading and permalink for Item 5.1.7.3.c">🔗</a></div>
 </li>
-<li id="ex-unexpected-expense-1-2-4">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-4">What is the name of the statistic we use to measure the uncertainty of the point estimate?</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.d"><a href="#ex-unexpected-expense-1-2-4" title="Copy heading and permalink for Item 5.1.7.4.d" aria-label="Copy heading and permalink for Item 5.1.7.4.d">🔗</a></div>
+<li id="ex-quality-control-2-2-4">
+<div class="para" id="p-derived-ex-quality-control-2-2-4">What is the name of the statistic we use to measure the uncertainty of the point estimate?</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.d"><a href="#ex-quality-control-2-2-4" title="Copy heading and permalink for Item 5.1.7.3.d" aria-label="Copy heading and permalink for Item 5.1.7.3.d">🔗</a></div>
 </li>
-<li id="ex-unexpected-expense-1-2-5">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-5">Compute the value from part (d) for this context.</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.e"><a href="#ex-unexpected-expense-1-2-5" title="Copy heading and permalink for Item 5.1.7.4.e" aria-label="Copy heading and permalink for Item 5.1.7.4.e">🔗</a></div>
+<li id="ex-quality-control-2-2-5">
+<div class="para" id="p-derived-ex-quality-control-2-2-5">Compute this value for this context.</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.e"><a href="#ex-quality-control-2-2-5" title="Copy heading and permalink for Item 5.1.7.3.e" aria-label="Copy heading and permalink for Item 5.1.7.3.e">🔗</a></div>
 </li>
-<li id="ex-unexpected-expense-1-2-6">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-6">A cable news pundit thinks the value is actually 50%. Should she be surprised by the data?</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.f"><a href="#ex-unexpected-expense-1-2-6" title="Copy heading and permalink for Item 5.1.7.4.f" aria-label="Copy heading and permalink for Item 5.1.7.4.f">🔗</a></div>
+<li id="ex-quality-control-2-2-6">
+<div class="para" id="p-derived-ex-quality-control-2-2-6">The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week?</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.f"><a href="#ex-quality-control-2-2-6" title="Copy heading and permalink for Item 5.1.7.3.f" aria-label="Copy heading and permalink for Item 5.1.7.3.f">🔗</a></div>
 </li>
-<li id="ex-unexpected-expense-1-2-7">
-<div class="para" id="p-derived-ex-unexpected-expense-1-2-7">Suppose the true population value was found to be 40%. If we use this proportion to recompute the value in part (e) using <span class="process-math">\(p = 0.4\)</span> instead of <span class="process-math">\(\hat{p}\text{,}\)</span> does the resulting value change much?</div>
-<div class="autopermalink" data-description="Item 5.1.7.4.g"><a href="#ex-unexpected-expense-1-2-7" title="Copy heading and permalink for Item 5.1.7.4.g" aria-label="Copy heading and permalink for Item 5.1.7.4.g">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 5.1.7.4"><a href="#ex-unexpected-expense" title="Copy heading and permalink for Exercise 5.1.7.4" aria-label="Copy heading and permalink for Exercise 5.1.7.4">🔗</a></div></article><article class="exercise exercise-like" id="ex-repeated-water-samples"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="ex-repeated-water-samples-1-1">A nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-repeated-water-samples-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-repeated-water-samples-1-2">
-<li id="ex-repeated-water-samples-1-2-1">
-<div class="para" id="p-derived-ex-repeated-water-samples-1-2-1">What is this distribution called?</div>
-<div class="autopermalink" data-description="Item 5.1.7.5.a"><a href="#ex-repeated-water-samples-1-2-1" title="Copy heading and permalink for Item 5.1.7.5.a" aria-label="Copy heading and permalink for Item 5.1.7.5.a">🔗</a></div>
-</li>
-<li id="ex-repeated-water-samples-1-2-2">
-<div class="para" id="p-derived-ex-repeated-water-samples-1-2-2">Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.</div>
-<div class="autopermalink" data-description="Item 5.1.7.5.b"><a href="#ex-repeated-water-samples-1-2-2" title="Copy heading and permalink for Item 5.1.7.5.b" aria-label="Copy heading and permalink for Item 5.1.7.5.b">🔗</a></div>
-</li>
-<li id="ex-repeated-water-samples-1-2-3">
-<div class="para" id="p-derived-ex-repeated-water-samples-1-2-3">If the proportions are distributed around 8%, what is the variability of the distribution?</div>
-<div class="autopermalink" data-description="Item 5.1.7.5.c"><a href="#ex-repeated-water-samples-1-2-3" title="Copy heading and permalink for Item 5.1.7.5.c" aria-label="Copy heading and permalink for Item 5.1.7.5.c">🔗</a></div>
-</li>
-<li id="ex-repeated-water-samples-1-2-4">
-<div class="para" id="p-derived-ex-repeated-water-samples-1-2-4">What is the formal name of the value you computed in (c)?</div>
-<div class="autopermalink" data-description="Item 5.1.7.5.d"><a href="#ex-repeated-water-samples-1-2-4" title="Copy heading and permalink for Item 5.1.7.5.d" aria-label="Copy heading and permalink for Item 5.1.7.5.d">🔗</a></div>
-</li>
-<li id="ex-repeated-water-samples-1-2-5">
-<div class="para" id="p-derived-ex-repeated-water-samples-1-2-5">Suppose the researchers’ budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 800 observations?</div>
-<div class="autopermalink" data-description="Item 5.1.7.5.e"><a href="#ex-repeated-water-samples-1-2-5" title="Copy heading and permalink for Item 5.1.7.5.e" aria-label="Copy heading and permalink for Item 5.1.7.5.e">🔗</a></div>
+<li id="ex-quality-control-2-2-7">
+<div class="para" id="p-derived-ex-quality-control-2-2-7">Suppose the true population value was found to be 10%. If we use this proportion to recompute the value in part (e) using <span class="process-math">\(p = 0.1\)</span> instead of <span class="process-math">\(\hat{p}\text{,}\)</span> does the resulting value change much?</div>
+<div class="autopermalink" data-description="Item 5.1.7.3.g"><a href="#ex-quality-control-2-2-7" title="Copy heading and permalink for Item 5.1.7.3.g" aria-label="Copy heading and permalink for Item 5.1.7.3.g">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 5.1.7.5"><a href="#ex-repeated-water-samples" title="Copy heading and permalink for Exercise 5.1.7.5" aria-label="Copy heading and permalink for Exercise 5.1.7.5">🔗</a></div></article><article class="exercise exercise-like" id="ex-repeated-student-samples"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
-<div class="para" id="ex-repeated-student-samples-1-1">Of all freshman at a large college, 16% made the dean’s list in the current year. As part of a class project, students randomly sample 40 students and check if those students made the list. They repeat this 1,000 times and build a distribution of sample proportions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-repeated-student-samples-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-repeated-student-samples-1-2">
-<li id="ex-repeated-student-samples-1-2-1">
-<div class="para" id="p-derived-ex-repeated-student-samples-1-2-1">What is this distribution called?</div>
-<div class="autopermalink" data-description="Item 5.1.7.6.a"><a href="#ex-repeated-student-samples-1-2-1" title="Copy heading and permalink for Item 5.1.7.6.a" aria-label="Copy heading and permalink for Item 5.1.7.6.a">🔗</a></div>
+<div class="autopermalink" data-description="Exercise 5.1.7.3: Quality control"><a href="#ex-quality-control" title="Copy heading and permalink for Exercise 5.1.7.3: Quality control" aria-label="Copy heading and permalink for Exercise 5.1.7.3: Quality control">🔗</a></div></article><article class="exercise exercise-like" id="ex-unexpected-expense"><h4 class="heading">
+<span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unexpected expense.</span>
+</h4>
+<div class="para" id="ex-unexpected-expense-2-1">In a random sample of 765 adults in the United States, 322 say they could not cover a $400 unexpected expense without borrowing money or going into debt.<div class="autopermalink" data-description="Paragraph"><a href="#ex-unexpected-expense-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-unexpected-expense-2-2">
+<li id="ex-unexpected-expense-2-2-1">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-1">What population is under consideration in the data set?</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.a"><a href="#ex-unexpected-expense-2-2-1" title="Copy heading and permalink for Item 5.1.7.4.a" aria-label="Copy heading and permalink for Item 5.1.7.4.a">🔗</a></div>
 </li>
-<li id="ex-repeated-student-samples-1-2-2">
-<div class="para" id="p-derived-ex-repeated-student-samples-1-2-2">Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.</div>
-<div class="autopermalink" data-description="Item 5.1.7.6.b"><a href="#ex-repeated-student-samples-1-2-2" title="Copy heading and permalink for Item 5.1.7.6.b" aria-label="Copy heading and permalink for Item 5.1.7.6.b">🔗</a></div>
+<li id="ex-unexpected-expense-2-2-2">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-2">What parameter is being estimated?</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.b"><a href="#ex-unexpected-expense-2-2-2" title="Copy heading and permalink for Item 5.1.7.4.b" aria-label="Copy heading and permalink for Item 5.1.7.4.b">🔗</a></div>
 </li>
-<li id="ex-repeated-student-samples-1-2-3">
-<div class="para" id="p-derived-ex-repeated-student-samples-1-2-3">Calculate the variability of this distribution.</div>
-<div class="autopermalink" data-description="Item 5.1.7.6.c"><a href="#ex-repeated-student-samples-1-2-3" title="Copy heading and permalink for Item 5.1.7.6.c" aria-label="Copy heading and permalink for Item 5.1.7.6.c">🔗</a></div>
+<li id="ex-unexpected-expense-2-2-3">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-3">What is the point estimate for the parameter?</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.c"><a href="#ex-unexpected-expense-2-2-3" title="Copy heading and permalink for Item 5.1.7.4.c" aria-label="Copy heading and permalink for Item 5.1.7.4.c">🔗</a></div>
 </li>
-<li id="ex-repeated-student-samples-1-2-4">
-<div class="para" id="p-derived-ex-repeated-student-samples-1-2-4">What is the formal name of the value you computed in (c)?</div>
-<div class="autopermalink" data-description="Item 5.1.7.6.d"><a href="#ex-repeated-student-samples-1-2-4" title="Copy heading and permalink for Item 5.1.7.6.d" aria-label="Copy heading and permalink for Item 5.1.7.6.d">🔗</a></div>
+<li id="ex-unexpected-expense-2-2-4">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-4">What is the name of the statistic we use to measure the uncertainty of the point estimate?</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.d"><a href="#ex-unexpected-expense-2-2-4" title="Copy heading and permalink for Item 5.1.7.4.d" aria-label="Copy heading and permalink for Item 5.1.7.4.d">🔗</a></div>
 </li>
-<li id="ex-repeated-student-samples-1-2-5">
-<div class="para" id="p-derived-ex-repeated-student-samples-1-2-5">Suppose the students decide to sample again, this time collecting 90 students per sample, and they again collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 40 observations?</div>
-<div class="autopermalink" data-description="Item 5.1.7.6.e"><a href="#ex-repeated-student-samples-1-2-5" title="Copy heading and permalink for Item 5.1.7.6.e" aria-label="Copy heading and permalink for Item 5.1.7.6.e">🔗</a></div>
+<li id="ex-unexpected-expense-2-2-5">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-5">Compute the value from part (d) for this context.</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.e"><a href="#ex-unexpected-expense-2-2-5" title="Copy heading and permalink for Item 5.1.7.4.e" aria-label="Copy heading and permalink for Item 5.1.7.4.e">🔗</a></div>
+</li>
+<li id="ex-unexpected-expense-2-2-6">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-6">A cable news pundit thinks the value is actually 50%. Should she be surprised by the data?</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.f"><a href="#ex-unexpected-expense-2-2-6" title="Copy heading and permalink for Item 5.1.7.4.f" aria-label="Copy heading and permalink for Item 5.1.7.4.f">🔗</a></div>
+</li>
+<li id="ex-unexpected-expense-2-2-7">
+<div class="para" id="p-derived-ex-unexpected-expense-2-2-7">Suppose the true population value was found to be 40%. If we use this proportion to recompute the value in part (e) using <span class="process-math">\(p = 0.4\)</span> instead of <span class="process-math">\(\hat{p}\text{,}\)</span> does the resulting value change much?</div>
+<div class="autopermalink" data-description="Item 5.1.7.4.g"><a href="#ex-unexpected-expense-2-2-7" title="Copy heading and permalink for Item 5.1.7.4.g" aria-label="Copy heading and permalink for Item 5.1.7.4.g">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 5.1.7.6"><a href="#ex-repeated-student-samples" title="Copy heading and permalink for Exercise 5.1.7.6" aria-label="Copy heading and permalink for Exercise 5.1.7.6">🔗</a></div></article><div class="autopermalink" data-description="Exercises 5.1.7: Section 5.1 Exercises"><a href="#sec-point-estimates-9" title="Copy heading and permalink for Exercises 5.1.7: Section 5.1 Exercises" aria-label="Copy heading and permalink for Exercises 5.1.7: Section 5.1 Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 5.1: Point Estimates and Sampling Variability"><a href="#sec-point-estimates" title="Copy heading and permalink for Section 5.1: Point Estimates and Sampling Variability" aria-label="Copy heading and permalink for Section 5.1: Point Estimates and Sampling Variability">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Exercise 5.1.7.4: Unexpected expense"><a href="#ex-unexpected-expense" title="Copy heading and permalink for Exercise 5.1.7.4: Unexpected expense" aria-label="Copy heading and permalink for Exercise 5.1.7.4: Unexpected expense">🔗</a></div></article><article class="exercise exercise-like" id="ex-repeated-water-samples"><h4 class="heading">
+<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Repeated water samples.</span>
+</h4>
+<div class="para" id="ex-repeated-water-samples-2-1">A nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-repeated-water-samples-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-repeated-water-samples-2-2">
+<li id="ex-repeated-water-samples-2-2-1">
+<div class="para" id="p-derived-ex-repeated-water-samples-2-2-1">What is this distribution called?</div>
+<div class="autopermalink" data-description="Item 5.1.7.5.a"><a href="#ex-repeated-water-samples-2-2-1" title="Copy heading and permalink for Item 5.1.7.5.a" aria-label="Copy heading and permalink for Item 5.1.7.5.a">🔗</a></div>
+</li>
+<li id="ex-repeated-water-samples-2-2-2">
+<div class="para" id="p-derived-ex-repeated-water-samples-2-2-2">Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.</div>
+<div class="autopermalink" data-description="Item 5.1.7.5.b"><a href="#ex-repeated-water-samples-2-2-2" title="Copy heading and permalink for Item 5.1.7.5.b" aria-label="Copy heading and permalink for Item 5.1.7.5.b">🔗</a></div>
+</li>
+<li id="ex-repeated-water-samples-2-2-3">
+<div class="para" id="p-derived-ex-repeated-water-samples-2-2-3">If the proportions are distributed around 8%, what is the variability of the distribution?</div>
+<div class="autopermalink" data-description="Item 5.1.7.5.c"><a href="#ex-repeated-water-samples-2-2-3" title="Copy heading and permalink for Item 5.1.7.5.c" aria-label="Copy heading and permalink for Item 5.1.7.5.c">🔗</a></div>
+</li>
+<li id="ex-repeated-water-samples-2-2-4">
+<div class="para" id="p-derived-ex-repeated-water-samples-2-2-4">What is the formal name of the value you computed in (c)?</div>
+<div class="autopermalink" data-description="Item 5.1.7.5.d"><a href="#ex-repeated-water-samples-2-2-4" title="Copy heading and permalink for Item 5.1.7.5.d" aria-label="Copy heading and permalink for Item 5.1.7.5.d">🔗</a></div>
+</li>
+<li id="ex-repeated-water-samples-2-2-5">
+<div class="para" id="p-derived-ex-repeated-water-samples-2-2-5">Suppose the researchers’ budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 800 observations?</div>
+<div class="autopermalink" data-description="Item 5.1.7.5.e"><a href="#ex-repeated-water-samples-2-2-5" title="Copy heading and permalink for Item 5.1.7.5.e" aria-label="Copy heading and permalink for Item 5.1.7.5.e">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.1.7.5: Repeated water samples"><a href="#ex-repeated-water-samples" title="Copy heading and permalink for Exercise 5.1.7.5: Repeated water samples" aria-label="Copy heading and permalink for Exercise 5.1.7.5: Repeated water samples">🔗</a></div></article><article class="exercise exercise-like" id="ex-repeated-student-samples"><h4 class="heading">
+<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Repeated student samples.</span>
+</h4>
+<div class="para" id="ex-repeated-student-samples-2-1">Of all freshman at a large college, 16% made the dean’s list in the current year. As part of a class project, students randomly sample 40 students and check if those students made the list. They repeat this 1,000 times and build a distribution of sample proportions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-repeated-student-samples-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-repeated-student-samples-2-2">
+<li id="ex-repeated-student-samples-2-2-1">
+<div class="para" id="p-derived-ex-repeated-student-samples-2-2-1">What is this distribution called?</div>
+<div class="autopermalink" data-description="Item 5.1.7.6.a"><a href="#ex-repeated-student-samples-2-2-1" title="Copy heading and permalink for Item 5.1.7.6.a" aria-label="Copy heading and permalink for Item 5.1.7.6.a">🔗</a></div>
+</li>
+<li id="ex-repeated-student-samples-2-2-2">
+<div class="para" id="p-derived-ex-repeated-student-samples-2-2-2">Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.</div>
+<div class="autopermalink" data-description="Item 5.1.7.6.b"><a href="#ex-repeated-student-samples-2-2-2" title="Copy heading and permalink for Item 5.1.7.6.b" aria-label="Copy heading and permalink for Item 5.1.7.6.b">🔗</a></div>
+</li>
+<li id="ex-repeated-student-samples-2-2-3">
+<div class="para" id="p-derived-ex-repeated-student-samples-2-2-3">Calculate the variability of this distribution.</div>
+<div class="autopermalink" data-description="Item 5.1.7.6.c"><a href="#ex-repeated-student-samples-2-2-3" title="Copy heading and permalink for Item 5.1.7.6.c" aria-label="Copy heading and permalink for Item 5.1.7.6.c">🔗</a></div>
+</li>
+<li id="ex-repeated-student-samples-2-2-4">
+<div class="para" id="p-derived-ex-repeated-student-samples-2-2-4">What is the formal name of the value you computed in (c)?</div>
+<div class="autopermalink" data-description="Item 5.1.7.6.d"><a href="#ex-repeated-student-samples-2-2-4" title="Copy heading and permalink for Item 5.1.7.6.d" aria-label="Copy heading and permalink for Item 5.1.7.6.d">🔗</a></div>
+</li>
+<li id="ex-repeated-student-samples-2-2-5">
+<div class="para" id="p-derived-ex-repeated-student-samples-2-2-5">Suppose the students decide to sample again, this time collecting 90 students per sample, and they again collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 40 observations?</div>
+<div class="autopermalink" data-description="Item 5.1.7.6.e"><a href="#ex-repeated-student-samples-2-2-5" title="Copy heading and permalink for Item 5.1.7.6.e" aria-label="Copy heading and permalink for Item 5.1.7.6.e">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.1.7.6: Repeated student samples"><a href="#ex-repeated-student-samples" title="Copy heading and permalink for Exercise 5.1.7.6: Repeated student samples" aria-label="Copy heading and permalink for Exercise 5.1.7.6: Repeated student samples">🔗</a></div></article><div class="autopermalink" data-description="Exercises 5.1.7: Section 5.1 Exercises"><a href="#sec-point-estimates-9" title="Copy heading and permalink for Exercises 5.1.7: Section 5.1 Exercises" aria-label="Copy heading and permalink for Exercises 5.1.7: Section 5.1 Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 5.1: Point Estimates and Sampling Variability"><a href="#sec-point-estimates" title="Copy heading and permalink for Section 5.1: Point Estimates and Sampling Variability" aria-label="Copy heading and permalink for Section 5.1: Point Estimates and Sampling Variability">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="ch-foundations-for-inference.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-confidence-intervals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
