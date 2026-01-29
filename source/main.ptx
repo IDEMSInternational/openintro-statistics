@@ -96,15 +96,14 @@
     <backmatter xml:id="backmatter">
       <title>Back Matter</title>
 
-      <!-- Data sets appendix -->
+      <!-- Appendix A: Exercise solutions -->
+      <xi:include href="./appendix-solutions.ptx" />
+
+      <!-- Appendix B: Data sets appendix -->
       <xi:include href="./appendix-data.ptx" />
 
-      <!-- Statistical tables appendix -->
+      <!-- Appendix C: Statistical tables appendix -->
       <xi:include href="./appendix-tables.ptx" />
-
-      <solutions divisional="hint">
-        <title>Selected Solutions</title>
-      </solutions>
 
       <index>
         <title>Index</title>
