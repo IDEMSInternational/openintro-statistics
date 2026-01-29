@@ -264,9 +264,10 @@
         analyzing numerical data. In practice, it's common to use statistical software, such as R, Python,
         or SAS for these analyses. Alternatively, a graphing calculator or a <term><m>t</m>-table</term>
         may be used; the <m>t</m>-table is similar to the normal distribution table, and it may be found
-        in Appendix<nbsp/>[reference to t-table], which includes usage instructions and examples for those
-        who wish to use this option. No matter the approach you choose, apply your method using the
-        examples below to confirm your working understanding of the <m>t</m>-distribution.
+        in the appendix<!-- TODO: Add xref to t-distribution table appendix when available -->, which 
+        includes usage instructions and examples for those who wish to use this option. No matter the 
+        approach you choose, apply your method using the examples below to confirm your working understanding 
+        of the <m>t</m>-distribution.
       </p>
       
       <example xml:id="t-dist-tail-18df">
@@ -753,13 +754,21 @@
         <title><m>t</m>-distribution</title>
         <statement>
           <p>
-            The figure on the right shows three unimodal and symmetric curves: the standard normal (z)
-            distribution, the <m>t</m>-distribution with 5 degrees of freedom, and the
-            <m>t</m>-distribution with 1 degree of freedom. Determine which is which, and explain your
+            The figure on the right shows three unimodal and symmetric curves: the standard normal (z) 
+            distribution, the <m>t</m>-distribution with 5 degrees of freedom, and the 
+            <m>t</m>-distribution with 1 degree of freedom. Determine which is which, and explain your 
             reasoning.
           </p>
           <p>
-            [Figure showing three distributions, all symmetric, bell-shaped, and centered at zero]
+            <!-- TODO: Add figure reference - Three distributions are shown, all symmetric, bell-shaped, 
+            and centered at zero. The first is shown as a solid line and has the broadest peak of the three 
+            distributions, and the tails of this distribution also visually approach zero at about -3 and 
+            positive 3. The second curve that is shown as a dashed line has a less broad, slightly sharper 
+            peak than the distribution based on solid line. The tails of the distribution with the dashed 
+            line has tails that visually approach zero at values of about -4 and positive 4. The third curve 
+            is shown as a dotted line and has the sharpest peak of the three distributions. The tails of the 
+            dotted line distribution has tails that visually approach zero further out, beyond the limits 
+            shown in this plot of -4 and positive 4. -->
           </p>
         </statement>
       </exercise>
@@ -866,8 +875,24 @@
             The histogram below shows the sample distribution of heights in centimeters.
           </p>
           <p>
-            [Figure and table with summary statistics]
+            <!-- TODO: Add figure - A histogram is shown for "Height" with values ranging from 140 to 200, 
+            with a bin width of 5. The distribution is roughly symmetric with a center at about 170. The bin 
+            heights, starting with the bin from 145 to 150, are about 3, 17, 55, 70, 100, 85, 95, 50, 30, 15, 
+            and 3. -->
           </p>
+          <p>
+            Summary statistics:
+          </p>
+          <!-- TODO: Convert to proper PreTeXt table -->
+          <tabular>
+            <row><cell>Min</cell><cell>147.2</cell></row>
+            <row><cell>Q1</cell><cell>163.8</cell></row>
+            <row><cell>Median</cell><cell>170.3</cell></row>
+            <row><cell>Mean</cell><cell>171.1</cell></row>
+            <row><cell>SD</cell><cell>9.4</cell></row>
+            <row><cell>Q3</cell><cell>177.8</cell></row>
+            <row><cell>Max</cell><cell>198.1</cell></row>
+          </tabular>
           <ol>
             <li>What is the point estimate for the average height of active individuals? What about the
             median?</li>
