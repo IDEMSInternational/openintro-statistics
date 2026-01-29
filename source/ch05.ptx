@@ -2212,54 +2212,193 @@ sum(sampled_entries == "support") / 1000
       <title>Decision errors</title>
       
       <p>
-        Hypothesis tests are not flawless: we can make an incorrect decision based on the data.
+        Hypothesis tests are not flawless: we can make an incorrect
+        decision in a statistical hypothesis test based on the data.
+        For example, in the court system innocent people are
+        sometimes wrongly convicted and the guilty sometimes walk free.
+        One key distinction with statistical hypothesis tests is that
+        we have the tools necessary to probabilistically quantify how
+        often we make errors in our conclusions.
       </p>
       
-      <definition xml:id="def-type-1-error">
-        <title>Type 1 Error</title>
-        <statement>
-          <p>
-            A <term>Type 1 Error</term> is rejecting the null hypothesis when <m>H_0</m>
-            is actually true. This is a false positive.
-          </p>
-        </statement>
-      </definition>
-      
-      <definition xml:id="def-type-2-error">
-        <title>Type 2 Error</title>
-        <statement>
-          <p>
-            A <term>Type 2 Error</term> is failing to reject the null hypothesis when the
-            alternative hypothesis is actually true. This is a false negative.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        Recall that there are two competing hypotheses:
+        the null and the alternative.
+        In a hypothesis test, we make a statement about which one might
+        be true, but we might choose incorrectly. There are four possible
+        scenarios, which are summarized in <xref ref="table-decision-errors"/>.
+      </p>
       
       <table xml:id="table-decision-errors">
-        <title>Four possible outcomes in hypothesis testing</title>
+        <title>Four different scenarios for hypothesis tests.</title>
         <tabular>
-          <row header="yes">
+          <row>
             <cell></cell>
-            <cell><m>H_0</m> is true</cell>
-            <cell><m>H_A</m> is true</cell>
+            <cell></cell>
+            <cell colspan="2" halign="center"><strong>Test conclusion</strong></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell>do not reject <m>H_0</m></cell>
+            <cell>reject <m>H_0</m> in favor of <m>H_A</m></cell>
           </row>
           <row>
-            <cell>Reject <m>H_0</m></cell>
-            <cell>Type 1 Error</cell>
-            <cell>Correct Decision</cell>
+            <cell></cell>
+            <cell><m>H_0</m> true</cell>
+            <cell>okay</cell>
+            <cell><em>Type 1 Error</em></cell>
           </row>
           <row>
-            <cell>Do not reject <m>H_0</m></cell>
-            <cell>Correct Decision</cell>
-            <cell>Type 2 Error</cell>
+            <cell><strong>Truth</strong></cell>
+            <cell><m>H_A</m> true</cell>
+            <cell><em>Type 2 Error</em></cell>
+            <cell>okay</cell>
           </row>
         </tabular>
       </table>
       
       <p>
-        If we reduce how often we make one type of error, we generally make more of the
-        other type. The balance is controlled by the significance level.
+        A <term>Type 1 Error</term> is rejecting the null hypothesis when
+        <m>H_0</m> is actually true.
+        A <term>Type 2 Error</term> is failing to
+        reject the null hypothesis when the alternative is actually
+        true.
       </p>
+      
+      <exercise>
+        <statement>
+          <p>
+            In a US court, the defendant is either innocent (<m>H_0</m>) or
+            guilty (<m>H_A</m>).
+            What does a Type 1 Error represent in this context?
+            What does a Type 2 Error represent?
+            <xref ref="table-decision-errors"/> may be useful.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If
+            the court makes a Type 1 Error, this means the defendant
+            is innocent (<m>H_0</m> true) but wrongly convicted.
+            Note that a Type 1 Error is only possible if we've rejected
+            the null hypothesis.
+          </p>
+          
+          <p>
+            A Type 2 Error means the court failed to reject <m>H_0</m>
+            (i.e. failed to convict the person) when she was
+            in fact guilty (<m>H_A</m> true).
+            Note that a Type 2 Error is only possible if we have
+            failed to reject the null hypothesis.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example>
+        <statement>
+          <p>
+            How could we reduce the Type 1 Error rate
+            in US courts?
+            What influence would this have on the Type 2 Error rate?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            To lower the Type 1 Error rate, we might
+            raise our standard for conviction from
+            <q>beyond a reasonable doubt</q> to
+            <q>beyond a conceivable doubt</q> so fewer people would
+            be wrongly convicted. However, this would also make
+            it more difficult to convict the people who are
+            actually guilty, so we would make more Type 2 Errors.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise>
+        <statement>
+          <p>
+            How could we reduce the Type 2 Error rate in US courts?
+            What influence would this have on the Type 1 Error
+            rate?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            To lower the Type 2 Error rate, we want
+            to convict more guilty people. We could lower the
+            standards for conviction from <q>beyond a reasonable
+            doubt</q> to <q>beyond a little doubt</q>. Lowering the bar
+            for guilt will also result in more wrongful convictions,
+            raising the Type 1 Error rate.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        The previous exercises provide
+        an important lesson: if we reduce how often we make
+        one type of error, we generally make more of the
+        other type.
+      </p>
+      
+      <p>
+        Hypothesis testing is built around rejecting or failing
+        to reject the null hypothesis.
+        That is, we do not reject <m>H_0</m> unless we have strong evidence.
+        But what precisely does <em>strong evidence</em> mean?
+        As a general rule of thumb, for those cases where the null
+        hypothesis is actually true, we do not want to incorrectly
+        reject <m>H_0</m> more than 5% of the time.
+        This corresponds to a <term>significance level</term>
+        of 0.05.
+        That is, if the null hypothesis is true,
+        the significance level indicates how often
+        the data lead us to incorrectly reject <m>H_0</m>.
+        We often write the significance level using <m>\alpha</m>
+        (the Greek letter <em>alpha</em>):
+        <m>\alpha = 0.05</m>.
+        We discuss the appropriateness of different significance
+        levels in <xref ref="subsec-significance-level"/>.
+      </p>
+      
+      <p>
+        If we use a 95% confidence interval to evaluate a
+        hypothesis test and the null hypothesis happens to be true,
+        we will make an error whenever the point estimate is
+        at least 1.96 standard errors away from the population
+        parameter.
+        This happens about 5% of the time (2.5% in each tail).
+        Similarly, using a 99% confidence interval to evaluate
+        a hypothesis is equivalent to a significance level of
+        <m>\alpha = 0.01</m>.
+      </p>
+      
+      <p>
+        A confidence interval is very helpful in determining
+        whether or not to reject the null hypothesis.
+        However, the confidence interval approach isn't always
+        sustainable.
+        In several sections, we will encounter situations where
+        a confidence interval cannot be constructed.
+        For example, if we wanted to evaluate the hypothesis
+        that several proportions are equal, it isn't clear how
+        to construct and compare many confidence intervals
+        altogether.
+      </p>
+      
+      <p>
+        Next we will introduce a statistic called the <em>p-value</em>
+        to help us expand our statistical toolkit, which will
+        enable us to both better understand the strength of
+        evidence and work in more complex data scenarios in
+        later sections.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-formal-testing-p-values">
+      <title>Formal testing using p-values</title>
       
       <definition xml:id="def-significance-level">
         <title>Significance Level</title>
