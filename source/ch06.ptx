@@ -1534,7 +1534,7 @@
     
   </section>
   
-  <!-- Section 7.4: Testing for independence in two-way tables -->
+  <!-- Section 6.4: Testing for independence in two-way tables -->
   <section xml:id="sec-chi-square-independence">
     <title>Testing for independence in two-way tables</title>
     
@@ -1554,11 +1554,11 @@
       </ul>
       
       <p>
-        The question is the treatment given to the sellers, and the response is whether the question prompted them to disclose the freezing issue with the iPod. The results are shown in <xref ref="table-ipod-ask-data-summary"/>, and the data suggest that asking the, <em>What problems does it have?</em>, was the most effective at getting the seller to disclose the past freezing issues. However, you should also be asking yourself: could we see these results due to chance alone, or is this in fact evidence that some questions are more effective for getting at the truth?
+        The question is the treatment given to the sellers, and the response is whether the question prompted them to disclose the freezing issue with the iPod. The results are shown in <xref ref="table-ipod-ask-data-summary"/>, and the data suggest that asking <em>What problems does it have?</em> was the most effective at getting the seller to disclose the past freezing issues. However, you should also be asking yourself: could we see these results due to chance alone, or is this in fact evidence that some questions are more effective for getting at the truth?
       </p>
       
       <table xml:id="table-ipod-ask-data-summary">
-        <title>Summary of the iPod study, where a question was posed to the study participant who acted</title>
+        <title>Summary of the iPod study, where a question was posed to the study participant who acted as the seller</title>
         <tabular>
           <row bottom="minor">
             <cell></cell>
@@ -1599,7 +1599,7 @@
       </assemblage>
       
       <p>
-        The hypothesis test for the iPod experiment is really about assessing whether there is statistically significant evidence that the success each question had on getting the participant to disclose the problem with the iPod. In other words, the goal is to check whether the buyer's question was independent of whether the seller disclosed a problem.
+        The hypothesis test for the iPod experiment is really about assessing whether there is statistically significant evidence of the success each question had on getting the participant to disclose the problem with the iPod. In other words, the goal is to check whether the buyer's question was independent of whether the seller disclosed a problem.
       </p>
     </introduction>
     
@@ -1779,7 +1779,7 @@
         <title>Finding the p-value for the iPod experiment</title>
         <statement>
           <p>
-            Find the p-value and draw a conclusion about whether the question affects the sellers likelihood of reporting the freezing problem.
+            Find the p-value and draw a conclusion about whether the question affects the seller's likelihood of reporting the freezing problem.
           </p>
         </statement>
         <solution>
@@ -1793,7 +1793,7 @@
         <title>Diabetes treatment study hypotheses</title>
         <statement>
           <p>
-            <xref ref="table-diabetes-summary"/> summarizes the results of an experiment evaluating three treatments for Type<nbsp/>2 Diabetes in patients aged 10-17 who were being treated with metformin. The three treatments considered were continued treatment with metformin (met), treatment with metformin combined with rosiglitazone (rosi), or a lifestyle intervention program. Each patient had a primary outcome, which was either lacked glycemic control (failure) or did not lack that control (success). What are appropriate hypotheses for this test?
+            <xref ref="table-diabetes-summary"/> summarizes the results of an experiment evaluating three treatments for Type<nbsp/>2 Diabetes in patients aged 10-17 who were being treated with metformin. The three treatments considered were continued treatment with metformin (met), treatment with metformin combined with rosiglitazone (rosi), or a lifestyle intervention program. Each patient had a primary outcome, which either lacked glycemic control (failure) or did not lack that control (success). What are appropriate hypotheses for this test?
           </p>
         </statement>
         <solution>
@@ -1871,7 +1871,7 @@
       <exercise xml:id="exercise-diabetes-conclusion">
         <statement>
           <p>
-            Because there are 3 rows and 2 columns, the degrees of freedom for the test is <m>df = (3 - 1) \times (2 - 1) = 2</m>. Use <m>X^2 = 8.16</m>, <m>df = 2</m>, evaluate whether to reject the null hypothesis using a significance level of 0.05.
+            Because there are 3 rows and 2 columns, the degrees of freedom for the test is <m>df = (3 - 1) \times (2 - 1) = 2</m>. Use <m>X^2 = 8.16</m>, <m>df = 2</m>, and evaluate whether to reject the null hypothesis using a significance level of 0.05.
           </p>
         </statement>
         <solution>
@@ -1910,7 +1910,7 @@
         <title>Full body scan, Part II</title>
         <statement>
           <p>
-            The table below summarizes a data set we first encountered in an earlier exercise regarding views on full-body scans and political affiliation. The differences in each political group may be due to chance. Complete the following computations under the null hypothesis of independence between an individual's party affiliation and his support of full-body scans. It may be useful to first add on an extra column for row totals before proceeding with the computations.
+            The table below summarizes a data set we first encountered in an earlier exercise regarding views on full-body scans and political affiliation. The differences in each political group may be due to chance. Complete the following computations under the null hypothesis of independence between an individual's party affiliation and their support of full-body scans. It may be useful to first add on an extra column for row totals before proceeding with the computations.
           </p>
           
           <table>
@@ -2015,7 +2015,7 @@
         <title>Parasitic worm</title>
         <statement>
           <p>
-            Lymphatic filariasis is a disease caused by a parasitic worm. Complications of the disease can lead to extreme swelling and other complications. Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of the this parasite, which people are working to eliminate entirely. The results for the second year of the study are given below:
+            Lymphatic filariasis is a disease caused by a parasitic worm. Complications of the disease can lead to extreme swelling and other complications. Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of this parasite, which people are working to eliminate entirely. The results for the second year of the study are given below:
           </p>
           
           <table>
@@ -2063,9 +2063,9 @@
     </exercises>
   </section>
   
-  <!-- Section 7.5: Chapter review -->
-  <section xml:id="sec-ch07-review">
-    <title>Chapter 7 Review Exercises</title>
+  <!-- Section 6.5: Chapter review -->
+  <section xml:id="sec-ch06-review">
+    <title>Chapter 6 Review Exercises</title>
     
     <p>
       This chapter covered inference for categorical data. Key concepts include:
