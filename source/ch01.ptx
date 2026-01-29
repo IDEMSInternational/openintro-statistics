@@ -1125,7 +1125,7 @@
       <figure xml:id="fig-pop-change-income">
         <caption>
           A scatterplot showing <c>pop_change</c> against <c>median_hh_income</c>. Owsley County 
-          of Kentucky, is highlighted, which lost 3.63% of its population from 2010 to 2017 and 
+          of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and 
           had median household income of $22,736.
         </caption>
         <image source="ch_intro_to_data/figures/pop_change_v_med_income/pop_change_v_med_income.pdf" width="90%">
