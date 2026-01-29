@@ -1,0 +1,49 @@
+name: Build and Deploy PreTeXt Book
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          
+      - name: Install PreTeXt CLI
+        run: |
+          pip install --upgrade pip
+          pip install pretextbook
+          
+      - name: Build HTML output
+        run: |
+          pretext build web
+          
+      - name: Verify build output
+        run: |
+          if [ ! -d "./output/html" ] || [ -z "$(ls -A ./output/html)" ]; then
+            echo "Error: Build output directory is missing or empty"
+            exit 1
+          fi
+          echo "Build output verified successfully"
+          
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output/html
+          publish_branch: gh-pages
+          force_orphan: false
