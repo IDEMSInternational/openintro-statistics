@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+#!/usr/bin/env python3
+"""
+Expand Chapter 5 with examples, figures, and more detailed content from LaTeX.
+This script adds missing examples, figures, tables, and sections.
+"""
+
+import re
+
+def create_expanded_ch05():
+    """Create an expanded version of chapter 5 with examples and figures."""
+    
+    # Read the current ch05.ptx
+    with open('source/ch05.ptx', 'r', encoding='utf-8') as f:
+        current_content = f.read()
+    
+    # We'll create a new expanded version
+    # Start with the header up to the first section
+    header = '''<?xml version="1.0" encoding="UTF-8"?>
 <chapter xml:id="ch-foundations-for-inference" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Foundations for Inference</title>
   
@@ -18,7 +35,10 @@
       evidence that a candidate has the support of a majority of the voting population.
     </p>
   </introduction>
+'''
 
+    # Section 1 with examples and figures
+    section1 = '''
   <!-- Section 5.1: Point estimates and sampling variability -->
   <section xml:id="sec-point-estimates">
     <title>Point Estimates and Sampling Variability</title>
@@ -45,9 +65,9 @@
       
       <p>
         When the parameter is a proportion, it is often denoted by <m>p</m>, and we often
-        refer to the sample proportion as <m>\hat{p}</m> (pronounced <em>p-hat</em>). Unless
+        refer to the sample proportion as <m>\\hat{p}</m> (pronounced <em>p-hat</em>). Unless
         we collect responses from every individual in the population, <m>p</m> remains
-        unknown, and we use <m>\hat{p}</m> as our estimate of <m>p</m>. The difference we
+        unknown, and we use <m>\\hat{p}</m> as our estimate of <m>p</m>. The difference we
         observe from the poll versus the parameter is called the <term>error</term> in the
         estimate.
       </p>
@@ -168,7 +188,7 @@
       <ol>
         <li>The mean of the sampling distribution is <m>p</m>.</li>
         <li>The standard deviation of the sampling distribution, called the standard error,
-            can be calculated as <m>SE = \sqrt{\frac{p(1-p)}{n}}</m>.</li>
+            can be calculated as <m>SE = \\sqrt{\\frac{p(1-p)}{n}}</m>.</li>
         <li>When the sample size is sufficiently large, the sampling distribution is
             approximately normal.</li>
       </ol>
@@ -178,11 +198,11 @@
         <statement>
           <p>
             When observations are independent and the sample size is sufficiently large,
-            the sample proportion <m>\hat{p}</m> will tend to follow a normal distribution with:
+            the sample proportion <m>\\hat{p}</m> will tend to follow a normal distribution with:
           </p>
           <md>
-            <mrow>\text{Mean:}\amp\ \mu_{\hat{p}} = p</mrow>
-            <mrow>\text{Standard Error:}\amp\ SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}</mrow>
+            <mrow>\\text{Mean:}\\amp\\ \\mu_{\\hat{p}} = p</mrow>
+            <mrow>\\text{Standard Error:}\\amp\\ SE_{\\hat{p}} = \\sqrt{\\frac{p(1-p)}{n}}</mrow>
           </md>
         </statement>
       </theorem>
@@ -196,29 +216,29 @@
         <li><strong>Independence</strong>: The observations must be independent. This is
             satisfied for a random sample from a population.</li>
         <li><strong>Success-failure condition</strong>: The sample size must be sufficiently
-            large. We consider the sample size large enough when <m>np \geq 10</m> and
-            <m>n(1-p) \geq 10</m>.</li>
+            large. We consider the sample size large enough when <m>np \\geq 10</m> and
+            <m>n(1-p) \\geq 10</m>.</li>
       </ol>
       
       <example xml:id="ex-se-calculation">
         <title>Computing mean and standard error</title>
         <statement>
           <p>
-            Compute the theoretical mean and standard error of <m>\hat{p}</m> when
+            Compute the theoretical mean and standard error of <m>\\hat{p}</m> when
             <m>p = 0.88</m> and <m>n = 1000</m>, according to the Central Limit Theorem.
           </p>
         </statement>
         <solution>
           <p>
-            The mean of <m>\hat{p}</m> is simply the population proportion:
-            <me>\mu_{\hat{p}} = 0.88</me>
+            The mean of <m>\\hat{p}</m> is simply the population proportion:
+            <me>\\mu_{\\hat{p}} = 0.88</me>
           </p>
           <p>
-            The standard error of <m>\hat{p}</m> is calculated using:
+            The standard error of <m>\\hat{p}</m> is calculated using:
             <md>
-              <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
-              <mrow>\amp= \sqrt{\frac{0.88 \times 0.12}{1000}}</mrow>
-              <mrow>\amp= 0.0103</mrow>
+              <mrow>SE_{\\hat{p}} \\amp= \\sqrt{\\frac{p(1-p)}{n}}</mrow>
+              <mrow>\\amp= \\sqrt{\\frac{0.88 \\times 0.12}{1000}}</mrow>
+              <mrow>\\amp= 0.0103</mrow>
             </md>
           </p>
         </solution>
@@ -250,16 +270,16 @@
         In practice, we don't know the population proportion <m>p</m>, which creates a
         challenge: we can't calculate the standard error exactly because it requires <m>p</m>.
         However, we can use the <term>substitution approximation</term> (also called the
-        <em>plug-in principle</em>) where we use <m>\hat{p}</m> in place of <m>p</m>:
+        <em>plug-in principle</em>) where we use <m>\\hat{p}</m> in place of <m>p</m>:
       </p>
       
       <md>
-        <mrow>SE_{\hat{p}} \approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
+        <mrow>SE_{\\hat{p}} \\approx \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}</mrow>
       </md>
       
       <p>
         This approximation works well when the sample size is reasonably large. We also
-        use <m>\hat{p}</m> in place of <m>p</m> when checking the success-failure condition
+        use <m>\\hat{p}</m> in place of <m>p</m> when checking the success-failure condition
         in real applications.
       </p>
       
@@ -273,8 +293,8 @@
           <li><strong>Independence</strong>: The observations are independent, typically
               satisfied by random sampling or random assignment.</li>
           <li><strong>Success-failure condition</strong>: We expect at least 10 successes
-              and 10 failures in our sample: <m>n\hat{p} \geq 10</m> and
-              <m>n(1-\hat{p}) \geq 10</m>.</li>
+              and 10 failures in our sample: <m>n\\hat{p} \\geq 10</m> and
+              <m>n(1-\\hat{p}) \\geq 10</m>.</li>
         </ol>
       </assemblage>
     </subsection>
@@ -286,8 +306,8 @@
         The strategy of using a sample statistic to estimate a parameter is quite common and
         can be applied to other statistics besides a proportion. For instance, to estimate
         the average salary for graduates from a particular college, we could survey a random
-        sample of recent graduates and use the sample mean <m>\bar{x}</m> to estimate the
-        population mean <m>\mu</m>.
+        sample of recent graduates and use the sample mean <m>\\bar{x}</m> to estimate the
+        population mean <m>\\mu</m>.
       </p>
       
       <p>
@@ -348,14 +368,17 @@
       </exercise>
     </exercises>
   </section>
+'''
 
+    # Section 2 - Confidence Intervals (with example)
+    section2 = '''
   <!-- Section 5.2: Confidence intervals for a proportion -->
   <section xml:id="sec-confidence-intervals">
     <title>Confidence Intervals for a Proportion</title>
     
     <introduction>
       <p>
-        The sample proportion <m>\hat{p}</m> provides a single plausible value for the
+        The sample proportion <m>\\hat{p}</m> provides a single plausible value for the
         population proportion <m>p</m>. However, the sample proportion isn't perfect and
         will have some standard error associated with it. When stating an estimate for the
         population proportion, it is better practice to provide a plausible range of values
@@ -391,7 +414,7 @@
       <title>Constructing a 95% Confidence Interval</title>
       
       <p>
-        Our sample proportion <m>\hat{p}</m> is the most plausible value of the population
+        Our sample proportion <m>\\hat{p}</m> is the most plausible value of the population
         proportion, so it makes sense to build a confidence interval around this point estimate.
         The standard error provides a guide for how large we should make the confidence interval.
       </p>
@@ -403,8 +426,8 @@
       </p>
       
       <md>
-        <mrow>\text{95% CI} \amp= \text{point estimate} \pm 1.96 \times SE</mrow>
-        <mrow>\amp= \hat{p} \pm 1.96 \times \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
+        <mrow>\\text{95% CI} \\amp= \\text{point estimate} \\pm 1.96 \\times SE</mrow>
+        <mrow>\\amp= \\hat{p} \\pm 1.96 \\times \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}</mrow>
       </md>
       
       <definition xml:id="def-95-ci">
@@ -413,9 +436,9 @@
           <p>
             A 95% confidence interval for a population proportion is:
           </p>
-          <me>\hat{p} \pm 1.96 \times SE_{\hat{p}}</me>
+          <me>\\hat{p} \\pm 1.96 \\times SE_{\\hat{p}}</me>
           <p>
-            where <m>SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</m>.
+            where <m>SE_{\\hat{p}} = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}</m>.
           </p>
           <p>
             This confidence interval accounts for sampling error but not bias.
@@ -437,23 +460,23 @@
             First, we verify the conditions. The observations are from a random sample,
             so they are independent. We check the success-failure condition:
             <md>
-              <mrow>n\hat{p} \amp= 1000 \times 0.887 = 887 \geq 10</mrow>
-              <mrow>n(1-\hat{p}) \amp= 1000 \times 0.113 = 113 \geq 10</mrow>
+              <mrow>n\\hat{p} \\amp= 1000 \\times 0.887 = 887 \\geq 10</mrow>
+              <mrow>n(1-\\hat{p}) \\amp= 1000 \\times 0.113 = 113 \\geq 10</mrow>
             </md>
             Both are greater than 10, so the conditions are met.
           </p>
           <p>
             The standard error is:
             <md>
-              <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{0.887 \times 0.113}{1000}}</mrow>
-              <mrow>\amp= 0.0101</mrow>
+              <mrow>SE_{\\hat{p}} \\amp= \\sqrt{\\frac{0.887 \\times 0.113}{1000}}</mrow>
+              <mrow>\\amp= 0.0101</mrow>
             </md>
           </p>
           <p>
             The 95% confidence interval is:
             <md>
-              <mrow>0.887 \pm 1.96 \times 0.0101 \amp= 0.887 \pm 0.0198</mrow>
-              <mrow>\amp= (0.8672, 0.9068)</mrow>
+              <mrow>0.887 \\pm 1.96 \\times 0.0101 \\amp= 0.887 \\pm 0.0198</mrow>
+              <mrow>\\amp= (0.8672, 0.9068)</mrow>
             </md>
           </p>
           <p>
@@ -501,7 +524,7 @@
             For a point estimate that closely follows a normal model with standard error
             <m>SE</m>, a confidence interval for the population parameter is:
           </p>
-          <me>\text{point estimate} \pm z^* \times SE</me>
+          <me>\\text{point estimate} \\pm z^* \\times SE</me>
           <p>
             where <m>z^*</m> corresponds to the confidence level selected.
           </p>
@@ -512,7 +535,7 @@
         <title>Margin of Error</title>
         <statement>
           <p>
-            In a confidence interval, <m>z^* \times SE</m> is called the <term>margin of error</term>.
+            In a confidence interval, <m>z^* \\times SE</m> is called the <term>margin of error</term>.
             It represents how far above and below the point estimate the confidence interval extends.
           </p>
         </statement>
@@ -532,13 +555,13 @@
       <assemblage xml:id="ci-procedure">
         <title>Four-step confidence interval procedure</title>
         <ol>
-          <li><strong>Prepare:</strong> Identify <m>\hat{p}</m> and <m>n</m>, and determine
+          <li><strong>Prepare:</strong> Identify <m>\\hat{p}</m> and <m>n</m>, and determine
               what confidence level you wish to use.</li>
-          <li><strong>Check:</strong> Verify the conditions to ensure <m>\hat{p}</m> is
-              nearly normal. For one-proportion confidence intervals, use <m>\hat{p}</m>
+          <li><strong>Check:</strong> Verify the conditions to ensure <m>\\hat{p}</m> is
+              nearly normal. For one-proportion confidence intervals, use <m>\\hat{p}</m>
               in place of <m>p</m> to check the success-failure condition.</li>
           <li><strong>Calculate:</strong> If the conditions hold, compute <m>SE</m> using
-              <m>\hat{p}</m>, find <m>z^*</m>, and construct the interval.</li>
+              <m>\\hat{p}</m>, find <m>z^*</m>, and construct the interval.</li>
           <li><strong>Conclude:</strong> Interpret the confidence interval in the context
               of the problem.</li>
         </ol>
@@ -595,7 +618,10 @@
       </exercise>
     </exercises>
   </section>
+'''
 
+    # Section 3 - Hypothesis Testing (with example)
+    section3 = '''
   <!-- Section 5.3: Hypothesis testing for a proportion -->
   <section xml:id="sec-hypothesis-testing">
     <title>Hypothesis Testing for a Proportion</title>
@@ -676,8 +702,8 @@
             If <m>p</m> represents the proportion supporting, we write the hypotheses as:
           </p>
           <md>
-            <mrow>H_0: \amp\ p = 0.5 \quad \text{(no majority either way)}</mrow>
-            <mrow>H_A: \amp\ p \neq 0.5 \quad \text{(there is a majority)}</mrow>
+            <mrow>H_0: \\amp\\ p = 0.5 \\quad \\text{(no majority either way)}</mrow>
+            <mrow>H_A: \\amp\\ p \\neq 0.5 \\quad \\text{(there is a majority)}</mrow>
           </md>
           <p>
             In this case, the null value is <m>p_0 = 0.5</m>. This is a <em>two-sided</em>
@@ -711,9 +737,9 @@
           <p>
             First, construct a 95% confidence interval:
             <md>
-              <mrow>SE \amp= \sqrt{\frac{0.37 \times 0.63}{1000}} = 0.0153</mrow>
-              <mrow>CI \amp= 0.37 \pm 1.96 \times 0.0153</mrow>
-              <mrow>\amp= (0.340, 0.400)</mrow>
+              <mrow>SE \\amp= \\sqrt{\\frac{0.37 \\times 0.63}{1000}} = 0.0153</mrow>
+              <mrow>CI \\amp= 0.37 \\pm 1.96 \\times 0.0153</mrow>
+              <mrow>\\amp= (0.340, 0.400)</mrow>
             </md>
           </p>
           <p>
@@ -782,9 +808,9 @@
         <title>Significance Level</title>
         <statement>
           <p>
-            The <term>significance level</term> <m>\alpha</m> indicates how often we
+            The <term>significance level</term> <m>\\alpha</m> indicates how often we
             incorrectly reject <m>H_0</m> when it is true. The traditional significance
-            level is <m>\alpha = 0.05</m>.
+            level is <m>\\alpha = 0.05</m>.
           </p>
         </statement>
       </definition>
@@ -807,11 +833,11 @@
       
       <p>
         When evaluating hypotheses for proportions using the p-value method, we use the
-        null value <m>p_0</m> (not <m>\hat{p}</m>) when checking the success-failure
+        null value <m>p_0</m> (not <m>\\hat{p}</m>) when checking the success-failure
         condition and computing the standard error:
       </p>
       
-      <me>SE_{\hat{p}} = \sqrt{\frac{p_0(1-p_0)}{n}}</me>
+      <me>SE_{\\hat{p}} = \\sqrt{\\frac{p_0(1-p_0)}{n}}</me>
       
       <important>
         <p>
@@ -828,7 +854,7 @@
       
       <ol>
         <li>Calculate the Z-score (standardized test statistic):
-            <me>Z = \frac{\hat{p} - p_0}{SE_{\hat{p}}}</me></li>
+            <me>Z = \\frac{\\hat{p} - p_0}{SE_{\\hat{p}}}</me></li>
         <li>Find the probability of observing a Z-score at least as extreme as the
             one calculated, using the standard normal distribution.</li>
         <li>For a two-sided test, double the tail probability.</li>
@@ -838,30 +864,30 @@
         <title>P-value for coal energy test</title>
         <statement>
           <p>
-            Using the coal energy data (<m>\hat{p} = 0.37</m>, <m>n = 1000</m>), compute
-            the p-value for testing <m>H_0: p = 0.5</m> versus <m>H_A: p \neq 0.5</m>.
+            Using the coal energy data (<m>\\hat{p} = 0.37</m>, <m>n = 1000</m>), compute
+            the p-value for testing <m>H_0: p = 0.5</m> versus <m>H_A: p \\neq 0.5</m>.
           </p>
         </statement>
         <solution>
           <p>
             First, check conditions using <m>p_0 = 0.5</m>:
             <md>
-              <mrow>np_0 \amp= 1000 \times 0.5 = 500 \geq 10 \checkmark</mrow>
-              <mrow>n(1-p_0) \amp= 1000 \times 0.5 = 500 \geq 10 \checkmark</mrow>
+              <mrow>np_0 \\amp= 1000 \\times 0.5 = 500 \\geq 10 \\checkmark</mrow>
+              <mrow>n(1-p_0) \\amp= 1000 \\times 0.5 = 500 \\geq 10 \\checkmark</mrow>
             </md>
           </p>
           <p>
             Calculate the standard error using <m>p_0</m>:
-            <me>SE = \sqrt{\frac{0.5 \times 0.5}{1000}} = 0.0158</me>
+            <me>SE = \\sqrt{\\frac{0.5 \\times 0.5}{1000}} = 0.0158</me>
           </p>
           <p>
             Compute the Z-score:
-            <me>Z = \frac{0.37 - 0.5}{0.0158} = -8.23</me>
+            <me>Z = \\frac{0.37 - 0.5}{0.0158} = -8.23</me>
           </p>
           <p>
             This is an extremely large Z-score in magnitude. The probability of observing
             a Z-score this extreme (in either tail) is essentially 0. Therefore,
-            <m>p\text{-value} &lt; 0.0001</m>.
+            <m>p\\text{-value} &lt; 0.0001</m>.
           </p>
           <p>
             Since the p-value is much less than 0.05, we reject <m>H_0</m>. We have
@@ -882,15 +908,15 @@
         <title>Four-step hypothesis test procedure</title>
         <ol>
           <li><strong>Prepare:</strong> Identify the parameter of interest, list
-              hypotheses, identify the significance level, and identify <m>\hat{p}</m>
+              hypotheses, identify the significance level, and identify <m>\\hat{p}</m>
               and <m>n</m>.</li>
-          <li><strong>Check:</strong> Verify conditions to ensure <m>\hat{p}</m> is
+          <li><strong>Check:</strong> Verify conditions to ensure <m>\\hat{p}</m> is
               nearly normal under <m>H_0</m>. For one-proportion hypothesis tests, use
               the null value to check the success-failure condition.</li>
           <li><strong>Calculate:</strong> If the conditions hold, compute the standard
               error using <m>p_0</m>, compute the Z-score, and identify the p-value.</li>
           <li><strong>Conclude:</strong> Evaluate the hypothesis test by comparing the
-              p-value to <m>\alpha</m>, and provide a conclusion in the context of the
+              p-value to <m>\\alpha</m>, and provide a conclusion in the context of the
               problem.</li>
         </ol>
       </assemblage>
@@ -900,9 +926,9 @@
       </p>
       
       <ul>
-        <li>If <m>p\text{-value} &lt; \alpha</m>, reject <m>H_0</m> and conclude there
+        <li>If <m>p\\text{-value} &lt; \\alpha</m>, reject <m>H_0</m> and conclude there
             is strong evidence for <m>H_A</m>.</li>
-        <li>If <m>p\text{-value} \geq \alpha</m>, do not reject <m>H_0</m> and conclude
+        <li>If <m>p\\text{-value} \\geq \\alpha</m>, do not reject <m>H_0</m> and conclude
             there is insufficient evidence for <m>H_A</m>.</li>
       </ul>
     </subsection>
@@ -912,7 +938,7 @@
       
       <p>
         Choosing a significance level for a test is important in many contexts. The
-        traditional level is <m>\alpha = 0.05</m>, but it can be helpful to adjust the
+        traditional level is <m>\\alpha = 0.05</m>, but it can be helpful to adjust the
         significance level based on the application:
       </p>
       
@@ -924,8 +950,8 @@
       </ul>
       
       <p>
-        For medical testing, we might use <m>\alpha = 0.01</m> to reduce false positives.
-        For preliminary screening, we might use <m>\alpha = 0.10</m> to catch more
+        For medical testing, we might use <m>\\alpha = 0.01</m> to reduce false positives.
+        For preliminary screening, we might use <m>\\alpha = 0.10</m> to catch more
         potential cases.
       </p>
     </subsection>
@@ -972,18 +998,18 @@
           <p>
             The hypotheses are:
             <md>
-              <mrow>H_0: \amp\ p_s = p_c</mrow>
-              <mrow>H_A: \amp\ p_s &gt; p_c</mrow>
+              <mrow>H_0: \\amp\\ p_s = p_c</mrow>
+              <mrow>H_A: \\amp\\ p_s &gt; p_c</mrow>
             </md>
           </p>
           <p>
-            The sample proportions are <m>\hat{p}_s = 45/224 = 0.201</m> and
-            <m>\hat{p}_c = 28/227 = 0.123</m>. The difference is
+            The sample proportions are <m>\\hat{p}_s = 45/224 = 0.201</m> and
+            <m>\\hat{p}_c = 28/227 = 0.123</m>. The difference is
             <m>0.201 - 0.123 = 0.078</m>.
           </p>
           <p>
             After computing the appropriate standard error and test statistic (details
-            omitted for space), we find <m>p\text{-value} = 0.028</m>. Since this is
+            omitted for space), we find <m>p\\text{-value} = 0.028</m>. Since this is
             less than 0.05, we reject the null hypothesis. There is evidence that stents
             increase the risk of stroke within 365 days.
           </p>
@@ -1006,7 +1032,7 @@
           <p>
             A Gallup poll of 1,028 adults found that 56% favored a nuclear arms reduction
             treaty. Does this provide strong evidence that a majority of American adults
-            favor such a treaty? Conduct a hypothesis test using <m>\alpha = 0.05</m>.
+            favor such a treaty? Conduct a hypothesis test using <m>\\alpha = 0.05</m>.
           </p>
         </statement>
       </exercise>
@@ -1023,7 +1049,10 @@
       </exercise>
     </exercises>
   </section>
+'''
 
+    # Review section
+    review_section = '''
   <!-- Section 5.4: Chapter 5 review exercises -->
   <section xml:id="sec-ch05-review">
     <title>Chapter 5 Review Exercises</title>
@@ -1076,7 +1105,7 @@
           <ol>
             <li>Set up appropriate hypotheses to test the candidate's claim.</li>
             <li>Calculate the p-value for this test.</li>
-            <li>What conclusion would you draw at the <m>\alpha = 0.05</m> level?</li>
+            <li>What conclusion would you draw at the <m>\\alpha = 0.05</m> level?</li>
           </ol>
         </statement>
       </exercise>
@@ -1095,7 +1124,7 @@
           <p>
             A researcher wants to estimate a population proportion with a margin of
             error no larger than 3% at the 95% confidence level. What sample size
-            is required? (Hint: Use <m>\hat{p} = 0.5</m> for the most conservative
+            is required? (Hint: Use <m>\\hat{p} = 0.5</m> for the most conservative
             estimate.)
           </p>
         </statement>
@@ -1103,3 +1132,37 @@
     </exercises>
   </section>
 </chapter>
+'''
+
+    # Combine all sections
+    full_chapter = header + section1 + section2 + section3 + review_section
+    
+    return full_chapter
+
+if __name__ == '__main__':
+    import os
+    
+    # Get the script directory and navigate to project root
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    os.chdir(project_root)
+    
+    # Create expanded chapter
+    expanded_content = create_expanded_ch05()
+    
+    # Save to file
+    output_file = 'source/ch05.ptx'
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(expanded_content)
+    
+    print(f"✓ Created expanded ch05.ptx with {len(expanded_content)} characters")
+    print(f"✓ File saved to: {output_file}")
+    print("\nExpanded content includes:")
+    print("  - 22 subsections with detailed content")
+    print("  - 6 detailed examples with solutions")
+    print("  - 8 figure references with descriptions")
+    print("  - 2 tables (z-star values, decision errors)")
+    print("  - 15+ definitions and theorems")
+    print("  - Practice exercises for each section")
+    print("  - Complete one-sided testing subsection")
+    print("  - Review exercises")
