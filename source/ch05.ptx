@@ -545,6 +545,122 @@
       </assemblage>
     </subsection>
     
+    <subsection xml:id="subsec-more-case-studies">
+      <title>More Case Studies</title>
+      
+      <p>
+        Let's apply the confidence interval procedure to two more real-world examples
+        to solidify our understanding.
+      </p>
+      
+      <example xml:id="ex-ebola-quarantine">
+        <title>Ebola quarantine support in New York</title>
+        <statement>
+          <p>
+            In New York City on October 23, 2014, a doctor who had recently been treating
+            Ebola patients in Guinea went to the hospital with a slight fever and was
+            subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York/The Wall
+            Street Journal/Marist Poll found that 82% of New Yorkers favored a "mandatory
+            21-day quarantine for anyone who has come in contact with an Ebola patient."
+            This poll included responses of 1,042 New York adults between October 26-28, 2014.
+          </p>
+          <ol>
+            <li>What is the point estimate, and is it reasonable to use a normal distribution
+                to model it?</li>
+            <li>Estimate the standard error of <m>\hat{p} = 0.82</m>.</li>
+            <li>Construct a 95% confidence interval for the proportion of New York adults
+                who supported the quarantine policy.</li>
+          </ol>
+        </statement>
+        <solution>
+          <ol>
+            <li>
+              <p>
+                The point estimate, based on a sample of size <m>n = 1042</m>, is
+                <m>\hat{p} = 0.82</m>. To check whether <m>\hat{p}</m> can be reasonably
+                modeled using a normal distribution, we check independence (the poll is
+                based on a simple random sample) and the success-failure condition:
+                <md>
+                  <mrow>n\hat{p} \amp= 1042 \times 0.82 = 854 \geq 10 \checkmark</mrow>
+                  <mrow>n(1-\hat{p}) \amp= 1042 \times 0.18 = 188 \geq 10 \checkmark</mrow>
+                </md>
+                With the conditions met, we can model <m>\hat{p}</m> using a normal
+                distribution.
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the substitution approximation <m>p \approx \hat{p} = 0.82</m>:
+                <md>
+                  <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
+                  <mrow>\amp= \sqrt{\frac{0.82 \times 0.18}{1042}}</mrow>
+                  <mrow>\amp= 0.012</mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Using <m>SE = 0.012</m>, <m>\hat{p} = 0.82</m>, and <m>z^* = 1.96</m>:
+                <md>
+                  <mrow>0.82 \pm 1.96 \times 0.012 \amp= 0.82 \pm 0.024</mrow>
+                  <mrow>\amp= (0.796, 0.844)</mrow>
+                </md>
+                <strong>Interpretation:</strong> We are 95% confident that between 79.6%
+                and 84.4% of New York adults in October 2014 supported a quarantine for
+                anyone who had come into contact with an Ebola patient.
+              </p>
+            </li>
+          </ol>
+        </solution>
+      </example>
+      
+      <exercise xml:id="ex-wind-turbines-guided">
+        <title>Wind turbine support</title>
+        <statement>
+          <p>
+            In the same Pew Research poll about solar energy, they also inquired about
+            other forms of energy, and 84.8% of the 1,000 respondents supported expanding
+            the use of wind turbines.
+          </p>
+          <ol>
+            <li>Is it reasonable to model the proportion of US adults who support expanding
+                wind turbines using a normal distribution?</li>
+            <li>Create a 99% confidence interval for the level of American support for
+                expanding the use of wind turbines for power generation.</li>
+          </ol>
+        </statement>
+        <hint>
+          <p>
+            For part (b), recall that for a 99% confidence interval, <m>z^* = 2.58</m>.
+          </p>
+        </hint>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                Yes. The survey was a random sample and the success-failure counts are
+                both <m>\geq 10</m>: <m>n\hat{p} = 1000 \times 0.848 = 848</m> and
+                <m>n(1-\hat{p}) = 1000 \times 0.152 = 152</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The standard error is:
+                <me>SE = \sqrt{\frac{0.848 \times 0.152}{1000}} = 0.0114</me>
+                The 99% confidence interval is:
+                <md>
+                  <mrow>0.848 \pm 2.58 \times 0.0114 \amp= 0.848 \pm 0.029</mrow>
+                  <mrow>\amp= (0.819, 0.877)</mrow>
+                </md>
+                We are 99% confident that between 81.9% and 87.7% of American adults
+                support expanding the use of wind turbines.
+              </p>
+            </li>
+          </ol>
+        </answer>
+      </exercise>
+    </subsection>
+    
     <subsection xml:id="subsec-interpreting-ci">
       <title>Interpreting Confidence Intervals</title>
       
@@ -723,6 +839,57 @@
           </p>
         </solution>
       </example>
+      
+      <example xml:id="ex-rosling-infant-vaccination">
+        <title>Infant vaccination knowledge using CI</title>
+        <statement>
+          <p>
+            The Rosling Foundation studies public knowledge about global health and
+            development. In one study, 50 college-educated adults were asked: "What
+            percentage of 1-year-old children in the world today have been vaccinated
+            against some disease?" The choices were: (A) 20%, (B) 50%, or (C) 80%.
+            Only 12 out of 50 respondents (24%) chose the correct answer (C: 80%).
+          </p>
+          <p>
+            If respondents were simply guessing among the three options, we would
+            expect about 33.3% to get it right by chance. Does the data provide
+            strong evidence that college-educated adults perform differently than
+            random guessing? Test using a 95% confidence interval.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First, check conditions. The data come from a simple random sample
+            (independence), and <m>n\hat{p} = 50 \times 0.24 = 12 \geq 10</m> and
+            <m>n(1-\hat{p}) = 50 \times 0.76 = 38 \geq 10</m> (success-failure).
+            Conditions are met.
+          </p>
+          <p>
+            Calculate the standard error:
+            <me>SE = \sqrt{\frac{0.24 \times 0.76}{50}} = 0.060</me>
+          </p>
+          <p>
+            Construct the 95% confidence interval:
+            <md>
+              <mrow>0.24 \pm 1.96 \times 0.060 \amp= 0.24 \pm 0.118</mrow>
+              <mrow>\amp= (0.122, 0.358)</mrow>
+            </md>
+          </p>
+          <p>
+            The null value is <m>p_0 = 0.333</m> (33.3%), which falls within the
+            confidence interval of 12.2% to 35.8%. Therefore, we cannot reject the
+            null hypothesis. The data do not provide sufficient evidence that
+            college-educated adults perform differently than random guessing on this
+            question.
+          </p>
+          <p>
+            <strong>Important note:</strong> Failing to reject <m>H_0</m> does not
+            mean we've proven the null hypothesis is true. Perhaps there was an
+            actual difference, but we were not able to detect it with the relatively
+            small sample of 50 respondents.
+          </p>
+        </solution>
+      </example>
     </subsection>
     
     <subsection xml:id="subsec-decision-errors">
@@ -870,6 +1037,63 @@
           </p>
         </solution>
       </example>
+      
+      <example xml:id="ex-nuclear-arms-reduction">
+        <title>Nuclear arms reduction support</title>
+        <statement>
+          <p>
+            A Gallup poll conducted in March 2013 found that 56% of a simple random
+            sample of 1,028 US adults supported nuclear arms reduction. Does this
+            provide convincing evidence that a majority of Americans supported nuclear
+            arms reduction at the 5% significance level?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Set up hypotheses. We want to test whether a majority (more than 50%)
+            support nuclear arms reduction:
+            <md>
+              <mrow>H_0: \amp\  p = 0.50 \quad \text{(no majority)}</mrow>
+              <mrow>H_A: \amp\  p \neq 0.50 \quad \text{(there is a majority)}</mrow>
+            </md>
+          </p>
+          <p>
+            <strong>Check conditions:</strong>
+          </p>
+          <ul>
+            <li><strong>Independence:</strong> The poll was a simple random sample,
+                so observations are independent.</li>
+            <li><strong>Success-failure:</strong> Using the null proportion <m>p_0 = 0.5</m>:
+                <m>np_0 = n(1-p_0) = 1028 \times 0.5 = 514 \geq 10</m>. <m>\checkmark</m></li>
+          </ul>
+          <p>
+            <strong>Calculate:</strong> Compute the standard error using <m>p_0 = 0.5</m>:
+            <me>SE = \sqrt{\frac{0.5 \times 0.5}{1028}} = 0.0156</me>
+          </p>
+          <p>
+            Calculate the test statistic:
+            <me>Z = \frac{0.56 - 0.50}{0.0156} = 3.85</me>
+          </p>
+          <p>
+            For this two-sided test, we need to find the probability in both tails.
+            A Z-score of 3.85 is extremely large. Looking at a standard normal table,
+            the upper tail area is approximately 0.0001. Doubling this for the two-sided
+            test: <m>p\text{-value} = 2 \times 0.0001 = 0.0002</m>.
+          </p>
+          <p>
+            <strong>Conclude:</strong> Since <m>p\text{-value} = 0.0002 &lt; 0.05</m>,
+            we reject <m>H_0</m>. The poll provides convincing evidence that a majority
+            of Americans supported nuclear arms reduction efforts in March 2013.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="fig-nuclear-arms-p-value">
+        <caption>The sampling distribution centered at the null value <m>p_0 = 0.5</m> for the nuclear arms test. The tails beyond the observed proportion show the p-value.</caption>
+        <image source="images/ch_foundations_for_inf/figures/nuclearArmsReduction/nuclearArmsReductionPValue.pdf" width="70%">
+          <description>Normal distribution centered at 0.5 showing tail areas for nuclear arms test</description>
+        </image>
+      </figure>
       
       <figure xml:id="fig-coal-p-value">
         <caption>The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.</caption>
