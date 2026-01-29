@@ -14,228 +14,978 @@
   </introduction>
   
   <!-- Section 6.1: One-sample means with the t-distribution -->
-  <section xml:id="sec-one-sample-t">
-    <title>One-Sample Means with the <m>t</m>-Distribution</title>
+  <!-- Section 7.1: One-sample means with the t-distribution -->
+  <section xml:id="oneSampleMeansWithTDistribution">
+    <title>One-sample means with the <m>t</m>-distribution</title>
     
     <introduction>
       <p>
         Similar to how we can model the behavior of the sample proportion <m>\hat{p}</m> using
         a normal distribution, the sample mean <m>\bar{x}</m> can also be modeled using a normal
         distribution when certain conditions are met. However, we'll soon learn that a new
-        distribution, called the <term>t-distribution</term>, tends to be more useful when
-        working with the sample mean. We'll first learn about this new distribution, then we'll
-        use it to construct confidence intervals and conduct hypothesis tests for the mean.
+        distribution, called the <m>t</m>-distribution, tends to be more useful when working with
+        the sample mean. We'll first learn about this new distribution, then we'll use it to
+        construct confidence intervals and conduct hypothesis tests for the mean.
       </p>
     </introduction>
     
-    <subsection xml:id="subsec-sampling-dist-xbar">
-      <title>The Sampling Distribution of <m>\bar{x}</m></title>
+    <subsection xml:id="x_bar_sampling_distribution">
+      <title>The sampling distribution of <m>\bar{x}</m></title>
       
       <p>
-        The sample mean tends to follow a normal distribution centered at the population mean
-        <m>\mu</m> when certain conditions are met. Additionally, we can compute a standard error
-        for the sample mean using the population standard deviation <m>\sigma</m> and the sample
-        size <m>n</m>.
+        The sample mean tends to follow a normal distribution centered at the population mean, <m>\mu</m>,
+        when certain conditions are met. Additionally, we can compute a standard error for the sample
+        mean using the population standard deviation <m>\sigma</m> and the sample size <m>n</m>.
       </p>
       
-      <theorem xml:id="thm-clt-mean">
-        <title>Central Limit Theorem for the Sample Mean</title>
+      <theorem xml:id="clt-mean">
+        <title>Central Limit Theorem for the sample mean</title>
         <statement>
           <p>
-            When we collect a sufficiently large sample of <m>n</m> independent observations from
-            a population with mean <m>\mu</m> and standard deviation <m>\sigma</m>, the sampling
-            distribution of <m>\bar{x}</m> will be nearly normal with:
+            When we collect a sufficiently large sample of <m>n</m> independent observations from a
+            population with mean <m>\mu</m> and standard deviation <m>\sigma</m>, the sampling
+            distribution of <m>\bar{x}</m> will be nearly normal with
           </p>
           <md>
-            \text{Mean} = \mu \qquad \text{Standard Error (SE)} = \frac{\sigma}{\sqrt{n}}
+            <mrow>\text{Mean}=\mu \amp\amp \text{Standard Error }(SE) = \frac{\sigma}{\sqrt{n}}</mrow>
           </md>
         </statement>
       </theorem>
       
       <p>
-        Before diving into confidence intervals and hypothesis tests using <m>\bar{x}</m>, we
-        first need to cover two topics:
+        Before diving into confidence intervals and hypothesis tests using <m>\bar{x}</m>, we first
+        need to cover two topics:
       </p>
       
       <ul>
-        <li>When we modeled <m>\hat{p}</m> using the normal distribution, certain conditions had
-            to be satisfied. The conditions for working with <m>\bar{x}</m> are a little more
-            complex.</li>
-        <li>The standard error is dependent on the population standard deviation <m>\sigma</m>.
-            However, we rarely know <m>\sigma</m>, and instead we must estimate it. Because this
-            estimation is itself imperfect, we use a new distribution called the
-            <term>t-distribution</term> to account for this additional uncertainty.</li>
+        <li>
+          <p>
+            When we modeled <m>\hat{p}</m> using the normal distribution, certain conditions had to be
+            satisfied. The conditions for working with <m>\bar{x}</m> are a little more complex, and
+            we'll spend Section<nbsp/><xref ref="x_bar_conditions"/> discussing how to check conditions
+            for inference.
+          </p>
+        </li>
+        <li>
+          <p>
+            The standard error is dependent on the population standard deviation, <m>\sigma</m>. However,
+            we rarely know <m>\sigma</m>, and instead we must estimate it. Because this estimation is
+            itself imperfect, we use a new distribution called the <m>t</m>-distribution to fix this
+            problem, which we discuss in Section<nbsp/><xref ref="introducingTheTDistribution"/>.
+          </p>
+        </li>
       </ul>
     </subsection>
     
-    <subsection xml:id="subsec-conditions-for-xbar">
-      <title>Evaluating Conditions for Modeling <m>\bar{x}</m></title>
+    <subsection xml:id="x_bar_conditions">
+      <title>Evaluating the two conditions required for modeling <m>\bar{x}</m></title>
       
       <p>
         Two conditions are required to apply the Central Limit Theorem for a sample mean <m>\bar{x}</m>:
       </p>
       
-      <ol>
-        <li><alert>Independence:</alert> The sample observations must be independent. This is
-            typically satisfied if the data come from a simple random sample and the sample size
-            is less than 10% of the population.</li>
-        <li><alert>Normality:</alert> The population distribution should be normal or the sample
-            size should be large (<m>n \geq 30</m> is a common guideline). For smaller samples,
-            we can check normality using a normal probability plot or histogram.</li>
-      </ol>
+      <dl>
+        <li>
+          <title>Independence.</title>
+          <p>
+            The sample observations must be independent. The most common way to satisfy this condition
+            is when the sample is a simple random sample from the population. If the data come from a
+            random process, analogous to rolling a die, this would also satisfy the independence condition.
+          </p>
+        </li>
+        <li>
+          <title>Normality.</title>
+          <p>
+            When a sample is small, we also require that the sample observations come from a normally
+            distributed population. We can relax this condition more and more for larger and larger
+            sample sizes. This condition is obviously vague, making it difficult to evaluate, so next
+            we introduce a couple rules of thumb to make checking this condition easier.
+          </p>
+        </li>
+      </dl>
       
-      <important>
+      <assemblage xml:id="normality-rules-thumb">
+        <title>Rules of thumb: how to perform the normality check</title>
         <p>
-          When examining a sample, the normality condition is satisfied if:
+          There is no perfect way to check the normality condition, so instead we use two rules of thumb:
         </p>
-        <ul>
-          <li>The sample shows no clear outliers and little skewness, OR</li>
-          <li>The sample size is at least 30 and there are no particularly extreme outliers.</li>
-        </ul>
-      </important>
-    </subsection>
-    
-    <subsection xml:id="subsec-introducing-t-dist">
-      <title>Introducing the <m>t</m>-Distribution</title>
+        <dl>
+          <li>
+            <title><m>n \lt 30</m>:</title>
+            <p>
+              If the sample size <m>n</m> is less than 30 and there are no clear outliers in the data,
+              then we typically assume the data come from a nearly normal distribution to satisfy the
+              condition.
+            </p>
+          </li>
+          <li>
+            <title><m>n \geq 30</m>:</title>
+            <p>
+              If the sample size <m>n</m> is at least 30 and there are no <em>particularly extreme</em>
+              outliers, then we typically assume the sampling distribution of <m>\bar{x}</m> is nearly
+              normal, even if the underlying distribution of individual observations is not.
+            </p>
+          </li>
+        </dl>
+      </assemblage>
       
       <p>
-        When we don't know the population standard deviation <m>\sigma</m> (which is nearly always
-        the case), we must estimate it using the sample standard deviation <m>s</m>. This introduces
-        additional uncertainty, especially for small samples. The <term>t-distribution</term> accounts
-        for this extra variability.
+        In this first course in statistics, you aren't expected to develop perfect judgement on the
+        normality condition. However, you are expected to be able to handle clear cut cases based on
+        the rules of thumb.<fn>More nuanced guidelines would consider further relaxing the
+        <em>particularly extreme outlier</em> check when the sample size is very large. However, we'll
+        leave further discussion here to a future course.</fn>
       </p>
       
-      <definition xml:id="def-t-distribution">
+      <example xml:id="outliers_and_ss_condition_ex">
         <statement>
           <p>
-            The <term>t-distribution</term> is a bell-shaped distribution centered at zero, similar
-            to the standard normal distribution, but with thicker tails. The exact form of the
-            t-distribution depends on the <term>degrees of freedom (df)</term>. For inference with
-            a single sample mean, <m>df = n - 1</m>.
+            Consider the following two plots that come from simple random samples from different
+            populations. Their sample sizes are <m>n_1 = 15</m> and <m>n_2 = 50</m>.
+          </p>
+          <p>
+            [Figure showing two histograms: Sample 1 Observations (n=15) with values 0-7, and Sample 2
+            Observations (n=50) with values 0-22 with most data near zero and one outlier at 21-22]
+          </p>
+          <p>
+            Are the independence and normality conditions met in each case?
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            Each sample is from a simple random sample of its respective population, so the independence
+            condition is satisfied. Let's next check the normality condition for each using the rule of thumb.
+          </p>
+          <p>
+            The first sample has fewer than 30 observations, so we are watching for any clear outliers.
+            None are present; while there is a small gap in the histogram between 5 and 6, this gap is
+            small and 20% of the observations in this small sample are represented in that far right bar
+            of the histogram, so we can hardly call these clear outliers. With no clear outliers, the
+            normality condition is reasonably met.
+          </p>
+          <p>
+            The second sample has a sample size greater than 30 and includes an outlier that appears to
+            be roughly 5 times further from the center of the distribution than the next furthest
+            observation. This is an example of a particularly extreme outlier, so the normality condition
+            would not be satisfied.
+          </p>
+        </solution>
+      </example>
       
       <p>
-        Key properties of the t-distribution:
+        In practice, it's typical to also do a mental check to evaluate whether we have reason to believe
+        the underlying population would have moderate skew (if <m>n \lt 30</m>) or have particularly
+        extreme outliers (<m>n \geq 30</m>) beyond what we observe in the data. For example, consider
+        the number of followers for each individual account on Twitter, and then imagine this distribution.
+        The large majority of accounts have built up a couple thousand followers or fewer, while a
+        relatively tiny fraction have amassed tens of millions of followers, meaning the distribution is
+        extremely skewed. When we know the data come from such an extremely skewed distribution, it takes
+        some effort to understand what sample size is large enough for the normality condition to be
+        satisfied.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="introducingTheTDistribution">
+      <title>Introducing the <m>t</m>-distribution</title>
+      
+      <p>
+        In practice, we cannot directly calculate the standard error for <m>\bar{x}</m> since we do not
+        know the population standard deviation, <m>\sigma</m>. We encountered a similar issue when
+        computing the standard error for a sample proportion, which relied on the population proportion,
+        <m>p</m>. Our solution in the proportion context was to use the sample value in place of the
+        population value when computing the standard error. We'll employ a similar strategy for computing
+        the standard error of <m>\bar{x}</m>, using the sample standard deviation <m>s</m> in place of
+        <m>\sigma</m>:
+      </p>
+      <me>
+        SE = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}
+      </me>
+      <p>
+        This strategy tends to work well when we have a lot of data and can estimate <m>\sigma</m> using
+        <m>s</m> accurately. However, the estimate is less precise with smaller samples, and this leads
+        to problems when using the normal distribution to model <m>\bar{x}</m>.
       </p>
       
-      <ul>
-        <li>It is symmetric and bell-shaped, centered at 0.</li>
-        <li>It has thicker tails than the normal distribution, meaning more probability in the extremes.</li>
-        <li>As the degrees of freedom increase, the t-distribution approaches the normal distribution.</li>
-        <li>For <m>df \geq 30</m>, the t-distribution is nearly indistinguishable from the normal distribution.</li>
-      </ul>
+      <p>
+        We'll find it useful to use a new distribution for inference calculations called the
+        <term><m>t</m>-distribution</term>. A <m>t</m>-distribution, shown as a solid line in
+        Figure<nbsp/><xref ref="tDistCompareToNormalDist"/>, has a bell shape. However, its tails are
+        thicker than the normal distribution's, meaning observations are more likely to fall beyond two
+        standard deviations from the mean than under the normal distribution. The extra thick tails of
+        the <m>t</m>-distribution are exactly the correction needed to resolve the problem of using
+        <m>s</m> in place of <m>\sigma</m> in the <m>SE</m> calculation.
+      </p>
       
-      <definition xml:id="def-standard-error-mean">
+      <figure xml:id="tDistCompareToNormalDist">
+        <caption>Comparison of a <m>t</m>-distribution and a normal distribution.</caption>
+        <p>
+          [Figure showing a standard normal distribution and a t-distribution overlaid. The t-distribution
+          is more sharply peaked and has thicker tails than the normal distribution.]
+        </p>
+      </figure>
+      
+      <p>
+        The <m>t</m>-distribution is always centered at zero and has a single parameter: degrees of
+        freedom. The <term>degrees of freedom (<m>df</m>)</term> describes the precise form of the
+        bell-shaped <m>t</m>-distribution. Several <m>t</m>-distributions are shown in
+        Figure<nbsp/><xref ref="tDistConvergeToNormalDist"/> in comparison to the normal distribution.
+      </p>
+      
+      <p>
+        In general, we'll use a <m>t</m>-distribution with <m>df = n - 1</m> to model the sample mean
+        when the sample size is <m>n</m>. That is, when we have more observations, the degrees of freedom
+        will be larger and the <m>t</m>-distribution will look more like the standard normal distribution;
+        when the degrees of freedom is about 30 or more, the <m>t</m>-distribution is nearly
+        indistinguishable from the normal distribution.
+      </p>
+      
+      <figure xml:id="tDistConvergeToNormalDist">
+        <caption>The larger the degrees of freedom, the more closely the <m>t</m>-distribution resembles
+        the standard normal distribution.</caption>
+        <p>
+          [Figure showing four t-distributions with df=1, 2, 4, and 8 along with a normal distribution.
+          The larger the df, the more closely the t-distribution aligns with the normal distribution.]
+        </p>
+      </figure>
+      
+      <assemblage xml:id="degrees-freedom-def">
+        <title>Degrees of freedom (<m>df</m>)</title>
+        <p>
+          The degrees of freedom describes the shape of the <m>t</m>-distribution. The larger the degrees
+          of freedom, the more closely the distribution approximates the normal model.
+        </p>
+        <p>
+          When modeling <m>\bar{x}</m> using the <m>t</m>-distribution, use <m>df = n - 1</m>.
+        </p>
+      </assemblage>
+      
+      <p>
+        The <m>t</m>-distribution allows us greater flexibility than the normal distribution when
+        analyzing numerical data. In practice, it's common to use statistical software, such as R, Python,
+        or SAS for these analyses. Alternatively, a graphing calculator or a <term><m>t</m>-table</term>
+        may be used; the <m>t</m>-table is similar to the normal distribution table, and it may be found
+        in Appendix<nbsp/>[reference to t-table], which includes usage instructions and examples for those
+        who wish to use this option. No matter the approach you choose, apply your method using the
+        examples below to confirm your working understanding of the <m>t</m>-distribution.
+      </p>
+      
+      <example xml:id="t-dist-tail-18df">
         <statement>
           <p>
-            When the population standard deviation <m>\sigma</m> is unknown and estimated by the
-            sample standard deviation <m>s</m>, the <term>standard error of the mean</term> is:
+            What proportion of the <m>t</m>-distribution with 18 degrees of freedom falls below <m>-2.10</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Just like a normal probability problem, we first draw the picture in
+            Figure<nbsp/><xref ref="tDistDF18LeftTail2Point10"/> and shade the area below <m>-2.10</m>.
+            Using statistical software, we can obtain a precise value: 0.0250.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="tDistDF18LeftTail2Point10">
+        <caption>The <m>t</m>-distribution with 18 degrees of freedom. The area below <m>-2.10</m> has
+        been shaded.</caption>
+        <p>
+          [Figure showing a t-distribution with 18 df, with the region below -2.10 shaded, representing
+          roughly 2% to 5% of the distribution.]
+        </p>
+      </figure>
+      
+      <example xml:id="t-dist-tail-20df">
+        <statement>
+          <p>
+            A <m>t</m>-distribution with 20 degrees of freedom is shown in the left panel of
+            Figure<nbsp/><xref ref="tDistDF20RightTail1Point65"/>. Estimate the proportion of the
+            distribution falling above 1.65.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            With a normal distribution, this would correspond to about 0.05, so we should expect the
+            <m>t</m>-distribution to give us a value in this neighborhood. Using statistical software:
+            0.0573.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="tDistDF20RightTail1Point65">
+        <caption>Left: The <m>t</m>-distribution with 20 degrees of freedom, with the area above 1.65
+        shaded. Right: The <m>t</m>-distribution with 2 degrees of freedom, with the area further than
+        3 units from 0 shaded.</caption>
+        <p>
+          [Figure showing two plots: left shows t-dist with 20 df and right tail shaded above 1.65; right
+          shows t-dist with 2 df with both tails beyond ±3 shaded.]
+        </p>
+      </figure>
+      
+      <example xml:id="t-dist-tail-2df">
+        <statement>
+          <p>
+            A <m>t</m>-distribution with 2 degrees of freedom is shown in the right panel of
+            Figure<nbsp/><xref ref="tDistDF20RightTail1Point65"/>. Estimate the proportion of the
+            distribution falling more than 3 units from the mean (above or below).
+          </p>
+        </statement>
+        <solution>
+          <p>
+            With so few degrees of freedom, the <m>t</m>-distribution will give a more notably different
+            value than the normal distribution. Under a normal distribution, the area would be about 0.003
+            using the 68-95-99.7 rule. For a <m>t</m>-distribution with <m>df = 2</m>, the area in both
+            tails beyond 3 units totals 0.0955. This area is dramatically different than what we obtain
+            from the normal distribution.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise>
+        <statement>
+          <p>
+            What proportion of the <m>t</m>-distribution with 19 degrees of freedom falls above
+            <m>-1.79</m> units? Use your preferred method for finding tail areas.<fn>We want to find the
+            shaded area <em>above</em> <m>-1.79</m> (we leave the picture to you). The lower tail area
+            has an area of 0.0447, so the upper area would have an area of <m>1 - 0.0447 = 0.9553</m>.</fn>
+          </p>
+        </statement>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="oneSampleTConfidenceIntervals">
+      <title>One sample <m>t</m>-confidence intervals</title>
+      
+      <p>
+        Let's get our first taste of applying the <m>t</m>-distribution in the context of an example
+        about the mercury content of dolphin muscle. Elevated mercury concentrations are an important
+        problem for both dolphins and other animals, like humans, who occasionally eat them.
+      </p>
+      
+      <figure xml:id="rissosDolphin">
+        <caption>A Risso's dolphin. Photo by Mike Baird (www.bairdphotos.com). CC BY 2.0 license.</caption>
+        <p>
+          [Figure showing a Risso's dolphin surfacing in water. The area forward of its face is mostly
+          white, and then its body is gray and white streaked together.]
+        </p>
+      </figure>
+      
+      <p>
+        We will identify a confidence interval for the average mercury content in dolphin muscle using a
+        sample of 19 Risso's dolphins from the Taiji area in Japan. The data are summarized in
+        Figure<nbsp/><xref ref="summaryStatsOfHgInMuscleOfRissosDolphins"/>. The minimum and maximum
+        observed values can be used to evaluate whether or not there are clear outliers.
+      </p>
+      
+      <figure xml:id="summaryStatsOfHgInMuscleOfRissosDolphins">
+        <caption>Summary of mercury content in the muscle of 19 Risso's dolphins from the Taiji area.
+        Measurements are in micrograms of mercury per wet gram of muscle (<m>\mu</m>g/wet g).</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell><m>n</m></cell>
+            <cell><m>\bar{x}</m></cell>
+            <cell><m>s</m></cell>
+            <cell>minimum</cell>
+            <cell>maximum</cell>
+          </row>
+          <row>
+            <cell>19</cell>
+            <cell>4.4</cell>
+            <cell>2.3</cell>
+            <cell>1.7</cell>
+            <cell>9.2</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <example xml:id="dolphin-conditions">
+        <statement>
+          <p>
+            Are the independence and normality conditions satisfied for this data set?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The observations are a simple random sample, therefore independence is reasonable. The summary
+            statistics in Figure<nbsp/><xref ref="summaryStatsOfHgInMuscleOfRissosDolphins"/> do not
+            suggest any clear outliers, since all observations are within 2.5 standard deviations of the
+            mean. Based on this evidence, the normality condition seems reasonable.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        In the normal model, we used <m>z^{\star}</m> and the standard error to determine the width of
+        a confidence interval. We revise the confidence interval formula slightly when using the
+        <m>t</m>-distribution:
+      </p>
+      <md>
+        <mrow>\text{point estimate} \pm t^{\star}_{df} \times SE \amp\quad \to \quad \bar{x} \pm t^{\star}_{df} \times \frac{s}{\sqrt{n}}</mrow>
+      </md>
+      
+      <example xml:id="dolphin-se">
+        <statement>
+          <p>
+            Using the summary statistics in Figure<nbsp/><xref ref="summaryStatsOfHgInMuscleOfRissosDolphins"/>,
+            compute the standard error for the average mercury content in the <m>n = 19</m> dolphins.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We plug in <m>s</m> and <m>n</m> into the formula: <m>SE = s / \sqrt{n} = 2.3 / \sqrt{19} = 0.528</m>.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        The value <m>t^{\star}_{df}</m> is a cutoff we obtain based on the confidence level and the
+        <m>t</m>-distribution with <m>df</m> degrees of freedom. That cutoff is found in the same way as
+        with a normal distribution: we find <m>t^{\star}_{df}</m> such that the fraction of the
+        <m>t</m>-distribution with <m>df</m> degrees of freedom within a distance <m>t^{\star}_{df}</m>
+        of 0 matches the confidence level of interest.
+      </p>
+      
+      <example xml:id="dolphin-df-tstar">
+        <statement>
+          <p>
+            When <m>n = 19</m>, what is the appropriate degrees of freedom? Find <m>t^{\star}_{df}</m>
+            for this degrees of freedom and the confidence level of 95%.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The degrees of freedom is easy to calculate: <m>df = n - 1 = 18</m>.
+          </p>
+          <p>
+            Using statistical software, we find the cutoff where the upper tail is equal to 2.5%:
+            <m>t^{\star}_{18} = 2.10</m>. The area below <m>-2.10</m> will also be equal to 2.5%. That
+            is, 95% of the <m>t</m>-distribution with <m>df = 18</m> lies within 2.10 units of 0.
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="dolphin-ci">
+        <statement>
+          <p>
+            Compute and interpret the 95% confidence interval for the average mercury content in Risso's
+            dolphins.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can construct the confidence interval as
           </p>
           <md>
-            SE = \frac{s}{\sqrt{n}}
+            <mrow>\bar{x} \pm t^{\star}_{18} \times SE \amp\quad \to \quad 4.4 \pm 2.10 \times 0.528</mrow>
+            <mrow>\amp\quad \to \quad (3.29, 5.51)</mrow>
           </md>
+          <p>
+            We are 95% confident the average mercury content of muscles in Risso's dolphins is between
+            3.29 and 5.51 <m>\mu</m>g/wet gram, which is considered extremely high.
+          </p>
+        </solution>
+      </example>
+      
+      <assemblage xml:id="t-ci-mean">
+        <title>Finding a <m>t</m>-confidence interval for the mean</title>
+        <p>
+          Based on a sample of <m>n</m> independent and nearly normal observations, a confidence interval
+          for the population mean is
+        </p>
+        <md>
+          <mrow>\text{point estimate} \pm t^{\star}_{df} \times SE \amp\quad \to \quad \bar{x} \pm t^{\star}_{df} \times \frac{s}{\sqrt{n}}</mrow>
+        </md>
+        <p>
+          where <m>\bar{x}</m> is the sample mean, <m>t^{\star}_{df}</m> corresponds to the confidence
+          level and degrees of freedom <m>df</m>, and <m>SE</m> is the standard error as estimated by
+          the sample.
+        </p>
+      </assemblage>
+      
+      <exercise xml:id="croakerWhiteFishPacificExerConditions">
+        <statement>
+          <p>
+            The FDA's webpage provides some data on mercury content of fish. Based on a sample of 15
+            croaker white fish (Pacific), a sample mean and standard deviation were computed as 0.287 and
+            0.069 ppm (parts per million), respectively. The 15 observations ranged from 0.18 to 0.41 ppm.
+            We will assume these observations are independent. Based on the summary statistics of the data,
+            do you have any objections to the normality condition of the individual observations?<fn>The
+            sample size is under 30, so we check for obvious outliers: since all observations are within 2
+            standard deviations of the mean, there are no such clear outliers.</fn>
+          </p>
         </statement>
-      </definition>
+      </exercise>
+      
+      <example xml:id="croakerWhiteFishPacificExerSEDFTStar">
+        <statement>
+          <p>
+            Estimate the standard error of <m>\bar{x} = 0.287</m> ppm using the data summaries in
+            Guided Practice<nbsp/><xref ref="croakerWhiteFishPacificExerConditions"/>. If we are to use
+            the <m>t</m>-distribution to create a 90% confidence interval for the actual mean of the
+            mercury content, identify the degrees of freedom and <m>t^{\star}_{df}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The standard error: <m>SE = \frac{0.069}{\sqrt{15}} = 0.0178</m>.
+          </p>
+          <p>
+            Degrees of freedom: <m>df = n - 1 = 14</m>.
+          </p>
+          <p>
+            Since the goal is a 90% confidence interval, we choose <m>t_{14}^{\star}</m> so that the
+            two-tail area is 0.1: <m>t^{\star}_{14} = 1.76</m>.
+          </p>
+        </solution>
+      </example>
+      
+      <assemblage xml:id="ci-one-mean-steps">
+        <title>Confidence interval for a single mean</title>
+        <p>
+          Once you've determined a one-mean confidence interval would be helpful for an application, there
+          are four steps to constructing the interval:
+        </p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+            <p>
+              Identify <m>\bar{x}</m>, <m>s</m>, <m>n</m>, and determine what confidence level you wish
+              to use.
+            </p>
+          </li>
+          <li>
+            <title>Check.</title>
+            <p>
+              Verify the conditions to ensure <m>\bar{x}</m> is nearly normal.
+            </p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+            <p>
+              If the conditions hold, compute <m>SE</m>, find <m>t_{df}^{\star}</m>, and construct the
+              interval.
+            </p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+            <p>
+              Interpret the confidence interval in the context of the problem.
+            </p>
+          </li>
+        </dl>
+      </assemblage>
+      
+      <exercise xml:id="croakerWhiteFish90ci">
+        <statement>
+          <p>
+            Using the information and results of Guided Practice<nbsp/><xref ref="croakerWhiteFishPacificExerConditions"/>
+            and Example<nbsp/><xref ref="croakerWhiteFishPacificExerSEDFTStar"/>, compute a 90% confidence
+            interval for the average mercury content of croaker white fish (Pacific).<fn><m>\bar{x} \pm t^{\star}_{14} \times SE \to 0.287 \pm 1.76 \times 0.0178 \to (0.256, 0.318)</m>.
+            We are 90% confident that the average mercury content of croaker white fish (Pacific) is
+            between 0.256 and 0.318 ppm.</fn>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise>
+        <statement>
+          <p>
+            The 90% confidence interval from Guided Practice<nbsp/><xref ref="croakerWhiteFish90ci"/> is
+            0.256 ppm to 0.318 ppm. Can we say that 90% of croaker white fish (Pacific) have mercury levels
+            between 0.256 and 0.318 ppm?<fn>No, a confidence interval only provides a range of plausible
+            values for a population parameter, in this case the population mean. It does not describe what
+            we might observe for individual observations.</fn>
+          </p>
+        </statement>
+      </exercise>
     </subsection>
     
-    <subsection xml:id="subsec-one-sample-t-ci">
-      <title>One-Sample <m>t</m>-Confidence Intervals</title>
+    <subsection xml:id="oneSampleTTests">
+      <title>One sample <m>t</m>-tests</title>
       
       <p>
-        A confidence interval for a population mean <m>\mu</m> based on a sample of size <m>n</m>
-        with sample mean <m>\bar{x}</m> and sample standard deviation <m>s</m> is given by:
+        Is the typical US runner getting faster or slower over time? We consider this question in the
+        context of the Cherry Blossom Race, which is a 10-mile race in Washington, DC each spring.
       </p>
-      
-      <md>
-        \bar{x} \pm t^*_{df} \times SE \quad\text{where}\quad SE = \frac{s}{\sqrt{n}} \quad\text{and}\quad df = n - 1
-      </md>
       
       <p>
-        Here, <m>t^*_{df}</m> is the critical value from the t-distribution with <m>df</m> degrees
-        of freedom that corresponds to the desired confidence level.
+        The average time for all runners who finished the Cherry Blossom Race in 2006 was 93.29 minutes
+        (93 minutes and about 17 seconds). We want to determine using data from 100 participants in the
+        2017 Cherry Blossom Race whether runners in this race are getting faster or slower, versus the
+        other possibility that there has been no change.
       </p>
       
-      <procedure xml:id="proc-one-sample-t-ci">
-        <title>One-Sample <m>t</m>-Confidence Interval</title>
-        <step>
-          <title>Prepare</title>
+      <exercise>
+        <statement>
           <p>
-            Identify the sample mean <m>\bar{x}</m>, sample standard deviation <m>s</m>, and sample
-            size <m>n</m>. Determine the desired confidence level.
+            What are appropriate hypotheses for this context?<fn><m>H_0</m>: The average 10-mile run time
+            was the same for 2006 and 2017. <m>\mu = 93.29</m> minutes. <m>H_A</m>: The average 10-mile
+            run time for 2017 was <em>different</em> than that of 2006. <m>\mu \neq 93.29</m> minutes.</fn>
           </p>
-        </step>
-        <step>
-          <title>Check</title>
+        </statement>
+      </exercise>
+      
+      <exercise>
+        <statement>
           <p>
-            Verify that observations are independent and that the sample size is appropriate for
-            the distribution of the data (check for extreme outliers or strong skewness).
+            The data come from a simple random sample of all participants, so the observations are
+            independent. However, should we be worried about the normality condition? See
+            Figure<nbsp/><xref ref="run10SampTimeHistogram"/> for a histogram of the differences and
+            evaluate if we can move forward.<fn>With a sample of 100, we should only be concerned if there
+            are particularly extreme outliers. The histogram of the data doesn't show any outliers of
+            concern (and arguably, no outliers at all).</fn>
           </p>
-        </step>
-        <step>
-          <title>Calculate</title>
+        </statement>
+      </exercise>
+      
+      <figure xml:id="run10SampTimeHistogram">
+        <caption>A histogram of time for the sample Cherry Blossom Race data.</caption>
+        <p>
+          [Figure showing a histogram of "time" for the sample. The data are nearly symmetric with a
+          center at about 100 minutes and a standard deviation of roughly 15 to 20 minutes. All times lie
+          between 50 and 140 minutes.]
+        </p>
+      </figure>
+      
+      <p>
+        When completing a hypothesis test for the one-sample mean, the process is nearly identical to
+        completing a hypothesis test for a single proportion. First, we find the Z-score using the
+        observed value, null value, and standard error; however, we call it a <term>T-score</term> since
+        we use a <m>t</m>-distribution for calculating the tail area. Then we find the p-value using the
+        same ideas we used previously: find the one-tail area under the sampling distribution, and double
+        it.
+      </p>
+      
+      <example xml:id="cherry-blossom-test">
+        <statement>
           <p>
-            Compute <m>SE = s/\sqrt{n}</m> and <m>df = n-1</m>. Find the appropriate <m>t^*_{df}</m>
-            value and construct the confidence interval <m>\bar{x} \pm t^*_{df} \times SE</m>.
+            With both the independence and normality conditions satisfied, we can proceed with a hypothesis
+            test using the <m>t</m>-distribution. The sample mean and sample standard deviation of the
+            sample of 100 runners from the 2017 Cherry Blossom Race are 97.32 and 16.98 minutes,
+            respectively. Recall that the sample size is 100 and the average run time in 2006 was 93.29
+            minutes. Find the test statistic and p-value. What is your conclusion?
           </p>
-        </step>
-        <step>
-          <title>Conclude</title>
+        </statement>
+        <solution>
           <p>
-            Interpret the confidence interval in the context of the problem.
+            To find the test statistic (T-score), we first must determine the standard error:
           </p>
-        </step>
-      </procedure>
+          <me>
+            SE = 16.98 / \sqrt{100} = 1.70
+          </me>
+          <p>
+            Now we can compute the <em>T-score</em> using the sample mean (97.32), null value (93.29),
+            and <m>SE</m>:
+          </p>
+          <me>
+            T = \frac{97.32 - 93.29}{1.70} = 2.37
+          </me>
+          <p>
+            For <m>df = 100 - 1 = 99</m>, we can determine using statistical software (or a
+            <m>t</m>-table) that the one-tail area is 0.01, which we double to get the p-value: 0.02.
+          </p>
+          <p>
+            Because the p-value is smaller than 0.05, we reject the null hypothesis. That is, the data
+            provide strong evidence that the average run time for the Cherry Blossom Run in 2017 is
+            different than the 2006 average. Since the observed value is above the null value and we have
+            rejected the null hypothesis, we would conclude that runners in the race were slower on average
+            in 2017 than in 2006.
+          </p>
+        </solution>
+      </example>
+      
+      <assemblage xml:id="ht-one-mean-steps">
+        <title>Hypothesis testing for a single mean</title>
+        <p>
+          Once you've determined a one-mean hypothesis test is the correct procedure, there are four steps
+          to completing the test:
+        </p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+            <p>
+              Identify the parameter of interest, list out hypotheses, identify the significance level,
+              and identify <m>\bar{x}</m>, <m>s</m>, and <m>n</m>.
+            </p>
+          </li>
+          <li>
+            <title>Check.</title>
+            <p>
+              Verify conditions to ensure <m>\bar{x}</m> is nearly normal.
+            </p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+            <p>
+              If the conditions hold, compute <m>SE</m>, compute the T-score, and identify the p-value.
+            </p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+            <p>
+              Evaluate the hypothesis test by comparing the p-value to <m>\alpha</m>, and provide a
+              conclusion in the context of the problem.
+            </p>
+          </li>
+        </dl>
+      </assemblage>
     </subsection>
     
-    <subsection xml:id="subsec-one-sample-t-test">
-      <title>One-Sample <m>t</m>-Test</title>
+    <exercises>
+      <title>Section Exercises</title>
       
-      <p>
-        To test a hypothesis about a population mean <m>\mu</m>, we use the <term>one-sample t-test</term>.
-        The test statistic is:
-      </p>
+      <exercise xml:id="identify_critical_t">
+        <title>Identify the critical <m>t</m></title>
+        <statement>
+          <p>
+            An independent random sample is selected from an approximately normal population with unknown
+            standard deviation. Find the degrees of freedom and the critical <m>t</m>-value (<m>t^\star</m>)
+            for the given sample size and confidence level.
+          </p>
+          <ol>
+            <li><m>n = 6</m>, CL = 90%</li>
+            <li><m>n = 21</m>, CL = 98%</li>
+            <li><m>n = 29</m>, CL = 95%</li>
+            <li><m>n = 12</m>, CL = 99%</li>
+          </ol>
+        </statement>
+      </exercise>
       
-      <md>
-        t = \frac{\bar{x} - \mu_0}{SE} = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}
-      </md>
+      <exercise xml:id="t_distribution">
+        <title><m>t</m>-distribution</title>
+        <statement>
+          <p>
+            The figure on the right shows three unimodal and symmetric curves: the standard normal (z)
+            distribution, the <m>t</m>-distribution with 5 degrees of freedom, and the
+            <m>t</m>-distribution with 1 degree of freedom. Determine which is which, and explain your
+            reasoning.
+          </p>
+          <p>
+            [Figure showing three distributions, all symmetric, bell-shaped, and centered at zero]
+          </p>
+        </statement>
+      </exercise>
       
-      <p>
-        where <m>\mu_0</m> is the null value (the value of <m>\mu</m> under the null hypothesis).
-        This test statistic follows a t-distribution with <m>df = n-1</m> when the null hypothesis
-        is true and conditions are met.
-      </p>
+      <exercise xml:id="find_T_pval_1_2_sided">
+        <title>Find the p-value, Part I</title>
+        <statement>
+          <p>
+            An independent random sample is selected from an approximately normal population with an
+            unknown standard deviation. Find the p-value for the given sample size and test statistic.
+            Also determine if the null hypothesis would be rejected at <m>\alpha = 0.05</m>.
+          </p>
+          <ol>
+            <li><m>n = 11</m>, <m>T = 1.91</m></li>
+            <li><m>n = 17</m>, <m>T = -3.45</m></li>
+            <li><m>n = 7</m>, <m>T = 0.83</m></li>
+            <li><m>n = 28</m>, <m>T = 2.13</m></li>
+          </ol>
+        </statement>
+      </exercise>
       
-      <procedure xml:id="proc-one-sample-t-test">
-        <title>One-Sample <m>t</m>-Test</title>
-        <step>
-          <title>Prepare</title>
+      <exercise xml:id="find_T_pval_2_2_sided">
+        <title>Find the p-value, Part II</title>
+        <statement>
           <p>
-            State the hypotheses, identify <m>\bar{x}</m>, <m>s</m>, <m>n</m>, and the significance
-            level <m>\alpha</m>.
+            An independent random sample is selected from an approximately normal population with an
+            unknown standard deviation. Find the p-value for the given sample size and test statistic.
+            Also determine if the null hypothesis would be rejected at <m>\alpha = 0.01</m>.
           </p>
-        </step>
-        <step>
-          <title>Check</title>
+          <ol>
+            <li><m>n = 26</m>, <m>T = 2.485</m></li>
+            <li><m>n = 18</m>, <m>T = 0.5</m></li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="work_backwards_1">
+        <title>Working backwards, Part I</title>
+        <statement>
           <p>
-            Verify independence and normality conditions.
+            A 95% confidence interval for a population mean, <m>\mu</m>, is given as (18.985, 21.015).
+            This confidence interval is based on a simple random sample of 36 observations. Calculate the
+            sample mean and standard deviation. Assume that all conditions necessary for inference are
+            satisfied. Use the <m>t</m>-distribution in any calculations.
           </p>
-        </step>
-        <step>
-          <title>Calculate</title>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="work_backwards_2">
+        <title>Working backwards, Part II</title>
+        <statement>
           <p>
-            Compute the t-statistic and find the p-value using the t-distribution with <m>df = n-1</m>.
+            A 90% confidence interval for a population mean is (65, 77). The population distribution is
+            approximately normal and the population standard deviation is unknown. This confidence interval
+            is based on a simple random sample of 25 observations. Calculate the sample mean, the margin
+            of error, and the sample standard deviation.
           </p>
-        </step>
-        <step>
-          <title>Conclude</title>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ny_sleep_habits_2_sided">
+        <title>Sleep habits of New Yorkers</title>
+        <statement>
           <p>
-            Make a decision by comparing the p-value to <m>\alpha</m> and interpret in context.
+            New York is known as "the city that never sleeps". A random sample of 25 New Yorkers were
+            asked how much sleep they get per night. Statistical summaries of these data are shown below.
+            The point estimate suggests New Yorkers sleep less than 8 hours a night on average. Is the
+            result statistically significant?
           </p>
-        </step>
-      </procedure>
-    </subsection>
+          <tabular>
+            <row bottom="medium">
+              <cell>n</cell>
+              <cell><m>\bar{x}</m></cell>
+              <cell>s</cell>
+              <cell>min</cell>
+              <cell>max</cell>
+            </row>
+            <row>
+              <cell>25</cell>
+              <cell>7.73</cell>
+              <cell>0.77</cell>
+              <cell>6.17</cell>
+              <cell>9.78</cell>
+            </row>
+          </tabular>
+          <ol>
+            <li>Write the hypotheses in symbols and in words.</li>
+            <li>Check conditions, then calculate the test statistic, <m>T</m>, and the associated degrees
+            of freedom.</li>
+            <li>Find and interpret the p-value in this context. Drawing a picture may be helpful.</li>
+            <li>What is the conclusion of the hypothesis test?</li>
+            <li>If you were to construct a 90% confidence interval that corresponded to this hypothesis
+            test, would you expect 8 hours to be in the interval?</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="adult_heights">
+        <title>Heights of adults</title>
+        <statement>
+          <p>
+            Researchers studying anthropometry collected body girth measurements and skeletal diameter
+            measurements, as well as age, weight, height and gender, for 507 physically active individuals.
+            The histogram below shows the sample distribution of heights in centimeters.
+          </p>
+          <p>
+            [Figure and table with summary statistics]
+          </p>
+          <ol>
+            <li>What is the point estimate for the average height of active individuals? What about the
+            median?</li>
+            <li>What is the point estimate for the standard deviation of the heights of active individuals?
+            What about the IQR?</li>
+            <li>Is a person who is 1m 80cm (180 cm) tall considered unusually tall? And is a person who
+            is 1m 55cm (155cm) considered unusually short? Explain your reasoning.</li>
+            <li>The researchers take another random sample of physically active individuals. Would you
+            expect the mean and the standard deviation of this new sample to be the ones given above?
+            Explain your reasoning.</li>
+            <li>The sample means obtained are point estimates for the mean height of all active
+            individuals, if the sample of individuals is equivalent to a simple random sample. What measure
+            do we use to quantify the variability of such an estimate? Compute this quantity using the
+            data from the original sample under the condition that the data are a simple random sample.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="find_mean_2_sided">
+        <title>Find the mean</title>
+        <statement>
+          <p>
+            You are given the following hypotheses:
+          </p>
+          <md>
+            <mrow>H_0\amp: \mu = 60</mrow>
+            <mrow>H_A\amp: \mu \neq 60</mrow>
+          </md>
+          <p>
+            We know that the sample standard deviation is 8 and the sample size is 20. For what sample
+            mean would the p-value be equal to 0.05? Assume that all conditions necessary for inference
+            are satisfied.
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="critical_t_vs_z">
+        <title><m>t^\star</m> vs. <m>z^\star</m></title>
+        <statement>
+          <p>
+            For a given confidence level, <m>t^{\star}_{df}</m> is larger than <m>z^{\star}</m>. Explain
+            how <m>t^{*}_{df}</m> being slightly larger than <m>z^{*}</m> affects the width of the
+            confidence interval.
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="play_piano_2_sided">
+        <title>Play the piano</title>
+        <statement>
+          <p>
+            Georgianna claims that in a small city renowned for its music school, the average child takes
+            less than 5 years of piano lessons. We have a random sample of 20 children from the city, with
+            a mean of 4.6 years of piano lessons and a standard deviation of 2.2 years.
+          </p>
+          <ol>
+            <li>Evaluate Georgianna's claim (or that the opposite might be true) using a hypothesis test.</li>
+            <li>Construct a 95% confidence interval for the number of years students in this city take
+            piano lessons, and interpret it in context of the data.</li>
+            <li>Do your results from the hypothesis test and the confidence interval agree? Explain your
+            reasoning.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="auto_exhaust_lead_exposure_2_sided">
+        <title>Auto exhaust and lead exposure</title>
+        <statement>
+          <p>
+            Researchers interested in lead exposure due to car exhaust sampled the blood of 52 police
+            officers subjected to constant inhalation of automobile exhaust fumes while working traffic
+            enforcement in a primarily urban environment. The blood samples of these officers had an
+            average lead concentration of 124.32 <m>\mu</m>g/l and a SD of 37.74 <m>\mu</m>g/l; a
+            previous study of individuals from a nearby suburb, with no history of exposure, found an
+            average blood level concentration of 35 <m>\mu</m>g/l.
+          </p>
+          <ol>
+            <li>Write down the hypotheses that would be appropriate for testing if the police officers
+            appear to have been exposed to a different concentration of lead.</li>
+            <li>Explicitly state and check all conditions necessary for inference on these data.</li>
+            <li>Regardless of your answers in part (b), test the hypothesis that the downtown police
+            officers have a higher lead exposure than the group in the previous study. Interpret your
+            results in context.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="car_insurance_savings">
+        <title>Car insurance savings</title>
+        <statement>
+          <p>
+            A market researcher wants to evaluate car insurance savings at a competing company. Based on
+            past studies he is assuming that the standard deviation of savings is $100. He wants to collect
+            data such that he can get a margin of error of no more than $10 at a 95% confidence level. How
+            large of a sample should he collect?
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="sat_scores_CI">
+        <title>SAT scores</title>
+        <statement>
+          <p>
+            The standard deviation of SAT scores for students at a particular Ivy League college is 250
+            points. Two statistics students, Raina and Luke, want to estimate the average SAT score of
+            students at this college as part of a class project. They want their margin of error to be no
+            more than 25 points.
+          </p>
+          <ol>
+            <li>Raina wants to use a 90% confidence interval. How large a sample should she collect?</li>
+            <li>Luke wants to use a 99% confidence interval. Without calculating the actual sample size,
+            determine whether his sample should be larger or smaller than Raina's, and explain your
+            reasoning.</li>
+            <li>Calculate the minimum required sample size for Luke.</li>
+          </ol>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
   
   <!-- Section 6.2: Paired data -->
