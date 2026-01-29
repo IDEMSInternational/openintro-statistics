@@ -155,6 +155,28 @@
           as they help us understand and characterize the point estimates we do observe.
         </p>
       </important>
+      
+      <example xml:id="ex-smaller-sample-size">
+        <title>Effect of smaller sample size</title>
+        <statement>
+          <p>
+            If we used a much smaller sample size of <m>n = 50</m>, would you guess that
+            the standard error for <m>\hat{p}</m> would be larger or smaller than when we
+            used <m>n = 1000</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Intuitively, it seems like more data is better than less data, and generally
+            that is correct! The typical error when <m>p = 0.88</m> and <m>n = 50</m>
+            would be larger than the error we would expect when <m>n = 1000</m>.
+          </p>
+          <p>
+            This highlights an important property we will see again and again: a bigger
+            sample tends to provide a more precise point estimate than a smaller sample.
+          </p>
+        </solution>
+      </example>
     </subsection>
     
     <subsection xml:id="subsec-central-limit-theorem">
@@ -200,6 +222,46 @@
             <m>n(1-p) \geq 10</m>.</li>
       </ol>
       
+      <example xml:id="ex-confirm-clt-applies">
+        <title>Confirming the Central Limit Theorem applies</title>
+        <statement>
+          <p>
+            Earlier we estimated the mean and standard error of <m>\hat{p}</m> using
+            simulated data when <m>p = 0.88</m> and <m>n = 1000</m>. Confirm that the
+            Central Limit Theorem applies and the sampling distribution is approximately
+            normal.
+          </p>
+        </statement>
+        <solution>
+          <ol>
+            <li>
+              <p>
+                <strong>Independence.</strong> There are <m>n = 1000</m> observations for
+                each sample proportion <m>\hat{p}</m>, and each of those observations are
+                independent draws. The most common way for observations to be considered
+                independent is if they are from a simple random sample.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Success-failure condition.</strong> We can confirm the sample size
+                is sufficiently large by checking the success-failure condition and
+                confirming the two calculated values are greater than 10:
+                <md>
+                  <mrow>np \amp= 1000 \times 0.88 = 880 \geq 10 \checkmark</mrow>
+                  <mrow>n(1-p) \amp= 1000 \times 0.12 = 120 \geq 10 \checkmark</mrow>
+                </md>
+              </p>
+            </li>
+          </ol>
+          <p>
+            The independence and success-failure conditions are both satisfied, so the
+            Central Limit Theorem applies, and it's reasonable to model <m>\hat{p}</m>
+            using a normal distribution.
+          </p>
+        </solution>
+      </example>
+      
       <example xml:id="ex-se-calculation">
         <title>Computing mean and standard error</title>
         <statement>
@@ -220,6 +282,37 @@
               <mrow>\amp= \sqrt{\frac{0.88 \times 0.12}{1000}}</mrow>
               <mrow>\amp= 0.0103</mrow>
             </md>
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-normal-prob-sample-prop">
+        <title>Normal probability for sample proportion</title>
+        <statement>
+          <p>
+            Estimate how frequently the sample proportion <m>\hat{p}</m> should be within
+            0.02 (2%) of the population value, <m>p = 0.88</m>. Based on the previous
+            examples, we know that the distribution is approximately
+            <m>N(\mu_{\hat{p}} = 0.88, SE_{\hat{p}} = 0.0103)</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We would like to understand the fraction of <m>\hat{p}</m>'s between 0.86 and
+            0.90. With <m>\mu_{\hat{p}} = 0.88</m> and <m>SE_{\hat{p}} = 0.0103</m>, we
+            can compute the Z-score for both the left and right cutoffs:
+            <md>
+              <mrow>Z_{0.86} \amp= \frac{0.86 - 0.88}{0.0103} = -1.94 \approx -2</mrow>
+              <mrow>Z_{0.90} \amp= \frac{0.90 - 0.88}{0.0103} = 1.94 \approx 2</mrow>
+            </md>
+          </p>
+          <p>
+            We can use either statistical software, a graphing calculator, or a table to
+            find the areas in the tails, and in any case we will find that they are each
+            0.0228. The total tail areas are <m>2 \times 0.0228 = 0.0456</m>, which
+            leaves the shaded area of 0.9544. That is, about 95.44% of the sampling
+            distribution is within <m>\pm 0.02</m> of the population proportion,
+            <m>p = 0.88</m>.
           </p>
         </solution>
       </example>
@@ -315,15 +408,42 @@
         <statement>
           <p>
             For each of the following situations, state whether the parameter of interest
-            is a mean or a proportion.
+            is a mean or a proportion. It may be helpful to examine whether individual
+            responses are numerical or categorical.
           </p>
           <ol>
             <li>In a survey, one hundred college students are asked how many hours per week
                 they spend on the Internet.</li>
+            <li>In a survey, one hundred college students are asked: "What percentage of
+                the time you spend on the Internet is part of your course work?"</li>
             <li>In a survey, one hundred college students are asked whether or not they
                 cited information from Wikipedia in their papers.</li>
+            <li>In a survey, one hundred college students are asked what percentage of
+                their total weekly spending is on alcoholic beverages.</li>
             <li>In a sample of one hundred recent college graduates, it is found that 85
                 percent expect to get a job within one year of their graduation date.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-identify-parameter-2">
+        <statement>
+          <p>
+            For each of the following situations, state whether the parameter of interest
+            is a mean or a proportion.
+          </p>
+          <ol>
+            <li>A poll shows that 64% of Americans personally worry a great deal about
+                federal spending and the budget deficit.</li>
+            <li>A survey reports that local TV news has shown a 17% increase in revenue
+                within a two year period while newspaper revenues decreased by 6.4% during
+                this time period.</li>
+            <li>In a survey, high school and college students are asked whether or not
+                they use geolocation services on their smart phones.</li>
+            <li>In a survey, smart phone users are asked whether or not they use a
+                web-based taxi service.</li>
+            <li>In a survey, smart phone users are asked how many times they used a
+                web-based taxi service over the last year.</li>
           </ol>
         </statement>
       </exercise>
@@ -600,6 +720,38 @@
           <description>Normal curve showing z-star values for different confidence levels</description>
         </image>
       </figure>
+      
+      <example xml:id="ex-solar-90-ci">
+        <title>90% CI for solar energy support</title>
+        <statement>
+          <p>
+            Use the data from <xref ref="ex-solar-95-ci"/> to create a 90% confidence
+            interval for the proportion of American adults that support expanding the use
+            of solar power. We have already verified conditions for normality.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We first find <m>z^*</m> such that 90% of the distribution falls between
+            <m>-z^*</m> and <m>z^*</m> in the standard normal distribution. We can do
+            this using a graphing calculator, statistical software, or a probability table
+            by looking for an upper tail of 5% (the other 5% is in the lower tail):
+            <m>z^* = 1.65</m>.
+          </p>
+          <p>
+            The 90% confidence interval can then be computed as:
+            <md>
+              <mrow>\hat{p} \pm 1.65 \times SE_{\hat{p}} \amp= 0.887 \pm 1.65 \times 0.0100</mrow>
+              <mrow>\amp= 0.887 \pm 0.0165</mrow>
+              <mrow>\amp= (0.8705, 0.9034)</mrow>
+            </md>
+          </p>
+          <p>
+            <strong>Interpretation:</strong> We are 90% confident that 87.1% to 90.3% of
+            American adults supported the expansion of solar power in 2018.
+          </p>
+        </solution>
+      </example>
     </subsection>
     
     <subsection xml:id="subsec-ci-procedure">
@@ -760,6 +912,45 @@
           parameter, these techniques will not fix that problem.
         </p>
       </important>
+    </subsection>
+    
+    <subsection xml:id="subsec-interpreting-cis">
+      <title>Interpreting Confidence Intervals</title>
+      
+      <p>
+        When we interpret confidence intervals, we must be careful to use precise language.
+        In each of the examples, we described the confidence intervals by putting them into
+        the context of the data:
+      </p>
+      
+      <ul>
+        <li><strong>Solar.</strong> We are 90% confident that 87.1% to 90.3% of American
+            adults support the expansion of solar power in 2018.</li>
+        <li><strong>Ebola.</strong> We are 95% confident that the proportion of New York
+            adults in October 2014 who supported a quarantine for anyone who had come into
+            contact with an Ebola patient was between 79.6% and 84.4%.</li>
+      </ul>
+      
+      <p>
+        Notice that the statements are always about the <em>population parameter</em>, which
+        considers all American adults for the energy polls or all New York adults for the
+        quarantine poll.
+      </p>
+      
+      <warning>
+        <title>Common mistakes when interpreting confidence intervals</title>
+        <p>
+          <strong>Mistake 1: Probability interpretation.</strong> A confidence interval does
+          not mean there's a 95% probability the parameter is in the interval. The parameter
+          is fixed; either it's in the interval or it's not. The 95% refers to the long-run
+          success rate of the method, not the probability for any particular interval.
+        </p>
+        <p>
+          <strong>Mistake 2: About the sample.</strong> A confidence interval is only about
+          the population parameter, not about individual observations or the sample
+          proportion. It says nothing about where future point estimates will fall.
+        </p>
+      </warning>
     </subsection>
     
     <exercises>
