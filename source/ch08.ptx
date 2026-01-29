@@ -1507,84 +1507,472 @@
     
     <introduction>
       <p>
-        Just as we performed inference for means and proportions, we can perform inference for the slope and intercept of a regression line.
+        In this section, we discuss uncertainty in the estimates of the slope and y-intercept for a regression line. Just as we identified standard errors for point estimates in previous chapters, we first discuss standard errors for these new estimates.
       </p>
     </introduction>
 
-    <subsection xml:id="subsec-understanding-regression-model">
-      <title>Understanding the regression model</title>
+    <subsection xml:id="subsec-midterm-elections-unemployment">
+      <title>Midterm elections and unemployment</title>
       
       <p>
-        When we fit a regression line to data, we are estimating the true population regression line:
-        <me>y = \beta_0 + \beta_1 x + \varepsilon</me>
-        where <m>\varepsilon \sim N(0, \sigma)</m>. Our estimates <m>b_0</m> and <m>b_1</m> are point estimates of the true parameters <m>\beta_0</m> and <m>\beta_1</m>.
+        Elections for members of the United States House of Representatives occur every two years, coinciding every four years with the U.S. Presidential election. The set of House elections occurring during the middle of a Presidential term are called <term>midterm elections</term>. In America's two-party system, one political theory suggests the higher the unemployment rate, the worse the President's party will do in the midterm elections.
       </p>
-    </subsection>
 
-    <subsection xml:id="subsec-se-of-slope">
-      <title>Standard error of the slope</title>
-      
-      <definition xml:id="def-se-slope">
-        <title>Standard Error of the Slope</title>
+      <p>
+        To assess the validity of this claim, we can compile historical data and look for a connection. We consider every midterm election from 1898 to 2018, with the exception of those elections during the Great Depression. <xref ref="fig-unemploymentAndChangeInHouse"/> shows these data and the least-squares regression line:
+        <md>
+          <mrow>\amp\text{% change in House seats for President's party}</mrow>
+          <mrow>\amp\qquad\qquad= -7.36 - 0.89 \times \text{(unemployment rate)}</mrow>
+        </md>
+        We consider the percent change in the number of seats of the President's party (e.g. percent change in the number of seats for Republicans in 2018) against the unemployment rate.
+      </p>
+
+      <p>
+        Examining the data, there are no clear deviations from linearity, the constant variance condition, or substantial outliers. While the data are collected sequentially, a separate analysis was used to check for any apparent correlation between successive observations; no such correlation was found.
+      </p>
+
+      <figure xml:id="fig-unemploymentAndChangeInHouse">
+        <caption>The percent change in House seats for the President's party in each midterm election from 1898 to 2018 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data.</caption>
+        <image source="ch_regr_simple_linear/figures/unemploymentAndChangeInHouse/unemploymentAndChangeInHouse" width="75%">
+          <description>A scatterplot is shown for the percent change in House seats for the President's party in each midterm election from 1898 to 2018 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data with a slightly downward trend. The horizontal axis is for "Unemployment Rate" with values ranging from about 3% to 12%. The vertical axis is for "Percent Change in Seats of the President's Party in the House of Representatives" with values ranging from about -30% to positive 10%. The bulk of the observations have Unemployment Rate between 3% and 8%, and these have the percent change in seats ranging from about -27% to positive 4% without any discernible trend. There are four observations with unemployment rate above 8%, and these have the percent change in seats ranging from -25% to -9%. Each point in the scatterplot is also labeled as "Democrat" in blue or "Republican" in red, though this doesn't reveal any additional pattern.</description>
+        </image>
+      </figure>
+
+      <exercise>
         <statement>
           <p>
-            The <term>standard error of the slope</term> <m>b_1</m> is given by:
-            <me>SE_{b_1} = \frac{s}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2}}</me>
-            where <m>s</m> is the <term>residual standard error</term>:
-            <me>s = \sqrt{\frac{\sum_{i=1}^{n} e_i^2}{n-2}} = \sqrt{\frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{n-2}}</me>
+            The data for the Great Depression (1934 and 1938) were removed because the unemployment rate was 21% and 18%, respectively. Do you agree that they should be removed for this investigation? Why or why not?
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            We will provide two considerations. Each of these points would have very high leverage on any least-squares regression line, and years with such high unemployment may not help us understand what would happen in other years where the unemployment is only modestly high. On the other hand, these are exceptional cases, and we would be discarding important information if we exclude them from a final analysis.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        There is a negative slope in the line shown in <xref ref="fig-unemploymentAndChangeInHouse"/>. However, this slope (and the y-intercept) are only estimates of the parameter values. We might wonder, is this convincing evidence that the <q>true</q> linear model has a negative slope? That is, do the data provide strong evidence that the political theory is accurate, where the unemployment rate is a useful predictor of the midterm election? We can frame this investigation into a statistical hypothesis test:
+        <ul>
+          <li><m>H_0</m>: <m>\beta_1 = 0</m>. The true linear model has slope zero.</li>
+          <li><m>H_A</m>: <m>\beta_1 \neq 0</m>. The true linear model has a slope different than zero. The unemployment is predictive of whether the President's party wins or loses seats in the House of Representatives.</li>
+        </ul>
+        We would reject <m>H_0</m> in favor of <m>H_A</m> if the data provide strong evidence that the true slope parameter is different than zero. To assess the hypotheses, we identify a standard error for the estimate, compute an appropriate test statistic, and identify the p-value.
+      </p>
     </subsection>
 
-    <subsection xml:id="subsec-hypothesis-test-for-slope">
-      <title>Hypothesis test for the slope</title>
-      
-      <assemblage xml:id="assem-ht-for-slope">
-        <title>Hypothesis Test for <m>\beta_1</m></title>
-        <p>
-          To test whether there is a linear relationship between <m>x</m> and <m>y</m>:
-          <ul>
-            <li><m>H_0: \beta_1 = 0</m> (no linear relationship)</li>
-            <li><m>H_A: \beta_1 \neq 0</m> (linear relationship exists)</li>
-          </ul>
-          Test statistic:
-          <me>t = \frac{b_1 - 0}{SE_{b_1}}</me>
-          with degrees of freedom <m>df = n - 2</m>, where <m>n</m> is the number of observations.
-        </p>
-      </assemblage>
-    </subsection>
-
-    <subsection xml:id="subsec-ci-for-slope">
-      <title>Confidence interval for the slope</title>
-      
-      <assemblage xml:id="assem-ci-for-slope">
-        <title>Confidence Interval for <m>\beta_1</m></title>
-        <p>
-          A confidence interval for the true slope <m>\beta_1</m> can be constructed as:
-          <me>b_1 \pm t^*_{df} \times SE_{b_1}</me>
-          where <m>t^*_{df}</m> is the critical value from the <m>t</m>-distribution with <m>df = n - 2</m> degrees of freedom.
-        </p>
-      </assemblage>
-    </subsection>
-
-    <subsection xml:id="subsec-prediction-intervals">
-      <title>Prediction intervals</title>
+    <subsection xml:id="subsec-understanding-regression-output">
+      <title>Understanding regression output from software</title>
       
       <p>
-        A confidence interval for the average response differs from a prediction interval for an individual response.
+        Just like other point estimates we have seen before, we can compute a standard error and test statistic for <m>b_1</m>. We will generally label the test statistic using a <m>T</m>, since it follows the <m>t</m>-distribution.
       </p>
 
-      <assemblage xml:id="assem-prediction-interval">
-        <title>Prediction Interval vs Confidence Interval</title>
+      <p>
+        We will rely on statistical software to compute the standard error and leave the explanation of how this standard error is determined to a second or third statistics course. <xref ref="fig-midtermUnempRegTable"/> shows software output for the least squares regression line in <xref ref="fig-unemploymentAndChangeInHouse"/>. The row labeled <em>unemp</em> includes the point estimate and other hypothesis test information for the slope, which is the coefficient of the unemployment variable.
+      </p>
+
+      <figure xml:id="fig-midtermUnempRegTable">
+        <caption>Output from statistical software for the regression line modeling the midterm election losses for the President's party as a response to unemployment.</caption>
+        <tabular>
+          <row bottom="major">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-7.3644</cell>
+            <cell>5.1553</cell>
+            <cell>-1.43</cell>
+            <cell>0.1646</cell>
+          </row>
+          <row>
+            <cell>unemp</cell>
+            <cell>-0.8897</cell>
+            <cell>0.8350</cell>
+            <cell>-1.07</cell>
+            <cell>0.2961</cell>
+          </row>
+          <row>
+            <cell colspan="5" halign="right"><m>df=27</m></cell>
+          </row>
+        </tabular>
+      </figure>
+
+      <example xml:id="ex-midterm-reg-table-cols">
+        <statement>
+          <p>
+            What do the first and second columns of <xref ref="fig-midtermUnempRegTable"/> represent?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The entries in the first column represent the least squares estimates, <m>b_0</m> and <m>b_1</m>, and the values in the second column correspond to the standard errors of each estimate. Using the estimates, we could write the equation for the least square regression line as
+            <me>\hat{y} = -7.3644 - 0.8897 x</me>
+            where <m>\hat{y}</m> in this case represents the predicted change in the number of seats for the president's party, and <m>x</m> represents the unemployment rate.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        We previously used a <m>t</m>-test statistic for hypothesis testing in the context of numerical data. Regression is very similar. In the hypotheses we consider, the null value for the slope is 0, so we can compute the test statistic using the T (or Z) score formula:
+        <me>T = \frac{\text{estimate} - \text{null value}}{\text{SE}} = \frac{-0.8897 - 0}{0.8350} = -1.07</me>
+        This corresponds to the third column of <xref ref="fig-midtermUnempRegTable"/>.
+      </p>
+
+      <example xml:id="ex-midterm-pvalue">
+        <statement>
+          <p>
+            Use the table in <xref ref="fig-midtermUnempRegTable"/> to determine the p-value for the hypothesis test.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The last column of the table gives the p-value for the two-sided hypothesis test for the coefficient of the unemployment rate: 0.2961. That is, the data do not provide convincing evidence that a higher unemployment rate has any correspondence with smaller or larger losses for the President's party in the House of Representatives in midterm elections.
+          </p>
+        </solution>
+      </example>
+
+      <assemblage xml:id="assem-inference-for-regression">
+        <title>Inference for regression</title>
         <p>
-          <ul>
-            <li><p><em>Confidence interval for the mean response:</em> An interval estimate for the average value of <m>y</m> at a particular value <m>x^*</m>. This interval is narrower.</p></li>
-            <li><p><em>Prediction interval for an individual response:</em> An interval estimate for a single new observation's value of <m>y</m> at <m>x^*</m>. This interval is wider because it accounts for both the uncertainty in estimating the mean and the variability of individual observations.</p></li>
-          </ul>
+          We usually rely on statistical software to identify point estimates, standard errors, test statistics, and p-values in practice. However, be aware that software will not generally check whether the method is appropriate, meaning we must still verify conditions are met.
         </p>
       </assemblage>
+
+      <example xml:id="ex-elmhurst-slope-assessment">
+        <statement>
+          <p>
+            Examine <xref ref="fig-elmhurstScatterWLSROnly"/>, which relates the Elmhurst College aid and student family income. How sure are you that the slope is statistically significantly different from zero? That is, do you think a formal hypothesis test would reject the claim that the true slope of the line should be zero?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            While the relationship between the variables is not perfect, there is an evident decreasing trend in the data. This suggests the hypothesis test will reject the null claim that the slope is zero.
+          </p>
+        </solution>
+      </example>
+
+      <exercise>
+        <statement>
+          <p>
+            <xref ref="fig-rOutputForIncomeAidLSRLineInInferenceSection"/> shows statistical software output from fitting the least squares regression line shown in <xref ref="fig-elmhurstScatterWLSROnly"/>. Use this output to formally evaluate the following hypotheses.
+            <ul>
+              <li><m>H_0</m>: The true coefficient for family income is zero.</li>
+              <li><m>H_A</m>: The true coefficient for family income is not zero.</li>
+            </ul>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We look in the second row corresponding to the family income variable. We see the point estimate of the slope of the line is -0.0431, the standard error of this estimate is 0.0108, and the <m>t</m>-test statistic is <m>T = -3.98</m>. The p-value corresponds exactly to the two-sided test we are interested in: 0.0002. The p-value is so small that we reject the null hypothesis and conclude that family income and financial aid at Elmhurst College for freshman entering in the year 2011 are negatively correlated and the true slope parameter is indeed less than 0, just as we believed in <xref ref="ex-elmhurst-slope-assessment"/>.
+          </p>
+        </solution>
+      </exercise>
+
+      <figure xml:id="fig-rOutputForIncomeAidLSRLineInInferenceSection">
+        <caption>Summary of least squares fit for the Elmhurst College data, where we are predicting the gift aid by the university based on the family income of students.</caption>
+        <tabular>
+          <row bottom="major">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>24319.3</cell>
+            <cell>1291.5</cell>
+            <cell>18.83</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>family_income</cell>
+            <cell>-0.0431</cell>
+            <cell>0.0108</cell>
+            <cell>-3.98</cell>
+            <cell>0.0002</cell>
+          </row>
+          <row>
+            <cell colspan="5" halign="right"><m>df=48</m></cell>
+          </row>
+        </tabular>
+      </figure>
     </subsection>
+
+    <subsection xml:id="subsec-ci-for-coefficient">
+      <title>Confidence interval for a coefficient</title>
+      
+      <p>
+        Similar to how we can conduct a hypothesis test for a model coefficient using regression output, we can also construct a confidence interval for that coefficient.
+      </p>
+
+      <example xml:id="ex-ci-for-family-income">
+        <statement>
+          <p>
+            Compute the 95% confidence interval for the <c>family_income</c> coefficient using the regression output from <xref ref="fig-rOutputForIncomeAidLSRLineInInferenceSection"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The point estimate is -0.0431 and the standard error is <m>SE = 0.0108</m>. When constructing a confidence interval for a model coefficient, we generally use a <m>t</m>-distribution. The degrees of freedom for the distribution are noted in the regression output, <m>df = 48</m>, allowing us to identify <m>t_{48}^{\star} = 2.01</m> for use in the confidence interval.
+          </p>
+          <p>
+            We can now construct the confidence interval in the usual way:
+            <md>
+              <mrow>\text{point estimate} \pm t_{48}^{\star} \times SE \amp\to -0.0431 \pm 2.01 \times 0.0108</mrow>
+              <mrow>\amp\to (-0.0648, -0.0214)</mrow>
+            </md>
+            We are 95% confident that with each dollar increase in <c>family_income</c>, the university's gift aid is predicted to decrease on average by $0.0214 to $0.0648.
+          </p>
+        </solution>
+      </example>
+
+      <assemblage xml:id="assem-ci-for-coefficients">
+        <title>Confidence intervals for coefficients</title>
+        <p>
+          Confidence intervals for model coefficients can be computed using the <m>t</m>-distribution:
+          <me>b_i \ \pm\ t_{df}^{\star} \times SE_{b_{i}}</me>
+          where <m>t_{df}^{\star}</m> is the appropriate <m>t</m>-value corresponding to the confidence level with the model's degrees of freedom.
+        </p>
+      </assemblage>
+
+      <p>
+        On the topic of intervals in this book, we've focused exclusively on confidence intervals for model parameters. However, there are other types of intervals that may be of interest, including <term>prediction intervals</term> for a response value and also confidence intervals for a <term>mean response value</term> in the context of regression. These two interval types are introduced in an online extra that you may download at <url href="https://www.openintro.org/d?file=stat_extra_linear_regression_supp" visual="www.openintro.org/d?file=stat_extra_linear_regression_supp">www.openintro.org/d?file=stat_extra_linear_regression_supp</url>
+      </p>
+    </subsection>
+
+    <exercises>
+      <title>Section Exercises</title>
+
+      <introduction>
+        <p>
+          In the following exercises, visually check the conditions for fitting a least squares regression line. However, you do not need to report these conditions in your solutions.
+        </p>
+      </introduction>
+
+      <exercise xml:id="ex-body-measurements-weight-height-inf">
+        <title>Body measurements, Part IV</title>
+        <statement>
+          <p>
+            The scatterplot and least squares summary below show the relationship between weight measured in kilograms and height measured in centimeters of 507 physically active individuals.
+          </p>
+          <sidebyside widths="40% 55%">
+            <image source="ch_regr_simple_linear/figures/eoce/body_measurements_weight_height_inf/body_measurements_weight_height">
+              <description>A scatterplot is shown with around 500 points. The horizontal axis is for "Height, in centimeters" and takes values between about 150 to 200 centimeters. The vertical axis is for "Weight, in kilograms" and takes values between about 40 to 120 centimeters. For heights smaller than about 160 centimeters, weights mostly range between 45 and 70 kilograms. For heights between 160 and 175 centimeters, weights mostly range between 55 and 80 kilograms. For heights between 175 and 185 centimeters, weights mostly range between 65 and 90 kilograms. For heights between 185 and 195 centimeters, where there are fewer points, weights mostly range between 80 and 95 kilograms. There are two points with heights at about than 196cm, and these have weights of about 85 and 95 kilograms.</description>
+            </image>
+            <tabular>
+              <row bottom="major">
+                <cell></cell>
+                <cell>Estimate</cell>
+                <cell>Std. Error</cell>
+                <cell>t value</cell>
+                <cell>Pr(<m>></m>|t|)</cell>
+              </row>
+              <row>
+                <cell>(Intercept)</cell>
+                <cell>-105.0113</cell>
+                <cell>7.5394</cell>
+                <cell>-13.93</cell>
+                <cell>0.0000</cell>
+              </row>
+              <row>
+                <cell>height</cell>
+                <cell>1.0176</cell>
+                <cell>0.0440</cell>
+                <cell>23.13</cell>
+                <cell>0.0000</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+          <p>
+            <ol>
+              <li>Describe the relationship between height and weight.</li>
+              <li>Write the equation of the regression line. Interpret the slope and intercept in context.</li>
+              <li>Do the data provide strong evidence that an increase in height is associated with an increase in weight? State the null and alternative hypotheses, report the p-value, and state your conclusion.</li>
+              <li>The correlation coefficient for height and weight is 0.72. Calculate <m>R^2</m> and interpret it in context.</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-beer-blood-alcohol-inf">
+        <title>Beer and blood alcohol content</title>
+        <statement>
+          <p>
+            Many people believe that gender, weight, drinking habits, and many other factors are much more important in predicting blood alcohol content (BAC) than simply considering the number of drinks a person consumed. Here we examine data from sixteen student volunteers at Ohio State University who each drank a randomly assigned number of cans of beer. These students were evenly divided between men and women, and they differed in weight and drinking habits. Thirty minutes later, a police officer measured their blood alcohol content (BAC) in grams of alcohol per deciliter of blood. The scatterplot and regression table summarize the findings.
+          </p>
+          <sidebyside widths="40% 55%">
+            <image source="ch_regr_simple_linear/figures/eoce/beer_blood_alcohol_inf/beer_blood_alcohol">
+              <description>A scatterplot is shown with around 15 points. The horizontal axis is for "Cans of beer" and takes values between about 1 and 9. The vertical axis is for "Blood Alcohol Concentration (BAC), in grams per deciliter" and takes values between about 0.01 to 0.2 centimeters. The point at 1 can of beer is at 0.01 BAC, lower than any other values. For the four points at 2 and 3 cans of beer, BAC ranges from 0.02 to 0.07. For the six points at 4 and 5 cans of beer, BAC ranges from 0.05 to 0.10. Two points are at 7 cans of beer and have BAC of 0.09 and 0.10. There is a single point for 8 cans of beer, which has a BAC of 0.12, and one last point at 9 cans of beer, which has a BAC of about 0.19.</description>
+            </image>
+            <tabular>
+              <row bottom="major">
+                <cell></cell>
+                <cell>Estimate</cell>
+                <cell>Std. Error</cell>
+                <cell>t value</cell>
+                <cell>Pr(<m>></m>|t|)</cell>
+              </row>
+              <row>
+                <cell>(Intercept)</cell>
+                <cell>-0.0127</cell>
+                <cell>0.0126</cell>
+                <cell>-1.00</cell>
+                <cell>0.3320</cell>
+              </row>
+              <row>
+                <cell>beers</cell>
+                <cell>0.0180</cell>
+                <cell>0.0024</cell>
+                <cell>7.48</cell>
+                <cell>0.0000</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+          <p>
+            <ol>
+              <li>Describe the relationship between the number of cans of beer and BAC.</li>
+              <li>Write the equation of the regression line. Interpret the slope and intercept in context.</li>
+              <li>Do the data provide strong evidence that drinking more cans of beer is associated with an increase in blood alcohol? State the null and alternative hypotheses, report the p-value, and state your conclusion.</li>
+              <li>The correlation coefficient for number of cans of beer and BAC is 0.89. Calculate <m>R^2</m> and interpret it in context.</li>
+              <li>Suppose we visit a bar, ask people how many drinks they have had, and also take their BAC. Do you think the relationship between number of drinks and BAC would be as strong as the relationship found in the Ohio State study?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-husbands-wives-height-inf">
+        <title>Husbands and wives, Part II</title>
+        <statement>
+          <p>
+            The scatterplot below summarizes husbands' and wives' heights in a random sample of 170 married couples in Britain, where both partners' ages are below 65 years. Summary output of the least squares fit for predicting wife's height from husband's height is also provided in the table.
+          </p>
+          <sidebyside widths="40% 55%">
+            <image source="ch_regr_simple_linear/figures/eoce/husbands_wives_height_inf_2s/husbands_wives_height_inf_2s">
+              <description>A scatterplot is shown with around 200 points. The horizontal axis is for "Husband's height, in inches" and takes values between 60 and 75 inches. The vertical axis is for "Wife's height, in inches" and takes values between 55 and 70 inches. For the approximately fifteen husband heights smaller than 65 inches, wife heights are mostly between 59 and 65 inches. For the approximately 100 husband heights between 65 and 70 inches, wife heights are mostly between 59 and 66 inches. For the approximately 30 husband heights taller than 70 inches, wife heights are mostly between 62 and 67 inches.</description>
+            </image>
+            <tabular>
+              <row bottom="major">
+                <cell></cell>
+                <cell>Estimate</cell>
+                <cell>Std. Error</cell>
+                <cell>t value</cell>
+                <cell>Pr(<m>></m>|t|)</cell>
+              </row>
+              <row>
+                <cell>(Intercept)</cell>
+                <cell>43.5755</cell>
+                <cell>4.6842</cell>
+                <cell>9.30</cell>
+                <cell>0.0000</cell>
+              </row>
+              <row>
+                <cell>height_husband</cell>
+                <cell>0.2863</cell>
+                <cell>0.0686</cell>
+                <cell>4.17</cell>
+                <cell>0.0000</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+          <p>
+            <ol>
+              <li>Is there strong evidence that taller men marry taller women? State the hypotheses and include any information used to conduct the test.</li>
+              <li>Write the equation of the regression line for predicting wife's height from husband's height.</li>
+              <li>Interpret the slope and intercept in the context of the application.</li>
+              <li>Given that <m>R^2 = 0.09</m>, what is the correlation of heights in this data set?</li>
+              <li>You meet a married man from Britain who is 5'9" (69 inches). What would you predict his wife's height to be? How reliable is this prediction?</li>
+              <li>You meet another married man from Britain who is 6'7" (79 inches). Would it be wise to use the same linear model to predict his wife's height? Why or why not?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-urban-homeowners-cond">
+        <title>Urban homeowners, Part II</title>
+        <statement>
+          <p>
+            Exercise <xref ref="ex-urban-homeowners-outlier"/> gives a scatterplot displaying the relationship between the percent of families that own their home and the percent of the population living in urban areas. Below is a similar scatterplot, excluding District of Columbia, as well as the residuals plot. There were 51 cases.
+          </p>
+          <figure>
+            <image source="ch_regr_simple_linear/figures/eoce/urban_homeowners_cond/urban_homeowners_cond" width="50%">
+              <description>A scatterplot is shown. The horizontal axis represents "Husband's Age (in years)" with values ranging from about 20 to 65. The vertical axis represents "Wife's Age (in years)" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.</description>
+            </image>
+          </figure>
+          <p>
+            <ol>
+              <li>For these data, <m>R^2=0.28</m>. What is the correlation? How can you tell if it is positive or negative?</li>
+              <li>Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for these data?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-murders-poverty-inf">
+        <title>Murders and poverty, Part II</title>
+        <statement>
+          <p>
+            Exercise <xref ref="ex-murders-poverty-reg"/> presents regression output from a model for predicting annual murders per million from percentage living in poverty based on a random sample of 20 metropolitan areas. The model output is also provided below.
+          </p>
+          <tabular>
+            <row bottom="major">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-29.901</cell>
+              <cell>7.789</cell>
+              <cell>-3.839</cell>
+              <cell>0.001</cell>
+            </row>
+            <row>
+              <cell>poverty%</cell>
+              <cell>2.559</cell>
+              <cell>0.390</cell>
+              <cell>6.562</cell>
+              <cell>0.000</cell>
+            </row>
+          </tabular>
+          <p>
+            <m>s = 5.512</m> <m>\qquad</m> <m>R^2 = 70.52\%</m> <m>\qquad</m> <m>R^2_{adj} = 68.89\%</m>
+          </p>
+          <p>
+            <ol>
+              <li>What are the hypotheses for evaluating whether poverty percentage is a significant predictor of murder rate?</li>
+              <li>State the conclusion of the hypothesis test from part (a) in context of the data.</li>
+              <li>Calculate a 95% confidence interval for the slope of poverty percentage, and interpret it in context of the data.</li>
+              <li>Do your results from the hypothesis test and the confidence interval agree? Explain.</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-babies-head-gestation-inf">
+        <title>Babies</title>
+        <statement>
+          <p>
+            Is the gestational age (time between conception and birth) of a low birth-weight baby useful in predicting head circumference at birth? Twenty-five low birth-weight babies were studied at a Harvard teaching hospital; the investigators calculated the regression of head circumference (measured in centimeters) against gestational age (measured in weeks). The estimated regression line is
+            <me>\widehat{\text{head circumference}} = 3.91 + 0.78 \times \text{gestational age}</me>
+          </p>
+          <p>
+            <ol>
+              <li>What is the predicted head circumference for a baby whose gestational age is 28 weeks?</li>
+              <li>The standard error for the coefficient of gestational age is 0.35, which is associated with <m>df=23</m>. Does the model provide strong evidence that gestational age is significantly associated with head circumference?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
   </section>
 
   <!-- Section 8.5: Review exercises -->
