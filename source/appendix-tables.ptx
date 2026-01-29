@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<appendix xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="appendix-tables">
+  <title>Distribution Tables</title>
+
+  <section xml:id="normal-probability-table">
+    <title>Normal Probability Table</title>
+
+    <p>
+      A <term>normal probability table</term> may be used to
+      find percentiles of a normal distribution using a Z-score,
+      or vice-versa.
+      Such a table lists Z-scores and the corresponding percentiles.
+    </p>
+
+    <p>
+      When using a normal probability table to find a percentile
+      for <m>Z</m> (rounded to two decimals),
+      identify the proper row in the normal probability
+      table up through the first decimal, and then determine the
+      column representing the second decimal value.
+      The intersection of this row and column is the percentile
+      of the observation.
+      For instance, the percentile of <m>Z = 0.45</m> is shown in row
+      <m>0.4</m> and column <m>0.05</m>:
+      0.6736, or the <m>67.36^{th}</m> percentile.
+    </p>
+
+    <figure xml:id="z-table-positive">
+      <caption>Normal Probability Table for Positive Z-scores</caption>
+      <tabular halign="center">
+        <row header="yes" bottom="medium">
+          <cell right="medium">Z</cell>
+          <cell>0.00</cell>
+          <cell>0.01</cell>
+          <cell>0.02</cell>
+          <cell>0.03</cell>
+          <cell>0.04</cell>
+          <cell>0.05</cell>
+          <cell>0.06</cell>
+          <cell>0.07</cell>
+          <cell>0.08</cell>
+          <cell>0.09</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.0</cell>
+          <cell>0.5000</cell>
+          <cell>0.5040</cell>
+          <cell>0.5080</cell>
+          <cell>0.5120</cell>
+          <cell>0.5160</cell>
+          <cell>0.5199</cell>
+          <cell>0.5239</cell>
+          <cell>0.5279</cell>
+          <cell>0.5319</cell>
+          <cell>0.5359</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.1</cell>
+          <cell>0.5398</cell>
+          <cell>0.5438</cell>
+          <cell>0.5478</cell>
+          <cell>0.5517</cell>
+          <cell>0.5557</cell>
+          <cell>0.5596</cell>
+          <cell>0.5636</cell>
+          <cell>0.5675</cell>
+          <cell>0.5714</cell>
+          <cell>0.5753</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.2</cell>
+          <cell>0.5793</cell>
+          <cell>0.5832</cell>
+          <cell>0.5871</cell>
+          <cell>0.5910</cell>
+          <cell>0.5948</cell>
+          <cell>0.5987</cell>
+          <cell>0.6026</cell>
+          <cell>0.6064</cell>
+          <cell>0.6103</cell>
+          <cell>0.6141</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.3</cell>
+          <cell>0.6179</cell>
+          <cell>0.6217</cell>
+          <cell>0.6255</cell>
+          <cell>0.6293</cell>
+          <cell>0.6331</cell>
+          <cell>0.6368</cell>
+          <cell>0.6406</cell>
+          <cell>0.6443</cell>
+          <cell>0.6480</cell>
+          <cell>0.6517</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.4</cell>
+          <cell>0.6554</cell>
+          <cell>0.6591</cell>
+          <cell>0.6628</cell>
+          <cell>0.6664</cell>
+          <cell>0.6700</cell>
+          <cell>0.6736</cell>
+          <cell>0.6772</cell>
+          <cell>0.6808</cell>
+          <cell>0.6844</cell>
+          <cell>0.6879</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">0.5</cell>
+          <cell>0.6915</cell>
+          <cell>0.6950</cell>
+          <cell>0.6985</cell>
+          <cell>0.7019</cell>
+          <cell>0.7054</cell>
+          <cell>0.7088</cell>
+          <cell>0.7123</cell>
+          <cell>0.7157</cell>
+          <cell>0.7190</cell>
+          <cell>0.7224</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.6</cell>
+          <cell>0.7257</cell>
+          <cell>0.7291</cell>
+          <cell>0.7324</cell>
+          <cell>0.7357</cell>
+          <cell>0.7389</cell>
+          <cell>0.7422</cell>
+          <cell>0.7454</cell>
+          <cell>0.7486</cell>
+          <cell>0.7517</cell>
+          <cell>0.7549</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.7</cell>
+          <cell>0.7580</cell>
+          <cell>0.7611</cell>
+          <cell>0.7642</cell>
+          <cell>0.7673</cell>
+          <cell>0.7704</cell>
+          <cell>0.7734</cell>
+          <cell>0.7764</cell>
+          <cell>0.7794</cell>
+          <cell>0.7823</cell>
+          <cell>0.7852</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">0.8</cell>
+          <cell>0.7881</cell>
+          <cell>0.7910</cell>
+          <cell>0.7939</cell>
+          <cell>0.7967</cell>
+          <cell>0.7995</cell>
+          <cell>0.8023</cell>
+          <cell>0.8051</cell>
+          <cell>0.8078</cell>
+          <cell>0.8106</cell>
+          <cell>0.8133</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">0.9</cell>
+          <cell>0.8159</cell>
+          <cell>0.8186</cell>
+          <cell>0.8212</cell>
+          <cell>0.8238</cell>
+          <cell>0.8264</cell>
+          <cell>0.8289</cell>
+          <cell>0.8315</cell>
+          <cell>0.8340</cell>
+          <cell>0.8365</cell>
+          <cell>0.8389</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.0</cell>
+          <cell>0.8413</cell>
+          <cell>0.8438</cell>
+          <cell>0.8461</cell>
+          <cell>0.8485</cell>
+          <cell>0.8508</cell>
+          <cell>0.8531</cell>
+          <cell>0.8554</cell>
+          <cell>0.8577</cell>
+          <cell>0.8599</cell>
+          <cell>0.8621</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.1</cell>
+          <cell>0.8643</cell>
+          <cell>0.8665</cell>
+          <cell>0.8686</cell>
+          <cell>0.8708</cell>
+          <cell>0.8729</cell>
+          <cell>0.8749</cell>
+          <cell>0.8770</cell>
+          <cell>0.8790</cell>
+          <cell>0.8810</cell>
+          <cell>0.8830</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.2</cell>
+          <cell>0.8849</cell>
+          <cell>0.8869</cell>
+          <cell>0.8888</cell>
+          <cell>0.8907</cell>
+          <cell>0.8925</cell>
+          <cell>0.8944</cell>
+          <cell>0.8962</cell>
+          <cell>0.8980</cell>
+          <cell>0.8997</cell>
+          <cell>0.9015</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.3</cell>
+          <cell>0.9032</cell>
+          <cell>0.9049</cell>
+          <cell>0.9066</cell>
+          <cell>0.9082</cell>
+          <cell>0.9099</cell>
+          <cell>0.9115</cell>
+          <cell>0.9131</cell>
+          <cell>0.9147</cell>
+          <cell>0.9162</cell>
+          <cell>0.9177</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">1.4</cell>
+          <cell>0.9192</cell>
+          <cell>0.9207</cell>
+          <cell>0.9222</cell>
+          <cell>0.9236</cell>
+          <cell>0.9251</cell>
+          <cell>0.9265</cell>
+          <cell>0.9279</cell>
+          <cell>0.9292</cell>
+          <cell>0.9306</cell>
+          <cell>0.9319</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.5</cell>
+          <cell>0.9332</cell>
+          <cell>0.9345</cell>
+          <cell>0.9357</cell>
+          <cell>0.9370</cell>
+          <cell>0.9382</cell>
+          <cell>0.9394</cell>
+          <cell>0.9406</cell>
+          <cell>0.9418</cell>
+          <cell>0.9429</cell>
+          <cell>0.9441</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.6</cell>
+          <cell>0.9452</cell>
+          <cell>0.9463</cell>
+          <cell>0.9474</cell>
+          <cell>0.9484</cell>
+          <cell>0.9495</cell>
+          <cell>0.9505</cell>
+          <cell>0.9515</cell>
+          <cell>0.9525</cell>
+          <cell>0.9535</cell>
+          <cell>0.9545</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.7</cell>
+          <cell>0.9554</cell>
+          <cell>0.9564</cell>
+          <cell>0.9573</cell>
+          <cell>0.9582</cell>
+          <cell>0.9591</cell>
+          <cell>0.9599</cell>
+          <cell>0.9608</cell>
+          <cell>0.9616</cell>
+          <cell>0.9625</cell>
+          <cell>0.9633</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">1.8</cell>
+          <cell>0.9641</cell>
+          <cell>0.9649</cell>
+          <cell>0.9656</cell>
+          <cell>0.9664</cell>
+          <cell>0.9671</cell>
+          <cell>0.9678</cell>
+          <cell>0.9686</cell>
+          <cell>0.9693</cell>
+          <cell>0.9699</cell>
+          <cell>0.9706</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">1.9</cell>
+          <cell>0.9713</cell>
+          <cell>0.9719</cell>
+          <cell>0.9726</cell>
+          <cell>0.9732</cell>
+          <cell>0.9738</cell>
+          <cell>0.9744</cell>
+          <cell>0.9750</cell>
+          <cell>0.9756</cell>
+          <cell>0.9761</cell>
+          <cell>0.9767</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.0</cell>
+          <cell>0.9772</cell>
+          <cell>0.9778</cell>
+          <cell>0.9783</cell>
+          <cell>0.9788</cell>
+          <cell>0.9793</cell>
+          <cell>0.9798</cell>
+          <cell>0.9803</cell>
+          <cell>0.9808</cell>
+          <cell>0.9812</cell>
+          <cell>0.9817</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.1</cell>
+          <cell>0.9821</cell>
+          <cell>0.9826</cell>
+          <cell>0.9830</cell>
+          <cell>0.9834</cell>
+          <cell>0.9838</cell>
+          <cell>0.9842</cell>
+          <cell>0.9846</cell>
+          <cell>0.9850</cell>
+          <cell>0.9854</cell>
+          <cell>0.9857</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.2</cell>
+          <cell>0.9861</cell>
+          <cell>0.9864</cell>
+          <cell>0.9868</cell>
+          <cell>0.9871</cell>
+          <cell>0.9875</cell>
+          <cell>0.9878</cell>
+          <cell>0.9881</cell>
+          <cell>0.9884</cell>
+          <cell>0.9887</cell>
+          <cell>0.9890</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.3</cell>
+          <cell>0.9893</cell>
+          <cell>0.9896</cell>
+          <cell>0.9898</cell>
+          <cell>0.9901</cell>
+          <cell>0.9904</cell>
+          <cell>0.9906</cell>
+          <cell>0.9909</cell>
+          <cell>0.9911</cell>
+          <cell>0.9913</cell>
+          <cell>0.9916</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">2.4</cell>
+          <cell>0.9918</cell>
+          <cell>0.9920</cell>
+          <cell>0.9922</cell>
+          <cell>0.9925</cell>
+          <cell>0.9927</cell>
+          <cell>0.9929</cell>
+          <cell>0.9931</cell>
+          <cell>0.9932</cell>
+          <cell>0.9934</cell>
+          <cell>0.9936</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.5</cell>
+          <cell>0.9938</cell>
+          <cell>0.9940</cell>
+          <cell>0.9941</cell>
+          <cell>0.9943</cell>
+          <cell>0.9945</cell>
+          <cell>0.9946</cell>
+          <cell>0.9948</cell>
+          <cell>0.9949</cell>
+          <cell>0.9951</cell>
+          <cell>0.9952</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.6</cell>
+          <cell>0.9953</cell>
+          <cell>0.9955</cell>
+          <cell>0.9956</cell>
+          <cell>0.9957</cell>
+          <cell>0.9959</cell>
+          <cell>0.9960</cell>
+          <cell>0.9961</cell>
+          <cell>0.9962</cell>
+          <cell>0.9963</cell>
+          <cell>0.9964</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.7</cell>
+          <cell>0.9965</cell>
+          <cell>0.9966</cell>
+          <cell>0.9967</cell>
+          <cell>0.9968</cell>
+          <cell>0.9969</cell>
+          <cell>0.9970</cell>
+          <cell>0.9971</cell>
+          <cell>0.9972</cell>
+          <cell>0.9973</cell>
+          <cell>0.9974</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2.8</cell>
+          <cell>0.9974</cell>
+          <cell>0.9975</cell>
+          <cell>0.9976</cell>
+          <cell>0.9977</cell>
+          <cell>0.9977</cell>
+          <cell>0.9978</cell>
+          <cell>0.9979</cell>
+          <cell>0.9979</cell>
+          <cell>0.9980</cell>
+          <cell>0.9981</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">2.9</cell>
+          <cell>0.9981</cell>
+          <cell>0.9982</cell>
+          <cell>0.9982</cell>
+          <cell>0.9983</cell>
+          <cell>0.9984</cell>
+          <cell>0.9984</cell>
+          <cell>0.9985</cell>
+          <cell>0.9985</cell>
+          <cell>0.9986</cell>
+          <cell>0.9986</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">3.0</cell>
+          <cell>0.9987</cell>
+          <cell>0.9987</cell>
+          <cell>0.9987</cell>
+          <cell>0.9988</cell>
+          <cell>0.9988</cell>
+          <cell>0.9989</cell>
+          <cell>0.9989</cell>
+          <cell>0.9989</cell>
+          <cell>0.9990</cell>
+          <cell>0.9990</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">3.1</cell>
+          <cell>0.9990</cell>
+          <cell>0.9991</cell>
+          <cell>0.9991</cell>
+          <cell>0.9991</cell>
+          <cell>0.9992</cell>
+          <cell>0.9992</cell>
+          <cell>0.9992</cell>
+          <cell>0.9992</cell>
+          <cell>0.9993</cell>
+          <cell>0.9993</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">3.2</cell>
+          <cell>0.9993</cell>
+          <cell>0.9993</cell>
+          <cell>0.9994</cell>
+          <cell>0.9994</cell>
+          <cell>0.9994</cell>
+          <cell>0.9994</cell>
+          <cell>0.9994</cell>
+          <cell>0.9995</cell>
+          <cell>0.9995</cell>
+          <cell>0.9995</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">3.3</cell>
+          <cell>0.9995</cell>
+          <cell>0.9995</cell>
+          <cell>0.9995</cell>
+          <cell>0.9996</cell>
+          <cell>0.9996</cell>
+          <cell>0.9996</cell>
+          <cell>0.9996</cell>
+          <cell>0.9996</cell>
+          <cell>0.9996</cell>
+          <cell>0.9997</cell>
+        </row>
+        <row>
+          <cell right="medium">3.4</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9997</cell>
+          <cell>0.9998</cell>
+        </row>
+      </tabular>
+    </figure>
+
+    <p>
+      <em>Note:</em> For <m>Z \geq 3.50</m>, the probability is greater than or equal to <m>0.9998</m>.
+      For negative Z-scores, use the symmetry of the normal distribution: <m>P(Z \lt -a) = 1 - P(Z \lt a)</m>.
+    </p>
+
+  </section>
+
+  <section xml:id="t-probability-table">
+    <title><m>t</m>-Probability Table</title>
+
+    <p>
+      A <term><m>t</m>-probability table</term>
+      may be used to
+      find tail areas of a <m>t</m>-distribution using a T-score,
+      or vice-versa.
+      Such a table lists T-scores and the corresponding percentiles.
+      Each row in the <m>t</m>-table represents a <m>t</m>-distribution with
+      different degrees of freedom.
+      The columns correspond to tail probabilities.
+    </p>
+
+    <figure xml:id="t-table">
+      <caption><m>t</m>-Distribution Table</caption>
+      <tabular halign="center">
+        <row header="yes" bottom="medium">
+          <cell right="medium">one tail</cell>
+          <cell>0.100</cell>
+          <cell>0.050</cell>
+          <cell>0.025</cell>
+          <cell>0.010</cell>
+          <cell>0.005</cell>
+        </row>
+        <row header="yes" bottom="medium">
+          <cell right="medium">two tails</cell>
+          <cell>0.200</cell>
+          <cell>0.100</cell>
+          <cell>0.050</cell>
+          <cell>0.020</cell>
+          <cell>0.010</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">df 1</cell>
+          <cell>3.08</cell>
+          <cell>6.31</cell>
+          <cell>12.71</cell>
+          <cell>31.82</cell>
+          <cell>63.66</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2</cell>
+          <cell>1.89</cell>
+          <cell>2.92</cell>
+          <cell>4.30</cell>
+          <cell>6.96</cell>
+          <cell>9.92</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">3</cell>
+          <cell>1.64</cell>
+          <cell>2.35</cell>
+          <cell>3.18</cell>
+          <cell>4.54</cell>
+          <cell>5.84</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">4</cell>
+          <cell>1.53</cell>
+          <cell>2.13</cell>
+          <cell>2.78</cell>
+          <cell>3.75</cell>
+          <cell>4.60</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">5</cell>
+          <cell>1.48</cell>
+          <cell>2.02</cell>
+          <cell>2.57</cell>
+          <cell>3.36</cell>
+          <cell>4.03</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">6</cell>
+          <cell>1.44</cell>
+          <cell>1.94</cell>
+          <cell>2.45</cell>
+          <cell>3.14</cell>
+          <cell>3.71</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">7</cell>
+          <cell>1.41</cell>
+          <cell>1.89</cell>
+          <cell>2.36</cell>
+          <cell>3.00</cell>
+          <cell>3.50</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">8</cell>
+          <cell>1.40</cell>
+          <cell>1.86</cell>
+          <cell>2.31</cell>
+          <cell>2.90</cell>
+          <cell>3.36</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">9</cell>
+          <cell>1.38</cell>
+          <cell>1.83</cell>
+          <cell>2.26</cell>
+          <cell>2.82</cell>
+          <cell>3.25</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">10</cell>
+          <cell>1.37</cell>
+          <cell>1.81</cell>
+          <cell>2.23</cell>
+          <cell>2.76</cell>
+          <cell>3.17</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">15</cell>
+          <cell>1.34</cell>
+          <cell>1.75</cell>
+          <cell>2.13</cell>
+          <cell>2.60</cell>
+          <cell>2.95</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">20</cell>
+          <cell>1.33</cell>
+          <cell>1.72</cell>
+          <cell>2.09</cell>
+          <cell>2.53</cell>
+          <cell>2.85</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">25</cell>
+          <cell>1.32</cell>
+          <cell>1.71</cell>
+          <cell>2.06</cell>
+          <cell>2.49</cell>
+          <cell>2.79</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">30</cell>
+          <cell>1.31</cell>
+          <cell>1.70</cell>
+          <cell>2.04</cell>
+          <cell>2.46</cell>
+          <cell>2.75</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">40</cell>
+          <cell>1.30</cell>
+          <cell>1.68</cell>
+          <cell>2.02</cell>
+          <cell>2.42</cell>
+          <cell>2.70</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">50</cell>
+          <cell>1.30</cell>
+          <cell>1.68</cell>
+          <cell>2.01</cell>
+          <cell>2.40</cell>
+          <cell>2.68</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">60</cell>
+          <cell>1.30</cell>
+          <cell>1.67</cell>
+          <cell>2.00</cell>
+          <cell>2.39</cell>
+          <cell>2.66</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">80</cell>
+          <cell>1.29</cell>
+          <cell>1.66</cell>
+          <cell>1.99</cell>
+          <cell>2.37</cell>
+          <cell>2.64</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">100</cell>
+          <cell>1.29</cell>
+          <cell>1.66</cell>
+          <cell>1.98</cell>
+          <cell>2.36</cell>
+          <cell>2.63</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">200</cell>
+          <cell>1.29</cell>
+          <cell>1.65</cell>
+          <cell>1.97</cell>
+          <cell>2.35</cell>
+          <cell>2.60</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">500</cell>
+          <cell>1.28</cell>
+          <cell>1.65</cell>
+          <cell>1.96</cell>
+          <cell>2.33</cell>
+          <cell>2.59</cell>
+        </row>
+        <row>
+          <cell right="medium"><m>\infty</m></cell>
+          <cell>1.28</cell>
+          <cell>1.64</cell>
+          <cell>1.96</cell>
+          <cell>2.33</cell>
+          <cell>2.58</cell>
+        </row>
+      </tabular>
+    </figure>
+
+  </section>
+
+  <section xml:id="chi-square-probability-table">
+    <title>Chi-Square Probability Table</title>
+
+    <p>
+      A <term>chi-square probability table</term> may be used
+      to find tail areas of a chi-square distribution.
+      When using a chi-square table, we examine a particular
+      row for distributions
+      with different degrees of freedom, and we identify a range for
+      the area (e.g. 0.025 to 0.05).
+      Note that the chi-square table provides upper tail values,
+      which is different than the normal and <m>t</m>-distribution tables.
+    </p>
+
+    <figure xml:id="chi-square-table">
+      <caption>Chi-Square Probability Table</caption>
+      <tabular halign="center">
+        <row header="yes" bottom="medium">
+          <cell right="medium">Upper tail</cell>
+          <cell>0.3</cell>
+          <cell>0.2</cell>
+          <cell>0.1</cell>
+          <cell>0.05</cell>
+          <cell>0.02</cell>
+          <cell>0.01</cell>
+          <cell>0.005</cell>
+          <cell>0.001</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">df 1</cell>
+          <cell>1.07</cell>
+          <cell>1.64</cell>
+          <cell>2.71</cell>
+          <cell>3.84</cell>
+          <cell>5.41</cell>
+          <cell>6.63</cell>
+          <cell>7.88</cell>
+          <cell>10.83</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">2</cell>
+          <cell>2.41</cell>
+          <cell>3.22</cell>
+          <cell>4.61</cell>
+          <cell>5.99</cell>
+          <cell>7.82</cell>
+          <cell>9.21</cell>
+          <cell>10.60</cell>
+          <cell>13.82</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">3</cell>
+          <cell>3.66</cell>
+          <cell>4.64</cell>
+          <cell>6.25</cell>
+          <cell>7.81</cell>
+          <cell>9.84</cell>
+          <cell>11.34</cell>
+          <cell>12.84</cell>
+          <cell>16.27</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">4</cell>
+          <cell>4.88</cell>
+          <cell>5.99</cell>
+          <cell>7.78</cell>
+          <cell>9.49</cell>
+          <cell>11.67</cell>
+          <cell>13.28</cell>
+          <cell>14.86</cell>
+          <cell>18.47</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">5</cell>
+          <cell>6.06</cell>
+          <cell>7.29</cell>
+          <cell>9.24</cell>
+          <cell>11.07</cell>
+          <cell>13.39</cell>
+          <cell>15.09</cell>
+          <cell>16.75</cell>
+          <cell>20.52</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">6</cell>
+          <cell>7.23</cell>
+          <cell>8.56</cell>
+          <cell>10.64</cell>
+          <cell>12.59</cell>
+          <cell>15.03</cell>
+          <cell>16.81</cell>
+          <cell>18.55</cell>
+          <cell>22.46</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">7</cell>
+          <cell>8.38</cell>
+          <cell>9.80</cell>
+          <cell>12.02</cell>
+          <cell>14.07</cell>
+          <cell>16.62</cell>
+          <cell>18.48</cell>
+          <cell>20.28</cell>
+          <cell>24.32</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">8</cell>
+          <cell>9.52</cell>
+          <cell>11.03</cell>
+          <cell>13.36</cell>
+          <cell>15.51</cell>
+          <cell>18.17</cell>
+          <cell>20.09</cell>
+          <cell>21.95</cell>
+          <cell>26.12</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">9</cell>
+          <cell>10.66</cell>
+          <cell>12.24</cell>
+          <cell>14.68</cell>
+          <cell>16.92</cell>
+          <cell>19.68</cell>
+          <cell>21.67</cell>
+          <cell>23.59</cell>
+          <cell>27.88</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">10</cell>
+          <cell>11.78</cell>
+          <cell>13.44</cell>
+          <cell>15.99</cell>
+          <cell>18.31</cell>
+          <cell>21.16</cell>
+          <cell>23.21</cell>
+          <cell>25.19</cell>
+          <cell>29.59</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">15</cell>
+          <cell>17.32</cell>
+          <cell>19.31</cell>
+          <cell>22.31</cell>
+          <cell>25.00</cell>
+          <cell>28.26</cell>
+          <cell>30.58</cell>
+          <cell>32.80</cell>
+          <cell>37.70</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">20</cell>
+          <cell>22.77</cell>
+          <cell>25.04</cell>
+          <cell>28.41</cell>
+          <cell>31.41</cell>
+          <cell>35.02</cell>
+          <cell>37.57</cell>
+          <cell>39.99</cell>
+          <cell>45.31</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">25</cell>
+          <cell>28.17</cell>
+          <cell>30.68</cell>
+          <cell>34.38</cell>
+          <cell>37.65</cell>
+          <cell>41.57</cell>
+          <cell>44.31</cell>
+          <cell>46.93</cell>
+          <cell>52.62</cell>
+        </row>
+        <row bottom="medium">
+          <cell right="medium">30</cell>
+          <cell>33.53</cell>
+          <cell>36.25</cell>
+          <cell>40.26</cell>
+          <cell>43.77</cell>
+          <cell>47.96</cell>
+          <cell>50.89</cell>
+          <cell>53.67</cell>
+          <cell>59.70</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">40</cell>
+          <cell>44.16</cell>
+          <cell>47.27</cell>
+          <cell>51.81</cell>
+          <cell>55.76</cell>
+          <cell>60.44</cell>
+          <cell>63.69</cell>
+          <cell>66.77</cell>
+          <cell>73.40</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">50</cell>
+          <cell>54.72</cell>
+          <cell>58.16</cell>
+          <cell>63.17</cell>
+          <cell>67.50</cell>
+          <cell>72.61</cell>
+          <cell>76.15</cell>
+          <cell>79.49</cell>
+          <cell>86.66</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">60</cell>
+          <cell>65.23</cell>
+          <cell>68.97</cell>
+          <cell>74.40</cell>
+          <cell>79.08</cell>
+          <cell>84.58</cell>
+          <cell>88.38</cell>
+          <cell>91.95</cell>
+          <cell>99.61</cell>
+        </row>
+        <row bottom="minor">
+          <cell right="medium">80</cell>
+          <cell>86.12</cell>
+          <cell>90.41</cell>
+          <cell>96.58</cell>
+          <cell>101.88</cell>
+          <cell>108.07</cell>
+          <cell>112.33</cell>
+          <cell>116.32</cell>
+          <cell>124.84</cell>
+        </row>
+        <row>
+          <cell right="medium">100</cell>
+          <cell>106.91</cell>
+          <cell>111.67</cell>
+          <cell>118.50</cell>
+          <cell>124.34</cell>
+          <cell>131.14</cell>
+          <cell>135.81</cell>
+          <cell>140.17</cell>
+          <cell>149.45</cell>
+        </row>
+      </tabular>
+    </figure>
+
+  </section>
+
+</appendix>

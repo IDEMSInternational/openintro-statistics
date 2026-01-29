@@ -5,10 +5,15 @@ This repository contains the PreTeXt source files for the OpenIntro Statistics t
 ## Folder Structure
 
 - `source/` - PreTeXt source files (.ptx files) containing the textbook content
+  - `main.ptx` - Main book file with frontmatter, chapter includes, and backmatter
+  - `ch*.ptx` - Chapter content files (ch01.ptx through ch09.ptx)
+  - `appendix-solutions.ptx` - Exercise solutions appendix (Appendix A, backmatter)
+  - `appendix-data.ptx` - Data sets appendix (Appendix B, backmatter)
+  - `appendix-tables.ptx` - Statistical distribution tables appendix (Appendix C, backmatter)
 - `publication/` - PreTeXt publication configuration files
 - `latex/` - Legacy LaTeX source files and chapter content
   - `ch_*/` - Chapter folders with LaTeX sections
-  - `extraTeX/` - Additional LaTeX resources
+  - `extraTeX/` - Additional LaTeX resources including data descriptions, tables, and solutions
   - `main.tex`, `eoce.bib`, `fullminipage.sty` - LaTeX source files
 - `scripts/` - Python conversion scripts for LaTeX to PreTeXt conversion
 - `project.ptx` - PreTeXt project configuration file

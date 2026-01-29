@@ -96,25 +96,14 @@
     <backmatter xml:id="backmatter">
       <title>Back Matter</title>
 
-      <appendix xml:id="appendix-data-sets">
-        <title>Data Sets</title>
-        <p>
-          This appendix contains descriptions of the data sets used throughout the textbook.
-          (To be populated with converted data descriptions)
-        </p>
-      </appendix>
+      <!-- Appendix A: Exercise solutions -->
+      <xi:include href="./appendix-solutions.ptx" />
 
-      <appendix xml:id="appendix-tables">
-        <title>Statistical Tables</title>
-        <p>
-          This appendix contains statistical tables including z-table, t-table, and chi-square table.
-          (To be populated with converted tables)
-        </p>
-      </appendix>
+      <!-- Appendix B: Data sets appendix -->
+      <xi:include href="./appendix-data.ptx" />
 
-      <solutions divisional="hint">
-        <title>Selected Solutions</title>
-      </solutions>
+      <!-- Appendix C: Statistical tables appendix -->
+      <xi:include href="./appendix-tables.ptx" />
 
       <index>
         <title>Index</title>
