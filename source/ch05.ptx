@@ -606,8 +606,8 @@ sum(sampled_entries == "support") / 1000
       
       <p>
         We do not actually know the population proportion unless we conduct an expensive poll of
-        all individuals in the population. Our earlier value of <m>p = 0.88</m> was based on
-        poll conducted by Pew Research of 1000 American adults that found <m>\hat{p} = 0.887</m>
+        all individuals in the population. Our earlier value of <m>p = 0.88</m> was based on poll
+        conducted by Pew Research of 1000 American adults that found <m>\hat{p} = 0.887</m>
         of them favored expanding solar energy. The researchers might have wondered: does the
         sample proportion from the poll approximately follow a normal distribution? We can check
         the conditions from the Central Limit Theorem:
