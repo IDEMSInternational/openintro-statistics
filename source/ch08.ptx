@@ -22,99 +22,476 @@
       <title>Fitting a line to data</title>
       
       <p>
-        It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for data to appear as a <term>cloud of points</term>, where the data fall around a straight line, even if none of the observations fall exactly on the line. In cases where there is a clear relationship between the variables, we will have some uncertainty regarding our estimates of the model parameters.
+        <xref ref="fig-perfLinearModel"/> shows two variables whose relationship can be modeled perfectly with a straight line. The equation for the line is
+        <me>y = 5 + 64.96 x</me>
+        Consider what a perfect linear relationship means: we know the exact value of <m>y</m> just by knowing the value of <m>x</m>. This is unrealistic in almost any natural process. For example, if we took family income (<m>x</m>), this value would provide some useful information about how much financial support a college may offer a prospective student (<m>y</m>). However, the prediction would be far from perfect, since other factors play a role in financial support beyond a family's finances.
       </p>
 
-      <definition xml:id="def-linear-model">
-        <title>Linear Model</title>
+      <figure xml:id="fig-perfLinearModel">
+        <caption>Requests from twelve separate buyers were simultaneously placed with a trading company to purchase Target Corporation stock (ticker TGT, December 28th, 2018), and the total cost of the shares were reported. Because the cost is computed using a linear formula, the linear fit is perfect.</caption>
+        <image source="ch_regr_simple_linear/figures/perfLinearModel" width="60%">
+          <description>A scatterplot with a straight line fit to the data are shown for the date December 28th, 2018. The horizontal axis is "Number of Target Corporation Stocks to Purchase" and the vertical axis is "Total Cost of the Shares Purchase". Twelve data points are shown that all fall exactly on a straight line with an equation of y equals 5 plus 64.96 times x. Because the cost is computed using a linear formula, this explains why the linear fit is perfect.</description>
+        </image>
+      </figure>
+
+      <p>
+        Linear regression is the statistical method for fitting a line to data where the relationship between two variables, <m>x</m> and <m>y</m>, can be modeled by a straight line with some error:
+        <me>y = \beta_0 + \beta_1 x + \varepsilon</me>
+        The values <m>\beta_0</m> and <m>\beta_1</m> represent the model's <term>parameters</term> (<m>\beta</m> is the Greek letter <em>beta</em>), and the error is represented by <m>\varepsilon</m> (the Greek letter <em>epsilon</em>). The parameters are estimated using data, and we write their point estimates as <m>b_0</m> and <m>b_1</m>. When we use <m>x</m> to predict <m>y</m>, we usually call <m>x</m> the <term>explanatory variable</term> or <term>predictor</term> variable, and we call <m>y</m> the <term>response</term>; we also often drop the <m>\varepsilon</m> term when writing down the model since our main focus is often on the prediction of the average outcome.
+      </p>
+
+      <p>
+        It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for data to appear as a <term>cloud of points</term>, such as those examples shown in <xref ref="fig-imperfLinearModel"/>. In each case, the data fall around a straight line, even if none of the observations fall exactly on the line. The first plot shows a relatively strong downward linear trend, where the remaining variability in the data around the line is minor relative to the strength of the relationship between <m>x</m> and <m>y</m>. The second plot shows an upward trend that, while evident, is not as strong as the first. The last plot shows a very weak downward trend in the data, so slight we can hardly notice it. In each of these examples, we will have some uncertainty regarding our estimates of the model parameters, <m>\beta_0</m> and <m>\beta_1</m>. For instance, we might wonder, should we move the line up or down a little, or should we tilt it more or less? As we move forward in this chapter, we will learn about criteria for line-fitting, and we will also learn about the uncertainty associated with estimates of model parameters.
+      </p>
+
+      <figure xml:id="fig-imperfLinearModel">
+        <caption>Three data sets where a linear model may be useful even though the data do not all fall exactly on the line.</caption>
+        <image source="ch_regr_simple_linear/figures/imperfLinearModel" width="90%">
+          <description>Three scatterplots are shown. The first has data ranging from -50 to positive 50 on both the horizontal and vertical axes. The data start in the upper left corner of the plot and then move steadily down to the right corner. The second plot has the horizontal axis running from 500 to about 2,000 and the vertical axis from about 0 to 25,000. At the left side of the plot, the data are in the lower half of the plot, and the points generally are steadily higher as we move right, where most points near the right end of the plot are in the upper region of the plot. A upwards trending line has been fit to these points. The last plot runs from about -10 to positive 50 on the horizontal axis and about -200 to positive 400 on the vertical axis. The points are scattered broadly across the range, with only the slightest downward trend evident in the data. A trend line has been fit to this data, though it is nearly flat.</description>
+        </image>
+      </figure>
+
+      <p>
+        There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is shown in <xref ref="fig-notGoodAtAllForALinearModel"/> where there is a very clear relationship between the variables even though the trend is not linear. We discuss <term>nonlinear</term> trends in this chapter and the next, but details of fitting nonlinear models are saved for a later course.
+      </p>
+
+      <figure xml:id="fig-notGoodAtAllForALinearModel">
+        <caption>A linear model is not useful in this nonlinear case. These data are from an introductory physics experiment.</caption>
+        <image source="ch_regr_simple_linear/figures/notGoodAtAllForALinearModel" width="80%">
+          <description>A linear model is not useful in a nonlinear set of data shown in this plot. The data are from an introductory physics experiment, where a ball is shot at many angles of inclination between 0 degrees and 90 degrees (represented by the horizontal axis), and the measured horizontal distance traveled by the ball before it hits the ground is shown in meters. The first point, at an angle of inclination of 0 hits the ground at 0 meters traveled. As the angle is increased, the ball travels further before it hits the ground until reaching a peak at 45 degrees angle of inclination, at which point it decreases again until we reach an angle of 90 degrees, at which point the ball again does not travel any horizontal distance before it hits the ground. For the data shown, the best fitting straight line is shown and is flat. This is a good example of why a straight line fit to data where there is curvature is often not useful.</description>
+        </image>
+      </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-possum-head-lengths">
+      <title>Using linear regression to predict possum head lengths</title>
+
+      <p>
+        Brushtail possums are a marsupial that lives in Australia, and a photo of one is shown in <xref ref="fig-brushtail-possum"/>. Researchers captured 104 of these animals and took body measurements before releasing the animals back into the wild. We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.
+      </p>
+
+      <figure xml:id="fig-brushtail-possum">
+        <caption>The common brushtail possum of Australia. Photo by Greg Schechter (https://flic.kr/p/9BAFbR). CC BY 2.0 license.</caption>
+        <image source="ch_regr_simple_linear/figures/brushtail_possum" width="50%">
+          <description>A common brushtail possum of Australia is shown. It has a brown fur coat with some gray sprinkled in along with a face and ears that somewhat resemble a house cat. The possum also has a big bushy tail.</description>
+        </image>
+      </figure>
+
+      <p>
+        <xref ref="fig-scattHeadLTotalL"/> shows a scatterplot for the head length and total length of the possums. Each point represents a single possum from the data. The head and total length variables are associated: possums with an above average total length also tend to have above average head lengths. While the relationship is not perfectly linear, it could be helpful to partially explain the connection between these variables with a straight line.
+      </p>
+
+      <figure xml:id="fig-scattHeadLTotalL">
+        <caption>A scatterplot showing head length against total length for 104 brushtail possums. A point representing a possum with head length 94.1mm and total length 89cm is highlighted.</caption>
+        <image source="ch_regr_simple_linear/figures/scattHeadLTotalL" width="75%">
+          <description>A scatterplot showing head length against total length for 104 brushtail possums, where the horizontal axis for total length runs from 75 centimeters to about 97 centimeters (2.5 to 3.3 feet) and the vertical axis for head length runs from about 82 millimeters up to about 104 millimeters (3 to 4 inches). For possums with a total length between 75 to 80 centimeters, there are three points shown, each with head lengths of about 85 millimeters. For possums with total length from 80 to 85 centimeters, most head lengths range from about 85 millimeters to 95 millimeters. For possums with total lengths from 85 to 90 centimeters, head lengths mostly lie between 90 millimeters and 97 millimeters. For possums with total lengths larger than 90 centimeters, the head lengths are mostly between 93 millimeters and 100 millimeters. The trend is evidently upward and approximately linear. A point representing a possum with head length 94.1mm and total length 89cm is highlighted (although not relevant for any other purpose than giving an example or reminder for how a point is read in a scatterplot).</description>
+        </image>
+      </figure>
+
+      <p>
+        We want to describe the relationship between the head length and total length variables in the possum data set using a line. In this example, we will use the total length as the predictor variable, <m>x</m>, to predict a possum's head length, <m>y</m>. We could fit the linear relationship by eye, as in <xref ref="fig-scattHeadLTotalLLine"/>. The equation for this line is
+        <me>\hat{y} = 41 + 0.59x</me>
+        A "hat" on <m>y</m> is used to signify that this is an estimate. We can use this line to discuss properties of possums. For instance, the equation predicts a possum with a total length of 80 cm will have a head length of
+        <md>
+          <mrow>\hat{y} \amp = 41 + 0.59 \times 80</mrow>
+          <mrow>\amp = 88.2</mrow>
+        </md>
+        The estimate may be viewed as an average: the equation predicts that possums with a total length of 80 cm will have an average head length of 88.2 mm. Absent further information about an 80 cm possum, the prediction for head length that uses the average is a reasonable estimate.
+      </p>
+
+      <figure xml:id="fig-scattHeadLTotalLLine">
+        <caption>A reasonable linear model was fit to represent the relationship between head length and total length.</caption>
+        <image source="ch_regr_simple_linear/figures/scattHeadLTotalLLine" width="70%">
+          <description>The same scatterplot showing head length against total length for 104 brushtail possums is shown. A linear trend line has been added with an equation of y-hat equals 41 plus 0.59 times x, which shows the clear upward trajectory of the data. Additionally, three points are highlighted. The first is labeled with an "X" and is at approximately (77, 85) and lies about 1 unit below the trend line. A second point labeled with a "plus sign" is at about (85, 98) and appears to be about 7 units above the trend line. The last point highlighted is a "triangle" and is located at about (95, 93) and is about 3 units below the trend line.</description>
+        </image>
+      </figure>
+
+      <example xml:id="ex-possum-predictors">
         <statement>
           <p>
-            Linear regression is the statistical method for fitting a line to data where the relationship between two variables, <m>x</m> and <m>y</m>, can be modeled by a straight line with some error:
-            <me>y = \beta_0 + \beta_1 x + \varepsilon</me>
-            where:
-            <ul>
-              <li><m>\beta_0</m> and <m>\beta_1</m> are the model's <term>parameters</term></li>
-              <li><m>\varepsilon</m> represents the error (epsilon)</li>
-              <li><m>x</m> is the <term>explanatory variable</term> or <term>predictor</term></li>
-              <li><m>y</m> is the <term>response variable</term></li>
-            </ul>
-            The parameters are estimated using data, and we write their point estimates as <m>b_0</m> and <m>b_1</m>. The fitted line is written as:
-            <me>\hat{y} = b_0 + b_1 x</me>
+            What other variables might help us predict the head length of a possum besides its length?
           </p>
         </statement>
-      </definition>
-
-      <note>
-        <p>
-          There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is when the relationship is <term>nonlinear</term>, such as a curved relationship.
-        </p>
-      </note>
+        <solution>
+          <p>
+            Perhaps the relationship would be a little different for male possums than female possums, or perhaps it would differ for possums from one region of Australia versus another region. In <xref ref="ch-multiple-logistic-regression"/>, we'll learn about how we can include more than one predictor. Before we get there, we first need to better understand how to best build a simple linear model with one predictor.
+          </p>
+        </solution>
+      </example>
     </subsection>
 
     <subsection xml:id="subsec-residuals">
       <title>Residuals</title>
       
       <p>
-        Residuals are the leftovers from the model fit: the differences between the observed values and the values predicted by the line.
+        <term>Residuals</term> are the leftover variation in the data after accounting for the model fit:
+        <me>\text{Data} = \text{Fit} + \text{Residual}</me>
+        Each observation will have a residual, and three of the residuals for the linear model we fit for the possum data is shown in <xref ref="fig-scattHeadLTotalLLine"/>. If an observation is above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals. One goal in picking the right linear model is for these residuals to be as small as possible.
       </p>
 
-      <definition xml:id="def-residual">
-        <title>Residual</title>
-        <statement>
-          <p>
-            The <term>residual</term> of the <m>i^{\text{th}}</m> observation is the difference between the observed (<m>y_i</m>) and predicted (<m>\hat{y}_i</m>) response values:
-            <me>e_i = y_i - \hat{y}_i</me>
-            If an observation lands above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        Let's look closer at the three residuals featured in <xref ref="fig-scattHeadLTotalLLine"/>. The observation marked by an "<m>\times</m>" has a small, negative residual of about -1; the observation marked by "<m>+</m>" has a large residual of about +7; and the observation marked by "<m>\triangle</m>" has a moderate residual of about -4. The size of a residual is usually discussed in terms of its absolute value. For example, the residual for "<m>\triangle</m>" is larger than that of "<m>\times</m>" because <m>|-4|</m> is larger than <m>|-1|</m>.
+      </p>
 
-      <assemblage xml:id="assem-residual-plot">
-        <title>Residual Plot</title>
+      <assemblage xml:id="assem-residual-definition">
+        <title>Residual: difference between observed and expected</title>
         <p>
-          A <term>residual plot</term> is a scatterplot of the residuals (<m>e_i</m>) on the vertical axis against the predictor variable (<m>x_i</m>) on the horizontal axis. These plots are helpful in evaluating whether a linear model is appropriate.
-        </p>
-        <p>
-          Key features to look for:
-          <ul>
-            <li><em>Random scatter:</em> Residuals should be randomly scattered around zero with no apparent pattern</li>
-            <li><em>Constant variance:</em> The variability of residuals should be roughly constant across all values of <m>x</m></li>
-            <li><em>No curvature:</em> A curved pattern suggests a nonlinear relationship</li>
-          </ul>
+          The <term>residual</term> of the <m>i^{\text{th}}</m> observation <m>(x_i, y_i)</m> is the difference of the observed response (<m>y_i</m>) and the response we would predict based on the model fit (<m>\hat{y}_i</m>):
+          <me>e_i = y_i - \hat{y}_i</me>
+          We typically identify <m>\hat{y}_i</m> by plugging <m>x_i</m> into the model.
         </p>
       </assemblage>
+
+      <example xml:id="ex-compute-residual">
+        <statement>
+          <p>
+            The linear fit shown in <xref ref="fig-scattHeadLTotalLLine"/> is given as <m>\hat{y} = 41 + 0.59x</m>. Based on this line, formally compute the residual of the observation <m>(77.0, 85.3)</m>. This observation is denoted by "<m>\times</m>" in <xref ref="fig-scattHeadLTotalLLine"/>. Check it against the earlier visual estimate, -1.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We first compute the predicted value of point "<m>\times</m>" based on the model:
+            <me>\hat{y}_{\times} = 41 + 0.59x_{\times} = 41 + 0.59 \times 77.0 = 86.4</me>
+            Next we compute the difference of the actual head length and the predicted head length:
+            <me>e_{\times} = y_{\times} - \hat{y}_{\times} = 85.3 - 86.4 = -1.1</me>
+            The model's error is <m>e_{\times} = -1.1</m> mm, which is very close to the visual estimate of -1 mm. The negative residual indicates that the linear model overpredicted head length for this particular possum.
+          </p>
+        </solution>
+      </example>
+
+      <exercise xml:id="ex-residual-sign">
+        <statement>
+          <p>
+            If a model underestimates an observation, will the residual be positive or negative? What about if it overestimates the observation?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If a model underestimates an observation, then the model estimate is below the actual. The residual, which is the actual observation value minus the model estimate, must then be positive. The opposite is true when the model overestimates the observation: the residual is negative.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-compute-more-residuals">
+        <statement>
+          <p>
+            Compute the residuals for the "<m>+</m>" observation <m>(85.0, 98.6)</m> and the "<m>\triangle</m>" observation <m>(95.5, 94.0)</m> in the figure using the linear relationship <m>\hat{y} = 41 + 0.59x</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            (<m>+</m>) First compute the predicted value based on the model:
+            <me>\hat{y}_{+} = 41 + 0.59x_{+} = 41 + 0.59 \times 85.0 = 91.15</me>
+            Then the residual is given by
+            <me>e_{+} = y_{+} - \hat{y}_{+} = 98.6 - 91.15 = 7.45</me>
+            This was close to the earlier estimate of 7.
+          </p>
+          <p>
+            (<m>\triangle</m>) <m>\hat{y}_{\triangle} = 41 + 0.59x_{\triangle} = 97.3</m>. <m>e_{\triangle} = y_{\triangle} - \hat{y}_{\triangle} = -3.3</m>, close to the estimate of -4.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        Residuals are helpful in evaluating how well a linear model fits a data set. We often display them in a <term>residual plot</term> such as the one shown in <xref ref="fig-scattHeadLTotalLResidualPlot"/> for the regression line in <xref ref="fig-scattHeadLTotalLLine"/>. The residuals are plotted at their original horizontal locations but with the vertical coordinate as the residual. For instance, the point <m>(85.0, 98.6)_{+}</m> had a residual of 7.45, so in the residual plot it is placed at <m>(85.0, 7.45)</m>. Creating a residual plot is sort of like tipping the scatterplot over so the regression line is horizontal.
+      </p>
+
+      <figure xml:id="fig-scattHeadLTotalLResidualPlot">
+        <caption>Residual plot for the model in <xref ref="fig-scattHeadLTotalLLine"/>.</caption>
+        <image source="ch_regr_simple_linear/figures/scattHeadLTotalLResidualPlot" width="70%">
+          <description>A residual plot for the trend line fit to the brushtail possum data is shown. Here, the horizontal axis is the same -- representing "total length", it spans 75 to 97 -- while the vertical axis represents "Residuals" and spans from about -7 to positive 8. There is no evident trend in the residuals. Three points are specifically highlighted to reflect the three points discussed in the last figure. The first is labeled with an "X" with a total length of 77 and a residual of about -1. The second is labeled with a "plus sign" and has a total length of 85 and a residual of about 7. The last point highlighted is a "triangle" with a total length of about 95 and a residual of about -3. Note that the location of the residuals above and below the trend line reflects exactly with whether the residual is positive or negative, respectively.</description>
+        </image>
+      </figure>
+
+      <example xml:id="ex-residual-patterns">
+        <statement>
+          <p>
+            One purpose of residual plots is to identify characteristics or patterns still apparent in data after fitting a model. <xref ref="fig-sampleLinesAndResPlots"/> shows three scatterplots with linear models in the first row and residual plots in the second row. Can you identify any patterns remaining in the residuals?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            In the first data set (first column), the residuals show no obvious patterns. The residuals appear to be scattered randomly around the dashed line that represents 0.
+          </p>
+          <p>
+            The second data set shows a pattern in the residuals. There is some curvature in the scatterplot, which is more obvious in the residual plot. We should not use a straight line to model these data. Instead, a more advanced technique should be used.
+          </p>
+          <p>
+            The last plot shows very little upwards trend, and the residuals also show no obvious patterns. It is reasonable to try to fit a linear model to the data. However, it is unclear whether there is statistically significant evidence that the slope parameter is different from zero. The point estimate of the slope parameter, labeled <m>b_1</m>, is not zero, but we might wonder if this could just be due to chance. We will address this sort of scenario in <xref ref="sec-inference-for-regression"/>.
+          </p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-sampleLinesAndResPlots">
+        <caption>Sample data with their best fitting lines (top row) and their corresponding residual plots (bottom row).</caption>
+        <image source="ch_regr_simple_linear/figures/sampleLinesAndResPlots" width="90%">
+          <description>Sample data with their best fitting lines (top row of three plots) and their corresponding residual plots (bottom row of three plots). The upper left plot shows a scatterplot where the data trend downwards steadily with a straight line fit to the data, which appears to fit well everywhere. The bottom left plot is the residual plot of this first scatterplot, and it likewise shows no pattern in the residuals when looking left to right. The upper middle plot shows data with a downward trend, but the data's trend is more steep on the right side of the plot, so the overall shape of the data is that it trends downward and curves downward. A straight, downward-trending line has also been fit to this data, but it doesn't fit as well. The data are below this downward trending line initially, but it is above the line in the middle, and finally on the right it is once again below the linear trend line. The residual plot for this scatterplot is shown in the lower middle plot, and the curvature in the residuals is more evident than what was visible in the scatterplot: the residuals have negative values on the left and trend upwards until peaking with positive residuals in the middle, and then trending back down and having negative residual values again on the right. The last scatterplot in the upper right shows data with very little trend, but a slightly-upward trending straight line has been fit to the data. The corresponding residual plot, shown as the bottom right plot, also shows data with no evident trend or pattern, where observations appear relatively randomly scattered above and below 0 (in the vertical).</description>
+        </image>
+      </figure>
     </subsection>
 
     <subsection xml:id="subsec-correlation">
-      <title>Correlation</title>
+      <title>Describing linear relationships with correlation</title>
       
       <p>
-        Correlation measures the strength of the linear relationship between two numerical variables.
+        We've seen plots with strong linear relationships and others with very weak linear relationships. It would be useful if we could quantify the strength of these linear relationships with a statistic.
       </p>
 
-      <definition xml:id="def-correlation">
-        <title>Correlation</title>
+      <assemblage xml:id="assem-correlation-definition">
+        <title>Correlation: strength of a linear relationship</title>
+        <p>
+          <term>Correlation</term>, which always takes values between -1 and 1, describes the strength of the linear relationship between two variables. We denote the correlation by <m>R</m>.
+        </p>
+      </assemblage>
+
+      <p>
+        We can compute the correlation using a formula, just as we did with the sample mean and standard deviation. This formula is rather complex,<fn>Formally, we can compute the correlation for observations <m>(x_1, y_1)</m>, <m>(x_2, y_2)</m>, <ellipsis/>, <m>(x_n, y_n)</m> using the formula
+        <me>R = \frac{1}{n-1} \sum_{i=1}^{n} \frac{x_i - \bar{x}}{s_x} \cdot \frac{y_i - \bar{y}}{s_y}</me>
+        where <m>\bar{x}</m>, <m>\bar{y}</m>, <m>s_x</m>, and <m>s_y</m> are the sample means and standard deviations for each variable.</fn> and like with other statistics, we generally perform the calculations on a computer or calculator. <xref ref="fig-posNegCorPlots"/> shows eight plots and their corresponding correlations. Only when the relationship is perfectly linear is the correlation either -1 or 1. If the relationship is strong and positive, the correlation will be near +1. If it is strong and negative, it will be near -1. If there is no apparent linear relationship between the variables, then the correlation will be near zero.
+      </p>
+
+      <figure xml:id="fig-posNegCorPlots">
+        <caption>Sample scatterplots and their correlations. The first row shows variables with a positive relationship, represented by the trend up and to the right. The second row shows one plot with an approximately neutral trend and three plots with a negative trend.</caption>
+        <image source="ch_regr_simple_linear/figures/posNegCorPlots" width="90%">
+          <description>Eight scatterplots are shown, each with their correlation noted. Each scatterplot appears to represent about 50 points. The first has a correlation of R equals 0.33, and there is a slight upward trend evident in the data -- if a trend line were drawn for this data, much of the data would fall relatively far from the line. The second plot has a correlation of R equals 0.69, and a clearer upward trend is evident, but it is still pretty volatile with many points deviating far from where the trend line would be. The third plot has a correlation of 0.98, and the data show a very clear upward trend, where if a trend line were drawn, the data would be (relatively) quite close to this line. The fourth plot shows a correlation of R equals 1.00, and here the points appear exactly on a line with an upward trajectory. The fifth plot shows data with a correlation of R equals 0.08, where no trend is visually evident in the data. The sixth plot has a correlation of R equals -0.64, and a downward trend is evident in the data, but the individual observations would in many cases be pretty distant from any trend line fit to the data (on a relative basis). The seventh plot has a correlation of R equals -0.92 and shows data with a clear downward trend, where the data would deviate just a modest amount from a trend line fit to the data. The last plot shows a correlation of R equals -1, where the observations would fit exactly on a line trending downwards.</description>
+        </image>
+      </figure>
+
+      <p>
+        The correlation is intended to quantify the strength of a linear trend. Nonlinear trends, even when strong, sometimes produce correlations that do not reflect the strength of the relationship; see three such examples in <xref ref="fig-corForNonLinearPlots"/>.
+      </p>
+
+      <figure xml:id="fig-corForNonLinearPlots">
+        <caption>Sample scatterplots and their correlations. In each case, there is a strong relationship between the variables. However, because the relationship is nonlinear, the correlation is relatively weak.</caption>
+        <image source="ch_regr_simple_linear/figures/corForNonLinearPlots" width="85%">
+          <description>Three scatterplots are shown. In each case, there is a strong relationship between the variables. However, because the relationship is nonlinear, the correlation is relatively weak. The first plot shows data that trends upwards on the left before peaking and then trending downward on the right -- the correlation of the data in this plot is R equals -0.23. The second plot shows data with a sharp downward trend on the left before reaching a trough and rising then sharply upward before reaching a peak and then trending sharply downwards again -- the correlation of the data in this plot is R equals 0.31. The third plots shows data that without a trend on the far left, followed by a steep drop, a trough, and then a steep rise to a peak, and then another drop and then finally a slight increase at the end -- the correlation of the data in this plot is R equals 0.50.</description>
+        </image>
+      </figure>
+
+      <exercise xml:id="ex-nonlinear-curves">
         <statement>
           <p>
-            The <term>correlation coefficient</term>, denoted by <m>r</m>, describes the strength and direction of the linear relationship between two numerical variables. The correlation is calculated as:
-            <me>r = \frac{1}{n-1}\sum_{i=1}^{n} \frac{x_i - \bar{x}}{s_x} \cdot \frac{y_i - \bar{y}}{s_y}</me>
-            where <m>s_x</m> and <m>s_y</m> are the sample standard deviations of <m>x</m> and <m>y</m>, respectively.
-          </p>
-          <p>
-            Properties of correlation:
-            <ul>
-              <li>The correlation is always between -1 and 1: <m>-1 \leq r \leq 1</m></li>
-              <li><m>r = -1</m> indicates a perfect negative linear relationship</li>
-              <li><m>r = 0</m> indicates no linear relationship</li>
-              <li><m>r = 1</m> indicates a perfect positive linear relationship</li>
-              <li>Correlation does not imply causation</li>
-              <li>Correlation is sensitive to outliers</li>
-              <li>Correlation measures only linear relationships</li>
-            </ul>
+            No straight line is a good fit for the data sets represented in <xref ref="fig-corForNonLinearPlots"/>. Try drawing nonlinear curves on each plot. Once you create a curve for each, describe what is important in your fit.
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            We'll leave it to you to draw the lines. In general, the lines you draw should be close to most points and reflect overall trends in the data.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
+
+    <!-- Exercises for Section 8.1 -->
+    <exercises xml:id="exercises-sec-fitting-line-residuals-correlation">
+      <title>Section 8.1 Exercises</title>
+
+      <exercise xml:id="ex-visualize-residuals">
+        <title>Visualize the residuals</title>
+        <statement>
+          <p>
+            The scatterplots shown below each have a superimposed regression line. If we were to construct a residual plot (residuals versus <m>x</m>) for each, describe what those plots would look like.
+          </p>
+          <sidebyside widths="42% 42%">
+            <image source="ch_regr_simple_linear/figures/eoce/visualize_residuals/visualize_residuals_linear">
+              <description>A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random and have stable variability moving from left to right.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/visualize_residuals/visualize_residuals_fan_back">
+              <description>A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random. If looking at the leftmost region of data, the observations are more broadly scattered around the line, while when moving further right the variability of the points around the line gets notably smaller by a factor of at least 5 (if using standard deviation).</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-trends-in-residuals">
+        <title>Trends in the residuals</title>
+        <statement>
+          <p>
+            Shown below are two plots of residuals remaining after fitting a linear model to two different sets of data. Describe important features and determine if a linear model would be appropriate for these data. Explain your reasoning.
+          </p>
+          <sidebyside widths="42% 42%">
+            <image source="ch_regr_simple_linear/figures/eoce/trends_in_residuals/trends_in_residuals_fan">
+              <description>A scatterplot of the residuals is shown. When looking at any horizontal region of the plot, the observations are consistently scattered around the "y equals 0" line. On the left, the points tend to be very close to this horizontal 0 line. The further moving to the right, the more variability that is evident in the observations around "y equals 0".</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/trends_in_residuals/trends_in_residuals_log">
+              <description>A scatterplot of the residuals is shown. The points on the very left tend to be below the "y equals 0" line for the first 5% of the horizontal region, where the trend is sharply upwards to the "y equals 0" line. The points then tend to be stably clustered around "y equals 0", if not slightly above, with a slight downward trend evident in the observations on the right half of the plot. The vertical variability of observations is about stable throughout.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-identify-relationships-1">
+        <title>Identify relationships, Part I</title>
+        <statement>
+          <p>
+            For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.
+          </p>
+          <sidebyside widths="32% 32% 32%">
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_u">
+              <description>A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_pos_strong">
+              <description>A scatterplot is shown. They start on the lower left corner, only spanning about 20% of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_pos_weak">
+              <description>A scatterplot is shown. On the left side of the plot, the points appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident.</description>
+            </image>
+          </sidebyside>
+          <sidebyside widths="32% 32% 32%">
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_n">
+              <description>A scatterplot is shown. On the left side of the plot, the observations are concentrated in the bottom half of the plot but rise steadily. The trend peaks near the center of the plot, where nearly all the points in the (horizontal) center region of the scatterplot are concentrated in the upper half of the scatterplot. On the right side of the plot, the points show a trend downwards, with points concentrated in the lower quarter of the scatterplot for the rightmost handful of points.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_lin_neg_strong">
+              <description>A scatterplot is shown. They start on the upper left corner, only spanning about 20% of the vertical region of the plot, and have a steady downwards trend to the bottom right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_1/identify_relationships_none">
+              <description>A scatterplot is shown. On the left side of the plot, the points appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident or at least obvious.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-identify-relationships-2">
+        <title>Identify relationships, Part II</title>
+        <statement>
+          <p>
+            For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.
+          </p>
+          <sidebyside widths="32% 32% 32%">
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_s">
+              <description>A scatterplot is shown. On the left side of the plot, the observations are concentrated in the upper corner of the plot, with a sharp trend downwards, before stabilizing, then rising slightly at halfway through the plot, reaching a peak, and then declining again, with a sharp decline on the right-most portion of the plot to the bottom-right corner of the plot.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_hockey_stick">
+              <description>A scatterplot is shown. On the left side of the plot, the observations are concentrated around a region about 30% of the way up from the bottom-left corner of the plot, there is a slight downward trend that reaches the bottom area of the plot for about the center half of the plot, then the points rise gradually and then sharply in the last 25-30% of the plot.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_lin_strong">
+              <description>A scatterplot is shown. Points in the leftmost region of the plot are concentrated in the lower-left corner, ranging from the bottom up to about 25% of the way up the plot. The points follow a steady upward trend to the top-right corner of the plot and show consistent vertical variability around the trend throughout.</description>
+            </image>
+          </sidebyside>
+          <sidebyside widths="32% 32% 32%">
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_weak">
+              <description>A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There might be a very slight upward trend.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_pos_weaker">
+              <description>A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/identify_relationships_2/identify_relationships_neg_lin_weak">
+              <description>A scatterplot is shown. The points on the leftmost side are concentrated in the upper half of the plot, and the data trend steadily downwards and with consistent variability to the bottom right portion of the plot.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-exams-grades-correlation">
+        <title>Exams and grades</title>
+        <statement>
+          <p>
+            The two scatterplots below show the relationship between final and mid-semester exam grades recorded during several years for a Statistics course at a university.
+          </p>
+          <sidebyside widths="48% 48%">
+            <image source="ch_regr_simple_linear/figures/eoce/exams_grades_correlation/exam_grades_1">
+              <description>A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 1 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Only about ten Exam 1 scores are below 60, and these have Final Exam scores between about 55 and 85. Exam 1 scores between 60 and 80 represent about 50% of the points shown and have Final Exam scores mostly between 50 and 85. For the points where Midterm 1 scores are larger than 80, Final Exam scores mostly lie between 65 and 90, where a slightly upward trend is evident.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/exams_grades_correlation/exam_grades_2">
+              <description>A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 2 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Midterm 2 scores are roughly uniformly distributed across the full range. For Exam 2 scores below 60, these mostly have Final Exam scores between about 45 and 70. Exam 2 scores between 60 and 80 have Final Exam scores mostly between 55 and 80. For the points where Midterm 2 scores are larger than 80, Final Exam scores mostly lie between 70 and 90.</description>
+            </image>
+          </sidebyside>
+          <p>
+            <ol>
+              <li>Based on these graphs, which of the two exams has the strongest correlation with the final exam grade? Explain.</li>
+              <li>Can you think of a reason why the correlation between the exam you chose in part (a) and the final exam is higher?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-husbands-wives-correlation">
+        <title>Husbands and wives, Part I</title>
+        <statement>
+          <p>
+            The Great Britain Office of Population Census and Surveys once collected data on a random sample of 170 married couples in Britain, recording the age (in years) and heights (converted here to inches) of the husbands and wives. The scatterplot on the left shows the wife's age plotted against her husband's age, and the plot on the right shows wife's height plotted against husband's height.
+          </p>
+          <sidebyside widths="35% 35%">
+            <image source="ch_regr_simple_linear/figures/eoce/husbands_wives_correlation/husbands_wives_age">
+              <description>A scatterplot is shown. The horizontal axis represents "Husband's Age (in years)" with values ranging from about 20 to 65. The vertical axis represents "Wife's Age (in years)" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/husbands_wives_correlation/husbands_wives_height">
+              <description>A scatterplot is shown. The horizontal axis represents "Husband's Height (in inches)" with values ranging from about 60 to 75. The vertical axis represents "Wife's Height (in inches)" with values ranging from about 55 to 70. When husband height is between 60 and 65, wife height mostly ranges from about 58 to 65 inches, though there are only about 10 points in this range, which is about 5% of the data. When husband height is between 65 and 70, wife height mostly ranges from 57 to 68 inches. When husband height is larger than 70 inches, wife height mostly ranges from 61 to about 74 inches.</description>
+            </image>
+          </sidebyside>
+          <p>
+            <ol>
+              <li>Describe the relationship between husbands' and wives' ages.</li>
+              <li>Describe the relationship between husbands' and wives' heights.</li>
+              <li>Which plot shows a stronger correlation? Explain your reasoning.</li>
+              <li>Data on heights were originally collected in centimeters, and then converted to inches. Does this conversion affect the correlation between husbands' and wives' heights?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-match-correlation-1">
+        <title>Match the correlation, Part I</title>
+        <statement>
+          <p>
+            Match each correlation to the corresponding scatterplot.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><m>R = -0.7</m></li>
+              <li><m>R = 0.45</m></li>
+              <li><m>R = 0.06</m></li>
+              <li><m>R = 0.92</m></li>
+            </ol>
+          </p>
+          <sidebyside widths="24% 24% 24% 24%">
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_1_u">
+              <description>A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_2_strong_pos">
+              <description>A scatterplot is shown. They start on the lower left corner, only spanning about 20% of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_3_weak_pos">
+              <description>A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_1/match_corr_4_weak_neg">
+              <description>A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-match-correlation-2">
+        <title>Match the correlation, Part II</title>
+        <statement>
+          <p>
+            Match each correlation to the corresponding scatterplot.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><m>R = 0.49</m></li>
+              <li><m>R = -0.48</m></li>
+              <li><m>R = -0.03</m></li>
+              <li><m>R = -0.85</m></li>
+            </ol>
+          </p>
+          <sidebyside widths="24% 24% 24% 24%">
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_1_strong_neg_curved">
+              <description>A scatterplot is shown. For the left half of the plot, the points are scattered around the upper half of the plot. On the right portion of the plot, the data show a clear downward trend, and for the points on the far right, they are concentrated in the lower 25% of the plot.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_2_weak_pos">
+              <description>A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_3_n">
+              <description>A scatterplot is shown. The observations start in the lower left corner of the plot, trend sharply upwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster dropping to the lower right corner of the plot. The trend is approximately symmetric from left-to-right.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/match_corr_2/match_corr_4_weak_neg">
+              <description>A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
 
   <!-- Section 8.2: Least squares regression -->
