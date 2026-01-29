@@ -946,112 +946,517 @@ var ptx_lunr_docs = [
   "body": " Space launches   Table shows launch outcomes by agency type (Private, State, Startup) and era (1957-1999, 2000-2018).   Variables collected per launch?  Classify each variable.  For studying success rates across agencies and time, identify response and explanatory variables.    "
 },
 {
-  "id": "sec-malaria-vaccine",
+  "id": "sec-numerical-data",
   "level": "1",
-  "url": "sec-malaria-vaccine.html",
+  "url": "sec-numerical-data.html",
   "type": "Section",
   "number": "2.1",
-  "title": "Case study: Malaria vaccine",
-  "body": " Case study: Malaria vaccine   Left vs. right side ownership   Suppose students in class are split into left and right sides. Let $\\hat p_L$ and $\\hat p_R$ be the proportions owning an Apple product on each side. Would it be surprising if $\\hat p_L$ were not exactly equal to $\\hat p_R$?    They would likely be close but not exactly equal; small differences are expected by chance.     Independence assumption   If seating side and Apple ownership are unrelated, what assumption are we making about these variables?    We assume the variables are independent.     Variability within data  A clinical study tested a malaria vaccine (PfSPZ). Fourteen patients were randomized to receive the vaccine and six to a placebo. Nineteen weeks later all 20 were exposed to a drug-sensitive parasite strain so any infections could be treated effectively. Nine of the 14 vaccinated patients showed no infection, while all six placebo patients showed baseline signs of infection.   Summary results for the malaria vaccine experiment     Outcome  Infection  No infection    Vaccine  5  9  14    Placebo  6  0  6    Total  11  9  20      Study type   Is this an observational study or an experiment? What does that imply about causal conclusions?    It is an experiment (random assignment). Causal conclusions about the vaccine’s effect are appropriate.     What counts as convincing?   The observed infection rates were 35.7% for vaccine vs. 100% for placebo. Does this provide convincing evidence the vaccine works?    The large difference suggests effectiveness, but the small sample means the difference could be due to chance. We need to evaluate how likely such a gap is under no effect.    We compare two competing claims:   Independence model ( ): Treatment and outcome are independent; the 64.3% difference in infection rates arose by chance.  Alternative model ( ): Treatment and outcome are not independent; the vaccine affected infection rates.   If is true, 11 patients would be infected and 9 uninfected regardless of assignment, so any difference is random. If is true, we expect some real difference between groups.    Simulating the study  Assume the vaccine has no effect. To gauge how unusual the observed difference is, simulate new random assignments: write “infection” on 11 cards and “no infection” on 9 cards, shuffle, deal 14 to vaccine and 6 to placebo, and tabulate infection counts.   Simulation results under independence (one shuffle)     Outcome  Infection  No infection    Vaccine (sim.)  7  7  14    Placebo (sim.)  4  2  6    Total  11  9  20      Difference in a simulation   Compute the infection-rate difference for the simulation above (placebo minus vaccine). How does it compare to the observed 64.3% gap?    Difference is $4\/6 - 7\/14 \\approx 0.167$ (16.7%), much smaller than the observed 64.3% gap.      Checking for independence  Repeat the randomization many times by computer. The simulated differences (placebo rate minus vaccine rate) form a distribution centered near 0. Figure shows 100 simulations.   Differences from 100 simulations under independence.   Stacked dot plot of simulated infection-rate differences; only two simulations reach the observed 64.3% difference.     How rare is 64.3%?   According to the simulations, how often does a difference of at least 64.3% occur?    About 2% of simulations reach that difference—rare under independence.    The rare occurrence of such a large difference leaves two options:   : Vaccine has no effect and we observed a rare chance event.  : Vaccine reduces infections; the observed difference reflects efficacy.   In formal studies we typically reject when faced with such rare outcomes. Here we conclude the data provide strong evidence the vaccine offers protection in this clinical setting.    Exercises   Side effects of Avandia   A retrospective study compared cardiovascular problems between rosiglitazone (Avandia) and pioglitazone (Actos) users (counts below).        Yes  No      Treatment  Rosiglitazone  2,593  65,000    Pioglitazone  5,386  154,592     Total  7,979  219,592       Assess true\/false for four claims (rate comparisons, causation, chance).  What proportion of all patients had cardiovascular problems?  If treatment and outcome were independent, expected rosiglitazone problems?  A randomization simulation produced a histogram of rosiglitazone problem counts. Use it to identify claims, direction supporting $H_A$, and what the simulation suggests.      Heart transplants   Stanford heart-transplant program: control 34 patients (30 died), treatment 69 (45 died). Plots show survival mosaic and survival-time box plots; a randomization dotplot compares differences.   From the mosaic, is survival independent of transplant? Explain.  What do the box plots suggest about efficacy?  Compute death proportions in treatment vs. control.  Fill blanks for a card-shuffle randomization description; what do simulation results indicate about effectiveness?      "
+  "title": "Examining numerical data",
+  "body": " Examining numerical data   In this section we will explore techniques for summarizing numerical variables. For example, consider the loan_amount variable from the loan50 data set, which represents the loan size for all 50 loans in the data set. This variable is numerical since we can sensibly discuss the numerical difference of the size of two loans. On the other hand, area codes and zip codes are not numerical, but rather they are categorical variables.  Throughout this section and the next, we will apply these methods using the loan50 and county data sets, which were introduced in . If you'd like to review the variables from either data set, see the relevant data description figures.     Scatterplots for paired data  A scatterplot provides a case-by-case view of data for two numerical variables. In a previous figure, a scatterplot was used to examine the homeownership rate against the fraction of housing units that were part of multi-unit properties (e.g. apartments) in the county data set. Another scatterplot is shown in , comparing the total income of a borrower ( total_income ) and the amount they borrowed ( loan_amount ) for the loan50 data set. In any scatterplot, each point represents a single case. Since there are 50 cases in loan50 , there are 50 points in .   A scatterplot of total_income versus loan_amount for the loan50 data set   A scatterplot is shown with \"Total Income\" along the horizontal axis (range from $0 to $325,000) and \"Loan Amount\" along the vertical axis (range from $0 to $40,000). The points lie in a range from $2,000 to $33,000 in loan amount when total income is smaller than $150,000 (representing most of the points). The range of loan amounts is higher when total income is greater than $175,000, with the range of observations being about $15,000 to $40,000.    Looking at , we see that there are many borrowers with an income below $100,000 on the left side of the graph, while there are a handful of borrowers with income above $250,000.   Nonlinear relationships in scatterplots    shows a plot of median household income against the poverty rate for 3,142 counties. What can be said about the relationship between these variables?    The relationship is evidently nonlinear , as highlighted by the dashed line. This is different from previous scatterplots we've seen, which show relationships that do not show much, if any, curvature in the trend.     A scatterplot of the median household income against the poverty rate for the county data set   A scatterplot of a few thousand points is shown with \"Poverty Rate\" along the horizontal axis (range from 0% to 55%) and \"Median Household Income\" along the vertical axis (range from $0 to $130,000). A curved trend line is overlaid on the points starting higher on the left and decreasing as it moves right, but it starts flattening the further right it goes. Below 10% poverty rate, points range from about $40,000 to $130,000. Between 10% to 20%, the range is lower at about $25,000 to close to $100,000. For 20% to 30%, the points range from about $22,000 to just over $60,000. For 30% to 50%, the trend is mostly flat with values ranging from about $20,000 to $50,000.     Value of scatterplots   What do scatterplots reveal about the data, and how are they useful?    Answers may vary. Scatterplots are helpful in quickly spotting associations relating variables, whether those associations come in the form of simple trends or whether those relationships are more complex.     Horseshoe-shaped associations   Describe two variables that would have a horseshoe-shaped association in a scatterplot ( or ).    Consider the case where your vertical axis represents something \"good\" and your horizontal axis represents something that is only good in moderation. Health and water consumption fit this description: we require some water to survive, but consume too much and it becomes toxic and can kill a person.       Dot plots and the mean  Sometimes two variables are one too many: only one variable may be of interest. In these cases, a dot plot provides the most basic of displays. A dot plot is a one-variable scatterplot; an example using the interest rate of 50 loans is shown in . A stacked version of this dot plot is shown in .   A dot plot of interest_rate for the loan50 data set   A dot plot is shown for the variable \"Interest Rate\". There is a horizontal axis ranging from about 5% to a bit over 25%, and then several points are shown horizontally above the axis, scattered over the range. There is a higher density of points between 5% to 11%, with a moderate density of points from 12% to about 20%, and then a few more observations at about 22%, 25%, and 26%. A red triangle is also shown at approximately 12%.     A stacked dot plot of interest_rate for the loan50 data set   A stacked dot plot is shown for the variable \"Interest Rate\". There is a horizontal axis ranging from about 5% to a bit over 25%, and then several stacks of points are shown at values 5%, 6%, 7%, and so on. There are 3 points stacked at 5%, 3 points stacked at 6%, 5 at 7%, 4 at 8%, 5 at 9%, 8 at 10%, 5 at 11%, 1 at 11%, 3 at 12%, then 1 each at 14%, 15%, and 16%, 3 at 17%, 2 at 18%, and then 1 each at 19%, 20%, 21%, 25%, and 26%. A red triangle is also shown at approximately 12%. The rates have been rounded to the nearest percent in this plot.    The mean , often called the average , is a common way to measure the center of a distribution of data. To compute the mean interest rate, we add up all the interest rates and divide by the number of observations: The sample mean is often labeled . The letter is being used as a generic placeholder for the variable of interest, interest_rate , and the bar over the communicates we're looking at the average interest rate, which for these 50 loans was 11.57%. It is useful to think of the mean as the balancing point of the distribution, and it's shown as a triangle in and .   Mean  The sample mean can be computed as the sum of the observed values divided by the number of observations: where , , , represent the observed values.    Understanding mean notation   Examine the equation for the mean. What does correspond to? And ? Can you infer a general meaning to what might represent?     corresponds to the interest rate for the first loan in the sample (10.90%), to the second loan's interest rate (9.92%), and corresponds to the interest rate for the loan in the data set. For example, if , then we're examining , which refers to the fourth observation in the data set.     Sample size   What was in this sample of loans?    The sample size was .    The loan50 data set represents a sample from a larger population of loans made through Lending Club. We could compute a mean for this population in the same way as the sample mean. However, the population mean has a special label: . The symbol is the Greek letter mu and represents the average of all observations in the population. Sometimes a subscript, such as , is used to represent which variable the population mean refers to, e.g. . Often times it is too expensive to measure the population mean precisely, so we often estimate using the sample mean, .   Estimating a population mean   The average interest rate across all loans in the population can be estimated using the sample data. Based on the sample of 50 loans, what would be a reasonable estimate of , the mean interest rate for all loans in the full data set?    The sample mean, 11.57%, provides a rough estimate of . While it's not perfect, this is our single best guess of the average interest rate of all the loans in the population under study. In later chapters, we will develop tools to characterize the accuracy of point estimates like the sample mean. As you might have guessed, point estimates based on larger samples tend to be more accurate than those based on smaller samples.     Using the mean for comparisons   The mean is useful because it allows us to rescale or standardize a metric into something more easily interpretable and comparable. Provide 2 examples where the mean is useful for making comparisons.       We would like to understand if a new drug is more effective at treating asthma attacks than the standard drug. A trial of 1500 adults is set up, where 500 receive the new drug, and 1000 receive a standard drug in the control group. The results show 200 asthma attacks in the new drug group and 300 in the standard drug group. Comparing the raw counts of 200 to 300 asthma attacks would make it appear that the new drug is better, but this is an artifact of the imbalanced group sizes. Instead, we should look at the average number of asthma attacks per patient in each group: New drug: , Standard drug: . The standard drug has a lower average number of asthma attacks per patient than the average in the treatment group.    Emilio opened a food truck last year where he sells burritos, and his business has stabilized over the last 3 months. Over that 3 month period, he has made $11,000 while working 625 hours. Emilio's average hourly earnings provides a useful statistic for evaluating whether his venture is, at least from a financial perspective, worth it: . By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is easier to compare with many other jobs that he might consider.        Weighted means   Suppose we want to compute the average income per person in the US. To do so, we might first think to take the mean of the per capita incomes across the 3,142 counties in the county data set. What would be a better approach?    The county data set is special in that each county actually represents many individual people. If we were to simply average across the income variable, we would be treating counties with 5,000 and 5,000,000 residents equally in the calculations. Instead, we should compute the total income for each county, add up all the counties' totals, and then divide by the number of people in all the counties. If we completed these steps with the county data, we would find that the per capita income for the US is $30,861. Had we computed the simple mean of per capita income across counties, the result would have been just $26,093! This example used what is called a weighted mean . For more information on this topic, check out online supplements regarding weighted means.       Histograms and shape  Dot plots show the exact value for each observation. This is useful for small data sets, but they can become hard to read with larger samples. Rather than showing the value of each observation, we prefer to think of the value as belonging to a bin . For example, in the loan50 data set, we created a table of counts for the number of loans with interest rates between 5.0% and 7.5%, then the number of loans with rates between 7.5% and 10.0%, and so on. Observations that fall on the boundary of a bin (e.g. 10.00%) are allocated to the lower bin. This tabulation is shown in . These binned counts are plotted as bars in into what is called a histogram , which resembles a more heavily binned version of the stacked dot plot.   Counts for the binned interest_rate data    Interest Rate  5.0%-7.5%  7.5%-10.0%  10.0%-12.5%  12.5%-15.0%   25.0%-27.5%    Count  11  15  8  4   1      A histogram of interest_rate . This distribution is strongly skewed to the right.   A histogram with a horizontal axis of \"Interest Rate\" and a vertical axis showing the frequency of occurrence of different bins of interest rate. The first bin is from 5%-7.5% with a frequency (count) of 11 observations, 7.5%-10% has a frequency of 15, 10%-12.5% has 8, 12.5%-15% has 4, 15%-17.5% has 5, 17.5%-20% has 4, and then the 20%-22.5%, 22.5%-25%, and 25%-27.5% bins each have a frequency of 1.    Histograms provide a view of the data density . Higher bars represent where the data are relatively more common. For instance, there are many more loans with rates between 5% and 10% than loans with rates between 20% and 25% in the data set. The bars make it easy to see how the density of the data changes relative to the interest rate.  Histograms are especially convenient for understanding the shape of the data distribution. suggests that most loans have rates under 15%, while only a handful of loans have rates above 20%. When data trail off to the right in this way and has a longer right tail, the shape is said to be right skewed . Other ways to describe data that are right skewed: skewed to the right, skewed to the high end, or skewed to the positive end.   Data sets with the reverse characteristic a long, thinner tail to the left are said to be left skewed . We also say that such a distribution has a long left tail. Data sets that show roughly equal trailing off in both directions are called symmetric .   Long tails to identify skew  When data trail off in one direction, the distribution has a long tail . If a distribution has a long left tail, it is left skewed. If a distribution has a long right tail, it is right skewed.    Identifying skew   Take a look at the dot plots in earlier figures. Can you see the skew in the data? Is it easier to see the skew in this histogram or the dot plots?    The skew is visible in all three plots, though the flat dot plot is the least useful. The stacked dot plot and histogram are helpful visualizations for identifying skew.     Histogram limitations   Besides the mean (since it was labeled), what can you see in the dot plots that you cannot see in the histogram?    The interest rates for individual loans.    In addition to looking at whether a distribution is skewed or symmetric, histograms can be used to identify modes. A mode is represented by a prominent peak in the distribution. There is only one prominent peak in the histogram of loan_amount .  A definition of mode sometimes taught in math classes is the value with the most occurrences in the data set. However, for many real-world data sets, it is common to have no observations with the same value in a data set, making this definition impractical in data analysis.   shows histograms that have one, two, or three prominent peaks. Such distributions are called unimodal , bimodal , and multimodal , respectively. Any distribution with more than 2 prominent peaks is called multimodal. Notice that there was one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.   Distributions showing different numbers of modes   Three histograms are shown. The first histogram shows bins of width 2 between 0 to 18 (this is along the horizontal axis), and the frequencies are 3, 16, 16, 7, 11, 6, 4, 1, and 1. The second histogram, representing a different data set, shows bins of width 2 with values ranging from 0 to 20, where the bin counts in order are 2, 9, 5, 2, 2, 2, 2, 10, 19, and 9. The third histogram, representing yet another data set, shows bins of width 2 with values ranging from 0 to 22, where the bin counts in order are 10, 8, 4, 3, 1, 20, 15, 3, 15, 18, and 5.     Identifying modality    reveals only one prominent mode in the interest rate. Is the distribution unimodal, bimodal, or multimodal?    Unimodal. Remember that uni stands for 1 (think uni cycles). Similarly, bi stands for 2 (think bi cycles). We're hoping a multicycle will be invented to complete this analogy.     Expected modes in height data   Height measurements of young students and adult teachers at a K-3 elementary school were taken. How many modes would you expect in this height data set?    There might be two height groups visible in the data set: one of the students and one of the adults. That is, the data are probably bimodal.    Looking for modes isn't about finding a clear and correct answer about the number of modes in a distribution, which is why prominent is not rigorously defined in this book. The most important part of this examination is to better understand your data.     Variance and standard deviation  The mean was introduced as a method to describe the center of a data set, and variability in the data is also important. Here, we introduce two measures of variability: the variance and the standard deviation. Both of these are very useful in data analysis, even though their formulas are a bit tedious to calculate by hand. The standard deviation is the easier of the two to comprehend, and it roughly describes how far away the typical observation is from the mean.  We call the distance of an observation from its mean its deviation . Below are the deviations for the 1 , 2 , 3 , and 50 observations in the interest_rate variable: If we square these deviations and then take an average, the result is equal to the sample variance , denoted by : We divide by , rather than dividing by , when computing a sample's variance; there's some mathematical nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful.  Notice that squaring the deviations does two things. First, it makes large values relatively much larger, seen by comparing , , , and . Second, it gets rid of any negative signs.  The standard deviation is defined as the square root of the variance: While often omitted, a subscript of may be added to the variance and standard deviation, i.e. and , if it is useful as a reminder that these are the variance and standard deviation of the observations represented by , , ..., .   Variance and standard deviation  The variance is the average squared distance from the mean. The standard deviation is the square root of the variance. The standard deviation is useful when considering how far the data are distributed from the mean.  The standard deviation represents the typical deviation of observations from the mean. Usually about 70% of the data will be within one standard deviation of the mean and about 95% will be within two standard deviations. However, these percentages are not strict rules.   Like the mean, the population values for variance and standard deviation have special symbols: for the variance and for the standard deviation. The symbol is the Greek letter sigma .   Standard deviations in the interest rate distribution   A dot plot of 50 observations is shown with values ranging from about 5% to 26%. The data set is the same as that shown in earlier dot plots, where the data is more dense from 5% to about 11%, has medium density from about 12% to 20%, and then there are a few more values scattered in the 20% to 27% range. Shading is shown to represent the regions within 1, 2, and 3 standard deviations. The region within 1 standard deviation is from 6.5% to 16.7%, representing 34 of the 50 data points. The region within 2 standard deviations runs left off of the chart (but would be from about 1.4%) to 21.8% and contains 48 of the 50 data points. The third standard deviation is shown to extend out to 26.9%, and all 50 observations are contained within the 3 standard deviations.    For the interest_rate variable, 34 of the 50 loans (68%) had interest rates within 1 standard deviation of the mean, and 48 of the 50 loans (96%) had rates within 2 standard deviations. Usually about 70% of the data are within 1 standard deviation of the mean and 95% within 2 standard deviations, though this is far from a hard rule.   Three very different population distributions with the same mean and standard deviation   Three histograms are shown (upper, middle, lower). Each distribution also shows shading -- dark gray between -1 to 1, lighter gray between -2 and 2, and light gray between -3 and 3, and then very light gray further out. The upper plot shows only two bins with non-zero values and of equal height at -1 and 1. The middle plot shows a bell-shaped curve, where most of the higher bin values are between -1 and 1, middling heights are between -2 to -1 and 1 to 2, and the data trails off in each direction with ever-smaller values further out. The lower histogram shows no data below about -1.6, a quick increase to a peak at about -0.7 and then a slow decline of values to about half the max height at 1 and further trails off to ever smaller values to a horizontal location of 3 and beyond.     Importance of shape description   The concept of shape of a distribution was introduced earlier. A good description of the shape of a distribution should include modality and whether the distribution is symmetric or skewed to one side. Using as an example, explain why such a description is important.     shows three distributions that look quite different, but all have the same mean, variance, and standard deviation. Using modality, we can distinguish between the first plot (bimodal) and the last two (unimodal). Using skewness, we can distinguish between the last plot (right skewed) and the first two. While a picture, like a histogram, tells a more complete story, we can use modality and shape (symmetry\/skew) to characterize basic information about a distribution.     Describing a distribution   Describe the distribution of the interest_rate variable using the histogram in . The description should incorporate the center, variability, and shape of the distribution, and it should also be placed in context. Also note any especially unusual cases.    The distribution of interest rates is unimodal and skewed to the high end. Many of the rates fall near the mean at 11.57%, and most fall within one standard deviation (5.05%) of the mean. There are a few exceptionally large interest rates in the sample that are above 20%.    In practice, the variance and standard deviation are sometimes used as a means to an end, where the \"end\" is being able to accurately estimate the uncertainty associated with a sample statistic. For example, in later chapters the standard deviation is used in calculations that help us understand how much a sample mean varies from one sample to the next.     Box plots, quartiles, and the median  A box plot summarizes a data set using five statistics while also plotting unusual observations. provides a vertical dot plot alongside a box plot of the interest_rate variable from the loan50 data set.   A vertical dot plot next to a labeled box plot for the interest rates of the 50 loans   What is shown is a dot plot adjacent to what is called a \"box plot\". The data values are the same ones used in past dot plots, where the data shows greatest density from 5% to 11%, moderate density from 12% to 20%, and then a few more values at about 22%, 25%, and 26%. The box plot adjacent to the data shows a box that would encapsulate the middle 50% of the data, from about 8% to 13%. The median is also annotated with a line through the center of the box. From here, the data extend out with \"whiskers\" up to a distance up to 1.5 times IQR below and above the box to capture as much data as possible. There are two observations that extend beyond this range at 25% and 26%.    The first step in building a box plot is drawing a dark line denoting the median , which splits the data in half. shows 50% of the data falling below the median and other 50% falling above the median. There are 50 loans in the data set (an even number) so the data are perfectly split into two groups of 25. We take the median in this case to be the average of the two observations closest to the 50 percentile, which happen to be the same value in this data set: . When there are an odd number of observations, there will be exactly one observation that splits the data into two halves, and in such a case that observation is the median (no average needed).   Median: the number in the middle  If the data are ordered from smallest to largest, the median is the observation right in the middle. If there are an even number of observations, there will be two values in the middle, and the median is taken as their average.   The second step in building a box plot is drawing a rectangle to represent the middle 50% of the data. The total length of the box, shown vertically in , is called the interquartile range ( IQR , for short). It, like the standard deviation, is a measure of variability in data. The more variable the data, the larger the standard deviation and IQR tend to be. The two boundaries of the box are called the first quartile (the 25 percentile, i.e. 25% of the data fall below this value) and the third quartile (the 75 percentile), and these are often labeled and , respectively.   Interquartile range (IQR)  The IQR is the length of the box in a box plot. It is computed as where and are the 25 and 75 percentiles.    Data between quartiles   What percent of the data fall between and the median? What percent is between the median and ?    Since and capture the middle 50% of the data and the median splits the data in the middle, 25% of the data fall between and the median, and another 25% falls between the median and .    Extending out from the box, the whiskers attempt to capture the data outside of the box. However, their reach is never allowed to be more than . They capture everything within this reach. In , the upper whisker does not extend to the last two points, which is beyond , and so it extends only to the last point below this limit. The lower whisker stops at the lowest value, 5.31%, since there is no additional data to reach; the lower whisker's limit is not shown in the figure because the plot does not extend down to . In a sense, the box is like the body of the box plot and the whiskers are like its arms trying to reach the rest of the data.  Any observation lying beyond the whiskers is labeled with a dot. The purpose of labeling these points instead of extending the whiskers to the minimum and maximum observed values is to help identify any observations that appear to be unusually distant from the rest of the data. Unusually distant observations are called outliers . In this case, it would be reasonable to classify the interest rates of 24.85% and 26.30% as outliers since they are numerically distant from most of the data.   Outliers are extreme  An outlier is an observation that appears extreme relative to the rest of the data.  Examining data for outliers serves many useful purposes, including:  Identifying strong skew in the distribution.  Identifying possible data collection or data entry errors.  Providing insight into interesting properties of the data.      Estimating quartiles from a box plot   Using , estimate the following values for interest_rate in the loan50 data set: (a) , (b) , and (c) IQR.    These visual estimates will vary a little from one person to the next: 8%, 14%, 6%. (The true values: , , .)       Robust statistics  How are the sample statistics of the interest_rate data set affected by the observation, 26.3%? What would have happened if this loan had instead been only 15%? What would happen to these summary statistics if the observation at 26.3% had been even larger, say 35%? These scenarios are plotted alongside the original data in , and sample statistics are computed under each scenario in .   Dot plots of the original interest rate data and two modified data sets   Three dot plots are shown in the same plot. The largest observation from the original data set (discussed in previous dot plots) at about 26% is moved to 15% in the second dot plot and instead to 35% in the third dot plot.     Comparison of statistics under different scenarios    Scenario  Robust  Not Robust     Median  IQR      Original interest_rate data  9.93%  5.76%  11.57%  5.05%    Move 26.3% 15%  9.93%  5.76%  11.34%  4.61%    Move 26.3% 35%  9.93%  5.76%  11.74%  5.68%      Comparing robustness of statistics   (a) Which is more affected by extreme observations, the mean or median? may be helpful. (b) Is the standard deviation or IQR more affected by extreme observations?    (a) Mean is affected more. (b) Standard deviation is affected more. Complete explanations are provided below.    The median and IQR are called robust statistics because extreme observations have little effect on their values: moving the most extreme value generally has little influence on these statistics. On the other hand, the mean and standard deviation are more heavily influenced by changes in extreme observations, which can be important in some situations.   Stability of robust statistics   The median and IQR did not change under the three scenarios in . Why might this be the case?    The median and IQR are only sensitive to numbers near , the median, and . Since values in these regions are stable in the three data sets, the median and IQR estimates are also stable.     Choosing between mean and median   The distribution of loan amounts in the loan50 data set is right skewed, with a few large loans lingering out into the right tail. If you were wanting to understand the typical loan size, should you be more interested in the mean or median?    Answers will vary! If we're looking to simply understand what a typical individual loan looks like, the median is probably more useful. However, if the goal is to understand something that scales well, such as the total amount of money we might need to have on hand if we were to offer 1,000 loans, then the mean would be more useful.       Transforming data (special topic)  When data are very strongly skewed, we sometimes transform them so they are easier to model.   County population distributions: (a) original data showing extreme skew, (b) log-transformed data   Two histograms are shown side by side. The first histogram has a horizontal axis of Population with possible data ranging from 0 to about 10 million. The first bar representing 0 to 400,000 shows a frequency (bar height) of about 3000, the second bar for 400,000 to 800,000 shows about frequency of about 100. All other bars are sufficiently small that they are virtually indistinguishable from 0. The second histogram shows the horizontal axis represents log-base-10 of the population. The horizontal axis runs from about 2 to 7, and frequency (bin\/box height) peaks at a little over 1000. The data show an approximate bell shape, peaking in the middle between 4 to 4.5, then showing lower frequencies the further out from 4-4.5 with frequencies being close to zero outside of 2.5 to 6.5.     Issues with extreme skew   Consider the histogram of county populations shown in (left panel), which shows extreme skew. What isn't useful about this plot?    Nearly all of the data fall into the left-most bin, and the extreme skew obscures many of the potentially interesting details in the data.    There are some standard transformations that may be useful for strongly right skewed data where much of the data is positive but clustered near zero. A transformation is a rescaling of the data using a function. For instance, a plot of the logarithm (base 10) of county populations results in the new histogram in (right panel). This data is symmetric, and any potential outliers appear much less extreme than in the original data set. By reigning in the outliers and extreme skew, transformations like this often make it easier to build statistical models against the data.  Transformations can also be applied to one or both variables in a scatterplot. A scatterplot of the population change from 2010 to 2017 against the population in 2010 is shown in . In the first scatterplot, it's hard to decipher any interesting patterns because the population variable is so strongly skewed. However, if we apply a log transformation to the population variable, as shown in the second panel, a positive association between the variables is revealed.   Scatterplots of population change vs. population: (a) original data, (b) log-transformed population   Two scatterplots are shown side by side. The first scatterplot has population on the horizontal axis (ranging from 0 to 10 million) and population change as a percent on the vertical axis (ranging from -35% to positive 40%). The data is particularly concentrated on the left of the graph below 1 million. There is no discernible trend in the data. The second scatterplot has log-base-10 of the population on the horizontal axis (ranging from 2 to 7) and population change as a percent on the vertical axis. The data is well distributed and shows a cloud of points with a slight upward trend.    Transformations other than the logarithm can be useful, too. For instance, the square root and inverse are commonly used by data scientists. Common goals in transforming data are to see the data structure differently, reduce skew, assist in modeling, or straighten a nonlinear relationship in a scatterplot.     Mapping data (special topic)  The county data set offers many numerical variables that we could plot using dot plots, scatterplots, or box plots, but these miss the true nature of the data. Rather, when we encounter geographic data, we should create an intensity map , where colors are used to show higher and lower values of a variable. Figures throughout this book demonstrate a variety of intensity maps for county-level data including median household income, poverty rate, homeownership rate, federal spending per capita, and unemployment rate.  The maps are not generally very helpful for getting precise values, but they are very helpful for seeing spatial patterns and can help us generate interesting research questions.    "
 },
 {
-  "id": "ex-left-right-apple",
+  "id": "subsec-scatterplots-2",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-left-right-apple",
-  "type": "Example",
+  "url": "sec-numerical-data.html#subsec-scatterplots-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "scatterplot "
+},
+{
+  "id": "fig-loan50-amt-vs-income",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-loan50-amt-vs-income",
+  "type": "Figure",
   "number": "2.1.1",
-  "title": "Left vs. right side ownership.",
-  "body": " Left vs. right side ownership   Suppose students in class are split into left and right sides. Let $\\hat p_L$ and $\\hat p_R$ be the proportions owning an Apple product on each side. Would it be surprising if $\\hat p_L$ were not exactly equal to $\\hat p_R$?    They would likely be close but not exactly equal; small differences are expected by chance.   "
+  "title": "",
+  "body": " A scatterplot of total_income versus loan_amount for the loan50 data set   A scatterplot is shown with \"Total Income\" along the horizontal axis (range from $0 to $325,000) and \"Loan Amount\" along the vertical axis (range from $0 to $40,000). The points lie in a range from $2,000 to $33,000 in loan amount when total income is smaller than $150,000 (representing most of the points). The range of loan amounts is higher when total income is greater than $175,000, with the range of observations being about $15,000 to $40,000.   "
 },
 {
-  "id": "ex-apple-independence",
+  "id": "ex-nonlinear-relationship",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-apple-independence",
-  "type": "Checkpoint",
+  "url": "sec-numerical-data.html#ex-nonlinear-relationship",
+  "type": "Example",
   "number": "2.1.2",
-  "title": "Independence assumption.",
-  "body": " Independence assumption   If seating side and Apple ownership are unrelated, what assumption are we making about these variables?    We assume the variables are independent.   "
+  "title": "Nonlinear relationships in scatterplots.",
+  "body": " Nonlinear relationships in scatterplots    shows a plot of median household income against the poverty rate for 3,142 counties. What can be said about the relationship between these variables?    The relationship is evidently nonlinear , as highlighted by the dashed line. This is different from previous scatterplots we've seen, which show relationships that do not show much, if any, curvature in the trend.   "
 },
 {
-  "id": "tbl-malaria-summary",
+  "id": "fig-median-income-poverty",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#tbl-malaria-summary",
-  "type": "Table",
+  "url": "sec-numerical-data.html#fig-median-income-poverty",
+  "type": "Figure",
   "number": "2.1.3",
-  "title": "Summary results for the malaria vaccine experiment",
-  "body": " Summary results for the malaria vaccine experiment     Outcome  Infection  No infection    Vaccine  5  9  14    Placebo  6  0  6    Total  11  9  20    "
+  "title": "",
+  "body": " A scatterplot of the median household income against the poverty rate for the county data set   A scatterplot of a few thousand points is shown with \"Poverty Rate\" along the horizontal axis (range from 0% to 55%) and \"Median Household Income\" along the vertical axis (range from $0 to $130,000). A curved trend line is overlaid on the points starting higher on the left and decreasing as it moves right, but it starts flattening the further right it goes. Below 10% poverty rate, points range from about $40,000 to $130,000. Between 10% to 20%, the range is lower at about $25,000 to close to $100,000. For 20% to 30%, the points range from about $22,000 to just over $60,000. For 30% to 50%, the trend is mostly flat with values ranging from about $20,000 to $50,000.   "
 },
 {
-  "id": "ex-malaria-study-type",
+  "id": "ex-scatterplot-usefulness",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-malaria-study-type",
+  "url": "sec-numerical-data.html#ex-scatterplot-usefulness",
   "type": "Checkpoint",
   "number": "2.1.4",
-  "title": "Study type.",
-  "body": " Study type   Is this an observational study or an experiment? What does that imply about causal conclusions?    It is an experiment (random assignment). Causal conclusions about the vaccine’s effect are appropriate.   "
+  "title": "Value of scatterplots.",
+  "body": " Value of scatterplots   What do scatterplots reveal about the data, and how are they useful?    Answers may vary. Scatterplots are helpful in quickly spotting associations relating variables, whether those associations come in the form of simple trends or whether those relationships are more complex.   "
 },
 {
-  "id": "ex-malaria-evidence",
+  "id": "ex-horseshoe-association",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-malaria-evidence",
-  "type": "Example",
-  "number": "2.1.5",
-  "title": "What counts as convincing?",
-  "body": " What counts as convincing?   The observed infection rates were 35.7% for vaccine vs. 100% for placebo. Does this provide convincing evidence the vaccine works?    The large difference suggests effectiveness, but the small sample means the difference could be due to chance. We need to evaluate how likely such a gap is under no effect.   "
-},
-{
-  "id": "tbl-malaria-sim1",
-  "level": "2",
-  "url": "sec-malaria-vaccine.html#tbl-malaria-sim1",
-  "type": "Table",
-  "number": "2.1.6",
-  "title": "Simulation results under independence (one shuffle)",
-  "body": " Simulation results under independence (one shuffle)     Outcome  Infection  No infection    Vaccine (sim.)  7  7  14    Placebo (sim.)  4  2  6    Total  11  9  20    "
-},
-{
-  "id": "ex-malaria-sim-diff",
-  "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-malaria-sim-diff",
+  "url": "sec-numerical-data.html#ex-horseshoe-association",
   "type": "Checkpoint",
-  "number": "2.1.7",
-  "title": "Difference in a simulation.",
-  "body": " Difference in a simulation   Compute the infection-rate difference for the simulation above (placebo minus vaccine). How does it compare to the observed 64.3% gap?    Difference is $4\/6 - 7\/14 \\approx 0.167$ (16.7%), much smaller than the observed 64.3% gap.   "
+  "number": "2.1.5",
+  "title": "Horseshoe-shaped associations.",
+  "body": " Horseshoe-shaped associations   Describe two variables that would have a horseshoe-shaped association in a scatterplot ( or ).    Consider the case where your vertical axis represents something \"good\" and your horizontal axis represents something that is only good in moderation. Health and water consumption fit this description: we require some water to survive, but consume too much and it becomes toxic and can kill a person.   "
 },
 {
-  "id": "fig-malaria-rand-dot-plot",
+  "id": "subsec-dot-plots-mean-2",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#fig-malaria-rand-dot-plot",
-  "type": "Figure",
-  "number": "2.1.8",
+  "url": "sec-numerical-data.html#subsec-dot-plots-mean-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " Differences from 100 simulations under independence.   Stacked dot plot of simulated infection-rate differences; only two simulations reach the observed 64.3% difference.   "
+  "body": "dot plot "
 },
 {
-  "id": "ex-malaria-rare",
+  "id": "fig-loan-int-rate-dot-plot",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-malaria-rare",
-  "type": "Example",
+  "url": "sec-numerical-data.html#fig-loan-int-rate-dot-plot",
+  "type": "Figure",
+  "number": "2.1.6",
+  "title": "",
+  "body": " A dot plot of interest_rate for the loan50 data set   A dot plot is shown for the variable \"Interest Rate\". There is a horizontal axis ranging from about 5% to a bit over 25%, and then several points are shown horizontally above the axis, scattered over the range. There is a higher density of points between 5% to 11%, with a moderate density of points from 12% to about 20%, and then a few more observations at about 22%, 25%, and 26%. A red triangle is also shown at approximately 12%.   "
+},
+{
+  "id": "fig-loan-int-rate-dot-plot-stacked",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-loan-int-rate-dot-plot-stacked",
+  "type": "Figure",
+  "number": "2.1.7",
+  "title": "",
+  "body": " A stacked dot plot of interest_rate for the loan50 data set   A stacked dot plot is shown for the variable \"Interest Rate\". There is a horizontal axis ranging from about 5% to a bit over 25%, and then several stacks of points are shown at values 5%, 6%, 7%, and so on. There are 3 points stacked at 5%, 3 points stacked at 6%, 5 at 7%, 4 at 8%, 5 at 9%, 8 at 10%, 5 at 11%, 1 at 11%, 3 at 12%, then 1 each at 14%, 15%, and 16%, 3 at 17%, 2 at 18%, and then 1 each at 19%, 20%, 21%, 25%, and 26%. A red triangle is also shown at approximately 12%. The rates have been rounded to the nearest percent in this plot.   "
+},
+{
+  "id": "subsec-dot-plots-mean-5",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-dot-plots-mean-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mean average distribution "
+},
+{
+  "id": "ex-mean-notation",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-mean-notation",
+  "type": "Checkpoint",
+  "number": "2.1.8",
+  "title": "Understanding mean notation.",
+  "body": " Understanding mean notation   Examine the equation for the mean. What does correspond to? And ? Can you infer a general meaning to what might represent?     corresponds to the interest rate for the first loan in the sample (10.90%), to the second loan's interest rate (9.92%), and corresponds to the interest rate for the loan in the data set. For example, if , then we're examining , which refers to the fourth observation in the data set.   "
+},
+{
+  "id": "ex-sample-size-n",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-sample-size-n",
+  "type": "Checkpoint",
   "number": "2.1.9",
-  "title": "How rare is 64.3%?",
-  "body": " How rare is 64.3%?   According to the simulations, how often does a difference of at least 64.3% occur?    About 2% of simulations reach that difference—rare under independence.   "
+  "title": "Sample size.",
+  "body": " Sample size   What was in this sample of loans?    The sample size was .   "
 },
 {
-  "id": "ex-randomization-avandia",
+  "id": "ex-estimating-population-mean",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-randomization-avandia",
-  "type": "Exercise",
-  "number": "2.1.4.1",
-  "title": "Side effects of Avandia.",
-  "body": " Side effects of Avandia   A retrospective study compared cardiovascular problems between rosiglitazone (Avandia) and pioglitazone (Actos) users (counts below).        Yes  No      Treatment  Rosiglitazone  2,593  65,000    Pioglitazone  5,386  154,592     Total  7,979  219,592       Assess true\/false for four claims (rate comparisons, causation, chance).  What proportion of all patients had cardiovascular problems?  If treatment and outcome were independent, expected rosiglitazone problems?  A randomization simulation produced a histogram of rosiglitazone problem counts. Use it to identify claims, direction supporting $H_A$, and what the simulation suggests.    "
+  "url": "sec-numerical-data.html#ex-estimating-population-mean",
+  "type": "Example",
+  "number": "2.1.10",
+  "title": "Estimating a population mean.",
+  "body": " Estimating a population mean   The average interest rate across all loans in the population can be estimated using the sample data. Based on the sample of 50 loans, what would be a reasonable estimate of , the mean interest rate for all loans in the full data set?    The sample mean, 11.57%, provides a rough estimate of . While it's not perfect, this is our single best guess of the average interest rate of all the loans in the population under study. In later chapters, we will develop tools to characterize the accuracy of point estimates like the sample mean. As you might have guessed, point estimates based on larger samples tend to be more accurate than those based on smaller samples.   "
 },
 {
-  "id": "ex-randomization-heart-transplant",
+  "id": "ex-mean-for-comparison",
   "level": "2",
-  "url": "sec-malaria-vaccine.html#ex-randomization-heart-transplant",
-  "type": "Exercise",
-  "number": "2.1.4.2",
-  "title": "Heart transplants.",
-  "body": " Heart transplants   Stanford heart-transplant program: control 34 patients (30 died), treatment 69 (45 died). Plots show survival mosaic and survival-time box plots; a randomization dotplot compares differences.   From the mosaic, is survival independent of transplant? Explain.  What do the box plots suggest about efficacy?  Compute death proportions in treatment vs. control.  Fill blanks for a card-shuffle randomization description; what do simulation results indicate about effectiveness?    "
+  "url": "sec-numerical-data.html#ex-mean-for-comparison",
+  "type": "Example",
+  "number": "2.1.11",
+  "title": "Using the mean for comparisons.",
+  "body": " Using the mean for comparisons   The mean is useful because it allows us to rescale or standardize a metric into something more easily interpretable and comparable. Provide 2 examples where the mean is useful for making comparisons.       We would like to understand if a new drug is more effective at treating asthma attacks than the standard drug. A trial of 1500 adults is set up, where 500 receive the new drug, and 1000 receive a standard drug in the control group. The results show 200 asthma attacks in the new drug group and 300 in the standard drug group. Comparing the raw counts of 200 to 300 asthma attacks would make it appear that the new drug is better, but this is an artifact of the imbalanced group sizes. Instead, we should look at the average number of asthma attacks per patient in each group: New drug: , Standard drug: . The standard drug has a lower average number of asthma attacks per patient than the average in the treatment group.    Emilio opened a food truck last year where he sells burritos, and his business has stabilized over the last 3 months. Over that 3 month period, he has made $11,000 while working 625 hours. Emilio's average hourly earnings provides a useful statistic for evaluating whether his venture is, at least from a financial perspective, worth it: . By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is easier to compare with many other jobs that he might consider.      "
+},
+{
+  "id": "ex-weighted-mean",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-weighted-mean",
+  "type": "Example",
+  "number": "2.1.12",
+  "title": "Weighted means.",
+  "body": " Weighted means   Suppose we want to compute the average income per person in the US. To do so, we might first think to take the mean of the per capita incomes across the 3,142 counties in the county data set. What would be a better approach?    The county data set is special in that each county actually represents many individual people. If we were to simply average across the income variable, we would be treating counties with 5,000 and 5,000,000 residents equally in the calculations. Instead, we should compute the total income for each county, add up all the counties' totals, and then divide by the number of people in all the counties. If we completed these steps with the county data, we would find that the per capita income for the US is $30,861. Had we computed the simple mean of per capita income across counties, the result would have been just $26,093! This example used what is called a weighted mean . For more information on this topic, check out online supplements regarding weighted means.   "
+},
+{
+  "id": "subsec-histograms-shape-2",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-histograms-shape-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "histogram "
+},
+{
+  "id": "table-binned-int-rate",
+  "level": "2",
+  "url": "sec-numerical-data.html#table-binned-int-rate",
+  "type": "Table",
+  "number": "2.1.13",
+  "title": "Counts for the binned <code class=\"code-inline tex2jax_ignore\">interest_rate<\/code> data",
+  "body": " Counts for the binned interest_rate data    Interest Rate  5.0%-7.5%  7.5%-10.0%  10.0%-12.5%  12.5%-15.0%   25.0%-27.5%    Count  11  15  8  4   1    "
+},
+{
+  "id": "fig-loan50-int-rate-hist",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-loan50-int-rate-hist",
+  "type": "Figure",
+  "number": "2.1.14",
+  "title": "",
+  "body": " A histogram of interest_rate . This distribution is strongly skewed to the right.   A histogram with a horizontal axis of \"Interest Rate\" and a vertical axis showing the frequency of occurrence of different bins of interest rate. The first bin is from 5%-7.5% with a frequency (count) of 11 observations, 7.5%-10% has a frequency of 15, 10%-12.5% has 8, 12.5%-15% has 4, 15%-17.5% has 5, 17.5%-20% has 4, and then the 20%-22.5%, 22.5%-25%, and 25%-27.5% bins each have a frequency of 1.   "
+},
+{
+  "id": "subsec-histograms-shape-5",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-histograms-shape-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "data density "
+},
+{
+  "id": "subsec-histograms-shape-6",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-histograms-shape-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "right skewed "
+},
+{
+  "id": "subsec-histograms-shape-7",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-histograms-shape-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "left skewed symmetric "
+},
+{
+  "id": "assemblage-long-tails-2",
+  "level": "2",
+  "url": "sec-numerical-data.html#assemblage-long-tails-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "long tail "
+},
+{
+  "id": "ex-skew-in-plots",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-skew-in-plots",
+  "type": "Checkpoint",
+  "number": "2.1.15",
+  "title": "Identifying skew.",
+  "body": " Identifying skew   Take a look at the dot plots in earlier figures. Can you see the skew in the data? Is it easier to see the skew in this histogram or the dot plots?    The skew is visible in all three plots, though the flat dot plot is the least useful. The stacked dot plot and histogram are helpful visualizations for identifying skew.   "
+},
+{
+  "id": "ex-histogram-vs-dotplot",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-histogram-vs-dotplot",
+  "type": "Checkpoint",
+  "number": "2.1.16",
+  "title": "Histogram limitations.",
+  "body": " Histogram limitations   Besides the mean (since it was labeled), what can you see in the dot plots that you cannot see in the histogram?    The interest rates for individual loans.   "
+},
+{
+  "id": "subsec-histograms-shape-11",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-histograms-shape-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mode "
+},
+{
+  "id": "subsec-histograms-shape-13",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-histograms-shape-13",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "unimodal bimodal multimodal "
+},
+{
+  "id": "fig-modal-plots",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-modal-plots",
+  "type": "Figure",
+  "number": "2.1.17",
+  "title": "",
+  "body": " Distributions showing different numbers of modes   Three histograms are shown. The first histogram shows bins of width 2 between 0 to 18 (this is along the horizontal axis), and the frequencies are 3, 16, 16, 7, 11, 6, 4, 1, and 1. The second histogram, representing a different data set, shows bins of width 2 with values ranging from 0 to 20, where the bin counts in order are 2, 9, 5, 2, 2, 2, 2, 10, 19, and 9. The third histogram, representing yet another data set, shows bins of width 2 with values ranging from 0 to 22, where the bin counts in order are 10, 8, 4, 3, 1, 20, 15, 3, 15, 18, and 5.   "
+},
+{
+  "id": "ex-unimodal-classification",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-unimodal-classification",
+  "type": "Example",
+  "number": "2.1.18",
+  "title": "Identifying modality.",
+  "body": " Identifying modality    reveals only one prominent mode in the interest rate. Is the distribution unimodal, bimodal, or multimodal?    Unimodal. Remember that uni stands for 1 (think uni cycles). Similarly, bi stands for 2 (think bi cycles). We're hoping a multicycle will be invented to complete this analogy.   "
+},
+{
+  "id": "ex-height-modes",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-height-modes",
+  "type": "Checkpoint",
+  "number": "2.1.19",
+  "title": "Expected modes in height data.",
+  "body": " Expected modes in height data   Height measurements of young students and adult teachers at a K-3 elementary school were taken. How many modes would you expect in this height data set?    There might be two height groups visible in the data set: one of the students and one of the adults. That is, the data are probably bimodal.   "
+},
+{
+  "id": "subsec-variance-sd-3",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-variance-sd-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "deviation variance "
+},
+{
+  "id": "subsec-variance-sd-5",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-variance-sd-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard deviation "
+},
+{
+  "id": "fig-sd-rule-int-rate",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-sd-rule-int-rate",
+  "type": "Figure",
+  "number": "2.1.20",
+  "title": "",
+  "body": " Standard deviations in the interest rate distribution   A dot plot of 50 observations is shown with values ranging from about 5% to 26%. The data set is the same as that shown in earlier dot plots, where the data is more dense from 5% to about 11%, has medium density from about 12% to 20%, and then there are a few more values scattered in the 20% to 27% range. Shading is shown to represent the regions within 1, 2, and 3 standard deviations. The region within 1 standard deviation is from 6.5% to 16.7%, representing 34 of the 50 data points. The region within 2 standard deviations runs left off of the chart (but would be from about 1.4%) to 21.8% and contains 48 of the 50 data points. The third standard deviation is shown to extend out to 26.9%, and all 50 observations are contained within the 3 standard deviations.   "
+},
+{
+  "id": "fig-different-dists-same-sd",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-different-dists-same-sd",
+  "type": "Figure",
+  "number": "2.1.21",
+  "title": "",
+  "body": " Three very different population distributions with the same mean and standard deviation   Three histograms are shown (upper, middle, lower). Each distribution also shows shading -- dark gray between -1 to 1, lighter gray between -2 and 2, and light gray between -3 and 3, and then very light gray further out. The upper plot shows only two bins with non-zero values and of equal height at -1 and 1. The middle plot shows a bell-shaped curve, where most of the higher bin values are between -1 and 1, middling heights are between -2 to -1 and 1 to 2, and the data trails off in each direction with ever-smaller values further out. The lower histogram shows no data below about -1.6, a quick increase to a peak at about -0.7 and then a slow decline of values to about half the max height at 1 and further trails off to ever smaller values to a horizontal location of 3 and beyond.   "
+},
+{
+  "id": "ex-shape-importance",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-shape-importance",
+  "type": "Checkpoint",
+  "number": "2.1.22",
+  "title": "Importance of shape description.",
+  "body": " Importance of shape description   The concept of shape of a distribution was introduced earlier. A good description of the shape of a distribution should include modality and whether the distribution is symmetric or skewed to one side. Using as an example, explain why such a description is important.     shows three distributions that look quite different, but all have the same mean, variance, and standard deviation. Using modality, we can distinguish between the first plot (bimodal) and the last two (unimodal). Using skewness, we can distinguish between the last plot (right skewed) and the first two. While a picture, like a histogram, tells a more complete story, we can use modality and shape (symmetry\/skew) to characterize basic information about a distribution.   "
+},
+{
+  "id": "ex-describe-interest-distribution",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-describe-interest-distribution",
+  "type": "Example",
+  "number": "2.1.23",
+  "title": "Describing a distribution.",
+  "body": " Describing a distribution   Describe the distribution of the interest_rate variable using the histogram in . The description should incorporate the center, variability, and shape of the distribution, and it should also be placed in context. Also note any especially unusual cases.    The distribution of interest rates is unimodal and skewed to the high end. Many of the rates fall near the mean at 11.57%, and most fall within one standard deviation (5.05%) of the mean. There are a few exceptionally large interest rates in the sample that are above 20%.   "
+},
+{
+  "id": "subsec-boxplots-quartiles-2",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-boxplots-quartiles-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "box plot "
+},
+{
+  "id": "fig-loan-int-rate-boxplot",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-loan-int-rate-boxplot",
+  "type": "Figure",
+  "number": "2.1.24",
+  "title": "",
+  "body": " A vertical dot plot next to a labeled box plot for the interest rates of the 50 loans   What is shown is a dot plot adjacent to what is called a \"box plot\". The data values are the same ones used in past dot plots, where the data shows greatest density from 5% to 11%, moderate density from 12% to 20%, and then a few more values at about 22%, 25%, and 26%. The box plot adjacent to the data shows a box that would encapsulate the middle 50% of the data, from about 8% to 13%. The median is also annotated with a line through the center of the box. From here, the data extend out with \"whiskers\" up to a distance up to 1.5 times IQR below and above the box to capture as much data as possible. There are two observations that extend beyond this range at 25% and 26%.   "
+},
+{
+  "id": "subsec-boxplots-quartiles-4",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-boxplots-quartiles-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "median "
+},
+{
+  "id": "def-median-2",
+  "level": "2",
+  "url": "sec-numerical-data.html#def-median-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "median "
+},
+{
+  "id": "subsec-boxplots-quartiles-6",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-boxplots-quartiles-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "interquartile range IQR first quartile third quartile "
+},
+{
+  "id": "ex-quartile-percentages",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-quartile-percentages",
+  "type": "Checkpoint",
+  "number": "2.1.25",
+  "title": "Data between quartiles.",
+  "body": " Data between quartiles   What percent of the data fall between and the median? What percent is between the median and ?    Since and capture the middle 50% of the data and the median splits the data in the middle, 25% of the data fall between and the median, and another 25% falls between the median and .   "
+},
+{
+  "id": "subsec-boxplots-quartiles-9",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-boxplots-quartiles-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "whiskers "
+},
+{
+  "id": "subsec-boxplots-quartiles-10",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-boxplots-quartiles-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "outliers "
+},
+{
+  "id": "def-outliers-2",
+  "level": "2",
+  "url": "sec-numerical-data.html#def-outliers-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "outlier "
+},
+{
+  "id": "ex-estimate-quartiles",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-estimate-quartiles",
+  "type": "Checkpoint",
+  "number": "2.1.26",
+  "title": "Estimating quartiles from a box plot.",
+  "body": " Estimating quartiles from a box plot   Using , estimate the following values for interest_rate in the loan50 data set: (a) , (b) , and (c) IQR.    These visual estimates will vary a little from one person to the next: 8%, 14%, 6%. (The true values: , , .)   "
+},
+{
+  "id": "fig-loan-int-rate-robust",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-loan-int-rate-robust",
+  "type": "Figure",
+  "number": "2.1.27",
+  "title": "",
+  "body": " Dot plots of the original interest rate data and two modified data sets   Three dot plots are shown in the same plot. The largest observation from the original data set (discussed in previous dot plots) at about 26% is moved to 15% in the second dot plot and instead to 35% in the third dot plot.   "
+},
+{
+  "id": "table-robust-comparison",
+  "level": "2",
+  "url": "sec-numerical-data.html#table-robust-comparison",
+  "type": "Table",
+  "number": "2.1.28",
+  "title": "Comparison of statistics under different scenarios",
+  "body": " Comparison of statistics under different scenarios    Scenario  Robust  Not Robust     Median  IQR      Original interest_rate data  9.93%  5.76%  11.57%  5.05%    Move 26.3% 15%  9.93%  5.76%  11.34%  4.61%    Move 26.3% 35%  9.93%  5.76%  11.74%  5.68%    "
+},
+{
+  "id": "ex-robustness-comparison",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-robustness-comparison",
+  "type": "Checkpoint",
+  "number": "2.1.29",
+  "title": "Comparing robustness of statistics.",
+  "body": " Comparing robustness of statistics   (a) Which is more affected by extreme observations, the mean or median? may be helpful. (b) Is the standard deviation or IQR more affected by extreme observations?    (a) Mean is affected more. (b) Standard deviation is affected more. Complete explanations are provided below.   "
+},
+{
+  "id": "subsec-robust-stats-6",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-robust-stats-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "robust statistics "
+},
+{
+  "id": "ex-why-robust-stable",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-why-robust-stable",
+  "type": "Example",
+  "number": "2.1.30",
+  "title": "Stability of robust statistics.",
+  "body": " Stability of robust statistics   The median and IQR did not change under the three scenarios in . Why might this be the case?    The median and IQR are only sensitive to numbers near , the median, and . Since values in these regions are stable in the three data sets, the median and IQR estimates are also stable.   "
+},
+{
+  "id": "ex-mean-vs-median-choice",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-mean-vs-median-choice",
+  "type": "Checkpoint",
+  "number": "2.1.31",
+  "title": "Choosing between mean and median.",
+  "body": " Choosing between mean and median   The distribution of loan amounts in the loan50 data set is right skewed, with a few large loans lingering out into the right tail. If you were wanting to understand the typical loan size, should you be more interested in the mean or median?    Answers will vary! If we're looking to simply understand what a typical individual loan looks like, the median is probably more useful. However, if the goal is to understand something that scales well, such as the total amount of money we might need to have on hand if we were to offer 1,000 loans, then the mean would be more useful.   "
+},
+{
+  "id": "fig-county-pop-transformed",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-county-pop-transformed",
+  "type": "Figure",
+  "number": "2.1.32",
+  "title": "",
+  "body": " County population distributions: (a) original data showing extreme skew, (b) log-transformed data   Two histograms are shown side by side. The first histogram has a horizontal axis of Population with possible data ranging from 0 to about 10 million. The first bar representing 0 to 400,000 shows a frequency (bar height) of about 3000, the second bar for 400,000 to 800,000 shows about frequency of about 100. All other bars are sufficiently small that they are virtually indistinguishable from 0. The second histogram shows the horizontal axis represents log-base-10 of the population. The horizontal axis runs from about 2 to 7, and frequency (bin\/box height) peaks at a little over 1000. The data show an approximate bell shape, peaking in the middle between 4 to 4.5, then showing lower frequencies the further out from 4-4.5 with frequencies being close to zero outside of 2.5 to 6.5.   "
+},
+{
+  "id": "ex-extreme-skew-problem",
+  "level": "2",
+  "url": "sec-numerical-data.html#ex-extreme-skew-problem",
+  "type": "Example",
+  "number": "2.1.33",
+  "title": "Issues with extreme skew.",
+  "body": " Issues with extreme skew   Consider the histogram of county populations shown in (left panel), which shows extreme skew. What isn't useful about this plot?    Nearly all of the data fall into the left-most bin, and the extreme skew obscures many of the potentially interesting details in the data.   "
+},
+{
+  "id": "subsec-transforming-data-5",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-transforming-data-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "transformation "
+},
+{
+  "id": "fig-pop-change-transform",
+  "level": "2",
+  "url": "sec-numerical-data.html#fig-pop-change-transform",
+  "type": "Figure",
+  "number": "2.1.34",
+  "title": "",
+  "body": " Scatterplots of population change vs. population: (a) original data, (b) log-transformed population   Two scatterplots are shown side by side. The first scatterplot has population on the horizontal axis (ranging from 0 to 10 million) and population change as a percent on the vertical axis (ranging from -35% to positive 40%). The data is particularly concentrated on the left of the graph below 1 million. There is no discernible trend in the data. The second scatterplot has log-base-10 of the population on the horizontal axis (ranging from 2 to 7) and population change as a percent on the vertical axis. The data is well distributed and shows a cloud of points with a slight upward trend.   "
+},
+{
+  "id": "subsec-mapping-data-2",
+  "level": "2",
+  "url": "sec-numerical-data.html#subsec-mapping-data-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "intensity map "
 },
 {
   "id": "sec-categorical-data",
@@ -1060,313 +1465,277 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Considering categorical data",
-  "body": " Considering categorical data  Categorical summaries often rely on contingency tables and mosaic\/bar\/pie displays. Use these exercises to practice reading and interpreting such plots.   Exercises   Antibiotic use in children   Medical conditions of children in a tracheitis study are shown in bar and pie charts.   Pre-existing conditions      Features visible in the bar plot but not the pie?  Features visible in the pie but not the bar?  Which graph would you prefer for these data?      Views on immigration   Contingency table: political ideology vs. views on whether undocumented workers should (i) apply for citizenship, (ii) guest worker only, (iii) leave the country, or (iv) not sure.        Conservative  Moderate  Liberal      Response  Apply for citizenship  57  120  101    Guest worker  121  113  28    Leave the country  179  126  45    Not sure  15  4  1     Total  372  363  175       % identifying as conservative?  % favoring citizenship option?  % conservative and favor citizenship?  Among conservatives\/moderates\/liberals, % favoring citizenship?  Do ideology and view appear independent?      Views on the DREAM Act   Mosaic plot: political ideology vs. support for DREAM Act.   DREAM Act support by ideology    Do the variables appear independent? Explain.     Raise taxes   Mosaic plot: political affiliation vs. opinion on raising taxes on rich vs. poor vs. not sure.   Tax views by party    Do affiliation and tax views appear independent? Explain.     "
+  "body": " Considering categorical data   In this section, we will introduce tables and other basic tools for categorical data that are used throughout this book. The loan50 data set represents a sample from a larger loan data set called loans . This larger data set contains information on 10,000 loans made through Lending Club. We will examine the relationship between homeownership , which for the loans data can take a value of rent , mortgage (owns but has a mortgage), or own , and app_type , which indicates whether the loan application was made with a partner or whether it was an individual application.     Contingency tables and bar plots   summarizes two variables: app_type and homeownership . A table that summarizes data for two categorical variables in this way is called a contingency table . Each value in the table represents the number of times a particular combination of variable outcomes occurred. For example, the value 3,496 corresponds to the number of loans in the data set where the borrower rents their home and the application type was by an individual. Row and column totals are also included. The row totals provide the total counts across each row (e.g. ), and column totals are total counts down each column. We can also create a table that shows only the overall percentages or proportions for each combination of categories, or we can create a table for a single variable, such as the one shown in for the homeownership variable.   A contingency table for app_type and homeownership      homeownership       rent  mortgage  own  Total    app_type  individual  3,496  3,839  1,170  8,505     joint  362  950  183  1,495     Total  3,858  4,789  1,353  10,000      A table summarizing the frequencies of each value for the homeownership variable    homeownership  Count    rent  3,858    mortgage  4,789    own  1,353    Total  10,000     A bar plot is a common way to display a single categorical variable. shows a bar plot for the homeownership variable. In the left panel, the bar plot shows counts. In the right panel, the counts are converted into proportions, showing the proportion of observations that are in each level (e.g. for rent ).   Two bar plots of homeownership: (left) counts, (right) proportions   Two bar plots are shown side by side. The left bar plot has Homeownership on the horizontal axis and Frequency (count) on the vertical axis. Each level of homeownership has its own \"bar\" (which looks like a tall rectangle resting on the horizontal axis) with a height corresponding to the frequency of that bar in the data set. For example, the \"Rent\" bar extends from the horizontal axis up to a frequency of about 3900. The \"Mortgage\" bar extends from the horizontal axis up to about 4700, and the bar for \"Own\" extends up to about 1300. Moving to the next plot, the right bar plot, it looks very similar to the left bar plot except that it reports the proportion of cases on the vertical axis instead of the frequency (count). The values in this bar plot are: about 0.39 for Rent, about 0.47 for Mortgage, and about 0.13 for Own.       Row and column proportions  Sometimes it is useful to understand the fractional breakdown of one variable in another, and we can modify our contingency table to provide such a view. shows the row proportions for , which are computed as the counts divided by their row totals. The value 3,496 at the intersection of individual and rent is replaced by , i.e. 3,496 divided by its row total, 8,505. So what does 0.411 represent? It corresponds to the proportion of individual applicants who rent.   A contingency table with row proportions for app_type and homeownership     rent  mortgage  own  Total    individual  0.411  0.451  0.138  1.000    joint  0.242  0.635  0.122  1.000    Total  0.386  0.479  0.135  1.000     A contingency table of the column proportions is computed in a similar way, where each column proportion is computed as the count divided by the corresponding column total. shows such a table, and here the value 0.906 indicates that 90.6% of renters applied as individuals for the loan. This rate is higher compared to loans from people with mortgages (80.2%) or who own their home (86.5%). Because these rates vary between the three levels of homeownership , this provides evidence that the app_type and homeownership variables are associated.   A contingency table with column proportions for app_type and homeownership     rent  mortgage  own  Total    individual  0.906  0.802  0.865  0.851    joint  0.094  0.198  0.135  0.150    Total  1.000  1.000  1.000  1.000     We could also have checked for an association between app_type and homeownership using row proportions. When comparing these row proportions, we would look down columns to see if the fraction of loans where the borrower rents, has a mortgage, or owns varied across the individual to joint application types.   Interpreting proportions   (a) What does 0.451 represent in ? (b) What does 0.802 represent in ?    (a) 0.451 represents the proportion of individual applicants who have a mortgage. (b) 0.802 represents the fraction of applicants with mortgages who applied as individuals.     Email spam classification   Data scientists use statistics to filter spam from incoming email messages. By noting specific characteristics of an email, a data scientist may be able to classify some emails as spam or not spam with high accuracy. One such characteristic is the email format, which indicates whether or not an email has any HTML content. We'll focus on email format and spam status using the email data set, and these variables are summarized in a contingency table. Which would be more helpful to someone hoping to classify email as spam or regular email: row or column proportions?    A data scientist would be interested in how the proportion of spam changes within each email format. This corresponds to column proportions: the proportion of spam in plain text emails and the proportion of spam in HTML emails. If we generate the column proportions, we can see that a higher fraction of plain text emails are spam (17.5%) than compared to HTML emails (5.8%). This information on its own is insufficient to classify an email as spam or not spam, as over 80% of plain text emails are not spam. Yet, when we carefully combine this information with many other characteristics, we stand a reasonable chance of being able to classify some emails as spam or not spam with confidence.       Using a bar plot with two variables  Contingency tables using row or column proportions are especially useful for examining how two categorical variables are related. Stacked bar plots provide a way to visualize the information in these tables.  A stacked bar plot is a graphical display of contingency table information. For example, a stacked bar plot is shown in (left panel), where we have first created a bar plot using the homeownership variable and then divided each group by the levels of app_type . One related visualization is the side-by-side bar plot , shown in (middle panel). For the last type, the column proportions have been translated into a standardized stacked bar plot in (right panel). This type of visualization is helpful in understanding the fraction of individual or joint loan applications for borrowers in each level of homeownership . Since the proportions vary across the groups, we can conclude that the two variables are associated.   Bar plot variants: (left) stacked, (middle) side-by-side, (right) standardized stacked   Three bar plots are shown side by side showing different representations of the same data. All plots show homeownership on the horizontal axis with levels rent, mortgage, and own. The first plot shows a stacked bar plot with frequency counts, the second shows bars side-by-side for each homeownership level, and the third shows standardized bars all reaching to 1.0 on the vertical axis.     Choosing bar plot variants   Examine the three bar plots in . When is the stacked, side-by-side, or standardized stacked bar plot the most useful?    The stacked bar plot is most useful when it's reasonable to assign one variable as the explanatory variable and the other as the response. Side-by-side bar plots are more agnostic about which variable represents the explanatory and which the response variable. The standardized stacked bar plot is helpful if the primary variable is relatively imbalanced, making the simple stacked bar plot less useful for checking for an association. The major downside is that we lose all sense of how many cases each bar represents.       Mosaic plots  A mosaic plot is a visualization technique suitable for contingency tables that resembles a standardized stacked bar plot with the benefit that we still see the relative group sizes of the primary variable as well.  To get started in creating our first mosaic plot, we'll break a square into columns for each category of the homeownership variable. Each column represents a level of homeownership , and the column widths correspond to the proportion of loans in each of those categories. In general, mosaic plots use box areas to represent the number of cases in each category.   Mosaic plots: (left) one-variable for homeownership, (right) two-variable with app_type   Two mosaic plots are shown. The left plot shows a square divided vertically into three sections for rent (about 40%), mortgage (about 48%), and own (about 12%). The right plot further subdivides each vertical section horizontally to show the breakdown by application type (individual and joint).    To create a completed mosaic plot, the single-variable mosaic plot is further divided using the app_type variable. Each column is split proportional to the number of loans from individual and joint borrowers. We can use this plot to see that the homeownership and app_type variables are associated, since some columns are divided in different vertical locations than others.     The only pie chart you will see in this book  A pie chart is shown alongside a bar plot representing the same information. Pie charts can be useful for giving a high-level overview to show how a set of cases break down. However, it is also difficult to decipher details in a pie chart. For example, it takes a couple seconds longer to recognize that there are more loans where the borrower has a mortgage than rent when looking at the pie chart, while this detail is very obvious in the bar plot. While pie charts can be useful, we prefer bar plots for their ease in comparing groups.   A pie chart and bar plot of homeownership   Two plots are shown side by side. The left is a pie chart divided into three slices: mortgage (blue, about 48%), rent (green, about 39%), and own (red, about 13%). The right is a bar plot with the same information showing three bars with frequencies around 3900, 4700, and 1300 respectively.       Comparing numerical data across groups  Some of the more interesting investigations can be considered by examining numerical data across groups. The methods required here aren't really new. All that is required is to make a numerical plot for each group. Here two convenient methods are introduced: side-by-side box plots and hollow histograms.  We will take a look at the interest rates for loans, and we will compare these rates across the homeownership variable, which indicates whether the borrower rents, has a mortgage, or owns their home. A box plot can be used to visualize the distribution of interest rates for each group, and these box plots can be placed next to each other to allow for easy comparison. The side-by-side box plots in a figure show that the median interest rate is slightly higher for borrowers who rent than for borrowers who have a mortgage or own their home.  Another useful visualization technique is a hollow histogram, where histograms are overlaid on each other but made transparent or \"hollow\" so all groups are visible. This technique is helpful for comparing the shapes of distributions across groups.   "
 },
 {
-  "id": "ex-antibiotic-use-children",
+  "id": "subsec-contingency-tables-2",
   "level": "2",
-  "url": "sec-categorical-data.html#ex-antibiotic-use-children",
-  "type": "Exercise",
+  "url": "sec-categorical-data.html#subsec-contingency-tables-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "contingency table row totals column totals "
+},
+{
+  "id": "table-loan-app-homeownership",
+  "level": "2",
+  "url": "sec-categorical-data.html#table-loan-app-homeownership",
+  "type": "Table",
   "number": "2.2.1",
-  "title": "Antibiotic use in children.",
-  "body": " Antibiotic use in children   Medical conditions of children in a tracheitis study are shown in bar and pie charts.   Pre-existing conditions      Features visible in the bar plot but not the pie?  Features visible in the pie but not the bar?  Which graph would you prefer for these data?    "
+  "title": "A contingency table for <code class=\"code-inline tex2jax_ignore\">app_type<\/code> and <code class=\"code-inline tex2jax_ignore\">homeownership<\/code>",
+  "body": " A contingency table for app_type and homeownership      homeownership       rent  mortgage  own  Total    app_type  individual  3,496  3,839  1,170  8,505     joint  362  950  183  1,495     Total  3,858  4,789  1,353  10,000    "
 },
 {
-  "id": "ex-immigration-views",
+  "id": "table-homeownership-freq",
   "level": "2",
-  "url": "sec-categorical-data.html#ex-immigration-views",
-  "type": "Exercise",
+  "url": "sec-categorical-data.html#table-homeownership-freq",
+  "type": "Table",
   "number": "2.2.2",
-  "title": "Views on immigration.",
-  "body": " Views on immigration   Contingency table: political ideology vs. views on whether undocumented workers should (i) apply for citizenship, (ii) guest worker only, (iii) leave the country, or (iv) not sure.        Conservative  Moderate  Liberal      Response  Apply for citizenship  57  120  101    Guest worker  121  113  28    Leave the country  179  126  45    Not sure  15  4  1     Total  372  363  175       % identifying as conservative?  % favoring citizenship option?  % conservative and favor citizenship?  Among conservatives\/moderates\/liberals, % favoring citizenship?  Do ideology and view appear independent?    "
+  "title": "A table summarizing the frequencies of each value for the <code class=\"code-inline tex2jax_ignore\">homeownership<\/code> variable",
+  "body": " A table summarizing the frequencies of each value for the homeownership variable    homeownership  Count    rent  3,858    mortgage  4,789    own  1,353    Total  10,000    "
 },
 {
-  "id": "ex-dream-act-mosaic",
+  "id": "subsec-contingency-tables-5",
   "level": "2",
-  "url": "sec-categorical-data.html#ex-dream-act-mosaic",
-  "type": "Exercise",
+  "url": "sec-categorical-data.html#subsec-contingency-tables-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "bar plot "
+},
+{
+  "id": "fig-homeownership-barplot",
+  "level": "2",
+  "url": "sec-categorical-data.html#fig-homeownership-barplot",
+  "type": "Figure",
   "number": "2.2.3",
-  "title": "Views on the DREAM Act.",
-  "body": " Views on the DREAM Act   Mosaic plot: political ideology vs. support for DREAM Act.   DREAM Act support by ideology    Do the variables appear independent? Explain.   "
+  "title": "",
+  "body": " Two bar plots of homeownership: (left) counts, (right) proportions   Two bar plots are shown side by side. The left bar plot has Homeownership on the horizontal axis and Frequency (count) on the vertical axis. Each level of homeownership has its own \"bar\" (which looks like a tall rectangle resting on the horizontal axis) with a height corresponding to the frequency of that bar in the data set. For example, the \"Rent\" bar extends from the horizontal axis up to a frequency of about 3900. The \"Mortgage\" bar extends from the horizontal axis up to about 4700, and the bar for \"Own\" extends up to about 1300. Moving to the next plot, the right bar plot, it looks very similar to the left bar plot except that it reports the proportion of cases on the vertical axis instead of the frequency (count). The values in this bar plot are: about 0.39 for Rent, about 0.47 for Mortgage, and about 0.13 for Own.   "
 },
 {
-  "id": "ex-raise-taxes-mosaic",
+  "id": "subsec-row-column-proportions-2",
   "level": "2",
-  "url": "sec-categorical-data.html#ex-raise-taxes-mosaic",
-  "type": "Exercise",
-  "number": "2.2.4",
-  "title": "Raise taxes.",
-  "body": " Raise taxes   Mosaic plot: political affiliation vs. opinion on raising taxes on rich vs. poor vs. not sure.   Tax views by party    Do affiliation and tax views appear independent? Explain.   "
+  "url": "sec-categorical-data.html#subsec-row-column-proportions-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "row proportions "
 },
 {
-  "id": "sec-numerical-data",
+  "id": "table-row-props-app-homeownership",
+  "level": "2",
+  "url": "sec-categorical-data.html#table-row-props-app-homeownership",
+  "type": "Table",
+  "number": "2.2.4",
+  "title": "A contingency table with row proportions for <code class=\"code-inline tex2jax_ignore\">app_type<\/code> and <code class=\"code-inline tex2jax_ignore\">homeownership<\/code>",
+  "body": " A contingency table with row proportions for app_type and homeownership     rent  mortgage  own  Total    individual  0.411  0.451  0.138  1.000    joint  0.242  0.635  0.122  1.000    Total  0.386  0.479  0.135  1.000    "
+},
+{
+  "id": "subsec-row-column-proportions-4",
+  "level": "2",
+  "url": "sec-categorical-data.html#subsec-row-column-proportions-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "column proportion "
+},
+{
+  "id": "table-col-props-app-homeownership",
+  "level": "2",
+  "url": "sec-categorical-data.html#table-col-props-app-homeownership",
+  "type": "Table",
+  "number": "2.2.5",
+  "title": "A contingency table with column proportions for <code class=\"code-inline tex2jax_ignore\">app_type<\/code> and <code class=\"code-inline tex2jax_ignore\">homeownership<\/code>",
+  "body": " A contingency table with column proportions for app_type and homeownership     rent  mortgage  own  Total    individual  0.906  0.802  0.865  0.851    joint  0.094  0.198  0.135  0.150    Total  1.000  1.000  1.000  1.000    "
+},
+{
+  "id": "ex-interpret-row-col-props",
+  "level": "2",
+  "url": "sec-categorical-data.html#ex-interpret-row-col-props",
+  "type": "Checkpoint",
+  "number": "2.2.6",
+  "title": "Interpreting proportions.",
+  "body": " Interpreting proportions   (a) What does 0.451 represent in ? (b) What does 0.802 represent in ?    (a) 0.451 represents the proportion of individual applicants who have a mortgage. (b) 0.802 represents the fraction of applicants with mortgages who applied as individuals.   "
+},
+{
+  "id": "ex-spam-email-classification",
+  "level": "2",
+  "url": "sec-categorical-data.html#ex-spam-email-classification",
+  "type": "Example",
+  "number": "2.2.7",
+  "title": "Email spam classification.",
+  "body": " Email spam classification   Data scientists use statistics to filter spam from incoming email messages. By noting specific characteristics of an email, a data scientist may be able to classify some emails as spam or not spam with high accuracy. One such characteristic is the email format, which indicates whether or not an email has any HTML content. We'll focus on email format and spam status using the email data set, and these variables are summarized in a contingency table. Which would be more helpful to someone hoping to classify email as spam or regular email: row or column proportions?    A data scientist would be interested in how the proportion of spam changes within each email format. This corresponds to column proportions: the proportion of spam in plain text emails and the proportion of spam in HTML emails. If we generate the column proportions, we can see that a higher fraction of plain text emails are spam (17.5%) than compared to HTML emails (5.8%). This information on its own is insufficient to classify an email as spam or not spam, as over 80% of plain text emails are not spam. Yet, when we carefully combine this information with many other characteristics, we stand a reasonable chance of being able to classify some emails as spam or not spam with confidence.   "
+},
+{
+  "id": "subsec-bar-plot-two-vars-3",
+  "level": "2",
+  "url": "sec-categorical-data.html#subsec-bar-plot-two-vars-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "stacked bar plot side-by-side bar plot "
+},
+{
+  "id": "fig-bar-plot-variants",
+  "level": "2",
+  "url": "sec-categorical-data.html#fig-bar-plot-variants",
+  "type": "Figure",
+  "number": "2.2.8",
+  "title": "",
+  "body": " Bar plot variants: (left) stacked, (middle) side-by-side, (right) standardized stacked   Three bar plots are shown side by side showing different representations of the same data. All plots show homeownership on the horizontal axis with levels rent, mortgage, and own. The first plot shows a stacked bar plot with frequency counts, the second shows bars side-by-side for each homeownership level, and the third shows standardized bars all reaching to 1.0 on the vertical axis.   "
+},
+{
+  "id": "ex-when-use-bar-variants",
+  "level": "2",
+  "url": "sec-categorical-data.html#ex-when-use-bar-variants",
+  "type": "Example",
+  "number": "2.2.9",
+  "title": "Choosing bar plot variants.",
+  "body": " Choosing bar plot variants   Examine the three bar plots in . When is the stacked, side-by-side, or standardized stacked bar plot the most useful?    The stacked bar plot is most useful when it's reasonable to assign one variable as the explanatory variable and the other as the response. Side-by-side bar plots are more agnostic about which variable represents the explanatory and which the response variable. The standardized stacked bar plot is helpful if the primary variable is relatively imbalanced, making the simple stacked bar plot less useful for checking for an association. The major downside is that we lose all sense of how many cases each bar represents.   "
+},
+{
+  "id": "subsec-mosaic-plots-2",
+  "level": "2",
+  "url": "sec-categorical-data.html#subsec-mosaic-plots-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mosaic plot "
+},
+{
+  "id": "fig-mosaic-plots",
+  "level": "2",
+  "url": "sec-categorical-data.html#fig-mosaic-plots",
+  "type": "Figure",
+  "number": "2.2.10",
+  "title": "",
+  "body": " Mosaic plots: (left) one-variable for homeownership, (right) two-variable with app_type   Two mosaic plots are shown. The left plot shows a square divided vertically into three sections for rent (about 40%), mortgage (about 48%), and own (about 12%). The right plot further subdivides each vertical section horizontally to show the breakdown by application type (individual and joint).   "
+},
+{
+  "id": "subsec-pie-charts-2",
+  "level": "2",
+  "url": "sec-categorical-data.html#subsec-pie-charts-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "pie chart "
+},
+{
+  "id": "fig-pie-vs-bar",
+  "level": "2",
+  "url": "sec-categorical-data.html#fig-pie-vs-bar",
+  "type": "Figure",
+  "number": "2.2.11",
+  "title": "",
+  "body": " A pie chart and bar plot of homeownership   Two plots are shown side by side. The left is a pie chart divided into three slices: mortgage (blue, about 48%), rent (green, about 39%), and own (red, about 13%). The right is a bar plot with the same information showing three bars with frequencies around 3900, 4700, and 1300 respectively.   "
+},
+{
+  "id": "sec-malaria-vaccine",
   "level": "1",
-  "url": "sec-numerical-data.html",
+  "url": "sec-malaria-vaccine.html",
   "type": "Section",
   "number": "2.3",
-  "title": "Examining numerical data",
-  "body": " Examining numerical data  These exercises review associations, center and spread, robustness, shapes, and transformations for numerical variables.   Exercises   Mammal life spans   Scatterplot of gestation length (days) vs. life span (years) for 62 mammals.   Gestation vs. life span     Association direction\/shape?  If axes reversed, what association?  Are variables independent?      Associations   Classify four scatterplots (positive\/negative\/none; linear\/nonlinear).   Unlabeled scatterplots       Reproducing bacteria   Sketch number of bacterial cells over time in a dish with limited capacity (logistic growth).     Office productivity   Sketch productivity vs. stress (low at extremes, higher moderate).     Parameters and statistics   Identify sample mean vs. claimed population mean in two scenarios (Halloween spending; GPA).     Sleeping in college   Sample mean 6.25 hrs (n=25) vs. claimed population mean 5.5 hrs: identify each.     Days off at a mining plant   Manager wants to fire 10 workers to raise average vacation days (current avg 35). Fire which workers to increase mean?     Medians and IQRs   Compare four distribution pairs (give relative medians\/IQRs).     Means and SDs   Compare means and SDs for four distribution pairs.     Mix-and-match   Match three histograms to three box plots; describe distributions.   Histograms and box plots       Air quality   Relative frequency histogram of AQI (n=91 days, Durham NC).   AQI distribution     Estimate median.  Is mean likely above\/below median?  Estimate Q1, Q3, IQR.  Any unusually low\/high days?      Median vs. mean   Estimate median from histogram (400 obs) and whether mean is higher or lower.   Score distribution       Histograms vs. box plots   Compare what each plot reveals for the same data.   Histogram and box plot       Facebook friends   Median=100, mean=190 friends. What does this suggest about shape?     Distributions and appropriate statistics I   For pets per household, distance to work, heights of adult males: predict shape; choose mean\/median and SD\/IQR.     Distributions and appropriate statistics II   Do the same for two housing-price scenarios, drinks per week, and Fortune 500 salaries.     Income at the coffee shop   Two high earners added to income distribution (histograms and summary stats provided).   Income before\/after outliers     Which center (mean\/median) is more representative? Discuss robustness.  Which spread (SD\/IQR) better represents variability? Discuss robustness.      Midrange   Is the midrange (avg of min and max) robust to outliers\/skew?     Commute times   Histogram and map of mean work travel time (minutes) for 3,142 US counties.   Commute time distribution and map      Describe numerical distribution; recommend log transform?  Describe spatial pattern.      Hispanic population   Histogram of percent Hispanic in US counties plus log-transformed histogram and map.   Percent Hispanic distributions       Describe distribution and why logs may help.  Features apparent in map vs. histogram and vice versa?  Is one visualization more helpful? Why?      "
+  "title": "Case study: Malaria vaccine",
+  "body": " Case study: Malaria vaccine   Left vs. right side ownership   Suppose students in class are split into left and right sides. Let and be the proportions owning an Apple product on each side. Would it be surprising if were not exactly equal to ?    They would likely be close but not exactly equal; small differences are expected by chance.     Independence assumption   If seating side and Apple ownership are unrelated, what assumption are we making about these variables?    We assume the variables are independent.     Variability within data  A clinical study tested a malaria vaccine (PfSPZ). Fourteen patients were randomized to receive the vaccine and six to a placebo. Nineteen weeks later all 20 were exposed to a drug-sensitive parasite strain so any infections could be treated effectively. Nine of the 14 vaccinated patients showed no infection, while all six placebo patients showed baseline signs of infection.   Summary results for the malaria vaccine experiment     Outcome  Infection  No infection    Vaccine  5  9  14    Placebo  6  0  6    Total  11  9  20      Study type   Is this an observational study or an experiment? What does that imply about causal conclusions?    It is an experiment (random assignment). Causal conclusions about the vaccine's effect are appropriate.     What counts as convincing?   The observed infection rates were 35.7% for vaccine vs. 100% for placebo. Does this provide convincing evidence the vaccine works?    The large difference suggests effectiveness, but the small sample means the difference could be due to chance. We need to evaluate how likely such a gap is under no effect.    We compare two competing claims:   Independence model ( ): Treatment and outcome are independent; the 64.3% difference in infection rates arose by chance.  Alternative model ( ): Treatment and outcome are not independent; the vaccine affected infection rates.   If is true, 11 patients would be infected and 9 uninfected regardless of assignment, so any difference is random. If is true, we expect some real difference between groups.    Simulating the study  Assume the vaccine has no effect. To gauge how unusual the observed difference is, simulate new random assignments: write \"infection\" on 11 cards and \"no infection\" on 9 cards, shuffle, deal 14 to vaccine and 6 to placebo, and tabulate infection counts.   Simulation results under independence (one shuffle)     Outcome  Infection  No infection    Vaccine (sim.)  7  7  14    Placebo (sim.)  4  2  6    Total  11  9  20      Difference in a simulation   Compute the infection-rate difference for the simulation above (placebo minus vaccine). How does it compare to the observed 64.3% gap?    Difference is (16.7%), much smaller than the observed 64.3% gap.      Checking for independence  Repeat the randomization many times by computer. The simulated differences (placebo rate minus vaccine rate) form a distribution centered near 0. Figure shows 100 simulations.   Differences from 100 simulations under independence   Stacked dot plot of simulated infection-rate differences; only two simulations reach the observed 64.3% difference.     How rare is 64.3%?   According to the simulations, how often does a difference of at least 64.3% occur?    About 2% of simulations reach that difference—rare under independence.    The rare occurrence of such a large difference leaves two options:   : Vaccine has no effect and we observed a rare chance event.  : Vaccine reduces infections; the observed difference reflects efficacy.   In formal studies we typically reject when faced with such rare outcomes. Here we conclude the data provide strong evidence the vaccine offers protection in this clinical setting.    Exercises   Side effects of Avandia   A retrospective study compared cardiovascular problems between rosiglitazone (Avandia) and pioglitazone (Actos) users (counts below).        Yes  No      Treatment  Rosiglitazone  2,593  65,000    Pioglitazone  5,386  154,592     Total  7,979  219,592       Assess true\/false for four claims (rate comparisons, causation, chance).  What proportion of all patients had cardiovascular problems?  If treatment and outcome were independent, expected rosiglitazone problems?  A randomization simulation produced a histogram of rosiglitazone problem counts. Use it to identify claims, direction supporting , and what the simulation suggests.      Heart transplants   Stanford heart-transplant program: control 34 patients (30 died), treatment 69 (45 died). Plots show survival mosaic and survival-time box plots; a randomization dotplot compares differences.   From the mosaic, is survival independent of transplant? Explain.  What do the box plots suggest about efficacy?  Compute death proportions in treatment vs. control.  Fill blanks for a card-shuffle randomization description; what do simulation results indicate about effectiveness?      "
 },
 {
-  "id": "ex-mammal-life-spans",
+  "id": "ex-left-right-apple",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-mammal-life-spans",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#ex-left-right-apple",
+  "type": "Example",
   "number": "2.3.1",
-  "title": "Mammal life spans.",
-  "body": " Mammal life spans   Scatterplot of gestation length (days) vs. life span (years) for 62 mammals.   Gestation vs. life span     Association direction\/shape?  If axes reversed, what association?  Are variables independent?    "
+  "title": "Left vs. right side ownership.",
+  "body": " Left vs. right side ownership   Suppose students in class are split into left and right sides. Let and be the proportions owning an Apple product on each side. Would it be surprising if were not exactly equal to ?    They would likely be close but not exactly equal; small differences are expected by chance.   "
 },
 {
-  "id": "ex-association-plots",
+  "id": "ex-apple-independence",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-association-plots",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#ex-apple-independence",
+  "type": "Checkpoint",
   "number": "2.3.2",
-  "title": "Associations.",
-  "body": " Associations   Classify four scatterplots (positive\/negative\/none; linear\/nonlinear).   Unlabeled scatterplots     "
+  "title": "Independence assumption.",
+  "body": " Independence assumption   If seating side and Apple ownership are unrelated, what assumption are we making about these variables?    We assume the variables are independent.   "
 },
 {
-  "id": "ex-reproducing-bacteria",
+  "id": "tbl-malaria-summary",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-reproducing-bacteria",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#tbl-malaria-summary",
+  "type": "Table",
   "number": "2.3.3",
-  "title": "Reproducing bacteria.",
-  "body": " Reproducing bacteria   Sketch number of bacterial cells over time in a dish with limited capacity (logistic growth).   "
+  "title": "Summary results for the malaria vaccine experiment",
+  "body": " Summary results for the malaria vaccine experiment     Outcome  Infection  No infection    Vaccine  5  9  14    Placebo  6  0  6    Total  11  9  20    "
 },
 {
-  "id": "ex-office-productivity",
+  "id": "ex-malaria-study-type",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-office-productivity",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#ex-malaria-study-type",
+  "type": "Checkpoint",
   "number": "2.3.4",
-  "title": "Office productivity.",
-  "body": " Office productivity   Sketch productivity vs. stress (low at extremes, higher moderate).   "
+  "title": "Study type.",
+  "body": " Study type   Is this an observational study or an experiment? What does that imply about causal conclusions?    It is an experiment (random assignment). Causal conclusions about the vaccine's effect are appropriate.   "
 },
 {
-  "id": "ex-parameters-statistics",
+  "id": "ex-malaria-evidence",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-parameters-statistics",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#ex-malaria-evidence",
+  "type": "Example",
   "number": "2.3.5",
-  "title": "Parameters and statistics.",
-  "body": " Parameters and statistics   Identify sample mean vs. claimed population mean in two scenarios (Halloween spending; GPA).   "
+  "title": "What counts as convincing?",
+  "body": " What counts as convincing?   The observed infection rates were 35.7% for vaccine vs. 100% for placebo. Does this provide convincing evidence the vaccine works?    The large difference suggests effectiveness, but the small sample means the difference could be due to chance. We need to evaluate how likely such a gap is under no effect.   "
 },
 {
-  "id": "ex-college-sleeping",
+  "id": "tbl-malaria-sim1",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-college-sleeping",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#tbl-malaria-sim1",
+  "type": "Table",
   "number": "2.3.6",
-  "title": "Sleeping in college.",
-  "body": " Sleeping in college   Sample mean 6.25 hrs (n=25) vs. claimed population mean 5.5 hrs: identify each.   "
+  "title": "Simulation results under independence (one shuffle)",
+  "body": " Simulation results under independence (one shuffle)     Outcome  Infection  No infection    Vaccine (sim.)  7  7  14    Placebo (sim.)  4  2  6    Total  11  9  20    "
 },
 {
-  "id": "ex-days-off-mining",
+  "id": "ex-malaria-sim-diff",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-days-off-mining",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#ex-malaria-sim-diff",
+  "type": "Checkpoint",
   "number": "2.3.7",
-  "title": "Days off at a mining plant.",
-  "body": " Days off at a mining plant   Manager wants to fire 10 workers to raise average vacation days (current avg 35). Fire which workers to increase mean?   "
+  "title": "Difference in a simulation.",
+  "body": " Difference in a simulation   Compute the infection-rate difference for the simulation above (placebo minus vaccine). How does it compare to the observed 64.3% gap?    Difference is (16.7%), much smaller than the observed 64.3% gap.   "
 },
 {
-  "id": "ex-medians-iqr",
+  "id": "fig-malaria-rand-dot-plot",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-medians-iqr",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#fig-malaria-rand-dot-plot",
+  "type": "Figure",
   "number": "2.3.8",
-  "title": "Medians and IQRs.",
-  "body": " Medians and IQRs   Compare four distribution pairs (give relative medians\/IQRs).   "
+  "title": "",
+  "body": " Differences from 100 simulations under independence   Stacked dot plot of simulated infection-rate differences; only two simulations reach the observed 64.3% difference.   "
 },
 {
-  "id": "ex-means-sds",
+  "id": "ex-malaria-rare",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-means-sds",
-  "type": "Exercise",
+  "url": "sec-malaria-vaccine.html#ex-malaria-rare",
+  "type": "Example",
   "number": "2.3.9",
-  "title": "Means and SDs.",
-  "body": " Means and SDs   Compare means and SDs for four distribution pairs.   "
+  "title": "How rare is 64.3%?",
+  "body": " How rare is 64.3%?   According to the simulations, how often does a difference of at least 64.3% occur?    About 2% of simulations reach that difference—rare under independence.   "
 },
 {
-  "id": "ex-hist-box-match",
+  "id": "ex-randomization-avandia",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-hist-box-match",
+  "url": "sec-malaria-vaccine.html#ex-randomization-avandia",
   "type": "Exercise",
-  "number": "2.3.10",
-  "title": "Mix-and-match.",
-  "body": " Mix-and-match   Match three histograms to three box plots; describe distributions.   Histograms and box plots     "
+  "number": "2.3.4.1",
+  "title": "Side effects of Avandia.",
+  "body": " Side effects of Avandia   A retrospective study compared cardiovascular problems between rosiglitazone (Avandia) and pioglitazone (Actos) users (counts below).        Yes  No      Treatment  Rosiglitazone  2,593  65,000    Pioglitazone  5,386  154,592     Total  7,979  219,592       Assess true\/false for four claims (rate comparisons, causation, chance).  What proportion of all patients had cardiovascular problems?  If treatment and outcome were independent, expected rosiglitazone problems?  A randomization simulation produced a histogram of rosiglitazone problem counts. Use it to identify claims, direction supporting , and what the simulation suggests.    "
 },
 {
-  "id": "ex-air-quality-durham",
+  "id": "ex-randomization-heart-transplant",
   "level": "2",
-  "url": "sec-numerical-data.html#ex-air-quality-durham",
+  "url": "sec-malaria-vaccine.html#ex-randomization-heart-transplant",
   "type": "Exercise",
-  "number": "2.3.11",
-  "title": "Air quality.",
-  "body": " Air quality   Relative frequency histogram of AQI (n=91 days, Durham NC).   AQI distribution     Estimate median.  Is mean likely above\/below median?  Estimate Q1, Q3, IQR.  Any unusually low\/high days?    "
-},
-{
-  "id": "ex-estimate-mean-median-simple",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-estimate-mean-median-simple",
-  "type": "Exercise",
-  "number": "2.3.12",
-  "title": "Median vs. mean.",
-  "body": " Median vs. mean   Estimate median from histogram (400 obs) and whether mean is higher or lower.   Score distribution     "
-},
-{
-  "id": "ex-hist-vs-box",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-hist-vs-box",
-  "type": "Exercise",
-  "number": "2.3.13",
-  "title": "Histograms vs. box plots.",
-  "body": " Histograms vs. box plots   Compare what each plot reveals for the same data.   Histogram and box plot     "
-},
-{
-  "id": "ex-dist-shape-fb-friends",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-dist-shape-fb-friends",
-  "type": "Exercise",
-  "number": "2.3.14",
-  "title": "Facebook friends.",
-  "body": " Facebook friends   Median=100, mean=190 friends. What does this suggest about shape?   "
-},
-{
-  "id": "ex-dist-shape-pets-distance-height",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-dist-shape-pets-distance-height",
-  "type": "Exercise",
-  "number": "2.3.15",
-  "title": "Distributions and appropriate statistics I.",
-  "body": " Distributions and appropriate statistics I   For pets per household, distance to work, heights of adult males: predict shape; choose mean\/median and SD\/IQR.   "
-},
-{
-  "id": "ex-dist-shape-housing-alcohol-salary",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-dist-shape-housing-alcohol-salary",
-  "type": "Exercise",
-  "number": "2.3.16",
-  "title": "Distributions and appropriate statistics II.",
-  "body": " Distributions and appropriate statistics II   Do the same for two housing-price scenarios, drinks per week, and Fortune 500 salaries.   "
-},
-{
-  "id": "ex-income-coffee-shop",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-income-coffee-shop",
-  "type": "Exercise",
-  "number": "2.3.17",
-  "title": "Income at the coffee shop.",
-  "body": " Income at the coffee shop   Two high earners added to income distribution (histograms and summary stats provided).   Income before\/after outliers     Which center (mean\/median) is more representative? Discuss robustness.  Which spread (SD\/IQR) better represents variability? Discuss robustness.    "
-},
-{
-  "id": "ex-midrange",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-midrange",
-  "type": "Exercise",
-  "number": "2.3.18",
-  "title": "Midrange.",
-  "body": " Midrange   Is the midrange (avg of min and max) robust to outliers\/skew?   "
-},
-{
-  "id": "ex-county-commute-times",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-county-commute-times",
-  "type": "Exercise",
-  "number": "2.3.19",
-  "title": "Commute times.",
-  "body": " Commute times   Histogram and map of mean work travel time (minutes) for 3,142 US counties.   Commute time distribution and map      Describe numerical distribution; recommend log transform?  Describe spatial pattern.    "
-},
-{
-  "id": "ex-county-hispanic-pop",
-  "level": "2",
-  "url": "sec-numerical-data.html#ex-county-hispanic-pop",
-  "type": "Exercise",
-  "number": "2.3.20",
-  "title": "Hispanic population.",
-  "body": " Hispanic population   Histogram of percent Hispanic in US counties plus log-transformed histogram and map.   Percent Hispanic distributions       Describe distribution and why logs may help.  Features apparent in map vs. histogram and vice versa?  Is one visualization more helpful? Why?    "
-},
-{
-  "id": "sec-ch02-review",
-  "level": "1",
-  "url": "sec-ch02-review.html",
-  "type": "Section",
-  "number": "2.4",
-  "title": "Review exercises",
-  "body": " Review exercises   Review exercises   Make-up exam   Class of 25: first 24 scored mean 74 (SD 8.9). Make-up student scored 64. Does mean increase\/decrease? New mean? Effect on SD?     Infant mortality   Histogram of infant deaths per 1,000 live births for 224 countries.   Infant mortality distribution     Estimate Q1, median, Q3.  Is mean likely smaller or larger than median?      TV watchers   AP Stats class: mean 4.71 hrs, SD 4.18 hrs per week. Is distribution symmetric? Likely shape?     A new statistic   For $x_i>0$, interpret distribution shape when $\\bar x \/ \\text{median}$ equals 1, less than 1, greater than 1.     Oscar winners   Histograms and summary stats for age of Best Actor vs. Actress winners (1929–2018).   Oscar winner ages    Compare distributions.     Exam scores   History exam mean 85, SD 15 (out of 100). Is distribution symmetric? Likely shape?     Stats scores   Twenty scores listed; create a box plot (five-number summary provided).     Marathon winners   Histogram and box plot of NYC Marathon winning times (1970–1999) plus gender boxplots and time series.   Overall winning times     Winning times by gender     Winning times over years     Histogram vs. box plot: what each shows?  Why bimodal overall distribution?  Compare men vs. women times (boxplots).  What does the time series reveal?      "
-},
-{
-  "id": "ex-makeup-exam",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-makeup-exam",
-  "type": "Exercise",
-  "number": "2.4.1",
-  "title": "Make-up exam.",
-  "body": " Make-up exam   Class of 25: first 24 scored mean 74 (SD 8.9). Make-up student scored 64. Does mean increase\/decrease? New mean? Effect on SD?   "
-},
-{
-  "id": "ex-infant-mortality",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-infant-mortality",
-  "type": "Exercise",
-  "number": "2.4.2",
-  "title": "Infant mortality.",
-  "body": " Infant mortality   Histogram of infant deaths per 1,000 live births for 224 countries.   Infant mortality distribution     Estimate Q1, median, Q3.  Is mean likely smaller or larger than median?    "
-},
-{
-  "id": "ex-tv-watchers",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-tv-watchers",
-  "type": "Exercise",
-  "number": "2.4.3",
-  "title": "TV watchers.",
-  "body": " TV watchers   AP Stats class: mean 4.71 hrs, SD 4.18 hrs per week. Is distribution symmetric? Likely shape?   "
-},
-{
-  "id": "ex-new-stat",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-new-stat",
-  "type": "Exercise",
-  "number": "2.4.4",
-  "title": "A new statistic.",
-  "body": " A new statistic   For $x_i>0$, interpret distribution shape when $\\bar x \/ \\text{median}$ equals 1, less than 1, greater than 1.   "
-},
-{
-  "id": "ex-oscar-winners",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-oscar-winners",
-  "type": "Exercise",
-  "number": "2.4.5",
-  "title": "Oscar winners.",
-  "body": " Oscar winners   Histograms and summary stats for age of Best Actor vs. Actress winners (1929–2018).   Oscar winner ages    Compare distributions.   "
-},
-{
-  "id": "ex-exam-scores",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-exam-scores",
-  "type": "Exercise",
-  "number": "2.4.6",
-  "title": "Exam scores.",
-  "body": " Exam scores   History exam mean 85, SD 15 (out of 100). Is distribution symmetric? Likely shape?   "
-},
-{
-  "id": "ex-stats-scores-box",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-stats-scores-box",
-  "type": "Exercise",
-  "number": "2.4.7",
-  "title": "Stats scores.",
-  "body": " Stats scores   Twenty scores listed; create a box plot (five-number summary provided).   "
-},
-{
-  "id": "ex-marathon-winners",
-  "level": "2",
-  "url": "sec-ch02-review.html#ex-marathon-winners",
-  "type": "Exercise",
-  "number": "2.4.8",
-  "title": "Marathon winners.",
-  "body": " Marathon winners   Histogram and box plot of NYC Marathon winning times (1970–1999) plus gender boxplots and time series.   Overall winning times     Winning times by gender     Winning times over years     Histogram vs. box plot: what each shows?  Why bimodal overall distribution?  Compare men vs. women times (boxplots).  What does the time series reveal?    "
+  "number": "2.3.4.2",
+  "title": "Heart transplants.",
+  "body": " Heart transplants   Stanford heart-transplant program: control 34 patients (30 died), treatment 69 (45 died). Plots show survival mosaic and survival-time box plots; a randomization dotplot compares differences.   From the mosaic, is survival independent of transplant? Explain.  What do the box plots suggest about efficacy?  Compute death proportions in treatment vs. control.  Fill blanks for a card-shuffle randomization description; what do simulation results indicate about effectiveness?    "
 },
 {
   "id": "sec-defining-probability",
