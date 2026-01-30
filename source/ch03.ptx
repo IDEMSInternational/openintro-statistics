@@ -1941,10 +1941,10 @@
         <title>Tree diagram for conditional probability</title>
         <statement>
           <p>
-            In a medical test, 95% of people with a disease test positive, while 10% of people without the 
-            disease test positive (false positive). If 2% of the population has the disease, draw a tree 
-            diagram to represent this scenario. What is the probability that a randomly selected person tests 
-            positive?
+            In a medical test, <m>95\%</m> of people with a disease test positive, while <m>10\%</m> of 
+            people without the disease test positive (false positive). If <m>2\%</m> of the population has 
+            the disease, draw a tree diagram to represent this scenario. What is the probability that a 
+            randomly selected person tests positive?
           </p>
         </statement>
       </exercise>
@@ -2926,9 +2926,9 @@
         <title>Expected value calculation</title>
         <statement>
           <p>
-            A lottery ticket costs $2. You have a 1/1000 chance of winning $500, a 1/100 chance of winning 
-            $10, and otherwise you win nothing. What is the expected value of buying one lottery ticket? 
-            Should you expect to make or lose money in the long run?
+            A lottery ticket costs <m>\$2</m>. You have a <m>1/1000</m> chance of winning <m>\$500</m>, a 
+            <m>1/100</m> chance of winning <m>\$10</m>, and otherwise you win nothing. What is the expected 
+            value of buying one lottery ticket? Should you expect to make or lose money in the long run?
           </p>
         </statement>
       </exercise>
@@ -2948,8 +2948,9 @@
         <title>Variance of a random variable</title>
         <statement>
           <p>
-            Given a random variable Y with the following probability distribution: P(Y=1)=0.3, P(Y=2)=0.5, 
-            P(Y=3)=0.2. Calculate the expected value, variance, and standard deviation of Y.
+            Given a random variable Y with the following probability distribution: <m>P(Y=1)=0.3</m>, 
+            <m>P(Y=2)=0.5</m>, <m>P(Y=3)=0.2</m>. Calculate the expected value, variance, and standard 
+            deviation of Y.
           </p>
         </statement>
       </exercise>
@@ -2969,9 +2970,9 @@
         <title>Binomial random variable</title>
         <statement>
           <p>
-            A basketball player makes 70% of her free throws. If she attempts 10 free throws in a game, 
-            what is the probability she makes exactly 7 of them? What is the expected number of successful 
-            free throws?
+            A basketball player makes <m>70\%</m> of her free throws. If she attempts 10 free throws in a 
+            game, what is the probability she makes exactly 7 of them? What is the expected number of 
+            successful free throws?
           </p>
         </statement>
       </exercise>
@@ -3160,7 +3161,8 @@
           <p>
             A continuous random variable X follows a normal distribution with mean <m>\mu = 100</m> and 
             standard deviation <m>\sigma = 15</m>. Without calculating exact probabilities, describe where 
-            approximately 68%, 95%, and 99.7% of the data should fall according to the empirical rule.
+            approximately <m>68\%</m>, <m>95\%</m>, and <m>99.7\%</m> of the data should fall according to 
+            the empirical rule.
           </p>
         </statement>
       </exercise>
@@ -3192,7 +3194,8 @@
         <statement>
           <p>
             Compare and contrast probability calculations for discrete and continuous random variables. 
-            Specifically, address how you would calculate P(X = 5) for each type and P(X ≤ 5) for each type.
+            Specifically, address how you would calculate <m>P(X = 5)</m> for each type and 
+            <m>P(X \leq 5)</m> for each type.
           </p>
         </statement>
       </exercise>
@@ -3212,9 +3215,9 @@
         <title>Percentiles in continuous distributions</title>
         <statement>
           <p>
-            Test scores are normally distributed with mean 500 and standard deviation 100. The 90th percentile 
-            score is approximately 628. Explain what this means in terms of the area under the probability 
-            density curve. What percentage of students scored above 628?
+            Test scores are normally distributed with mean 500 and standard deviation 100. The 
+            <m>90</m>th percentile score is approximately 628. Explain what this means in terms of the area 
+            under the probability density curve. What percentage of students scored above 628?
           </p>
         </statement>
       </exercise>
