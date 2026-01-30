@@ -1396,43 +1396,14 @@ sum(sampled_entries == "support") / 1000
       <assemblage xml:id="ci-procedure">
         <title>Confidence interval for a single proportion</title>
         <p>
-          Once you've determined a one-proportion confidence interval
-          would be helpful for an application,
-          there are four steps to constructing the interval:
+          Once you've determined a one-proportion confidence interval would be helpful for an application, there are four steps to constructing the interval:
         </p>
-        <dl>
-          <li>
-            <title>Prepare.</title>
-            <p>
-              Identify <m>\hat{p}</m> and <m>n</m>, and determine what
-              confidence level you wish to use.
-            </p>
-          </li>
-          <li>
-            <title>Check.</title>
-            <p>
-              Verify the conditions to ensure <m>\hat{p}</m>
-              is nearly normal.
-              For one-proportion confidence intervals,
-              use <m>\hat{p}</m> in place of <m>p</m> to check
-              the success-failure condition.
-            </p>
-          </li>
-          <li>
-            <title>Calculate.</title>
-            <p>
-              If the conditions hold, compute <m>SE</m> using <m>\hat{p}</m>,
-              find <m>z^{\star}</m>, and construct the interval.
-            </p>
-          </li>
-          <li>
-            <title>Conclude.</title>
-            <p>
-              Interpret the confidence interval in the context
-              of the problem.
-            </p>
-          </li>
-        </dl>
+        <ol>
+          <li><strong>Prepare:</strong> Identify <m>\hat{p}</m> and <m>n</m>, and determine what confidence level you wish to use.</li>
+          <li><strong>Check:</strong> Verify the conditions to ensure <m>\hat{p}</m> is nearly normal. For one-proportion confidence intervals, use <m>\hat{p}</m> in place of <m>p</m> to check the success-failure condition.</li>
+          <li><strong>Calculate:</strong> If the conditions hold, compute <m>SE</m> using <m>\hat{p}</m>, find <m>z^{\star}</m>, and construct the interval.</li>
+          <li><strong>Conclude:</strong> Interpret the confidence interval in the context of the problem.</li>
+        </ol>
       </assemblage>
     </subsection>
     
@@ -2401,21 +2372,6 @@ sum(sampled_entries == "support") / 1000
         evidence and work in more complex data scenarios in
         later sections.
       </p>
-    </subsection>
-    
-    <subsection xml:id="subsec-formal-testing-p-values">
-      <title>Formal testing using p-values</title>
-      
-      <definition xml:id="def-significance-level">
-        <title>Significance Level</title>
-        <statement>
-          <p>
-            The <term>significance level</term> <m>\alpha</m> indicates how often we
-            incorrectly reject <m>H_0</m> when it is true. The traditional significance
-            level is <m>\alpha = 0.05</m>.
-          </p>
-        </statement>
-      </definition>
     </subsection>
     
     <subsection xml:id="subsec-p-values">
