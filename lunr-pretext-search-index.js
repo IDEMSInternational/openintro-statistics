@@ -4804,7 +4804,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.2",
   "title": "Confidence Intervals for a Proportion",
-  "body": " Confidence Intervals for a Proportion   The sample proportion provides a single plausible value for the population proportion . However, the sample proportion isn't perfect and will have some standard error associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible range of values instead of supplying just the point estimate.    Capturing the Population Parameter  A confidence interval is a range of plausible values where we are likely to find the population parameter. Using a confidence interval is like fishing with a net instead of a spear: we have a good chance of catching the fish.  If we took many samples and built a confidence interval from each sample using the same method, we'd expect that some of the intervals would contain the parameter and some wouldn't. A 95% confidence interval means that if we were to repeat the process many times, about 95% of the intervals would contain the true parameter.   25 confidence intervals constructed from 25 different samples. The red intervals do not contain the true population proportion .   Visualization of 25 confidence intervals, most containing the true parameter      Constructing a 95% Confidence Interval  Our sample proportion is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.  In a normal distribution, approximately 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion:    95% Confidence Interval for a proportion   A 95% confidence interval for a population proportion is:   where .  This confidence interval accounts for sampling error but not bias.     95% CI for solar energy support   In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported expanding the use of solar energy. Compute and interpret a 95% confidence interval for the population proportion.    First, we verify the conditions. The observations are from a random sample, so they are independent. We check the success-failure condition: Both are greater than 10, so the conditions are met.  The standard error is:   The 95% confidence interval is:    Interpretation: We are 95% confident that between 86.7% and 90.7% of American adults support expanding the use of solar energy.      Changing the Confidence Level  We can create confidence intervals with different confidence levels. The multiplier we use depends on how confident we want to be:   Common confidence levels and corresponding values    Confidence Level  value    90%  1.65    95%  1.96    99%  2.58      General form of a confidence interval   For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.     Margin of Error   In a confidence interval, is called the margin of error . It represents how far above and below the point estimate the confidence interval extends.     The area between and in the standard normal distribution for common confidence levels.   Normal curve showing z-star values for different confidence levels     90% CI for solar energy support   Use the data from to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.    We first find such that 90% of the distribution falls between and in the standard normal distribution. We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): .  The 90% confidence interval can then be computed as:    Interpretation: We are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.      Confidence Interval Procedure for a Single Proportion   Four-step confidence interval procedure   Prepare: Identify and , and determine what confidence level you wish to use.  Check: Verify the conditions to ensure is nearly normal. For one-proportion confidence intervals, use in place of to check the success-failure condition.  Calculate: If the conditions hold, compute using , find , and construct the interval.  Conclude: Interpret the confidence interval in the context of the problem.      More Case Studies  Let's apply the confidence interval procedure to two more real-world examples to solidify our understanding.   Ebola quarantine support in New York   In New York City on October 23, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York\/The Wall Street Journal\/Marist Poll found that 82% of New Yorkers favored a \"mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient.\" This poll included responses of 1,042 New York adults between October 26-28, 2014.   What is the point estimate, and is it reasonable to use a normal distribution to model it?  Estimate the standard error of .  Construct a 95% confidence interval for the proportion of New York adults who supported the quarantine policy.       The point estimate, based on a sample of size , is . To check whether can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition: With the conditions met, we can model using a normal distribution.    Using the substitution approximation :     Using , , and :  Interpretation: We are 95% confident that between 79.6% and 84.4% of New York adults in October 2014 supported a quarantine for anyone who had come into contact with an Ebola patient.       Wind turbine support   In the same Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.   Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?  Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.     For part (b), recall that for a 99% confidence interval, .      Yes. The survey was a random sample and the success-failure counts are both : and .    The standard error is: The 99% confidence interval is: We are 99% confident that between 81.9% and 87.7% of American adults support expanding the use of wind turbines.        Interpreting Confidence Intervals  When interpreting a confidence interval, remember:   The statement is about the population parameter , not about individual observations or future samples.  A 95% confidence interval means that if we repeated the sampling process many times, about 95% of the intervals would contain the true parameter.  We don't know if our particular interval contains the parameter, but we can be 95% confident that it does.    Remember that these methods only address sampling error, not bias. If data is collected in a way that systematically under- or over-estimates the population parameter, these techniques will not fix that problem.     Interpreting Confidence Intervals  When we interpret confidence intervals, we must be careful to use precise language. In each of the examples, we described the confidence intervals by putting them into the context of the data:   Solar. We are 90% confident that 87.1% to 90.3% of American adults support the expansion of solar power in 2018.  Ebola. We are 95% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 79.6% and 84.4%.   Notice that the statements are always about the population parameter , which considers all American adults for the energy polls or all New York adults for the quarantine poll.   Common mistakes when interpreting confidence intervals   Mistake 1: Probability interpretation. A confidence interval does not mean there's a 95% probability the parameter is in the interval. The parameter is fixed; either it's in the interval or it's not. The 95% refers to the long-run success rate of the method, not the probability for any particular interval.   Mistake 2: About the sample. A confidence interval is only about the population parameter, not about individual observations or the sample proportion. It says nothing about where future point estimates will fall.     Section 5.2 Exercises    In response to the Ebola outbreak in 2014, a poll found that 82% of 1,042 American adults supported mandatory quarantine for anyone who had contact with an Ebola patient. Construct and interpret a 95% confidence interval for the proportion of all American adults who supported this policy.      In a survey of 1,000 adults, 848 supported expanding the use of wind energy. Construct and interpret a 99% confidence interval for the proportion of all adults who support expanding wind energy.      In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\". However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used in this setting. Create a 95% confidence interval for the proportion of U.S. adults who live with one or more chronic conditions. Also interpret the confidence interval in the context of the study.      A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter. The standard error for this estimate was 2.4%, and a normal distribution may be used to model the sample proportion. Construct a 99% confidence interval for the fraction of U.S. adult Twitter users who get some news on Twitter, and interpret the confidence interval in context.      In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\", and the standard error for this estimate is 1.2%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   We can say with certainty that the confidence interval from the chronic illness exercise contains the true percentage of U.S. adults who suffer from a chronic illness.  If we repeated this study 1,000 times and constructed a 95% confidence interval for each study, then approximately 950 of those confidence intervals would contain the true fraction of U.S. adults who suffer from chronic illnesses.  The poll provides statistically significant evidence (at the level) that the percentage of U.S. adults who suffer from chronic illnesses is below 50%.  Since the standard error is 1.2%, only 1.2% of people in the study communicated uncertainty about their answer.       A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of .  Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.  If we want to reduce the standard error of the estimate, we should collect less data.  If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.       A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.   We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.  We are 95% confident that the average waiting time of all patients at this hospital's emergency room is between 128 and 147 minutes.  95% of random samples have a sample mean between 128 and 147 minutes.  A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.  The margin of error is 9.5 and the sample mean is 137.5.  In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size.       The General Social Survey asked the question: \"For how many days during the past 30 days was your mental health, which includes stress, depression, and problems with emotions, not good?\" Based on responses from 1,151 US residents, the survey reported a 95% confidence interval of 3.40 to 4.24 days in 2010.   Interpret this interval in context of the data.  What does \"95% confident\" mean? Explain in the context of the application.  Suppose the researchers think a 99% confidence level would be more appropriate for this interval. Will this new interval be smaller or wider than the 95% confidence interval?  If a new survey were to be done with 500 Americans, do you think the standard error of the estimate would be larger, smaller, or about the same.       A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.   Check any conditions required for constructing a confidence interval.  Compute the standard error.  Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).       A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they'd received in the mail. Construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they'd received in the mail.     "
+  "body": " Confidence Intervals for a Proportion   The sample proportion provides a single plausible value for the population proportion . However, the sample proportion isn't perfect and will have some standard error associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible range of values instead of supplying just the point estimate.    Capturing the Population Parameter  Using only a point estimate is like fishing in a murky lake with a spear. We can throw a spear where we saw a fish, but we will probably miss. On the other hand, if we toss a net in that area, we have a good chance of catching the fish. A confidence interval is like fishing with a net, and it represents a range of plausible values where we are likely to find the population parameter.  If we report a point estimate , we probably will not hit the exact population proportion. On the other hand, if we report a range of plausible values, representing a confidence interval, we have a good shot at capturing the parameter.    If we want to be very certain we capture the population proportion in an interval, should we use a wider interval or a smaller interval?    If we want to be more certain we will capture the fish, we might use a wider net. Likewise, we use a wider confidence interval if we want to be more certain that we capture the parameter.     Twenty-five point estimates and confidence intervals from the simulations in . These intervals are shown relative to the population proportion . Only 1 of these 25 intervals did not capture the population proportion, and this interval has been bolded.   Twenty-five point estimates and confidence intervals from the simulations are shown. These intervals are shown relative to the population proportion p equals 0.88. The point estimates vary around the true population proportion of 0.88, but most of their confidence intervals overlap the value p equals 0.88. One of the 25 intervals does not have a confidence interval that overlaps the population proportion, and this interval has been bolded. We might say that this confidence interval did not capture the parameter p equals 0.88.     Interpreting when an interval doesn't capture the parameter   In , one interval does not contain . Does this imply that the population proportion used in the simulation could not have been ?    Just as some observations naturally occur more than 1.96 standard deviations from the mean, some point estimates will be more than 1.96 standard errors from the parameter of interest. A confidence interval only provides a plausible range of values. While we might say other values are implausible based on the data, this does not mean they are impossible.      Constructing a 95% Confidence Interval  Our sample proportion is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.  The standard error represents the standard deviation of the point estimate, and when the Central Limit Theorem conditions are satisfied, the point estimate closely follows a normal distribution. In a normal distribution, 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion to be 95% confident that the interval captures the population proportion:   But what does 95% confident mean? Suppose we took many samples and built a 95% confidence interval from each. Then about 95% of those intervals would contain the parameter, . shows the process of creating 25 intervals from 25 samples from the simulation in , where 24 of the resulting confidence intervals contain the simulation's population proportion of , and one interval does not.   95% confidence interval for a parameter  When the distribution of a point estimate qualifies for the Central Limit Theorem and therefore closely follows a normal distribution, we can construct a 95% confidence interval as     95% CI for solar energy support   In we learned about a Pew Research poll where 88.7% of a random sample of 1,000 American adults supported expanding the role of solar power. Compute and interpret a 95% confidence interval for the population proportion.    We earlier confirmed that follows a normal distribution and has a standard error of . To compute the 95% confidence interval, plug the point estimate and standard error into the 95% confidence interval formula:   We are 95% confident that the actual proportion of American adults who support expanding solar power is between 86.7% and 90.7%. (It's common to round to the nearest percentage point or nearest tenth of a percentage point when reporting a confidence interval.)      Changing the Confidence Level  Suppose we want to consider confidence intervals where the confidence level is higher than 95%, such as a confidence level of 99%. Think back to the analogy about trying to catch a fish: if we want to be more sure that we will catch the fish, we should use a wider net. To create a 99% confidence level, we must also widen our 95% interval. On the other hand, if we want an interval with lower confidence, such as 90%, we could use a slightly narrower interval than our original 95% interval.  The 95% confidence interval structure provides guidance in how to make intervals with different confidence levels. The general 95% confidence interval for a point estimate that follows a normal distribution is   There are three components to this interval: the point estimate, 1.96 , and the standard error. The choice of was based on capturing 95% of the data since the estimate is within 1.96 standard errors of the parameter about 95% of the time. The choice of 1.96 corresponds to a 95% confidence level.    If is a normally distributed random variable, what is the probability of the value being within 2.58 standard deviations of the mean?    This is equivalent to asking how often the Z-score will be larger than -2.58 but less than 2.58. For a picture, see . To determine this probability, we can use statistical software, a calculator, or a table to look up -2.58 and 2.58 for a normal distribution: 0.0049 and 0.9951. Thus, there is a probability that an unobserved normal random variable will be within 2.58 standard deviations of .    This exercise highlights that 99% of the time a normal random variable will be within 2.58 standard deviations of the mean. To create a 99% confidence interval, change 1.96 in the 95% confidence interval formula to be 2.58. That is, the formula for a 99% confidence interval is    The area between and increases as becomes larger. If the confidence level is 99%, we choose such that 99% of a normal normal distribution is between and , which corresponds to 0.5% in the lower tail and 0.5% in the upper tail: .   A standard normal distribution is shown, where standard is the term used to indicate that the normal distribution is centered at 0 and has a standard deviation of 1. Portions of the normal distribution have been shaded. First, the central 95% portion of the distribution has been shaded in a dark blue, and this region has an annotation stating 95%, extends from -1.96 to 1.96. Recall that the value of 1.96 closely matches our 68-95-99.7 rule for the normal distribution, which had stated that about 95% of the area under the normal distribution lied within 2 standard deviations of the mean. Second, a slightly broader region of the normal distribution is shaded, in this case from about -2.5 to positive 2.5, and this has an annotation stating, 99%, extends -2.58 to 2.58. The values described here -- 1.96 and 2.58 -- are the z-star values that we would use for 95% and 99% confidence intervals, respectively.    This approach -- using the Z-scores in the normal model to compute confidence levels -- is appropriate when a point estimate such as is associated with a normal distribution. For some other point estimates, a normal model is not a good fit; in these cases, we'll use alternative distributions that better represent the sampling distribution.   Confidence interval using any confidence level  If a point estimate closely follows a normal model with standard error , then a confidence interval for the population parameter is   where corresponds to the confidence level selected.    provides a picture of how to identify based on a confidence level. We select so that the area between and in the standard normal distribution, , corresponds to the confidence level.   Margin of error  In a confidence interval, is called the margin of error .    90% CI for solar energy support   Use the data in to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.    We first find such that 90% of the distribution falls between and in the standard normal distribution, . We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): . The 90% confidence interval can then be computed as   That is, we are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.      More Case Studies  In New York City on October 23rd, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York\/The Wall Street Journal\/Marist Poll found that 82% of New Yorkers favored a mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient . This poll included responses of 1,042 New York adults between Oct 26th and 28th, 2014.    What is the point estimate in this case, and is it reasonable to use a normal distribution to model that point estimate?    The point estimate, based on a sample of size , is . To check whether can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition ( and , both easily greater than 10). With the conditions met, we are assured that the sampling distribution of can be reasonably modeled using a normal distribution.      Estimate the standard error of from the Ebola survey.    We'll use the substitution approximation of to compute the standard error:       Construct a 95% confidence interval for , the proportion of New York adults who supported a quarantine for anyone who has come into contact with an Ebola patient.    Using the standard error from the previous example, the point estimate 0.82, and for a 95% confidence level, the confidence interval is   We are 95% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 0.796 and 0.844.      Answer the following two questions about the confidence interval from the example above:   What does 95% confident mean in this context?  Do you think the confidence interval is still valid for the opinions of New Yorkers today?       If we took many such samples and computed a 95% confidence interval for each, then about 95% of those intervals would contain the actual proportion of New York adults who supported a quarantine for anyone who has come into contact with an Ebola patient.    Not necessarily. The poll was taken at a time where there was a huge public safety concern. Now that people have had some time to step back, they may have changed their opinions. We would need to run a new poll if we wanted to get an estimate of the current proportion of New York adults who would support such a quarantine period.        In the Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.   Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?  Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.       The survey was a random sample and counts are both ( and ), so independence and the success-failure condition are satisfied, and can be modeled using a normal distribution.    We already confirmed that closely follows a normal distribution, so we can use the C.I. formula:   In this case, the point estimate is . For a 99% confidence interval, . Computing the standard error: . Finally, we compute the interval as . It is also important to always provide an interpretation for the interval: we are 99% confident the proportion of American adults that support expanding the use of wind turbines in 2018 is between 81.9% and 87.7%.      We can also construct confidence intervals for other parameters, such as a population mean. In these cases, a confidence interval would be computed in a similar way to that of a single proportion: a point estimate plus\/minus some margin of error. We'll dive into these details in later chapters.   Confidence interval for a single proportion  Once you've determined a one-proportion confidence interval would be helpful for an application, there are four steps to constructing the interval:    Prepare.  Identify and , and determine what confidence level you wish to use.    Check.  Verify the conditions to ensure is nearly normal. For one-proportion confidence intervals, use in place of to check the success-failure condition.    Calculate.  If the conditions hold, compute using , find , and construct the interval.    Conclude.  Interpret the confidence interval in the context of the problem.       Interpreting Confidence Intervals  In each of the examples, we described the confidence intervals by putting them into the context of the data and also using somewhat formal language:    Solar.  We are 90% confident that 87.1% to 90.4% of American adults support the expansion of solar power in 2018.    Ebola.  We are 95% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 0.796 and 0.844.    Wind Turbine.  We are 99% confident the proportion of Americans adults that support expanding the use of wind turbines is between 81.9% and 87.7% in 2018.    First, notice that the statements are always about the population parameter, which considers all American adults for the energy polls or all New York adults for the quarantine poll.  We also avoided another common mistake: incorrect language might try to describe the confidence interval as capturing the population parameter with a certain probability. Making a probability interpretation is a common error: while it might be useful to think of it as a probability, the confidence level only quantifies how plausible it is that the parameter is in the given interval.  Another important consideration of confidence intervals is that they are only about the population parameter . A confidence interval says nothing about individual observations or point estimates. Confidence intervals only provide a plausible range for population parameters.  Lastly, keep in mind the methods we discussed only apply to sampling error, not to bias. If a data set is collected in a way that will tend to systematically under-estimate (or over-estimate) the population parameter, the techniques we have discussed will not address that problem. Instead, we rely on careful data collection procedures to help protect against bias in the examples we have considered, which is a common practice employed by data scientists to combat bias.    Consider the 90% confidence interval for the solar energy survey: 87.1% to 90.4%. If we ran the survey again, can we say that we're 90% confident that the new survey's proportion will be between 87.1% and 90.4%?    No, a confidence interval only provides a range of plausible values for a parameter, not future point estimates.      Section 5.2 Exercises    In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\". However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used in this setting. Create a 95% confidence interval for the proportion of U.S. adults who live with one or more chronic conditions. Also interpret the confidence interval in the context of the study.      A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter. The standard error for this estimate was 2.4%, and a normal distribution may be used to model the sample proportion. Construct a 99% confidence interval for the fraction of U.S. adult Twitter users who get some news on Twitter, and interpret the confidence interval in context.      In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\", and the standard error for this estimate is 1.2%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   We can say with certainty that the confidence interval from the chronic illness exercise contains the true percentage of U.S. adults who suffer from a chronic illness.  If we repeated this study 1,000 times and constructed a 95% confidence interval for each study, then approximately 950 of those confidence intervals would contain the true fraction of U.S. adults who suffer from chronic illnesses.  The poll provides statistically significant evidence (at the level) that the percentage of U.S. adults who suffer from chronic illnesses is below 50%.  Since the standard error is 1.2%, only 1.2% of people in the study communicated uncertainty about their answer.       A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of . (This part uses concepts from and will be corrected in a future edition.)  Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.  If we want to reduce the standard error of the estimate, we should collect less data.  If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.       A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.   We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.  We are 95% confident that the average waiting time of all patients at this hospital's emergency room is between 128 and 147 minutes.  95% of random samples have a sample mean between 128 and 147 minutes.  A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.  The margin of error is 9.5 and the sample mean is 137.5.  In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size. (Hint: the margin of error for a mean scales in the same way with sample size as the margin of error for a proportion.)       The General Social Survey asked the question: \"For how many days during the past 30 days was your mental health, which includes stress, depression, and problems with emotions, not good?\" Based on responses from 1,151 US residents, the survey reported a 95% confidence interval of 3.40 to 4.24 days in 2010.   Interpret this interval in context of the data.  What does \"95% confident\" mean? Explain in the context of the application.  Suppose the researchers think a 99% confidence level would be more appropriate for this interval. Will this new interval be smaller or wider than the 95% confidence interval?  If a new survey were to be done with 500 Americans, do you think the standard error of the estimate would be larger, smaller, or about the same.       A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.   Check any conditions required for constructing a confidence interval.  Compute the standard error.  Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).       A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they'd received in the mail. Construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they'd received in the mail.     "
 },
 {
   "id": "subsec-capturing-parameter-2",
@@ -4816,128 +4816,146 @@ var ptx_lunr_docs = [
   "body": "confidence interval "
 },
 {
+  "id": "subsec-capturing-parameter-4",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#subsec-capturing-parameter-4",
+  "type": "Checkpoint",
+  "number": "5.2.1",
+  "title": "",
+  "body": "  If we want to be very certain we capture the population proportion in an interval, should we use a wider interval or a smaller interval?    If we want to be more certain we will capture the fish, we might use a wider net. Likewise, we use a wider confidence interval if we want to be more certain that we capture the parameter.   "
+},
+{
   "id": "fig-25-confidence-intervals",
   "level": "2",
   "url": "sec-confidence-intervals.html#fig-25-confidence-intervals",
   "type": "Figure",
-  "number": "5.2.1",
+  "number": "5.2.2",
   "title": "",
-  "body": " 25 confidence intervals constructed from 25 different samples. The red intervals do not contain the true population proportion .   Visualization of 25 confidence intervals, most containing the true parameter   "
+  "body": " Twenty-five point estimates and confidence intervals from the simulations in . These intervals are shown relative to the population proportion . Only 1 of these 25 intervals did not capture the population proportion, and this interval has been bolded.   Twenty-five point estimates and confidence intervals from the simulations are shown. These intervals are shown relative to the population proportion p equals 0.88. The point estimates vary around the true population proportion of 0.88, but most of their confidence intervals overlap the value p equals 0.88. One of the 25 intervals does not have a confidence interval that overlaps the population proportion, and this interval has been bolded. We might say that this confidence interval did not capture the parameter p equals 0.88.   "
 },
 {
-  "id": "def-95-ci",
+  "id": "ex-interval-doesnt-contain-p",
   "level": "2",
-  "url": "sec-confidence-intervals.html#def-95-ci",
-  "type": "Definition",
-  "number": "5.2.2",
-  "title": "95% Confidence Interval for a proportion.",
-  "body": " 95% Confidence Interval for a proportion   A 95% confidence interval for a population proportion is:   where .  This confidence interval accounts for sampling error but not bias.   "
+  "url": "sec-confidence-intervals.html#ex-interval-doesnt-contain-p",
+  "type": "Example",
+  "number": "5.2.3",
+  "title": "Interpreting when an interval doesn’t capture the parameter.",
+  "body": " Interpreting when an interval doesn't capture the parameter   In , one interval does not contain . Does this imply that the population proportion used in the simulation could not have been ?    Just as some observations naturally occur more than 1.96 standard deviations from the mean, some point estimates will be more than 1.96 standard errors from the parameter of interest. A confidence interval only provides a plausible range of values. While we might say other values are implausible based on the data, this does not mean they are impossible.   "
+},
+{
+  "id": "subsec-95-ci-3",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#subsec-95-ci-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "95% confident "
 },
 {
   "id": "ex-solar-95-ci",
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-solar-95-ci",
   "type": "Example",
-  "number": "5.2.3",
-  "title": "95% CI for solar energy support.",
-  "body": " 95% CI for solar energy support   In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported expanding the use of solar energy. Compute and interpret a 95% confidence interval for the population proportion.    First, we verify the conditions. The observations are from a random sample, so they are independent. We check the success-failure condition: Both are greater than 10, so the conditions are met.  The standard error is:   The 95% confidence interval is:    Interpretation: We are 95% confident that between 86.7% and 90.7% of American adults support expanding the use of solar energy.   "
-},
-{
-  "id": "table-z-star-values",
-  "level": "2",
-  "url": "sec-confidence-intervals.html#table-z-star-values",
-  "type": "Table",
   "number": "5.2.4",
-  "title": "Common confidence levels and corresponding <span class=\"process-math\">\\(z^*\\)<\/span> values",
-  "body": " Common confidence levels and corresponding values    Confidence Level  value    90%  1.65    95%  1.96    99%  2.58    "
+  "title": "95% CI for solar energy support.",
+  "body": " 95% CI for solar energy support   In we learned about a Pew Research poll where 88.7% of a random sample of 1,000 American adults supported expanding the role of solar power. Compute and interpret a 95% confidence interval for the population proportion.    We earlier confirmed that follows a normal distribution and has a standard error of . To compute the 95% confidence interval, plug the point estimate and standard error into the 95% confidence interval formula:   We are 95% confident that the actual proportion of American adults who support expanding solar power is between 86.7% and 90.7%. (It's common to round to the nearest percentage point or nearest tenth of a percentage point when reporting a confidence interval.)   "
 },
 {
-  "id": "def-general-ci",
+  "id": "subsec-changing-confidence-6",
   "level": "2",
-  "url": "sec-confidence-intervals.html#def-general-ci",
-  "type": "Definition",
+  "url": "sec-confidence-intervals.html#subsec-changing-confidence-6",
+  "type": "Checkpoint",
   "number": "5.2.5",
-  "title": "General form of a confidence interval.",
-  "body": " General form of a confidence interval   For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.   "
-},
-{
-  "id": "def-margin-of-error",
-  "level": "2",
-  "url": "sec-confidence-intervals.html#def-margin-of-error",
-  "type": "Definition",
-  "number": "5.2.6",
-  "title": "Margin of Error.",
-  "body": " Margin of Error   In a confidence interval, is called the margin of error . It represents how far above and below the point estimate the confidence interval extends.   "
+  "title": "",
+  "body": "  If is a normally distributed random variable, what is the probability of the value being within 2.58 standard deviations of the mean?    This is equivalent to asking how often the Z-score will be larger than -2.58 but less than 2.58. For a picture, see . To determine this probability, we can use statistical software, a calculator, or a table to look up -2.58 and 2.58 for a normal distribution: 0.0049 and 0.9951. Thus, there is a probability that an unobserved normal random variable will be within 2.58 standard deviations of .   "
 },
 {
   "id": "fig-choosing-z-star",
   "level": "2",
   "url": "sec-confidence-intervals.html#fig-choosing-z-star",
   "type": "Figure",
-  "number": "5.2.7",
+  "number": "5.2.6",
   "title": "",
-  "body": " The area between and in the standard normal distribution for common confidence levels.   Normal curve showing z-star values for different confidence levels   "
+  "body": " The area between and increases as becomes larger. If the confidence level is 99%, we choose such that 99% of a normal normal distribution is between and , which corresponds to 0.5% in the lower tail and 0.5% in the upper tail: .   A standard normal distribution is shown, where standard is the term used to indicate that the normal distribution is centered at 0 and has a standard deviation of 1. Portions of the normal distribution have been shaded. First, the central 95% portion of the distribution has been shaded in a dark blue, and this region has an annotation stating 95%, extends from -1.96 to 1.96. Recall that the value of 1.96 closely matches our 68-95-99.7 rule for the normal distribution, which had stated that about 95% of the area under the normal distribution lied within 2 standard deviations of the mean. Second, a slightly broader region of the normal distribution is shaded, in this case from about -2.5 to positive 2.5, and this has an annotation stating, 99%, extends -2.58 to 2.58. The values described here -- 1.96 and 2.58 -- are the z-star values that we would use for 95% and 99% confidence intervals, respectively.   "
+},
+{
+  "id": "def-margin-of-error-2",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#def-margin-of-error-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "margin of error "
 },
 {
   "id": "ex-solar-90-ci",
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-solar-90-ci",
   "type": "Example",
-  "number": "5.2.8",
+  "number": "5.2.7",
   "title": "90% CI for solar energy support.",
-  "body": " 90% CI for solar energy support   Use the data from to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.    We first find such that 90% of the distribution falls between and in the standard normal distribution. We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): .  The 90% confidence interval can then be computed as:    Interpretation: We are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.   "
+  "body": " 90% CI for solar energy support   Use the data in to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.    We first find such that 90% of the distribution falls between and in the standard normal distribution, . We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): . The 90% confidence interval can then be computed as   That is, we are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.   "
 },
 {
-  "id": "ex-ebola-quarantine",
+  "id": "subsec-more-case-studies-3",
   "level": "2",
-  "url": "sec-confidence-intervals.html#ex-ebola-quarantine",
+  "url": "sec-confidence-intervals.html#subsec-more-case-studies-3",
+  "type": "Example",
+  "number": "5.2.8",
+  "title": "",
+  "body": "  What is the point estimate in this case, and is it reasonable to use a normal distribution to model that point estimate?    The point estimate, based on a sample of size , is . To check whether can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition ( and , both easily greater than 10). With the conditions met, we are assured that the sampling distribution of can be reasonably modeled using a normal distribution.   "
+},
+{
+  "id": "subsec-more-case-studies-4",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#subsec-more-case-studies-4",
   "type": "Example",
   "number": "5.2.9",
-  "title": "Ebola quarantine support in New York.",
-  "body": " Ebola quarantine support in New York   In New York City on October 23, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York\/The Wall Street Journal\/Marist Poll found that 82% of New Yorkers favored a \"mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient.\" This poll included responses of 1,042 New York adults between October 26-28, 2014.   What is the point estimate, and is it reasonable to use a normal distribution to model it?  Estimate the standard error of .  Construct a 95% confidence interval for the proportion of New York adults who supported the quarantine policy.       The point estimate, based on a sample of size , is . To check whether can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition: With the conditions met, we can model using a normal distribution.    Using the substitution approximation :     Using , , and :  Interpretation: We are 95% confident that between 79.6% and 84.4% of New York adults in October 2014 supported a quarantine for anyone who had come into contact with an Ebola patient.     "
+  "title": "",
+  "body": "  Estimate the standard error of from the Ebola survey.    We'll use the substitution approximation of to compute the standard error:    "
 },
 {
-  "id": "ex-wind-turbines-guided",
+  "id": "ex-ci-ny-ebola-quarantine",
   "level": "2",
-  "url": "sec-confidence-intervals.html#ex-wind-turbines-guided",
-  "type": "Checkpoint",
+  "url": "sec-confidence-intervals.html#ex-ci-ny-ebola-quarantine",
+  "type": "Example",
   "number": "5.2.10",
-  "title": "Wind turbine support.",
-  "body": " Wind turbine support   In the same Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.   Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?  Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.     For part (b), recall that for a 99% confidence interval, .      Yes. The survey was a random sample and the success-failure counts are both : and .    The standard error is: The 99% confidence interval is: We are 99% confident that between 81.9% and 87.7% of American adults support expanding the use of wind turbines.     "
+  "title": "",
+  "body": "  Construct a 95% confidence interval for , the proportion of New York adults who supported a quarantine for anyone who has come into contact with an Ebola patient.    Using the standard error from the previous example, the point estimate 0.82, and for a 95% confidence level, the confidence interval is   We are 95% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 0.796 and 0.844.   "
 },
 {
-  "id": "subsec-interpreting-cis-5",
+  "id": "subsec-more-case-studies-6",
   "level": "2",
-  "url": "sec-confidence-intervals.html#subsec-interpreting-cis-5",
-  "type": "Warning",
+  "url": "sec-confidence-intervals.html#subsec-more-case-studies-6",
+  "type": "Checkpoint",
   "number": "5.2.11",
-  "title": "Common mistakes when interpreting confidence intervals.",
-  "body": " Common mistakes when interpreting confidence intervals   Mistake 1: Probability interpretation. A confidence interval does not mean there's a 95% probability the parameter is in the interval. The parameter is fixed; either it's in the interval or it's not. The 95% refers to the long-run success rate of the method, not the probability for any particular interval.   Mistake 2: About the sample. A confidence interval is only about the population parameter, not about individual observations or the sample proportion. It says nothing about where future point estimates will fall.  "
+  "title": "",
+  "body": "  Answer the following two questions about the confidence interval from the example above:   What does 95% confident mean in this context?  Do you think the confidence interval is still valid for the opinions of New Yorkers today?       If we took many such samples and computed a 95% confidence interval for each, then about 95% of those intervals would contain the actual proportion of New York adults who supported a quarantine for anyone who has come into contact with an Ebola patient.    Not necessarily. The poll was taken at a time where there was a huge public safety concern. Now that people have had some time to step back, they may have changed their opinions. We would need to run a new poll if we wanted to get an estimate of the current proportion of New York adults who would support such a quarantine period.     "
 },
 {
-  "id": "ex-ebola-ci",
+  "id": "ex-pew-wind-turbine-support",
   "level": "2",
-  "url": "sec-confidence-intervals.html#ex-ebola-ci",
-  "type": "Exercise",
-  "number": "5.2.8.1",
+  "url": "sec-confidence-intervals.html#ex-pew-wind-turbine-support",
+  "type": "Checkpoint",
+  "number": "5.2.12",
   "title": "",
-  "body": "  In response to the Ebola outbreak in 2014, a poll found that 82% of 1,042 American adults supported mandatory quarantine for anyone who had contact with an Ebola patient. Construct and interpret a 95% confidence interval for the proportion of all American adults who supported this policy.   "
+  "body": "  In the Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.   Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?  Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.       The survey was a random sample and counts are both ( and ), so independence and the success-failure condition are satisfied, and can be modeled using a normal distribution.    We already confirmed that closely follows a normal distribution, so we can use the C.I. formula:   In this case, the point estimate is . For a 99% confidence interval, . Computing the standard error: . Finally, we compute the interval as . It is also important to always provide an interpretation for the interval: we are 99% confident the proportion of American adults that support expanding the use of wind turbines in 2018 is between 81.9% and 87.7%.     "
 },
 {
-  "id": "ex-wind-turbines-99-ci",
+  "id": "subsec-interpreting-cis-8",
   "level": "2",
-  "url": "sec-confidence-intervals.html#ex-wind-turbines-99-ci",
-  "type": "Exercise",
-  "number": "5.2.8.2",
+  "url": "sec-confidence-intervals.html#subsec-interpreting-cis-8",
+  "type": "Checkpoint",
+  "number": "5.2.13",
   "title": "",
-  "body": "  In a survey of 1,000 adults, 848 supported expanding the use of wind energy. Construct and interpret a 99% confidence interval for the proportion of all adults who support expanding wind energy.   "
+  "body": "  Consider the 90% confidence interval for the solar energy survey: 87.1% to 90.4%. If we ran the survey again, can we say that we're 90% confident that the new survey's proportion will be between 87.1% and 90.4%?    No, a confidence interval only provides a range of plausible values for a parameter, not future point estimates.   "
 },
 {
   "id": "ex-chronic-illness-intro",
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-chronic-illness-intro",
   "type": "Exercise",
-  "number": "5.2.8.3",
+  "number": "5.2.6.1",
   "title": "",
   "body": "  In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\". However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used in this setting. Create a 95% confidence interval for the proportion of U.S. adults who live with one or more chronic conditions. Also interpret the confidence interval in the context of the study.   "
 },
@@ -4946,7 +4964,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-twitter-users-intro",
   "type": "Exercise",
-  "number": "5.2.8.4",
+  "number": "5.2.6.2",
   "title": "",
   "body": "  A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter. The standard error for this estimate was 2.4%, and a normal distribution may be used to model the sample proportion. Construct a 99% confidence interval for the fraction of U.S. adult Twitter users who get some news on Twitter, and interpret the confidence interval in context.   "
 },
@@ -4955,7 +4973,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-chronic-illness-tf",
   "type": "Exercise",
-  "number": "5.2.8.5",
+  "number": "5.2.6.3",
   "title": "",
   "body": "  In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\", and the standard error for this estimate is 1.2%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   We can say with certainty that the confidence interval from the chronic illness exercise contains the true percentage of U.S. adults who suffer from a chronic illness.  If we repeated this study 1,000 times and constructed a 95% confidence interval for each study, then approximately 950 of those confidence intervals would contain the true fraction of U.S. adults who suffer from chronic illnesses.  The poll provides statistically significant evidence (at the level) that the percentage of U.S. adults who suffer from chronic illnesses is below 50%.  Since the standard error is 1.2%, only 1.2% of people in the study communicated uncertainty about their answer.    "
 },
@@ -4964,25 +4982,25 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-twitter-users-tf",
   "type": "Exercise",
-  "number": "5.2.8.6",
+  "number": "5.2.6.4",
   "title": "",
-  "body": "  A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of .  Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.  If we want to reduce the standard error of the estimate, we should collect less data.  If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.    "
+  "body": "  A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of . (This part uses concepts from and will be corrected in a future edition.)  Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.  If we want to reduce the standard error of the estimate, we should collect less data.  If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.    "
 },
 {
   "id": "ex-er-wait-intro",
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-er-wait-intro",
   "type": "Exercise",
-  "number": "5.2.8.7",
+  "number": "5.2.6.5",
   "title": "",
-  "body": "  A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.   We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.  We are 95% confident that the average waiting time of all patients at this hospital's emergency room is between 128 and 147 minutes.  95% of random samples have a sample mean between 128 and 147 minutes.  A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.  The margin of error is 9.5 and the sample mean is 137.5.  In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size.    "
+  "body": "  A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.   We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.  We are 95% confident that the average waiting time of all patients at this hospital's emergency room is between 128 and 147 minutes.  95% of random samples have a sample mean between 128 and 147 minutes.  A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.  The margin of error is 9.5 and the sample mean is 137.5.  In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size. (Hint: the margin of error for a mean scales in the same way with sample size as the margin of error for a proportion.)    "
 },
 {
   "id": "ex-mental-health",
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-mental-health",
   "type": "Exercise",
-  "number": "5.2.8.8",
+  "number": "5.2.6.6",
   "title": "",
   "body": "  The General Social Survey asked the question: \"For how many days during the past 30 days was your mental health, which includes stress, depression, and problems with emotions, not good?\" Based on responses from 1,151 US residents, the survey reported a 95% confidence interval of 3.40 to 4.24 days in 2010.   Interpret this interval in context of the data.  What does \"95% confident\" mean? Explain in the context of the application.  Suppose the researchers think a 99% confidence level would be more appropriate for this interval. Will this new interval be smaller or wider than the 95% confidence interval?  If a new survey were to be done with 500 Americans, do you think the standard error of the estimate would be larger, smaller, or about the same.    "
 },
@@ -4991,7 +5009,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-website-registration",
   "type": "Exercise",
-  "number": "5.2.8.9",
+  "number": "5.2.6.7",
   "title": "",
   "body": "  A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.   Check any conditions required for constructing a confidence interval.  Compute the standard error.  Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).    "
 },
@@ -5000,7 +5018,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-confidence-intervals.html#ex-store-coupon",
   "type": "Exercise",
-  "number": "5.2.8.10",
+  "number": "5.2.6.8",
   "title": "",
   "body": "  A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they'd received in the mail. Construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they'd received in the mail.   "
 },
@@ -5011,79 +5029,106 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.3",
   "title": "Hypothesis Testing for a Proportion",
-  "body": " Hypothesis Testing for a Proportion   The hypothesis testing framework is used to rigorously evaluate competing ideas and claims. In this section, we'll explore how to formally test claims about population proportions using data from samples.    Hypothesis Testing Framework  In hypothesis testing, we consider two competing hypotheses:   Null Hypothesis   The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested. It typically represents a position of no difference or no effect.     Alternative Hypothesis   The alternative hypothesis ( ) represents an alternative claim under consideration. It is often represented by a range of possible parameter values and is what the researcher hopes to show evidence for.    Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence. Even if we fail to reject the null hypothesis, we typically do not accept it as true; failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.   Null Value   The null value is the value of the parameter under the null hypothesis. It is common to label the null value with a subscript 0. For example, if the null hypothesis is , then the null value is .     Setting up hypotheses for coal energy   Pew Research asked a random sample of 1,000 American adults whether they supported the increased usage of coal to produce energy. Set up hypotheses to evaluate whether a majority of American adults support or oppose the increased usage of coal.    The uninteresting result is that there is no majority either way: half support and half oppose. The alternative hypothesis would be that there is a majority support or oppose (though we don't know which).  If represents the proportion supporting, we write the hypotheses as:   In this case, the null value is . This is a two-sided test because the alternative hypothesis includes values both less than and greater than 0.5.      Testing Hypotheses Using Confidence Intervals  We can use confidence intervals to evaluate hypothesis tests. If the null value falls within the confidence interval, we cannot say the null value is implausible, so we cannot reject the null hypothesis. If the null value falls outside the confidence interval, it is implausible and we reject the null hypothesis.   Testing coal hypothesis using confidence interval   In the Pew Research poll, 370 out of 1,000 respondents (37%) supported expanding coal energy. Does this provide evidence that a majority opposes coal energy expansion? Use a 95% confidence interval.    First, construct a 95% confidence interval:   The null value is not in this interval (34.0% to 40.0%). Therefore, we reject the null hypothesis. We have strong evidence that a majority of American adults oppose expanding coal energy production.     Infant vaccination knowledge using CI   The Rosling Foundation studies public knowledge about global health and development. In one study, 50 college-educated adults were asked: \"What percentage of 1-year-old children in the world today have been vaccinated against some disease?\" The choices were: (A) 20%, (B) 50%, or (C) 80%. Only 12 out of 50 respondents (24%) chose the correct answer (C: 80%).  If respondents were simply guessing among the three options, we would expect about 33.3% to get it right by chance. Does the data provide strong evidence that college-educated adults perform differently than random guessing? Test using a 95% confidence interval.    First, check conditions. The data come from a simple random sample (independence), and and (success-failure). Conditions are met.  Calculate the standard error:   Construct the 95% confidence interval:   The null value is (33.3%), which falls within the confidence interval of 12.2% to 35.8%. Therefore, we cannot reject the null hypothesis. The data do not provide sufficient evidence that college-educated adults perform differently than random guessing on this question.   Important note: Failing to reject does not mean we've proven the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of 50 respondents.      Decision Errors in Hypothesis Testing  Hypothesis tests are not flawless: we can make an incorrect decision based on the data.   Type 1 Error   A Type 1 Error is rejecting the null hypothesis when is actually true. This is a false positive.     Type 2 Error   A Type 2 Error is failing to reject the null hypothesis when the alternative hypothesis is actually true. This is a false negative.     Four possible outcomes in hypothesis testing     is true  is true    Reject  Type 1 Error  Correct Decision    Do not reject  Correct Decision  Type 2 Error     If we reduce how often we make one type of error, we generally make more of the other type. The balance is controlled by the significance level.   Significance Level   The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .      Formal Testing Using P-values   P-value   The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value.    When evaluating hypotheses for proportions using the p-value method, we use the null value (not ) when checking the success-failure condition and computing the standard error:    When using the p-value method to evaluate a hypothesis test, check the success-failure condition using the null value instead of using the sample proportion. We're supposing the null hypothesis is true, which is different from the confidence interval approach.   To compute a p-value:   Calculate the Z-score (standardized test statistic):  Find the probability of observing a Z-score at least as extreme as the one calculated, using the standard normal distribution.  For a two-sided test, double the tail probability.    P-value for coal energy test   Using the coal energy data ( , ), compute the p-value for testing versus .    First, check conditions using :   Calculate the standard error using :   Compute the Z-score:   This is an extremely large Z-score in magnitude. The probability of observing a Z-score this extreme (in either tail) is essentially 0. Therefore, .  Since the p-value is much less than 0.05, we reject . We have extremely strong evidence that a majority of American adults oppose expanding coal energy production.     Nuclear arms reduction support   A Gallup poll conducted in March 2013 found that 56% of a simple random sample of 1,028 US adults supported nuclear arms reduction. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5% significance level?    Set up hypotheses. We want to test whether a majority (more than 50%) support nuclear arms reduction:    Check conditions:    Independence: The poll was a simple random sample, so observations are independent.  Success-failure: Using the null proportion : .    Calculate: Compute the standard error using :   Calculate the test statistic:   For this two-sided test, we need to find the probability in both tails. A Z-score of 3.85 is extremely large. Looking at a standard normal table, the upper tail area is approximately 0.0001. Doubling this for the two-sided test: .   Conclude: Since , we reject . The poll provides convincing evidence that a majority of Americans supported nuclear arms reduction efforts in March 2013.     The sampling distribution centered at the null value for the nuclear arms test. The tails beyond the observed proportion show the p-value.   Normal distribution centered at 0.5 showing tail areas for nuclear arms test     The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.   Normal distribution showing extremely small tail areas for coal test     Four-step hypothesis test procedure   Prepare: Identify the parameter of interest, list hypotheses, identify the significance level, and identify and .  Check: Verify conditions to ensure is nearly normal under . For one-proportion hypothesis tests, use the null value to check the success-failure condition.  Calculate: If the conditions hold, compute the standard error using , compute the Z-score, and identify the p-value.  Conclude: Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.    Decision rule:   If , reject and conclude there is strong evidence for .  If , do not reject and conclude there is insufficient evidence for .     Choosing a Significance Level  Choosing a significance level for a test is important in many contexts. The traditional level is , but it can be helpful to adjust the significance level based on the application:   If making a Type 1 Error is dangerous or especially costly, choose a small significance level (e.g., 0.01).  If a Type 2 Error is relatively more dangerous or costly, choose a higher significance level (e.g., 0.10).   For medical testing, we might use to reduce false positives. For preliminary screening, we might use to catch more potential cases.    One-Sided Hypothesis Tests (Special Topic)  So far we've only considered what are called two-sided hypothesis tests , where we care about detecting whether is either above or below some null value . There is a second type of hypothesis test called a one-sided hypothesis test .  For a one-sided hypothesis test, the hypotheses take one of the following forms:   There's only value in detecting if the population parameter is less than some value . In this case, the alternative hypothesis is written as for some null value .  There's only value in detecting if the population parameter is more than some value : In this case, the alternative hypothesis is written as .   While we adjust the form of the alternative hypothesis, we continue to write the null hypothesis using an equals-sign in the one-sided hypothesis test case.  In the entire hypothesis testing procedure, there is only one difference in evaluating a one-sided hypothesis test vs a two-sided hypothesis test: how to compute the p-value. In a one-sided hypothesis test, we compute the p-value as the tail area in the direction of the alternative hypothesis only , meaning it is represented by a single tail area. Herein lies the reason why one-sided tests are sometimes interesting: if we don't have to double the tail area to get the p-value, then the p-value is smaller and the level of evidence required to identify an interesting finding in the direction of the alternative hypothesis goes down. However, one-sided tests aren't all sunshine and rainbows: the heavy price paid is that any interesting findings in the opposite direction must be disregarded.    In Section , we encountered an example where doctors were interested in determining whether stents would help people who had a high risk of stroke. The researchers believed the stents would help. Unfortunately, the data showed the opposite: patients who received stents actually did worse. Why was using a two-sided test so important in this context?    Before the study, researchers had reason to believe that stents would help patients since existing research suggested stents helped in patients with heart attacks. It would surely have been tempting to use a one-sided test in this situation, and had they done this, they would have limited their ability to identify potential harm to patients.    This example highlights that using a one-sided hypothesis creates a risk of overlooking data supporting the opposite conclusion. We could have made a similar error when reviewing the Roslings' question data in this section; if we had a pre-conceived notion that college-educated people wouldn't do worse than random guessing and so used a one-sided test, we would have missed the really interesting finding that many people have incorrect knowledge about global public health.  When might a one-sided test be appropriate to use? Very rarely. Should you ever find yourself considering using a one-sided test, carefully answer the following question:    What would I, or others, conclude if the data happens to go clearly in the opposite direction than my alternative hypothesis?    If you or others would find any value in making a conclusion about the data that goes in the opposite direction of a one-sided test, then a two-sided hypothesis test should actually be used. These considerations can be subtle, so exercise caution. We will only apply two-sided tests in the rest of this book.    Why can't we simply run a one-sided test that goes in the direction of the data?    We've been building a careful framework that controls for the Type 1 Error, which is the significance level in a hypothesis test. We'll use the below to keep things simple.  Imagine we could pick the one-sided test after we saw the data. What will go wrong?   If is smaller than the null value, then a one-sided test where would mean that any observation in the lower 5% tail of the null distribution would lead to us rejecting .  If is larger than the null value, then a one-sided test where would mean that any observation in the upper 5% tail of the null distribution would lead to us rejecting .   Then if were true, there's a 10% chance of being in one of the two tails, so our testing error is actually , not 0.05. That is, not being careful about when to use one-sided tests effectively undermines the methods we're working so hard to develop and utilize.     Use one-sided tests only when you have a strong reason to care about deviations in only one direction. If you're unsure, use a two-sided test.     Statistical Significance versus Practical Significance  When the sample size becomes larger, point estimates become more precise and any real differences in the mean and null value become easier to detect and recognize. Even a very small difference would likely be detected if we took a large enough sample. Sometimes researchers will take such large samples that even the slightest difference is detected, even differences where there is no practical value. In such cases, we still say the difference is statistically significant , but it is not practically significant .  For example, an online experiment might identify that placing additional ads on a movie review website statistically significantly increases viewership of a TV show by 0.001%, but this increase might not have any practical value.  One role of a data scientist in conducting a study often includes planning the size of the study. The data scientist might first consult experts or scientific literature to learn what would be the smallest meaningful difference from the null value. She also would obtain other information, such as a very rough estimate of the true proportion , so that she could roughly estimate the standard error. From here, she can suggest a sample size that is sufficiently large that, if there is a real difference that is meaningful, we could detect it. While larger sample sizes may still be used, these calculations are especially helpful when considering costs or potential risks, such as possible health impacts to volunteers in a medical study.    Section 5.3 Exercises    A Gallup poll of 1,028 adults found that 56% favored a nuclear arms reduction treaty. Does this provide strong evidence that a majority of American adults favor such a treaty? Conduct a hypothesis test using .      Consider a hypothesis test for whether a new vaccine is effective at reducing infection rates compared to a placebo. Describe what a Type 1 Error and a Type 2 Error would mean in this context, and discuss which might be more serious.      Write the null and alternative hypotheses in words and then symbols for each of the following situations.   A tutoring company would like to understand if most students tend to improve their grades (or not) after they use their services. They sample 200 of the students who used their service in the past year and ask them if their grades have improved or declined from the previous year.  Employers at a firm are worried about the effect of March Madness, a basketball championship held each spring in the US, on employee productivity. They estimate that on a regular business day employees spend on average 15 minutes of company time checking personal email, making personal phone calls, etc. They also collect data on how much company time employees spend on such non-business activities during March Madness. They want to determine if these data provide convincing evidence that employee productivity changed during March Madness.       Write the null and alternative hypotheses in words and using symbols for each of the following situations.   Since 2008, chain restaurants in California have been required to display calorie counts of each menu item. Prior to menus displaying calorie counts, the average calorie intake of diners at a restaurant was 1100 calories. After calorie counts started to be displayed on menus, a nutritionist collected data on the number of calories consumed at this restaurant from a random sample of diners. Do these data provide convincing evidence of a difference in the average calorie intake of diners at this restaurant?  The state of Wisconsin would like to understand the fraction of its adult residents that consumed alcohol in the last year, specifically if the rate is different from the national rate of 70%. To help them answer this question, they conduct a random sample of 852 residents and ask them about their alcohol consumption.       A study suggests that 60% of college students spend 10 or more hours per week communicating with others online. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. You randomly sample 160 students from your dorm and find that 70% spent 10 or more hours a week communicating with others online. A friend of yours, who offers to help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any errors you see.       A study suggests that 25% of 25 year olds have gotten married. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. From a random sample of 25 year olds in census data with size 776, you find that 24% of them are married. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see.       Teens were surveyed about cyberbullying, and 54% to 64% reported experiencing cyberbullying (95% confidence interval). Answer the following questions based on this interval.   A newspaper claims that a majority of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  A researcher conjectured that 70% of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the researcher from part (b) would be supported based on a 90% confidence interval?       The ER wait time exercise provides a 95% confidence interval for the mean waiting time at an emergency room (ER) of (128 minutes, 147 minutes). Answer the following questions based on this interval.   A local newspaper claims that the average waiting time at this ER exceeds 3 hours. Is this claim supported by the confidence interval? Explain your reasoning.  The Dean of Medicine at this hospital claims the average wait time is 2.2 hours. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the Dean from part (b) would be supported based on a 99% confidence interval?       Do a majority of US adults believe raising the minimum wage will help the economy, or is there a majority who do not believe this? A Rasmussen Reports survey of a random sample of 1,000 US adults found that 42% believe it will help the economy. Conduct an appropriate hypothesis test to help answer the research question.      400 students were randomly sampled from a large university, and 289 said they did not get enough sleep. Conduct a hypothesis test to check whether this represents a statistically significant difference from 50%, and use a significance level of 0.01.      You are given the following hypotheses:   We know the sample size is 90. For what sample proportion would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.      You are given the following hypotheses:   We know that the sample size is 1,429. For what sample proportion would the p-value be equal to 0.01? Assume that all conditions necessary for inference are satisfied.      A patient named Diana was diagnosed with Fibromyalgia, a long-term syndrome of body pain, and was prescribed anti-depressants. Being the skeptic that she is, Diana didn't initially believe that anti-depressants would help her symptoms. However after a couple months of being on the medication she decides that the anti-depressants are working, because she feels like her symptoms are in fact getting better.   Write the hypotheses in words for Diana's skeptical position when she started taking the anti-depressants.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?       In each part below, there is a value of interest and two scenarios (I and II). For each part, report if the value of interest is larger under scenario I, scenario II, or whether the value is equal under the scenarios.   The standard error of when (I) or (II) .  The margin of error of a confidence interval when the confidence level is (I) 90% or (II) 80%.  The p-value for a Z-statistic of 2.5 calculated based on a (I) sample with or based on a (II) sample with .  The probability of making a Type 2 Error when the alternative hypothesis is true and the significance level is (I) 0.05 or (II) 0.10.      "
+  "body": " Hypothesis Testing for a Proportion   The following question comes from a book written by Hans Rosling, Anna Rosling Rönnlund, and Ola Rosling called Factfulness :    How many of the world's 1 year old children today have been vaccinated against some disease:    20%  50%  80%    Write down what your answer (or guess), and when you're ready, find the answer in the footnote. The correct answer is (c): 80% of the world's 1 year olds have been vaccinated against some disease.   In this section, we'll be exploring how people with a 4-year college degree perform on this and other world health questions as we learn about hypothesis tests, which are a framework used to rigorously evaluate competing ideas and claims.    Hypothesis testing framework  We're interested in understanding how much people know about world health and development. If we take a multiple choice world health question, then we might like to understand if    :  People never learn these particular topics and their responses are simply equivalent to random guesses.    :  People have knowledge that helps them do better than random guessing, or perhaps, they have false knowledge that leads them to actually do worse than random guessing.    These competing ideas are called hypotheses . We call the null hypothesis and the alternative hypothesis. When there is a subscript 0 like in , data scientists pronounce it as nought (e.g. is pronounced H-nought ).   Null and alternative hypotheses  The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested. The alternative hypothesis ( ) represents an alternative claim under consideration and is often represented by a range of possible parameter values.  Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence.   The null hypothesis often represents a skeptical position or a perspective of no difference . In our first example, we'll consider whether the typical person does any different than random guessing on Roslings' question about infant vaccinations.  The alternative hypothesis generally represents a new or stronger perspective. In the case of the question about infant vaccinations, it would certainly be interesting to learn whether people do better than random guessing, since that would mean that the typical person knows something about world health statistics. It would also be very interesting if we learned that people do worse than random guessing, which would suggest people believe incorrect information about world health.  The hypothesis testing framework is a very general tool, and we often use it without a second thought. If a person makes a somewhat unbelievable claim, we are initially skeptical. However, if there is sufficient evidence that supports the claim, we set aside our skepticism and reject the null hypothesis in favor of the alternative. The hallmarks of hypothesis testing are also found in the US court system.    A US court considers two possible claims about a defendant: she is either innocent or guilty. If we set these claims up in a hypothesis framework, which would be the null hypothesis and which the alternative?    The jury considers whether the evidence is so convincing (strong) that there is no reasonable doubt regarding the person's guilt; in such a case, the jury rejects innocence (the null hypothesis) and concludes the defendant is guilty (alternative hypothesis).    Jurors examine the evidence to see whether it convincingly shows a defendant is guilty. Even if the jurors leave unconvinced of guilt beyond a reasonable doubt, this does not mean they believe the defendant is innocent. This is also the case with hypothesis testing: even if we fail to reject the null hypothesis, we typically do not accept the null hypothesis as true . Failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.  When considering Roslings' question about infant vaccination, the null hypothesis represents the notion that the people we will be considering -- college-educated adults -- are as accurate as random guessing. That is, the proportion of respondents who pick the correct answer, that 80% of 1 year olds have been vaccinated against some disease, is about 33.3% (or 1-in-3 if wanting to be perfectly precise). The alternative hypothesis is that this proportion is something other than 33.3%. While it's helpful to write these hypotheses in words, it can be useful to write them using mathematical notation:    :     :     In this hypothesis setup, we want to make a conclusion about the population parameter . The value we are comparing the parameter to is called the null value , which in this case is 0.333. It's common to label the null value with the same symbol as the parameter but with a subscript `0'. That is, in this case, the null value is (pronounced p-nought equals 0.333 ).    It may seem impossible that the proportion of people who get the correct answer is exactly 33.3%. If we don't believe the null hypothesis, should we simply reject it?    No. While we may not buy into the notion that the proportion is exactly 33.3%, the hypothesis testing framework requires that there be strong evidence before we reject the null hypothesis and conclude something more interesting.  After all, even if we don't believe the proportion is exactly 33.3%, that doesn't really tell us anything useful! We would still be stuck with the original question: do people do better or worse than random guessing on Roslings' question? Without data that strongly points in one direction or the other, it is both uninteresting and pointless to reject .      Another example of a real-world hypothesis testing situation is evaluating whether a new drug is better or worse than an existing drug at treating a particular disease. What should we use for the null and alternative hypotheses in this case?    The null hypothesis ( ) in this case is the declaration of no difference : the drugs are equally effective. The alternative hypothesis ( ) is that the new drug performs differently than the original, i.e. it could perform better or worse.      Testing hypotheses using confidence intervals  We will use the Rosling responses data set to evaluate the hypothesis test evaluating whether college-educated adults who get the question about infant vaccination correct is different from 33.3%. This data set summarizes the answers of 50 college-educated adults. Of these 50 adults, 24% of respondents got the question correct that 80% of 1 year olds have been vaccinated against some disease.  Up until now, our discussion has been philosophical. However, now that we have data, we might ask ourselves: does the data provide strong evidence that the proportion of all college-educated adults who would answer this question correctly is different than 33.3%?  We learned in that there is fluctuation from one sample to another, and it is unlikely that our sample proportion, , will exactly equal , but we want to make a conclusion about . We have a nagging concern: is this deviation of 24% from 33.3% simply due to chance, or does the data provide strong evidence that the population proportion is different from 33.3%?  In , we learned how to quantify the uncertainty in our estimate using confidence intervals. The same method for measuring variability can be useful for the hypothesis test.    Check whether it is reasonable to construct a confidence interval for using the sample data, and if so, construct a 95% confidence interval.    The conditions are met for to be approximately normal: the data come from a simple random sample (satisfies independence), and and are both at least 10 (success-failure condition).  To construct the confidence interval, we will need to identify the point estimate ( ), the critical value for the 95% confidence level ( ), and the standard error of ( ). With those pieces, the confidence interval for can be constructed:   We are 95% confident that the proportion of all college-educated adults to correctly answer this particular question about infant vaccination is between 12.2% and 35.8%.    Because the null value in the hypothesis test is , which falls within the range of plausible values from the confidence interval, we cannot say the null value is implausible. Arguably this method is slightly imprecise. As we'll see in a few pages, the standard error is often computed slightly differently in the context of a hypothesis test for a proportion. That is, the data do not provide sufficient evidence to reject the notion that the performance of college-educated adults was different than random guessing, and we do not reject the null hypothesis, .    Explain why we cannot conclude that college-educated adults simply guessed on the infant vaccination question.    While we failed to reject , that does not necessarily mean the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of 50.     Double negatives can sometimes be used in statistics  In many statistical explanations, we use double negatives. For instance, we might say that the null hypothesis is not implausible or we failed to reject the null hypothesis. Double negatives are used to communicate that while we are not rejecting a position, we are also not saying it is correct.     Let's move onto a second question posed by the Roslings:    There are 2 billion children in the world today aged 0-15 years old, how many children will there be in year 2100 according to the United Nations?    4 billion.  3 billion.  2 billion.    Set up appropriate hypotheses to evaluate whether college-educated adults are better than random guessing on this question. Also, see if you can guess the correct answer before checking the answer in the solution!    The appropriate hypotheses are:   : the proportion who get the answer correct is the same as random guessing: 1-in-3, or .   : the proportion who get the answer correct is different than random guessing, .  The correct answer to the question is 2 billion. While the world population is projected to increase, the average age is also expected to rise. That is, the majority of the population growth will happen in older age groups, meaning people are projected to live longer in the future across much of the world.      This time we took a larger sample of 228 college-educated adults, 34 (14.9%) selected the correct answer to the question above: 2 billion. Can we model the sample proportion using a normal distribution and construct a confidence interval?    We check both conditions, which are satisfied, so it is reasonable to use a normal distribution for :   Independence. Since the data are from a simple random sample, the observations are independent.   Success-failure. We'll use in place of to check: and . Both are greater than 10, so the success-failure condition is satisfied.      Compute a 95% confidence interval for the fraction of college-educated adults who answered the children-in-2100 question correctly, and evaluate the hypotheses from the previous exercise.    To compute the standard error, we'll again use in place of for the calculation:   In the previous exercise, we found that can be modeled using a normal distribution, which ensures a 95% confidence interval may be accurately constructed as   Because the null value, , is not in the confidence interval, a population proportion of 0.333 is implausible and we reject the null hypothesis. That is, the data provide statistically significant evidence that the actual proportion of college adults who get the children-in-2100 question correct is different from random guessing. Because the entire 95% confidence interval is below 0.333, we can conclude college-educated adults do worse than random guessing on this question.  One subtle consideration is that we used a 95% confidence interval. What if we had used a 99% confidence level? Or even a 99.9% confidence level? It's possible to come to a different conclusion if using a different confidence level. Therefore, when we make a conclusion based on confidence interval, we should also be sure it is clear what confidence level we used.    The worse-than-random performance on this last question is not a fluke: there are many such world health questions where people do worse than random guessing. In general, the answers suggest that people tend to be more pessimistic about progress than reality suggests. This topic is discussed in much greater detail in the Roslings' book, Factfulness .    Decision errors  Hypothesis tests are not flawless: we can make an incorrect decision in a statistical hypothesis test based on the data. For example, in the court system innocent people are sometimes wrongly convicted and the guilty sometimes walk free. One key distinction with statistical hypothesis tests is that we have the tools necessary to probabilistically quantify how often we make errors in our conclusions.  Recall that there are two competing hypotheses: the null and the alternative. In a hypothesis test, we make a statement about which one might be true, but we might choose incorrectly. There are four possible scenarios, which are summarized in .   Four different scenarios for hypothesis tests.      Test conclusion      do not reject  reject in favor of     true  okay  Type 1 Error    Truth  true  Type 2 Error  okay     A Type 1 Error is rejecting the null hypothesis when is actually true. A Type 2 Error is failing to reject the null hypothesis when the alternative is actually true.    In a US court, the defendant is either innocent ( ) or guilty ( ). What does a Type 1 Error represent in this context? What does a Type 2 Error represent? may be useful.    If the court makes a Type 1 Error, this means the defendant is innocent ( true) but wrongly convicted. Note that a Type 1 Error is only possible if we've rejected the null hypothesis.  A Type 2 Error means the court failed to reject (i.e. failed to convict the person) when she was in fact guilty ( true). Note that a Type 2 Error is only possible if we have failed to reject the null hypothesis.      How could we reduce the Type 1 Error rate in US courts? What influence would this have on the Type 2 Error rate?    To lower the Type 1 Error rate, we might raise our standard for conviction from beyond a reasonable doubt to beyond a conceivable doubt so fewer people would be wrongly convicted. However, this would also make it more difficult to convict the people who are actually guilty, so we would make more Type 2 Errors.      How could we reduce the Type 2 Error rate in US courts? What influence would this have on the Type 1 Error rate?    To lower the Type 2 Error rate, we want to convict more guilty people. We could lower the standards for conviction from beyond a reasonable doubt to beyond a little doubt . Lowering the bar for guilt will also result in more wrongful convictions, raising the Type 1 Error rate.    The previous exercises provide an important lesson: if we reduce how often we make one type of error, we generally make more of the other type.  Hypothesis testing is built around rejecting or failing to reject the null hypothesis. That is, we do not reject unless we have strong evidence. But what precisely does strong evidence mean? As a general rule of thumb, for those cases where the null hypothesis is actually true, we do not want to incorrectly reject more than 5% of the time. This corresponds to a significance level of 0.05. That is, if the null hypothesis is true, the significance level indicates how often the data lead us to incorrectly reject . We often write the significance level using (the Greek letter alpha ): . We discuss the appropriateness of different significance levels in .  If we use a 95% confidence interval to evaluate a hypothesis test and the null hypothesis happens to be true, we will make an error whenever the point estimate is at least 1.96 standard errors away from the population parameter. This happens about 5% of the time (2.5% in each tail). Similarly, using a 99% confidence interval to evaluate a hypothesis is equivalent to a significance level of .  A confidence interval is very helpful in determining whether or not to reject the null hypothesis. However, the confidence interval approach isn't always sustainable. In several sections, we will encounter situations where a confidence interval cannot be constructed. For example, if we wanted to evaluate the hypothesis that several proportions are equal, it isn't clear how to construct and compare many confidence intervals altogether.  Next we will introduce a statistic called the p-value to help us expand our statistical toolkit, which will enable us to both better understand the strength of evidence and work in more complex data scenarios in later sections.    Formal testing using p-values   Significance Level   The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .      Formal Testing Using P-values   P-value   The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value.    When evaluating hypotheses for proportions using the p-value method, we use the null value (not ) when checking the success-failure condition and computing the standard error:    When using the p-value method to evaluate a hypothesis test, check the success-failure condition using the null value instead of using the sample proportion. We're supposing the null hypothesis is true, which is different from the confidence interval approach.   To compute a p-value:   Calculate the Z-score (standardized test statistic):  Find the probability of observing a Z-score at least as extreme as the one calculated, using the standard normal distribution.  For a two-sided test, double the tail probability.    P-value for coal energy test   Using the coal energy data ( , ), compute the p-value for testing versus .    First, check conditions using :   Calculate the standard error using :   Compute the Z-score:   This is an extremely large Z-score in magnitude. The probability of observing a Z-score this extreme (in either tail) is essentially 0. Therefore, .  Since the p-value is much less than 0.05, we reject . We have extremely strong evidence that a majority of American adults oppose expanding coal energy production.     Nuclear arms reduction support   A Gallup poll conducted in March 2013 found that 56% of a simple random sample of 1,028 US adults supported nuclear arms reduction. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5% significance level?    Set up hypotheses. We want to test whether a majority (more than 50%) support nuclear arms reduction:    Check conditions:    Independence: The poll was a simple random sample, so observations are independent.  Success-failure: Using the null proportion : .    Calculate: Compute the standard error using :   Calculate the test statistic:   For this two-sided test, we need to find the probability in both tails. A Z-score of 3.85 is extremely large. Looking at a standard normal table, the upper tail area is approximately 0.0001. Doubling this for the two-sided test: .   Conclude: Since , we reject . The poll provides convincing evidence that a majority of Americans supported nuclear arms reduction efforts in March 2013.     The sampling distribution centered at the null value for the nuclear arms test. The tails beyond the observed proportion show the p-value.   Normal distribution centered at 0.5 showing tail areas for nuclear arms test     The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.   Normal distribution showing extremely small tail areas for coal test     Four-step hypothesis test procedure   Prepare: Identify the parameter of interest, list hypotheses, identify the significance level, and identify and .  Check: Verify conditions to ensure is nearly normal under . For one-proportion hypothesis tests, use the null value to check the success-failure condition.  Calculate: If the conditions hold, compute the standard error using , compute the Z-score, and identify the p-value.  Conclude: Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.    Decision rule:   If , reject and conclude there is strong evidence for .  If , do not reject and conclude there is insufficient evidence for .     Choosing a Significance Level  Choosing a significance level for a test is important in many contexts. The traditional level is , but it can be helpful to adjust the significance level based on the application:   If making a Type 1 Error is dangerous or especially costly, choose a small significance level (e.g., 0.01).  If a Type 2 Error is relatively more dangerous or costly, choose a higher significance level (e.g., 0.10).   For medical testing, we might use to reduce false positives. For preliminary screening, we might use to catch more potential cases.    One-Sided Hypothesis Tests (Special Topic)  So far we've only considered what are called two-sided hypothesis tests , where we care about detecting whether is either above or below some null value . There is a second type of hypothesis test called a one-sided hypothesis test .  For a one-sided hypothesis test, the hypotheses take one of the following forms:   There's only value in detecting if the population parameter is less than some value . In this case, the alternative hypothesis is written as for some null value .  There's only value in detecting if the population parameter is more than some value : In this case, the alternative hypothesis is written as .   While we adjust the form of the alternative hypothesis, we continue to write the null hypothesis using an equals-sign in the one-sided hypothesis test case.  In the entire hypothesis testing procedure, there is only one difference in evaluating a one-sided hypothesis test vs a two-sided hypothesis test: how to compute the p-value. In a one-sided hypothesis test, we compute the p-value as the tail area in the direction of the alternative hypothesis only , meaning it is represented by a single tail area. Herein lies the reason why one-sided tests are sometimes interesting: if we don't have to double the tail area to get the p-value, then the p-value is smaller and the level of evidence required to identify an interesting finding in the direction of the alternative hypothesis goes down. However, one-sided tests aren't all sunshine and rainbows: the heavy price paid is that any interesting findings in the opposite direction must be disregarded.    In Section , we encountered an example where doctors were interested in determining whether stents would help people who had a high risk of stroke. The researchers believed the stents would help. Unfortunately, the data showed the opposite: patients who received stents actually did worse. Why was using a two-sided test so important in this context?    Before the study, researchers had reason to believe that stents would help patients since existing research suggested stents helped in patients with heart attacks. It would surely have been tempting to use a one-sided test in this situation, and had they done this, they would have limited their ability to identify potential harm to patients.    This example highlights that using a one-sided hypothesis creates a risk of overlooking data supporting the opposite conclusion. We could have made a similar error when reviewing the Roslings' question data in this section; if we had a pre-conceived notion that college-educated people wouldn't do worse than random guessing and so used a one-sided test, we would have missed the really interesting finding that many people have incorrect knowledge about global public health.  When might a one-sided test be appropriate to use? Very rarely. Should you ever find yourself considering using a one-sided test, carefully answer the following question:    What would I, or others, conclude if the data happens to go clearly in the opposite direction than my alternative hypothesis?    If you or others would find any value in making a conclusion about the data that goes in the opposite direction of a one-sided test, then a two-sided hypothesis test should actually be used. These considerations can be subtle, so exercise caution. We will only apply two-sided tests in the rest of this book.    Why can't we simply run a one-sided test that goes in the direction of the data?    We've been building a careful framework that controls for the Type 1 Error, which is the significance level in a hypothesis test. We'll use the below to keep things simple.  Imagine we could pick the one-sided test after we saw the data. What will go wrong?   If is smaller than the null value, then a one-sided test where would mean that any observation in the lower 5% tail of the null distribution would lead to us rejecting .  If is larger than the null value, then a one-sided test where would mean that any observation in the upper 5% tail of the null distribution would lead to us rejecting .   Then if were true, there's a 10% chance of being in one of the two tails, so our testing error is actually , not 0.05. That is, not being careful about when to use one-sided tests effectively undermines the methods we're working so hard to develop and utilize.     Use one-sided tests only when you have a strong reason to care about deviations in only one direction. If you're unsure, use a two-sided test.     Statistical Significance versus Practical Significance  When the sample size becomes larger, point estimates become more precise and any real differences in the mean and null value become easier to detect and recognize. Even a very small difference would likely be detected if we took a large enough sample. Sometimes researchers will take such large samples that even the slightest difference is detected, even differences where there is no practical value. In such cases, we still say the difference is statistically significant , but it is not practically significant .  For example, an online experiment might identify that placing additional ads on a movie review website statistically significantly increases viewership of a TV show by 0.001%, but this increase might not have any practical value.  One role of a data scientist in conducting a study often includes planning the size of the study. The data scientist might first consult experts or scientific literature to learn what would be the smallest meaningful difference from the null value. She also would obtain other information, such as a very rough estimate of the true proportion , so that she could roughly estimate the standard error. From here, she can suggest a sample size that is sufficiently large that, if there is a real difference that is meaningful, we could detect it. While larger sample sizes may still be used, these calculations are especially helpful when considering costs or potential risks, such as possible health impacts to volunteers in a medical study.    Section 5.3 Exercises    Write the null and alternative hypotheses in words and then symbols for each of the following situations.   A tutoring company would like to understand if most students tend to improve their grades (or not) after they use their services. They sample 200 of the students who used their service in the past year and ask them if their grades have improved or declined from the previous year.  Employers at a firm are worried about the effect of March Madness, a basketball championship held each spring in the US, on employee productivity. They estimate that on a regular business day employees spend on average 15 minutes of company time checking personal email, making personal phone calls, etc. They also collect data on how much company time employees spend on such non-business activities during March Madness. They want to determine if these data provide convincing evidence that employee productivity changed during March Madness.       Write the null and alternative hypotheses in words and using symbols for each of the following situations.   Since 2008, chain restaurants in California have been required to display calorie counts of each menu item. Prior to menus displaying calorie counts, the average calorie intake of diners at a restaurant was 1100 calories. After calorie counts started to be displayed on menus, a nutritionist collected data on the number of calories consumed at this restaurant from a random sample of diners. Do these data provide convincing evidence of a difference in the average calorie intake of diners at this restaurant?  The state of Wisconsin would like to understand the fraction of its adult residents that consumed alcohol in the last year, specifically if the rate is different from the national rate of 70%. To help them answer this question, they conduct a random sample of 852 residents and ask them about their alcohol consumption.       A study suggests that 60% of college students spend 10 or more hours per week communicating with others online. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. You randomly sample 160 students from your dorm and find that 70% spent 10 or more hours a week communicating with others online. A friend of yours, who offers to help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any errors you see.       A study suggests that 25% of 25 year olds have gotten married. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. From a random sample of 25 year olds in census data with size 776, you find that 24% of them are married. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see.       Teens were surveyed about cyberbullying, and 54% to 64% reported experiencing cyberbullying (95% confidence interval). Answer the following questions based on this interval.   A newspaper claims that a majority of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  A researcher conjectured that 70% of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the researcher from part (b) would be supported based on a 90% confidence interval?       The ER wait time exercise provides a 95% confidence interval for the mean waiting time at an emergency room (ER) of (128 minutes, 147 minutes). Answer the following questions based on this interval.   A local newspaper claims that the average waiting time at this ER exceeds 3 hours. Is this claim supported by the confidence interval? Explain your reasoning.  The Dean of Medicine at this hospital claims the average wait time is 2.2 hours. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the Dean from part (b) would be supported based on a 99% confidence interval?       Do a majority of US adults believe raising the minimum wage will help the economy, or is there a majority who do not believe this? A Rasmussen Reports survey of a random sample of 1,000 US adults found that 42% believe it will help the economy. Conduct an appropriate hypothesis test to help answer the research question.      400 students were randomly sampled from a large university, and 289 said they did not get enough sleep. Conduct a hypothesis test to check whether this represents a statistically significant difference from 50%, and use a significance level of 0.01.      You are given the following hypotheses:   We know the sample size is 90. For what sample proportion would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.      You are given the following hypotheses:   We know that the sample size is 1,429. For what sample proportion would the p-value be equal to 0.01? Assume that all conditions necessary for inference are satisfied.      A patient named Diana was diagnosed with Fibromyalgia, a long-term syndrome of body pain, and was prescribed anti-depressants. Being the skeptic that she is, Diana didn't initially believe that anti-depressants would help her symptoms. However after a couple months of being on the medication she decides that the anti-depressants are working, because she feels like her symptoms are in fact getting better.   Write the hypotheses in words for Diana's skeptical position when she started taking the anti-depressants.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?       In each part below, there is a value of interest and two scenarios (I and II). For each part, report if the value of interest is larger under scenario I, scenario II, or whether the value is equal under the scenarios.   The standard error of when (I) or (II) .  The margin of error of a confidence interval when the confidence level is (I) 90% or (II) 80%.  The p-value for a Z-statistic of 2.5 calculated based on a (I) sample with or based on a (II) sample with .  The probability of making a Type 2 Error when the alternative hypothesis is true and the significance level is (I) 0.05 or (II) 0.10.      "
 },
 {
-  "id": "def-null-hypothesis",
+  "id": "subsec-ht-framework-4",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#def-null-hypothesis",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#subsec-ht-framework-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hypotheses "
+},
+{
+  "id": "def-null-alternative-hypotheses-2",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#def-null-alternative-hypotheses-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "null hypothesis ( ) alternative hypothesis ( ) "
+},
+{
+  "id": "subsec-ht-framework-9",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-ht-framework-9",
+  "type": "Checkpoint",
   "number": "5.3.1",
-  "title": "Null Hypothesis.",
-  "body": " Null Hypothesis   The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested. It typically represents a position of no difference or no effect.   "
+  "title": "",
+  "body": "  A US court considers two possible claims about a defendant: she is either innocent or guilty. If we set these claims up in a hypothesis framework, which would be the null hypothesis and which the alternative?    The jury considers whether the evidence is so convincing (strong) that there is no reasonable doubt regarding the person's guilt; in such a case, the jury rejects innocence (the null hypothesis) and concludes the defendant is guilty (alternative hypothesis).   "
 },
 {
-  "id": "def-alternative-hypothesis",
+  "id": "subsec-ht-framework-13",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#def-alternative-hypothesis",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#subsec-ht-framework-13",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "null value "
+},
+{
+  "id": "subsec-ht-framework-14",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-ht-framework-14",
+  "type": "Example",
   "number": "5.3.2",
-  "title": "Alternative Hypothesis.",
-  "body": " Alternative Hypothesis   The alternative hypothesis ( ) represents an alternative claim under consideration. It is often represented by a range of possible parameter values and is what the researcher hopes to show evidence for.   "
+  "title": "",
+  "body": "  It may seem impossible that the proportion of people who get the correct answer is exactly 33.3%. If we don't believe the null hypothesis, should we simply reject it?    No. While we may not buy into the notion that the proportion is exactly 33.3%, the hypothesis testing framework requires that there be strong evidence before we reject the null hypothesis and conclude something more interesting.  After all, even if we don't believe the proportion is exactly 33.3%, that doesn't really tell us anything useful! We would still be stuck with the original question: do people do better or worse than random guessing on Roslings' question? Without data that strongly points in one direction or the other, it is both uninteresting and pointless to reject .   "
 },
 {
-  "id": "def-null-value",
+  "id": "subsec-ht-framework-15",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#def-null-value",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#subsec-ht-framework-15",
+  "type": "Checkpoint",
   "number": "5.3.3",
-  "title": "Null Value.",
-  "body": " Null Value   The null value is the value of the parameter under the null hypothesis. It is common to label the null value with a subscript 0. For example, if the null hypothesis is , then the null value is .   "
+  "title": "",
+  "body": "  Another example of a real-world hypothesis testing situation is evaluating whether a new drug is better or worse than an existing drug at treating a particular disease. What should we use for the null and alternative hypotheses in this case?    The null hypothesis ( ) in this case is the declaration of no difference : the drugs are equally effective. The alternative hypothesis ( ) is that the new drug performs differently than the original, i.e. it could perform better or worse.   "
 },
 {
-  "id": "ex-coal-hypotheses",
+  "id": "subsec-ht-confidence-intervals-6",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-coal-hypotheses",
+  "url": "sec-hypothesis-testing.html#subsec-ht-confidence-intervals-6",
   "type": "Example",
   "number": "5.3.4",
-  "title": "Setting up hypotheses for coal energy.",
-  "body": " Setting up hypotheses for coal energy   Pew Research asked a random sample of 1,000 American adults whether they supported the increased usage of coal to produce energy. Set up hypotheses to evaluate whether a majority of American adults support or oppose the increased usage of coal.    The uninteresting result is that there is no majority either way: half support and half oppose. The alternative hypothesis would be that there is a majority support or oppose (though we don't know which).  If represents the proportion supporting, we write the hypotheses as:   In this case, the null value is . This is a two-sided test because the alternative hypothesis includes values both less than and greater than 0.5.   "
+  "title": "",
+  "body": "  Check whether it is reasonable to construct a confidence interval for using the sample data, and if so, construct a 95% confidence interval.    The conditions are met for to be approximately normal: the data come from a simple random sample (satisfies independence), and and are both at least 10 (success-failure condition).  To construct the confidence interval, we will need to identify the point estimate ( ), the critical value for the 95% confidence level ( ), and the standard error of ( ). With those pieces, the confidence interval for can be constructed:   We are 95% confident that the proportion of all college-educated adults to correctly answer this particular question about infant vaccination is between 12.2% and 35.8%.   "
 },
 {
-  "id": "ex-coal-ci-test",
+  "id": "subsec-ht-confidence-intervals-8",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-coal-ci-test",
+  "url": "sec-hypothesis-testing.html#subsec-ht-confidence-intervals-8",
   "type": "Example",
   "number": "5.3.5",
-  "title": "Testing coal hypothesis using confidence interval.",
-  "body": " Testing coal hypothesis using confidence interval   In the Pew Research poll, 370 out of 1,000 respondents (37%) supported expanding coal energy. Does this provide evidence that a majority opposes coal energy expansion? Use a 95% confidence interval.    First, construct a 95% confidence interval:   The null value is not in this interval (34.0% to 40.0%). Therefore, we reject the null hypothesis. We have strong evidence that a majority of American adults oppose expanding coal energy production.   "
+  "title": "",
+  "body": "  Explain why we cannot conclude that college-educated adults simply guessed on the infant vaccination question.    While we failed to reject , that does not necessarily mean the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of 50.   "
 },
 {
-  "id": "ex-rosling-infant-vaccination",
+  "id": "subsec-ht-confidence-intervals-10",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-rosling-infant-vaccination",
-  "type": "Example",
+  "url": "sec-hypothesis-testing.html#subsec-ht-confidence-intervals-10",
+  "type": "Checkpoint",
   "number": "5.3.6",
-  "title": "Infant vaccination knowledge using CI.",
-  "body": " Infant vaccination knowledge using CI   The Rosling Foundation studies public knowledge about global health and development. In one study, 50 college-educated adults were asked: \"What percentage of 1-year-old children in the world today have been vaccinated against some disease?\" The choices were: (A) 20%, (B) 50%, or (C) 80%. Only 12 out of 50 respondents (24%) chose the correct answer (C: 80%).  If respondents were simply guessing among the three options, we would expect about 33.3% to get it right by chance. Does the data provide strong evidence that college-educated adults perform differently than random guessing? Test using a 95% confidence interval.    First, check conditions. The data come from a simple random sample (independence), and and (success-failure). Conditions are met.  Calculate the standard error:   Construct the 95% confidence interval:   The null value is (33.3%), which falls within the confidence interval of 12.2% to 35.8%. Therefore, we cannot reject the null hypothesis. The data do not provide sufficient evidence that college-educated adults perform differently than random guessing on this question.   Important note: Failing to reject does not mean we've proven the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of 50 respondents.   "
+  "title": "",
+  "body": "  Let's move onto a second question posed by the Roslings:    There are 2 billion children in the world today aged 0-15 years old, how many children will there be in year 2100 according to the United Nations?    4 billion.  3 billion.  2 billion.    Set up appropriate hypotheses to evaluate whether college-educated adults are better than random guessing on this question. Also, see if you can guess the correct answer before checking the answer in the solution!    The appropriate hypotheses are:   : the proportion who get the answer correct is the same as random guessing: 1-in-3, or .   : the proportion who get the answer correct is different than random guessing, .  The correct answer to the question is 2 billion. While the world population is projected to increase, the average age is also expected to rise. That is, the majority of the population growth will happen in older age groups, meaning people are projected to live longer in the future across much of the world.   "
 },
 {
-  "id": "def-type-1-error",
+  "id": "subsec-ht-confidence-intervals-11",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#def-type-1-error",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#subsec-ht-confidence-intervals-11",
+  "type": "Checkpoint",
   "number": "5.3.7",
-  "title": "Type 1 Error.",
-  "body": " Type 1 Error   A Type 1 Error is rejecting the null hypothesis when is actually true. This is a false positive.   "
+  "title": "",
+  "body": "  This time we took a larger sample of 228 college-educated adults, 34 (14.9%) selected the correct answer to the question above: 2 billion. Can we model the sample proportion using a normal distribution and construct a confidence interval?    We check both conditions, which are satisfied, so it is reasonable to use a normal distribution for :   Independence. Since the data are from a simple random sample, the observations are independent.   Success-failure. We'll use in place of to check: and . Both are greater than 10, so the success-failure condition is satisfied.   "
 },
 {
-  "id": "def-type-2-error",
+  "id": "subsec-ht-confidence-intervals-12",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#def-type-2-error",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#subsec-ht-confidence-intervals-12",
+  "type": "Example",
   "number": "5.3.8",
-  "title": "Type 2 Error.",
-  "body": " Type 2 Error   A Type 2 Error is failing to reject the null hypothesis when the alternative hypothesis is actually true. This is a false negative.   "
+  "title": "",
+  "body": "  Compute a 95% confidence interval for the fraction of college-educated adults who answered the children-in-2100 question correctly, and evaluate the hypotheses from the previous exercise.    To compute the standard error, we'll again use in place of for the calculation:   In the previous exercise, we found that can be modeled using a normal distribution, which ensures a 95% confidence interval may be accurately constructed as   Because the null value, , is not in the confidence interval, a population proportion of 0.333 is implausible and we reject the null hypothesis. That is, the data provide statistically significant evidence that the actual proportion of college adults who get the children-in-2100 question correct is different from random guessing. Because the entire 95% confidence interval is below 0.333, we can conclude college-educated adults do worse than random guessing on this question.  One subtle consideration is that we used a 95% confidence interval. What if we had used a 99% confidence level? Or even a 99.9% confidence level? It's possible to come to a different conclusion if using a different confidence level. Therefore, when we make a conclusion based on confidence interval, we should also be sure it is clear what confidence level we used.   "
 },
 {
   "id": "table-decision-errors",
@@ -5091,15 +5136,60 @@ var ptx_lunr_docs = [
   "url": "sec-hypothesis-testing.html#table-decision-errors",
   "type": "Table",
   "number": "5.3.9",
-  "title": "Four possible outcomes in hypothesis testing",
-  "body": " Four possible outcomes in hypothesis testing     is true  is true    Reject  Type 1 Error  Correct Decision    Do not reject  Correct Decision  Type 2 Error    "
+  "title": "Four different scenarios for hypothesis tests.",
+  "body": " Four different scenarios for hypothesis tests.      Test conclusion      do not reject  reject in favor of     true  okay  Type 1 Error    Truth  true  Type 2 Error  okay    "
+},
+{
+  "id": "subsec-decision-errors-5",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-decision-errors-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Type 1 Error Type 2 Error "
+},
+{
+  "id": "subsec-decision-errors-6",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-decision-errors-6",
+  "type": "Checkpoint",
+  "number": "5.3.10",
+  "title": "",
+  "body": "  In a US court, the defendant is either innocent ( ) or guilty ( ). What does a Type 1 Error represent in this context? What does a Type 2 Error represent? may be useful.    If the court makes a Type 1 Error, this means the defendant is innocent ( true) but wrongly convicted. Note that a Type 1 Error is only possible if we've rejected the null hypothesis.  A Type 2 Error means the court failed to reject (i.e. failed to convict the person) when she was in fact guilty ( true). Note that a Type 2 Error is only possible if we have failed to reject the null hypothesis.   "
+},
+{
+  "id": "subsec-decision-errors-7",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-decision-errors-7",
+  "type": "Example",
+  "number": "5.3.11",
+  "title": "",
+  "body": "  How could we reduce the Type 1 Error rate in US courts? What influence would this have on the Type 2 Error rate?    To lower the Type 1 Error rate, we might raise our standard for conviction from beyond a reasonable doubt to beyond a conceivable doubt so fewer people would be wrongly convicted. However, this would also make it more difficult to convict the people who are actually guilty, so we would make more Type 2 Errors.   "
+},
+{
+  "id": "subsec-decision-errors-8",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-decision-errors-8",
+  "type": "Checkpoint",
+  "number": "5.3.12",
+  "title": "",
+  "body": "  How could we reduce the Type 2 Error rate in US courts? What influence would this have on the Type 1 Error rate?    To lower the Type 2 Error rate, we want to convict more guilty people. We could lower the standards for conviction from beyond a reasonable doubt to beyond a little doubt . Lowering the bar for guilt will also result in more wrongful convictions, raising the Type 1 Error rate.   "
+},
+{
+  "id": "subsec-decision-errors-10",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-decision-errors-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "significance level "
 },
 {
   "id": "def-significance-level",
   "level": "2",
   "url": "sec-hypothesis-testing.html#def-significance-level",
   "type": "Definition",
-  "number": "5.3.10",
+  "number": "5.3.13",
   "title": "Significance Level.",
   "body": " Significance Level   The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .   "
 },
@@ -5108,7 +5198,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#def-p-value",
   "type": "Definition",
-  "number": "5.3.11",
+  "number": "5.3.14",
   "title": "P-value.",
   "body": " P-value   The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value.   "
 },
@@ -5117,7 +5207,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-coal-p-value",
   "type": "Example",
-  "number": "5.3.12",
+  "number": "5.3.15",
   "title": "P-value for coal energy test.",
   "body": " P-value for coal energy test   Using the coal energy data ( , ), compute the p-value for testing versus .    First, check conditions using :   Calculate the standard error using :   Compute the Z-score:   This is an extremely large Z-score in magnitude. The probability of observing a Z-score this extreme (in either tail) is essentially 0. Therefore, .  Since the p-value is much less than 0.05, we reject . We have extremely strong evidence that a majority of American adults oppose expanding coal energy production.   "
 },
@@ -5126,7 +5216,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-nuclear-arms-reduction",
   "type": "Example",
-  "number": "5.3.13",
+  "number": "5.3.16",
   "title": "Nuclear arms reduction support.",
   "body": " Nuclear arms reduction support   A Gallup poll conducted in March 2013 found that 56% of a simple random sample of 1,028 US adults supported nuclear arms reduction. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5% significance level?    Set up hypotheses. We want to test whether a majority (more than 50%) support nuclear arms reduction:    Check conditions:    Independence: The poll was a simple random sample, so observations are independent.  Success-failure: Using the null proportion : .    Calculate: Compute the standard error using :   Calculate the test statistic:   For this two-sided test, we need to find the probability in both tails. A Z-score of 3.85 is extremely large. Looking at a standard normal table, the upper tail area is approximately 0.0001. Doubling this for the two-sided test: .   Conclude: Since , we reject . The poll provides convincing evidence that a majority of Americans supported nuclear arms reduction efforts in March 2013.   "
 },
@@ -5135,7 +5225,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#fig-nuclear-arms-p-value",
   "type": "Figure",
-  "number": "5.3.14",
+  "number": "5.3.17",
   "title": "",
   "body": " The sampling distribution centered at the null value for the nuclear arms test. The tails beyond the observed proportion show the p-value.   Normal distribution centered at 0.5 showing tail areas for nuclear arms test   "
 },
@@ -5144,7 +5234,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#fig-coal-p-value",
   "type": "Figure",
-  "number": "5.3.15",
+  "number": "5.3.18",
   "title": "",
   "body": " The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.   Normal distribution showing extremely small tail areas for coal test   "
 },
@@ -5162,7 +5252,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-stents-two-sided-important",
   "type": "Example",
-  "number": "5.3.16",
+  "number": "5.3.19",
   "title": "",
   "body": "  In Section , we encountered an example where doctors were interested in determining whether stents would help people who had a high risk of stroke. The researchers believed the stents would help. Unfortunately, the data showed the opposite: patients who received stents actually did worse. Why was using a two-sided test so important in this context?    Before the study, researchers had reason to believe that stents would help patients since existing research suggested stents helped in patients with heart attacks. It would surely have been tempting to use a one-sided test in this situation, and had they done this, they would have limited their ability to identify potential harm to patients.   "
 },
@@ -5171,7 +5261,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-why-not-choose-direction-after",
   "type": "Example",
-  "number": "5.3.17",
+  "number": "5.3.20",
   "title": "",
   "body": "  Why can't we simply run a one-sided test that goes in the direction of the data?    We've been building a careful framework that controls for the Type 1 Error, which is the significance level in a hypothesis test. We'll use the below to keep things simple.  Imagine we could pick the one-sided test after we saw the data. What will go wrong?   If is smaller than the null value, then a one-sided test where would mean that any observation in the lower 5% tail of the null distribution would lead to us rejecting .  If is larger than the null value, then a one-sided test where would mean that any observation in the upper 5% tail of the null distribution would lead to us rejecting .   Then if were true, there's a 10% chance of being in one of the two tails, so our testing error is actually , not 0.05. That is, not being careful about when to use one-sided tests effectively undermines the methods we're working so hard to develop and utilize.   "
 },
@@ -5180,7 +5270,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#subsec-one-sided-tests-13",
   "type": "Warning",
-  "number": "5.3.18",
+  "number": "5.3.21",
   "title": "",
   "body": " Use one-sided tests only when you have a strong reason to care about deviations in only one direction. If you're unsure, use a two-sided test.  "
 },
@@ -5194,29 +5284,11 @@ var ptx_lunr_docs = [
   "body": "statistically significant practically significant "
 },
 {
-  "id": "ex-nuclear-arms",
-  "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-nuclear-arms",
-  "type": "Exercise",
-  "number": "5.3.8.1",
-  "title": "",
-  "body": "  A Gallup poll of 1,028 adults found that 56% favored a nuclear arms reduction treaty. Does this provide strong evidence that a majority of American adults favor such a treaty? Conduct a hypothesis test using .   "
-},
-{
-  "id": "ex-type-errors-vaccine",
-  "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-type-errors-vaccine",
-  "type": "Exercise",
-  "number": "5.3.8.2",
-  "title": "",
-  "body": "  Consider a hypothesis test for whether a new vaccine is effective at reducing infection rates compared to a placebo. Describe what a Type 1 Error and a Type 2 Error would mean in this context, and discuss which might be more serious.   "
-},
-{
   "id": "ex-identify-hypotheses-1",
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-identify-hypotheses-1",
   "type": "Exercise",
-  "number": "5.3.8.3",
+  "number": "5.3.9.1",
   "title": "",
   "body": "  Write the null and alternative hypotheses in words and then symbols for each of the following situations.   A tutoring company would like to understand if most students tend to improve their grades (or not) after they use their services. They sample 200 of the students who used their service in the past year and ask them if their grades have improved or declined from the previous year.  Employers at a firm are worried about the effect of March Madness, a basketball championship held each spring in the US, on employee productivity. They estimate that on a regular business day employees spend on average 15 minutes of company time checking personal email, making personal phone calls, etc. They also collect data on how much company time employees spend on such non-business activities during March Madness. They want to determine if these data provide convincing evidence that employee productivity changed during March Madness.    "
 },
@@ -5225,7 +5297,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-identify-hypotheses-2",
   "type": "Exercise",
-  "number": "5.3.8.4",
+  "number": "5.3.9.2",
   "title": "",
   "body": "  Write the null and alternative hypotheses in words and using symbols for each of the following situations.   Since 2008, chain restaurants in California have been required to display calorie counts of each menu item. Prior to menus displaying calorie counts, the average calorie intake of diners at a restaurant was 1100 calories. After calorie counts started to be displayed on menus, a nutritionist collected data on the number of calories consumed at this restaurant from a random sample of diners. Do these data provide convincing evidence of a difference in the average calorie intake of diners at this restaurant?  The state of Wisconsin would like to understand the fraction of its adult residents that consumed alcohol in the last year, specifically if the rate is different from the national rate of 70%. To help them answer this question, they conduct a random sample of 852 residents and ask them about their alcohol consumption.    "
 },
@@ -5234,7 +5306,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-online-communication",
   "type": "Exercise",
-  "number": "5.3.8.5",
+  "number": "5.3.9.3",
   "title": "",
   "body": "  A study suggests that 60% of college students spend 10 or more hours per week communicating with others online. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. You randomly sample 160 students from your dorm and find that 70% spent 10 or more hours a week communicating with others online. A friend of yours, who offers to help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any errors you see.    "
 },
@@ -5243,7 +5315,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-married-at-25",
   "type": "Exercise",
-  "number": "5.3.8.6",
+  "number": "5.3.9.4",
   "title": "",
   "body": "  A study suggests that 25% of 25 year olds have gotten married. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. From a random sample of 25 year olds in census data with size 776, you find that 24% of them are married. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see.    "
 },
@@ -5252,7 +5324,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-cyberbullying-rates",
   "type": "Exercise",
-  "number": "5.3.8.7",
+  "number": "5.3.9.5",
   "title": "",
   "body": "  Teens were surveyed about cyberbullying, and 54% to 64% reported experiencing cyberbullying (95% confidence interval). Answer the following questions based on this interval.   A newspaper claims that a majority of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  A researcher conjectured that 70% of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the researcher from part (b) would be supported based on a 90% confidence interval?    "
 },
@@ -5261,7 +5333,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-er-wait-ci-ht",
   "type": "Exercise",
-  "number": "5.3.8.8",
+  "number": "5.3.9.6",
   "title": "",
   "body": "  The ER wait time exercise provides a 95% confidence interval for the mean waiting time at an emergency room (ER) of (128 minutes, 147 minutes). Answer the following questions based on this interval.   A local newspaper claims that the average waiting time at this ER exceeds 3 hours. Is this claim supported by the confidence interval? Explain your reasoning.  The Dean of Medicine at this hospital claims the average wait time is 2.2 hours. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the Dean from part (b) would be supported based on a 99% confidence interval?    "
 },
@@ -5270,7 +5342,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-minimum-wage-1",
   "type": "Exercise",
-  "number": "5.3.8.9",
+  "number": "5.3.9.7",
   "title": "",
   "body": "  Do a majority of US adults believe raising the minimum wage will help the economy, or is there a majority who do not believe this? A Rasmussen Reports survey of a random sample of 1,000 US adults found that 42% believe it will help the economy. Conduct an appropriate hypothesis test to help answer the research question.   "
 },
@@ -5279,7 +5351,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-getting-enough-sleep",
   "type": "Exercise",
-  "number": "5.3.8.10",
+  "number": "5.3.9.8",
   "title": "",
   "body": "  400 students were randomly sampled from a large university, and 289 said they did not get enough sleep. Conduct a hypothesis test to check whether this represents a statistically significant difference from 50%, and use a significance level of 0.01.   "
 },
@@ -5288,7 +5360,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-working-backwards-1",
   "type": "Exercise",
-  "number": "5.3.8.11",
+  "number": "5.3.9.9",
   "title": "",
   "body": "  You are given the following hypotheses:   We know the sample size is 90. For what sample proportion would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.   "
 },
@@ -5297,7 +5369,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-working-backwards-2",
   "type": "Exercise",
-  "number": "5.3.8.12",
+  "number": "5.3.9.10",
   "title": "",
   "body": "  You are given the following hypotheses:   We know that the sample size is 1,429. For what sample proportion would the p-value be equal to 0.01? Assume that all conditions necessary for inference are satisfied.   "
 },
@@ -5306,7 +5378,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-testing-fibromyalgia",
   "type": "Exercise",
-  "number": "5.3.8.13",
+  "number": "5.3.9.11",
   "title": "",
   "body": "  A patient named Diana was diagnosed with Fibromyalgia, a long-term syndrome of body pain, and was prescribed anti-depressants. Being the skeptic that she is, Diana didn't initially believe that anti-depressants would help her symptoms. However after a couple months of being on the medication she decides that the anti-depressants are working, because she feels like her symptoms are in fact getting better.   Write the hypotheses in words for Diana's skeptical position when she started taking the anti-depressants.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?    "
 },
@@ -5315,7 +5387,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-hypothesis-testing.html#ex-which-is-higher",
   "type": "Exercise",
-  "number": "5.3.8.14",
+  "number": "5.3.9.12",
   "title": "",
   "body": "  In each part below, there is a value of interest and two scenarios (I and II). For each part, report if the value of interest is larger under scenario I, scenario II, or whether the value is equal under the scenarios.   The standard error of when (I) or (II) .  The margin of error of a confidence interval when the confidence level is (I) 90% or (II) 80%.  The p-value for a Z-statistic of 2.5 calculated based on a (I) sample with or based on a (II) sample with .  The probability of making a Type 2 Error when the alternative hypothesis is true and the significance level is (I) 0.05 or (II) 0.10.    "
 },
@@ -5326,43 +5398,106 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.4",
   "title": "Chapter 5 Review Exercises",
-  "body": " Chapter 5 Review Exercises  This chapter introduced the foundational concepts of statistical inference:   Point estimates provide single best guesses for population parameters, but come with sampling error.  Confidence intervals provide a range of plausible values for parameters, accounting for sampling variability.  Hypothesis tests allow us to formally evaluate claims about population parameters using sample data.   These methods all rely on the Central Limit Theorem, which tells us that sample proportions follow an approximately normal distribution when certain conditions are met. The same framework extends to other parameters beyond proportions.   Review Exercises    A university wants to estimate the proportion of its students who are satisfied with campus dining options. A random sample of 500 students finds that 340 are satisfied.   Calculate a 90% confidence interval for the true proportion of satisfied students.  Interpret this interval in context.  Would a 95% confidence interval be wider or narrower? Why?       A political candidate claims that more than 60% of voters in a district support her platform. A poll of 400 randomly selected voters finds that 252 support her platform.   Set up appropriate hypotheses to test the candidate's claim.  Calculate the p-value for this test.  What conclusion would you draw at the level?       Explain the difference between a confidence interval and a hypothesis test. When would you use each method?      A researcher wants to estimate a population proportion with a margin of error no larger than 3% at the 95% confidence level. What sample size is required? (Hint: Use for the most conservative estimate.)     "
+  "body": " Chapter 5 Review Exercises  This chapter introduced the foundational concepts of statistical inference:   Point estimates provide single best guesses for population parameters, but come with sampling error.  Confidence intervals provide a range of plausible values for parameters, accounting for sampling variability.  Hypothesis tests allow us to formally evaluate claims about population parameters using sample data.   These methods all rely on the Central Limit Theorem, which tells us that sample proportions follow an approximately normal distribution when certain conditions are met. The same framework extends to other parameters beyond proportions.   Review Exercises    The General Social Survey asked the question: After an average work day, about how many hours do you have to relax or pursue activities that you enjoy? to a random sample of 1,155 Americans. A 95% confidence interval for the mean number of hours spent relaxing or pursuing activities they enjoy was (1.38, 1.92).   Interpret this interval in context of the data.  Suppose another set of researchers reported a confidence interval with a larger margin of error based on the same sample of 1,155 Americans. How does their confidence level compare to the confidence level of the interval stated above?  Suppose next year a new survey asking the same question is conducted, and this time the sample size is 2,500. Assuming that the population characteristics, with respect to how much time people spend relaxing after work, have not changed much within a year, how will the margin of error of the 95% confidence interval constructed based on data from the new survey compare to the margin of error of the interval stated above?       In , we learned that a Rasmussen Reports survey of 1,000 US adults found that 42% believe raising the minimum wage will help the economy. Construct a 99% confidence interval for the true proportion of US adults who believe this.      A food safety inspector is called upon to investigate a restaurant with a few customer reports of poor sanitation practices. The food safety inspector uses a hypothesis testing framework to evaluate whether regulations are not being met. If he decides the restaurant is in gross violation, its license to serve food will be revoked.   Write the hypotheses in words.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?  Which error is more problematic for the restaurant owner? Why?  Which error is more problematic for the diners? Why?  As a diner, would you prefer that the food safety inspector requires strong evidence or very strong evidence of health concerns before revoking a restaurant's license? Explain your reasoning.       Determine if the following statements are true or false, and explain your reasoning. If false, state how it could be corrected.   If a given value (for example, the null hypothesized value of a parameter) is within a 95% confidence interval, it will also be within a 99% confidence interval.  Decreasing the significance level ( ) will increase the probability of making a Type 1 Error.  Suppose the null hypothesis is and we fail to reject . Under this scenario, the true population proportion is 0.5.  With large sample sizes, even small differences between the null value and the observed point estimate, a difference often called the effect size, will be identified as statistically significant.       A USA Today\/Gallup poll asked a group of unemployed and underemployed Americans if they have had major problems in their relationships with their spouse or another close family member as a result of not having a job (if unemployed) or not having a full-time job (if underemployed). 27% of the 1,145 unemployed respondents and 25% of the 675 underemployed respondents said they had major problems in relationships as a result of their employment status.   What are the hypotheses for evaluating if the proportions of unemployed and underemployed people who had relationship problems were different?  The p-value for this hypothesis test is approximately 0.35. Explain what this means in context of the hypothesis test and the data.       It is believed that nearsightedness affects about 8% of all children. In a random sample of 194 children, 21 are nearsighted. Conduct a hypothesis test for the following question: do these data provide evidence that the 8% value is inaccurate?      The nutrition label on a bag of potato chips says that a one ounce (28 gram) serving of potato chips has 130 calories and contains ten grams of fat, with three grams of saturated fat. A random sample of 35 bags yielded a confidence interval for the number of calories per bag of 128.2 to 139.8 calories. Is there evidence that the nutrition label does not provide an accurate measure of calories in the bags of potato chips?      Define the term sampling distribution of the sample proportion, and describe how the shape, center, and spread of the sampling distribution change as the sample size increases when .      Determine whether the following statement is true or false, and explain your reasoning: With large sample sizes, even small differences between the null value and the observed point estimate can be statistically significant.       Suppose you conduct a hypothesis test based on a sample where the sample size is , and arrive at a p-value of 0.08. You then refer back to your notes and discover that you made a careless mistake, the sample size should have been . Will your p-value increase, decrease, or stay the same? Explain.      A study examined the average pay for men and women entering the workforce as doctors for 21 different positions.   If each gender was equally paid, then we would expect about half of those positions to have men paid more than women and women would be paid more than men in the other half of positions. Write appropriate hypotheses to test this scenario.  Men were, on average, paid more in 19 of those 21 positions. Supposing these 21 positions represent a simple random sample, complete a hypothesis test using your hypotheses from part (a).      "
 },
 {
-  "id": "sec-ch05-review-5-2",
+  "id": "ex-relax-after-work",
   "level": "2",
-  "url": "sec-ch05-review.html#sec-ch05-review-5-2",
+  "url": "sec-ch05-review.html#ex-relax-after-work",
   "type": "Exercise",
   "number": "5.4.1",
   "title": "",
-  "body": "  A university wants to estimate the proportion of its students who are satisfied with campus dining options. A random sample of 500 students finds that 340 are satisfied.   Calculate a 90% confidence interval for the true proportion of satisfied students.  Interpret this interval in context.  Would a 95% confidence interval be wider or narrower? Why?    "
+  "body": "  The General Social Survey asked the question: After an average work day, about how many hours do you have to relax or pursue activities that you enjoy? to a random sample of 1,155 Americans. A 95% confidence interval for the mean number of hours spent relaxing or pursuing activities they enjoy was (1.38, 1.92).   Interpret this interval in context of the data.  Suppose another set of researchers reported a confidence interval with a larger margin of error based on the same sample of 1,155 Americans. How does their confidence level compare to the confidence level of the interval stated above?  Suppose next year a new survey asking the same question is conducted, and this time the sample size is 2,500. Assuming that the population characteristics, with respect to how much time people spend relaxing after work, have not changed much within a year, how will the margin of error of the 95% confidence interval constructed based on data from the new survey compare to the margin of error of the interval stated above?    "
 },
 {
-  "id": "sec-ch05-review-5-3",
+  "id": "ex-minimum-wage-2",
   "level": "2",
-  "url": "sec-ch05-review.html#sec-ch05-review-5-3",
+  "url": "sec-ch05-review.html#ex-minimum-wage-2",
   "type": "Exercise",
   "number": "5.4.2",
   "title": "",
-  "body": "  A political candidate claims that more than 60% of voters in a district support her platform. A poll of 400 randomly selected voters finds that 252 support her platform.   Set up appropriate hypotheses to test the candidate's claim.  Calculate the p-value for this test.  What conclusion would you draw at the level?    "
+  "body": "  In , we learned that a Rasmussen Reports survey of 1,000 US adults found that 42% believe raising the minimum wage will help the economy. Construct a 99% confidence interval for the true proportion of US adults who believe this.   "
 },
 {
-  "id": "sec-ch05-review-5-4",
+  "id": "ex-testing-food-safety",
   "level": "2",
-  "url": "sec-ch05-review.html#sec-ch05-review-5-4",
+  "url": "sec-ch05-review.html#ex-testing-food-safety",
   "type": "Exercise",
   "number": "5.4.3",
   "title": "",
-  "body": "  Explain the difference between a confidence interval and a hypothesis test. When would you use each method?   "
+  "body": "  A food safety inspector is called upon to investigate a restaurant with a few customer reports of poor sanitation practices. The food safety inspector uses a hypothesis testing framework to evaluate whether regulations are not being met. If he decides the restaurant is in gross violation, its license to serve food will be revoked.   Write the hypotheses in words.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?  Which error is more problematic for the restaurant owner? Why?  Which error is more problematic for the diners? Why?  As a diner, would you prefer that the food safety inspector requires strong evidence or very strong evidence of health concerns before revoking a restaurant's license? Explain your reasoning.    "
 },
 {
-  "id": "sec-ch05-review-5-5",
+  "id": "ex-true-false-review",
   "level": "2",
-  "url": "sec-ch05-review.html#sec-ch05-review-5-5",
+  "url": "sec-ch05-review.html#ex-true-false-review",
   "type": "Exercise",
   "number": "5.4.4",
   "title": "",
-  "body": "  A researcher wants to estimate a population proportion with a margin of error no larger than 3% at the 95% confidence level. What sample size is required? (Hint: Use for the most conservative estimate.)   "
+  "body": "  Determine if the following statements are true or false, and explain your reasoning. If false, state how it could be corrected.   If a given value (for example, the null hypothesized value of a parameter) is within a 95% confidence interval, it will also be within a 99% confidence interval.  Decreasing the significance level ( ) will increase the probability of making a Type 1 Error.  Suppose the null hypothesis is and we fail to reject . Under this scenario, the true population proportion is 0.5.  With large sample sizes, even small differences between the null value and the observed point estimate, a difference often called the effect size, will be identified as statistically significant.    "
+},
+{
+  "id": "ex-unemployment-relationship",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-unemployment-relationship",
+  "type": "Exercise",
+  "number": "5.4.5",
+  "title": "",
+  "body": "  A USA Today\/Gallup poll asked a group of unemployed and underemployed Americans if they have had major problems in their relationships with their spouse or another close family member as a result of not having a job (if unemployed) or not having a full-time job (if underemployed). 27% of the 1,145 unemployed respondents and 25% of the 675 underemployed respondents said they had major problems in relationships as a result of their employment status.   What are the hypotheses for evaluating if the proportions of unemployed and underemployed people who had relationship problems were different?  The p-value for this hypothesis test is approximately 0.35. Explain what this means in context of the hypothesis test and the data.    "
+},
+{
+  "id": "ex-nearsighted",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-nearsighted",
+  "type": "Exercise",
+  "number": "5.4.6",
+  "title": "",
+  "body": "  It is believed that nearsightedness affects about 8% of all children. In a random sample of 194 children, 21 are nearsighted. Conduct a hypothesis test for the following question: do these data provide evidence that the 8% value is inaccurate?   "
+},
+{
+  "id": "ex-nutrition-labels",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-nutrition-labels",
+  "type": "Exercise",
+  "number": "5.4.7",
+  "title": "",
+  "body": "  The nutrition label on a bag of potato chips says that a one ounce (28 gram) serving of potato chips has 130 calories and contains ten grams of fat, with three grams of saturated fat. A random sample of 35 bags yielded a confidence interval for the number of calories per bag of 128.2 to 139.8 calories. Is there evidence that the nutrition label does not provide an accurate measure of calories in the bags of potato chips?   "
+},
+{
+  "id": "ex-clt-proportions",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-clt-proportions",
+  "type": "Exercise",
+  "number": "5.4.8",
+  "title": "",
+  "body": "  Define the term sampling distribution of the sample proportion, and describe how the shape, center, and spread of the sampling distribution change as the sample size increases when .   "
+},
+{
+  "id": "ex-practical-vs-statistical",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-practical-vs-statistical",
+  "type": "Exercise",
+  "number": "5.4.9",
+  "title": "",
+  "body": "  Determine whether the following statement is true or false, and explain your reasoning: With large sample sizes, even small differences between the null value and the observed point estimate can be statistically significant.    "
+},
+{
+  "id": "ex-same-obs-diff-n",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-same-obs-diff-n",
+  "type": "Exercise",
+  "number": "5.4.10",
+  "title": "",
+  "body": "  Suppose you conduct a hypothesis test based on a sample where the sample size is , and arrive at a p-value of 0.08. You then refer back to your notes and discover that you made a careless mistake, the sample size should have been . Will your p-value increase, decrease, or stay the same? Explain.   "
+},
+{
+  "id": "ex-gender-pay-gap",
+  "level": "2",
+  "url": "sec-ch05-review.html#ex-gender-pay-gap",
+  "type": "Exercise",
+  "number": "5.4.11",
+  "title": "",
+  "body": "  A study examined the average pay for men and women entering the workforce as doctors for 21 different positions.   If each gender was equally paid, then we would expect about half of those positions to have men paid more than women and women would be paid more than men in the other half of positions. Write appropriate hypotheses to test this scenario.  Men were, on average, paid more in 19 of those 21 positions. Supposing these 21 positions represent a simple random sample, complete a hypothesis test using your hypotheses from part (a).    "
 },
 {
   "id": "singleProportion",
@@ -5371,7 +5506,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "6.1",
   "title": "Inference for a single proportion",
-  "body": " Inference for a single proportion   We encountered inference methods for a single proportion in Chapter 5, exploring point estimates, confidence intervals, and hypothesis tests. In this section, we'll do a review of these topics and also how to choose an appropriate sample size when collecting data for single proportion contexts.    Identifying when the sample proportion is nearly normal  A sample proportion can be modeled using a normal distribution when the sample observations are independent and the sample size is sufficiently large.   Sampling distribution of  The sampling distribution for based on a sample of size from a population with a true proportion is nearly normal when:   The sample's observations are independent, e.g. are from a simple random sample.  We expected to see at least 10 successes and 10 failures in the sample, i.e. and . This is called the success-failure condition .   When these conditions are met, then the sampling distribution of is nearly normal with mean and standard error .   Typically we don't know the true proportion , so we substitute some value to check conditions and estimate the standard error. For confidence intervals, the sample proportion is used to check the success-failure condition and compute the standard error. For hypothesis tests, typically the null value that is, the proportion claimed in the null hypothesis is used in place of .    Confidence intervals for a proportion  A confidence interval provides a range of plausible values for the parameter , and when can be modeled using a normal distribution, the confidence interval for takes the form     A simple random sample of 826 payday loan borrowers was surveyed to better understand their interests around regulation and costs. 70% of the responses supported new regulations on payday lenders. Is it reasonable to model using a normal distribution?    The data are a random sample, so the observations are independent and representative of the population of interest.  We also must check the success-failure condition, which we do using in place of when computing a confidence interval:   Since both values are at least 10, we can use the normal distribution to model .      Estimate the standard error of . Because is unknown and the standard error is for a confidence interval, use in place of in the formula.     .      Construct a 95% confidence interval for , the proportion of payday borrowers who support increased regulation for payday lenders.    Using the point estimate 0.70, for a 95% confidence interval, and the standard error from Guided Practice , the confidence interval is   We are 95% confident that the true proportion of payday borrowers who supported regulation at the time of the poll was between 0.669 and 0.731.    For additional one-proportion confidence interval examples, see Section 5.2.    Hypothesis testing for a proportion  One possible regulation for payday lenders is that they would be required to do a credit check and evaluate debt payments against the borrower's finances. We would like to know: would borrowers support this form of regulation?    Set up hypotheses to evaluate whether borrowers have a majority support or majority opposition for this type of regulation.     : . : .    To apply the normal distribution framework in the context of a hypothesis test for a proportion, the independence and success-failure conditions must be satisfied. In a hypothesis test, the success-failure condition is checked using the null proportion: we verify and are at least 10, where is the null value.    Do payday loan borrowers support a regulation that would require lenders to pull their credit report and evaluate their debt payments? From a random sample of 826 borrowers, 51% said they would support such a regulation. Is it reasonable to model using a normal distribution for a hypothesis test here?    Independence holds since the poll is based on a random sample. The success-failure condition also holds, which is checked using the null value ( ) from : , .      Using the hypotheses and data from Guided Practice and , evaluate whether the poll provides convincing evidence that a majority of payday loan borrowers support a new regulation that would require lenders to pull credit reports and evaluate debt payments.    With hypotheses already set up and conditions checked, we can move onto calculations. The standard error in the context of a one-proportion hypothesis test is computed using the null value, :   A picture of the normal model is shown below with the p-value represented by the shaded region.   A normal distribution is shown with a center of 0.5 and a standard deviation of 0.017. Two tails are shaded: The region above 0.51 and a region in the corresponding lower tail. Visually, it looks like a little over half of the area under the normal curve is shaded.    Based on the normal model, the test statistic can be computed as the Z-score of the point estimate:   The single tail area is 0.2776, and the p-value, represented by both tail areas together, is 0.5552. Because the p-value is larger than 0.05, we do not reject . The poll does not provide convincing evidence that a majority of payday loan borrowers support or oppose regulations around credit checks and evaluation of debt payments.    For additional one-proportion hypothesis test examples, see Section 5.3.    When one or more conditions aren't met  We've spent a lot of time discussing conditions for when can be reasonably modeled by a normal distribution. What happens when the success-failure condition fails? What about when the independence condition fails? In either case, the general ideas of confidence intervals and hypothesis tests remain the same, but the strategy or technique used to generate the interval or p-value change.  When the success-failure condition isn't met for a hypothesis test, we can simulate the null distribution of using the null value, . The simulation concept is similar to the ideas used in the malaria case study presented in Section 5.1, and an online section outlines this strategy: www.openintro.org\/r?go=stat_sim_prop_ht   For a confidence interval when the success-failure condition isn't met, we can use what's called the Clopper-Pearson interval . The details are beyond the scope of this book. However, there are many internet resources covering this topic.  The independence condition is a more nuanced requirement. When it isn't met, it is important to understand how and why it isn't met. For example, if we took a cluster sample (see Section 1.3), suitable statistical methods are available but would be beyond the scope of even most second or third courses in statistics. On the other hand, we'd be stretched to find any method that we could confidently apply to correct the inherent biases of data from a convenience sample.  While this book is scoped to well-constrained statistical problems, do remember that this is just the first book in what is a large library of statistical methods that are suitable for a very wide range of data and contexts.    Choosing a sample size when estimating a proportion  When collecting data, we choose a sample size suitable for the purpose of the study. Often times this means choosing a sample size large enough that the margin of error which is the part we add and subtract from the point estimate in a confidence interval is sufficiently small that the sample is useful. For example, our task might be to find a sample size so that the sample proportion is within of the actual proportion in a 95% confidence interval.    A university newspaper is conducting a survey to determine what fraction of students support a $200 per year increase in fees to pay for a new football stadium. How big of a sample is required to ensure the margin of error is smaller than 0.04 using a 95% confidence level?    The margin of error for a sample proportion is   Our goal is to find the smallest sample size so that this margin of error is smaller than 0.04. For a 95% confidence level, the value corresponds to 1.96:   There are two unknowns in the equation: and . If we have an estimate of , perhaps from a prior survey, we could enter in that value and solve for . If we have no such estimate, we must use some other value for . It turns out that the margin of error is largest when is 0.5, so we typically use this worst case value if no estimate of the proportion is available:   We would need over 600.25 participants, which means we need 601 participants or more, to ensure the sample proportion is within 0.04 of the true proportion with 95% confidence.    When an estimate of the proportion is available, we use it in place of the worst case proportion value, 0.5.    A manager is about to oversee the mass production of a new tire model in her factory, and she would like to estimate what proportion of these tires will be rejected through quality control. The quality control team has monitored the last three tire models produced by the factory, failing 1.7% of tires in the first model, 6.2% of the second model, and 1.3% of the third model. The manager would like to examine enough tires to estimate the failure rate of the new tire model to within about 1% with a 90% confidence level. There are three different failure rates to choose from. Perform the sample size computation for each separately, and identify three sample sizes to consider.    For a 90% confidence interval, , and since an estimate of the proportion 0.017 is available, we'll use it in the margin of error formula:   For sample size calculations, we always round up, so the first tire model suggests 453 tires would be sufficient.  A similar computation can be accomplished using 0.062 and 0.013 for , and you should verify that using these proportions results in minimum sample sizes of 1574 and 348 tires, respectively.      The sample sizes vary widely in Guided Practice . Which of the three would you suggest using? What would influence your choice?    We could examine which of the old models is most like the new model, then choose the corresponding sample size. Or if two of the previous estimates are based on small samples while the other is based on a larger sample, we might consider the value corresponding to the larger sample. There are also other reasonable approaches.  Also observe that the success-failure condition would need to be checked in the final sample. For instance, if we sampled tires and found a failure rate of 0.5%, the normal approximation would not be reasonable, and we would require more advanced statistical methods for creating the confidence interval.      Suppose we want to continually track the support of payday borrowers for regulation on lenders, where we would conduct a new poll every month. Running such frequent polls is expensive, so we decide a wider margin of error of 5% for each individual survey would be acceptable. Based on the original sample of borrowers where 70% supported some form of regulation, how big should our monthly sample be for a margin of error of 0.05 with 95% confidence?    We complete the same computations as before, except now we use 0.70 instead of 0.5 for :   A sample size of 323 or more would be reasonable. (Reminder: always round up for sample size calculations!) Given that we plan to track this poll over time, we also may want to periodically repeat these calculations to ensure that we're being thoughtful in our sample size recommendations in case the baseline rate fluctuates.     "
+  "body": " Inference for a single proportion   We encountered inference methods for a single proportion in Chapter 5, exploring point estimates, confidence intervals, and hypothesis tests. In this section, we'll do a review of these topics and also how to choose an appropriate sample size when collecting data for single proportion contexts.    Identifying when the sample proportion is nearly normal  A sample proportion can be modeled using a normal distribution when the sample observations are independent and the sample size is sufficiently large.   Sampling distribution of  The sampling distribution for based on a sample of size from a population with a true proportion is nearly normal when:   The sample's observations are independent, e.g. are from a simple random sample.  We expected to see at least 10 successes and 10 failures in the sample, i.e. and . This is called the success-failure condition .   When these conditions are met, then the sampling distribution of is nearly normal with mean and standard error .   Typically we don't know the true proportion , so we substitute some value to check conditions and estimate the standard error. For confidence intervals, the sample proportion is used to check the success-failure condition and compute the standard error. For hypothesis tests, typically the null value that is, the proportion claimed in the null hypothesis is used in place of .    Confidence intervals for a proportion  A confidence interval provides a range of plausible values for the parameter , and when can be modeled using a normal distribution, the confidence interval for takes the form     A simple random sample of 826 payday loan borrowers was surveyed to better understand their interests around regulation and costs. 70% of the responses supported new regulations on payday lenders. Is it reasonable to model using a normal distribution?    The data are a random sample, so the observations are independent and representative of the population of interest.  We also must check the success-failure condition, which we do using in place of when computing a confidence interval:   Since both values are at least 10, we can use the normal distribution to model .      Estimate the standard error of . Because is unknown and the standard error is for a confidence interval, use in place of in the formula.     .      Construct a 95% confidence interval for , the proportion of payday borrowers who support increased regulation for payday lenders.    Using the point estimate 0.70, for a 95% confidence interval, and the standard error from Guided Practice , the confidence interval is   We are 95% confident that the true proportion of payday borrowers who supported regulation at the time of the poll was between 0.669 and 0.731.     Confidence interval for a single proportion  Once you've determined a one-proportion confidence interval would be helpful for an application, there are four steps to constructing the interval:    Prepare.  Identify and , and determine what confidence level you wish to use.    Check.  Verify the conditions to ensure is nearly normal. For one-proportion confidence intervals, use in place of to check the success-failure condition.    Calculate.  If the conditions hold, compute using , find , and construct the interval.    Conclude.  Interpret the confidence interval in the context of the problem.     For additional one-proportion confidence interval examples, see Section 5.2.    Hypothesis testing for a proportion  One possible regulation for payday lenders is that they would be required to do a credit check and evaluate debt payments against the borrower's finances. We would like to know: would borrowers support this form of regulation?    Set up hypotheses to evaluate whether borrowers have a majority support or majority opposition for this type of regulation.     : . : .    To apply the normal distribution framework in the context of a hypothesis test for a proportion, the independence and success-failure conditions must be satisfied. In a hypothesis test, the success-failure condition is checked using the null proportion: we verify and are at least 10, where is the null value.    Do payday loan borrowers support a regulation that would require lenders to pull their credit report and evaluate their debt payments? From a random sample of 826 borrowers, 51% said they would support such a regulation. Is it reasonable to model using a normal distribution for a hypothesis test here?    Independence holds since the poll is based on a random sample. The success-failure condition also holds, which is checked using the null value ( ) from : , .      Using the hypotheses and data from Guided Practice and , evaluate whether the poll provides convincing evidence that a majority of payday loan borrowers support a new regulation that would require lenders to pull credit reports and evaluate debt payments.    With hypotheses already set up and conditions checked, we can move onto calculations. The standard error in the context of a one-proportion hypothesis test is computed using the null value, :   A picture of the normal model is shown below with the p-value represented by the shaded region.   A normal distribution is shown with a center of 0.5 and a standard deviation of 0.017. Two tails are shaded: The region above 0.51 and a region in the corresponding lower tail. Visually, it looks like a little over half of the area under the normal curve is shaded.    Based on the normal model, the test statistic can be computed as the Z-score of the point estimate:   The single tail area is 0.2776, and the p-value, represented by both tail areas together, is 0.5552. Because the p-value is larger than 0.05, we do not reject . The poll does not provide convincing evidence that a majority of payday loan borrowers support or oppose regulations around credit checks and evaluation of debt payments.     Hypothesis testing for a single proportion  Once you've determined a one-proportion hypothesis test is the correct procedure, there are four steps to completing the test:    Prepare.  Identify the parameter of interest, list hypotheses, identify the significance level, and identify and .    Check.  Verify conditions to ensure is nearly normal under . For one-proportion hypothesis tests, use the null value to check the success-failure condition.    Calculate.  If the conditions hold, compute the standard error, again using , compute the Z-score, and identify the p-value.    Conclude.  Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.     For additional one-proportion hypothesis test examples, see Section 5.3.    When one or more conditions aren't met  We've spent a lot of time discussing conditions for when can be reasonably modeled by a normal distribution. What happens when the success-failure condition fails? What about when the independence condition fails? In either case, the general ideas of confidence intervals and hypothesis tests remain the same, but the strategy or technique used to generate the interval or p-value change.  When the success-failure condition isn't met for a hypothesis test, we can simulate the null distribution of using the null value, . The simulation concept is similar to the ideas used in the malaria case study presented in Section 5.1, and an online section outlines this strategy: www.openintro.org\/r?go=stat_sim_prop_ht   For a confidence interval when the success-failure condition isn't met, we can use what's called the Clopper-Pearson interval . The details are beyond the scope of this book. However, there are many internet resources covering this topic.  The independence condition is a more nuanced requirement. When it isn't met, it is important to understand how and why it isn't met. For example, if we took a cluster sample (see Section 1.3), suitable statistical methods are available but would be beyond the scope of even most second or third courses in statistics. On the other hand, we'd be stretched to find any method that we could confidently apply to correct the inherent biases of data from a convenience sample.  While this book is scoped to well-constrained statistical problems, do remember that this is just the first book in what is a large library of statistical methods that are suitable for a very wide range of data and contexts.    Choosing a sample size when estimating a proportion  When collecting data, we choose a sample size suitable for the purpose of the study. Often times this means choosing a sample size large enough that the margin of error which is the part we add and subtract from the point estimate in a confidence interval is sufficiently small that the sample is useful. For example, our task might be to find a sample size so that the sample proportion is within of the actual proportion in a 95% confidence interval.    A university newspaper is conducting a survey to determine what fraction of students support a $200 per year increase in fees to pay for a new football stadium. How big of a sample is required to ensure the margin of error is smaller than 0.04 using a 95% confidence level?    The margin of error for a sample proportion is   Our goal is to find the smallest sample size so that this margin of error is smaller than 0.04. For a 95% confidence level, the value corresponds to 1.96:   There are two unknowns in the equation: and . If we have an estimate of , perhaps from a prior survey, we could enter in that value and solve for . If we have no such estimate, we must use some other value for . It turns out that the margin of error is largest when is 0.5, so we typically use this worst case value if no estimate of the proportion is available:   We would need over 600.25 participants, which means we need 601 participants or more, to ensure the sample proportion is within 0.04 of the true proportion with 95% confidence.    When an estimate of the proportion is available, we use it in place of the worst case proportion value, 0.5.    A manager is about to oversee the mass production of a new tire model in her factory, and she would like to estimate what proportion of these tires will be rejected through quality control. The quality control team has monitored the last three tire models produced by the factory, failing 1.7% of tires in the first model, 6.2% of the second model, and 1.3% of the third model. The manager would like to examine enough tires to estimate the failure rate of the new tire model to within about 1% with a 90% confidence level. There are three different failure rates to choose from. Perform the sample size computation for each separately, and identify three sample sizes to consider.    For a 90% confidence interval, , and since an estimate of the proportion 0.017 is available, we'll use it in the margin of error formula:   For sample size calculations, we always round up, so the first tire model suggests 453 tires would be sufficient.  A similar computation can be accomplished using 0.062 and 0.013 for , and you should verify that using these proportions results in minimum sample sizes of 1574 and 348 tires, respectively.      The sample sizes vary widely in Guided Practice . Which of the three would you suggest using? What would influence your choice?    We could examine which of the old models is most like the new model, then choose the corresponding sample size. Or if two of the previous estimates are based on small samples while the other is based on a larger sample, we might consider the value corresponding to the larger sample. There are also other reasonable approaches.  Also observe that the success-failure condition would need to be checked in the final sample. For instance, if we sampled tires and found a failure rate of 0.5%, the normal approximation would not be reasonable, and we would require more advanced statistical methods for creating the confidence interval.      Suppose we want to continually track the support of payday borrowers for regulation on lenders, where we would conduct a new poll every month. Running such frequent polls is expensive, so we decide a wider margin of error of 5% for each individual survey would be acceptable. Based on the original sample of borrowers where 70% supported some form of regulation, how big should our monthly sample be for a margin of error of 0.05 with 95% confidence?    We complete the same computations as before, except now we use 0.70 instead of 0.5 for :   A sample size of 323 or more would be reasonable. (Reminder: always round up for sample size calculations!) Given that we plan to track this poll over time, we also may want to periodically repeat these calculations to ensure that we're being thoughtful in our sample size recommendations in case the baseline rate fluctuates.     "
 },
 {
   "id": "ex-payday-normal-check",
@@ -5892,161 +6027,1088 @@ var ptx_lunr_docs = [
   "url": "sec-chi-square-independence.html",
   "type": "Section",
   "number": "6.4",
-  "title": "Testing for Independence in Two-Way Tables",
-  "body": " Testing for Independence in Two-Way Tables   A two-way table (also called a contingency table ) summarizes data for two categorical variables. We often want to know: Are these two variables independent, or is there an association between them?    Two-Way Tables and Expected Counts  In a two-way table, we organize data by two categorical variables. To test for independence, we compare observed counts to expected counts under the assumption that the variables are independent.   Computing Expected Counts  If two variables are independent, the expected count for a cell in row and column is:      The Chi-Square Test for Independence  The chi-square test for independence uses the same test statistic as the goodness of fit test:   However, the degrees of freedom are calculated differently:    Hypotheses:    : The two variables are independent.  : The two variables are not independent (they are associated).    Conditions:    Independence: Each case that contributes a count to the table must be independent of all other cases.  Sample size: Each expected count must be at least 5.    The chi-square test for independence tells us whether there is an association, but it doesn't tell us the nature or strength of that association. If the test is significant, examine the table and consider computing row or column proportions to understand the relationship.     Limitations of Chi-Square Tests  Important considerations when using chi-square tests:   Chi-square tests can only establish whether an association exists; they do not determine causation.  The test requires all expected counts to be at least 5. If this condition is not met, consider combining categories or using an alternative test (such as Fisher's exact test).  Large sample sizes can make even trivial differences statistically significant. Always consider practical significance alongside statistical significance.  Chi-square tests work with counts, not percentages or proportions. Make sure your data are in the correct form.    "
+  "title": "Testing for independence in two-way tables",
+  "body": " Testing for independence in two-way tables   We all buy used products cars, computers, textbooks, and so on and we sometimes assume the sellers of those products will be forthright about any underlying problems with what they're selling. This is not something we should take for granted. Researchers recruited 219 participants in a study where they would sell a used iPod For readers not as old as the authors, an iPod is basically an iPhone without any cellular service, assuming it was one of the later generations. Earlier generations were more basic. that was known to have frozen twice in the past. The participants were incentivized to get as much money as they could for the iPod since they would receive a 5% cut of the sale on top of $10 for participating. The researchers wanted to understand what types of questions would elicit the seller to disclose the freezing issue.  Unbeknownst to the participants who were the sellers in the study, the buyers were collaborating with the researchers to evaluate the influence of different questions on the likelihood of getting the sellers to disclose the past issues with the iPod. The scripted buyers started with Okay, I guess I'm supposed to go first. So you've had the iPod for 2 years and ended with one of three questions:   General: What can you tell me about it?  Positive Assumption: It doesn't have any problems, does it?  Negative Assumption: What problems does it have?   The question is the treatment given to the sellers, and the response is whether the question prompted them to disclose the freezing issue with the iPod. The results are shown in , and the data suggest that asking What problems does it have? was the most effective at getting the seller to disclose the past freezing issues. However, you should also be asking yourself: could we see these results due to chance alone, or is this in fact evidence that some questions are more effective for getting at the truth?   Summary of the iPod study, where a question was posed to the study participant who acted as the seller     General  Positive Assumption  Negative Assumption  Total    Disclose Problem  2  23  36  61    Hide Problem  71  50  37  158    Total  73  73  73  219      Differences of one-way tables vs two-way tables  A one-way table describes counts for each outcome in a single variable. A two-way table describes counts for combinations of outcomes for two variables. When we consider a two-way table, we often would like to know, are these variables related in any way? That is, are they dependent (versus independent)?   The hypothesis test for the iPod experiment is really about assessing whether there is statistically significant evidence of the success each question had on getting the participant to disclose the problem with the iPod. In other words, the goal is to check whether the buyer's question was independent of whether the seller disclosed a problem.    Expected counts in two-way tables  Like with one-way tables, we will need to compute estimated counts for each cell in a two-way table.   Computing expected counts for the General group   From the experiment, we can compute the proportion of all sellers who disclosed the freezing problem as . If there really is no difference among the questions and 27.85% of sellers were going to disclose the freezing problem no matter the question that was put to them, how many of the 73 people in the General group would we have expected to disclose the freezing problem?    We would predict that sellers would disclose the problem. Obviously we observed fewer than this, though it is not yet clear if that is due to chance variation or whether that is because the questions vary in how effective they are at getting to the truth.      If the questions were actually equally effective, meaning about 27.85% of respondents would disclose the freezing issue regardless of what question they were asked, about how many sellers would we expect to hide the freezing problem from the Positive Assumption group?    We would expect . It is okay that this result, like the result from , is a fraction.    We can compute the expected number of sellers who we would expect to disclose or hide the freezing issue for all groups, if the questions had no impact on what they disclosed, using the same strategy employed in and . These expected counts were used to construct , which is the same as , except now the expected counts have been added in parentheses.   The observed counts and the (expected counts)     General  Positive Assumption  Negative Assumption  Total    Disclose Problem  2 (20.33)  23 (20.33)  36 (20.33)  61    Hide Problem  71 (52.67)  50 (52.67)  37 (52.67)  158    Total  73  73  73  219     The examples and exercises above provided some help in computing expected counts. In general, expected counts for a two-way table may be computed using the row totals, column totals, and the table total. For instance, if there was no difference between the groups, then about 27.85% of each column should be in the first row:   Looking back to how 0.2785 was computed as the fraction of sellers who disclosed the freezing issue ( ) these three expected counts could have been computed as   This leads us to a general formula for computing expected counts in a two-way table when we would like to test whether there is strong evidence of an association between the column variable and row variable.   Computing expected counts in a two-way table  To identify the expected count for the row and column, compute      The chi-square test for two-way tables  The chi-square test statistic for a two-way table is found the same way it is found for a one-way table. For each table count, compute   Adding the computed value for each cell gives the chi-square test statistic :   Just like before, this test statistic follows a chi-square distribution. However, the degrees of freedom are computed a little differently for a two-way table. Recall: in the one-way table, the degrees of freedom was the number of cells minus 1. For two-way tables, the degrees of freedom is equal to   In our example, the degrees of freedom parameter is   If the null hypothesis is true (i.e. the questions had no impact on the sellers in the experiment), then the test statistic closely follows a chi-square distribution with 2 degrees of freedom. Using this information, we can compute the p-value for the test, which is depicted in .   Computing degrees of freedom for a two-way table  When applying the chi-square test to a two-way table, we use   where is the number of rows in the table and is the number of columns.   When analyzing 2-by-2 contingency tables, one guideline is to use the two-proportion methods introduced in Section 6.2.   Visualization of the p-value for when     Finding the p-value for the iPod experiment   Find the p-value and draw a conclusion about whether the question affects the seller's likelihood of reporting the freezing problem.    Using a computer, we can compute a very precise value for the tail area above for a chi-square distribution with 2 degrees of freedom: 0.000000002. (If using the table in Appendix C, we would identify the p-value is smaller than 0.001.) Using a significance level of , the null hypothesis is rejected since the p-value is smaller. That is, the data provide convincing evidence that the question asked did affect a seller's likelihood to tell the truth about problems with the iPod.     Diabetes treatment study hypotheses    summarizes the results of an experiment evaluating three treatments for Type 2 Diabetes in patients aged 10-17 who were being treated with metformin. The three treatments considered were continued treatment with metformin (met), treatment with metformin combined with rosiglitazone (rosi), or a lifestyle intervention program. Each patient had a primary outcome, which either lacked glycemic control (failure) or did not lack that control (success). What are appropriate hypotheses for this test?      : There is no difference in the effectiveness of the three treatments.  : There is some difference in effectiveness between the three treatments, e.g. perhaps the rosi treatment performed better than lifestyle.       Results for the Type 2 Diabetes study     Failure  Success  Total    lifestyle  109  125  234    met  120  112  232    rosi  90  143  233    Total  319  380  699       A chi-square test for a two-way table may be used to test the hypotheses in . As a first step, compute the expected values for each of the six table cells.    The expected count for row one \/ column one is found by multiplying the row one total (234) and column one total (319), then dividing by the table total (699): . Similarly for the second column and the first row: . Row 2: 105.9 and 126.1. Row 3: 106.3 and 126.7.      Compute the chi-square test statistic for the data in .    For each cell, compute . For instance, the first row and first column: . Adding the results of each cell gives the chi-square test statistic: .      Because there are 3 rows and 2 columns, the degrees of freedom for the test is . Use , , and evaluate whether to reject the null hypothesis using a significance level of 0.05.    If using a computer, we can identify the p-value as 0.017. That is, we reject the null hypothesis because the p-value is less than 0.05, and we conclude that at least one of the treatments is more or less effective than the others at treating Type 2 Diabetes for glycemic control.      Section Exercises   Quitters   Does being part of a support group affect the ability of people to quit smoking? A county health department enrolled 300 smokers in a randomized experiment. 150 participants were assigned to a group that used a nicotine patch and met weekly with a support group; the other 150 received the patch and did not meet with a support group. At the end of the study, 40 of the participants in the patch plus support group had quit smoking while only 30 smokers had quit in the other group.   Create a two-way table presenting the results of this study.   Answer each of the following questions under the null hypothesis that being part of a support group does not affect the ability of people to quit smoking, and indicate whether the expected values are higher or lower than the observed values.   How many subjects in the patch + support group would you expect to quit?  How many subjects in the patch only group would you expect to not quit?        Full body scan, Part II   The table below summarizes a data set we first encountered in an earlier exercise regarding views on full-body scans and political affiliation. The differences in each political group may be due to chance. Complete the following computations under the null hypothesis of independence between an individual's party affiliation and their support of full-body scans. It may be useful to first add on an extra column for row totals before proceeding with the computations.   Full-body scan data by party affiliation      Party Affiliation      Republican  Democrat  Independent     Should  264  299  351    Answer  Should not  38  55  77     Don't know\/No answer  16  15  22     Total  318  369  450      How many Republicans would you expect to not support the use of full-body scans?  How many Democrats would you expect to support the use of full-body scans?  How many Independents would you expect to not know or not answer?      Offshore drilling, Part III   The table below summarizes a data set we first encountered in an earlier exercise that examines the responses of a random sample of college graduates and non-graduates on the topic of oil drilling. Complete a chi-square test for these data to check whether there is a statistically significant difference in responses from college graduates and non-graduates.   Offshore drilling data by college graduate status     College Grad     Yes  No    Support  154  132    Oppose  180  126    Do not know  104  131    Total  438  389        Parasitic worm   Lymphatic filariasis is a disease caused by a parasitic worm. Complications of the disease can lead to extreme swelling and other complications. Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of this parasite, which people are working to eliminate entirely. The results for the second year of the study are given below:   Parasitic worm treatment results     Clear at Year 2  Not Clear at Year 2    Three drugs  52  2    Two drugs  31  24    Two drugs annually  42  14      Set up hypotheses for evaluating whether there is any difference in the performance of the treatments, and also check conditions.   Statistical software was used to run a chi-square test, which output:   Use these results to evaluate the hypotheses from part (a), and provide a conclusion in the context of the problem.       "
 },
 {
-  "id": "sec-chi-square-independence-2-1",
+  "id": "table-ipod-ask-data-summary",
   "level": "2",
-  "url": "sec-chi-square-independence.html#sec-chi-square-independence-2-1",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "contingency table "
+  "url": "sec-chi-square-independence.html#table-ipod-ask-data-summary",
+  "type": "Table",
+  "number": "6.4.1",
+  "title": "Summary of the iPod study, where a question was posed to the study participant who acted as the seller",
+  "body": " Summary of the iPod study, where a question was posed to the study participant who acted as the seller     General  Positive Assumption  Negative Assumption  Total    Disclose Problem  2  23  36  61    Hide Problem  71  50  37  158    Total  73  73  73  219    "
 },
 {
-  "id": "sec-ch07-review",
+  "id": "ex-ipod-compute-exp-aa",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#ex-ipod-compute-exp-aa",
+  "type": "Example",
+  "number": "6.4.2",
+  "title": "Computing expected counts for the General group.",
+  "body": " Computing expected counts for the General group   From the experiment, we can compute the proportion of all sellers who disclosed the freezing problem as . If there really is no difference among the questions and 27.85% of sellers were going to disclose the freezing problem no matter the question that was put to them, how many of the 73 people in the General group would we have expected to disclose the freezing problem?    We would predict that sellers would disclose the problem. Obviously we observed fewer than this, though it is not yet clear if that is due to chance variation or whether that is because the questions vary in how effective they are at getting to the truth.   "
+},
+{
+  "id": "exercise-ipod-compute-exp-bb",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-ipod-compute-exp-bb",
+  "type": "Checkpoint",
+  "number": "6.4.3",
+  "title": "",
+  "body": "  If the questions were actually equally effective, meaning about 27.85% of respondents would disclose the freezing issue regardless of what question they were asked, about how many sellers would we expect to hide the freezing problem from the Positive Assumption group?    We would expect . It is okay that this result, like the result from , is a fraction.   "
+},
+{
+  "id": "table-ipod-ask-expected",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#table-ipod-ask-expected",
+  "type": "Table",
+  "number": "6.4.4",
+  "title": "The observed counts and the (expected counts)",
+  "body": " The observed counts and the (expected counts)     General  Positive Assumption  Negative Assumption  Total    Disclose Problem  2 (20.33)  23 (20.33)  36 (20.33)  61    Hide Problem  71 (52.67)  50 (52.67)  37 (52.67)  158    Total  73  73  73  219    "
+},
+{
+  "id": "fig-ipod-chi-sq-tail",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#fig-ipod-chi-sq-tail",
+  "type": "Figure",
+  "number": "6.4.5",
+  "title": "",
+  "body": " Visualization of the p-value for when   "
+},
+{
+  "id": "ex-ipod-pvalue",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#ex-ipod-pvalue",
+  "type": "Example",
+  "number": "6.4.6",
+  "title": "Finding the p-value for the iPod experiment.",
+  "body": " Finding the p-value for the iPod experiment   Find the p-value and draw a conclusion about whether the question affects the seller's likelihood of reporting the freezing problem.    Using a computer, we can compute a very precise value for the tail area above for a chi-square distribution with 2 degrees of freedom: 0.000000002. (If using the table in Appendix C, we would identify the p-value is smaller than 0.001.) Using a significance level of , the null hypothesis is rejected since the p-value is smaller. That is, the data provide convincing evidence that the question asked did affect a seller's likelihood to tell the truth about problems with the iPod.   "
+},
+{
+  "id": "ex-diabetes-hypotheses",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#ex-diabetes-hypotheses",
+  "type": "Example",
+  "number": "6.4.7",
+  "title": "Diabetes treatment study hypotheses.",
+  "body": " Diabetes treatment study hypotheses    summarizes the results of an experiment evaluating three treatments for Type 2 Diabetes in patients aged 10-17 who were being treated with metformin. The three treatments considered were continued treatment with metformin (met), treatment with metformin combined with rosiglitazone (rosi), or a lifestyle intervention program. Each patient had a primary outcome, which either lacked glycemic control (failure) or did not lack that control (success). What are appropriate hypotheses for this test?      : There is no difference in the effectiveness of the three treatments.  : There is some difference in effectiveness between the three treatments, e.g. perhaps the rosi treatment performed better than lifestyle.     "
+},
+{
+  "id": "table-diabetes-summary",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#table-diabetes-summary",
+  "type": "Table",
+  "number": "6.4.8",
+  "title": "Results for the Type 2 Diabetes study",
+  "body": " Results for the Type 2 Diabetes study     Failure  Success  Total    lifestyle  109  125  234    met  120  112  232    rosi  90  143  233    Total  319  380  699    "
+},
+{
+  "id": "exercise-diabetes-expected",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-diabetes-expected",
+  "type": "Checkpoint",
+  "number": "6.4.9",
+  "title": "",
+  "body": "  A chi-square test for a two-way table may be used to test the hypotheses in . As a first step, compute the expected values for each of the six table cells.    The expected count for row one \/ column one is found by multiplying the row one total (234) and column one total (319), then dividing by the table total (699): . Similarly for the second column and the first row: . Row 2: 105.9 and 126.1. Row 3: 106.3 and 126.7.   "
+},
+{
+  "id": "exercise-diabetes-chi-square",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-diabetes-chi-square",
+  "type": "Checkpoint",
+  "number": "6.4.10",
+  "title": "",
+  "body": "  Compute the chi-square test statistic for the data in .    For each cell, compute . For instance, the first row and first column: . Adding the results of each cell gives the chi-square test statistic: .   "
+},
+{
+  "id": "exercise-diabetes-conclusion",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-diabetes-conclusion",
+  "type": "Checkpoint",
+  "number": "6.4.11",
+  "title": "",
+  "body": "  Because there are 3 rows and 2 columns, the degrees of freedom for the test is . Use , , and evaluate whether to reject the null hypothesis using a significance level of 0.05.    If using a computer, we can identify the p-value as 0.017. That is, we reject the null hypothesis because the p-value is less than 0.05, and we conclude that at least one of the treatments is more or less effective than the others at treating Type 2 Diabetes for glycemic control.   "
+},
+{
+  "id": "exercise-quitters",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-quitters",
+  "type": "Exercise",
+  "number": "6.4.3.1",
+  "title": "Quitters.",
+  "body": " Quitters   Does being part of a support group affect the ability of people to quit smoking? A county health department enrolled 300 smokers in a randomized experiment. 150 participants were assigned to a group that used a nicotine patch and met weekly with a support group; the other 150 received the patch and did not meet with a support group. At the end of the study, 40 of the participants in the patch plus support group had quit smoking while only 30 smokers had quit in the other group.   Create a two-way table presenting the results of this study.   Answer each of the following questions under the null hypothesis that being part of a support group does not affect the ability of people to quit smoking, and indicate whether the expected values are higher or lower than the observed values.   How many subjects in the patch + support group would you expect to quit?  How many subjects in the patch only group would you expect to not quit?      "
+},
+{
+  "id": "exercise-full-body-scan-part-ii",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-full-body-scan-part-ii",
+  "type": "Exercise",
+  "number": "6.4.3.2",
+  "title": "Full body scan, Part II.",
+  "body": " Full body scan, Part II   The table below summarizes a data set we first encountered in an earlier exercise regarding views on full-body scans and political affiliation. The differences in each political group may be due to chance. Complete the following computations under the null hypothesis of independence between an individual's party affiliation and their support of full-body scans. It may be useful to first add on an extra column for row totals before proceeding with the computations.   Full-body scan data by party affiliation      Party Affiliation      Republican  Democrat  Independent     Should  264  299  351    Answer  Should not  38  55  77     Don't know\/No answer  16  15  22     Total  318  369  450      How many Republicans would you expect to not support the use of full-body scans?  How many Democrats would you expect to support the use of full-body scans?  How many Independents would you expect to not know or not answer?    "
+},
+{
+  "id": "exercise-offshore-drilling-part-iii",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-offshore-drilling-part-iii",
+  "type": "Exercise",
+  "number": "6.4.3.3",
+  "title": "Offshore drilling, Part III.",
+  "body": " Offshore drilling, Part III   The table below summarizes a data set we first encountered in an earlier exercise that examines the responses of a random sample of college graduates and non-graduates on the topic of oil drilling. Complete a chi-square test for these data to check whether there is a statistically significant difference in responses from college graduates and non-graduates.   Offshore drilling data by college graduate status     College Grad     Yes  No    Support  154  132    Oppose  180  126    Do not know  104  131    Total  438  389      "
+},
+{
+  "id": "exercise-parasitic-worm",
+  "level": "2",
+  "url": "sec-chi-square-independence.html#exercise-parasitic-worm",
+  "type": "Exercise",
+  "number": "6.4.3.4",
+  "title": "Parasitic worm.",
+  "body": " Parasitic worm   Lymphatic filariasis is a disease caused by a parasitic worm. Complications of the disease can lead to extreme swelling and other complications. Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of this parasite, which people are working to eliminate entirely. The results for the second year of the study are given below:   Parasitic worm treatment results     Clear at Year 2  Not Clear at Year 2    Three drugs  52  2    Two drugs  31  24    Two drugs annually  42  14      Set up hypotheses for evaluating whether there is any difference in the performance of the treatments, and also check conditions.   Statistical software was used to run a chi-square test, which output:   Use these results to evaluate the hypotheses from part (a), and provide a conclusion in the context of the problem.     "
+},
+{
+  "id": "sec-ch06-review",
   "level": "1",
-  "url": "sec-ch07-review.html",
+  "url": "sec-ch06-review.html",
   "type": "Section",
   "number": "6.5",
-  "title": "Chapter 7 Review Exercises",
-  "body": " Chapter 7 Review Exercises  This chapter covered inference for categorical data. Key concepts include:   Confidence intervals and hypothesis tests for a single proportion  Sample size calculations for proportions  Comparing two proportions using confidence intervals and hypothesis tests  The pooled proportion for hypothesis testing  Chi-square goodness of fit tests for comparing observed and expected distributions  Chi-square tests for independence in two-way tables  Computing expected counts and degrees of freedom for chi-square tests   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
+  "title": "Chapter 6 Review Exercises",
+  "body": " Chapter 6 Review Exercises  This chapter covered inference for categorical data. Key concepts include:   Confidence intervals and hypothesis tests for a single proportion  Sample size calculations for proportions  Comparing two proportions using confidence intervals and hypothesis tests  The pooled proportion for hypothesis testing  Chi-square goodness of fit tests for comparing observed and expected distributions  Chi-square tests for independence in two-way tables  Computing expected counts and degrees of freedom for chi-square tests   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
 },
 {
-  "id": "sec-one-sample-t",
+  "id": "oneSampleMeansWithTDistribution",
   "level": "1",
-  "url": "sec-one-sample-t.html",
+  "url": "oneSampleMeansWithTDistribution.html",
   "type": "Section",
   "number": "7.1",
-  "title": "One-Sample Means with the <span class=\"process-math\">\\(t\\)<\/span>-Distribution",
-  "body": " One-Sample Means with the -Distribution   Similar to how we can model the behavior of the sample proportion using a normal distribution, the sample mean can also be modeled using a normal distribution when certain conditions are met. However, we'll soon learn that a new distribution, called the t-distribution , tends to be more useful when working with the sample mean. We'll first learn about this new distribution, then we'll use it to construct confidence intervals and conduct hypothesis tests for the mean.    The Sampling Distribution of  The sample mean tends to follow a normal distribution centered at the population mean when certain conditions are met. Additionally, we can compute a standard error for the sample mean using the population standard deviation and the sample size .   Central Limit Theorem for the Sample Mean   When we collect a sufficiently large sample of independent observations from a population with mean and standard deviation , the sampling distribution of will be nearly normal with:     Before diving into confidence intervals and hypothesis tests using , we first need to cover two topics:   When we modeled using the normal distribution, certain conditions had to be satisfied. The conditions for working with are a little more complex.  The standard error is dependent on the population standard deviation . However, we rarely know , and instead we must estimate it. Because this estimation is itself imperfect, we use a new distribution called the t-distribution to account for this additional uncertainty.     Evaluating Conditions for Modeling  Two conditions are required to apply the Central Limit Theorem for a sample mean :   Independence: The sample observations must be independent. This is typically satisfied if the data come from a simple random sample and the sample size is less than 10% of the population.  Normality: The population distribution should be normal or the sample size should be large ( is a common guideline). For smaller samples, we can check normality using a normal probability plot or histogram.    When examining a sample, the normality condition is satisfied if:   The sample shows no clear outliers and little skewness, OR  The sample size is at least 30 and there are no particularly extreme outliers.      Introducing the -Distribution  When we don't know the population standard deviation (which is nearly always the case), we must estimate it using the sample standard deviation . This introduces additional uncertainty, especially for small samples. The t-distribution accounts for this extra variability.    The t-distribution is a bell-shaped distribution centered at zero, similar to the standard normal distribution, but with thicker tails. The exact form of the t-distribution depends on the degrees of freedom (df) . For inference with a single sample mean, .    Key properties of the t-distribution:   It is symmetric and bell-shaped, centered at 0.  It has thicker tails than the normal distribution, meaning more probability in the extremes.  As the degrees of freedom increase, the t-distribution approaches the normal distribution.  For , the t-distribution is nearly indistinguishable from the normal distribution.     When the population standard deviation is unknown and estimated by the sample standard deviation , the standard error of the mean is:       One-Sample -Confidence Intervals  A confidence interval for a population mean based on a sample of size with sample mean and sample standard deviation is given by:   Here, is the critical value from the t-distribution with degrees of freedom that corresponds to the desired confidence level.   One-Sample -Confidence Interval   Prepare  Identify the sample mean , sample standard deviation , and sample size . Determine the desired confidence level.    Check  Verify that observations are independent and that the sample size is appropriate for the distribution of the data (check for extreme outliers or strong skewness).    Calculate  Compute and . Find the appropriate value and construct the confidence interval .    Conclude  Interpret the confidence interval in the context of the problem.      One-Sample -Test  To test a hypothesis about a population mean , we use the one-sample t-test . The test statistic is:   where is the null value (the value of under the null hypothesis). This test statistic follows a t-distribution with when the null hypothesis is true and conditions are met.   One-Sample -Test   Prepare  State the hypotheses, identify , , , and the significance level .    Check  Verify independence and normality conditions.    Calculate  Compute the t-statistic and find the p-value using the t-distribution with .    Conclude  Make a decision by comparing the p-value to and interpret in context.     "
+  "title": "One-sample means with the <span class=\"process-math\">\\(t\\)<\/span>-distribution",
+  "body": " One-sample means with the -distribution   Similar to how we can model the behavior of the sample proportion using a normal distribution, the sample mean can also be modeled using a normal distribution when certain conditions are met. However, we'll soon learn that a new distribution, called the -distribution, tends to be more useful when working with the sample mean. We'll first learn about this new distribution, then we'll use it to construct confidence intervals and conduct hypothesis tests for the mean.    The sampling distribution of  The sample mean tends to follow a normal distribution centered at the population mean, , when certain conditions are met. Additionally, we can compute a standard error for the sample mean using the population standard deviation and the sample size .   Central Limit Theorem for the sample mean   When we collect a sufficiently large sample of independent observations from a population with mean and standard deviation , the sampling distribution of will be nearly normal with     Before diving into confidence intervals and hypothesis tests using , we first need to cover two topics:    When we modeled using the normal distribution, certain conditions had to be satisfied. The conditions for working with are a little more complex, and we'll spend Section discussing how to check conditions for inference.    The standard error is dependent on the population standard deviation, . However, we rarely know , and instead we must estimate it. Because this estimation is itself imperfect, we use a new distribution called the -distribution to fix this problem, which we discuss in Section .      Evaluating the two conditions required for modeling  Two conditions are required to apply the Central Limit Theorem for a sample mean :    Independence.  The sample observations must be independent. The most common way to satisfy this condition is when the sample is a simple random sample from the population. If the data come from a random process, analogous to rolling a die, this would also satisfy the independence condition.    Normality.  When a sample is small, we also require that the sample observations come from a normally distributed population. We can relax this condition more and more for larger and larger sample sizes. This condition is obviously vague, making it difficult to evaluate, so next we introduce a couple rules of thumb to make checking this condition easier.     Rules of thumb: how to perform the normality check  There is no perfect way to check the normality condition, so instead we use two rules of thumb:    :  If the sample size is less than 30 and there are no clear outliers in the data, then we typically assume the data come from a nearly normal distribution to satisfy the condition.    :  If the sample size is at least 30 and there are no particularly extreme outliers, then we typically assume the sampling distribution of is nearly normal, even if the underlying distribution of individual observations is not.     In this first course in statistics, you aren't expected to develop perfect judgement on the normality condition. However, you are expected to be able to handle clear cut cases based on the rules of thumb. More nuanced guidelines would consider further relaxing the particularly extreme outlier check when the sample size is very large. However, we'll leave further discussion here to a future course.     Consider the following two plots that come from simple random samples from different populations. Their sample sizes are and .  [Figure showing two histograms: Sample 1 Observations (n=15) with values 0-7, and Sample 2 Observations (n=50) with values 0-22 with most data near zero and one outlier at 21-22]  Are the independence and normality conditions met in each case?    Each sample is from a simple random sample of its respective population, so the independence condition is satisfied. Let's next check the normality condition for each using the rule of thumb.  The first sample has fewer than 30 observations, so we are watching for any clear outliers. None are present; while there is a small gap in the histogram between 5 and 6, this gap is small and 20% of the observations in this small sample are represented in that far right bar of the histogram, so we can hardly call these clear outliers. With no clear outliers, the normality condition is reasonably met.  The second sample has a sample size greater than 30 and includes an outlier that appears to be roughly 5 times further from the center of the distribution than the next furthest observation. This is an example of a particularly extreme outlier, so the normality condition would not be satisfied.    In practice, it's typical to also do a mental check to evaluate whether we have reason to believe the underlying population would have moderate skew (if ) or have particularly extreme outliers ( ) beyond what we observe in the data. For example, consider the number of followers for each individual account on Twitter, and then imagine this distribution. The large majority of accounts have built up a couple thousand followers or fewer, while a relatively tiny fraction have amassed tens of millions of followers, meaning the distribution is extremely skewed. When we know the data come from such an extremely skewed distribution, it takes some effort to understand what sample size is large enough for the normality condition to be satisfied.    Introducing the -distribution  In practice, we cannot directly calculate the standard error for since we do not know the population standard deviation, . We encountered a similar issue when computing the standard error for a sample proportion, which relied on the population proportion, . Our solution in the proportion context was to use the sample value in place of the population value when computing the standard error. We'll employ a similar strategy for computing the standard error of , using the sample standard deviation in place of :   This strategy tends to work well when we have a lot of data and can estimate using accurately. However, the estimate is less precise with smaller samples, and this leads to problems when using the normal distribution to model .  We'll find it useful to use a new distribution for inference calculations called the -distribution . A -distribution, shown as a solid line in Figure , has a bell shape. However, its tails are thicker than the normal distribution's, meaning observations are more likely to fall beyond two standard deviations from the mean than under the normal distribution. The extra thick tails of the -distribution are exactly the correction needed to resolve the problem of using in place of in the calculation.   Comparison of a -distribution and a normal distribution.  [Figure showing a standard normal distribution and a t-distribution overlaid. The t-distribution is more sharply peaked and has thicker tails than the normal distribution.]   The -distribution is always centered at zero and has a single parameter: degrees of freedom. The degrees of freedom ( ) describes the precise form of the bell-shaped -distribution. Several -distributions are shown in Figure in comparison to the normal distribution.  In general, we'll use a -distribution with to model the sample mean when the sample size is . That is, when we have more observations, the degrees of freedom will be larger and the -distribution will look more like the standard normal distribution; when the degrees of freedom is about 30 or more, the -distribution is nearly indistinguishable from the normal distribution.   The larger the degrees of freedom, the more closely the -distribution resembles the standard normal distribution.  [Figure showing four t-distributions with df=1, 2, 4, and 8 along with a normal distribution. The larger the df, the more closely the t-distribution aligns with the normal distribution.]    Degrees of freedom ( )  The degrees of freedom describes the shape of the -distribution. The larger the degrees of freedom, the more closely the distribution approximates the normal model.  When modeling using the -distribution, use .   The -distribution allows us greater flexibility than the normal distribution when analyzing numerical data. In practice, it's common to use statistical software, such as R, Python, or SAS for these analyses. Alternatively, a graphing calculator or a -table may be used; the -table is similar to the normal distribution table, and it may be found in the appendix , which includes usage instructions and examples for those who wish to use this option. No matter the approach you choose, apply your method using the examples below to confirm your working understanding of the -distribution.    What proportion of the -distribution with 18 degrees of freedom falls below ?    Just like a normal probability problem, we first draw the picture in Figure and shade the area below . Using statistical software, we can obtain a precise value: 0.0250.     The -distribution with 18 degrees of freedom. The area below has been shaded.  [Figure showing a t-distribution with 18 df, with the region below -2.10 shaded, representing roughly 2% to 5% of the distribution.]     A -distribution with 20 degrees of freedom is shown in the left panel of Figure . Estimate the proportion of the distribution falling above 1.65.    With a normal distribution, this would correspond to about 0.05, so we should expect the -distribution to give us a value in this neighborhood. Using statistical software: 0.0573.     Left: The -distribution with 20 degrees of freedom, with the area above 1.65 shaded. Right: The -distribution with 2 degrees of freedom, with the area further than 3 units from 0 shaded.  [Figure showing two plots: left shows t-dist with 20 df and right tail shaded above 1.65; right shows t-dist with 2 df with both tails beyond ±3 shaded.]     A -distribution with 2 degrees of freedom is shown in the right panel of Figure . Estimate the proportion of the distribution falling more than 3 units from the mean (above or below).    With so few degrees of freedom, the -distribution will give a more notably different value than the normal distribution. Under a normal distribution, the area would be about 0.003 using the 68-95-99.7 rule. For a -distribution with , the area in both tails beyond 3 units totals 0.0955. This area is dramatically different than what we obtain from the normal distribution.      What proportion of the -distribution with 19 degrees of freedom falls above units? Use your preferred method for finding tail areas. We want to find the shaded area above  (we leave the picture to you). The lower tail area has an area of 0.0447, so the upper area would have an area of .       One sample -confidence intervals  Let's get our first taste of applying the -distribution in the context of an example about the mercury content of dolphin muscle. Elevated mercury concentrations are an important problem for both dolphins and other animals, like humans, who occasionally eat them.   A Risso's dolphin. Photo by Mike Baird (www.bairdphotos.com). CC BY 2.0 license.  [Figure showing a Risso's dolphin surfacing in water. The area forward of its face is mostly white, and then its body is gray and white streaked together.]   We will identify a confidence interval for the average mercury content in dolphin muscle using a sample of 19 Risso's dolphins from the Taiji area in Japan. The data are summarized in Figure . The minimum and maximum observed values can be used to evaluate whether or not there are clear outliers.   Summary of mercury content in the muscle of 19 Risso's dolphins from the Taiji area. Measurements are in micrograms of mercury per wet gram of muscle ( g\/wet g).       minimum  maximum    19  4.4  2.3  1.7  9.2       Are the independence and normality conditions satisfied for this data set?    The observations are a simple random sample, therefore independence is reasonable. The summary statistics in Figure do not suggest any clear outliers, since all observations are within 2.5 standard deviations of the mean. Based on this evidence, the normality condition seems reasonable.    In the normal model, we used and the standard error to determine the width of a confidence interval. We revise the confidence interval formula slightly when using the -distribution:     Using the summary statistics in Figure , compute the standard error for the average mercury content in the dolphins.    We plug in and into the formula: .    The value is a cutoff we obtain based on the confidence level and the -distribution with degrees of freedom. That cutoff is found in the same way as with a normal distribution: we find such that the fraction of the -distribution with degrees of freedom within a distance of 0 matches the confidence level of interest.    When , what is the appropriate degrees of freedom? Find for this degrees of freedom and the confidence level of 95%.    The degrees of freedom is easy to calculate: .  Using statistical software, we find the cutoff where the upper tail is equal to 2.5%: . The area below will also be equal to 2.5%. That is, 95% of the -distribution with lies within 2.10 units of 0.      Compute and interpret the 95% confidence interval for the average mercury content in Risso's dolphins.    We can construct the confidence interval as   We are 95% confident the average mercury content of muscles in Risso's dolphins is between 3.29 and 5.51 g\/wet gram, which is considered extremely high.     Finding a -confidence interval for the mean  Based on a sample of independent and nearly normal observations, a confidence interval for the population mean is   where is the sample mean, corresponds to the confidence level and degrees of freedom , and is the standard error as estimated by the sample.     The FDA's webpage provides some data on mercury content of fish. Based on a sample of 15 croaker white fish (Pacific), a sample mean and standard deviation were computed as 0.287 and 0.069 ppm (parts per million), respectively. The 15 observations ranged from 0.18 to 0.41 ppm. We will assume these observations are independent. Based on the summary statistics of the data, do you have any objections to the normality condition of the individual observations? The sample size is under 30, so we check for obvious outliers: since all observations are within 2 standard deviations of the mean, there are no such clear outliers.       Estimate the standard error of ppm using the data summaries in Guided Practice . If we are to use the -distribution to create a 90% confidence interval for the actual mean of the mercury content, identify the degrees of freedom and .    The standard error: .  Degrees of freedom: .  Since the goal is a 90% confidence interval, we choose so that the two-tail area is 0.1: .     Confidence interval for a single mean  Once you've determined a one-mean confidence interval would be helpful for an application, there are four steps to constructing the interval:    Prepare.  Identify , , , and determine what confidence level you wish to use.    Check.  Verify the conditions to ensure is nearly normal.    Calculate.  If the conditions hold, compute , find , and construct the interval.    Conclude.  Interpret the confidence interval in the context of the problem.       Using the information and results of Guided Practice and Example , compute a 90% confidence interval for the average mercury content of croaker white fish (Pacific). . We are 90% confident that the average mercury content of croaker white fish (Pacific) is between 0.256 and 0.318 ppm.       The 90% confidence interval from Guided Practice is 0.256 ppm to 0.318 ppm. Can we say that 90% of croaker white fish (Pacific) have mercury levels between 0.256 and 0.318 ppm? No, a confidence interval only provides a range of plausible values for a population parameter, in this case the population mean. It does not describe what we might observe for individual observations.       One sample -tests  Is the typical US runner getting faster or slower over time? We consider this question in the context of the Cherry Blossom Race, which is a 10-mile race in Washington, DC each spring.  The average time for all runners who finished the Cherry Blossom Race in 2006 was 93.29 minutes (93 minutes and about 17 seconds). We want to determine using data from 100 participants in the 2017 Cherry Blossom Race whether runners in this race are getting faster or slower, versus the other possibility that there has been no change.    What are appropriate hypotheses for this context? : The average 10-mile run time was the same for 2006 and 2017. minutes. : The average 10-mile run time for 2017 was different than that of 2006. minutes.       The data come from a simple random sample of all participants, so the observations are independent. However, should we be worried about the normality condition? See Figure for a histogram of the differences and evaluate if we can move forward. With a sample of 100, we should only be concerned if there are particularly extreme outliers. The histogram of the data doesn't show any outliers of concern (and arguably, no outliers at all).      A histogram of time for the sample Cherry Blossom Race data.  [Figure showing a histogram of \"time\" for the sample. The data are nearly symmetric with a center at about 100 minutes and a standard deviation of roughly 15 to 20 minutes. All times lie between 50 and 140 minutes.]   When completing a hypothesis test for the one-sample mean, the process is nearly identical to completing a hypothesis test for a single proportion. First, we find the Z-score using the observed value, null value, and standard error; however, we call it a T-score since we use a -distribution for calculating the tail area. Then we find the p-value using the same ideas we used previously: find the one-tail area under the sampling distribution, and double it.    With both the independence and normality conditions satisfied, we can proceed with a hypothesis test using the -distribution. The sample mean and sample standard deviation of the sample of 100 runners from the 2017 Cherry Blossom Race are 97.32 and 16.98 minutes, respectively. Recall that the sample size is 100 and the average run time in 2006 was 93.29 minutes. Find the test statistic and p-value. What is your conclusion?    To find the test statistic (T-score), we first must determine the standard error:   Now we can compute the T-score using the sample mean (97.32), null value (93.29), and :   For , we can determine using statistical software (or a -table) that the one-tail area is 0.01, which we double to get the p-value: 0.02.  Because the p-value is smaller than 0.05, we reject the null hypothesis. That is, the data provide strong evidence that the average run time for the Cherry Blossom Run in 2017 is different than the 2006 average. Since the observed value is above the null value and we have rejected the null hypothesis, we would conclude that runners in the race were slower on average in 2017 than in 2006.     Hypothesis testing for a single mean  Once you've determined a one-mean hypothesis test is the correct procedure, there are four steps to completing the test:    Prepare.  Identify the parameter of interest, list out hypotheses, identify the significance level, and identify , , and .    Check.  Verify conditions to ensure is nearly normal.    Calculate.  If the conditions hold, compute , compute the T-score, and identify the p-value.    Conclude.  Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.       Section Exercises   Identify the critical   An independent random sample is selected from an approximately normal population with unknown standard deviation. Find the degrees of freedom and the critical -value ( ) for the given sample size and confidence level.   , CL = 90%  , CL = 98%  , CL = 95%  , CL = 99%      -distribution   The figure on the right shows three unimodal and symmetric curves: the standard normal (z) distribution, the -distribution with 5 degrees of freedom, and the -distribution with 1 degree of freedom. Determine which is which, and explain your reasoning.        Find the p-value, Part I   An independent random sample is selected from an approximately normal population with an unknown standard deviation. Find the p-value for the given sample size and test statistic. Also determine if the null hypothesis would be rejected at .   ,  ,  ,  ,      Find the p-value, Part II   An independent random sample is selected from an approximately normal population with an unknown standard deviation. Find the p-value for the given sample size and test statistic. Also determine if the null hypothesis would be rejected at .   ,  ,      Working backwards, Part I   A 95% confidence interval for a population mean, , is given as (18.985, 21.015). This confidence interval is based on a simple random sample of 36 observations. Calculate the sample mean and standard deviation. Assume that all conditions necessary for inference are satisfied. Use the -distribution in any calculations.     Working backwards, Part II   A 90% confidence interval for a population mean is (65, 77). The population distribution is approximately normal and the population standard deviation is unknown. This confidence interval is based on a simple random sample of 25 observations. Calculate the sample mean, the margin of error, and the sample standard deviation.     Sleep habits of New Yorkers   New York is known as \"the city that never sleeps\". A random sample of 25 New Yorkers were asked how much sleep they get per night. Statistical summaries of these data are shown below. The point estimate suggests New Yorkers sleep less than 8 hours a night on average. Is the result statistically significant?    n   s  min  max    25  7.73  0.77  6.17  9.78     Write the hypotheses in symbols and in words.  Check conditions, then calculate the test statistic, , and the associated degrees of freedom.  Find and interpret the p-value in this context. Drawing a picture may be helpful.  What is the conclusion of the hypothesis test?  If you were to construct a 90% confidence interval that corresponded to this hypothesis test, would you expect 8 hours to be in the interval?      Heights of adults   Researchers studying anthropometry collected body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender, for 507 physically active individuals. The histogram below shows the sample distribution of heights in centimeters.     Summary statistics:    Min 147.2  Q1 163.8  Median 170.3  Mean 171.1  SD 9.4  Q3 177.8  Max 198.1    What is the point estimate for the average height of active individuals? What about the median?  What is the point estimate for the standard deviation of the heights of active individuals? What about the IQR?  Is a person who is 1m 80cm (180 cm) tall considered unusually tall? And is a person who is 1m 55cm (155cm) considered unusually short? Explain your reasoning.  The researchers take another random sample of physically active individuals. Would you expect the mean and the standard deviation of this new sample to be the ones given above? Explain your reasoning.  The sample means obtained are point estimates for the mean height of all active individuals, if the sample of individuals is equivalent to a simple random sample. What measure do we use to quantify the variability of such an estimate? Compute this quantity using the data from the original sample under the condition that the data are a simple random sample.      Find the mean   You are given the following hypotheses:   We know that the sample standard deviation is 8 and the sample size is 20. For what sample mean would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.     vs.   For a given confidence level, is larger than . Explain how being slightly larger than affects the width of the confidence interval.     Play the piano   Georgianna claims that in a small city renowned for its music school, the average child takes less than 5 years of piano lessons. We have a random sample of 20 children from the city, with a mean of 4.6 years of piano lessons and a standard deviation of 2.2 years.   Evaluate Georgianna's claim (or that the opposite might be true) using a hypothesis test.  Construct a 95% confidence interval for the number of years students in this city take piano lessons, and interpret it in context of the data.  Do your results from the hypothesis test and the confidence interval agree? Explain your reasoning.      Auto exhaust and lead exposure   Researchers interested in lead exposure due to car exhaust sampled the blood of 52 police officers subjected to constant inhalation of automobile exhaust fumes while working traffic enforcement in a primarily urban environment. The blood samples of these officers had an average lead concentration of 124.32 g\/l and a SD of 37.74 g\/l; a previous study of individuals from a nearby suburb, with no history of exposure, found an average blood level concentration of 35 g\/l.   Write down the hypotheses that would be appropriate for testing if the police officers appear to have been exposed to a different concentration of lead.  Explicitly state and check all conditions necessary for inference on these data.  Regardless of your answers in part (b), test the hypothesis that the downtown police officers have a higher lead exposure than the group in the previous study. Interpret your results in context.      Car insurance savings   A market researcher wants to evaluate car insurance savings at a competing company. Based on past studies he is assuming that the standard deviation of savings is $100. He wants to collect data such that he can get a margin of error of no more than $10 at a 95% confidence level. How large of a sample should he collect?     SAT scores   The standard deviation of SAT scores for students at a particular Ivy League college is 250 points. Two statistics students, Raina and Luke, want to estimate the average SAT score of students at this college as part of a class project. They want their margin of error to be no more than 25 points.   Raina wants to use a 90% confidence interval. How large a sample should she collect?  Luke wants to use a 99% confidence interval. Without calculating the actual sample size, determine whether his sample should be larger or smaller than Raina's, and explain your reasoning.  Calculate the minimum required sample size for Luke.      "
 },
 {
-  "id": "sec-one-sample-t-2-1",
+  "id": "clt-mean",
   "level": "2",
-  "url": "sec-one-sample-t.html#sec-one-sample-t-2-1",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "t-distribution "
-},
-{
-  "id": "thm-clt-mean",
-  "level": "2",
-  "url": "sec-one-sample-t.html#thm-clt-mean",
+  "url": "oneSampleMeansWithTDistribution.html#clt-mean",
   "type": "Theorem",
   "number": "7.1.1",
-  "title": "Central Limit Theorem for the Sample Mean.",
-  "body": " Central Limit Theorem for the Sample Mean   When we collect a sufficiently large sample of independent observations from a population with mean and standard deviation , the sampling distribution of will be nearly normal with:    "
+  "title": "Central Limit Theorem for the sample mean.",
+  "body": " Central Limit Theorem for the sample mean   When we collect a sufficiently large sample of independent observations from a population with mean and standard deviation , the sampling distribution of will be nearly normal with    "
 },
 {
-  "id": "subsec-introducing-t-dist-2",
+  "id": "outliers_and_ss_condition_ex",
   "level": "2",
-  "url": "sec-one-sample-t.html#subsec-introducing-t-dist-2",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "t-distribution "
-},
-{
-  "id": "def-t-distribution",
-  "level": "2",
-  "url": "sec-one-sample-t.html#def-t-distribution",
-  "type": "Definition",
+  "url": "oneSampleMeansWithTDistribution.html#outliers_and_ss_condition_ex",
+  "type": "Example",
   "number": "7.1.2",
   "title": "",
-  "body": "  The t-distribution is a bell-shaped distribution centered at zero, similar to the standard normal distribution, but with thicker tails. The exact form of the t-distribution depends on the degrees of freedom (df) . For inference with a single sample mean, .   "
+  "body": "  Consider the following two plots that come from simple random samples from different populations. Their sample sizes are and .  [Figure showing two histograms: Sample 1 Observations (n=15) with values 0-7, and Sample 2 Observations (n=50) with values 0-22 with most data near zero and one outlier at 21-22]  Are the independence and normality conditions met in each case?    Each sample is from a simple random sample of its respective population, so the independence condition is satisfied. Let's next check the normality condition for each using the rule of thumb.  The first sample has fewer than 30 observations, so we are watching for any clear outliers. None are present; while there is a small gap in the histogram between 5 and 6, this gap is small and 20% of the observations in this small sample are represented in that far right bar of the histogram, so we can hardly call these clear outliers. With no clear outliers, the normality condition is reasonably met.  The second sample has a sample size greater than 30 and includes an outlier that appears to be roughly 5 times further from the center of the distribution than the next furthest observation. This is an example of a particularly extreme outlier, so the normality condition would not be satisfied.   "
 },
 {
-  "id": "def-standard-error-mean",
+  "id": "introducingTheTDistribution-5",
   "level": "2",
-  "url": "sec-one-sample-t.html#def-standard-error-mean",
-  "type": "Definition",
-  "number": "7.1.3",
-  "title": "",
-  "body": "  When the population standard deviation is unknown and estimated by the sample standard deviation , the standard error of the mean is:    "
-},
-{
-  "id": "subsec-one-sample-t-test-2",
-  "level": "2",
-  "url": "sec-one-sample-t.html#subsec-one-sample-t-test-2",
+  "url": "oneSampleMeansWithTDistribution.html#introducingTheTDistribution-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "one-sample t-test "
+  "body": "-distribution "
 },
 {
-  "id": "sec-paired-data",
+  "id": "tDistCompareToNormalDist",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#tDistCompareToNormalDist",
+  "type": "Figure",
+  "number": "7.1.3",
+  "title": "",
+  "body": " Comparison of a -distribution and a normal distribution.  [Figure showing a standard normal distribution and a t-distribution overlaid. The t-distribution is more sharply peaked and has thicker tails than the normal distribution.]  "
+},
+{
+  "id": "introducingTheTDistribution-7",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#introducingTheTDistribution-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "degrees of freedom ( ) "
+},
+{
+  "id": "tDistConvergeToNormalDist",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#tDistConvergeToNormalDist",
+  "type": "Figure",
+  "number": "7.1.4",
+  "title": "",
+  "body": " The larger the degrees of freedom, the more closely the -distribution resembles the standard normal distribution.  [Figure showing four t-distributions with df=1, 2, 4, and 8 along with a normal distribution. The larger the df, the more closely the t-distribution aligns with the normal distribution.]  "
+},
+{
+  "id": "introducingTheTDistribution-11",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#introducingTheTDistribution-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "-table "
+},
+{
+  "id": "t-dist-tail-18df",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#t-dist-tail-18df",
+  "type": "Example",
+  "number": "7.1.5",
+  "title": "",
+  "body": "  What proportion of the -distribution with 18 degrees of freedom falls below ?    Just like a normal probability problem, we first draw the picture in Figure and shade the area below . Using statistical software, we can obtain a precise value: 0.0250.   "
+},
+{
+  "id": "tDistDF18LeftTail2Point10",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#tDistDF18LeftTail2Point10",
+  "type": "Figure",
+  "number": "7.1.6",
+  "title": "",
+  "body": " The -distribution with 18 degrees of freedom. The area below has been shaded.  [Figure showing a t-distribution with 18 df, with the region below -2.10 shaded, representing roughly 2% to 5% of the distribution.]  "
+},
+{
+  "id": "t-dist-tail-20df",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#t-dist-tail-20df",
+  "type": "Example",
+  "number": "7.1.7",
+  "title": "",
+  "body": "  A -distribution with 20 degrees of freedom is shown in the left panel of Figure . Estimate the proportion of the distribution falling above 1.65.    With a normal distribution, this would correspond to about 0.05, so we should expect the -distribution to give us a value in this neighborhood. Using statistical software: 0.0573.   "
+},
+{
+  "id": "tDistDF20RightTail1Point65",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#tDistDF20RightTail1Point65",
+  "type": "Figure",
+  "number": "7.1.8",
+  "title": "",
+  "body": " Left: The -distribution with 20 degrees of freedom, with the area above 1.65 shaded. Right: The -distribution with 2 degrees of freedom, with the area further than 3 units from 0 shaded.  [Figure showing two plots: left shows t-dist with 20 df and right tail shaded above 1.65; right shows t-dist with 2 df with both tails beyond ±3 shaded.]  "
+},
+{
+  "id": "t-dist-tail-2df",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#t-dist-tail-2df",
+  "type": "Example",
+  "number": "7.1.9",
+  "title": "",
+  "body": "  A -distribution with 2 degrees of freedom is shown in the right panel of Figure . Estimate the proportion of the distribution falling more than 3 units from the mean (above or below).    With so few degrees of freedom, the -distribution will give a more notably different value than the normal distribution. Under a normal distribution, the area would be about 0.003 using the 68-95-99.7 rule. For a -distribution with , the area in both tails beyond 3 units totals 0.0955. This area is dramatically different than what we obtain from the normal distribution.   "
+},
+{
+  "id": "introducingTheTDistribution-17",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#introducingTheTDistribution-17",
+  "type": "Checkpoint",
+  "number": "7.1.10",
+  "title": "",
+  "body": "  What proportion of the -distribution with 19 degrees of freedom falls above units? Use your preferred method for finding tail areas. We want to find the shaded area above  (we leave the picture to you). The lower tail area has an area of 0.0447, so the upper area would have an area of .    "
+},
+{
+  "id": "rissosDolphin",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#rissosDolphin",
+  "type": "Figure",
+  "number": "7.1.11",
+  "title": "",
+  "body": " A Risso's dolphin. Photo by Mike Baird (www.bairdphotos.com). CC BY 2.0 license.  [Figure showing a Risso's dolphin surfacing in water. The area forward of its face is mostly white, and then its body is gray and white streaked together.]  "
+},
+{
+  "id": "summaryStatsOfHgInMuscleOfRissosDolphins",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#summaryStatsOfHgInMuscleOfRissosDolphins",
+  "type": "Figure",
+  "number": "7.1.12",
+  "title": "",
+  "body": " Summary of mercury content in the muscle of 19 Risso's dolphins from the Taiji area. Measurements are in micrograms of mercury per wet gram of muscle ( g\/wet g).       minimum  maximum    19  4.4  2.3  1.7  9.2    "
+},
+{
+  "id": "dolphin-conditions",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#dolphin-conditions",
+  "type": "Example",
+  "number": "7.1.13",
+  "title": "",
+  "body": "  Are the independence and normality conditions satisfied for this data set?    The observations are a simple random sample, therefore independence is reasonable. The summary statistics in Figure do not suggest any clear outliers, since all observations are within 2.5 standard deviations of the mean. Based on this evidence, the normality condition seems reasonable.   "
+},
+{
+  "id": "dolphin-se",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#dolphin-se",
+  "type": "Example",
+  "number": "7.1.14",
+  "title": "",
+  "body": "  Using the summary statistics in Figure , compute the standard error for the average mercury content in the dolphins.    We plug in and into the formula: .   "
+},
+{
+  "id": "dolphin-df-tstar",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#dolphin-df-tstar",
+  "type": "Example",
+  "number": "7.1.15",
+  "title": "",
+  "body": "  When , what is the appropriate degrees of freedom? Find for this degrees of freedom and the confidence level of 95%.    The degrees of freedom is easy to calculate: .  Using statistical software, we find the cutoff where the upper tail is equal to 2.5%: . The area below will also be equal to 2.5%. That is, 95% of the -distribution with lies within 2.10 units of 0.   "
+},
+{
+  "id": "dolphin-ci",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#dolphin-ci",
+  "type": "Example",
+  "number": "7.1.16",
+  "title": "",
+  "body": "  Compute and interpret the 95% confidence interval for the average mercury content in Risso's dolphins.    We can construct the confidence interval as   We are 95% confident the average mercury content of muscles in Risso's dolphins is between 3.29 and 5.51 g\/wet gram, which is considered extremely high.   "
+},
+{
+  "id": "croakerWhiteFishPacificExerConditions",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#croakerWhiteFishPacificExerConditions",
+  "type": "Checkpoint",
+  "number": "7.1.17",
+  "title": "",
+  "body": "  The FDA's webpage provides some data on mercury content of fish. Based on a sample of 15 croaker white fish (Pacific), a sample mean and standard deviation were computed as 0.287 and 0.069 ppm (parts per million), respectively. The 15 observations ranged from 0.18 to 0.41 ppm. We will assume these observations are independent. Based on the summary statistics of the data, do you have any objections to the normality condition of the individual observations? The sample size is under 30, so we check for obvious outliers: since all observations are within 2 standard deviations of the mean, there are no such clear outliers.    "
+},
+{
+  "id": "croakerWhiteFishPacificExerSEDFTStar",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#croakerWhiteFishPacificExerSEDFTStar",
+  "type": "Example",
+  "number": "7.1.18",
+  "title": "",
+  "body": "  Estimate the standard error of ppm using the data summaries in Guided Practice . If we are to use the -distribution to create a 90% confidence interval for the actual mean of the mercury content, identify the degrees of freedom and .    The standard error: .  Degrees of freedom: .  Since the goal is a 90% confidence interval, we choose so that the two-tail area is 0.1: .   "
+},
+{
+  "id": "croakerWhiteFish90ci",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#croakerWhiteFish90ci",
+  "type": "Checkpoint",
+  "number": "7.1.19",
+  "title": "",
+  "body": "  Using the information and results of Guided Practice and Example , compute a 90% confidence interval for the average mercury content of croaker white fish (Pacific). . We are 90% confident that the average mercury content of croaker white fish (Pacific) is between 0.256 and 0.318 ppm.    "
+},
+{
+  "id": "oneSampleTConfidenceIntervals-18",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#oneSampleTConfidenceIntervals-18",
+  "type": "Checkpoint",
+  "number": "7.1.20",
+  "title": "",
+  "body": "  The 90% confidence interval from Guided Practice is 0.256 ppm to 0.318 ppm. Can we say that 90% of croaker white fish (Pacific) have mercury levels between 0.256 and 0.318 ppm? No, a confidence interval only provides a range of plausible values for a population parameter, in this case the population mean. It does not describe what we might observe for individual observations.    "
+},
+{
+  "id": "oneSampleTTests-4",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#oneSampleTTests-4",
+  "type": "Checkpoint",
+  "number": "7.1.21",
+  "title": "",
+  "body": "  What are appropriate hypotheses for this context? : The average 10-mile run time was the same for 2006 and 2017. minutes. : The average 10-mile run time for 2017 was different than that of 2006. minutes.    "
+},
+{
+  "id": "oneSampleTTests-5",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#oneSampleTTests-5",
+  "type": "Checkpoint",
+  "number": "7.1.22",
+  "title": "",
+  "body": "  The data come from a simple random sample of all participants, so the observations are independent. However, should we be worried about the normality condition? See Figure for a histogram of the differences and evaluate if we can move forward. With a sample of 100, we should only be concerned if there are particularly extreme outliers. The histogram of the data doesn't show any outliers of concern (and arguably, no outliers at all).    "
+},
+{
+  "id": "run10SampTimeHistogram",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#run10SampTimeHistogram",
+  "type": "Figure",
+  "number": "7.1.23",
+  "title": "",
+  "body": " A histogram of time for the sample Cherry Blossom Race data.  [Figure showing a histogram of \"time\" for the sample. The data are nearly symmetric with a center at about 100 minutes and a standard deviation of roughly 15 to 20 minutes. All times lie between 50 and 140 minutes.]  "
+},
+{
+  "id": "oneSampleTTests-7",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#oneSampleTTests-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "T-score "
+},
+{
+  "id": "cherry-blossom-test",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#cherry-blossom-test",
+  "type": "Example",
+  "number": "7.1.24",
+  "title": "",
+  "body": "  With both the independence and normality conditions satisfied, we can proceed with a hypothesis test using the -distribution. The sample mean and sample standard deviation of the sample of 100 runners from the 2017 Cherry Blossom Race are 97.32 and 16.98 minutes, respectively. Recall that the sample size is 100 and the average run time in 2006 was 93.29 minutes. Find the test statistic and p-value. What is your conclusion?    To find the test statistic (T-score), we first must determine the standard error:   Now we can compute the T-score using the sample mean (97.32), null value (93.29), and :   For , we can determine using statistical software (or a -table) that the one-tail area is 0.01, which we double to get the p-value: 0.02.  Because the p-value is smaller than 0.05, we reject the null hypothesis. That is, the data provide strong evidence that the average run time for the Cherry Blossom Run in 2017 is different than the 2006 average. Since the observed value is above the null value and we have rejected the null hypothesis, we would conclude that runners in the race were slower on average in 2017 than in 2006.   "
+},
+{
+  "id": "identify_critical_t",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#identify_critical_t",
+  "type": "Exercise",
+  "number": "7.1.6.1",
+  "title": "Identify the critical <span class=\"process-math\">\\(t\\)<\/span>.",
+  "body": " Identify the critical   An independent random sample is selected from an approximately normal population with unknown standard deviation. Find the degrees of freedom and the critical -value ( ) for the given sample size and confidence level.   , CL = 90%  , CL = 98%  , CL = 95%  , CL = 99%    "
+},
+{
+  "id": "t_distribution",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#t_distribution",
+  "type": "Exercise",
+  "number": "7.1.6.2",
+  "title": "<span class=\"process-math\">\\(t\\)<\/span>-distribution.",
+  "body": " -distribution   The figure on the right shows three unimodal and symmetric curves: the standard normal (z) distribution, the -distribution with 5 degrees of freedom, and the -distribution with 1 degree of freedom. Determine which is which, and explain your reasoning.      "
+},
+{
+  "id": "find_T_pval_1_2_sided",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#find_T_pval_1_2_sided",
+  "type": "Exercise",
+  "number": "7.1.6.3",
+  "title": "Find the p-value, Part I.",
+  "body": " Find the p-value, Part I   An independent random sample is selected from an approximately normal population with an unknown standard deviation. Find the p-value for the given sample size and test statistic. Also determine if the null hypothesis would be rejected at .   ,  ,  ,  ,    "
+},
+{
+  "id": "find_T_pval_2_2_sided",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#find_T_pval_2_2_sided",
+  "type": "Exercise",
+  "number": "7.1.6.4",
+  "title": "Find the p-value, Part II.",
+  "body": " Find the p-value, Part II   An independent random sample is selected from an approximately normal population with an unknown standard deviation. Find the p-value for the given sample size and test statistic. Also determine if the null hypothesis would be rejected at .   ,  ,    "
+},
+{
+  "id": "work_backwards_1",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#work_backwards_1",
+  "type": "Exercise",
+  "number": "7.1.6.5",
+  "title": "Working backwards, Part I.",
+  "body": " Working backwards, Part I   A 95% confidence interval for a population mean, , is given as (18.985, 21.015). This confidence interval is based on a simple random sample of 36 observations. Calculate the sample mean and standard deviation. Assume that all conditions necessary for inference are satisfied. Use the -distribution in any calculations.   "
+},
+{
+  "id": "work_backwards_2",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#work_backwards_2",
+  "type": "Exercise",
+  "number": "7.1.6.6",
+  "title": "Working backwards, Part II.",
+  "body": " Working backwards, Part II   A 90% confidence interval for a population mean is (65, 77). The population distribution is approximately normal and the population standard deviation is unknown. This confidence interval is based on a simple random sample of 25 observations. Calculate the sample mean, the margin of error, and the sample standard deviation.   "
+},
+{
+  "id": "ny_sleep_habits_2_sided",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#ny_sleep_habits_2_sided",
+  "type": "Exercise",
+  "number": "7.1.6.7",
+  "title": "Sleep habits of New Yorkers.",
+  "body": " Sleep habits of New Yorkers   New York is known as \"the city that never sleeps\". A random sample of 25 New Yorkers were asked how much sleep they get per night. Statistical summaries of these data are shown below. The point estimate suggests New Yorkers sleep less than 8 hours a night on average. Is the result statistically significant?    n   s  min  max    25  7.73  0.77  6.17  9.78     Write the hypotheses in symbols and in words.  Check conditions, then calculate the test statistic, , and the associated degrees of freedom.  Find and interpret the p-value in this context. Drawing a picture may be helpful.  What is the conclusion of the hypothesis test?  If you were to construct a 90% confidence interval that corresponded to this hypothesis test, would you expect 8 hours to be in the interval?    "
+},
+{
+  "id": "adult_heights",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#adult_heights",
+  "type": "Exercise",
+  "number": "7.1.6.8",
+  "title": "Heights of adults.",
+  "body": " Heights of adults   Researchers studying anthropometry collected body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender, for 507 physically active individuals. The histogram below shows the sample distribution of heights in centimeters.     Summary statistics:    Min 147.2  Q1 163.8  Median 170.3  Mean 171.1  SD 9.4  Q3 177.8  Max 198.1    What is the point estimate for the average height of active individuals? What about the median?  What is the point estimate for the standard deviation of the heights of active individuals? What about the IQR?  Is a person who is 1m 80cm (180 cm) tall considered unusually tall? And is a person who is 1m 55cm (155cm) considered unusually short? Explain your reasoning.  The researchers take another random sample of physically active individuals. Would you expect the mean and the standard deviation of this new sample to be the ones given above? Explain your reasoning.  The sample means obtained are point estimates for the mean height of all active individuals, if the sample of individuals is equivalent to a simple random sample. What measure do we use to quantify the variability of such an estimate? Compute this quantity using the data from the original sample under the condition that the data are a simple random sample.    "
+},
+{
+  "id": "find_mean_2_sided",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#find_mean_2_sided",
+  "type": "Exercise",
+  "number": "7.1.6.9",
+  "title": "Find the mean.",
+  "body": " Find the mean   You are given the following hypotheses:   We know that the sample standard deviation is 8 and the sample size is 20. For what sample mean would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.   "
+},
+{
+  "id": "critical_t_vs_z",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#critical_t_vs_z",
+  "type": "Exercise",
+  "number": "7.1.6.10",
+  "title": "<span class=\"process-math\">\\(t^\\star\\)<\/span> vs. <span class=\"process-math\">\\(z^\\star\\)<\/span>.",
+  "body": " vs.   For a given confidence level, is larger than . Explain how being slightly larger than affects the width of the confidence interval.   "
+},
+{
+  "id": "play_piano_2_sided",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#play_piano_2_sided",
+  "type": "Exercise",
+  "number": "7.1.6.11",
+  "title": "Play the piano.",
+  "body": " Play the piano   Georgianna claims that in a small city renowned for its music school, the average child takes less than 5 years of piano lessons. We have a random sample of 20 children from the city, with a mean of 4.6 years of piano lessons and a standard deviation of 2.2 years.   Evaluate Georgianna's claim (or that the opposite might be true) using a hypothesis test.  Construct a 95% confidence interval for the number of years students in this city take piano lessons, and interpret it in context of the data.  Do your results from the hypothesis test and the confidence interval agree? Explain your reasoning.    "
+},
+{
+  "id": "auto_exhaust_lead_exposure_2_sided",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#auto_exhaust_lead_exposure_2_sided",
+  "type": "Exercise",
+  "number": "7.1.6.12",
+  "title": "Auto exhaust and lead exposure.",
+  "body": " Auto exhaust and lead exposure   Researchers interested in lead exposure due to car exhaust sampled the blood of 52 police officers subjected to constant inhalation of automobile exhaust fumes while working traffic enforcement in a primarily urban environment. The blood samples of these officers had an average lead concentration of 124.32 g\/l and a SD of 37.74 g\/l; a previous study of individuals from a nearby suburb, with no history of exposure, found an average blood level concentration of 35 g\/l.   Write down the hypotheses that would be appropriate for testing if the police officers appear to have been exposed to a different concentration of lead.  Explicitly state and check all conditions necessary for inference on these data.  Regardless of your answers in part (b), test the hypothesis that the downtown police officers have a higher lead exposure than the group in the previous study. Interpret your results in context.    "
+},
+{
+  "id": "car_insurance_savings",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#car_insurance_savings",
+  "type": "Exercise",
+  "number": "7.1.6.13",
+  "title": "Car insurance savings.",
+  "body": " Car insurance savings   A market researcher wants to evaluate car insurance savings at a competing company. Based on past studies he is assuming that the standard deviation of savings is $100. He wants to collect data such that he can get a margin of error of no more than $10 at a 95% confidence level. How large of a sample should he collect?   "
+},
+{
+  "id": "sat_scores_CI",
+  "level": "2",
+  "url": "oneSampleMeansWithTDistribution.html#sat_scores_CI",
+  "type": "Exercise",
+  "number": "7.1.6.14",
+  "title": "SAT scores.",
+  "body": " SAT scores   The standard deviation of SAT scores for students at a particular Ivy League college is 250 points. Two statistics students, Raina and Luke, want to estimate the average SAT score of students at this college as part of a class project. They want their margin of error to be no more than 25 points.   Raina wants to use a 90% confidence interval. How large a sample should she collect?  Luke wants to use a 99% confidence interval. Without calculating the actual sample size, determine whether his sample should be larger or smaller than Raina's, and explain your reasoning.  Calculate the minimum required sample size for Luke.    "
+},
+{
+  "id": "pairedData",
   "level": "1",
-  "url": "sec-paired-data.html",
+  "url": "pairedData.html",
   "type": "Section",
   "number": "7.2",
-  "title": "Paired Data",
-  "body": " Paired Data   Sometimes data naturally come in pairs. For example, we might measure blood pressure before and after treatment for the same patients, or we might compare test scores for students who took both a pretest and a posttest. When data are paired, we analyze the differences within each pair rather than treating the two groups as independent.    Paired Observations and Samples     Paired data represent two sets of observations that are collected on the same units or on units that are meaningfully connected. In a paired analysis, we are interested in the difference for each pair of observations.    Examples of paired data:   Blood pressure measurements before and after medication for the same patients  Pre-test and post-test scores for the same students  Measurements on twins or siblings  Prices of textbooks at two different stores for the same titles    The key to identifying paired data: Can we meaningfully connect one observation in the first dataset to exactly one observation in the second dataset?     Inference for Paired Data  To analyze paired data, we:   Calculate the difference for each pair:  Treat these differences as a single sample  Apply one-sample t-procedures to the differences   Let represent the mean of the differences and represent the standard deviation of the differences. Then:   Confidence interval for :   Test statistic:  (when testing )   The conditions for paired t-procedures are the same as for one-sample t-procedures, applied to the differences:   Independence: The pairs must be independent of each other.  Normality: The differences should come from a nearly normal distribution, or the sample size should be large enough.    "
+  "title": "Paired data",
+  "body": " Paired data   In an earlier edition of this textbook, we found that Amazon prices were, on average, lower than those of the UCLA Bookstore for UCLA courses in 2010. It's been several years, and many stores have adapted to the online market, so we wondered, how is the UCLA Bookstore doing today?  We sampled 201 UCLA courses. Of those, 68 required books could be found on Amazon. A portion of the data set from these courses is shown in Figure , where prices are in US dollars.   Four cases of the textbooks data set.     subject  course number  bookstore  amazon  price difference    1  American Indian Studies  M10  47.97  47.45  0.52    2  Anthropology  2  14.26  13.55  0.71    3  Arts and Architecture  10  13.50  12.53  0.97            68  Jewish Studies  M10  35.96  32.40  3.56       Paired observations  Each textbook has two corresponding prices in the data set: one for the UCLA Bookstore and one for Amazon. When two sets of observations have this special correspondence, they are said to be paired .   Paired data  Two sets of observations are paired if each observation in one set has a special correspondence or connection with exactly one observation in the other data set.   To analyze paired data, it is often useful to look at the difference in outcomes of each pair of observations. In the textbook data, we look at the differences in prices, which is represented as the price_difference variable in the data set. Here the differences are taken as   It is important that we always subtract using a consistent order; here Amazon prices are always subtracted from UCLA prices. The first difference shown in Figure is computed as . Similarly, the second difference is computed as , and the third is . A histogram of the differences is shown in Figure . Using differences between paired observations is a common and useful way to analyze paired data.   Histogram of the difference in price for each book sampled.        Inference for paired data  To analyze a paired data set, we simply analyze the differences. We can use the same -distribution techniques we applied in Section .   Summary statistics for the 68 price differences.           68   3.58   13.42       Set up a hypothesis test to determine whether, on average, there is a difference between Amazon's price for a book and the UCLA bookstore's price. Also, check the conditions for whether we can move forward with the test using the -distribution.    We are considering two scenarios: there is no difference or there is some difference in average prices.   : . There is no difference in the average textbook price.  : . There is a difference in average prices.   Next, we check the independence and normality conditions. The observations are based on a simple random sample, so independence is reasonable. While there are some outliers, and none of the outliers are particularly extreme, so the normality of is satisfied. With these conditions satisfied, we can move forward with the -distribution.      Complete the hypothesis test started in Example .    To compute the test statistic, we compute the standard error associated with using the standard deviation of the differences ( ) and the number of differences ( ):   The test statistic is the T-score of under the null condition that the actual mean difference is 0:   To visualize the p-value, the sampling distribution of is drawn as though is true, and the p-value is represented by the two shaded tails:     The degrees of freedom is . Using statistical software, we find the one-tail area of 0.0156. Doubling this area gives the p-value: 0.0312.  Because the p-value is less than 0.05, we reject the null hypothesis. Amazon prices are, on average, lower than the UCLA Bookstore prices for UCLA courses.      Create a 95% confidence interval for the average price difference between books at the UCLA bookstore and books on Amazon. Conditions have already been verified and the standard error computed in Example . To find the interval, identify using statistical software or the -table ( ), and plug it, the point estimate, and the standard error into the confidence interval formula: . We are 95% confident that Amazon is, on average, between $0.32 and $6.84 less expensive than the UCLA Bookstore for UCLA course books.       We have strong evidence that Amazon is, on average, less expensive. How should this conclusion affect UCLA student buying habits? Should UCLA students always buy their books on Amazon? The average price difference is only mildly useful for this question. Examine the distribution shown in Figure . There are certainly a handful of cases where Amazon prices are far below the UCLA Bookstore's, which suggests it is worth checking Amazon (and probably other online sites) before purchasing. However, in many cases the Amazon price is above what the UCLA Bookstore charges, and most of the time the price isn't that different. Ultimately, if getting a book immediately from the bookstore is notably more convenient, e.g. to get started on reading or homework, it's likely a good idea to go with the UCLA Bookstore unless the price difference on a specific book happens to be quite large. For reference, this is a very different result from what we (the authors) had seen in a similar data set from 2010. At that time, Amazon prices were almost uniformly lower than those of the UCLA Bookstore's and by a large margin, making the case to use Amazon over the UCLA Bookstore quite compelling at that time. Now we frequently check multiple websites to find the best price.       Section Exercises   Air quality   Air quality measurements were collected in a random sample of 25 country capitals in 2013, and then again in the same cities in 2014. We would like to use these data to compare average air quality between the two years. Should we use a paired or non-paired test? Explain your reasoning.     True \/ False: paired   Determine if the following statements are true or false. If false, explain.   In a paired analysis we first take the difference of each pair of observations, and then we do inference on these differences.  Two data sets of different sizes cannot be analyzed as paired data.  Consider two sets of data that are paired with each other. Each observation in one data set has a natural correspondence with exactly one observation from the other data set.  Consider two sets of data that are paired with each other. Each observation in one data set is subtracted from the average of the other data set's observations.      Paired or not? Part I   In each of the following scenarios, determine if the data are paired.   Compare pre- (beginning of semester) and post-test (end of semester) scores of students.  Assess gender-related salary gap by comparing salaries of randomly sampled men and women.  Compare artery thicknesses at the beginning of a study and after 2 years of taking Vitamin E for the same group of patients.  Assess effectiveness of a diet regimen by comparing the before and after weights of subjects.      Paired or not? Part II   In each of the following scenarios, determine if the data are paired.   We would like to know if Intel's stock and Southwest Airlines' stock have similar rates of return. To find out, we take a random sample of 50 days, and record Intel's and Southwest's stock on those same days.  We randomly sample 50 items from Target stores and note the price for each. Then we visit Walmart and collect the price for each of those same 50 items.  A school board would like to determine whether there is a difference in average SAT scores for students at one high school versus another high school in the district. To check, they take a simple random sample of 100 students from each high school.      Global warming, Part I   Let's consider a limited set of climate data, examining temperature differences in 1948 vs 2018. We sampled 197 locations from the National Oceanic and Atmospheric Administration's (NOAA) historical data, where the data was available for both years of interest. We want to know: were there more days with temperatures exceeding 90°F in 2018 or in 1948? The difference in number of days exceeding 90°F (number of days in 2018 - number of days in 1948) was calculated for each of the 197 locations. The average of these differences was 2.9 days with a standard deviation of 17.2 days. We are interested in determining whether these data provide strong evidence that there were more days in 2018 that exceeded 90°F from NOAA's weather stations.      Is there a relationship between the observations collected in 1948 and 2018? Or are the observations in the two groups independent? Explain.  Write hypotheses for this research in symbols and in words.  Check the conditions required to complete this test. A histogram of the differences is given to the right.  Calculate the test statistic and find the p-value.  Use to evaluate the test, and interpret your conclusion in context.  What type of error might we have made? Explain in context what the error means.  Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the number of days exceeding 90°F from 1948 and 2018 to include 0? Explain your reasoning.      High School and Beyond, Part I   The National Center of Education Statistics conducted a survey of high school seniors, collecting test data on reading, writing, and several other subjects. Here we examine a simple random sample of 200 students from this survey. Side-by-side box plots of reading and writing scores as well as a histogram of the differences in scores are shown below.         Is there a clear difference in the average reading and writing scores?  Are the reading and writing scores of each student independent of each other?  Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam?  Check the conditions required to complete this test.  The average observed difference in scores is , and the standard deviation of the differences is 8.887 points. Do these data provide convincing evidence of a difference between the average scores on the two exams?  What type of error might we have made? Explain what the error means in the context of the application.  Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the reading and writing scores to include 0? Explain your reasoning.      Global warming, Part II   We considered the change in the number of days exceeding 90°F from 1948 and 2018 at 197 randomly sampled locations from the NOAA database in Exercise . The mean and standard deviation of the reported differences are 2.9 days and 17.2 days.   Calculate a 90% confidence interval for the average difference between number of days exceeding 90°F between 1948 and 2018. We've already checked the conditions for you.  Interpret the interval in context.  Does the confidence interval provide convincing evidence that there were more days exceeding 90°F in 2018 than in 1948 at NOAA stations? Explain.      High school and beyond, Part II   We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey in Exercise . The mean and standard deviation of the differences are and 8.887 points.   Calculate a 95% confidence interval for the average difference between the reading and writing scores of all students.  Interpret this interval in context.  Does the confidence interval provide convincing evidence that there is a real difference in the average scores? Explain.      "
 },
 {
-  "id": "def-paired-data",
+  "id": "textbooksDF",
   "level": "2",
-  "url": "sec-paired-data.html#def-paired-data",
-  "type": "Definition",
+  "url": "pairedData.html#textbooksDF",
+  "type": "Figure",
   "number": "7.2.1",
   "title": "",
-  "body": "   Paired data represent two sets of observations that are collected on the same units or on units that are meaningfully connected. In a paired analysis, we are interested in the difference for each pair of observations.   "
+  "body": " Four cases of the textbooks data set.     subject  course number  bookstore  amazon  price difference    1  American Indian Studies  M10  47.97  47.45  0.52    2  Anthropology  2  14.26  13.55  0.71    3  Arts and Architecture  10  13.50  12.53  0.97            68  Jewish Studies  M10  35.96  32.40  3.56    "
 },
 {
-  "id": "sec-difference-two-means",
+  "id": "paired-observations-2",
+  "level": "2",
+  "url": "pairedData.html#paired-observations-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "paired "
+},
+{
+  "id": "diffInTextbookPricesF18",
+  "level": "2",
+  "url": "pairedData.html#diffInTextbookPricesF18",
+  "type": "Figure",
+  "number": "7.2.2",
+  "title": "",
+  "body": " Histogram of the difference in price for each book sampled.     "
+},
+{
+  "id": "textbooksSummaryStats",
+  "level": "2",
+  "url": "pairedData.html#textbooksSummaryStats",
+  "type": "Figure",
+  "number": "7.2.3",
+  "title": "",
+  "body": " Summary statistics for the 68 price differences.           68   3.58   13.42    "
+},
+{
+  "id": "htSetupTextbookPriceDiff",
+  "level": "2",
+  "url": "pairedData.html#htSetupTextbookPriceDiff",
+  "type": "Example",
+  "number": "7.2.4",
+  "title": "",
+  "body": "  Set up a hypothesis test to determine whether, on average, there is a difference between Amazon's price for a book and the UCLA bookstore's price. Also, check the conditions for whether we can move forward with the test using the -distribution.    We are considering two scenarios: there is no difference or there is some difference in average prices.   : . There is no difference in the average textbook price.  : . There is a difference in average prices.   Next, we check the independence and normality conditions. The observations are based on a simple random sample, so independence is reasonable. While there are some outliers, and none of the outliers are particularly extreme, so the normality of is satisfied. With these conditions satisfied, we can move forward with the -distribution.   "
+},
+{
+  "id": "SEAndTScoreTextbookPriceDiff",
+  "level": "2",
+  "url": "pairedData.html#SEAndTScoreTextbookPriceDiff",
+  "type": "Example",
+  "number": "7.2.5",
+  "title": "",
+  "body": "  Complete the hypothesis test started in Example .    To compute the test statistic, we compute the standard error associated with using the standard deviation of the differences ( ) and the number of differences ( ):   The test statistic is the T-score of under the null condition that the actual mean difference is 0:   To visualize the p-value, the sampling distribution of is drawn as though is true, and the p-value is represented by the two shaded tails:     The degrees of freedom is . Using statistical software, we find the one-tail area of 0.0156. Doubling this area gives the p-value: 0.0312.  Because the p-value is less than 0.05, we reject the null hypothesis. Amazon prices are, on average, lower than the UCLA Bookstore prices for UCLA courses.   "
+},
+{
+  "id": "inference-for-paired-data-6",
+  "level": "2",
+  "url": "pairedData.html#inference-for-paired-data-6",
+  "type": "Checkpoint",
+  "number": "7.2.6",
+  "title": "",
+  "body": "  Create a 95% confidence interval for the average price difference between books at the UCLA bookstore and books on Amazon. Conditions have already been verified and the standard error computed in Example . To find the interval, identify using statistical software or the -table ( ), and plug it, the point estimate, and the standard error into the confidence interval formula: . We are 95% confident that Amazon is, on average, between $0.32 and $6.84 less expensive than the UCLA Bookstore for UCLA course books.    "
+},
+{
+  "id": "inference-for-paired-data-7",
+  "level": "2",
+  "url": "pairedData.html#inference-for-paired-data-7",
+  "type": "Checkpoint",
+  "number": "7.2.7",
+  "title": "",
+  "body": "  We have strong evidence that Amazon is, on average, less expensive. How should this conclusion affect UCLA student buying habits? Should UCLA students always buy their books on Amazon? The average price difference is only mildly useful for this question. Examine the distribution shown in Figure . There are certainly a handful of cases where Amazon prices are far below the UCLA Bookstore's, which suggests it is worth checking Amazon (and probably other online sites) before purchasing. However, in many cases the Amazon price is above what the UCLA Bookstore charges, and most of the time the price isn't that different. Ultimately, if getting a book immediately from the bookstore is notably more convenient, e.g. to get started on reading or homework, it's likely a good idea to go with the UCLA Bookstore unless the price difference on a specific book happens to be quite large. For reference, this is a very different result from what we (the authors) had seen in a similar data set from 2010. At that time, Amazon prices were almost uniformly lower than those of the UCLA Bookstore's and by a large margin, making the case to use Amazon over the UCLA Bookstore quite compelling at that time. Now we frequently check multiple websites to find the best price.    "
+},
+{
+  "id": "air_quality_shortened",
+  "level": "2",
+  "url": "pairedData.html#air_quality_shortened",
+  "type": "Exercise",
+  "number": "7.2.3.1",
+  "title": "Air quality.",
+  "body": " Air quality   Air quality measurements were collected in a random sample of 25 country capitals in 2013, and then again in the same cities in 2014. We would like to use these data to compare average air quality between the two years. Should we use a paired or non-paired test? Explain your reasoning.   "
+},
+{
+  "id": "tf_paired",
+  "level": "2",
+  "url": "pairedData.html#tf_paired",
+  "type": "Exercise",
+  "number": "7.2.3.2",
+  "title": "True \/ False: paired.",
+  "body": " True \/ False: paired   Determine if the following statements are true or false. If false, explain.   In a paired analysis we first take the difference of each pair of observations, and then we do inference on these differences.  Two data sets of different sizes cannot be analyzed as paired data.  Consider two sets of data that are paired with each other. Each observation in one data set has a natural correspondence with exactly one observation from the other data set.  Consider two sets of data that are paired with each other. Each observation in one data set is subtracted from the average of the other data set's observations.    "
+},
+{
+  "id": "paired_or_not_1",
+  "level": "2",
+  "url": "pairedData.html#paired_or_not_1",
+  "type": "Exercise",
+  "number": "7.2.3.3",
+  "title": "Paired or not? Part I.",
+  "body": " Paired or not? Part I   In each of the following scenarios, determine if the data are paired.   Compare pre- (beginning of semester) and post-test (end of semester) scores of students.  Assess gender-related salary gap by comparing salaries of randomly sampled men and women.  Compare artery thicknesses at the beginning of a study and after 2 years of taking Vitamin E for the same group of patients.  Assess effectiveness of a diet regimen by comparing the before and after weights of subjects.    "
+},
+{
+  "id": "paired_or_not_2",
+  "level": "2",
+  "url": "pairedData.html#paired_or_not_2",
+  "type": "Exercise",
+  "number": "7.2.3.4",
+  "title": "Paired or not? Part II.",
+  "body": " Paired or not? Part II   In each of the following scenarios, determine if the data are paired.   We would like to know if Intel's stock and Southwest Airlines' stock have similar rates of return. To find out, we take a random sample of 50 days, and record Intel's and Southwest's stock on those same days.  We randomly sample 50 items from Target stores and note the price for each. Then we visit Walmart and collect the price for each of those same 50 items.  A school board would like to determine whether there is a difference in average SAT scores for students at one high school versus another high school in the district. To check, they take a simple random sample of 100 students from each high school.    "
+},
+{
+  "id": "global_warming_v2_1",
+  "level": "2",
+  "url": "pairedData.html#global_warming_v2_1",
+  "type": "Exercise",
+  "number": "7.2.3.5",
+  "title": "Global warming, Part I.",
+  "body": " Global warming, Part I   Let's consider a limited set of climate data, examining temperature differences in 1948 vs 2018. We sampled 197 locations from the National Oceanic and Atmospheric Administration's (NOAA) historical data, where the data was available for both years of interest. We want to know: were there more days with temperatures exceeding 90°F in 2018 or in 1948? The difference in number of days exceeding 90°F (number of days in 2018 - number of days in 1948) was calculated for each of the 197 locations. The average of these differences was 2.9 days with a standard deviation of 17.2 days. We are interested in determining whether these data provide strong evidence that there were more days in 2018 that exceeded 90°F from NOAA's weather stations.      Is there a relationship between the observations collected in 1948 and 2018? Or are the observations in the two groups independent? Explain.  Write hypotheses for this research in symbols and in words.  Check the conditions required to complete this test. A histogram of the differences is given to the right.  Calculate the test statistic and find the p-value.  Use to evaluate the test, and interpret your conclusion in context.  What type of error might we have made? Explain in context what the error means.  Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the number of days exceeding 90°F from 1948 and 2018 to include 0? Explain your reasoning.    "
+},
+{
+  "id": "hs_beyond_1",
+  "level": "2",
+  "url": "pairedData.html#hs_beyond_1",
+  "type": "Exercise",
+  "number": "7.2.3.6",
+  "title": "High School and Beyond, Part I.",
+  "body": " High School and Beyond, Part I   The National Center of Education Statistics conducted a survey of high school seniors, collecting test data on reading, writing, and several other subjects. Here we examine a simple random sample of 200 students from this survey. Side-by-side box plots of reading and writing scores as well as a histogram of the differences in scores are shown below.         Is there a clear difference in the average reading and writing scores?  Are the reading and writing scores of each student independent of each other?  Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam?  Check the conditions required to complete this test.  The average observed difference in scores is , and the standard deviation of the differences is 8.887 points. Do these data provide convincing evidence of a difference between the average scores on the two exams?  What type of error might we have made? Explain what the error means in the context of the application.  Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the reading and writing scores to include 0? Explain your reasoning.    "
+},
+{
+  "id": "global_warming_v2_2",
+  "level": "2",
+  "url": "pairedData.html#global_warming_v2_2",
+  "type": "Exercise",
+  "number": "7.2.3.7",
+  "title": "Global warming, Part II.",
+  "body": " Global warming, Part II   We considered the change in the number of days exceeding 90°F from 1948 and 2018 at 197 randomly sampled locations from the NOAA database in Exercise . The mean and standard deviation of the reported differences are 2.9 days and 17.2 days.   Calculate a 90% confidence interval for the average difference between number of days exceeding 90°F between 1948 and 2018. We've already checked the conditions for you.  Interpret the interval in context.  Does the confidence interval provide convincing evidence that there were more days exceeding 90°F in 2018 than in 1948 at NOAA stations? Explain.    "
+},
+{
+  "id": "hs_beyond_2",
+  "level": "2",
+  "url": "pairedData.html#hs_beyond_2",
+  "type": "Exercise",
+  "number": "7.2.3.8",
+  "title": "High school and beyond, Part II.",
+  "body": " High school and beyond, Part II   We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey in Exercise . The mean and standard deviation of the differences are and 8.887 points.   Calculate a 95% confidence interval for the average difference between the reading and writing scores of all students.  Interpret this interval in context.  Does the confidence interval provide convincing evidence that there is a real difference in the average scores? Explain.    "
+},
+{
+  "id": "differenceOfTwoMeans",
   "level": "1",
-  "url": "sec-difference-two-means.html",
+  "url": "differenceOfTwoMeans.html",
   "type": "Section",
   "number": "7.3",
-  "title": "Difference of Two Means",
-  "body": " Difference of Two Means   We now consider a different scenario: comparing means from two independent groups. For example, we might compare average exam scores between students who attended review sessions and those who didn't, or compare average recovery times between patients receiving two different treatments.    Comparing Two Independent Means  When comparing two independent groups, we examine the difference in sample means: . This quantity estimates the difference in population means: .    For inference on the difference of two means, the following conditions should be met:   Independence: Within each group, observations must be independent. The two groups must also be independent of each other.  Normality: The data in each group should come from a nearly normal distribution, or each sample size should be sufficiently large.       Two-Sample -Procedures  The standard error for the difference of two independent sample means is:   The degrees of freedom calculation for the two-sample t-test is complex. Most software uses the Welch-Satterthwaite approximation. A conservative approach is to use .   Confidence interval for :     Test statistic for :     Two-Sample -Procedures   Prepare  Identify summary statistics for both groups and determine the parameter of interest.    Check  Verify independence within and between groups, and check the normality condition for each group.    Calculate  Compute the standard error and degrees of freedom. Calculate the confidence interval or test statistic as appropriate.    Conclude  Interpret the results in context.      Pooled Standard Deviation (Optional)  When we have strong reason to believe that the two populations have equal variances, we can use a pooled standard deviation to get a more precise estimate. The pooled standard deviation is:   The standard error becomes and the degrees of freedom is . However, this approach should only be used when the equal variance assumption is reasonable.   "
+  "title": "Difference of two means",
+  "body": " Difference of two means   In this section we consider a difference in two population means, , under the condition that the data are not paired. Just as with a single sample, we identify conditions to ensure we can use the -distribution with a point estimate of the difference, , and a new standard error formula. Other than these two differences, the details are almost identical to the one-mean procedures.  We apply these methods in three contexts: determining whether stem cells can improve heart function, exploring the relationship between pregnant womens' smoking habits and birth weights of newborns, and exploring whether there is statistically significant evidence that one variation of an exam is harder than another variation. This section is motivated by questions like Is there convincing evidence that newborns from mothers who smoke have a different average birth weight than newborns from mothers who don't smoke?     Confidence interval for a difference of means  Does treatment using embryonic stem cells (ESCs) help improve heart function following a heart attack? Figure contains summary statistics for an experiment to test ESCs in sheep that had a heart attack. Each of these sheep was randomly assigned to the ESC or control group, and the change in their hearts' pumping capacity was measured in the study. Figure provides histograms of the two data sets. A positive value corresponds to increased pumping capacity, which generally suggests a stronger recovery. Our goal will be to identify a 95% confidence interval for the effect of ESCs on the change in heart pumping capacity relative to the control group.   Summary statistics of the embryonic stem cell study.          ESCs  9  3.50  5.17    control  9   2.76     The point estimate of the difference in the heart pumping variable is straightforward to find: it is the difference in the sample means.   For the question of whether we can model this difference using a -distribution, we'll need to check new conditions. Like the 2-proportion cases, we will require a more robust version of independence so we are confident the two groups are also independent. Secondly, we also check for normality in each group separately, which in practice is a check for outliers.   Using the -distribution for a difference in means  The -distribution can be used for inference when working with the standardized difference of two means if     Independence, extended. The data are independent within and between the two groups, e.g. the data come from independent random samples or from a randomized experiment.     Normality. We check the outliers rules of thumb for each group separately.    The standard error may be computed as   The official formula for the degrees of freedom is quite complex and is generally computed using software, so instead you may use the smaller of and for the degrees of freedom if software isn't readily available.     Can the -distribution be used to make inference using the point estimate, ?    First, we check for independence. Because the sheep were randomized into the groups, independence within and between groups is satisfied.  Figure does not reveal any clear outliers in either group. (The ESC group does look a bit more variability, but this is not the same as having clear outliers.)  With both conditions met, we can use the -distribution to model the difference of sample means.     Histograms for both the embryonic stem cell and control group.      As with the one-sample case, we always compute the standard error using sample standard deviations rather than population standard deviations:   Generally, we use statistical software to find the appropriate degrees of freedom, or if software isn't available, we can use the smaller of and for the degrees of freedom, e.g. if using a -table to find tail areas. For transparency in the Examples and Guided Practice, we'll use the latter approach for finding ; in the case of the ESC example, this means we'll use .    Calculate a 95% confidence interval for the effect of ESCs on the change in heart pumping capacity of sheep after they've suffered a heart attack.    We will use the sample difference and the standard error that we computed earlier calculations:   Using , we can identify the critical value of for a 95% confidence interval. Finally, we can enter the values into the confidence interval formula:   We are 95% confident that embryonic stem cells improve the heart's pumping function in sheep that have suffered a heart attack by 3.32% to 12.34%.    As with past statistical inference applications, there is a well-trodden procedure.    Prepare.  Retrieve critical contextual information, and if appropriate, set up hypotheses.    Check.  Ensure the required conditions are reasonably satisfied.    Calculate.  Find the standard error, and then construct a confidence interval, or if conducting a hypothesis test, find a test statistic and p-value.    Conclude.  Interpret the results in the context of the application.    The details change a little from one setting to the next, but this general approach remain the same.    Hypothesis tests for the difference of two means  A data set called ncbirths represents a random sample of 150 cases of mothers and their newborns in North Carolina over a year. Four cases from this data set are represented in Figure . We are particularly interested in two variables: weight and smoke . The weight variable represents the weights of the newborns and the smoke variable describes which mothers smoked during pregnancy. We would like to know, is there convincing evidence that newborns from mothers who smoke have a different average birth weight than newborns from mothers who don't smoke? We will use the North Carolina sample to try to answer this question. The smoking group includes 50 cases and the nonsmoking group contains 100 cases.   Four cases from the ncbirths data set. The value NA , shown for the first two entries of the first variable, indicates that piece of data is missing.     fage  mage  weeks  weight  sex  smoke    1  NA  13  37  5.00  female  nonsmoker    2  NA  14  36  5.88  female  nonsmoker    3  19  15  41  8.13  male  smoker             150  45  50  36  9.25  female  nonsmoker       Set up appropriate hypotheses to evaluate whether there is a relationship between a mother smoking and average birth weight.    The null hypothesis represents the case of no difference between the groups.     : There is no difference in average birth weight for newborns from mothers who did and did not smoke. In statistical notation: , where represents non-smoking mothers and represents mothers who smoked.     : There is some difference in average newborn weights from mothers who did and did not smoke ( ).      We check the two conditions necessary to model the difference in sample means using the -distribution.    Because the data come from a simple random sample, the observations are independent, both within and between samples.    With both data sets over 30 observations, we inspect the data in Figure for any particularly extreme outliers and find none.    Since both conditions are satisfied, the difference in sample means may be modeled using a -distribution.   The left panel represents birth weights for infants whose mothers smoked. The right panel represents the birth weights for infants whose mothers who did not smoke.        The summary statistics in Figure may be useful for this Guided Practice.    What is the point estimate of the population difference, ?    Compute the standard error of the point estimate from part (a).      (a) The difference in sample means is an appropriate point estimate: .  (b) The standard error of the estimate can be calculated using the standard error formula:      Summary statistics for the ncbirths data set.     smoker  nonsmoker    mean  6.78  7.18    st. dev.  1.43  1.60    samp. size  50  100       Complete the hypothesis test started in Example and Guided Practice . Use a significance level of . For reference, , , and the sample sizes were and .    We can find the test statistic for this test using the values from Guided Practice :   The p-value is represented by the two shaded tails in the following plot:   Distribution of the difference of sample means for the baby smoke data.      We find the single tail area using software (or the -table in the appendix). We'll use the smaller of and as the degrees of freedom: . The one tail area is 0.065; doubling this value gives the two-tail area and p-value, 0.135.  The p-value is larger than the significance value, 0.05, so we do not reject the null hypothesis. There is insufficient evidence to say there is a difference in average birth weight of newborns from North Carolina mothers who did smoke during pregnancy and newborns from North Carolina mothers who did not smoke during pregnancy.      We've seen much research suggesting smoking is harmful during pregnancy, so how could we fail to reject the null hypothesis in Example ?    It is possible that there is a difference but we did not detect it. If there is a difference, we made a Type 2 Error.      If we made a Type 2 Error and there is a difference, what could we have done differently in data collection to be more likely to detect the difference?    We could have collected more data. If the sample sizes are larger, we tend to have a better shot at finding a difference if one exists. In fact, this is exactly what we would find if we examined a larger data set!    Public service announcement: while we have used this relatively small data set as an example, larger data sets show that women who smoke tend to have smaller newborns. In fact, some in the tobacco industry actually had the audacity to tout that as a benefit of smoking:    It's true. The babies born from women who smoke are smaller, but they're just as healthy as the babies born from women who do not smoke. And some women would prefer having smaller babies.   - Joseph Cullman, Philip Morris' Chairman of the Board on CBS' Face the Nation , Jan 3, 1971   Fact check: the babies from women who smoke are not actually as healthy as the babies from women who do not smoke. You can watch an episode of John Oliver on Last Week Tonight to explore the present day offenses of the tobacco industry. Please be aware that there is some adult language: youtu.be\/6UsHHOCH4q8 .     Case study: two versions of a course exam  An instructor decided to run two slight variations of the same exam. Prior to passing out the exams, she shuffled the exams together to ensure each student received a random version. Summary statistics for how students performed on these two exams are shown in Figure . Anticipating complaints from students who took Version B, she would like to evaluate whether the difference observed in the groups is so large that it provides convincing evidence that Version B was more difficult (on average) than Version A.   Summary statistics of scores for each exam version.    Version     min  max    A  30  79.4  14  45  100    B  27  74.1  20  32  100       Construct hypotheses to evaluate whether the observed difference in sample means, , is due to chance. We will later evaluate these hypotheses using .     : the exams are equally difficult, on average. . : one exam was more difficult than the other, on average. .      To evaluate the hypotheses in Guided Practice using the -distribution, we must first verify conditions.    Does it seem reasonable that the scores are independent?    Any concerns about outliers?      (a) Since the exams were shuffled, the treatment in this case was randomly assigned, so independence within and between groups is satisfied.  (b) The summary statistics suggest the data are roughly symmetric about the mean, and the min\/max values don't suggest any outliers of concern.    After verifying the conditions for each sample and confirming the samples are independent of each other, we are ready to conduct the test using the -distribution. In this case, we are estimating the true difference in average test scores using the sample data, so the point estimate is . The standard error of the estimate can be calculated as   Finally, we construct the test statistic:   If we have a computer handy, we can identify the degrees of freedom as 45.97. Otherwise we use the smaller of and : .   The -distribution with 26 degrees of freedom and the p-value from exam example represented as the shaded areas.        Identify the p-value depicted in Figure using , and provide a conclusion in the context of the case study.    Using software, we can find the one-tail area (0.13) and then double this value to get the two-tail area, which is the p-value: 0.26. (Alternatively, we could use the -table in the appendix.)  In Guided Practice , we specified that we would use . Since the p-value is larger than , we do not reject the null hypothesis. That is, the data do not convincingly show that one exam version is more difficult than the other, and the teacher should not be convinced that she should add points to the Version B exam scores.      Pooled standard deviation estimate (special topic)  Occasionally, two populations will have standard deviations that are so similar that they can be treated as identical. For example, historical data or a well-understood biological mechanism may justify this strong assumption. In such cases, we can make the -distribution approach slightly more precise by using a pooled standard deviation.  The pooled standard deviation of two groups is a way to use data from both samples to better estimate the standard deviation and standard error. If and are the standard deviations of groups 1 and 2 and there are very good reasons to believe that the population standard deviations are equal, then we can obtain an improved estimate of the group variances by pooling their data:   where and are the sample sizes, as before. To use this new statistic, we substitute in place of and in the standard error formula, and we use an updated formula for the degrees of freedom:   The benefits of pooling the standard deviation are realized through obtaining a better estimate of the standard deviation for each group and using a larger degrees of freedom parameter for the -distribution. Both of these changes may permit a more accurate model of the sampling distribution of , if the standard deviations of the two groups are indeed equal.   Pool standard deviations only after careful consideration  A pooled standard deviation is only appropriate when background research indicates the population standard deviations are nearly equal. When the sample size is large and the condition may be adequately checked with data, the benefits of pooling the standard deviations greatly diminishes.     Exercises    Friday the 13 , Part I   In the early 1990's, researchers in the UK collected data on traffic flow, number of shoppers, and traffic accident related emergency room admissions on Friday the 13 and the previous Friday, Friday the 6 . The histograms below show the distribution of number of cars passing by a specific intersection on Friday the 6 and Friday the 13 for many such date pairs. Also given are some sample statistics, where the difference is the number of cars on the 6th minus the number of cars on the 13th.      6  13  Diff.     128,385  126,550  1,835     7,259  7,664  1,176     10  10  10      Are there any underlying structures in these data that should be considered in an analysis? Explain.  What are the hypotheses for evaluating whether the number of people out on Friday the 6 is different than the number out on Friday the 13 ?  Check conditions to carry out the hypothesis test from part (b).  Calculate the test statistic and the p-value.  What is the conclusion of the hypothesis test?  Interpret the p-value in this context.  What type of error might have been made in the conclusion of your test? Explain.        Diamonds, Part I   Prices of diamonds are determined by what is known as the 4 Cs: cut, clarity, color, and carat weight. The prices of diamonds go up as the carat weight increases, but the increase is not smooth. For example, the difference between the size of a 0.99 carat diamond and a 1 carat diamond is undetectable to the naked human eye, but the price of a 1 carat diamond tends to be much higher than the price of a 0.99 diamond. In this question we use two random samples of diamonds, 0.99 carats and 1 carat, each sample of size 23, and compare the average prices of the diamonds. In order to be able to compare equivalent units, we first divide the price for each diamond by 100 times its weight in carats. That is, for a 0.99 carat diamond, we divide the price by 99. For a 1 carat diamond, we divide the price by 100. The distributions and some sample statistics are shown below.  Conduct a hypothesis test to evaluate if there is a difference between the average standardized prices of 0.99 and 1 carat diamonds. Make sure to state your hypotheses clearly, check relevant conditions, and interpret your results in context of the data.     0.99 carats  1 carat    Mean  $44.51  $56.81    SD  $13.32  $16.13    n  23  23         Friday the 13 , Part II   The Friday the study reported in Exercise also provides data on traffic accident related emergency room admissions. The distributions of these counts from Friday the 6 and Friday the 13 are shown below for six such paired dates along with summary statistics. You may assume that conditions for inference are met.      6  13  diff    Mean  7.5  10.83  -3.33    SD  3.33  3.6  3.01    n  6  6  6      Conduct a hypothesis test to evaluate if there is a difference between the average numbers of traffic accident related emergency room admissions between Friday the 6 and Friday the 13 .  Calculate a 95% confidence interval for the difference between the average numbers of traffic accident related emergency room admissions between Friday the 6 and Friday the 13 .  The conclusion of the original study states, \"Friday 13th is unlucky for some. The risk of hospital admission as a result of a transport accident may be increased by as much as 52%. Staying at home is recommended.\" Do you agree with this statement? Explain your reasoning.        Diamonds, Part II   In Exercise , we discussed diamond prices (standardized by weight) for diamonds with weights 0.99 carats and 1 carat. See the table for summary statistics, and then construct a 95% confidence interval for the average difference between the standardized prices of 0.99 and 1 carat diamonds. You may assume the conditions for inference are met.     0.99 carats  1 carat    Mean  $44.51  $56.81    SD  $13.32  $16.13    n  23  23        Chicken diet and weight, Part I   Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Below are some summary statistics from this data set along with box plots showing the distribution of weights by feed type.      Mean  SD  n    casein  323.58  64.43  12    horsebean  160.20  38.63  10    linseed  218.75  52.24  12    meatmeal  276.91  64.90  11    soybean  246.43  54.13  14    sunflower  328.92  48.84  12      Describe the distributions of weights of chickens that were fed linseed and horsebean.  Do these data provide strong evidence that the average weights of chickens that were fed linseed and horsebean are different? Use a 5% significance level.  What type of error might we have committed? Explain.  Would your conclusion change if we used ?        Fuel efficiency of manual and automatic cars, Part I   Each year the US Environmental Protection Agency (EPA) releases fuel economy data on cars manufactured in that year. Below are summary statistics on fuel efficiency (in miles\/gallon) from random samples of cars with manual and automatic transmissions. Do these data provide strong evidence of a difference between the average fuel efficiency of cars with manual and automatic transmissions in terms of their average city mileage? Assume that conditions for inference are satisfied.     City MPG      Automatic  Manual    Mean  16.12  19.85    SD  3.58  4.51    n  26  26         Chicken diet and weight, Part II   Casein is a common weight gain supplement for humans. Does it have an effect on chickens? Using data provided in Exercise , test the hypothesis that the average weight of chickens that were fed casein is different than the average weight of chickens that were fed soybean. If your hypothesis test yields a statistically significant result, discuss whether or not the higher average weight of chickens can be attributed to the casein diet. Assume that conditions for inference are satisfied.      Fuel efficiency of manual and automatic cars, Part II   The table provides summary statistics on highway fuel economy of the same 52 cars from Exercise . Use these statistics to calculate a 98% confidence interval for the difference between average highway mileage of manual and automatic cars, and interpret this interval in the context of the data.     Hwy MPG      Automatic  Manual    Mean  22.92  27.88    SD  5.29  5.01    n  26  26         Prison isolation experiment, Part I   Subjects from Central Prison in Raleigh, NC, volunteered for an experiment involving an \"isolation\" experience. The goal of the experiment was to find a treatment that reduces subjects' psychopathic deviant T scores. This score measures a person's need for control or their rebellion against control, and it is part of a commonly used mental health test called the Minnesota Multiphasic Personality Inventory (MMPI) test. The experiment had three treatment groups:    Four hours of sensory restriction plus a 15 minute \"therapeutic\" tape advising that professional help is available.  Four hours of sensory restriction plus a 15 minute \"emotionally neutral\" tape on training hunting dogs.  Four hours of sensory restriction but no taped message.    Forty-two subjects were randomly assigned to these treatment groups, and an MMPI test was administered before and after the treatment. Distributions of the differences between pre and post treatment scores (pre - post) are shown below, along with some sample statistics. Use this information to independently test the effectiveness of each treatment. Make sure to clearly state your hypotheses, check conditions, and interpret results in the context of the data.      Tr 1  Tr 2  Tr 3    Mean  6.21  2.86  -3.21    SD  12.3  7.94  8.57    n  14  14  14        True \/ False: comparing means   Determine if the following statements are true or false, and explain your reasoning for statements you identify as false.    When comparing means of two samples where and , we can use the normal model for the difference in means since .  As the degrees of freedom increases, the -distribution approaches normality.  We use a pooled standard error for calculating the standard error of the difference between means when sample sizes of groups are equal to each other.       "
 },
 {
-  "id": "def-two-sample-conditions",
+  "id": "statsSheepEscStudy",
   "level": "2",
-  "url": "sec-difference-two-means.html#def-two-sample-conditions",
-  "type": "Definition",
+  "url": "differenceOfTwoMeans.html#statsSheepEscStudy",
+  "type": "Figure",
   "number": "7.3.1",
   "title": "",
-  "body": "  For inference on the difference of two means, the following conditions should be met:   Independence: Within each group, observations must be independent. The two groups must also be independent of each other.  Normality: The data in each group should come from a nearly normal distribution, or each sample size should be sufficiently large.    "
+  "body": " Summary statistics of the embryonic stem cell study.          ESCs  9  3.50  5.17    control  9   2.76    "
 },
 {
-  "id": "subsec-pooled-standard-deviation-2",
+  "id": "confidenceIntervalDiffMeans-8",
   "level": "2",
-  "url": "sec-difference-two-means.html#subsec-pooled-standard-deviation-2",
+  "url": "differenceOfTwoMeans.html#confidenceIntervalDiffMeans-8",
+  "type": "Example",
+  "number": "7.3.2",
+  "title": "",
+  "body": "  Can the -distribution be used to make inference using the point estimate, ?    First, we check for independence. Because the sheep were randomized into the groups, independence within and between groups is satisfied.  Figure does not reveal any clear outliers in either group. (The ESC group does look a bit more variability, but this is not the same as having clear outliers.)  With both conditions met, we can use the -distribution to model the difference of sample means.   "
+},
+{
+  "id": "stemCellTherapyForHearts",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#stemCellTherapyForHearts",
+  "type": "Figure",
+  "number": "7.3.3",
+  "title": "",
+  "body": " Histograms for both the embryonic stem cell and control group.     "
+},
+{
+  "id": "confidenceIntervalDiffMeans-13",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#confidenceIntervalDiffMeans-13",
+  "type": "Example",
+  "number": "7.3.4",
+  "title": "",
+  "body": "  Calculate a 95% confidence interval for the effect of ESCs on the change in heart pumping capacity of sheep after they've suffered a heart attack.    We will use the sample difference and the standard error that we computed earlier calculations:   Using , we can identify the critical value of for a 95% confidence interval. Finally, we can enter the values into the confidence interval formula:   We are 95% confident that embryonic stem cells improve the heart's pumping function in sheep that have suffered a heart attack by 3.32% to 12.34%.   "
+},
+{
+  "id": "babySmokeDF",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#babySmokeDF",
+  "type": "Figure",
+  "number": "7.3.5",
+  "title": "",
+  "body": " Four cases from the ncbirths data set. The value NA , shown for the first two entries of the first variable, indicates that piece of data is missing.     fage  mage  weeks  weight  sex  smoke    1  NA  13  37  5.00  female  nonsmoker    2  NA  14  36  5.88  female  nonsmoker    3  19  15  41  8.13  male  smoker             150  45  50  36  9.25  female  nonsmoker    "
+},
+{
+  "id": "babySmokeHTForWeight",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#babySmokeHTForWeight",
+  "type": "Example",
+  "number": "7.3.6",
+  "title": "",
+  "body": "  Set up appropriate hypotheses to evaluate whether there is a relationship between a mother smoking and average birth weight.    The null hypothesis represents the case of no difference between the groups.     : There is no difference in average birth weight for newborns from mothers who did and did not smoke. In statistical notation: , where represents non-smoking mothers and represents mothers who smoked.     : There is some difference in average newborn weights from mothers who did and did not smoke ( ).     "
+},
+{
+  "id": "babySmokePlotOfTwoGroupsToExamineSkew",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#babySmokePlotOfTwoGroupsToExamineSkew",
+  "type": "Figure",
+  "number": "7.3.7",
+  "title": "",
+  "body": " The left panel represents birth weights for infants whose mothers smoked. The right panel represents the birth weights for infants whose mothers who did not smoke.     "
+},
+{
+  "id": "babySmokeCalcForWeight",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#babySmokeCalcForWeight",
+  "type": "Checkpoint",
+  "number": "7.3.8",
+  "title": "",
+  "body": "  The summary statistics in Figure may be useful for this Guided Practice.    What is the point estimate of the population difference, ?    Compute the standard error of the point estimate from part (a).      (a) The difference in sample means is an appropriate point estimate: .  (b) The standard error of the estimate can be calculated using the standard error formula:    "
+},
+{
+  "id": "SumStatsBirthWeightNewbornsSmoke",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#SumStatsBirthWeightNewbornsSmoke",
+  "type": "Figure",
+  "number": "7.3.9",
+  "title": "",
+  "body": " Summary statistics for the ncbirths data set.     smoker  nonsmoker    mean  6.78  7.18    st. dev.  1.43  1.60    samp. size  50  100    "
+},
+{
+  "id": "babySmokeHTForWeightComputePValueAndEvalHT",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#babySmokeHTForWeightComputePValueAndEvalHT",
+  "type": "Example",
+  "number": "7.3.10",
+  "title": "",
+  "body": "  Complete the hypothesis test started in Example and Guided Practice . Use a significance level of . For reference, , , and the sample sizes were and .    We can find the test statistic for this test using the values from Guided Practice :   The p-value is represented by the two shaded tails in the following plot:   Distribution of the difference of sample means for the baby smoke data.      We find the single tail area using software (or the -table in the appendix). We'll use the smaller of and as the degrees of freedom: . The one tail area is 0.065; doubling this value gives the two-tail area and p-value, 0.135.  The p-value is larger than the significance value, 0.05, so we do not reject the null hypothesis. There is insufficient evidence to say there is a difference in average birth weight of newborns from North Carolina mothers who did smoke during pregnancy and newborns from North Carolina mothers who did not smoke during pregnancy.   "
+},
+{
+  "id": "hypothesisTestsDiffMeans-12",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#hypothesisTestsDiffMeans-12",
+  "type": "Checkpoint",
+  "number": "7.3.12",
+  "title": "",
+  "body": "  We've seen much research suggesting smoking is harmful during pregnancy, so how could we fail to reject the null hypothesis in Example ?    It is possible that there is a difference but we did not detect it. If there is a difference, we made a Type 2 Error.   "
+},
+{
+  "id": "babySmokeHTIDingHowToDetectDifferences",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#babySmokeHTIDingHowToDetectDifferences",
+  "type": "Checkpoint",
+  "number": "7.3.13",
+  "title": "",
+  "body": "  If we made a Type 2 Error and there is a difference, what could we have done differently in data collection to be more likely to detect the difference?    We could have collected more data. If the sample sizes are larger, we tend to have a better shot at finding a difference if one exists. In fact, this is exactly what we would find if we examined a larger data set!   "
+},
+{
+  "id": "summaryStatsForTwoVersionsOfExams",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#summaryStatsForTwoVersionsOfExams",
+  "type": "Figure",
+  "number": "7.3.14",
+  "title": "",
+  "body": " Summary statistics of scores for each exam version.    Version     min  max    A  30  79.4  14  45  100    B  27  74.1  20  32  100    "
+},
+{
+  "id": "htSetupForEvaluatingTwoExamVersions",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#htSetupForEvaluatingTwoExamVersions",
+  "type": "Checkpoint",
+  "number": "7.3.15",
+  "title": "",
+  "body": "  Construct hypotheses to evaluate whether the observed difference in sample means, , is due to chance. We will later evaluate these hypotheses using .     : the exams are equally difficult, on average. . : one exam was more difficult than the other, on average. .   "
+},
+{
+  "id": "conditionsForTDistForEvaluatingTwoExamVersions",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#conditionsForTDistForEvaluatingTwoExamVersions",
+  "type": "Checkpoint",
+  "number": "7.3.16",
+  "title": "",
+  "body": "  To evaluate the hypotheses in Guided Practice using the -distribution, we must first verify conditions.    Does it seem reasonable that the scores are independent?    Any concerns about outliers?      (a) Since the exams were shuffled, the treatment in this case was randomly assigned, so independence within and between groups is satisfied.  (b) The summary statistics suggest the data are roughly symmetric about the mean, and the min\/max values don't suggest any outliers of concern.   "
+},
+{
+  "id": "pValueOfTwoTailAreaOfExamVersionsWhereDFIs26",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#pValueOfTwoTailAreaOfExamVersionsWhereDFIs26",
+  "type": "Figure",
+  "number": "7.3.17",
+  "title": "",
+  "body": " The -distribution with 26 degrees of freedom and the p-value from exam example represented as the shaded areas.     "
+},
+{
+  "id": "caseStudyTwoExamVersions-12",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#caseStudyTwoExamVersions-12",
+  "type": "Example",
+  "number": "7.3.18",
+  "title": "",
+  "body": "  Identify the p-value depicted in Figure using , and provide a conclusion in the context of the case study.    Using software, we can find the one-tail area (0.13) and then double this value to get the two-tail area, which is the p-value: 0.26. (Alternatively, we could use the -table in the appendix.)  In Guided Practice , we specified that we would use . Since the p-value is larger than , we do not reject the null hypothesis. That is, the data do not convincingly show that one exam version is more difficult than the other, and the teacher should not be convinced that she should add points to the Version B exam scores.   "
+},
+{
+  "id": "pooledStandardDeviations-3",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#pooledStandardDeviations-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "pooled standard deviation "
 },
 {
-  "id": "sec-power-calculations",
-  "level": "1",
-  "url": "sec-power-calculations.html",
-  "type": "Section",
-  "number": "7.4",
-  "title": "Power Calculations for a Difference of Means",
-  "body": " Power Calculations for a Difference of Means   When planning a study, researchers often want to know: How large should my sample be to detect a meaningful effect? This question relates to the concept of statistical power .    Understanding Statistical Power    The power of a hypothesis test is the probability that the test correctly rejects a false null hypothesis. In other words, it's the probability of detecting an effect when one truly exists.     Power depends on several factors:   The significance level  (lower means lower power)  The effect size (larger effects are easier to detect)  The sample size (larger samples provide more power)  The variability in the data (less variability means more power)   Researchers typically aim for a power of 0.80 or higher, meaning an 80% chance of detecting a true effect.    Sample Size Determination  Power calculations can be used to determine the necessary sample size for a study. The process involves specifying:   The desired significance level  The desired power (typically 0.80)  The minimum effect size you want to detect  An estimate of the population standard deviation   With these inputs, statistical software or formulas can calculate the required sample size for each group. Adequate planning using power calculations helps ensure studies are neither underpowered (unable to detect real effects) nor wastefully large.   "
+  "id": "friday_13th_traffic",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#friday_13th_traffic",
+  "type": "Exercise",
+  "number": "7.3.5.1",
+  "title": "Friday the 13<span class=\"process-math\">\\(^{\\text{th}}\\text{,}\\)<\/span> Part I.",
+  "body": " Friday the 13 , Part I   In the early 1990's, researchers in the UK collected data on traffic flow, number of shoppers, and traffic accident related emergency room admissions on Friday the 13 and the previous Friday, Friday the 6 . The histograms below show the distribution of number of cars passing by a specific intersection on Friday the 6 and Friday the 13 for many such date pairs. Also given are some sample statistics, where the difference is the number of cars on the 6th minus the number of cars on the 13th.      6  13  Diff.     128,385  126,550  1,835     7,259  7,664  1,176     10  10  10      Are there any underlying structures in these data that should be considered in an analysis? Explain.  What are the hypotheses for evaluating whether the number of people out on Friday the 6 is different than the number out on Friday the 13 ?  Check conditions to carry out the hypothesis test from part (b).  Calculate the test statistic and the p-value.  What is the conclusion of the hypothesis test?  Interpret the p-value in this context.  What type of error might have been made in the conclusion of your test? Explain.     "
 },
 {
-  "id": "sec-power-calculations-2-1",
+  "id": "diamonds_1",
   "level": "2",
-  "url": "sec-power-calculations.html#sec-power-calculations-2-1",
+  "url": "differenceOfTwoMeans.html#diamonds_1",
+  "type": "Exercise",
+  "number": "7.3.5.2",
+  "title": "Diamonds, Part I.",
+  "body": " Diamonds, Part I   Prices of diamonds are determined by what is known as the 4 Cs: cut, clarity, color, and carat weight. The prices of diamonds go up as the carat weight increases, but the increase is not smooth. For example, the difference between the size of a 0.99 carat diamond and a 1 carat diamond is undetectable to the naked human eye, but the price of a 1 carat diamond tends to be much higher than the price of a 0.99 diamond. In this question we use two random samples of diamonds, 0.99 carats and 1 carat, each sample of size 23, and compare the average prices of the diamonds. In order to be able to compare equivalent units, we first divide the price for each diamond by 100 times its weight in carats. That is, for a 0.99 carat diamond, we divide the price by 99. For a 1 carat diamond, we divide the price by 100. The distributions and some sample statistics are shown below.  Conduct a hypothesis test to evaluate if there is a difference between the average standardized prices of 0.99 and 1 carat diamonds. Make sure to state your hypotheses clearly, check relevant conditions, and interpret your results in context of the data.     0.99 carats  1 carat    Mean  $44.51  $56.81    SD  $13.32  $16.13    n  23  23      "
+},
+{
+  "id": "friday_13th_accident",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#friday_13th_accident",
+  "type": "Exercise",
+  "number": "7.3.5.3",
+  "title": "Friday the 13<span class=\"process-math\">\\(^{\\text{th}}\\text{,}\\)<\/span> Part II.",
+  "body": " Friday the 13 , Part II   The Friday the study reported in Exercise also provides data on traffic accident related emergency room admissions. The distributions of these counts from Friday the 6 and Friday the 13 are shown below for six such paired dates along with summary statistics. You may assume that conditions for inference are met.      6  13  diff    Mean  7.5  10.83  -3.33    SD  3.33  3.6  3.01    n  6  6  6      Conduct a hypothesis test to evaluate if there is a difference between the average numbers of traffic accident related emergency room admissions between Friday the 6 and Friday the 13 .  Calculate a 95% confidence interval for the difference between the average numbers of traffic accident related emergency room admissions between Friday the 6 and Friday the 13 .  The conclusion of the original study states, \"Friday 13th is unlucky for some. The risk of hospital admission as a result of a transport accident may be increased by as much as 52%. Staying at home is recommended.\" Do you agree with this statement? Explain your reasoning.     "
+},
+{
+  "id": "diamonds_2",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#diamonds_2",
+  "type": "Exercise",
+  "number": "7.3.5.4",
+  "title": "Diamonds, Part II.",
+  "body": " Diamonds, Part II   In Exercise , we discussed diamond prices (standardized by weight) for diamonds with weights 0.99 carats and 1 carat. See the table for summary statistics, and then construct a 95% confidence interval for the average difference between the standardized prices of 0.99 and 1 carat diamonds. You may assume the conditions for inference are met.     0.99 carats  1 carat    Mean  $44.51  $56.81    SD  $13.32  $16.13    n  23  23     "
+},
+{
+  "id": "chick_wts_linseed_horsebean",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#chick_wts_linseed_horsebean",
+  "type": "Exercise",
+  "number": "7.3.5.5",
+  "title": "Chicken diet and weight, Part I.",
+  "body": " Chicken diet and weight, Part I   Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Below are some summary statistics from this data set along with box plots showing the distribution of weights by feed type.      Mean  SD  n    casein  323.58  64.43  12    horsebean  160.20  38.63  10    linseed  218.75  52.24  12    meatmeal  276.91  64.90  11    soybean  246.43  54.13  14    sunflower  328.92  48.84  12      Describe the distributions of weights of chickens that were fed linseed and horsebean.  Do these data provide strong evidence that the average weights of chickens that were fed linseed and horsebean are different? Use a 5% significance level.  What type of error might we have committed? Explain.  Would your conclusion change if we used ?     "
+},
+{
+  "id": "fuel_eff_city",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#fuel_eff_city",
+  "type": "Exercise",
+  "number": "7.3.5.6",
+  "title": "Fuel efficiency of manual and automatic cars, Part I.",
+  "body": " Fuel efficiency of manual and automatic cars, Part I   Each year the US Environmental Protection Agency (EPA) releases fuel economy data on cars manufactured in that year. Below are summary statistics on fuel efficiency (in miles\/gallon) from random samples of cars with manual and automatic transmissions. Do these data provide strong evidence of a difference between the average fuel efficiency of cars with manual and automatic transmissions in terms of their average city mileage? Assume that conditions for inference are satisfied.     City MPG      Automatic  Manual    Mean  16.12  19.85    SD  3.58  4.51    n  26  26      "
+},
+{
+  "id": "chick_wts_casein_soybean",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#chick_wts_casein_soybean",
+  "type": "Exercise",
+  "number": "7.3.5.7",
+  "title": "Chicken diet and weight, Part II.",
+  "body": " Chicken diet and weight, Part II   Casein is a common weight gain supplement for humans. Does it have an effect on chickens? Using data provided in Exercise , test the hypothesis that the average weight of chickens that were fed casein is different than the average weight of chickens that were fed soybean. If your hypothesis test yields a statistically significant result, discuss whether or not the higher average weight of chickens can be attributed to the casein diet. Assume that conditions for inference are satisfied.   "
+},
+{
+  "id": "fuel_eff_hway",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#fuel_eff_hway",
+  "type": "Exercise",
+  "number": "7.3.5.8",
+  "title": "Fuel efficiency of manual and automatic cars, Part II.",
+  "body": " Fuel efficiency of manual and automatic cars, Part II   The table provides summary statistics on highway fuel economy of the same 52 cars from Exercise . Use these statistics to calculate a 98% confidence interval for the difference between average highway mileage of manual and automatic cars, and interpret this interval in the context of the data.     Hwy MPG      Automatic  Manual    Mean  22.92  27.88    SD  5.29  5.01    n  26  26      "
+},
+{
+  "id": "prison_isolation_T",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#prison_isolation_T",
+  "type": "Exercise",
+  "number": "7.3.5.9",
+  "title": "Prison isolation experiment, Part I.",
+  "body": " Prison isolation experiment, Part I   Subjects from Central Prison in Raleigh, NC, volunteered for an experiment involving an \"isolation\" experience. The goal of the experiment was to find a treatment that reduces subjects' psychopathic deviant T scores. This score measures a person's need for control or their rebellion against control, and it is part of a commonly used mental health test called the Minnesota Multiphasic Personality Inventory (MMPI) test. The experiment had three treatment groups:    Four hours of sensory restriction plus a 15 minute \"therapeutic\" tape advising that professional help is available.  Four hours of sensory restriction plus a 15 minute \"emotionally neutral\" tape on training hunting dogs.  Four hours of sensory restriction but no taped message.    Forty-two subjects were randomly assigned to these treatment groups, and an MMPI test was administered before and after the treatment. Distributions of the differences between pre and post treatment scores (pre - post) are shown below, along with some sample statistics. Use this information to independently test the effectiveness of each treatment. Make sure to clearly state your hypotheses, check conditions, and interpret results in the context of the data.      Tr 1  Tr 2  Tr 3    Mean  6.21  2.86  -3.21    SD  12.3  7.94  8.57    n  14  14  14     "
+},
+{
+  "id": "tf_compare_means",
+  "level": "2",
+  "url": "differenceOfTwoMeans.html#tf_compare_means",
+  "type": "Exercise",
+  "number": "7.3.5.10",
+  "title": "True \/ False: comparing means.",
+  "body": " True \/ False: comparing means   Determine if the following statements are true or false, and explain your reasoning for statements you identify as false.    When comparing means of two samples where and , we can use the normal model for the difference in means since .  As the degrees of freedom increases, the -distribution approaches normality.  We use a pooled standard error for calculating the standard error of the difference between means when sample sizes of groups are equal to each other.     "
+},
+{
+  "id": "PowerForDifferenceOfTwoMeans",
+  "level": "1",
+  "url": "PowerForDifferenceOfTwoMeans.html",
+  "type": "Section",
+  "number": "7.4",
+  "title": "Power calculations for a difference of means",
+  "body": " Power calculations for a difference of means   Often times in experiment planning, there are two competing considerations:   We want to collect enough data that we can detect important effects.    Collecting data can be expensive, and in experiments involving people, there may be some risk to patients.   In this section, we focus on the context of a clinical trial, which is a health-related experiment where the subject are people, and we will determine an appropriate sample size where we can be 80% sure that we would detect any practically important effects. Even though we don't cover it explicitly, similar sample size planning is also helpful for observational studies.     Going through the motions of a test  We're going to go through the motions of a hypothesis test. This will help us frame our calculations for determining an appropriate sample size for the study.    Suppose a pharmaceutical company has developed a new drug for lowering blood pressure, and they are preparing a clinical trial (experiment) to test the drug's effectiveness. They recruit people who are taking a particular standard blood pressure medication. People in the control group will continue to take their current medication through generic-looking pills to ensure blinding. Write down the hypotheses for a two-sided hypothesis test in this context.    Generally, clinical trials use a two-sided alternative hypothesis, so below are suitable hypotheses for this context:   :  The new drug performs exactly as well as the standard medication. .    :  The new drug's performance differs from the standard medication. .         The researchers would like to run the clinical trial on patients with systolic blood pressures between 140 and 180 mmHg. Suppose previously published studies suggest that the standard deviation of the patients' blood pressures will be about 12 mmHg and the distribution of patient blood pressures will be approximately symmetric. In this particular study, we'd generally measure each patient's blood pressure at the beginning and end of the study, and then the outcome measurement for the study would be the average change in blood pressure. That is, both and would represent average differences. This is what you might think of as a 2-sample paired testing structure, and we'd analyze it exactly just like a hypothesis test for a difference in the average change for patients. In the calculations we perform here, we'll suppose that 12 mmHg is the predicted standard deviation of a patient's blood pressure difference over the course of the study. If we had 100 patients per group, what would be the approximate standard error for ?    The standard error is calculated as follows: This may be an imperfect estimate of , since the standard deviation estimate we used may not be perfectly correct for this group of patients. However, it is sufficient for our purposes.      What does the null distribution of look like?    The degrees of freedom are greater than 30, so the distribution of will be approximately normal. The standard deviation of this distribution (the standard error) would be about 1.70, and under the null hypothesis, its mean would be 0.       For what values of would we reject the null hypothesis?    For , we would reject if the difference is in the lower 2.5% or upper 2.5% tail:   Lower 2.5%:  For the normal model, this is 1.96 standard errors below 0, so any difference smaller than mmHg.    Upper 2.5%:  For the normal model, this is 1.96 standard errors above 0, so any difference larger than mmHg.   The boundaries of these rejection regions are shown below:     Next, we'll perform some hypothetical calculations to determine the probability we reject the null hypothesis, if the alternative hypothesis were actually true.    Computing the power for a 2-sample test  When planning a study, we want to know how likely we are to detect an effect we care about. In other words, if there is a real effect, and that effect is large enough that it has practical value, then what's the probability that we detect that effect? This probability is called the power , and we can compute it for different sample sizes or for different effect sizes .  We first determine what is a practically significant result. Suppose that the company researchers care about finding any effect on blood pressure that is 3 mmHg or larger vs the standard medication. Here, 3 mmHg is the minimum effect size of interest, and we want to know how likely we are to detect this size of an effect in the study.    Suppose we decided to move forward with 100 patients per treatment group and the new drug reduces blood pressure by an additional 3 mmHg relative to the standard medication. What is the probability that we detect a drop?    Before we even do any calculations, notice that if mmHg, there wouldn't even be sufficient evidence to reject . That's not a good sign.  To calculate the probability that we will reject , we need to determine a few things:   The sampling distribution for when the true difference is -3 mmHg. This is the same as the null distribution, except it is shifted to the left by 3:     The rejection regions, which are outside of the dotted lines above.    The fraction of the distribution that falls in the rejection region.   In short, we need to calculate the probability that for a normal distribution with mean -3 and standard deviation 1.7. To do so, we first shade the area we want to calculate:   We'll use a normal approximation, which is good approximation when the degrees of freedom is about 30 or more. We'll start by calculating the Z-score and find the tail area using either statistical software or the probability table: The power for the test is about 42% when and each group has a sample size of 100.    In Example , we ignored the upper rejection region in the calculation, which was in the opposite direction of the hypothetical truth, i.e. -3. The reasoning? There wouldn't be any value in rejecting the null hypothesis and concluding there was an increase when in fact there was a decrease.  We've also used a normal distribution instead of the -distribution. This is a convenience, and if the sample size is too small, we'd need to revert back to using the -distribution. We'll discuss this a bit further at the end of this section.    Determining a proper sample size  In the last example, we found that if we have a sample size of 100 in each group, we can only detect an effect size of 3 mmHg with a probability of about 0.42. Suppose the researchers moved forward and only used 100 patients per group, and the data did not support the alternative hypothesis, i.e. the researchers did not reject . This is a very bad situation to be in for a few reasons:   In the back of the researchers' minds, they'd all be wondering, maybe there is a real and meaningful difference, but we weren't able to detect it with such a small sample .    The company probably invested hundreds of millions of dollars in developing the new drug, so now they are left with great uncertainty about its potential since the experiment didn't have a great shot at detecting effects that could still be important.    Patients were subjected to the drug, and we can't even say with much certainty that the drug doesn't help (or harm) patients.    Another clinical trial may need to be run to get a more conclusive answer as to whether the drug does hold any practical value, and conducting a second clinical trial may take years and many millions of dollars.   We want to avoid this situation, so we need to determine an appropriate sample size to ensure we can be pretty confident that we'll detect any effects that are practically important. As mentioned earlier, a change of 3 mmHg was deemed to be the minimum difference that was practically important. As a first step, we could calculate power for several different sample sizes. For instance, let's try 500 patients per group.    Calculate the power to detect a change of -3 mmHg when using a sample size of 500 per group.   Determine the standard error (recall that the standard deviation for patients was expected to be about 12 mmHg).    Identify the null distribution and rejection regions.    Identify the alternative distribution when .    Compute the probability we reject the null hypothesis.       (a) The standard error is given as .  (b) & (c) The null distribution, rejection boundaries, and alternative distribution are shown below:   The rejection regions are the areas on the outside of the two dotted lines and are at .  (d) The area of the alternative distribution where has been shaded. We compute the Z-score and find the tail area: . With 500 patients per group, we would be about 97.7% sure (or more) that we'd detect any effects that are at least 3 mmHg in size.    The researchers decided 3 mmHg was the minimum difference that was practically important, and with a sample size of 500, we can be very certain (97.7% or better) that we will detect any such difference. We now have moved to another extreme where we are exposing an unnecessary number of patients to the new drug in the clinical trial. Not only is this ethically questionable, but it would also cost a lot more money than is necessary to be quite sure we'd detect any important effects.  The most common practice is to identify the sample size where the power is around 80%, and sometimes 90%. Other values may be reasonable for a specific context, but 80% and 90% are most commonly targeted as a good balance between high power and not exposing too many patients to a new treatment (or wasting too much money).  We could compute the power of the test at several other possible sample sizes until we find one that's close to 80%, but there's a better way. We should solve the problem backwards.    What sample size will lead to a power of 80%? Use .    We'll assume we have a large enough sample that the normal distribution is a good approximation for the test statistic, since the normal distribution and the -distribution look almost identical when the degrees of freedom are moderately large (e.g. ). If that doesn't turn out to be true, then we'd need to make a correction.  We start by identifying the Z-score that would give us a lower tail of 80%. For a moderately large sample size per group, the Z-score for a lower tail of 80% would be about .   Additionally, the rejection region extends from the center of the null distribution for . This allows us to calculate the target distance between the center of the null and alternative distributions in terms of the standard error: In our example, we want the distance between the null and alternative distributions' centers to equal the minimum effect size of interest, 3 mmHg, which allows us to set up an equation between this difference and the standard error: We should target 251 patients per group in order to achieve 80% power at the 0.05 significance level for this context.    The standard error difference of is specific to a context where the targeted power is 80% and the significance level is . If the targeted power is 90% or if we use a different significance level, then we'll use something a little different than .  Had the suggested sample size been relatively small -- roughly 30 or smaller -- it would have been a good idea to rework the calculations using the degrees of fredom for the smaller sample size under that initial sample size. That is, we would have revised the 0.84 and 1.96 values based on degrees of freedom implied by the initial sample size. The revised sample size target would generally have then been a little larger.    Suppose the targeted power was 90% and we were using . How many standard errors should separate the centers of the null and alternative distribution, where the alternative distribution is centered at the minimum effect size of interest?    First, find the Z-score such that 90% of the distribution is below it: . Next, find the cutoffs for the rejection regions: . Then the difference in centers should be about .      What are some considerations that are important in determining what the power should be for an experiment?    Answers will vary, but here are a few important considerations:   Whether there is any risk to patients in the study.    The cost of enrolling more patients.    The potential downside of not detecting an effect of interest.        Figure shows the power for sample sizes from 20 patients to 5,000 patients when and the true difference is -3. This curve was constructed by writing a program to compute the power for many different sample sizes.    The curve shows the power for different sample sizes in the context of the blood pressure example when the true difference is -3. Having more than about 250 to 350 observations doesn't provide much additional value in detecting an effect when .   Power calculations for expensive or risky experiments are critical. However, what about experiments that are inexpensive and where the ethical considerations are minimal? For example, if we are doing final testing on a new feature on a popular website, how would our sample size considerations change? As before, we'd want to make sure the sample is big enough. However, suppose the feature has undergone some testing and is known to perform well (e.g. the website's users seem to enjoy the feature). Then it may be reasonable to run a larger experiment if there's value from having a more precise estimate of the feature's effect, such as helping guide the development of the next useful feature.    Exercises     Increasing corn yield. A large farm wants to try out a new type of fertilizer to evaluate whether it will improve the farm's corn production. The land is broken into plots that produce an average of 1,215 pounds of corn with a standard deviation of 94 pounds per plot. The owner is interested in detecting any average difference of at least 40 pounds per plot. How many plots of land would be needed for the experiment if the desired power level is 90%? Use . Assume each plot of land gets treated with either the current fertilizer or the new fertilizer.       Email outreach efforts. A medical research group is recruiting people to complete short surveys about their medical history. For example, one survey asks for information on a person's family history in regards to cancer. Another survey asks about what topics were discussed during the person's last visit to a hospital. So far, as people sign up, they complete an average of just 4 surveys, and the standard deviation of the number of surveys is about 2.2. The research group wants to try a new interface that they think will encourage new enrollees to complete more surveys, where they will randomize each enrollee to either get the new interface or the current interface. How many new enrollees do they need for each interface to detect an effect size of 0.5 surveys per enrollee, if the desired power level is 80%? Use .     "
+},
+{
+  "id": "going-through-the-motions-of-a-test-3",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#going-through-the-motions-of-a-test-3",
+  "type": "Example",
+  "number": "7.4.1",
+  "title": "",
+  "body": "  Suppose a pharmaceutical company has developed a new drug for lowering blood pressure, and they are preparing a clinical trial (experiment) to test the drug's effectiveness. They recruit people who are taking a particular standard blood pressure medication. People in the control group will continue to take their current medication through generic-looking pills to ensure blinding. Write down the hypotheses for a two-sided hypothesis test in this context.    Generally, clinical trials use a two-sided alternative hypothesis, so below are suitable hypotheses for this context:   :  The new drug performs exactly as well as the standard medication. .    :  The new drug's performance differs from the standard medication. .      "
+},
+{
+  "id": "going-through-the-motions-of-a-test-4",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#going-through-the-motions-of-a-test-4",
+  "type": "Example",
+  "number": "7.4.2",
+  "title": "",
+  "body": "  The researchers would like to run the clinical trial on patients with systolic blood pressures between 140 and 180 mmHg. Suppose previously published studies suggest that the standard deviation of the patients' blood pressures will be about 12 mmHg and the distribution of patient blood pressures will be approximately symmetric. In this particular study, we'd generally measure each patient's blood pressure at the beginning and end of the study, and then the outcome measurement for the study would be the average change in blood pressure. That is, both and would represent average differences. This is what you might think of as a 2-sample paired testing structure, and we'd analyze it exactly just like a hypothesis test for a difference in the average change for patients. In the calculations we perform here, we'll suppose that 12 mmHg is the predicted standard deviation of a patient's blood pressure difference over the course of the study. If we had 100 patients per group, what would be the approximate standard error for ?    The standard error is calculated as follows: This may be an imperfect estimate of , since the standard deviation estimate we used may not be perfectly correct for this group of patients. However, it is sufficient for our purposes.   "
+},
+{
+  "id": "going-through-the-motions-of-a-test-5",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#going-through-the-motions-of-a-test-5",
+  "type": "Example",
+  "number": "7.4.3",
+  "title": "",
+  "body": "  What does the null distribution of look like?    The degrees of freedom are greater than 30, so the distribution of will be approximately normal. The standard deviation of this distribution (the standard error) would be about 1.70, and under the null hypothesis, its mean would be 0.    "
+},
+{
+  "id": "going-through-the-motions-of-a-test-6",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#going-through-the-motions-of-a-test-6",
+  "type": "Example",
+  "number": "7.4.4",
+  "title": "",
+  "body": "  For what values of would we reject the null hypothesis?    For , we would reject if the difference is in the lower 2.5% or upper 2.5% tail:   Lower 2.5%:  For the normal model, this is 1.96 standard errors below 0, so any difference smaller than mmHg.    Upper 2.5%:  For the normal model, this is 1.96 standard errors above 0, so any difference larger than mmHg.   The boundaries of these rejection regions are shown below:    "
+},
+{
+  "id": "computing-the-power-for-a-2-sample-test-2",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#computing-the-power-for-a-2-sample-test-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "statistical power "
+  "body": "power "
 },
 {
-  "id": "def-power",
+  "id": "computing-the-power-for-a-2-sample-test-3",
   "level": "2",
-  "url": "sec-power-calculations.html#def-power",
-  "type": "Definition",
-  "number": "7.4.1",
+  "url": "PowerForDifferenceOfTwoMeans.html#computing-the-power-for-a-2-sample-test-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": "  The power of a hypothesis test is the probability that the test correctly rejects a false null hypothesis. In other words, it's the probability of detecting an effect when one truly exists.    "
+  "body": "effect size "
+},
+{
+  "id": "PowerFor100AtNeg3",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#PowerFor100AtNeg3",
+  "type": "Example",
+  "number": "7.4.5",
+  "title": "",
+  "body": "  Suppose we decided to move forward with 100 patients per treatment group and the new drug reduces blood pressure by an additional 3 mmHg relative to the standard medication. What is the probability that we detect a drop?    Before we even do any calculations, notice that if mmHg, there wouldn't even be sufficient evidence to reject . That's not a good sign.  To calculate the probability that we will reject , we need to determine a few things:   The sampling distribution for when the true difference is -3 mmHg. This is the same as the null distribution, except it is shifted to the left by 3:     The rejection regions, which are outside of the dotted lines above.    The fraction of the distribution that falls in the rejection region.   In short, we need to calculate the probability that for a normal distribution with mean -3 and standard deviation 1.7. To do so, we first shade the area we want to calculate:   We'll use a normal approximation, which is good approximation when the degrees of freedom is about 30 or more. We'll start by calculating the Z-score and find the tail area using either statistical software or the probability table: The power for the test is about 42% when and each group has a sample size of 100.   "
+},
+{
+  "id": "determining-a-proper-sample-size-3",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#determining-a-proper-sample-size-3",
+  "type": "Checkpoint",
+  "number": "7.4.6",
+  "title": "",
+  "body": "  Calculate the power to detect a change of -3 mmHg when using a sample size of 500 per group.   Determine the standard error (recall that the standard deviation for patients was expected to be about 12 mmHg).    Identify the null distribution and rejection regions.    Identify the alternative distribution when .    Compute the probability we reject the null hypothesis.       (a) The standard error is given as .  (b) & (c) The null distribution, rejection boundaries, and alternative distribution are shown below:   The rejection regions are the areas on the outside of the two dotted lines and are at .  (d) The area of the alternative distribution where has been shaded. We compute the Z-score and find the tail area: . With 500 patients per group, we would be about 97.7% sure (or more) that we'd detect any effects that are at least 3 mmHg in size.   "
+},
+{
+  "id": "sample_size_for_80_percent_power",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#sample_size_for_80_percent_power",
+  "type": "Example",
+  "number": "7.4.7",
+  "title": "",
+  "body": "  What sample size will lead to a power of 80%? Use .    We'll assume we have a large enough sample that the normal distribution is a good approximation for the test statistic, since the normal distribution and the -distribution look almost identical when the degrees of freedom are moderately large (e.g. ). If that doesn't turn out to be true, then we'd need to make a correction.  We start by identifying the Z-score that would give us a lower tail of 80%. For a moderately large sample size per group, the Z-score for a lower tail of 80% would be about .   Additionally, the rejection region extends from the center of the null distribution for . This allows us to calculate the target distance between the center of the null and alternative distributions in terms of the standard error: In our example, we want the distance between the null and alternative distributions' centers to equal the minimum effect size of interest, 3 mmHg, which allows us to set up an equation between this difference and the standard error: We should target 251 patients per group in order to achieve 80% power at the 0.05 significance level for this context.   "
+},
+{
+  "id": "determining-a-proper-sample-size-10",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#determining-a-proper-sample-size-10",
+  "type": "Checkpoint",
+  "number": "7.4.8",
+  "title": "",
+  "body": "  Suppose the targeted power was 90% and we were using . How many standard errors should separate the centers of the null and alternative distribution, where the alternative distribution is centered at the minimum effect size of interest?    First, find the Z-score such that 90% of the distribution is below it: . Next, find the cutoffs for the rejection regions: . Then the difference in centers should be about .   "
+},
+{
+  "id": "determining-a-proper-sample-size-11",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#determining-a-proper-sample-size-11",
+  "type": "Checkpoint",
+  "number": "7.4.9",
+  "title": "",
+  "body": "  What are some considerations that are important in determining what the power should be for an experiment?    Answers will vary, but here are a few important considerations:   Whether there is any risk to patients in the study.    The cost of enrolling more patients.    The potential downside of not detecting an effect of interest.      "
+},
+{
+  "id": "power_curve_neg-3",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#power_curve_neg-3",
+  "type": "Figure",
+  "number": "7.4.10",
+  "title": "",
+  "body": "  The curve shows the power for different sample sizes in the context of the blood pressure example when the true difference is -3. Having more than about 250 to 350 observations doesn't provide much additional value in detecting an effect when .  "
+},
+{
+  "id": "increase_corn_yield",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#increase_corn_yield",
+  "type": "Exercise",
+  "number": "7.4.4.1",
+  "title": "",
+  "body": "   Increasing corn yield. A large farm wants to try out a new type of fertilizer to evaluate whether it will improve the farm's corn production. The land is broken into plots that produce an average of 1,215 pounds of corn with a standard deviation of 94 pounds per plot. The owner is interested in detecting any average difference of at least 40 pounds per plot. How many plots of land would be needed for the experiment if the desired power level is 90%? Use . Assume each plot of land gets treated with either the current fertilizer or the new fertilizer.   "
+},
+{
+  "id": "email_outreach_efforts",
+  "level": "2",
+  "url": "PowerForDifferenceOfTwoMeans.html#email_outreach_efforts",
+  "type": "Exercise",
+  "number": "7.4.4.2",
+  "title": "",
+  "body": "   Email outreach efforts. A medical research group is recruiting people to complete short surveys about their medical history. For example, one survey asks for information on a person's family history in regards to cancer. Another survey asks about what topics were discussed during the person's last visit to a hospital. So far, as people sign up, they complete an average of just 4 surveys, and the standard deviation of the number of surveys is about 2.2. The research group wants to try a new interface that they think will encourage new enrollees to complete more surveys, where they will randomize each enrollee to either get the new interface or the current interface. How many new enrollees do they need for each interface to detect an effect size of 0.5 surveys per enrollee, if the desired power level is 80%? Use .   "
 },
 {
   "id": "sec-anova",
@@ -6054,98 +7116,260 @@ var ptx_lunr_docs = [
   "url": "sec-anova.html",
   "type": "Section",
   "number": "7.5",
-  "title": "Comparing Many Means with ANOVA",
-  "body": " Comparing Many Means with ANOVA   Sometimes we want to compare means across more than two groups. For example, we might want to compare average test scores across four different teaching methods, or compare recovery times across three different treatments. When comparing multiple groups, we use Analysis of Variance (ANOVA) .    ANOVA Hypotheses and Conditions  Consider comparing groups with means . The hypotheses for ANOVA are:   : The mean outcome is the same across all groups.  : At least one mean is different from the others.      Conditions for ANOVA:    Independence: Observations must be independent within and across groups.  Normality: The data within each group should be approximately normal.  Equal variance: The variability should be roughly constant across groups.       The -Statistic  ANOVA uses the F-statistic to compare group means. The F-statistic is a ratio of two measures of variability:   where MSG is the mean square between groups and MSE is the mean square error (within groups).   If the null hypothesis is true (all means equal), we expect .  If at least one mean is different, we expect .  Large values of provide evidence against .     The F-distribution is a right-skewed distribution (starting at 0) used for ANOVA. It has two degrees of freedom parameters:   (degrees of freedom for groups, where is the number of groups)  (degrees of freedom for error, where is the total sample size)       The ANOVA Table  ANOVA results are typically summarized in an ANOVA table :   ANOVA Table Structure:     Source  Sum of Squares  df  Mean Square  F  p-value    Groups  SSG        Error  SSE        Total  SST          Multiple Comparisons and What ANOVA Doesn't Tell Us  When ANOVA gives a significant result, it tells us that at least one mean is different, but it doesn't tell us which means differ. To determine which specific groups differ, we need to conduct multiple comparisons or post-hoc tests .    Multiple Testing Problem: When conducting many pairwise comparisons, the chance of making at least one Type 1 error increases. Methods like the Bonferroni correction or Tukey's HSD help control this error rate.   A simple approach is the Bonferroni correction : If conducting tests, use as the significance level for each individual test to maintain an overall significance level of approximately .   "
+  "title": "Comparing many means with ANOVA",
+  "body": " Comparing many means with ANOVA  Sometimes we want to compare means across many groups. We might initially think to do pairwise comparisons. For example, if there were three groups, we might be tempted to compare the first mean with the second, then with the third, and then finally compare the second and third means for a total of three comparisons. However, this strategy can be treacherous. If we have many groups and do many comparisons, it is likely that we will eventually find a difference just by chance, even if there is no difference in the populations. Instead, we should apply a holistic test to check whether there is evidence that at least one pair of groups are in fact different, and this is where ANOVA saves the day.   Core ideas of ANOVA  In this section, we will learn a new method called analysis of variance (ANOVA) and a new test statistic called . ANOVA uses a single hypothesis test to check whether the means across many groups are equal:   : The mean outcome is the same across all groups. In statistical notation, where represents the mean of the outcome for observations in category .  : At least one mean is different.   Generally we must check three conditions on the data before performing ANOVA:   the observations are independent within and across groups,  the data within each group are nearly normal, and  the variability across the groups is about equal.   When these three conditions are met, we may perform an ANOVA to determine whether the data provide strong evidence against the null hypothesis that all the are equal.    College departments commonly run multiple lectures of the same introductory course each semester because of high demand. Consider a statistics department that runs three lectures of an introductory statistics course. We might like to determine whether there are statistically significant differences in first exam scores in these three classes ( , , and ). Describe appropriate hypotheses to determine whether there are any differences between the three classes.    The hypotheses may be written in the following form:   : The average score is identical in all lectures. Any observed difference is due to chance. Notationally, we write .  : The average score varies by class. We would reject the null hypothesis in favor of the alternative hypothesis if there were larger differences among the class averages than what we might expect from chance alone.     Strong evidence favoring the alternative hypothesis in ANOVA is described by unusually large differences among the group means. We will soon learn that assessing the variability of the group means relative to the variability among individual observations within each group is key to ANOVA's success.    Examine . Compare groups I, II, and III. Can you visually determine if the differences in the group centers is due to chance or not? Now compare groups IV, V, and VI. Do these differences appear to be due to chance?    Any real difference in the means of groups I, II, and III is difficult to discern, because the data within each group are very volatile relative to any differences in the average outcome. On the other hand, it appears there are differences in the centers of groups IV, V, and VI. For instance, group V appears to have a higher mean than that of the other two groups. Investigating groups IV, V, and VI, we see the differences in the groups' centers are noticeable because those differences are large relative to the variability in the individual observations within each group .     Side-by-side dot plot for the outcomes for six groups.    Side-by-side dot plots are shown for groups I, II, III, IV, V, and VI. The means for I and IV are the same, the means of II and V are the same, and the means of III and VI are also the same. However, the variability of the data shown in groups I, II, and III is larger than the variability of the groups IV, V, and VI.      Is batting performance related to player position in MLB?  We would like to discern whether there are real differences between the batting performance of baseball players according to their position: outfielder (OF), infielder (IF), and catcher (C). We will use a data set called bat18 , which includes batting records of 429 Major League Baseball (MLB) players from the 2018 season who had at least 100 at bats. Six of the 429 cases represented in bat18 are shown in , and descriptions for each variable are provided in . The measure we will use for the player batting performance (the outcome variable) is on-base percentage (OBP). The on-base percentage roughly represents the fraction of the time a player successfully gets on base or hits a home run.   Six cases from the bat18 data matrix     name  team  position  AB  H  HR  RBI  AVG  OBP    1  Abreu, J  CWS  IF  499  132  22  78  0.265  0.325    2  Acuna Jr., R  ATL  OF  433  127  26  64  0.293  0.366    3  Adames, W  TB  IF  288  80  10  34  0.278  0.348                427  Zimmerman, R  WSH  IF  288  76  13  51  0.264  0.337    428  Zobrist, B  CHC  IF  455  139  9  58  0.305  0.378    429  Zunino, M  SEA  C  373  75  20  44  0.201  0.259      Variables and their descriptions for the bat18 data set    variable  description    name  Player name    team  The abbreviated name of the player's team    position  The player's primary field position (OF, IF, C)    AB  Number of opportunities at bat    H  Number of hits    HR  Number of home runs    RBI  Number of runs batted in    AVG  Batting average, which is equal to H\/AB    OBP  On-base percentage, which is roughly equal to the fraction of times a player gets on base or hits a home run       The null hypothesis under consideration is the following: . Write the null and corresponding alternative hypotheses in plain language.     : The average on-base percentage is equal across the three positions. : The average on-base percentage varies across some (or all) groups.      The player positions have been divided into three groups: outfield (OF), infield (IF), and catcher (C). What would be an appropriate point estimate of the on-base percentage by outfielders, ?    A good estimate of the on-base percentage by outfielders would be the sample average of OBP for just those players whose position is outfield: .     provides summary statistics for each group. A side-by-side box plot for the on-base percentage is shown in . Notice that the variability appears to be approximately constant across groups; nearly constant variance across groups is an important assumption that must be satisfied before we consider the ANOVA approach.   Summary statistics of on-base percentage, split by player position     OF  IF  C    Sample size ( )  160  205  64    Sample mean ( )  0.320  0.318  0.302    Sample SD ( )  0.043  0.038  0.038      Side-by-side box plot of the on-base percentage for 429 players across three groups. With over a hundred players in both the infield and outfield groups, the apparent outliers are not a concern.    Side-by-side box plot of the on-base percentage for 429 players across three groups. The boxes for outfield (OF) and infield (IF) groups are about 0.30 to 0.34 with a median of about 0.32, while the catcher (C) box is 0.28 to 0.33 with a median of 0.30. The whiskers for outfield and infield extend down to about 0.25 and up to 0.42, while the catcher box plot whiskers extend down to 0.23 and up to 0.38. With over a hundred players in both the infield and outfield groups, a few individual points are shown but are not concerning.      The largest difference between the sample means is between the catcher and the outfielder positions. Consider again the original hypotheses:   :  : The average on-base percentage ( ) varies across some (or all) groups.   Why might it be inappropriate to run the test by simply estimating whether the difference of and is statistically significant at a 0.05 significance level?    The primary issue here is that we are inspecting the data before picking the groups that will be compared. It is inappropriate to examine all data by eye (informal testing) and only afterwards decide which parts to formally test. This is called data snooping or data fishing . Naturally, we would pick the groups with the large differences for the formal test, and this would lead to an inflation in the Type 1 Error rate. To understand this better, let's consider a slightly different problem.  Suppose we are to measure the aptitude for students in 20 classes in a large elementary school at the beginning of the year. In this school, all students are randomly assigned to classrooms, so any differences we observe between the classes at the start of the year are completely due to chance. However, with so many groups, we will probably observe a few groups that look rather different from each other. If we select only these classes that look so different and then perform a formal test, we will probably make the wrong conclusion that the assignment wasn't random. While we might only formally test differences for a few pairs of classes, we informally evaluated the other classes by eye before choosing the most extreme cases for a comparison.    For additional information on the ideas expressed in , we recommend reading about the prosecutor's fallacy .  In the next section we will learn how to use the statistic and ANOVA to test whether observed differences in sample means could have happened just by chance even if there was no difference in the respective population means.    Analysis of variance (ANOVA) and the -test  The method of analysis of variance in this context focuses on answering one question: is the variability in the sample means so large that it seems unlikely to be from chance alone? This question is different from earlier testing procedures since we will simultaneously consider many groups, and evaluate whether their sample means differ more than we would expect from natural variation. We call this variability the mean square between groups (MSG) , and it has an associated degrees of freedom, when there are groups. The can be thought of as a scaled variance formula for means. If the null hypothesis is true, any variation in the sample means is due to chance and shouldn't be too large. However, we typically use software for these computations.  The mean square between the groups is, on its own, quite useless in a hypothesis test. We need a benchmark value for how much variability should be expected among the sample means if the null hypothesis is true. To this end, we compute a pooled variance estimate, often abbreviated as the mean square error (MSE) , which has an associated degrees of freedom value . It is helpful to think of as a measure of the variability within the groups.  When the null hypothesis is true, any differences among the sample means are only due to chance, and the and should be about equal. As a test statistic for ANOVA, we examine the fraction of and :   The represents a measure of the between-group variability, and measures the variability within each of the groups.    For the baseball data, and . Identify the degrees of freedom associated with MSG and MSE and verify the statistic is approximately 5.077.    There are groups, so . There are total observations, so . Then the statistic is computed as the ratio of and : .    We can use the statistic to evaluate the hypotheses in what is called an F-test . A p-value can be computed from the statistic using an distribution, which has two associated parameters: and . For the statistic in ANOVA, and . An distribution with 2 and 426 degrees of freedom, corresponding to the statistic for the baseball hypothesis test, is shown in .   An distribution with and .    An F distribution with df-sub-1 equals 2 and df-sub-2 equals 426 is shown. This distribution starts at zero and runs up (and past) a value of 8. The distribution is strongly right skewed. The distribution peaks right at 0 and tapers off quickly, with about 5 percent to 10 percent of the distribution lying above a value of 2. The distribution is indistinguishable from the horizontal axis by about 5. The figure also annotates a small tail area at and above values of 5.    The larger the observed variability in the sample means ( ) relative to the within-group observations ( ), the larger will be and the stronger the evidence against the null hypothesis. Because larger values of represent stronger evidence against the null hypothesis, we use the upper tail of the distribution to compute a p-value.   The statistic and the -test  Analysis of variance (ANOVA) is used to test whether the mean outcome differs across 2 or more groups. ANOVA uses a test statistic , which represents a standardized ratio of variability in the sample means relative to the variability within the groups. If is true and the model conditions are satisfied, the statistic follows an distribution with parameters and . The upper tail of the distribution is used to represent the p-value.     The p-value corresponding to the shaded area in is equal to about 0.0066. Does this provide strong evidence against the null hypothesis?    The p-value is smaller than 0.05, indicating the evidence is strong enough to reject the null hypothesis at a significance level of 0.05. That is, the data provide strong evidence that the average on-base percentage varies by player's primary field position.      Reading an ANOVA table from software  The calculations required to perform an ANOVA by hand are tedious and prone to human error. For these reasons, it is common to use statistical software to calculate the statistic and p-value.  An ANOVA can be summarized in a table very similar to that of a regression summary, which we will see in later chapters. shows an ANOVA summary to test whether the mean of on-base percentage varies by player positions in the MLB. Many of these values should look familiar; in particular, the -test statistic and p-value can be retrieved from the last two columns.   ANOVA summary for testing whether the average on-base percentage differs across player positions     Df  Sum Sq  Mean Sq  F value  Pr( )    position  2  0.0161  0.0080  5.0766  0.0066    Residuals  426  0.6740  0.0016              on       Graphical diagnostics for an ANOVA analysis  There are three conditions we must check for an ANOVA analysis: all observations must be independent, the data in each group must be nearly normal, and the variance within each group must be approximately equal.    Independence.  If the data are a simple random sample, this condition is satisfied. For processes and experiments, carefully consider whether the data may be independent (e.g. no pairing). For example, in the MLB data, the data were not sampled. However, there are not obvious reasons why independence would not hold for most or all observations.    Approximately normal.  As with one- and two-sample testing for means, the normality assumption is especially important when the sample size is quite small when it is ironically difficult to check for non-normality. A histogram of the observations from each group is shown in . Since each of the groups we're considering have relatively large sample sizes, what we're looking for are major outliers. None are apparent, so this condition is reasonably met.   Histograms of OBP for each field position.    Three histograms are shown, one for Outfielders, one for Infielders, and one for Catchers. The Outfielders and Infielders are centered slightly above 0.3, while the Catchers distribution is centered at about 0.3. The variability in each group is about 0.03. Each of the distributions somewhat resemble normal distributions and do not have any major outliers.      Constant variance.  The last assumption is that the variance in the groups is about equal from one group to the next. This assumption can be checked by examining a side-by-side box plot of the outcomes across the groups, as in . In this case, the variability is similar in the three groups but not identical. We see in that the standard deviation doesn't vary much from one group to the next.     Diagnostics for an ANOVA analysis  Independence is always important to an ANOVA analysis. The normality condition is very important when the sample sizes for each group are relatively small. The constant variance condition is especially important when the sample sizes differ between groups.     Multiple comparisons and controlling Type 1 Error rate  When we reject the null hypothesis in an ANOVA analysis, we might wonder, which of these groups have different means? To answer this question, we compare the means of each possible pair of groups. For instance, if there are three groups and there is strong evidence that there are some differences in the group means, there are three comparisons to make: group 1 to group 2, group 1 to group 3, and group 2 to group 3. These comparisons can be accomplished using a two-sample -test, but we use a modified significance level and a pooled estimate of the standard deviation across groups. Usually this pooled standard deviation can be found in the ANOVA table, e.g. along the bottom of .     discussed three statistics lectures, all taught during the same semester. shows summary statistics for these three courses, and a side-by-side box plot of the data is shown in . We would like to conduct an ANOVA for these data. Do you see any deviations from the three conditions for ANOVA?    In this case (like many others) it is difficult to check independence in a rigorous way. Instead, the best we can do is use common sense to consider reasons the assumption of independence may not hold. For instance, the independence assumption may not be reasonable if there is a star teaching assistant that only half of the students may access; such a scenario would divide a class into two subgroups. No such situations were evident for these particular data, and we believe that independence is acceptable.  The distributions in the side-by-side box plot appear to be roughly symmetric and show no noticeable outliers.  The box plots show approximately equal variability, which can be verified in , supporting the constant variance assumption.     Summary statistics for the first midterm scores in three different lectures of the same course    Class  A  B  C     58  55  51     75.1  72.0  78.9     13.9  13.8  13.1      Side-by-side box plot for the first midterm scores in three different lectures of the same course.    Side-by-side box plot for the first midterm scores in three different lectures of the same course. Lecture A has a box from about 65 to 85, a median of 73, and whiskers that extend down to 45 and up to 100. Lecture B has a box from about 62 to 82, a median of 72, and whiskers that extend down to 40 and up to 100. Lecture C has a box from about 73 to 88, a median of 82, and whiskers that extend down to 45 and up to 100.      ANOVA was conducted for the midterm data, and summary results are shown in . What should we conclude?    The p-value of the test is 0.0330, less than the default significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the difference in the average midterm scores is not due to chance.     ANOVA summary table for the midterm data     Df  Sum Sq  Mean Sq  F value  Pr( )    lecture  2  1290.11  645.06  3.48  0.0330    Residuals  161  29810.13  185.16              on     There is strong evidence that the different means in each of the three classes are not simply due to chance. We might wonder, which of the classes are actually different? As discussed in earlier chapters, a two-sample -test could be used to test for differences in each possible pair of groups. However, one pitfall was discussed in : when we run so many tests, the Type 1 Error rate increases. This issue is resolved by using a modified significance level.   Multiple comparisons and the Bonferroni correction for  The scenario of testing many pairs of groups is called multiple comparisons . The Bonferroni correction suggests that a more stringent significance level is more appropriate for these tests:   where is the number of comparisons being considered (formally or informally). If there are groups, then usually all possible pairs are compared and .     In the previous exercise, you found strong evidence of differences in the average midterm grades between the three lectures. Complete the three possible pairwise comparisons using the Bonferroni correction and report any differences.    We use a modified significance level of . Additionally, we use the pooled estimate of the standard deviation: on , which is provided in the ANOVA summary table.   Lecture A versus Lecture B: The estimated difference and standard error are, respectively,   This results in a T-score of 1.21 on (we use the associated with ). Statistical software was used to precisely identify the two-sided p-value since the modified significance level of 0.0167 is not found in the -table. The p-value (0.228) is larger than , so there is not strong evidence of a difference in the means of lectures A and B.   Lecture A versus Lecture C: The estimated difference and standard error are 3.8 and 2.61, respectively. This results in a score of 1.46 on and a two-sided p-value of 0.1462. This p-value is larger than , so there is not strong evidence of a difference in the means of lectures A and C.   Lecture B versus Lecture C: The estimated difference and standard error are 6.9 and 2.65, respectively. This results in a score of 2.60 on and a two-sided p-value of 0.0102. This p-value is smaller than . Here we find strong evidence of a difference in the means of lectures B and C.    We might summarize the findings of the analysis from using the following notation:   The midterm mean in lecture A is not statistically distinguishable from those of lectures B or C. However, there is strong evidence that lectures B and C are different. In the first two pairwise comparisons, we did not have sufficient evidence to reject the null hypothesis. Recall that failing to reject does not imply is true.   Reject with ANOVA but find no differences in group means  It is possible to reject the null hypothesis using ANOVA and then to not subsequently identify differences in the pairwise comparisons. However, this does not invalidate the ANOVA conclusion . It only means we have not been able to successfully identify which specific groups differ in their means.   The ANOVA procedure examines the big picture: it considers all groups simultaneously to decipher whether there is evidence that some difference exists. Even if the test indicates that there is strong evidence of differences in group means, identifying with high confidence a specific difference as statistically significant is more difficult.  Consider the following analogy: we observe a Wall Street firm that makes large quantities of money based on predicting mergers. Mergers are generally difficult to predict, and if the prediction success rate is extremely high, that may be considered sufficiently strong evidence to warrant investigation by the Securities and Exchange Commission (SEC). While the SEC may be quite certain that there is insider trading taking place at the firm, the evidence against any single trader may not be very strong. It is only when the SEC considers all the data that they identify the pattern. This is effectively the strategy of ANOVA: stand back and consider all the groups simultaneously.   "
 },
 {
-  "id": "sec-anova-2-1",
+  "id": "subsec-core-ideas-anova-2",
   "level": "2",
-  "url": "sec-anova.html#sec-anova-2-1",
+  "url": "sec-anova.html#subsec-core-ideas-anova-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Analysis of Variance (ANOVA) "
+  "body": "analysis of variance (ANOVA) "
 },
 {
-  "id": "def-anova-conditions",
+  "id": "ex-three-stat-classes",
   "level": "2",
-  "url": "sec-anova.html#def-anova-conditions",
-  "type": "Definition",
+  "url": "sec-anova.html#ex-three-stat-classes",
+  "type": "Example",
   "number": "7.5.1",
   "title": "",
-  "body": "   Conditions for ANOVA:    Independence: Observations must be independent within and across groups.  Normality: The data within each group should be approximately normal.  Equal variance: The variability should be roughly constant across groups.    "
+  "body": "  College departments commonly run multiple lectures of the same introductory course each semester because of high demand. Consider a statistics department that runs three lectures of an introductory statistics course. We might like to determine whether there are statistically significant differences in first exam scores in these three classes ( , , and ). Describe appropriate hypotheses to determine whether there are any differences between the three classes.    The hypotheses may be written in the following form:   : The average score is identical in all lectures. Any observed difference is due to chance. Notationally, we write .  : The average score varies by class. We would reject the null hypothesis in favor of the alternative hypothesis if there were larger differences among the class averages than what we might expect from chance alone.    "
 },
 {
-  "id": "subsec-f-statistic-2",
+  "id": "ex-toy-anova-groups",
   "level": "2",
-  "url": "sec-anova.html#subsec-f-statistic-2",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "F-statistic "
-},
-{
-  "id": "subsec-f-statistic-4",
-  "level": "2",
-  "url": "sec-anova.html#subsec-f-statistic-4",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "mean square between groups mean square error "
-},
-{
-  "id": "def-f-distribution",
-  "level": "2",
-  "url": "sec-anova.html#def-f-distribution",
-  "type": "Definition",
+  "url": "sec-anova.html#ex-toy-anova-groups",
+  "type": "Example",
   "number": "7.5.2",
   "title": "",
-  "body": "  The F-distribution is a right-skewed distribution (starting at 0) used for ANOVA. It has two degrees of freedom parameters:   (degrees of freedom for groups, where is the number of groups)  (degrees of freedom for error, where is the total sample size)    "
+  "body": "  Examine . Compare groups I, II, and III. Can you visually determine if the differences in the group centers is due to chance or not? Now compare groups IV, V, and VI. Do these differences appear to be due to chance?    Any real difference in the means of groups I, II, and III is difficult to discern, because the data within each group are very volatile relative to any differences in the average outcome. On the other hand, it appears there are differences in the centers of groups IV, V, and VI. For instance, group V appears to have a higher mean than that of the other two groups. Investigating groups IV, V, and VI, we see the differences in the groups' centers are noticeable because those differences are large relative to the variability in the individual observations within each group .   "
 },
 {
-  "id": "subsec-anova-table-2",
+  "id": "fig-toy-anova",
   "level": "2",
-  "url": "sec-anova.html#subsec-anova-table-2",
+  "url": "sec-anova.html#fig-toy-anova",
+  "type": "Figure",
+  "number": "7.5.3",
+  "title": "",
+  "body": " Side-by-side dot plot for the outcomes for six groups.    Side-by-side dot plots are shown for groups I, II, III, IV, V, and VI. The means for I and IV are the same, the means of II and V are the same, and the means of III and VI are also the same. However, the variability of the data shown in groups I, II, and III is larger than the variability of the groups IV, V, and VI.   "
+},
+{
+  "id": "table-mlb-bat18-sample",
+  "level": "2",
+  "url": "sec-anova.html#table-mlb-bat18-sample",
+  "type": "Table",
+  "number": "7.5.4",
+  "title": "Six cases from the <code class=\"code-inline tex2jax_ignore\">bat18<\/code> data matrix",
+  "body": " Six cases from the bat18 data matrix     name  team  position  AB  H  HR  RBI  AVG  OBP    1  Abreu, J  CWS  IF  499  132  22  78  0.265  0.325    2  Acuna Jr., R  ATL  OF  433  127  26  64  0.293  0.366    3  Adames, W  TB  IF  288  80  10  34  0.278  0.348                427  Zimmerman, R  WSH  IF  288  76  13  51  0.264  0.337    428  Zobrist, B  CHC  IF  455  139  9  58  0.305  0.378    429  Zunino, M  SEA  C  373  75  20  44  0.201  0.259    "
+},
+{
+  "id": "table-mlb-bat18-variables",
+  "level": "2",
+  "url": "sec-anova.html#table-mlb-bat18-variables",
+  "type": "Table",
+  "number": "7.5.5",
+  "title": "Variables and their descriptions for the <code class=\"code-inline tex2jax_ignore\">bat18<\/code> data set",
+  "body": " Variables and their descriptions for the bat18 data set    variable  description    name  Player name    team  The abbreviated name of the player's team    position  The player's primary field position (OF, IF, C)    AB  Number of opportunities at bat    H  Number of hits    HR  Number of home runs    RBI  Number of runs batted in    AVG  Batting average, which is equal to H\/AB    OBP  On-base percentage, which is roughly equal to the fraction of times a player gets on base or hits a home run    "
+},
+{
+  "id": "subsec-mlb-batting-anova-5",
+  "level": "2",
+  "url": "sec-anova.html#subsec-mlb-batting-anova-5",
+  "type": "Checkpoint",
+  "number": "7.5.6",
+  "title": "",
+  "body": "  The null hypothesis under consideration is the following: . Write the null and corresponding alternative hypotheses in plain language.     : The average on-base percentage is equal across the three positions. : The average on-base percentage varies across some (or all) groups.   "
+},
+{
+  "id": "ex-mlb-point-estimate",
+  "level": "2",
+  "url": "sec-anova.html#ex-mlb-point-estimate",
+  "type": "Example",
+  "number": "7.5.7",
+  "title": "",
+  "body": "  The player positions have been divided into three groups: outfield (OF), infield (IF), and catcher (C). What would be an appropriate point estimate of the on-base percentage by outfielders, ?    A good estimate of the on-base percentage by outfielders would be the sample average of OBP for just those players whose position is outfield: .   "
+},
+{
+  "id": "table-mlb-summary-stats",
+  "level": "2",
+  "url": "sec-anova.html#table-mlb-summary-stats",
+  "type": "Table",
+  "number": "7.5.8",
+  "title": "Summary statistics of on-base percentage, split by player position",
+  "body": " Summary statistics of on-base percentage, split by player position     OF  IF  C    Sample size ( )  160  205  64    Sample mean ( )  0.320  0.318  0.302    Sample SD ( )  0.043  0.038  0.038    "
+},
+{
+  "id": "fig-mlb-anova-boxplot",
+  "level": "2",
+  "url": "sec-anova.html#fig-mlb-anova-boxplot",
+  "type": "Figure",
+  "number": "7.5.9",
+  "title": "",
+  "body": " Side-by-side box plot of the on-base percentage for 429 players across three groups. With over a hundred players in both the infield and outfield groups, the apparent outliers are not a concern.    Side-by-side box plot of the on-base percentage for 429 players across three groups. The boxes for outfield (OF) and infield (IF) groups are about 0.30 to 0.34 with a median of about 0.32, while the catcher (C) box is 0.28 to 0.33 with a median of 0.30. The whiskers for outfield and infield extend down to about 0.25 and up to 0.42, while the catcher box plot whiskers extend down to 0.23 and up to 0.38. With over a hundred players in both the infield and outfield groups, a few individual points are shown but are not concerning.   "
+},
+{
+  "id": "ex-data-snooping",
+  "level": "2",
+  "url": "sec-anova.html#ex-data-snooping",
+  "type": "Example",
+  "number": "7.5.10",
+  "title": "",
+  "body": "  The largest difference between the sample means is between the catcher and the outfielder positions. Consider again the original hypotheses:   :  : The average on-base percentage ( ) varies across some (or all) groups.   Why might it be inappropriate to run the test by simply estimating whether the difference of and is statistically significant at a 0.05 significance level?    The primary issue here is that we are inspecting the data before picking the groups that will be compared. It is inappropriate to examine all data by eye (informal testing) and only afterwards decide which parts to formally test. This is called data snooping or data fishing . Naturally, we would pick the groups with the large differences for the formal test, and this would lead to an inflation in the Type 1 Error rate. To understand this better, let's consider a slightly different problem.  Suppose we are to measure the aptitude for students in 20 classes in a large elementary school at the beginning of the year. In this school, all students are randomly assigned to classrooms, so any differences we observe between the classes at the start of the year are completely due to chance. However, with so many groups, we will probably observe a few groups that look rather different from each other. If we select only these classes that look so different and then perform a formal test, we will probably make the wrong conclusion that the assignment wasn't random. While we might only formally test differences for a few pairs of classes, we informally evaluated the other classes by eye before choosing the most extreme cases for a comparison.   "
+},
+{
+  "id": "subsec-mlb-batting-anova-11",
+  "level": "2",
+  "url": "sec-anova.html#subsec-mlb-batting-anova-11",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "ANOVA table "
+  "body": "prosecutor's fallacy "
 },
 {
-  "id": "subsec-multiple-comparisons-2",
+  "id": "subsec-anova-f-test-2",
   "level": "2",
-  "url": "sec-anova.html#subsec-multiple-comparisons-2",
+  "url": "sec-anova.html#subsec-anova-f-test-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "multiple comparisons post-hoc tests "
+  "body": "mean square between groups (MSG) "
 },
 {
-  "id": "subsec-multiple-comparisons-3-1",
+  "id": "subsec-anova-f-test-3",
   "level": "2",
-  "url": "sec-anova.html#subsec-multiple-comparisons-3-1",
+  "url": "sec-anova.html#subsec-anova-f-test-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Bonferroni correction Tukey's HSD "
+  "body": "mean square error (MSE) "
 },
 {
-  "id": "subsec-multiple-comparisons-4",
+  "id": "subsec-anova-f-test-7",
   "level": "2",
-  "url": "sec-anova.html#subsec-multiple-comparisons-4",
+  "url": "sec-anova.html#subsec-anova-f-test-7",
+  "type": "Checkpoint",
+  "number": "7.5.11",
+  "title": "",
+  "body": "  For the baseball data, and . Identify the degrees of freedom associated with MSG and MSE and verify the statistic is approximately 5.077.    There are groups, so . There are total observations, so . Then the statistic is computed as the ratio of and : .   "
+},
+{
+  "id": "subsec-anova-f-test-8",
+  "level": "2",
+  "url": "sec-anova.html#subsec-anova-f-test-8",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Bonferroni correction "
+  "body": "F-test "
 },
 {
-  "id": "sec-ch06-review",
+  "id": "fig-f-dist-2-426",
+  "level": "2",
+  "url": "sec-anova.html#fig-f-dist-2-426",
+  "type": "Figure",
+  "number": "7.5.12",
+  "title": "",
+  "body": " An distribution with and .    An F distribution with df-sub-1 equals 2 and df-sub-2 equals 426 is shown. This distribution starts at zero and runs up (and past) a value of 8. The distribution is strongly right skewed. The distribution peaks right at 0 and tapers off quickly, with about 5 percent to 10 percent of the distribution lying above a value of 2. The distribution is indistinguishable from the horizontal axis by about 5. The figure also annotates a small tail area at and above values of 5.   "
+},
+{
+  "id": "ex-mlb-f-pvalue",
+  "level": "2",
+  "url": "sec-anova.html#ex-mlb-f-pvalue",
+  "type": "Example",
+  "number": "7.5.13",
+  "title": "",
+  "body": "  The p-value corresponding to the shaded area in is equal to about 0.0066. Does this provide strong evidence against the null hypothesis?    The p-value is smaller than 0.05, indicating the evidence is strong enough to reject the null hypothesis at a significance level of 0.05. That is, the data provide strong evidence that the average on-base percentage varies by player's primary field position.   "
+},
+{
+  "id": "table-anova-summary-mlb",
+  "level": "2",
+  "url": "sec-anova.html#table-anova-summary-mlb",
+  "type": "Table",
+  "number": "7.5.14",
+  "title": "ANOVA summary for testing whether the average on-base percentage differs across player positions",
+  "body": " ANOVA summary for testing whether the average on-base percentage differs across player positions     Df  Sum Sq  Mean Sq  F value  Pr( )    position  2  0.0161  0.0080  5.0766  0.0066    Residuals  426  0.6740  0.0016              on    "
+},
+{
+  "id": "fig-mlb-anova-histograms",
+  "level": "2",
+  "url": "sec-anova.html#fig-mlb-anova-histograms",
+  "type": "Figure",
+  "number": "7.5.15",
+  "title": "",
+  "body": " Histograms of OBP for each field position.    Three histograms are shown, one for Outfielders, one for Infielders, and one for Catchers. The Outfielders and Infielders are centered slightly above 0.3, while the Catchers distribution is centered at about 0.3. The variability in each group is about 0.03. Each of the distributions somewhat resemble normal distributions and do not have any major outliers.   "
+},
+{
+  "id": "ex-midterm-anova-setup",
+  "level": "2",
+  "url": "sec-anova.html#ex-midterm-anova-setup",
+  "type": "Example",
+  "number": "7.5.16",
+  "title": "",
+  "body": "   discussed three statistics lectures, all taught during the same semester. shows summary statistics for these three courses, and a side-by-side box plot of the data is shown in . We would like to conduct an ANOVA for these data. Do you see any deviations from the three conditions for ANOVA?    In this case (like many others) it is difficult to check independence in a rigorous way. Instead, the best we can do is use common sense to consider reasons the assumption of independence may not hold. For instance, the independence assumption may not be reasonable if there is a star teaching assistant that only half of the students may access; such a scenario would divide a class into two subgroups. No such situations were evident for these particular data, and we believe that independence is acceptable.  The distributions in the side-by-side box plot appear to be roughly symmetric and show no noticeable outliers.  The box plots show approximately equal variability, which can be verified in , supporting the constant variance assumption.   "
+},
+{
+  "id": "table-midterm-summary-stats",
+  "level": "2",
+  "url": "sec-anova.html#table-midterm-summary-stats",
+  "type": "Table",
+  "number": "7.5.17",
+  "title": "Summary statistics for the first midterm scores in three different lectures of the same course",
+  "body": " Summary statistics for the first midterm scores in three different lectures of the same course    Class  A  B  C     58  55  51     75.1  72.0  78.9     13.9  13.8  13.1    "
+},
+{
+  "id": "fig-midterm-boxplot",
+  "level": "2",
+  "url": "sec-anova.html#fig-midterm-boxplot",
+  "type": "Figure",
+  "number": "7.5.18",
+  "title": "",
+  "body": " Side-by-side box plot for the first midterm scores in three different lectures of the same course.    Side-by-side box plot for the first midterm scores in three different lectures of the same course. Lecture A has a box from about 65 to 85, a median of 73, and whiskers that extend down to 45 and up to 100. Lecture B has a box from about 62 to 82, a median of 72, and whiskers that extend down to 40 and up to 100. Lecture C has a box from about 73 to 88, a median of 82, and whiskers that extend down to 45 and up to 100.   "
+},
+{
+  "id": "subsec-multiple-comparisons-6",
+  "level": "2",
+  "url": "sec-anova.html#subsec-multiple-comparisons-6",
+  "type": "Checkpoint",
+  "number": "7.5.19",
+  "title": "",
+  "body": "  ANOVA was conducted for the midterm data, and summary results are shown in . What should we conclude?    The p-value of the test is 0.0330, less than the default significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the difference in the average midterm scores is not due to chance.   "
+},
+{
+  "id": "table-anova-summary-midterm",
+  "level": "2",
+  "url": "sec-anova.html#table-anova-summary-midterm",
+  "type": "Table",
+  "number": "7.5.20",
+  "title": "ANOVA summary table for the midterm data",
+  "body": " ANOVA summary table for the midterm data     Df  Sum Sq  Mean Sq  F value  Pr( )    lecture  2  1290.11  645.06  3.48  0.0330    Residuals  161  29810.13  185.16              on    "
+},
+{
+  "id": "subsec-multiple-comparisons-9-2",
+  "level": "2",
+  "url": "sec-anova.html#subsec-multiple-comparisons-9-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "multiple comparisons Bonferroni correction "
+},
+{
+  "id": "ex-midterm-pairwise",
+  "level": "2",
+  "url": "sec-anova.html#ex-midterm-pairwise",
+  "type": "Example",
+  "number": "7.5.21",
+  "title": "",
+  "body": "  In the previous exercise, you found strong evidence of differences in the average midterm grades between the three lectures. Complete the three possible pairwise comparisons using the Bonferroni correction and report any differences.    We use a modified significance level of . Additionally, we use the pooled estimate of the standard deviation: on , which is provided in the ANOVA summary table.   Lecture A versus Lecture B: The estimated difference and standard error are, respectively,   This results in a T-score of 1.21 on (we use the associated with ). Statistical software was used to precisely identify the two-sided p-value since the modified significance level of 0.0167 is not found in the -table. The p-value (0.228) is larger than , so there is not strong evidence of a difference in the means of lectures A and B.   Lecture A versus Lecture C: The estimated difference and standard error are 3.8 and 2.61, respectively. This results in a score of 1.46 on and a two-sided p-value of 0.1462. This p-value is larger than , so there is not strong evidence of a difference in the means of lectures A and C.   Lecture B versus Lecture C: The estimated difference and standard error are 6.9 and 2.65, respectively. This results in a score of 2.60 on and a two-sided p-value of 0.0102. This p-value is smaller than . Here we find strong evidence of a difference in the means of lectures B and C.   "
+},
+{
+  "id": "sec-ch07-review",
   "level": "1",
-  "url": "sec-ch06-review.html",
+  "url": "sec-ch07-review.html",
   "type": "Section",
   "number": "7.6",
-  "title": "Chapter 6 Review Exercises",
-  "body": " Chapter 6 Review Exercises  This chapter introduced inference for numerical data using the t-distribution. Key concepts include:   The t-distribution and its properties  One-sample t-confidence intervals and hypothesis tests  Paired data analysis using differences  Two-sample t-procedures for comparing independent groups  Statistical power and sample size determination  ANOVA for comparing three or more means   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
+  "title": "Chapter 7 Review Exercises",
+  "body": " Chapter 7 Review Exercises  This chapter introduced inference for numerical data using the t-distribution. Key concepts include:   The t-distribution and its properties  One-sample t-confidence intervals and hypothesis tests  Paired data analysis using differences  Two-sample t-procedures for comparing independent groups  Statistical power and sample size determination  ANOVA for comparing three or more means   Additional exercises for practicing these concepts are available in the accompanying exercise materials.  "
 },
 {
   "id": "sec-fitting-line-residuals-correlation",
@@ -6154,7 +7378,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "8.1",
   "title": "Fitting a line, residuals, and correlation",
-  "body": " Fitting a line, residuals, and correlation   It's helpful to think deeply about the line fitting process. In this section, we define the form of a linear model, explore criteria for what makes a good fit, and introduce a new statistic called correlation .    Fitting a line to data  It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for data to appear as a cloud of points , where the data fall around a straight line, even if none of the observations fall exactly on the line. In cases where there is a clear relationship between the variables, we will have some uncertainty regarding our estimates of the model parameters.   Linear Model   Linear regression is the statistical method for fitting a line to data where the relationship between two variables, and , can be modeled by a straight line with some error: where:  and are the model's parameters  represents the error (epsilon)  is the explanatory variable or predictor  is the response variable  The parameters are estimated using data, and we write their point estimates as and . The fitted line is written as:      There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is when the relationship is nonlinear , such as a curved relationship.     Residuals  Residuals are the leftovers from the model fit: the differences between the observed values and the values predicted by the line.   Residual   The residual of the observation is the difference between the observed ( ) and predicted ( ) response values: If an observation lands above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals.     Residual Plot  A residual plot is a scatterplot of the residuals ( ) on the vertical axis against the predictor variable ( ) on the horizontal axis. These plots are helpful in evaluating whether a linear model is appropriate.  Key features to look for:  Random scatter: Residuals should be randomly scattered around zero with no apparent pattern  Constant variance: The variability of residuals should be roughly constant across all values of  No curvature: A curved pattern suggests a nonlinear relationship       Correlation  Correlation measures the strength of the linear relationship between two numerical variables.   Correlation   The correlation coefficient , denoted by , describes the strength and direction of the linear relationship between two numerical variables. The correlation is calculated as: where and are the sample standard deviations of and , respectively.  Properties of correlation:  The correlation is always between -1 and 1:  indicates a perfect negative linear relationship  indicates no linear relationship  indicates a perfect positive linear relationship  Correlation does not imply causation  Correlation is sensitive to outliers  Correlation measures only linear relationships       "
+  "body": " Fitting a line, residuals, and correlation   It's helpful to think deeply about the line fitting process. In this section, we define the form of a linear model, explore criteria for what makes a good fit, and introduce a new statistic called correlation .    Fitting a line to data   shows two variables whose relationship can be modeled perfectly with a straight line. The equation for the line is Consider what a perfect linear relationship means: we know the exact value of just by knowing the value of . This is unrealistic in almost any natural process. For example, if we took family income ( ), this value would provide some useful information about how much financial support a college may offer a prospective student ( ). However, the prediction would be far from perfect, since other factors play a role in financial support beyond a family's finances.   Requests from twelve separate buyers were simultaneously placed with a trading company to purchase Target Corporation stock (ticker TGT, December 28th, 2018), and the total cost of the shares were reported. Because the cost is computed using a linear formula, the linear fit is perfect.   A scatterplot with a straight line fit to the data are shown for the date December 28th, 2018. The horizontal axis is \"Number of Target Corporation Stocks to Purchase\" and the vertical axis is \"Total Cost of the Shares Purchase\". Twelve data points are shown that all fall exactly on a straight line with an equation of y equals 5 plus 64.96 times x. Because the cost is computed using a linear formula, this explains why the linear fit is perfect.    Linear regression is the statistical method for fitting a line to data where the relationship between two variables, and , can be modeled by a straight line with some error: The values and represent the model's parameters ( is the Greek letter beta ), and the error is represented by (the Greek letter epsilon ). The parameters are estimated using data, and we write their point estimates as and . When we use to predict , we usually call the explanatory variable or predictor variable, and we call the response ; we also often drop the term when writing down the model since our main focus is often on the prediction of the average outcome.  It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for data to appear as a cloud of points , such as those examples shown in . In each case, the data fall around a straight line, even if none of the observations fall exactly on the line. The first plot shows a relatively strong downward linear trend, where the remaining variability in the data around the line is minor relative to the strength of the relationship between and . The second plot shows an upward trend that, while evident, is not as strong as the first. The last plot shows a very weak downward trend in the data, so slight we can hardly notice it. In each of these examples, we will have some uncertainty regarding our estimates of the model parameters, and . For instance, we might wonder, should we move the line up or down a little, or should we tilt it more or less? As we move forward in this chapter, we will learn about criteria for line-fitting, and we will also learn about the uncertainty associated with estimates of model parameters.   Three data sets where a linear model may be useful even though the data do not all fall exactly on the line.   Three scatterplots are shown. The first has data ranging from -50 to positive 50 on both the horizontal and vertical axes. The data start in the upper left corner of the plot and then move steadily down to the right corner. The second plot has the horizontal axis running from 500 to about 2,000 and the vertical axis from about 0 to 25,000. At the left side of the plot, the data are in the lower half of the plot, and the points generally are steadily higher as we move right, where most points near the right end of the plot are in the upper region of the plot. A upwards trending line has been fit to these points. The last plot runs from about -10 to positive 50 on the horizontal axis and about -200 to positive 400 on the vertical axis. The points are scattered broadly across the range, with only the slightest downward trend evident in the data. A trend line has been fit to this data, though it is nearly flat.    There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is shown in where there is a very clear relationship between the variables even though the trend is not linear. We discuss nonlinear trends in this chapter and the next, but details of fitting nonlinear models are saved for a later course.   A linear model is not useful in this nonlinear case. These data are from an introductory physics experiment.   A linear model is not useful in a nonlinear set of data shown in this plot. The data are from an introductory physics experiment, where a ball is shot at many angles of inclination between 0 degrees and 90 degrees (represented by the horizontal axis), and the measured horizontal distance traveled by the ball before it hits the ground is shown in meters. The first point, at an angle of inclination of 0 hits the ground at 0 meters traveled. As the angle is increased, the ball travels further before it hits the ground until reaching a peak at 45 degrees angle of inclination, at which point it decreases again until we reach an angle of 90 degrees, at which point the ball again does not travel any horizontal distance before it hits the ground. For the data shown, the best fitting straight line is shown and is flat. This is a good example of why a straight line fit to data where there is curvature is often not useful.      Using linear regression to predict possum head lengths  Brushtail possums are a marsupial that lives in Australia, and a photo of one is shown in . Researchers captured 104 of these animals and took body measurements before releasing the animals back into the wild. We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.   The common brushtail possum of Australia. Photo by Greg Schechter (https:\/\/flic.kr\/p\/9BAFbR). CC BY 2.0 license.   A common brushtail possum of Australia is shown. It has a brown fur coat with some gray sprinkled in along with a face and ears that somewhat resemble a house cat. The possum also has a big bushy tail.     shows a scatterplot for the head length and total length of the possums. Each point represents a single possum from the data. The head and total length variables are associated: possums with an above average total length also tend to have above average head lengths. While the relationship is not perfectly linear, it could be helpful to partially explain the connection between these variables with a straight line.   A scatterplot showing head length against total length for 104 brushtail possums. A point representing a possum with head length 94.1mm and total length 89cm is highlighted.   A scatterplot showing head length against total length for 104 brushtail possums, where the horizontal axis for total length runs from 75 centimeters to about 97 centimeters (2.5 to 3.3 feet) and the vertical axis for head length runs from about 82 millimeters up to about 104 millimeters (3 to 4 inches). For possums with a total length between 75 to 80 centimeters, there are three points shown, each with head lengths of about 85 millimeters. For possums with total length from 80 to 85 centimeters, most head lengths range from about 85 millimeters to 95 millimeters. For possums with total lengths from 85 to 90 centimeters, head lengths mostly lie between 90 millimeters and 97 millimeters. For possums with total lengths larger than 90 centimeters, the head lengths are mostly between 93 millimeters and 100 millimeters. The trend is evidently upward and approximately linear. A point representing a possum with head length 94.1mm and total length 89cm is highlighted (although not relevant for any other purpose than giving an example or reminder for how a point is read in a scatterplot).    We want to describe the relationship between the head length and total length variables in the possum data set using a line. In this example, we will use the total length as the predictor variable, , to predict a possum's head length, . We could fit the linear relationship by eye, as in . The equation for this line is A \"hat\" on is used to signify that this is an estimate. We can use this line to discuss properties of possums. For instance, the equation predicts a possum with a total length of 80 cm will have a head length of The estimate may be viewed as an average: the equation predicts that possums with a total length of 80 cm will have an average head length of 88.2 mm. Absent further information about an 80 cm possum, the prediction for head length that uses the average is a reasonable estimate.   A reasonable linear model was fit to represent the relationship between head length and total length.   The same scatterplot showing head length against total length for 104 brushtail possums is shown. A linear trend line has been added with an equation of y-hat equals 41 plus 0.59 times x, which shows the clear upward trajectory of the data. Additionally, three points are highlighted. The first is labeled with an \"X\" and is at approximately (77, 85) and lies about 1 unit below the trend line. A second point labeled with a \"plus sign\" is at about (85, 98) and appears to be about 7 units above the trend line. The last point highlighted is a \"triangle\" and is located at about (95, 93) and is about 3 units below the trend line.      What other variables might help us predict the head length of a possum besides its length?    Perhaps the relationship would be a little different for male possums than female possums, or perhaps it would differ for possums from one region of Australia versus another region. In , we'll learn about how we can include more than one predictor. Before we get there, we first need to better understand how to best build a simple linear model with one predictor.      Residuals   Residuals are the leftover variation in the data after accounting for the model fit: Each observation will have a residual, and three of the residuals for the linear model we fit for the possum data is shown in . If an observation is above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals. One goal in picking the right linear model is for these residuals to be as small as possible.  Let's look closer at the three residuals featured in . The observation marked by an \" \" has a small, negative residual of about -1; the observation marked by \" \" has a large residual of about +7; and the observation marked by \" \" has a moderate residual of about -4. The size of a residual is usually discussed in terms of its absolute value. For example, the residual for \" \" is larger than that of \" \" because is larger than .   Residual: difference between observed and expected  The residual of the observation is the difference of the observed response ( ) and the response we would predict based on the model fit ( ): We typically identify by plugging into the model.     The linear fit shown in is given as . Based on this line, formally compute the residual of the observation . This observation is denoted by \" \" in . Check it against the earlier visual estimate, -1.    We first compute the predicted value of point \" \" based on the model: Next we compute the difference of the actual head length and the predicted head length: The model's error is mm, which is very close to the visual estimate of -1 mm. The negative residual indicates that the linear model overpredicted head length for this particular possum.      If a model underestimates an observation, will the residual be positive or negative? What about if it overestimates the observation?    If a model underestimates an observation, then the model estimate is below the actual. The residual, which is the actual observation value minus the model estimate, must then be positive. The opposite is true when the model overestimates the observation: the residual is negative.      Compute the residuals for the \" \" observation and the \" \" observation in the figure using the linear relationship .    ( ) First compute the predicted value based on the model: Then the residual is given by This was close to the earlier estimate of 7.  ( ) . , close to the estimate of -4.    Residuals are helpful in evaluating how well a linear model fits a data set. We often display them in a residual plot such as the one shown in for the regression line in . The residuals are plotted at their original horizontal locations but with the vertical coordinate as the residual. For instance, the point had a residual of 7.45, so in the residual plot it is placed at . Creating a residual plot is sort of like tipping the scatterplot over so the regression line is horizontal.   Residual plot for the model in .   A residual plot for the trend line fit to the brushtail possum data is shown. Here, the horizontal axis is the same -- representing \"total length\", it spans 75 to 97 -- while the vertical axis represents \"Residuals\" and spans from about -7 to positive 8. There is no evident trend in the residuals. Three points are specifically highlighted to reflect the three points discussed in the last figure. The first is labeled with an \"X\" with a total length of 77 and a residual of about -1. The second is labeled with a \"plus sign\" and has a total length of 85 and a residual of about 7. The last point highlighted is a \"triangle\" with a total length of about 95 and a residual of about -3. Note that the location of the residuals above and below the trend line reflects exactly with whether the residual is positive or negative, respectively.      One purpose of residual plots is to identify characteristics or patterns still apparent in data after fitting a model. shows three scatterplots with linear models in the first row and residual plots in the second row. Can you identify any patterns remaining in the residuals?    In the first data set (first column), the residuals show no obvious patterns. The residuals appear to be scattered randomly around the dashed line that represents 0.  The second data set shows a pattern in the residuals. There is some curvature in the scatterplot, which is more obvious in the residual plot. We should not use a straight line to model these data. Instead, a more advanced technique should be used.  The last plot shows very little upwards trend, and the residuals also show no obvious patterns. It is reasonable to try to fit a linear model to the data. However, it is unclear whether there is statistically significant evidence that the slope parameter is different from zero. The point estimate of the slope parameter, labeled , is not zero, but we might wonder if this could just be due to chance. We will address this sort of scenario in .     Sample data with their best fitting lines (top row) and their corresponding residual plots (bottom row).   Sample data with their best fitting lines (top row of three plots) and their corresponding residual plots (bottom row of three plots). The upper left plot shows a scatterplot where the data trend downwards steadily with a straight line fit to the data, which appears to fit well everywhere. The bottom left plot is the residual plot of this first scatterplot, and it likewise shows no pattern in the residuals when looking left to right. The upper middle plot shows data with a downward trend, but the data's trend is more steep on the right side of the plot, so the overall shape of the data is that it trends downward and curves downward. A straight, downward-trending line has also been fit to this data, but it doesn't fit as well. The data are below this downward trending line initially, but it is above the line in the middle, and finally on the right it is once again below the linear trend line. The residual plot for this scatterplot is shown in the lower middle plot, and the curvature in the residuals is more evident than what was visible in the scatterplot: the residuals have negative values on the left and trend upwards until peaking with positive residuals in the middle, and then trending back down and having negative residual values again on the right. The last scatterplot in the upper right shows data with very little trend, but a slightly-upward trending straight line has been fit to the data. The corresponding residual plot, shown as the bottom right plot, also shows data with no evident trend or pattern, where observations appear relatively randomly scattered above and below 0 (in the vertical).      Describing linear relationships with correlation  We've seen plots with strong linear relationships and others with very weak linear relationships. It would be useful if we could quantify the strength of these linear relationships with a statistic.   Correlation: strength of a linear relationship   Correlation , which always takes values between -1 and 1, describes the strength of the linear relationship between two variables. We denote the correlation by .   We can compute the correlation using a formula, just as we did with the sample mean and standard deviation. This formula is rather complex, Formally, we can compute the correlation for observations , , , using the formula where , , , and are the sample means and standard deviations for each variable. and like with other statistics, we generally perform the calculations on a computer or calculator. shows eight plots and their corresponding correlations. Only when the relationship is perfectly linear is the correlation either -1 or 1. If the relationship is strong and positive, the correlation will be near +1. If it is strong and negative, it will be near -1. If there is no apparent linear relationship between the variables, then the correlation will be near zero.   Sample scatterplots and their correlations. The first row shows variables with a positive relationship, represented by the trend up and to the right. The second row shows one plot with an approximately neutral trend and three plots with a negative trend.   Eight scatterplots are shown, each with their correlation noted. Each scatterplot appears to represent about 50 points. The first has a correlation of R equals 0.33, and there is a slight upward trend evident in the data -- if a trend line were drawn for this data, much of the data would fall relatively far from the line. The second plot has a correlation of R equals 0.69, and a clearer upward trend is evident, but it is still pretty volatile with many points deviating far from where the trend line would be. The third plot has a correlation of 0.98, and the data show a very clear upward trend, where if a trend line were drawn, the data would be (relatively) quite close to this line. The fourth plot shows a correlation of R equals 1.00, and here the points appear exactly on a line with an upward trajectory. The fifth plot shows data with a correlation of R equals 0.08, where no trend is visually evident in the data. The sixth plot has a correlation of R equals -0.64, and a downward trend is evident in the data, but the individual observations would in many cases be pretty distant from any trend line fit to the data (on a relative basis). The seventh plot has a correlation of R equals -0.92 and shows data with a clear downward trend, where the data would deviate just a modest amount from a trend line fit to the data. The last plot shows a correlation of R equals -1, where the observations would fit exactly on a line trending downwards.    The correlation is intended to quantify the strength of a linear trend. Nonlinear trends, even when strong, sometimes produce correlations that do not reflect the strength of the relationship; see three such examples in .   Sample scatterplots and their correlations. In each case, there is a strong relationship between the variables. However, because the relationship is nonlinear, the correlation is relatively weak.   Three scatterplots are shown. In each case, there is a strong relationship between the variables. However, because the relationship is nonlinear, the correlation is relatively weak. The first plot shows data that trends upwards on the left before peaking and then trending downward on the right -- the correlation of the data in this plot is R equals -0.23. The second plot shows data with a sharp downward trend on the left before reaching a trough and rising then sharply upward before reaching a peak and then trending sharply downwards again -- the correlation of the data in this plot is R equals 0.31. The third plot shows data that without a trend on the far left, followed by a steep drop, a trough, and then a steep rise to a peak, and then another drop and then finally a slight increase at the end -- the correlation of the data in this plot is R equals 0.50.      No straight line is a good fit for the data sets represented in . Try drawing nonlinear curves on each plot. Once you create a curve for each, describe what is important in your fit.    We'll leave it to you to draw the lines. In general, the lines you draw should be close to most points and reflect overall trends in the data.       Section 8.1 Exercises   Visualize the residuals   The scatterplots shown below each have a superimposed regression line. If we were to construct a residual plot (residuals versus ) for each, describe what those plots would look like.    A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random and have stable variability moving from left to right.    A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random. If looking at the leftmost region of data, the observations are more broadly scattered around the line, while when moving further right the variability of the points around the line gets notably smaller by a factor of at least 5 (if using standard deviation).       Trends in the residuals   Shown below are two plots of residuals remaining after fitting a linear model to two different sets of data. Describe important features and determine if a linear model would be appropriate for these data. Explain your reasoning.    A scatterplot of the residuals is shown. When looking at any horizontal region of the plot, the observations are consistently scattered around the \"y equals 0\" line. On the left, the points tend to be very close to this horizontal 0 line. The further moving to the right, the more variability that is evident in the observations around \"y equals 0\".    A scatterplot of the residuals is shown. The points on the very left tend to be below the \"y equals 0\" line for the first 5% of the horizontal region, where the trend is sharply upwards to the \"y equals 0\" line. The points then tend to be stably clustered around \"y equals 0\", if not slightly above, with a slight downward trend evident in the observations on the right half of the plot. The vertical variability of observations is about stable throughout.       Identify relationships, Part I   For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.    A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.    A scatterplot is shown. The points start on the lower left corner, only spanning about 20% of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.    A scatterplot is shown. On the left side of the plot, the points appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident.      A scatterplot is shown. On the left side of the plot, the observations are concentrated in the bottom half of the plot but rise steadily. The trend peaks near the center of the plot, where nearly all the points in the (horizontal) center region of the scatterplot are concentrated in the upper half of the scatterplot. On the right side of the plot, the points show a trend downwards, with points concentrated in the lower quarter of the scatterplot for the rightmost handful of points.    A scatterplot is shown. The points start on the upper left corner, only spanning about 20% of the vertical region of the plot, and have a steady downwards trend to the bottom right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.    A scatterplot is shown. On the left side of the plot, the points appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident or at least obvious.       Identify relationships, Part II   For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.    A scatterplot is shown. On the left side of the plot, the observations are concentrated in the upper corner of the plot, with a sharp trend downwards, before stabilizing, then rising slightly at halfway through the plot, reaching a peak, and then declining again, with a sharp decline on the right-most portion of the plot to the bottom-right corner of the plot.    A scatterplot is shown. On the left side of the plot, the observations are concentrated around a region about 30% of the way up from the bottom-left corner of the plot, there is a slight downward trend that reaches the bottom area of the plot for about the center half of the plot, then the points rise gradually and then sharply in the last 25-30% of the plot.    A scatterplot is shown. Points in the leftmost region of the plot are concentrated in the lower-left corner, ranging from the bottom up to about 25% of the way up the plot. The points follow a steady upward trend to the top-right corner of the plot and show consistent vertical variability around the trend throughout.      A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There might be a very slight upward trend.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.    A scatterplot is shown. The points on the leftmost side are concentrated in the upper half of the plot, and the data trend steadily downwards and with consistent variability to the bottom right portion of the plot.       Exams and grades   The two scatterplots below show the relationship between final and mid-semester exam grades recorded during several years for a Statistics course at a university.    A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 1 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Only about ten Exam 1 scores are below 60, and these have Final Exam scores between about 55 and 85. Exam 1 scores between 60 and 80 represent about 50% of the points shown and have Final Exam scores mostly between 50 and 85. For the points where Midterm 1 scores are larger than 80, Final Exam scores mostly lie between 65 and 90, where a slightly upward trend is evident.    A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 2 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Midterm 2 scores are roughly uniformly distributed across the full range. For Exam 2 scores below 60, these mostly have Final Exam scores between about 45 and 70. Exam 2 scores between 60 and 80 have Final Exam scores mostly between 55 and 80. For the points where Midterm 2 scores are larger than 80, Final Exam scores mostly lie between 70 and 90.      Based on these graphs, which of the two exams has the strongest correlation with the final exam grade? Explain.  Can you think of a reason why the correlation between the exam you chose in part (a) and the final exam is higher?       Husbands and wives, Part I   The Great Britain Office of Population Census and Surveys once collected data on a random sample of 170 married couples in Britain, recording the age (in years) and heights (converted here to inches) of the husbands and wives. The scatterplot on the left shows the wife's age plotted against her husband's age, and the plot on the right shows wife's height plotted against husband's height.    A scatterplot is shown. The horizontal axis represents \"Husband's Age (in years)\" with values ranging from about 20 to 65. The vertical axis represents \"Wife's Age (in years)\" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.    A scatterplot is shown. The horizontal axis represents \"Husband's Height (in inches)\" with values ranging from about 60 to 75. The vertical axis represents \"Wife's Height (in inches)\" with values ranging from about 55 to 70. When husband height is between 60 and 65, wife height mostly ranges from about 58 to 65 inches, though there are only about 10 points in this range, which is about 5% of the data. When husband height is between 65 and 70, wife height mostly ranges from 57 to 68 inches. When husband height is larger than 70 inches, wife height mostly ranges from 61 to about 74 inches.      Describe the relationship between husbands' and wives' ages.  Describe the relationship between husbands' and wives' heights.  Which plot shows a stronger correlation? Explain your reasoning.  Data on heights were originally collected in centimeters, and then converted to inches. Does this conversion affect the correlation between husbands' and wives' heights?       Match the correlation, Part I   Match each correlation to the corresponding scatterplot.            A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.    A scatterplot is shown. The points start on the lower left corner, only spanning about 20% of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.       Match the correlation, Part II   Match each correlation to the corresponding scatterplot.            A scatterplot is shown. For the left half of the plot, the points are scattered around the upper half of the plot. On the right portion of the plot, the data show a clear downward trend, and for the points on the far right, they are concentrated in the lower 25% of the plot.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.    A scatterplot is shown. The observations start in the lower left corner of the plot, trend sharply upwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster dropping to the lower right corner of the plot. The trend is approximately symmetric from left-to-right.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.       Speed and height   1,302 UCLA students were asked to fill out a survey where they were asked about their height, fastest speed they have ever driven, and gender. The scatterplot on the left displays the relationship between height and fastest speed, and the scatterplot on the right displays the breakdown by gender in this relationship.    A scatterplot is shown. The horizontal axis represents \"Height (in inches)\" with values ranging from about 50 to 80. The vertical axis represents \"Fastest Speed (in mph)\" and has values ranging from 0 to 150. First, it is worth noting that there several points along the bottom of the plot with a fastest speed of 0 mph. The remainder of the description will concentrate on the other points. A small portion of the points are shown with heights below 60 inches, and these have fastest speeds mostly ranging from about 70 to 110 mph. For points shown with heights between 60 and 70, fastest speeds mostly ranged from about 30 to 120 mph. For points shown with heights of 70 or more, fastest speeds mostly ranged from about 50 to 140 mph. There were no points corresponding to heights greater than 75 that had fastest speeds slower than about 75 mph, which left a sort of gap in the lower right portion of the scatterplot.    A scatterplot is shown, where points are colored to differentiate between males and females. The horizontal axis represents \"Height (in inches)\" with values ranging from about 50 to 80. The vertical axis represents \"Fastest Speed (in mph)\" and has values ranging from 0 to 150. Female heights are largely 70 inches or smaller, while Male heights are largely 65 inches and taller. When focusing exclusively on Females, no upward trend is evident, with about 95% of observations having Fastest Speed between about 30 mph and 120 mph. When focusing exclusively on Males, no upward trend is evident there either, with about 95% of observations having Fastest Speed between about 50 mph and 140 mph. In contrast, if we ignore the male\/female differentiation, there is a slight upward trend in the points.      Describe the relationship between height and fastest speed.  Why do you think these variables are positively associated?  What role does gender play in the relationship between height and fastest driving speed?       Guess the correlation   Eduardo and Rosie are both collecting data on number of rainy days in a year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How will their correlation coefficients compare?     The Coast Starlight, Part I   The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes).      Describe the relationship between distance and travel time.  How would the relationship change if travel time was instead measured in hours, and distance was instead measured in kilometers?  The correlation between travel time (in miles) and distance (in minutes) is . Suppose we had instead measured travel time in hours and measured distance in kilometers (km). What would be the correlation in these different units?      A scatterplot is shown with about 15 points. The horizontal axis represents \"Distance (miles)\" with values ranging from just over 0 to about 350. The vertical axis represents \"Travel Time (in minutes)\" and has values ranging from about 20 to 380. The point with the smallest distance -- about 10 miles -- shows a travel time of about 40 minutes. Next, there is a cluster of 6 points with distances between 40 and 60 miles and travel times ranging from about 20 to 60 minutes. The remainder of the points are scattered pretty broadly but may show a slightly upward trend. A few points that highlight the widely varying nature of the data are located at the following approximate locations: (190 miles, 60 minutes), (240 miles, 250 minutes), (250 miles, 380 minutes), and (350 miles, 200 minutes).       Crawling babies, Part I   A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. Infants born during the study year were split into twelve groups, one for each birth month. We consider the average crawling age of babies in each group against the average temperature when the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in degrees Fahrenheit ( F) and age is measured in weeks.      Describe the relationship between temperature and crawling age.  How would the relationship change if temperature was measured in degrees Celsius ( C) and age was measured in months?  The correlation between temperature in F and age in weeks was . If we converted the temperature to C and age to months, what would the correlation be?      A scatterplot is shown with a dozen points. The horizontal axis is \"Temperature (F)\" with values ranging from 30 to 75. The vertical axis is \"Average Crawling Age (weeks)\" with values ranging from 28.5 to 34. For those points with temperatures from 30 to 40, average crawling ages range from 31.5 to 34. For the single point with temperatures between 40 to 50, average crawling age was about 33.5. For the two points with temperature between 50 and 60, average crawling age was 28.5 and 32.5. For the last 4 points with temperature above 60, average crawling ages were 32, 30, 30, and 30.5.       Body measurements, Part I   Researchers studying anthropometry collected body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender for 507 physically active individuals. The scatterplot below shows the relationship between height and shoulder girth (over deltoid muscles), both measured in centimeters.      Describe the relationship between shoulder girth and height.  How would the relationship change if shoulder girth was measured in inches while the units of height remained in centimeters?      A scatter plot with several hundred points is shown. The horizontal axis represents \"Shoulder Girth (cm)\" with values ranging from about 85 to 135. The vertical axis represents \"Height (cm)\" with values ranging from about 145 to 200. For points where Shoulder Girth is smaller than 100, 95% of points have heights between 152 and 170. For points where Shoulder Girth is between 100 and 110, 95% of points have heights between 155 and 180. For points where Shoulder Girth is between 110 and 120, 95% of points have heights between 162 and 190. For points where Shoulder Girth larger than 120, 95% of points have heights between 170 and 190.       Body measurements, Part II   The scatterplot below shows the relationship between weight measured in kilograms and hip girth measured in centimeters from the data described in .      Describe the relationship between hip girth and weight.  How would the relationship change if weight was measured in pounds while the units for hip girth remained in centimeters?      A scatter plot with several hundred points is shown. The horizontal axis represents \"Hip Girth (cm)\" with values ranging from about 80 to 115, with about 4 observations with larger hip girth up to about 130 cm. The vertical axis represents \"Weight (kg)\" with values ranging from about 40 to 105, with a few observations with larger weights up to 120. For points where Hip Girth is smaller than 90, 95% of points have weight between roughly 45 and 60. For points where Hip Girth is between 90 and 100, 95% of points have weight between roughly 50 and 80. For points where Hip Girth is between 100 and 110, 95% of points have weight between roughly 65 and 90. For points where Hip Girth is between 110 and 115, points have weight between roughly 70 and 105. There are four additional points located at about (115, 120), (115, 90), (118, 90), and (128, 105).       Correlation, Part I   What would be the correlation between the ages of husbands and wives if men always married women who were    3 years younger than themselves?  2 years older than themselves?  half as old as themselves?       Correlation, Part II   What would be the correlation between the annual salaries of males and females at a company if for a certain type of position men always made    $5,000 more than women?  25% more than women?  15% less than women?       "
 },
 {
   "id": "sec-fitting-line-residuals-correlation-2-1",
@@ -6166,58 +7390,355 @@ var ptx_lunr_docs = [
   "body": "correlation "
 },
 {
-  "id": "subsec-fitting-line-to-data-2",
+  "id": "fig-perfLinearModel",
   "level": "2",
-  "url": "sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data-2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-perfLinearModel",
+  "type": "Figure",
+  "number": "8.1.1",
+  "title": "",
+  "body": " Requests from twelve separate buyers were simultaneously placed with a trading company to purchase Target Corporation stock (ticker TGT, December 28th, 2018), and the total cost of the shares were reported. Because the cost is computed using a linear formula, the linear fit is perfect.   A scatterplot with a straight line fit to the data are shown for the date December 28th, 2018. The horizontal axis is \"Number of Target Corporation Stocks to Purchase\" and the vertical axis is \"Total Cost of the Shares Purchase\". Twelve data points are shown that all fall exactly on a straight line with an equation of y equals 5 plus 64.96 times x. Because the cost is computed using a linear formula, this explains why the linear fit is perfect.   "
+},
+{
+  "id": "subsec-fitting-line-to-data-4",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parameters explanatory variable predictor response "
+},
+{
+  "id": "subsec-fitting-line-to-data-5",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "cloud of points "
 },
 {
-  "id": "def-linear-model",
+  "id": "fig-imperfLinearModel",
   "level": "2",
-  "url": "sec-fitting-line-residuals-correlation.html#def-linear-model",
-  "type": "Definition",
-  "number": "8.1.1",
-  "title": "Linear Model.",
-  "body": " Linear Model   Linear regression is the statistical method for fitting a line to data where the relationship between two variables, and , can be modeled by a straight line with some error: where:  and are the model's parameters  represents the error (epsilon)  is the explanatory variable or predictor  is the response variable  The parameters are estimated using data, and we write their point estimates as and . The fitted line is written as:    "
-},
-{
-  "id": "subsec-fitting-line-to-data-4",
-  "level": "2",
-  "url": "sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data-4",
-  "type": "Note",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-imperfLinearModel",
+  "type": "Figure",
   "number": "8.1.2",
   "title": "",
-  "body": " There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful. One such case is when the relationship is nonlinear , such as a curved relationship.  "
+  "body": " Three data sets where a linear model may be useful even though the data do not all fall exactly on the line.   Three scatterplots are shown. The first has data ranging from -50 to positive 50 on both the horizontal and vertical axes. The data start in the upper left corner of the plot and then move steadily down to the right corner. The second plot has the horizontal axis running from 500 to about 2,000 and the vertical axis from about 0 to 25,000. At the left side of the plot, the data are in the lower half of the plot, and the points generally are steadily higher as we move right, where most points near the right end of the plot are in the upper region of the plot. A upwards trending line has been fit to these points. The last plot runs from about -10 to positive 50 on the horizontal axis and about -200 to positive 400 on the vertical axis. The points are scattered broadly across the range, with only the slightest downward trend evident in the data. A trend line has been fit to this data, though it is nearly flat.   "
 },
 {
-  "id": "def-residual",
+  "id": "subsec-fitting-line-to-data-7",
   "level": "2",
-  "url": "sec-fitting-line-residuals-correlation.html#def-residual",
-  "type": "Definition",
+  "url": "sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "nonlinear "
+},
+{
+  "id": "fig-notGoodAtAllForALinearModel",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-notGoodAtAllForALinearModel",
+  "type": "Figure",
   "number": "8.1.3",
-  "title": "Residual.",
-  "body": " Residual   The residual of the observation is the difference between the observed ( ) and predicted ( ) response values: If an observation lands above the regression line, then its residual, the vertical distance from the observation to the line, is positive. Observations below the line have negative residuals.   "
+  "title": "",
+  "body": " A linear model is not useful in this nonlinear case. These data are from an introductory physics experiment.   A linear model is not useful in a nonlinear set of data shown in this plot. The data are from an introductory physics experiment, where a ball is shot at many angles of inclination between 0 degrees and 90 degrees (represented by the horizontal axis), and the measured horizontal distance traveled by the ball before it hits the ground is shown in meters. The first point, at an angle of inclination of 0 hits the ground at 0 meters traveled. As the angle is increased, the ball travels further before it hits the ground until reaching a peak at 45 degrees angle of inclination, at which point it decreases again until we reach an angle of 90 degrees, at which point the ball again does not travel any horizontal distance before it hits the ground. For the data shown, the best fitting straight line is shown and is flat. This is a good example of why a straight line fit to data where there is curvature is often not useful.   "
 },
 {
-  "id": "assem-residual-plot-2",
+  "id": "fig-brushtail-possum",
   "level": "2",
-  "url": "sec-fitting-line-residuals-correlation.html#assem-residual-plot-2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-brushtail-possum",
+  "type": "Figure",
+  "number": "8.1.4",
+  "title": "",
+  "body": " The common brushtail possum of Australia. Photo by Greg Schechter (https:\/\/flic.kr\/p\/9BAFbR). CC BY 2.0 license.   A common brushtail possum of Australia is shown. It has a brown fur coat with some gray sprinkled in along with a face and ears that somewhat resemble a house cat. The possum also has a big bushy tail.   "
+},
+{
+  "id": "fig-scattHeadLTotalL",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-scattHeadLTotalL",
+  "type": "Figure",
+  "number": "8.1.5",
+  "title": "",
+  "body": " A scatterplot showing head length against total length for 104 brushtail possums. A point representing a possum with head length 94.1mm and total length 89cm is highlighted.   A scatterplot showing head length against total length for 104 brushtail possums, where the horizontal axis for total length runs from 75 centimeters to about 97 centimeters (2.5 to 3.3 feet) and the vertical axis for head length runs from about 82 millimeters up to about 104 millimeters (3 to 4 inches). For possums with a total length between 75 to 80 centimeters, there are three points shown, each with head lengths of about 85 millimeters. For possums with total length from 80 to 85 centimeters, most head lengths range from about 85 millimeters to 95 millimeters. For possums with total lengths from 85 to 90 centimeters, head lengths mostly lie between 90 millimeters and 97 millimeters. For possums with total lengths larger than 90 centimeters, the head lengths are mostly between 93 millimeters and 100 millimeters. The trend is evidently upward and approximately linear. A point representing a possum with head length 94.1mm and total length 89cm is highlighted (although not relevant for any other purpose than giving an example or reminder for how a point is read in a scatterplot).   "
+},
+{
+  "id": "fig-scattHeadLTotalLLine",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-scattHeadLTotalLLine",
+  "type": "Figure",
+  "number": "8.1.6",
+  "title": "",
+  "body": " A reasonable linear model was fit to represent the relationship between head length and total length.   The same scatterplot showing head length against total length for 104 brushtail possums is shown. A linear trend line has been added with an equation of y-hat equals 41 plus 0.59 times x, which shows the clear upward trajectory of the data. Additionally, three points are highlighted. The first is labeled with an \"X\" and is at approximately (77, 85) and lies about 1 unit below the trend line. A second point labeled with a \"plus sign\" is at about (85, 98) and appears to be about 7 units above the trend line. The last point highlighted is a \"triangle\" and is located at about (95, 93) and is about 3 units below the trend line.   "
+},
+{
+  "id": "ex-possum-predictors",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-possum-predictors",
+  "type": "Example",
+  "number": "8.1.7",
+  "title": "",
+  "body": "  What other variables might help us predict the head length of a possum besides its length?    Perhaps the relationship would be a little different for male possums than female possums, or perhaps it would differ for possums from one region of Australia versus another region. In , we'll learn about how we can include more than one predictor. Before we get there, we first need to better understand how to best build a simple linear model with one predictor.   "
+},
+{
+  "id": "subsec-residuals-2",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#subsec-residuals-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Residuals "
+},
+{
+  "id": "assem-residual-definition-2",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#assem-residual-definition-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "residual "
+},
+{
+  "id": "ex-compute-residual",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-compute-residual",
+  "type": "Example",
+  "number": "8.1.8",
+  "title": "",
+  "body": "  The linear fit shown in is given as . Based on this line, formally compute the residual of the observation . This observation is denoted by \" \" in . Check it against the earlier visual estimate, -1.    We first compute the predicted value of point \" \" based on the model: Next we compute the difference of the actual head length and the predicted head length: The model's error is mm, which is very close to the visual estimate of -1 mm. The negative residual indicates that the linear model overpredicted head length for this particular possum.   "
+},
+{
+  "id": "ex-residual-sign",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-residual-sign",
+  "type": "Checkpoint",
+  "number": "8.1.9",
+  "title": "",
+  "body": "  If a model underestimates an observation, will the residual be positive or negative? What about if it overestimates the observation?    If a model underestimates an observation, then the model estimate is below the actual. The residual, which is the actual observation value minus the model estimate, must then be positive. The opposite is true when the model overestimates the observation: the residual is negative.   "
+},
+{
+  "id": "ex-compute-more-residuals",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-compute-more-residuals",
+  "type": "Checkpoint",
+  "number": "8.1.10",
+  "title": "",
+  "body": "  Compute the residuals for the \" \" observation and the \" \" observation in the figure using the linear relationship .    ( ) First compute the predicted value based on the model: Then the residual is given by This was close to the earlier estimate of 7.  ( ) . , close to the estimate of -4.   "
+},
+{
+  "id": "subsec-residuals-8",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#subsec-residuals-8",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "residual plot "
 },
 {
-  "id": "def-correlation",
+  "id": "fig-scattHeadLTotalLResidualPlot",
   "level": "2",
-  "url": "sec-fitting-line-residuals-correlation.html#def-correlation",
-  "type": "Definition",
-  "number": "8.1.4",
-  "title": "Correlation.",
-  "body": " Correlation   The correlation coefficient , denoted by , describes the strength and direction of the linear relationship between two numerical variables. The correlation is calculated as: where and are the sample standard deviations of and , respectively.  Properties of correlation:  The correlation is always between -1 and 1:  indicates a perfect negative linear relationship  indicates no linear relationship  indicates a perfect positive linear relationship  Correlation does not imply causation  Correlation is sensitive to outliers  Correlation measures only linear relationships     "
+  "url": "sec-fitting-line-residuals-correlation.html#fig-scattHeadLTotalLResidualPlot",
+  "type": "Figure",
+  "number": "8.1.11",
+  "title": "",
+  "body": " Residual plot for the model in .   A residual plot for the trend line fit to the brushtail possum data is shown. Here, the horizontal axis is the same -- representing \"total length\", it spans 75 to 97 -- while the vertical axis represents \"Residuals\" and spans from about -7 to positive 8. There is no evident trend in the residuals. Three points are specifically highlighted to reflect the three points discussed in the last figure. The first is labeled with an \"X\" with a total length of 77 and a residual of about -1. The second is labeled with a \"plus sign\" and has a total length of 85 and a residual of about 7. The last point highlighted is a \"triangle\" with a total length of about 95 and a residual of about -3. Note that the location of the residuals above and below the trend line reflects exactly with whether the residual is positive or negative, respectively.   "
+},
+{
+  "id": "ex-residual-patterns",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-residual-patterns",
+  "type": "Example",
+  "number": "8.1.12",
+  "title": "",
+  "body": "  One purpose of residual plots is to identify characteristics or patterns still apparent in data after fitting a model. shows three scatterplots with linear models in the first row and residual plots in the second row. Can you identify any patterns remaining in the residuals?    In the first data set (first column), the residuals show no obvious patterns. The residuals appear to be scattered randomly around the dashed line that represents 0.  The second data set shows a pattern in the residuals. There is some curvature in the scatterplot, which is more obvious in the residual plot. We should not use a straight line to model these data. Instead, a more advanced technique should be used.  The last plot shows very little upwards trend, and the residuals also show no obvious patterns. It is reasonable to try to fit a linear model to the data. However, it is unclear whether there is statistically significant evidence that the slope parameter is different from zero. The point estimate of the slope parameter, labeled , is not zero, but we might wonder if this could just be due to chance. We will address this sort of scenario in .   "
+},
+{
+  "id": "fig-sampleLinesAndResPlots",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-sampleLinesAndResPlots",
+  "type": "Figure",
+  "number": "8.1.13",
+  "title": "",
+  "body": " Sample data with their best fitting lines (top row) and their corresponding residual plots (bottom row).   Sample data with their best fitting lines (top row of three plots) and their corresponding residual plots (bottom row of three plots). The upper left plot shows a scatterplot where the data trend downwards steadily with a straight line fit to the data, which appears to fit well everywhere. The bottom left plot is the residual plot of this first scatterplot, and it likewise shows no pattern in the residuals when looking left to right. The upper middle plot shows data with a downward trend, but the data's trend is more steep on the right side of the plot, so the overall shape of the data is that it trends downward and curves downward. A straight, downward-trending line has also been fit to this data, but it doesn't fit as well. The data are below this downward trending line initially, but it is above the line in the middle, and finally on the right it is once again below the linear trend line. The residual plot for this scatterplot is shown in the lower middle plot, and the curvature in the residuals is more evident than what was visible in the scatterplot: the residuals have negative values on the left and trend upwards until peaking with positive residuals in the middle, and then trending back down and having negative residual values again on the right. The last scatterplot in the upper right shows data with very little trend, but a slightly-upward trending straight line has been fit to the data. The corresponding residual plot, shown as the bottom right plot, also shows data with no evident trend or pattern, where observations appear relatively randomly scattered above and below 0 (in the vertical).   "
+},
+{
+  "id": "assem-correlation-definition-2",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#assem-correlation-definition-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Correlation "
+},
+{
+  "id": "fig-posNegCorPlots",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-posNegCorPlots",
+  "type": "Figure",
+  "number": "8.1.14",
+  "title": "",
+  "body": " Sample scatterplots and their correlations. The first row shows variables with a positive relationship, represented by the trend up and to the right. The second row shows one plot with an approximately neutral trend and three plots with a negative trend.   Eight scatterplots are shown, each with their correlation noted. Each scatterplot appears to represent about 50 points. The first has a correlation of R equals 0.33, and there is a slight upward trend evident in the data -- if a trend line were drawn for this data, much of the data would fall relatively far from the line. The second plot has a correlation of R equals 0.69, and a clearer upward trend is evident, but it is still pretty volatile with many points deviating far from where the trend line would be. The third plot has a correlation of 0.98, and the data show a very clear upward trend, where if a trend line were drawn, the data would be (relatively) quite close to this line. The fourth plot shows a correlation of R equals 1.00, and here the points appear exactly on a line with an upward trajectory. The fifth plot shows data with a correlation of R equals 0.08, where no trend is visually evident in the data. The sixth plot has a correlation of R equals -0.64, and a downward trend is evident in the data, but the individual observations would in many cases be pretty distant from any trend line fit to the data (on a relative basis). The seventh plot has a correlation of R equals -0.92 and shows data with a clear downward trend, where the data would deviate just a modest amount from a trend line fit to the data. The last plot shows a correlation of R equals -1, where the observations would fit exactly on a line trending downwards.   "
+},
+{
+  "id": "fig-corForNonLinearPlots",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#fig-corForNonLinearPlots",
+  "type": "Figure",
+  "number": "8.1.15",
+  "title": "",
+  "body": " Sample scatterplots and their correlations. In each case, there is a strong relationship between the variables. However, because the relationship is nonlinear, the correlation is relatively weak.   Three scatterplots are shown. In each case, there is a strong relationship between the variables. However, because the relationship is nonlinear, the correlation is relatively weak. The first plot shows data that trends upwards on the left before peaking and then trending downward on the right -- the correlation of the data in this plot is R equals -0.23. The second plot shows data with a sharp downward trend on the left before reaching a trough and rising then sharply upward before reaching a peak and then trending sharply downwards again -- the correlation of the data in this plot is R equals 0.31. The third plot shows data that without a trend on the far left, followed by a steep drop, a trough, and then a steep rise to a peak, and then another drop and then finally a slight increase at the end -- the correlation of the data in this plot is R equals 0.50.   "
+},
+{
+  "id": "ex-nonlinear-curves",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-nonlinear-curves",
+  "type": "Checkpoint",
+  "number": "8.1.16",
+  "title": "",
+  "body": "  No straight line is a good fit for the data sets represented in . Try drawing nonlinear curves on each plot. Once you create a curve for each, describe what is important in your fit.    We'll leave it to you to draw the lines. In general, the lines you draw should be close to most points and reflect overall trends in the data.   "
+},
+{
+  "id": "ex-visualize-residuals",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-visualize-residuals",
+  "type": "Exercise",
+  "number": "8.1.5.1",
+  "title": "Visualize the residuals.",
+  "body": " Visualize the residuals   The scatterplots shown below each have a superimposed regression line. If we were to construct a residual plot (residuals versus ) for each, describe what those plots would look like.    A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random and have stable variability moving from left to right.    A scatterplot is shown, where the data have a steady upward trend throughout. The observations above and below the line appear random. If looking at the leftmost region of data, the observations are more broadly scattered around the line, while when moving further right the variability of the points around the line gets notably smaller by a factor of at least 5 (if using standard deviation).     "
+},
+{
+  "id": "ex-trends-in-residuals",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-trends-in-residuals",
+  "type": "Exercise",
+  "number": "8.1.5.2",
+  "title": "Trends in the residuals.",
+  "body": " Trends in the residuals   Shown below are two plots of residuals remaining after fitting a linear model to two different sets of data. Describe important features and determine if a linear model would be appropriate for these data. Explain your reasoning.    A scatterplot of the residuals is shown. When looking at any horizontal region of the plot, the observations are consistently scattered around the \"y equals 0\" line. On the left, the points tend to be very close to this horizontal 0 line. The further moving to the right, the more variability that is evident in the observations around \"y equals 0\".    A scatterplot of the residuals is shown. The points on the very left tend to be below the \"y equals 0\" line for the first 5% of the horizontal region, where the trend is sharply upwards to the \"y equals 0\" line. The points then tend to be stably clustered around \"y equals 0\", if not slightly above, with a slight downward trend evident in the observations on the right half of the plot. The vertical variability of observations is about stable throughout.     "
+},
+{
+  "id": "ex-identify-relationships-1",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-identify-relationships-1",
+  "type": "Exercise",
+  "number": "8.1.5.3",
+  "title": "Identify relationships, Part I.",
+  "body": " Identify relationships, Part I   For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.    A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.    A scatterplot is shown. The points start on the lower left corner, only spanning about 20% of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.    A scatterplot is shown. On the left side of the plot, the points appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident.      A scatterplot is shown. On the left side of the plot, the observations are concentrated in the bottom half of the plot but rise steadily. The trend peaks near the center of the plot, where nearly all the points in the (horizontal) center region of the scatterplot are concentrated in the upper half of the scatterplot. On the right side of the plot, the points show a trend downwards, with points concentrated in the lower quarter of the scatterplot for the rightmost handful of points.    A scatterplot is shown. The points start on the upper left corner, only spanning about 20% of the vertical region of the plot, and have a steady downwards trend to the bottom right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.    A scatterplot is shown. On the left side of the plot, the points appear randomly scattered across the full range of the plot, and this property holds across the entire plot. No trend is evident or at least obvious.     "
+},
+{
+  "id": "ex-identify-relationships-2",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-identify-relationships-2",
+  "type": "Exercise",
+  "number": "8.1.5.4",
+  "title": "Identify relationships, Part II.",
+  "body": " Identify relationships, Part II   For each of the six plots, identify the strength of the relationship (e.g. weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.    A scatterplot is shown. On the left side of the plot, the observations are concentrated in the upper corner of the plot, with a sharp trend downwards, before stabilizing, then rising slightly at halfway through the plot, reaching a peak, and then declining again, with a sharp decline on the right-most portion of the plot to the bottom-right corner of the plot.    A scatterplot is shown. On the left side of the plot, the observations are concentrated around a region about 30% of the way up from the bottom-left corner of the plot, there is a slight downward trend that reaches the bottom area of the plot for about the center half of the plot, then the points rise gradually and then sharply in the last 25-30% of the plot.    A scatterplot is shown. Points in the leftmost region of the plot are concentrated in the lower-left corner, ranging from the bottom up to about 25% of the way up the plot. The points follow a steady upward trend to the top-right corner of the plot and show consistent vertical variability around the trend throughout.      A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There might be a very slight upward trend.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.    A scatterplot is shown. The points on the leftmost side are concentrated in the upper half of the plot, and the data trend steadily downwards and with consistent variability to the bottom right portion of the plot.     "
+},
+{
+  "id": "ex-exams-grades-correlation",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-exams-grades-correlation",
+  "type": "Exercise",
+  "number": "8.1.5.5",
+  "title": "Exams and grades.",
+  "body": " Exams and grades   The two scatterplots below show the relationship between final and mid-semester exam grades recorded during several years for a Statistics course at a university.    A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 1 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Only about ten Exam 1 scores are below 60, and these have Final Exam scores between about 55 and 85. Exam 1 scores between 60 and 80 represent about 50% of the points shown and have Final Exam scores mostly between 50 and 85. For the points where Midterm 1 scores are larger than 80, Final Exam scores mostly lie between 65 and 90, where a slightly upward trend is evident.    A scatter plot with 100 points is shown with an upward trending line fit to the data. Exam 2 scores are on the horizontal axis and range from 40 to 100. Final Exam scores are on the vertical axis and also range from 40 to 100. Midterm 2 scores are roughly uniformly distributed across the full range. For Exam 2 scores below 60, these mostly have Final Exam scores between about 45 and 70. Exam 2 scores between 60 and 80 have Final Exam scores mostly between 55 and 80. For the points where Midterm 2 scores are larger than 80, Final Exam scores mostly lie between 70 and 90.      Based on these graphs, which of the two exams has the strongest correlation with the final exam grade? Explain.  Can you think of a reason why the correlation between the exam you chose in part (a) and the final exam is higher?     "
+},
+{
+  "id": "ex-husbands-wives-correlation",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-husbands-wives-correlation",
+  "type": "Exercise",
+  "number": "8.1.5.6",
+  "title": "Husbands and wives, Part I.",
+  "body": " Husbands and wives, Part I   The Great Britain Office of Population Census and Surveys once collected data on a random sample of 170 married couples in Britain, recording the age (in years) and heights (converted here to inches) of the husbands and wives. The scatterplot on the left shows the wife's age plotted against her husband's age, and the plot on the right shows wife's height plotted against husband's height.    A scatterplot is shown. The horizontal axis represents \"Husband's Age (in years)\" with values ranging from about 20 to 65. The vertical axis represents \"Wife's Age (in years)\" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.    A scatterplot is shown. The horizontal axis represents \"Husband's Height (in inches)\" with values ranging from about 60 to 75. The vertical axis represents \"Wife's Height (in inches)\" with values ranging from about 55 to 70. When husband height is between 60 and 65, wife height mostly ranges from about 58 to 65 inches, though there are only about 10 points in this range, which is about 5% of the data. When husband height is between 65 and 70, wife height mostly ranges from 57 to 68 inches. When husband height is larger than 70 inches, wife height mostly ranges from 61 to about 74 inches.      Describe the relationship between husbands' and wives' ages.  Describe the relationship between husbands' and wives' heights.  Which plot shows a stronger correlation? Explain your reasoning.  Data on heights were originally collected in centimeters, and then converted to inches. Does this conversion affect the correlation between husbands' and wives' heights?     "
+},
+{
+  "id": "ex-match-correlation-1",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-match-correlation-1",
+  "type": "Exercise",
+  "number": "8.1.5.7",
+  "title": "Match the correlation, Part I.",
+  "body": " Match the correlation, Part I   Match each correlation to the corresponding scatterplot.            A scatterplot is shown. The observations start in the upper left corner of the plot, trend sharply downwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster rising again to the upper right corner of the plot. The trend is approximately symmetric from left-to-right.    A scatterplot is shown. The points start on the lower left corner, only spanning about 20% of the vertical region of the plot, and have a steady upwards trend to the upper right corner of the plot. The vertical variability of the points around the trend is relatively stable across the plot.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.     "
+},
+{
+  "id": "ex-match-correlation-2",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-match-correlation-2",
+  "type": "Exercise",
+  "number": "8.1.5.8",
+  "title": "Match the correlation, Part II.",
+  "body": " Match the correlation, Part II   Match each correlation to the corresponding scatterplot.            A scatterplot is shown. For the left half of the plot, the points are scattered around the upper half of the plot. On the right portion of the plot, the data show a clear downward trend, and for the points on the far right, they are concentrated in the lower 25% of the plot.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight upward trend.    A scatterplot is shown. The observations start in the lower left corner of the plot, trend sharply upwards before tapering off and stabilizing at about the middle of the plot, before steadily and then faster dropping to the lower right corner of the plot. The trend is approximately symmetric from left-to-right.    A scatterplot is shown. The points appear randomly scattered across the left, middle, and right portion of the plot. There is a very slight downward trend.     "
+},
+{
+  "id": "ex-speed-height",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-speed-height",
+  "type": "Exercise",
+  "number": "8.1.5.9",
+  "title": "Speed and height.",
+  "body": " Speed and height   1,302 UCLA students were asked to fill out a survey where they were asked about their height, fastest speed they have ever driven, and gender. The scatterplot on the left displays the relationship between height and fastest speed, and the scatterplot on the right displays the breakdown by gender in this relationship.    A scatterplot is shown. The horizontal axis represents \"Height (in inches)\" with values ranging from about 50 to 80. The vertical axis represents \"Fastest Speed (in mph)\" and has values ranging from 0 to 150. First, it is worth noting that there several points along the bottom of the plot with a fastest speed of 0 mph. The remainder of the description will concentrate on the other points. A small portion of the points are shown with heights below 60 inches, and these have fastest speeds mostly ranging from about 70 to 110 mph. For points shown with heights between 60 and 70, fastest speeds mostly ranged from about 30 to 120 mph. For points shown with heights of 70 or more, fastest speeds mostly ranged from about 50 to 140 mph. There were no points corresponding to heights greater than 75 that had fastest speeds slower than about 75 mph, which left a sort of gap in the lower right portion of the scatterplot.    A scatterplot is shown, where points are colored to differentiate between males and females. The horizontal axis represents \"Height (in inches)\" with values ranging from about 50 to 80. The vertical axis represents \"Fastest Speed (in mph)\" and has values ranging from 0 to 150. Female heights are largely 70 inches or smaller, while Male heights are largely 65 inches and taller. When focusing exclusively on Females, no upward trend is evident, with about 95% of observations having Fastest Speed between about 30 mph and 120 mph. When focusing exclusively on Males, no upward trend is evident there either, with about 95% of observations having Fastest Speed between about 50 mph and 140 mph. In contrast, if we ignore the male\/female differentiation, there is a slight upward trend in the points.      Describe the relationship between height and fastest speed.  Why do you think these variables are positively associated?  What role does gender play in the relationship between height and fastest driving speed?     "
+},
+{
+  "id": "ex-guess-correlation",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-guess-correlation",
+  "type": "Exercise",
+  "number": "8.1.5.10",
+  "title": "Guess the correlation.",
+  "body": " Guess the correlation   Eduardo and Rosie are both collecting data on number of rainy days in a year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How will their correlation coefficients compare?   "
+},
+{
+  "id": "ex-coast-starlight-corr",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-coast-starlight-corr",
+  "type": "Exercise",
+  "number": "8.1.5.11",
+  "title": "The Coast Starlight, Part I.",
+  "body": " The Coast Starlight, Part I   The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes).      Describe the relationship between distance and travel time.  How would the relationship change if travel time was instead measured in hours, and distance was instead measured in kilometers?  The correlation between travel time (in miles) and distance (in minutes) is . Suppose we had instead measured travel time in hours and measured distance in kilometers (km). What would be the correlation in these different units?      A scatterplot is shown with about 15 points. The horizontal axis represents \"Distance (miles)\" with values ranging from just over 0 to about 350. The vertical axis represents \"Travel Time (in minutes)\" and has values ranging from about 20 to 380. The point with the smallest distance -- about 10 miles -- shows a travel time of about 40 minutes. Next, there is a cluster of 6 points with distances between 40 and 60 miles and travel times ranging from about 20 to 60 minutes. The remainder of the points are scattered pretty broadly but may show a slightly upward trend. A few points that highlight the widely varying nature of the data are located at the following approximate locations: (190 miles, 60 minutes), (240 miles, 250 minutes), (250 miles, 380 minutes), and (350 miles, 200 minutes).     "
+},
+{
+  "id": "ex-crawling-babies-corr",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-crawling-babies-corr",
+  "type": "Exercise",
+  "number": "8.1.5.12",
+  "title": "Crawling babies, Part I.",
+  "body": " Crawling babies, Part I   A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. Infants born during the study year were split into twelve groups, one for each birth month. We consider the average crawling age of babies in each group against the average temperature when the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in degrees Fahrenheit ( F) and age is measured in weeks.      Describe the relationship between temperature and crawling age.  How would the relationship change if temperature was measured in degrees Celsius ( C) and age was measured in months?  The correlation between temperature in F and age in weeks was . If we converted the temperature to C and age to months, what would the correlation be?      A scatterplot is shown with a dozen points. The horizontal axis is \"Temperature (F)\" with values ranging from 30 to 75. The vertical axis is \"Average Crawling Age (weeks)\" with values ranging from 28.5 to 34. For those points with temperatures from 30 to 40, average crawling ages range from 31.5 to 34. For the single point with temperatures between 40 to 50, average crawling age was about 33.5. For the two points with temperature between 50 and 60, average crawling age was 28.5 and 32.5. For the last 4 points with temperature above 60, average crawling ages were 32, 30, 30, and 30.5.     "
+},
+{
+  "id": "ex-body-measurements-shoulder",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-body-measurements-shoulder",
+  "type": "Exercise",
+  "number": "8.1.5.13",
+  "title": "Body measurements, Part I.",
+  "body": " Body measurements, Part I   Researchers studying anthropometry collected body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender for 507 physically active individuals. The scatterplot below shows the relationship between height and shoulder girth (over deltoid muscles), both measured in centimeters.      Describe the relationship between shoulder girth and height.  How would the relationship change if shoulder girth was measured in inches while the units of height remained in centimeters?      A scatter plot with several hundred points is shown. The horizontal axis represents \"Shoulder Girth (cm)\" with values ranging from about 85 to 135. The vertical axis represents \"Height (cm)\" with values ranging from about 145 to 200. For points where Shoulder Girth is smaller than 100, 95% of points have heights between 152 and 170. For points where Shoulder Girth is between 100 and 110, 95% of points have heights between 155 and 180. For points where Shoulder Girth is between 110 and 120, 95% of points have heights between 162 and 190. For points where Shoulder Girth larger than 120, 95% of points have heights between 170 and 190.     "
+},
+{
+  "id": "ex-body-measurements-hip",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-body-measurements-hip",
+  "type": "Exercise",
+  "number": "8.1.5.14",
+  "title": "Body measurements, Part II.",
+  "body": " Body measurements, Part II   The scatterplot below shows the relationship between weight measured in kilograms and hip girth measured in centimeters from the data described in .      Describe the relationship between hip girth and weight.  How would the relationship change if weight was measured in pounds while the units for hip girth remained in centimeters?      A scatter plot with several hundred points is shown. The horizontal axis represents \"Hip Girth (cm)\" with values ranging from about 80 to 115, with about 4 observations with larger hip girth up to about 130 cm. The vertical axis represents \"Weight (kg)\" with values ranging from about 40 to 105, with a few observations with larger weights up to 120. For points where Hip Girth is smaller than 90, 95% of points have weight between roughly 45 and 60. For points where Hip Girth is between 90 and 100, 95% of points have weight between roughly 50 and 80. For points where Hip Girth is between 100 and 110, 95% of points have weight between roughly 65 and 90. For points where Hip Girth is between 110 and 115, points have weight between roughly 70 and 105. There are four additional points located at about (115, 120), (115, 90), (118, 90), and (128, 105).     "
+},
+{
+  "id": "ex-correlation-husband-wife-age",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-correlation-husband-wife-age",
+  "type": "Exercise",
+  "number": "8.1.5.15",
+  "title": "Correlation, Part I.",
+  "body": " Correlation, Part I   What would be the correlation between the ages of husbands and wives if men always married women who were    3 years younger than themselves?  2 years older than themselves?  half as old as themselves?     "
+},
+{
+  "id": "ex-correlation-salary",
+  "level": "2",
+  "url": "sec-fitting-line-residuals-correlation.html#ex-correlation-salary",
+  "type": "Exercise",
+  "number": "8.1.5.16",
+  "title": "Correlation, Part II.",
+  "body": " Correlation, Part II   What would be the correlation between the annual salaries of males and females at a company if for a certain type of position men always made    $5,000 more than women?  25% more than women?  15% less than women?     "
 },
 {
   "id": "sec-least-squares-regression",
@@ -6226,7 +7747,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "8.2",
   "title": "Least squares regression",
-  "body": " Least squares regression   We now introduce a method for finding the coefficients and that minimize the sum of the squared residuals. This approach is called the method of least squares .    The least squares criterion  The least squares line is the line that minimizes the sum of the squared residuals.   Least Squares Regression Line   The least squares regression line is the line that minimizes: The coefficients that accomplish this are: where is the correlation, and are the sample standard deviations, and and are the sample means of and , respectively.     Important Property  The least squares regression line always passes through the point , the point of averages.     Interpreting regression coefficients   Interpreting the Slope  The slope describes the estimated change in the response variable for a one-unit increase in the predictor variable .   Template: For each additional [unit of ], the model predicts an additional (or a decrease of) [units of ], on average.    Interpreting the Intercept  The intercept describes the estimated value of when .   Caution: The intercept is often not meaningful if is outside the range of the observed data. In such cases, the intercept serves mainly as an adjustment constant.     Coefficient of determination:   (R-squared)   The coefficient of determination , denoted , describes the proportion of variation in the response variable that is explained by the least squares line with predictor : where is the correlation between and .  Interpretation: represents the percentage of the variability in that can be explained by the linear relationship with . Values range from 0 to 1 (or 0% to 100%).      Conditions for least squares regression   Conditions for Least Squares Regression  For inference in regression, we check the following conditions:  Linearity: The relationship between and should be linear. Check this with a scatterplot of the data and\/or a residual plot.  Nearly normal residuals: The residuals should be nearly normally distributed. Check this with a histogram or normal probability plot of residuals.  Constant variability: The variability of points around the least squares line should be roughly constant. Check this with a residual plot.  Independent observations: The observations should be independent. Consider how the data were collected.      "
+  "body": " Least squares regression   Fitting linear models by eye is open to criticism since it is based on an individual's preference. In this section, we use least squares regression as a more rigorous approach.    Gift aid for freshman at Elmhurst College  This section considers family income and gift aid data from a random sample of fifty students in the freshman class of Elmhurst College in Illinois. Gift aid is financial aid that does not need to be paid back, as opposed to a loan. A scatterplot of the data is shown in along with two linear fits. The lines follow a negative trend in the data; students who have higher family incomes tended to have lower gift aid from the university.   Gift aid and family income for a random sample of 50 freshman students from Elmhurst College. Two lines are fit to the data, the solid line being the least squares line .   A scatterplot is shown for a random sample of 50 freshman students from Elmhurst College. The horizontal axis is for \"family income\" and has values ranging from $0 to about $300,000. The vertical axis is for \"gift aid\" and has values ranging from $0 to about $35,000. Two lines are fit to the data showing a slight downward trend. One of those lines is a solid line representing what is called the \"least squares line\". About 10 observations are shown where family income is between $0 and $50,000, and gift aid for these values is roughly between $17,000 and $28,000. About 20 observations are shown where family income is between $50,000 and $100,000, and gift aid for these values is roughly between $10,000 and $33,000. About 10 observations are shown where family income is between $100,000 and $150,000, and gift aid for these values is roughly between $9,000 and $25,000. Three observations are shown where family income is between $150,000 and $200,000, and gift aid for these values are $25,000, $12,000, and $13,000. Six more observations are shown where family income is larger than $200,000, and gift aid for these values ranges from about $7,000 to $22,000. The data in this graph will be frequently discussed throughout this section and referred to as the \"Elmhurst data\".      Is the correlation positive or negative in ?    Larger family incomes are associated with lower amounts of aid, so the correlation will be negative. Using a computer, the correlation can be computed: -0.499.      An objective measure for finding the best line  We begin by thinking about what we mean by best . Mathematically, we want a line that has small residuals. The first option that may come to mind is to minimize the sum of the residual magnitudes: which we could accomplish with a computer program. The resulting dashed line shown in demonstrates this fit can be quite reasonable. However, a more common practice is to choose the line that minimizes the sum of the squared residuals:   The line that minimizes this least squares criterion is represented as the solid line in . This is commonly called the least squares line . The following are three possible reasons to choose this option instead of trying to minimize the sum of residual magnitudes without any squaring:  It is the most commonly used method.  Computing the least squares line is widely supported in statistical software.  In many applications, a residual twice as large as another residual is more than twice as bad. For example, being off by 4 is usually more than twice as bad as being off by 2. Squaring the residuals accounts for this discrepancy.  The first two reasons are largely for tradition and convenience; the last reason explains why the least squares criterion is typically most helpful. There are applications where the sum of residual magnitudes may be more useful, and there are plenty of other criteria we might consider. However, this book only applies the least squares criterion.     Conditions for the least squares line  When fitting a least squares line, we generally require     Linearity  The data should show a linear trend. If there is a nonlinear trend (e.g. left panel of ), an advanced regression method from another book or later course should be applied.    Nearly normal residuals  Generally, the residuals must be nearly normal. When this condition is found to be unreasonable, it is usually because of outliers or concerns about influential points, which we'll talk about more in . An example of a residual that would be a potential concern is shown in , where one observation is clearly much further from the regression line than the others.    Constant variability  The variability of points around the least squares line remains roughly constant. An example of non-constant variability is shown in the third panel of , which represents the most common pattern observed when this condition fails: the variability of is larger when is larger.    Independent observations  Be cautious about applying regression to time series data, which are sequential observations in time such as a stock price each day. Such data may have an underlying structure that should be considered in a model and analysis. An example of a data set where successive observations are not independent is shown in the fourth panel of . There are also other instances where correlations within the data are important, which is further discussed in Chapter 9.      Four examples showing when the methods in this chapter are insufficient to apply to the data. First panel: linearity fails. Second panel: there are outliers, most especially one point that is very far away from the line. Third panel: the variability of the errors is related to the value of . Fourth panel: a time series data set is shown, where successive observations are highly correlated.   Four scatterplots are shown, each with their own residual plot. These four examples show when methods in this chapter are insufficient to apply to the data. In the first set, a scatterplot with arch-shaped data is shown with a straight line fit to the data, which poorly fits the curved nature of the data; this is meant to highlight an example where \"linearity\" fails. In the second set, a set of data with a line fit is shown, where the data tightly pack around the line, except one point in particular that is far from the line and represents the case where there are \"extreme outliers\" in the data. The third set shows a case where a straight line fits the data, but the variability around the line changes, where observations tend to be quite close to the line on the left, but when looking further right, the observations tend to be increasingly far from the line, indicating \"changing variability\" in the residuals over different regions of the plot. The fourth set provides another case of what is called \"time series\" data, which is a context where \"successive observations are correlated\".      Should we have concerns about applying least squares regression to the Elmhurst data in ?    The trend appears to be linear, the data fall around the line with no obvious outliers, the variance is roughly constant. These are also not time series observations. Least squares regression can be applied to these data.      Finding the least squares line  For the Elmhurst data, we could write the equation of the least squares regression line as Here the equation is set up to predict gift aid based on a student's family income, which would be useful to students considering Elmhurst. These two values, and , are the parameters of the regression line.  As in Chapters 4, 5, and 6, the parameters are estimated using observed data. In practice, this estimation is done using a computer in the same way that other estimates, like a sample mean, can be estimated using a computer or calculator. However, we can also find the parameter estimates by applying two properties of the least squares line:   The slope of the least squares line can be estimated by where is the correlation between the two variables, and and are the sample standard deviations of the explanatory variable and response, respectively.    If is the sample mean of the explanatory variable and is the sample mean of the vertical variable, then the point is on the least squares line.  shows the sample means for the family income and gift aid as $101,780 and $19,940, respectively. We could plot the point (101.8, 19.94) on to verify it falls on the least squares line (the solid line).   Next, we formally find the point estimates and of the parameters and .   Summary statistics for family income and gift aid.     Family Income ( )  Gift Aid ( )    mean      sd             Using the summary statistics in , compute the slope for the regression line of gift aid against family income.    Compute the slope using the summary statistics from :     You might recall the point-slope form of a line from math class, which we can use to find the model fit, including the estimate of . Given the slope of a line and a point on the line, , the equation for the line can be written as    Identifying the least squares line from summary statistics  To identify the least squares line from summary statistics:  Estimate the slope parameter, .  Noting that the point is on the least squares line, use and with the point-slope equation: .  Simplify the equation, which would reveal that .       Using the point (101780, 19940) from the sample means and the slope estimate from , find the least-squares line for predicting aid based on family income.    Apply the point-slope equation using (101.78, 19.94) and the slope : Expanding the right side and then adding 19,940 to each side, the equation simplifies: Here we have replaced with and with family_income to put the equation in context. The final equation should always include a hat on the variable being predicted, whether it is a generic or a named variable like .    A computer is usually used to compute the least squares line, and a summary table generated using software for the Elmhurst regression line is shown in . The first column of numbers provides estimates for and , respectively. These results match those from (with some minor rounding error).   Summary of least squares fit for the Elmhurst data. Compare the parameter estimates in the first column to the results of .     Estimate  Std. Error  t value  Pr( t )    (Intercept)  24319.3  1291.5  18.83  0.0001    family_income  -0.0431  0.0108  -3.98  0.0002       Examine the second, third, and fourth columns in . Can you guess what they represent? (If you have not reviewed any inference chapter yet, skip this example.)    We'll describe the meaning of the columns using the second row, which corresponds to . The first column provides the point estimate for , as we calculated in an earlier example: . The second column is a standard error for this point estimate: . The third column is a -test statistic for the null hypothesis that : . The last column is the p-value for the -test statistic for the null hypothesis and a two-sided alternative hypothesis: 0.0002. We will get into more of these details in .      Suppose a high school senior is considering Elmhurst College. Can she simply use the linear equation that we have estimated to calculate her financial aid from the university?    She may use it as an estimate, though some qualifiers on this approach are important. First, the data all come from one freshman class, and the way aid is determined by the university may change from year to year. Second, the equation will provide an imperfect estimate. While the linear equation is good at capturing the trend in the data, no individual student's aid will be perfectly predicted.      Interpreting regression model parameter estimates  Interpreting parameters in a regression model is often one of the most important steps in the analysis.    The intercept and slope estimates for the Elmhurst data are and . What do these numbers really mean?    Interpreting the slope parameter is helpful in almost any application. For each additional $1,000 of family income, we would expect a student to receive a net difference of in aid on average, i.e. $43.10 less . Note that a higher family income corresponds to less aid because the coefficient of family income is negative in the model. We must be cautious in this interpretation: while there is a real association, we cannot interpret a causal connection between the variables because these data are observational. That is, increasing a student's family income may not cause the student's aid to drop. (It would be reasonable to contact the college and ask if the relationship is causal, i.e. if Elmhurst College's aid decisions are partially based on students' family income.)  The estimated intercept describes the average aid if a student's family had no income. The meaning of the intercept is relevant to this application since the family income for some students at Elmhurst is $0. In other applications, the intercept may have little or no practical value if there are no observations where is near zero.     Interpreting parameters estimated by least squares  The slope describes the estimated difference in the variable if the explanatory variable for a case happened to be one unit larger. The intercept describes the average outcome of if  and the linear model is valid all the way to , which in many applications is not the case.     Extrapolation is treacherous    When those blizzards hit the East Coast this winter, it proved to my satisfaction that global warming was a fraud. That snow was freezing cold. But in an alarming trend, temperatures this spring have risen. Consider this: On February 6th it was 10 degrees. Today it hit almost 80. At this rate, by August it will be 220 degrees. So clearly folks the climate debate rages on.   Stephen Colbert, April 6th, 2010 www.cc.com\/video-clips\/l4nkoq   Linear models can be used to approximate the relationship between two variables. However, these models have real limitations. Linear regression is simply a modeling framework. The truth is almost always much more complex than our simple line. For example, we do not know how the data outside of our limited window will behave.    Use the model to estimate the aid of another freshman student whose family had income of $1 million.    We want to calculate the aid for : The model predicts this student will have -$18,781 in aid (!). However, Elmhurst College does not offer negative aid where they select some students to pay extra on top of tuition to attend.    Applying a model estimate to values outside of the realm of the original data is called extrapolation . Generally, a linear model is only an approximation of the real relationship between two variables. If we extrapolate, we are making an unreliable bet that the approximate linear relationship will be valid in places where it has not been analyzed.    Using to describe the strength of a fit  We evaluated the strength of the linear relationship between two variables earlier using the correlation, . However, it is more common to explain the strength of a linear fit using , called R-squared . If provided with a linear model, we might like to describe how closely the data cluster around the linear fit.   Gift aid and family income for a random sample of 50 freshman students from Elmhurst College, shown with the least squares regression line.   A scatterplot of the Elmhurst data is shown for gift aid and family income with the least squares regression line overlaid against the data, which has a slight downward trend.    The of a linear model describes the amount of variation in the response that is explained by the least squares line. For example, consider the Elmhurst data, shown in . The variance of the response variable, aid received, is about million. However, if we apply our least squares line, then this model reduces our uncertainty in predicting aid using a student's family income. The variability in the residuals describes how much variation remains after using the model: million. In short, there was a reduction of or about 25% in the data's variation by using information about family income for predicting aid using a linear model. This corresponds exactly to the R-squared value:     If a linear model has a very strong negative relationship with a correlation of -0.97, how much of the variation in the response is explained by the explanatory variable?    About or 94% of the variation is explained by the linear model.      Categorical predictors with two levels  Categorical variables are also useful in predicting outcomes. Here we consider a categorical predictor with two levels (recall that a level is the same as a category ). We'll consider Ebay auctions for a video game, Mario Kart for the Nintendo Wii, where both the total price of the auction and the condition of the game were recorded. Here we want to predict total price based on game condition, which takes values used and new . A plot of the auction data is shown in .   Total auction prices for the video game Mario Kart , divided into used ( ) and new ( ) condition games. The least squares regression line is also shown.   A scatterplot is shown for total auction prices for the video game \"Mario Kart\", broken down by condition on the horizontal axis. The prices are divided into \"used\" and \"new\" condition groups. All used games are shown with an x-value of 0 on the left, and all new games are shown with an x-value of 1 on the right of the plot. The used games on the left show a lower average price of about $43, and new games on the right show a higher average price of about $54. The least squares regression line is also shown for this scatterplot, which shows an upward trend and has a formula of \"price equals 42.87 plus 10.90 times cond-subscript-new.    To incorporate the game condition variable into a regression equation, we must convert the categories into a numerical form. We will do so using an indicator variable called cond_new , which takes value 1 when the game is new and 0 when the game is used. Using this indicator variable, the linear model may be written as The parameter estimates are given in , and the model equation can be summarized as For categorical predictors with just two levels, the linearity assumption will always be satisfied. However, we must evaluate whether the residuals in each group are approximately normal and have approximately equal variance. As can be seen in , both of these conditions are reasonably satisfied by the auction data.   Least squares regression summary for the final auction price against the condition of the game.     Estimate  Std. Error  t value  Pr( t )    (Intercept)  42.87  0.81  52.67  0.0001    cond_new  10.90  1.26  8.66  0.0001       Interpret the two parameters estimated in the model for the price of Mario Kart in eBay auctions.    The intercept is the estimated price when cond_new takes value 0, i.e. when the game is in used condition. That is, the average selling price of a used version of the game is $42.87.  The slope indicates that, on average, new games sell for about $10.90 more than used games.     Interpreting model estimates for categorical predictors  The estimated intercept is the value of the response variable for the first category (i.e. the category corresponding to an indicator value of 0). The estimated slope is the average change in the response variable between the two categories.   We'll elaborate further on this topic in Chapter 9, where we examine the influence of many predictor variables simultaneously using multiple regression.    Exercises     Units of regression. Consider a regression predicting weight (kg) from height (cm) for a sample of adult males. What are the units of the correlation coefficient, the intercept, and the slope?       Which is higher. Determine if I or II is higher or if they are equal. Explain your reasoning. For a regression line, the uncertainty associated with the slope estimate, , is higher when    there is a lot of scatter around the regression line or  there is very little scatter around the regression line         Over-under, Part I. Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.       Over-under, Part II. Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.       Tourism spending. The Association of Turkish Travel Agencies reports the number of foreign tourists visiting Turkey and tourist spending by year. Three plots are provided: scatterplot showing the relationship between these two variables along with the least squares fit, residuals plot, and histogram of residuals.    A scatterplot with a least squares regression line is fit based on about 50 points. The horizontal axis represents \"Number of tourists\" and has values ranging from about 0 to about 27 million. The vertical axis represents \"Spending, in US dollars\", with values ranging from about $0 to about $17 billion. There are many points shown with the number of tourists between 0 and 5 million, which has spending between about $0 and $3 billion, where even on this small scale a roughly linear trend is evident. The linear trend continues on across the plot and is quite strong -- where residuals generally do not deviate from the least square line by more than very roughly $1 billion. The data are also more sparse for larger values in the plot. There is one region in the center of the plot where about 10 points in a row lie above the regression line. Also consider the next two plots before answering any questions for this exercise.    A residual plot is shown. The horizontal axis represents \"Number of tourists\" and has values ranging from about 0 to about 27 million. Residuals are shown on the vertical axis and have values ranging from about -$1.5 billion to about $1.2 billion. The points on the far left between 0 and 3 million tourists shows a \"v\" pattern. There are about 15 points with number of tourists between 3 million and 10 million, which shows an slight upward trend from about -$700 million to $1.2 billion. There about 10 points with number of tourists greater than 10 million up to about 27 million, and these show a slight downward trend from about $1 billion to -$1.5 billion.    A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about $500 million.      Describe the relationship between number of tourists and spending.  What are the explanatory and response variables?  Why might we want to fit a regression line to these data?  Do the data meet the conditions required for fitting a least squares line? In addition to the scatterplot, use the residual plot and histogram to answer this question.         Nutrition at Starbucks, Part I. The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we are interested in predicting the amount of carbs a menu item has based on its calorie content.    A scatterplot is shown with about 75 points and an overlaid regression line that trends upward. The horizontal axis represents \"Calories\" and has values ranging from about 100 to 500. The vertical axis represents \"Carbs, in grams\" and has values ranging from about 20 to 80. About 15 points are shown with fewer than 200 calories, and these have between about 18 and 25 grams of carbs. About 30 points are shown with 200 to 400 calories, and these mostly have between 30 and 60 grams of carbs. About 20 points are shown with more than 400 calories, and these mostly have between 35 and 80 grams of carbs.    A residual plot is shown with about 75 points. The horizontal axis represents \"Calories\" and has values ranging from about 100 to 500. The vertical axis represents \"Residuals\" and has values ranging from about -30 to 30. About 15 points are shown with fewer than 200 calories, and these have residuals roughly between -7 and positive 2. About 30 points are shown with 200 to 400 calories, and these residuals largely range from about -15 to positive 15. About 20 points are shown with more than 400 calories, and the residuals for these points mostly range between -20 and positive 20.    A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about 10.      Describe the relationship between number of calories and amount of carbohydrates (in grams) that Starbucks food menu items contain.  In this scenario, what are the explanatory and response variables?  Why might we want to fit a regression line to these data?  Do these data meet the conditions required for fitting a least squares line?         The Coast Starlight, Part II. An earlier exercise introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 minutes, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.    Write the equation of the regression line for predicting travel time.  Interpret the slope and the intercept in this context.  Calculate of the regression line for predicting travel time from distance traveled for the Coast Starlight, and interpret in the context of the application.  The distance between Santa Barbara and Los Angeles is 103 miles. Use the model to estimate the time it takes for the Starlight to travel between these two cities.  It actually takes the Coast Starlight about 168 minutes to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value.  Suppose Amtrak is considering adding a stop to the Coast Starlight 500 miles away from Los Angeles. Would it be appropriate to use this linear model to predict the travel time from Los Angeles to this point?         Body measurements, Part III. An earlier exercise introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.    Write the equation of the regression line for predicting height.  Interpret the slope and the intercept in this context.  Calculate of the regression line for predicting height from shoulder girth, and interpret it in the context of the application.  A randomly selected student from your class has a shoulder girth of 100 cm. Predict the height of this student using the model.  The student from part (d) is 160 cm tall. Calculate the residual, and explain what this residual means.  A one-year-old has a shoulder girth of 56 cm. Would it be appropriate to use this linear model to predict the height of this child?         Murders and poverty, Part I. The following regression output is for predicting annual murders per million from percentage living in poverty in a random sample of 20 metropolitan areas.       Estimate  Std. Error  t value  Pr( t )    (Intercept)  -29.901  7.789  -3.839  0.001    poverty%  2.559  0.390  6.562  0.000       Write out the linear model.  Interpret the intercept.  Interpret the slope.  Interpret .  Calculate the correlation coefficient.      A scatterplot is shown with 20 points. The horizontal axis is \"Percent in Poverty\" and has values ranging from 14% to 26%. The vertical axis is \"Annual Murders per Million\" with values ranging from about 5 to 40. There are 6 points with poverty below 18%, and the Murder Rate for these values ranges from 5 to 13, with one exception of a point at about 17% with a murder rate of about 25. There are 9 points with a poverty rate of 18% to 22%, and the murder rate for these points largely range from 14 to 25, with one exception of a point at about 21% poverty and a murder rate of 35. There are 5 points where poverty is larger than 22%, and these have murder rates ranging from 25 to 40.         Cats, Part I. The following regression output is for predicting the heart weight (in g) of cats from their body weight (in kg). The coefficients are estimated using a dataset of 144 domestic cats.       Estimate  Std. Error  t value  Pr( t )    (Intercept)  -0.357  0.692  -0.515  0.607    body wt  4.034  0.250  16.119  0.000       Write out the linear model.  Interpret the intercept.  Interpret the slope.  Interpret .  Calculate the correlation coefficient.      A scatterplot is shown with about 150 points. The horizontal axis is \"Body weight, in kilograms\" and has values ranging from 2 to 4. The vertical axis is \"Heart weight, in grams\" with values ranging from about 5 to 20. About 25% of the data has a body weight below 2.5 kilograms, and these have heart weights mostly ranging from 7 to 11 grams. About 35% of the data has body weights between 2.5 and 3 kilograms, and the heart weight for these values mostly ranges from 8 to 12 grams. About 30% of the data has body weights between 3 and 3.5 kilograms, and the heart weight for these values mostly ranges from 11 to 15 grams. About 10% of the data has body weights above 3.5 kilograms, and the heart weight for these values mostly ranges from 12 to 17 grams.       "
 },
 {
   "id": "sec-least-squares-regression-2-1",
@@ -6235,43 +7756,304 @@ var ptx_lunr_docs = [
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "method of least squares "
+  "body": "least squares regression "
 },
 {
-  "id": "subsec-least-squares-criterion-2",
+  "id": "fig-elmhurstScatterW2Lines",
   "level": "2",
-  "url": "sec-least-squares-regression.html#subsec-least-squares-criterion-2",
+  "url": "sec-least-squares-regression.html#fig-elmhurstScatterW2Lines",
+  "type": "Figure",
+  "number": "8.2.1",
+  "title": "",
+  "body": " Gift aid and family income for a random sample of 50 freshman students from Elmhurst College. Two lines are fit to the data, the solid line being the least squares line .   A scatterplot is shown for a random sample of 50 freshman students from Elmhurst College. The horizontal axis is for \"family income\" and has values ranging from $0 to about $300,000. The vertical axis is for \"gift aid\" and has values ranging from $0 to about $35,000. Two lines are fit to the data showing a slight downward trend. One of those lines is a solid line representing what is called the \"least squares line\". About 10 observations are shown where family income is between $0 and $50,000, and gift aid for these values is roughly between $17,000 and $28,000. About 20 observations are shown where family income is between $50,000 and $100,000, and gift aid for these values is roughly between $10,000 and $33,000. About 10 observations are shown where family income is between $100,000 and $150,000, and gift aid for these values is roughly between $9,000 and $25,000. Three observations are shown where family income is between $150,000 and $200,000, and gift aid for these values are $25,000, $12,000, and $13,000. Six more observations are shown where family income is larger than $200,000, and gift aid for these values ranges from about $7,000 to $22,000. The data in this graph will be frequently discussed throughout this section and referred to as the \"Elmhurst data\".   "
+},
+{
+  "id": "ex-elmhurst-correlation-sign",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-elmhurst-correlation-sign",
+  "type": "Checkpoint",
+  "number": "8.2.2",
+  "title": "",
+  "body": "  Is the correlation positive or negative in ?    Larger family incomes are associated with lower amounts of aid, so the correlation will be negative. Using a computer, the correlation can be computed: -0.499.   "
+},
+{
+  "id": "subsec-least-squares-criterion-3",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#subsec-least-squares-criterion-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "least squares line "
+  "body": "least squares criterion least squares line "
 },
 {
-  "id": "def-least-squares",
+  "id": "subsec-regression-conditions-3",
   "level": "2",
-  "url": "sec-least-squares-regression.html#def-least-squares",
-  "type": "Definition",
-  "number": "8.2.1",
-  "title": "Least Squares Regression Line.",
-  "body": " Least Squares Regression Line   The least squares regression line is the line that minimizes: The coefficients that accomplish this are: where is the correlation, and are the sample standard deviations, and and are the sample means of and , respectively.   "
+  "url": "sec-least-squares-regression.html#subsec-regression-conditions-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "time series "
 },
 {
-  "id": "subsec-least-squares-criterion-4",
+  "id": "fig-whatCanGoWrongWithLinearModel",
   "level": "2",
-  "url": "sec-least-squares-regression.html#subsec-least-squares-criterion-4",
-  "type": "Note",
-  "number": "8.2.2",
-  "title": "Important Property.",
-  "body": " Important Property  The least squares regression line always passes through the point , the point of averages.  "
-},
-{
-  "id": "def-r-squared",
-  "level": "2",
-  "url": "sec-least-squares-regression.html#def-r-squared",
-  "type": "Definition",
+  "url": "sec-least-squares-regression.html#fig-whatCanGoWrongWithLinearModel",
+  "type": "Figure",
   "number": "8.2.3",
-  "title": "<span class=\"process-math\">\\(R^2\\)<\/span> (R-squared).",
-  "body": " (R-squared)   The coefficient of determination , denoted , describes the proportion of variation in the response variable that is explained by the least squares line with predictor : where is the correlation between and .  Interpretation: represents the percentage of the variability in that can be explained by the linear relationship with . Values range from 0 to 1 (or 0% to 100%).   "
+  "title": "",
+  "body": " Four examples showing when the methods in this chapter are insufficient to apply to the data. First panel: linearity fails. Second panel: there are outliers, most especially one point that is very far away from the line. Third panel: the variability of the errors is related to the value of . Fourth panel: a time series data set is shown, where successive observations are highly correlated.   Four scatterplots are shown, each with their own residual plot. These four examples show when methods in this chapter are insufficient to apply to the data. In the first set, a scatterplot with arch-shaped data is shown with a straight line fit to the data, which poorly fits the curved nature of the data; this is meant to highlight an example where \"linearity\" fails. In the second set, a set of data with a line fit is shown, where the data tightly pack around the line, except one point in particular that is far from the line and represents the case where there are \"extreme outliers\" in the data. The third set shows a case where a straight line fits the data, but the variability around the line changes, where observations tend to be quite close to the line on the left, but when looking further right, the observations tend to be increasingly far from the line, indicating \"changing variability\" in the residuals over different regions of the plot. The fourth set provides another case of what is called \"time series\" data, which is a context where \"successive observations are correlated\".   "
+},
+{
+  "id": "ex-elmhurst-conditions",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-elmhurst-conditions",
+  "type": "Checkpoint",
+  "number": "8.2.4",
+  "title": "",
+  "body": "  Should we have concerns about applying least squares regression to the Elmhurst data in ?    The trend appears to be linear, the data fall around the line with no obvious outliers, the variance is roughly constant. These are also not time series observations. Least squares regression can be applied to these data.   "
+},
+{
+  "id": "fig-summaryStatsElmhurstRegr",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#fig-summaryStatsElmhurstRegr",
+  "type": "Figure",
+  "number": "8.2.5",
+  "title": "",
+  "body": " Summary statistics for family income and gift aid.     Family Income ( )  Gift Aid ( )    mean      sd          "
+},
+{
+  "id": "ex-finding-slope-elmhurst",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-finding-slope-elmhurst",
+  "type": "Checkpoint",
+  "number": "8.2.6",
+  "title": "",
+  "body": "  Using the summary statistics in , compute the slope for the regression line of gift aid against family income.    Compute the slope using the summary statistics from :    "
+},
+{
+  "id": "subsec-finding-least-squares-line-6",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#subsec-finding-least-squares-line-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "point-slope "
+},
+{
+  "id": "ex-find-lsr-line-elmhurst",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-find-lsr-line-elmhurst",
+  "type": "Example",
+  "number": "8.2.7",
+  "title": "",
+  "body": "  Using the point (101780, 19940) from the sample means and the slope estimate from , find the least-squares line for predicting aid based on family income.    Apply the point-slope equation using (101.78, 19.94) and the slope : Expanding the right side and then adding 19,940 to each side, the equation simplifies: Here we have replaced with and with family_income to put the equation in context. The final equation should always include a hat on the variable being predicted, whether it is a generic or a named variable like .   "
+},
+{
+  "id": "fig-rOutputForIncomeAidLSRLine",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#fig-rOutputForIncomeAidLSRLine",
+  "type": "Figure",
+  "number": "8.2.8",
+  "title": "",
+  "body": " Summary of least squares fit for the Elmhurst data. Compare the parameter estimates in the first column to the results of .     Estimate  Std. Error  t value  Pr( t )    (Intercept)  24319.3  1291.5  18.83  0.0001    family_income  -0.0431  0.0108  -3.98  0.0002    "
+},
+{
+  "id": "ex-interpret-regression-output",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-interpret-regression-output",
+  "type": "Example",
+  "number": "8.2.9",
+  "title": "",
+  "body": "  Examine the second, third, and fourth columns in . Can you guess what they represent? (If you have not reviewed any inference chapter yet, skip this example.)    We'll describe the meaning of the columns using the second row, which corresponds to . The first column provides the point estimate for , as we calculated in an earlier example: . The second column is a standard error for this point estimate: . The third column is a -test statistic for the null hypothesis that : . The last column is the p-value for the -test statistic for the null hypothesis and a two-sided alternative hypothesis: 0.0002. We will get into more of these details in .   "
+},
+{
+  "id": "ex-student-using-model",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-student-using-model",
+  "type": "Example",
+  "number": "8.2.10",
+  "title": "",
+  "body": "  Suppose a high school senior is considering Elmhurst College. Can she simply use the linear equation that we have estimated to calculate her financial aid from the university?    She may use it as an estimate, though some qualifiers on this approach are important. First, the data all come from one freshman class, and the way aid is determined by the university may change from year to year. Second, the equation will provide an imperfect estimate. While the linear equation is good at capturing the trend in the data, no individual student's aid will be perfectly predicted.   "
+},
+{
+  "id": "ex-interpret-elmhurst-parameters",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-interpret-elmhurst-parameters",
+  "type": "Example",
+  "number": "8.2.11",
+  "title": "",
+  "body": "  The intercept and slope estimates for the Elmhurst data are and . What do these numbers really mean?    Interpreting the slope parameter is helpful in almost any application. For each additional $1,000 of family income, we would expect a student to receive a net difference of in aid on average, i.e. $43.10 less . Note that a higher family income corresponds to less aid because the coefficient of family income is negative in the model. We must be cautious in this interpretation: while there is a real association, we cannot interpret a causal connection between the variables because these data are observational. That is, increasing a student's family income may not cause the student's aid to drop. (It would be reasonable to contact the college and ask if the relationship is causal, i.e. if Elmhurst College's aid decisions are partially based on students' family income.)  The estimated intercept describes the average aid if a student's family had no income. The meaning of the intercept is relevant to this application since the family income for some students at Elmhurst is $0. In other applications, the intercept may have little or no practical value if there are no observations where is near zero.   "
+},
+{
+  "id": "ex-extrapolation-danger",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-extrapolation-danger",
+  "type": "Example",
+  "number": "8.2.12",
+  "title": "",
+  "body": "  Use the model to estimate the aid of another freshman student whose family had income of $1 million.    We want to calculate the aid for : The model predicts this student will have -$18,781 in aid (!). However, Elmhurst College does not offer negative aid where they select some students to pay extra on top of tuition to attend.   "
+},
+{
+  "id": "subsec-extrapolation-5",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#subsec-extrapolation-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "extrapolation "
+},
+{
+  "id": "subsec-r-squared-2",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#subsec-r-squared-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "R-squared "
+},
+{
+  "id": "fig-elmhurstScatterWLSROnly",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#fig-elmhurstScatterWLSROnly",
+  "type": "Figure",
+  "number": "8.2.13",
+  "title": "",
+  "body": " Gift aid and family income for a random sample of 50 freshman students from Elmhurst College, shown with the least squares regression line.   A scatterplot of the Elmhurst data is shown for gift aid and family income with the least squares regression line overlaid against the data, which has a slight downward trend.   "
+},
+{
+  "id": "ex-r-squared-interpretation",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-r-squared-interpretation",
+  "type": "Checkpoint",
+  "number": "8.2.14",
+  "title": "",
+  "body": "  If a linear model has a very strong negative relationship with a correlation of -0.97, how much of the variation in the response is explained by the explanatory variable?    About or 94% of the variation is explained by the linear model.   "
+},
+{
+  "id": "fig-marioKartNewUsed",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#fig-marioKartNewUsed",
+  "type": "Figure",
+  "number": "8.2.15",
+  "title": "",
+  "body": " Total auction prices for the video game Mario Kart , divided into used ( ) and new ( ) condition games. The least squares regression line is also shown.   A scatterplot is shown for total auction prices for the video game \"Mario Kart\", broken down by condition on the horizontal axis. The prices are divided into \"used\" and \"new\" condition groups. All used games are shown with an x-value of 0 on the left, and all new games are shown with an x-value of 1 on the right of the plot. The used games on the left show a lower average price of about $43, and new games on the right show a higher average price of about $54. The least squares regression line is also shown for this scatterplot, which shows an upward trend and has a formula of \"price equals 42.87 plus 10.90 times cond-subscript-new.   "
+},
+{
+  "id": "subsec-categorical-predictors-two-levels-4",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#subsec-categorical-predictors-two-levels-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "indicator variable "
+},
+{
+  "id": "fig-marioKartNewUsedRegrSummary",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#fig-marioKartNewUsedRegrSummary",
+  "type": "Figure",
+  "number": "8.2.16",
+  "title": "",
+  "body": " Least squares regression summary for the final auction price against the condition of the game.     Estimate  Std. Error  t value  Pr( t )    (Intercept)  42.87  0.81  52.67  0.0001    cond_new  10.90  1.26  8.66  0.0001    "
+},
+{
+  "id": "ex-interpret-mario-kart",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-interpret-mario-kart",
+  "type": "Example",
+  "number": "8.2.17",
+  "title": "",
+  "body": "  Interpret the two parameters estimated in the model for the price of Mario Kart in eBay auctions.    The intercept is the estimated price when cond_new takes value 0, i.e. when the game is in used condition. That is, the average selling price of a used version of the game is $42.87.  The slope indicates that, on average, new games sell for about $10.90 more than used games.   "
+},
+{
+  "id": "ex-regression-units",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-regression-units",
+  "type": "Exercise",
+  "number": "8.2.9.1",
+  "title": "",
+  "body": "   Units of regression. Consider a regression predicting weight (kg) from height (cm) for a sample of adult males. What are the units of the correlation coefficient, the intercept, and the slope?   "
+},
+{
+  "id": "ex-which-higher-scatter",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-which-higher-scatter",
+  "type": "Exercise",
+  "number": "8.2.9.2",
+  "title": "",
+  "body": "   Which is higher. Determine if I or II is higher or if they are equal. Explain your reasoning. For a regression line, the uncertainty associated with the slope estimate, , is higher when    there is a lot of scatter around the regression line or  there is very little scatter around the regression line     "
+},
+{
+  "id": "ex-residual-apple-weight",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-residual-apple-weight",
+  "type": "Exercise",
+  "number": "8.2.9.3",
+  "title": "",
+  "body": "   Over-under, Part I. Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.   "
+},
+{
+  "id": "ex-residual-sun-cancer",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-residual-sun-cancer",
+  "type": "Exercise",
+  "number": "8.2.9.4",
+  "title": "",
+  "body": "   Over-under, Part II. Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.   "
+},
+{
+  "id": "ex-tourism-spending-reg-conds",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-tourism-spending-reg-conds",
+  "type": "Exercise",
+  "number": "8.2.9.5",
+  "title": "",
+  "body": "   Tourism spending. The Association of Turkish Travel Agencies reports the number of foreign tourists visiting Turkey and tourist spending by year. Three plots are provided: scatterplot showing the relationship between these two variables along with the least squares fit, residuals plot, and histogram of residuals.    A scatterplot with a least squares regression line is fit based on about 50 points. The horizontal axis represents \"Number of tourists\" and has values ranging from about 0 to about 27 million. The vertical axis represents \"Spending, in US dollars\", with values ranging from about $0 to about $17 billion. There are many points shown with the number of tourists between 0 and 5 million, which has spending between about $0 and $3 billion, where even on this small scale a roughly linear trend is evident. The linear trend continues on across the plot and is quite strong -- where residuals generally do not deviate from the least square line by more than very roughly $1 billion. The data are also more sparse for larger values in the plot. There is one region in the center of the plot where about 10 points in a row lie above the regression line. Also consider the next two plots before answering any questions for this exercise.    A residual plot is shown. The horizontal axis represents \"Number of tourists\" and has values ranging from about 0 to about 27 million. Residuals are shown on the vertical axis and have values ranging from about -$1.5 billion to about $1.2 billion. The points on the far left between 0 and 3 million tourists shows a \"v\" pattern. There are about 15 points with number of tourists between 3 million and 10 million, which shows an slight upward trend from about -$700 million to $1.2 billion. There about 10 points with number of tourists greater than 10 million up to about 27 million, and these show a slight downward trend from about $1 billion to -$1.5 billion.    A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about $500 million.      Describe the relationship between number of tourists and spending.  What are the explanatory and response variables?  Why might we want to fit a regression line to these data?  Do the data meet the conditions required for fitting a least squares line? In addition to the scatterplot, use the residual plot and histogram to answer this question.     "
+},
+{
+  "id": "ex-starbucks-cals-carbos",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-starbucks-cals-carbos",
+  "type": "Exercise",
+  "number": "8.2.9.6",
+  "title": "",
+  "body": "   Nutrition at Starbucks, Part I. The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we are interested in predicting the amount of carbs a menu item has based on its calorie content.    A scatterplot is shown with about 75 points and an overlaid regression line that trends upward. The horizontal axis represents \"Calories\" and has values ranging from about 100 to 500. The vertical axis represents \"Carbs, in grams\" and has values ranging from about 20 to 80. About 15 points are shown with fewer than 200 calories, and these have between about 18 and 25 grams of carbs. About 30 points are shown with 200 to 400 calories, and these mostly have between 30 and 60 grams of carbs. About 20 points are shown with more than 400 calories, and these mostly have between 35 and 80 grams of carbs.    A residual plot is shown with about 75 points. The horizontal axis represents \"Calories\" and has values ranging from about 100 to 500. The vertical axis represents \"Residuals\" and has values ranging from about -30 to 30. About 15 points are shown with fewer than 200 calories, and these have residuals roughly between -7 and positive 2. About 30 points are shown with 200 to 400 calories, and these residuals largely range from about -15 to positive 15. About 20 points are shown with more than 400 calories, and the residuals for these points mostly range between -20 and positive 20.    A histogram is shown for the residuals, which shows a roughly bell-shaped distribution centered at 0 and a standard deviation of about 10.      Describe the relationship between number of calories and amount of carbohydrates (in grams) that Starbucks food menu items contain.  In this scenario, what are the explanatory and response variables?  Why might we want to fit a regression line to these data?  Do these data meet the conditions required for fitting a least squares line?     "
+},
+{
+  "id": "ex-coast-starlight-reg",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-coast-starlight-reg",
+  "type": "Exercise",
+  "number": "8.2.9.7",
+  "title": "",
+  "body": "   The Coast Starlight, Part II. An earlier exercise introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 minutes, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.    Write the equation of the regression line for predicting travel time.  Interpret the slope and the intercept in this context.  Calculate of the regression line for predicting travel time from distance traveled for the Coast Starlight, and interpret in the context of the application.  The distance between Santa Barbara and Los Angeles is 103 miles. Use the model to estimate the time it takes for the Starlight to travel between these two cities.  It actually takes the Coast Starlight about 168 minutes to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value.  Suppose Amtrak is considering adding a stop to the Coast Starlight 500 miles away from Los Angeles. Would it be appropriate to use this linear model to predict the travel time from Los Angeles to this point?     "
+},
+{
+  "id": "ex-body-measurements-shoulder-height-reg",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-body-measurements-shoulder-height-reg",
+  "type": "Exercise",
+  "number": "8.2.9.8",
+  "title": "",
+  "body": "   Body measurements, Part III. An earlier exercise introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.    Write the equation of the regression line for predicting height.  Interpret the slope and the intercept in this context.  Calculate of the regression line for predicting height from shoulder girth, and interpret it in the context of the application.  A randomly selected student from your class has a shoulder girth of 100 cm. Predict the height of this student using the model.  The student from part (d) is 160 cm tall. Calculate the residual, and explain what this residual means.  A one-year-old has a shoulder girth of 56 cm. Would it be appropriate to use this linear model to predict the height of this child?     "
+},
+{
+  "id": "ex-murders-poverty-reg",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-murders-poverty-reg",
+  "type": "Exercise",
+  "number": "8.2.9.9",
+  "title": "",
+  "body": "   Murders and poverty, Part I. The following regression output is for predicting annual murders per million from percentage living in poverty in a random sample of 20 metropolitan areas.       Estimate  Std. Error  t value  Pr( t )    (Intercept)  -29.901  7.789  -3.839  0.001    poverty%  2.559  0.390  6.562  0.000       Write out the linear model.  Interpret the intercept.  Interpret the slope.  Interpret .  Calculate the correlation coefficient.      A scatterplot is shown with 20 points. The horizontal axis is \"Percent in Poverty\" and has values ranging from 14% to 26%. The vertical axis is \"Annual Murders per Million\" with values ranging from about 5 to 40. There are 6 points with poverty below 18%, and the Murder Rate for these values ranges from 5 to 13, with one exception of a point at about 17% with a murder rate of about 25. There are 9 points with a poverty rate of 18% to 22%, and the murder rate for these points largely range from 14 to 25, with one exception of a point at about 21% poverty and a murder rate of 35. There are 5 points where poverty is larger than 22%, and these have murder rates ranging from 25 to 40.     "
+},
+{
+  "id": "ex-cat-body-heart-reg",
+  "level": "2",
+  "url": "sec-least-squares-regression.html#ex-cat-body-heart-reg",
+  "type": "Exercise",
+  "number": "8.2.9.10",
+  "title": "",
+  "body": "   Cats, Part I. The following regression output is for predicting the heart weight (in g) of cats from their body weight (in kg). The coefficients are estimated using a dataset of 144 domestic cats.       Estimate  Std. Error  t value  Pr( t )    (Intercept)  -0.357  0.692  -0.515  0.607    body wt  4.034  0.250  16.119  0.000       Write out the linear model.  Interpret the intercept.  Interpret the slope.  Interpret .  Calculate the correlation coefficient.      A scatterplot is shown with about 150 points. The horizontal axis is \"Body weight, in kilograms\" and has values ranging from 2 to 4. The vertical axis is \"Heart weight, in grams\" with values ranging from about 5 to 20. About 25% of the data has a body weight below 2.5 kilograms, and these have heart weights mostly ranging from 7 to 11 grams. About 35% of the data has body weights between 2.5 and 3 kilograms, and the heart weight for these values mostly ranges from 8 to 12 grams. About 30% of the data has body weights between 3 and 3.5 kilograms, and the heart weight for these values mostly ranges from 11 to 15 grams. About 10% of the data has body weights above 3.5 kilograms, and the heart weight for these values mostly ranges from 12 to 17 grams.     "
 },
 {
   "id": "sec-outliers-in-regression",
@@ -6280,43 +8062,79 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "8.3",
   "title": "Types of outliers in linear regression",
-  "body": " Types of outliers in linear regression  In linear regression, we need to be aware of unusual observations that may influence the regression line or our interpretation of it.   Outlier   An outlier in regression is a point that does not fit the overall pattern of the data. It has a large residual.     High Leverage Point   A point is said to have high leverage if it is extreme in the direction. Points with high leverage have the potential to influence the slope of the regression line.     Influential Point   An influential point is a point that, if removed, would substantially change the slope of the regression line. Influential points typically have both high leverage and are outliers.     Dealing with Unusual Observations  When encountering unusual observations:  Investigate whether there is an error in data entry or measurement  Consider whether the observation belongs to a different population  Assess the impact on the regression by fitting the model with and without the point  Report findings both with and without influential points when appropriate     "
+  "body": " Types of outliers in linear regression  In this section, we identify criteria for determining which outliers are important and influential. Outliers in regression are observations that fall far from the cloud of points. These points are especially important because they can have a strong influence on the least squares line.    There are six plots shown in along with the least squares line and residual plots. For each scatterplot and residual plot pair, identify the outliers and note how they influence the least squares line. Recall that an outlier is any point that doesn't appear to belong with the vast majority of the other points.       There is one outlier far from the other points, though it only appears to slightly influence the line.    There is one outlier on the right, though it is quite close to the least squares line, which suggests it wasn't very influential.    There is one point far away from the cloud, and this outlier appears to pull the least squares line up on the right; examine how the line around the primary cloud doesn't appear to fit very well.    There is a primary cloud and then a small secondary cloud of four outliers. The secondary cloud appears to be influencing the line somewhat strongly, making the least square line fit poorly almost everywhere. There might be an interesting explanation for the dual clouds, which is something that could be investigated.    There is no obvious trend in the main cloud of points and the outlier on the right appears to largely control the slope of the least squares line.    There is one outlier far from the cloud. However, it falls quite close to the least squares line and does not appear to be very influential.        Six plots, each with a least squares line and residual plot. All data sets have at least one outlier.   Six scatterplots, each with a least squares line and residual plot. All data sets have at least one outlier. (1) A clear positive upward trend is evident in the points with a regression line overlaying these points, but one point is shown deviating substantially from the line about one-third of the way from the left side of the plot and far below the other points. (2) A slight downward trend is evident in the points on the left half of the plot with a regression line overlaying these points and extending to a single point on the far right of the plot that is also very close to the regression line. (3) A positive upward trend is evident for points shown on the left two-thirds of the plot with a regression line overlaying these points, but a single point is shown on the far right and lying substantially above the line. This one point appears to be \"pulling\" the regression line up on the right, making the line fit the rest of the data less well. (4) Most of the data is shown in the left two-thirds of the plot with a clear downward, linear trend. A cluster of 4 points is shown on the far right but deviating notably above the trend of the other points. The regression line fit to the data shows it largely \"trying\" to fit the bulk of the data on the left but being \"pulled\" upward on the right towards the cluster of points deviating from the linear trend. (5) A large cluster of points is shown on the far bottom-left, and there is no apparent trend in this large cluster. A single point is shown on the far upper-right. A regression line is fit to the data with a line extending from the cluster on the bottom-left and trending upwards near the single point on the upper right. (6) A clear downward trend is evident in the points on the right two-thirds of the plot with a regression line overlaying these points and extending to a single point on the far left of the plot that is also very close to the regression line.    Examine the residual plots in . You will probably find that there is some trend in the main clouds of (3) and (4). In these cases, the outliers influenced the slope of the least squares lines. In (5), data with no clear trend were assigned a line with a large trend simply due to one outlier (!).   Leverage  Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with high leverage .   Points that fall horizontally far from the line are points of high leverage; these points can strongly influence the slope of the least squares line. If one of these high leverage points does appear to actually invoke its influence on the slope of the line as in cases (3), (4), and (5) of then we call it an influential point . Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.  It is tempting to remove outliers. Don't do this without a very good reason. Models that ignore exceptional (and interesting) cases often perform poorly. For instance, if a financial firm ignored the largest market swings the outliers they would soon go bankrupt by making poorly thought-out investments.   Section Exercises   Outliers, Part I   Identify the outliers in the scatterplots shown below, and determine what type of outliers they are. Explain your reasoning.    Most of the data is shown in the left third of the plot with a clear downward, linear trend extending from from the upper-left corner of the plot and to the bottom of the plot only a third of the way from the left side of the plot. A single point is shown on the bottom-right of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: On the furthest left portion, the line is below the points, crosses over the trend of the bulk of the data, then lies above the remainder of the bulk of the data. If it were shown fully, it would extend well below the single point on the bottom-right.    A clear downward trend is evident in the points on the left third of the plot with a regression line overlaying these points and extending to a single point on the far bottom right of the plot that is also almost exactly on the regression line.    A downward trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.       Outliers, Part II   Identify the outliers in the scatterplots shown below and determine what type of outliers they are. Explain your reasoning.    Most of the data is shown in the right half of the plot with a clear upward, linear trend extending from from the bottom-center and extending to the upper-right corner of the plot. A single point is shown on the upper-left of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: Focusing first on the bulk of points at the bottom center of the plot, the regression line is well above these points, crosses over the trend of the bulk of the data about 25% from the right of the plot, then lies below the remainder of the bulk of the data in the upper-right. If it were shown fully, the regression line would extend well below the single point on the upper-left.    A clear upward trend is evident in the points on the right half of the plot with a regression line approximately overlaying these points and extending towards a single point on the far bottom left of the plot, but the regression line is notably higher than this single point, which would have by far the largest residual (in absolute value) of all other points shown in the plot. Close inspection of the regression line fit over the bulk of points, it appears to be partially misfitting that data, \"pulled\" down on the left side.    An upper trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.       Urban homeowners, Part I   The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included.       Describe the relationship between the percent of families who own their home and the percent of the population living in urban areas.    The outlier at the bottom right corner is District of Columbia, where 100% of the population is considered urban. What type of an outlier is this observation?       A scatterplot is shown with about 50 points. The horizontal axis is for \"Percent Urban Population\" and has values ranging from 40% to 100%. The vertical axis is for \"Percent Own Their Home\" with values ranging from about 40% to about 75%. About 10 points have Urban Population with values smaller than 60%, and these have Homeownership rates between 65% and 75%, with most of those points above 70%. About 20 points have Urban Population with values between 60% and 70%, and these have Homeownership rates between 62% and 75%. About 20 points have Urban Population with values greater than 70%, and these have Homeownership rates between 55% and 73%, with one exception of a point with 100% urban population that has a homeownership rate of about 43%.       Crawling babies, Part II   Exercise introduces data on the average monthly temperature during the month babies first try to crawl (about 6 months after birth) and the average first crawling age for babies born in a given month. A scatterplot of these two variables reveals a potential outlying month when the average temperature is about 53°F and average crawling age is about 28.5 weeks. Does this point have high leverage? Is it an influential point?     "
 },
 {
-  "id": "def-outlier-in-regression",
+  "id": "outlierPlotsExample",
   "level": "2",
-  "url": "sec-outliers-in-regression.html#def-outlier-in-regression",
-  "type": "Definition",
+  "url": "sec-outliers-in-regression.html#outlierPlotsExample",
+  "type": "Example",
   "number": "8.3.1",
-  "title": "Outlier.",
-  "body": " Outlier   An outlier in regression is a point that does not fit the overall pattern of the data. It has a large residual.   "
+  "title": "",
+  "body": "  There are six plots shown in along with the least squares line and residual plots. For each scatterplot and residual plot pair, identify the outliers and note how they influence the least squares line. Recall that an outlier is any point that doesn't appear to belong with the vast majority of the other points.       There is one outlier far from the other points, though it only appears to slightly influence the line.    There is one outlier on the right, though it is quite close to the least squares line, which suggests it wasn't very influential.    There is one point far away from the cloud, and this outlier appears to pull the least squares line up on the right; examine how the line around the primary cloud doesn't appear to fit very well.    There is a primary cloud and then a small secondary cloud of four outliers. The secondary cloud appears to be influencing the line somewhat strongly, making the least square line fit poorly almost everywhere. There might be an interesting explanation for the dual clouds, which is something that could be investigated.    There is no obvious trend in the main cloud of points and the outlier on the right appears to largely control the slope of the least squares line.    There is one outlier far from the cloud. However, it falls quite close to the least squares line and does not appear to be very influential.      "
 },
 {
-  "id": "def-leverage",
+  "id": "outlierPlots",
   "level": "2",
-  "url": "sec-outliers-in-regression.html#def-leverage",
-  "type": "Definition",
+  "url": "sec-outliers-in-regression.html#outlierPlots",
+  "type": "Figure",
   "number": "8.3.2",
-  "title": "High Leverage Point.",
-  "body": " High Leverage Point   A point is said to have high leverage if it is extreme in the direction. Points with high leverage have the potential to influence the slope of the regression line.   "
+  "title": "",
+  "body": " Six plots, each with a least squares line and residual plot. All data sets have at least one outlier.   Six scatterplots, each with a least squares line and residual plot. All data sets have at least one outlier. (1) A clear positive upward trend is evident in the points with a regression line overlaying these points, but one point is shown deviating substantially from the line about one-third of the way from the left side of the plot and far below the other points. (2) A slight downward trend is evident in the points on the left half of the plot with a regression line overlaying these points and extending to a single point on the far right of the plot that is also very close to the regression line. (3) A positive upward trend is evident for points shown on the left two-thirds of the plot with a regression line overlaying these points, but a single point is shown on the far right and lying substantially above the line. This one point appears to be \"pulling\" the regression line up on the right, making the line fit the rest of the data less well. (4) Most of the data is shown in the left two-thirds of the plot with a clear downward, linear trend. A cluster of 4 points is shown on the far right but deviating notably above the trend of the other points. The regression line fit to the data shows it largely \"trying\" to fit the bulk of the data on the left but being \"pulled\" upward on the right towards the cluster of points deviating from the linear trend. (5) A large cluster of points is shown on the far bottom-left, and there is no apparent trend in this large cluster. A single point is shown on the far upper-right. A regression line is fit to the data with a line extending from the cluster on the bottom-left and trending upwards near the single point on the upper right. (6) A clear downward trend is evident in the points on the right two-thirds of the plot with a regression line overlaying these points and extending to a single point on the far left of the plot that is also very close to the regression line.   "
 },
 {
-  "id": "def-influential-point",
+  "id": "leverage-box-2",
   "level": "2",
-  "url": "sec-outliers-in-regression.html#def-influential-point",
-  "type": "Definition",
+  "url": "sec-outliers-in-regression.html#leverage-box-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "high leverage "
+},
+{
+  "id": "sec-outliers-in-regression-7",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#sec-outliers-in-regression-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "influential point "
+},
+{
+  "id": "ex-outliers-1",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#ex-outliers-1",
+  "type": "Exercise",
+  "number": "8.3.1",
+  "title": "Outliers, Part I.",
+  "body": " Outliers, Part I   Identify the outliers in the scatterplots shown below, and determine what type of outliers they are. Explain your reasoning.    Most of the data is shown in the left third of the plot with a clear downward, linear trend extending from from the upper-left corner of the plot and to the bottom of the plot only a third of the way from the left side of the plot. A single point is shown on the bottom-right of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: On the furthest left portion, the line is below the points, crosses over the trend of the bulk of the data, then lies above the remainder of the bulk of the data. If it were shown fully, it would extend well below the single point on the bottom-right.    A clear downward trend is evident in the points on the left third of the plot with a regression line overlaying these points and extending to a single point on the far bottom right of the plot that is also almost exactly on the regression line.    A downward trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.     "
+},
+{
+  "id": "ex-outliers-2",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#ex-outliers-2",
+  "type": "Exercise",
+  "number": "8.3.2",
+  "title": "Outliers, Part II.",
+  "body": " Outliers, Part II   Identify the outliers in the scatterplots shown below and determine what type of outliers they are. Explain your reasoning.    Most of the data is shown in the right half of the plot with a clear upward, linear trend extending from from the bottom-center and extending to the upper-right corner of the plot. A single point is shown on the upper-left of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: Focusing first on the bulk of points at the bottom center of the plot, the regression line is well above these points, crosses over the trend of the bulk of the data about 25% from the right of the plot, then lies below the remainder of the bulk of the data in the upper-right. If it were shown fully, the regression line would extend well below the single point on the upper-left.    A clear upward trend is evident in the points on the right half of the plot with a regression line approximately overlaying these points and extending towards a single point on the far bottom left of the plot, but the regression line is notably higher than this single point, which would have by far the largest residual (in absolute value) of all other points shown in the plot. Close inspection of the regression line fit over the bulk of points, it appears to be partially misfitting that data, \"pulled\" down on the left side.    An upper trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.     "
+},
+{
+  "id": "ex-urban-homeowners-outlier",
+  "level": "2",
+  "url": "sec-outliers-in-regression.html#ex-urban-homeowners-outlier",
+  "type": "Exercise",
   "number": "8.3.3",
-  "title": "Influential Point.",
-  "body": " Influential Point   An influential point is a point that, if removed, would substantially change the slope of the regression line. Influential points typically have both high leverage and are outliers.   "
+  "title": "Urban homeowners, Part I.",
+  "body": " Urban homeowners, Part I   The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included.       Describe the relationship between the percent of families who own their home and the percent of the population living in urban areas.    The outlier at the bottom right corner is District of Columbia, where 100% of the population is considered urban. What type of an outlier is this observation?       A scatterplot is shown with about 50 points. The horizontal axis is for \"Percent Urban Population\" and has values ranging from 40% to 100%. The vertical axis is for \"Percent Own Their Home\" with values ranging from about 40% to about 75%. About 10 points have Urban Population with values smaller than 60%, and these have Homeownership rates between 65% and 75%, with most of those points above 70%. About 20 points have Urban Population with values between 60% and 70%, and these have Homeownership rates between 62% and 75%. About 20 points have Urban Population with values greater than 70%, and these have Homeownership rates between 55% and 73%, with one exception of a point with 100% urban population that has a homeownership rate of about 43%.     "
 },
 {
-  "id": "sec-outliers-in-regression-6",
+  "id": "ex-crawling-babies-outlier",
   "level": "2",
-  "url": "sec-outliers-in-regression.html#sec-outliers-in-regression-6",
-  "type": "Note",
+  "url": "sec-outliers-in-regression.html#ex-crawling-babies-outlier",
+  "type": "Exercise",
   "number": "8.3.4",
-  "title": "Dealing with Unusual Observations.",
-  "body": " Dealing with Unusual Observations  When encountering unusual observations:  Investigate whether there is an error in data entry or measurement  Consider whether the observation belongs to a different population  Assess the impact on the regression by fitting the model with and without the point  Report findings both with and without influential points when appropriate    "
+  "title": "Crawling babies, Part II.",
+  "body": " Crawling babies, Part II   Exercise introduces data on the average monthly temperature during the month babies first try to crawl (about 6 months after birth) and the average first crawling age for babies born in a given month. A scatterplot of these two variables reveals a potential outlying month when the average temperature is about 53°F and average crawling age is about 28.5 weeks. Does this point have high leverage? Is it an influential point?   "
 },
 {
   "id": "sec-inference-for-regression",
@@ -6325,16 +8143,160 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "8.4",
   "title": "Inference for linear regression",
-  "body": " Inference for linear regression   Just as we performed inference for means and proportions, we can perform inference for the slope and intercept of a regression line.    Understanding the regression model  When we fit a regression line to data, we are estimating the true population regression line: where . Our estimates and are point estimates of the true parameters and .    Standard error of the slope   Standard Error of the Slope   The standard error of the slope  is given by: where is the residual standard error :       Hypothesis test for the slope   Hypothesis Test for  To test whether there is a linear relationship between and :  (no linear relationship)  (linear relationship exists)  Test statistic: with degrees of freedom , where is the number of observations.     Confidence interval for the slope   Confidence Interval for  A confidence interval for the true slope can be constructed as: where is the critical value from the -distribution with degrees of freedom.     Prediction intervals  A confidence interval for the average response differs from a prediction interval for an individual response.   Prediction Interval vs Confidence Interval    Confidence interval for the mean response: An interval estimate for the average value of at a particular value . This interval is narrower.  Prediction interval for an individual response: An interval estimate for a single new observation's value of at . This interval is wider because it accounts for both the uncertainty in estimating the mean and the variability of individual observations.      "
+  "body": " Inference for linear regression   In this section, we discuss uncertainty in the estimates of the slope and y-intercept for a regression line. Just as we identified standard errors for point estimates in previous chapters, we first discuss standard errors for these new estimates.    Midterm elections and unemployment  Elections for members of the United States House of Representatives occur every two years, coinciding every four years with the U.S. Presidential election. The set of House elections occurring during the middle of a Presidential term are called midterm elections . In America's two-party system, one political theory suggests the higher the unemployment rate, the worse the President's party will do in the midterm elections.  To assess the validity of this claim, we can compile historical data and look for a connection. We consider every midterm election from 1898 to 2018, with the exception of those elections during the Great Depression. shows these data and the least-squares regression line: We consider the percent change in the number of seats of the President's party (e.g. percent change in the number of seats for Republicans in 2018) against the unemployment rate.  Examining the data, there are no clear deviations from linearity, the constant variance condition, or substantial outliers. While the data are collected sequentially, a separate analysis was used to check for any apparent correlation between successive observations; no such correlation was found.   The percent change in House seats for the President's party in each midterm election from 1898 to 2018 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data.   A scatterplot is shown for the percent change in House seats for the President's party in each midterm election from 1898 to 2018 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data with a slightly downward trend. The horizontal axis is for \"Unemployment Rate\" with values ranging from about 3% to 12%. The vertical axis is for \"Percent Change in Seats of the President's Party in the House of Representatives\" with values ranging from about -30% to positive 10%. The bulk of the observations have Unemployment Rate between 3% and 8%, and these have the percent change in seats ranging from about -27% to positive 4% without any discernible trend. There are four observations with unemployment rate above 8%, and these have the percent change in seats ranging from -25% to -9%. Each point in the scatterplot is also labeled as \"Democrat\" in blue or \"Republican\" in red, though this doesn't reveal any additional pattern.      The data for the Great Depression (1934 and 1938) were removed because the unemployment rate was 21% and 18%, respectively. Do you agree that they should be removed for this investigation? Why or why not?    We will provide two considerations. Each of these points would have very high leverage on any least-squares regression line, and years with such high unemployment may not help us understand what would happen in other years where the unemployment is only modestly high. On the other hand, these are exceptional cases, and we would be discarding important information if we exclude them from a final analysis.    There is a negative slope in the line shown in . However, this slope (and the y-intercept) are only estimates of the parameter values. We might wonder, is this convincing evidence that the true linear model has a negative slope? That is, do the data provide strong evidence that the political theory is accurate, where the unemployment rate is a useful predictor of the midterm election? We can frame this investigation into a statistical hypothesis test:  : . The true linear model has slope zero.  : . The true linear model has a slope different than zero. The unemployment is predictive of whether the President's party wins or loses seats in the House of Representatives.  We would reject in favor of if the data provide strong evidence that the true slope parameter is different than zero. To assess the hypotheses, we identify a standard error for the estimate, compute an appropriate test statistic, and identify the p-value.    Understanding regression output from software  Just like other point estimates we have seen before, we can compute a standard error and test statistic for . We will generally label the test statistic using a , since it follows the -distribution.  We will rely on statistical software to compute the standard error and leave the explanation of how this standard error is determined to a second or third statistics course. shows software output for the least squares regression line in . The row labeled unemp includes the point estimate and other hypothesis test information for the slope, which is the coefficient of the unemployment variable.   Output from statistical software for the regression line modeling the midterm election losses for the President's party as a response to unemployment.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -7.3644  5.1553  -1.43  0.1646    unemp  -0.8897  0.8350  -1.07  0.2961          What do the first and second columns of represent?    The entries in the first column represent the least squares estimates, and , and the values in the second column correspond to the standard errors of each estimate. Using the estimates, we could write the equation for the least square regression line as where in this case represents the predicted change in the number of seats for the president's party, and represents the unemployment rate.    We previously used a -test statistic for hypothesis testing in the context of numerical data. Regression is very similar. In the hypotheses we consider, the null value for the slope is 0, so we can compute the test statistic using the T (or Z) score formula: This corresponds to the third column of .    Use the table in to determine the p-value for the hypothesis test.    The last column of the table gives the p-value for the two-sided hypothesis test for the coefficient of the unemployment rate: 0.2961. That is, the data do not provide convincing evidence that a higher unemployment rate has any correspondence with smaller or larger losses for the President's party in the House of Representatives in midterm elections.     Inference for regression  We usually rely on statistical software to identify point estimates, standard errors, test statistics, and p-values in practice. However, be aware that software will not generally check whether the method is appropriate, meaning we must still verify conditions are met.     Examine , which relates the Elmhurst College aid and student family income. How sure are you that the slope is statistically significantly different from zero? That is, do you think a formal hypothesis test would reject the claim that the true slope of the line should be zero?    While the relationship between the variables is not perfect, there is an evident decreasing trend in the data. This suggests the hypothesis test will reject the null claim that the slope is zero.       shows statistical software output from fitting the least squares regression line shown in . Use this output to formally evaluate the following hypotheses.  : The true coefficient for family income is zero.  : The true coefficient for family income is not zero.      We look in the second row corresponding to the family income variable. We see the point estimate of the slope of the line is -0.0431, the standard error of this estimate is 0.0108, and the -test statistic is . The p-value corresponds exactly to the two-sided test we are interested in: 0.0002. The p-value is so small that we reject the null hypothesis and conclude that family income and financial aid at Elmhurst College for freshman entering in the year 2011 are negatively correlated and the true slope parameter is indeed less than 0, just as we believed in .     Summary of least squares fit for the Elmhurst College data, where we are predicting the gift aid by the university based on the family income of students.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  24319.3  1291.5  18.83  0.0001    family_income  -0.0431  0.0108  -3.98  0.0002          Confidence interval for a coefficient  Similar to how we can conduct a hypothesis test for a model coefficient using regression output, we can also construct a confidence interval for that coefficient.    Compute the 95% confidence interval for the family_income coefficient using the regression output from .    The point estimate is -0.0431 and the standard error is . When constructing a confidence interval for a model coefficient, we generally use a -distribution. The degrees of freedom for the distribution are noted in the regression output, , allowing us to identify for use in the confidence interval.  We can now construct the confidence interval in the usual way: We are 95% confident that with each dollar increase in family_income , the university's gift aid is predicted to decrease on average by $0.0214 to $0.0648.     Confidence intervals for coefficients  Confidence intervals for model coefficients can be computed using the -distribution: where is the appropriate -value corresponding to the confidence level with the model's degrees of freedom.   On the topic of intervals in this book, we've focused exclusively on confidence intervals for model parameters. However, there are other types of intervals that may be of interest, including prediction intervals for a response value and also confidence intervals for a mean response value in the context of regression. These two interval types are introduced in an online extra that you may download at www.openintro.org\/d?file=stat_extra_linear_regression_supp     Section Exercises   In the following exercises, visually check the conditions for fitting a least squares regression line. However, you do not need to report these conditions in your solutions.    Body measurements, Part IV   The scatterplot and least squares summary below show the relationship between weight measured in kilograms and height measured in centimeters of 507 physically active individuals.    A scatterplot is shown with around 500 points. The horizontal axis is for \"Height, in centimeters\" and takes values between about 150 to 200 centimeters. The vertical axis is for \"Weight, in kilograms\" and takes values between about 40 to 120 kilograms. For heights smaller than about 160 centimeters, weights mostly range between 45 and 70 kilograms. For heights between 160 and 175 centimeters, weights mostly range between 55 and 80 kilograms. For heights between 175 and 185 centimeters, weights mostly range between 65 and 90 kilograms. For heights between 185 and 195 centimeters, where there are fewer points, weights mostly range between 80 and 95 kilograms. There are two points with heights at about 196cm, and these have weights of about 85 and 95 kilograms.      Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -105.0113  7.5394  -13.93  0.0000    height  1.0176  0.0440  23.13  0.0000       Describe the relationship between height and weight.  Write the equation of the regression line. Interpret the slope and intercept in context.  Do the data provide strong evidence that an increase in height is associated with an increase in weight? State the null and alternative hypotheses, report the p-value, and state your conclusion.  The correlation coefficient for height and weight is 0.72. Calculate and interpret it in context.       Beer and blood alcohol content   Many people believe that gender, weight, drinking habits, and many other factors are much more important in predicting blood alcohol content (BAC) than simply considering the number of drinks a person consumed. Here we examine data from sixteen student volunteers at Ohio State University who each drank a randomly assigned number of cans of beer. These students were evenly divided between men and women, and they differed in weight and drinking habits. Thirty minutes later, a police officer measured their blood alcohol content (BAC) in grams of alcohol per deciliter of blood. The scatterplot and regression table summarize the findings.    A scatterplot is shown with around 15 points. The horizontal axis is for \"Cans of beer\" and takes values between about 1 and 9. The vertical axis is for \"Blood Alcohol Concentration (BAC), in grams per deciliter\" and takes values between about 0.01 to 0.2. The point at 1 can of beer is at 0.01 BAC, lower than any other values. For the four points at 2 and 3 cans of beer, BAC ranges from 0.02 to 0.07. For the six points at 4 and 5 cans of beer, BAC ranges from 0.05 to 0.10. Two points are at 7 cans of beer and have BAC of 0.09 and 0.10. There is a single point for 8 cans of beer, which has a BAC of 0.12, and one last point at 9 cans of beer, which has a BAC of about 0.19.      Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -0.0127  0.0126  -1.00  0.3320    beers  0.0180  0.0024  7.48  0.0000       Describe the relationship between the number of cans of beer and BAC.  Write the equation of the regression line. Interpret the slope and intercept in context.  Do the data provide strong evidence that drinking more cans of beer is associated with an increase in blood alcohol? State the null and alternative hypotheses, report the p-value, and state your conclusion.  The correlation coefficient for number of cans of beer and BAC is 0.89. Calculate and interpret it in context.  Suppose we visit a bar, ask people how many drinks they have had, and also take their BAC. Do you think the relationship between number of drinks and BAC would be as strong as the relationship found in the Ohio State study?       Husbands and wives, Part II   The scatterplot below summarizes husbands' and wives' heights in a random sample of 170 married couples in Britain, where both partners' ages are below 65 years. Summary output of the least squares fit for predicting wife's height from husband's height is also provided in the table.    A scatterplot is shown with around 200 points. The horizontal axis is for \"Husband's height, in inches\" and takes values between 60 and 75 inches. The vertical axis is for \"Wife's height, in inches\" and takes values between 55 and 70 inches. For the approximately fifteen husband heights smaller than 65 inches, wife heights are mostly between 59 and 65 inches. For the approximately 100 husband heights between 65 and 70 inches, wife heights are mostly between 59 and 66 inches. For the approximately 30 husband heights taller than 70 inches, wife heights are mostly between 62 and 67 inches.      Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  43.5755  4.6842  9.30  0.0000    height_husband  0.2863  0.0686  4.17  0.0000       Is there strong evidence that taller men marry taller women? State the hypotheses and include any information used to conduct the test.  Write the equation of the regression line for predicting wife's height from husband's height.  Interpret the slope and intercept in the context of the application.  Given that , what is the correlation of heights in this data set?  You meet a married man from Britain who is 5'9\" (69 inches). What would you predict his wife's height to be? How reliable is this prediction?  You meet another married man from Britain who is 6'7\" (79 inches). Would it be wise to use the same linear model to predict his wife's height? Why or why not?       Urban homeowners, Part II   Exercise gives a scatterplot displaying the relationship between the percent of families that own their home and the percent of the population living in urban areas. Below is a similar scatterplot, excluding District of Columbia, as well as the residuals plot. There were 51 cases.    A scatterplot showing the relationship between percent of the population living in urban areas (horizontal axis) and the percent of families that own their home (vertical axis), excluding District of Columbia. The scatterplot shows data points scattered with an apparent trend, along with a corresponding residual plot to assess the fit of a linear model.      For these data, . What is the correlation? How can you tell if it is positive or negative?  Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for these data?       Murders and poverty, Part II   Exercise presents regression output from a model for predicting annual murders per million from percentage living in poverty based on a random sample of 20 metropolitan areas. The model output is also provided below.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -29.901  7.789  -3.839  0.001    poverty%  2.559  0.390  6.562  0.000             What are the hypotheses for evaluating whether poverty percentage is a significant predictor of murder rate?  State the conclusion of the hypothesis test from part (a) in context of the data.  Calculate a 95% confidence interval for the slope of poverty percentage, and interpret it in context of the data.  Do your results from the hypothesis test and the confidence interval agree? Explain.       Babies   Is the gestational age (time between conception and birth) of a low birth-weight baby useful in predicting head circumference at birth? Twenty-five low birth-weight babies were studied at a Harvard teaching hospital; the investigators calculated the regression of head circumference (measured in centimeters) against gestational age (measured in weeks). The estimated regression line is     What is the predicted head circumference for a baby whose gestational age is 28 weeks?  The standard error for the coefficient of gestational age is 0.35, which is associated with . Does the model provide strong evidence that gestational age is significantly associated with head circumference?       "
 },
 {
-  "id": "def-se-slope",
+  "id": "subsec-midterm-elections-unemployment-2",
   "level": "2",
-  "url": "sec-inference-for-regression.html#def-se-slope",
-  "type": "Definition",
+  "url": "sec-inference-for-regression.html#subsec-midterm-elections-unemployment-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "midterm elections "
+},
+{
+  "id": "fig-unemploymentAndChangeInHouse",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#fig-unemploymentAndChangeInHouse",
+  "type": "Figure",
   "number": "8.4.1",
-  "title": "Standard Error of the Slope.",
-  "body": " Standard Error of the Slope   The standard error of the slope  is given by: where is the residual standard error :    "
+  "title": "",
+  "body": " The percent change in House seats for the President's party in each midterm election from 1898 to 2018 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data.   A scatterplot is shown for the percent change in House seats for the President's party in each midterm election from 1898 to 2018 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data with a slightly downward trend. The horizontal axis is for \"Unemployment Rate\" with values ranging from about 3% to 12%. The vertical axis is for \"Percent Change in Seats of the President's Party in the House of Representatives\" with values ranging from about -30% to positive 10%. The bulk of the observations have Unemployment Rate between 3% and 8%, and these have the percent change in seats ranging from about -27% to positive 4% without any discernible trend. There are four observations with unemployment rate above 8%, and these have the percent change in seats ranging from -25% to -9%. Each point in the scatterplot is also labeled as \"Democrat\" in blue or \"Republican\" in red, though this doesn't reveal any additional pattern.   "
+},
+{
+  "id": "subsec-midterm-elections-unemployment-6",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#subsec-midterm-elections-unemployment-6",
+  "type": "Checkpoint",
+  "number": "8.4.2",
+  "title": "",
+  "body": "  The data for the Great Depression (1934 and 1938) were removed because the unemployment rate was 21% and 18%, respectively. Do you agree that they should be removed for this investigation? Why or why not?    We will provide two considerations. Each of these points would have very high leverage on any least-squares regression line, and years with such high unemployment may not help us understand what would happen in other years where the unemployment is only modestly high. On the other hand, these are exceptional cases, and we would be discarding important information if we exclude them from a final analysis.   "
+},
+{
+  "id": "fig-midtermUnempRegTable",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#fig-midtermUnempRegTable",
+  "type": "Figure",
+  "number": "8.4.3",
+  "title": "",
+  "body": " Output from statistical software for the regression line modeling the midterm election losses for the President's party as a response to unemployment.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -7.3644  5.1553  -1.43  0.1646    unemp  -0.8897  0.8350  -1.07  0.2961       "
+},
+{
+  "id": "ex-midterm-reg-table-cols",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-midterm-reg-table-cols",
+  "type": "Example",
+  "number": "8.4.4",
+  "title": "",
+  "body": "  What do the first and second columns of represent?    The entries in the first column represent the least squares estimates, and , and the values in the second column correspond to the standard errors of each estimate. Using the estimates, we could write the equation for the least square regression line as where in this case represents the predicted change in the number of seats for the president's party, and represents the unemployment rate.   "
+},
+{
+  "id": "ex-midterm-pvalue",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-midterm-pvalue",
+  "type": "Example",
+  "number": "8.4.5",
+  "title": "",
+  "body": "  Use the table in to determine the p-value for the hypothesis test.    The last column of the table gives the p-value for the two-sided hypothesis test for the coefficient of the unemployment rate: 0.2961. That is, the data do not provide convincing evidence that a higher unemployment rate has any correspondence with smaller or larger losses for the President's party in the House of Representatives in midterm elections.   "
+},
+{
+  "id": "ex-elmhurst-slope-assessment",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-elmhurst-slope-assessment",
+  "type": "Example",
+  "number": "8.4.6",
+  "title": "",
+  "body": "  Examine , which relates the Elmhurst College aid and student family income. How sure are you that the slope is statistically significantly different from zero? That is, do you think a formal hypothesis test would reject the claim that the true slope of the line should be zero?    While the relationship between the variables is not perfect, there is an evident decreasing trend in the data. This suggests the hypothesis test will reject the null claim that the slope is zero.   "
+},
+{
+  "id": "subsec-understanding-regression-output-10",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#subsec-understanding-regression-output-10",
+  "type": "Checkpoint",
+  "number": "8.4.7",
+  "title": "",
+  "body": "   shows statistical software output from fitting the least squares regression line shown in . Use this output to formally evaluate the following hypotheses.  : The true coefficient for family income is zero.  : The true coefficient for family income is not zero.      We look in the second row corresponding to the family income variable. We see the point estimate of the slope of the line is -0.0431, the standard error of this estimate is 0.0108, and the -test statistic is . The p-value corresponds exactly to the two-sided test we are interested in: 0.0002. The p-value is so small that we reject the null hypothesis and conclude that family income and financial aid at Elmhurst College for freshman entering in the year 2011 are negatively correlated and the true slope parameter is indeed less than 0, just as we believed in .   "
+},
+{
+  "id": "fig-rOutputForIncomeAidLSRLineInInferenceSection",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#fig-rOutputForIncomeAidLSRLineInInferenceSection",
+  "type": "Figure",
+  "number": "8.4.8",
+  "title": "",
+  "body": " Summary of least squares fit for the Elmhurst College data, where we are predicting the gift aid by the university based on the family income of students.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  24319.3  1291.5  18.83  0.0001    family_income  -0.0431  0.0108  -3.98  0.0002       "
+},
+{
+  "id": "ex-ci-for-family-income",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-ci-for-family-income",
+  "type": "Example",
+  "number": "8.4.9",
+  "title": "",
+  "body": "  Compute the 95% confidence interval for the family_income coefficient using the regression output from .    The point estimate is -0.0431 and the standard error is . When constructing a confidence interval for a model coefficient, we generally use a -distribution. The degrees of freedom for the distribution are noted in the regression output, , allowing us to identify for use in the confidence interval.  We can now construct the confidence interval in the usual way: We are 95% confident that with each dollar increase in family_income , the university's gift aid is predicted to decrease on average by $0.0214 to $0.0648.   "
+},
+{
+  "id": "subsec-ci-for-coefficient-5",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#subsec-ci-for-coefficient-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "prediction intervals mean response value "
+},
+{
+  "id": "ex-body-measurements-weight-height-inf",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-body-measurements-weight-height-inf",
+  "type": "Exercise",
+  "number": "8.4.4.1",
+  "title": "Body measurements, Part IV.",
+  "body": " Body measurements, Part IV   The scatterplot and least squares summary below show the relationship between weight measured in kilograms and height measured in centimeters of 507 physically active individuals.    A scatterplot is shown with around 500 points. The horizontal axis is for \"Height, in centimeters\" and takes values between about 150 to 200 centimeters. The vertical axis is for \"Weight, in kilograms\" and takes values between about 40 to 120 kilograms. For heights smaller than about 160 centimeters, weights mostly range between 45 and 70 kilograms. For heights between 160 and 175 centimeters, weights mostly range between 55 and 80 kilograms. For heights between 175 and 185 centimeters, weights mostly range between 65 and 90 kilograms. For heights between 185 and 195 centimeters, where there are fewer points, weights mostly range between 80 and 95 kilograms. There are two points with heights at about 196cm, and these have weights of about 85 and 95 kilograms.      Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -105.0113  7.5394  -13.93  0.0000    height  1.0176  0.0440  23.13  0.0000       Describe the relationship between height and weight.  Write the equation of the regression line. Interpret the slope and intercept in context.  Do the data provide strong evidence that an increase in height is associated with an increase in weight? State the null and alternative hypotheses, report the p-value, and state your conclusion.  The correlation coefficient for height and weight is 0.72. Calculate and interpret it in context.     "
+},
+{
+  "id": "ex-beer-blood-alcohol-inf",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-beer-blood-alcohol-inf",
+  "type": "Exercise",
+  "number": "8.4.4.2",
+  "title": "Beer and blood alcohol content.",
+  "body": " Beer and blood alcohol content   Many people believe that gender, weight, drinking habits, and many other factors are much more important in predicting blood alcohol content (BAC) than simply considering the number of drinks a person consumed. Here we examine data from sixteen student volunteers at Ohio State University who each drank a randomly assigned number of cans of beer. These students were evenly divided between men and women, and they differed in weight and drinking habits. Thirty minutes later, a police officer measured their blood alcohol content (BAC) in grams of alcohol per deciliter of blood. The scatterplot and regression table summarize the findings.    A scatterplot is shown with around 15 points. The horizontal axis is for \"Cans of beer\" and takes values between about 1 and 9. The vertical axis is for \"Blood Alcohol Concentration (BAC), in grams per deciliter\" and takes values between about 0.01 to 0.2. The point at 1 can of beer is at 0.01 BAC, lower than any other values. For the four points at 2 and 3 cans of beer, BAC ranges from 0.02 to 0.07. For the six points at 4 and 5 cans of beer, BAC ranges from 0.05 to 0.10. Two points are at 7 cans of beer and have BAC of 0.09 and 0.10. There is a single point for 8 cans of beer, which has a BAC of 0.12, and one last point at 9 cans of beer, which has a BAC of about 0.19.      Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -0.0127  0.0126  -1.00  0.3320    beers  0.0180  0.0024  7.48  0.0000       Describe the relationship between the number of cans of beer and BAC.  Write the equation of the regression line. Interpret the slope and intercept in context.  Do the data provide strong evidence that drinking more cans of beer is associated with an increase in blood alcohol? State the null and alternative hypotheses, report the p-value, and state your conclusion.  The correlation coefficient for number of cans of beer and BAC is 0.89. Calculate and interpret it in context.  Suppose we visit a bar, ask people how many drinks they have had, and also take their BAC. Do you think the relationship between number of drinks and BAC would be as strong as the relationship found in the Ohio State study?     "
+},
+{
+  "id": "ex-husbands-wives-height-inf",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-husbands-wives-height-inf",
+  "type": "Exercise",
+  "number": "8.4.4.3",
+  "title": "Husbands and wives, Part II.",
+  "body": " Husbands and wives, Part II   The scatterplot below summarizes husbands' and wives' heights in a random sample of 170 married couples in Britain, where both partners' ages are below 65 years. Summary output of the least squares fit for predicting wife's height from husband's height is also provided in the table.    A scatterplot is shown with around 200 points. The horizontal axis is for \"Husband's height, in inches\" and takes values between 60 and 75 inches. The vertical axis is for \"Wife's height, in inches\" and takes values between 55 and 70 inches. For the approximately fifteen husband heights smaller than 65 inches, wife heights are mostly between 59 and 65 inches. For the approximately 100 husband heights between 65 and 70 inches, wife heights are mostly between 59 and 66 inches. For the approximately 30 husband heights taller than 70 inches, wife heights are mostly between 62 and 67 inches.      Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  43.5755  4.6842  9.30  0.0000    height_husband  0.2863  0.0686  4.17  0.0000       Is there strong evidence that taller men marry taller women? State the hypotheses and include any information used to conduct the test.  Write the equation of the regression line for predicting wife's height from husband's height.  Interpret the slope and intercept in the context of the application.  Given that , what is the correlation of heights in this data set?  You meet a married man from Britain who is 5'9\" (69 inches). What would you predict his wife's height to be? How reliable is this prediction?  You meet another married man from Britain who is 6'7\" (79 inches). Would it be wise to use the same linear model to predict his wife's height? Why or why not?     "
+},
+{
+  "id": "ex-urban-homeowners-cond",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-urban-homeowners-cond",
+  "type": "Exercise",
+  "number": "8.4.4.4",
+  "title": "Urban homeowners, Part II.",
+  "body": " Urban homeowners, Part II   Exercise gives a scatterplot displaying the relationship between the percent of families that own their home and the percent of the population living in urban areas. Below is a similar scatterplot, excluding District of Columbia, as well as the residuals plot. There were 51 cases.    A scatterplot showing the relationship between percent of the population living in urban areas (horizontal axis) and the percent of families that own their home (vertical axis), excluding District of Columbia. The scatterplot shows data points scattered with an apparent trend, along with a corresponding residual plot to assess the fit of a linear model.      For these data, . What is the correlation? How can you tell if it is positive or negative?  Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for these data?     "
+},
+{
+  "id": "ex-murders-poverty-inf",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-murders-poverty-inf",
+  "type": "Exercise",
+  "number": "8.4.4.5",
+  "title": "Murders and poverty, Part II.",
+  "body": " Murders and poverty, Part II   Exercise presents regression output from a model for predicting annual murders per million from percentage living in poverty based on a random sample of 20 metropolitan areas. The model output is also provided below.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -29.901  7.789  -3.839  0.001    poverty%  2.559  0.390  6.562  0.000             What are the hypotheses for evaluating whether poverty percentage is a significant predictor of murder rate?  State the conclusion of the hypothesis test from part (a) in context of the data.  Calculate a 95% confidence interval for the slope of poverty percentage, and interpret it in context of the data.  Do your results from the hypothesis test and the confidence interval agree? Explain.     "
+},
+{
+  "id": "ex-babies-head-gestation-inf",
+  "level": "2",
+  "url": "sec-inference-for-regression.html#ex-babies-head-gestation-inf",
+  "type": "Exercise",
+  "number": "8.4.4.6",
+  "title": "Babies.",
+  "body": " Babies   Is the gestational age (time between conception and birth) of a low birth-weight baby useful in predicting head circumference at birth? Twenty-five low birth-weight babies were studied at a Harvard teaching hospital; the investigators calculated the regression of head circumference (measured in centimeters) against gestational age (measured in weeks). The estimated regression line is     What is the predicted head circumference for a baby whose gestational age is 28 weeks?  The standard error for the coefficient of gestational age is 0.35, which is associated with . Does the model provide strong evidence that gestational age is significantly associated with head circumference?     "
 },
 {
   "id": "sec-ch08-review",

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para">Suppose we decided to move forward with 100 patients per treatment group and the new drug reduces blood pressure by an additional 3 mmHg relative to the standard medication. What is the probability that we detect a drop?<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Before we even do any calculations, notice that if <span class="process-math">\(\bar{x}_{trmt} - \bar{x}_{ctrl} = -3\)</span> mmHg, there wouldn’t even be sufficient evidence to reject <span class="process-math">\(H_0\text{.}\)</span> That’s not a good sign.<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">To calculate the probability that we will reject <span class="process-math">\(H_0\text{,}\)</span> we need to determine a few things:</div>
+<ul class="disc" id="PowerFor100AtNeg3-2-2-2">
+<li>
+<div class="para">The sampling distribution for <span class="process-math">\(\bar{x}_{trmt} - \bar{x}_{ctrl}\)</span> when the true difference is -3 mmHg. This is the same as the null distribution, except it is shifted to the left by 3:<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#PowerFor100AtNeg3-2-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">The rejection regions, which are outside of the dotted lines above.<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#PowerFor100AtNeg3-2-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">The fraction of the distribution that falls in the rejection region.<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#PowerFor100AtNeg3-2-2-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">In short, we need to calculate the probability that <span class="process-math">\(x \lt -3.332\)</span> for a normal distribution with mean -3 and standard deviation 1.7. To do so, we first shade the area we want to calculate:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">We’ll use a normal approximation, which is good approximation when the degrees of freedom is about 30 or more. We’ll start by calculating the Z-score and find the tail area using either statistical software or the probability table:</div>
+<div class="displaymath process-math">
+\begin{gather*}
+Z = \frac{-3.332 - (-3)}{1.7} = -0.20 \qquad \to \qquad 0.42
+\end{gather*}
+</div>
+<div class="para">The power for the test is about 42% when <span class="process-math">\(\mu_{trmt} - \mu_{ctrl} = -3\)</span> and each group has a sample size of 100.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PowerFor100AtNeg3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.4.5.1"><a href="#PowerFor100AtNeg3-2" title="Copy heading and permalink for Solution 7.4.5.1" aria-label="Copy heading and permalink for Solution 7.4.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.4.5"><a href="#PowerFor100AtNeg3" title="Copy heading and permalink for Example 7.4.5" aria-label="Copy heading and permalink for Example 7.4.5">🔗</a></div></article><span class="incontext"><a class="internal" href="PowerForDifferenceOfTwoMeans.html#PowerFor100AtNeg3">in-context</a></span>
+</body>
+</html>

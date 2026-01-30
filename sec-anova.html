@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Comparing Many Means with ANOVA</title>
+<title>Comparing many means with ANOVA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -148,7 +148,7 @@ var ggbApp = new GGBApplet({"appName": "graphing",
     "autoHeight": true,
     "disableAutoScale": false},
 true);
-</script><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-power-calculations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-inference-for-means.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-ch06-review.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</script><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="PowerForDifferenceOfTwoMeans.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-inference-for-means.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-ch07-review.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -358,24 +358,23 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-capturing-parameter" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Capturing the Population Parameter</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-95-ci" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% Confidence Interval</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-changing-confidence" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Changing the Confidence Level</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-ci-procedure" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Confidence Interval Procedure for a Single Proportion</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-more-case-studies" class="internal"><span class="codenumber">5.2.5</span> <span class="title">More Case Studies</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-ci" class="internal"><span class="codenumber">5.2.6</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-cis" class="internal"><span class="codenumber">5.2.7</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-confidence-intervals.html#sec-confidence-intervals-10" class="internal"><span class="codenumber">5.2.8</span> <span class="title">Section 5.2 Exercises</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-more-case-studies" class="internal"><span class="codenumber">5.2.4</span> <span class="title">More Case Studies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-cis" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-confidence-intervals.html#sec-confidence-intervals-8" class="internal"><span class="codenumber">5.2.6</span> <span class="title">Section 5.2 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis Testing for a Proportion</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-ht-framework" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Hypothesis Testing Framework</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-ht-confidence-intervals" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Testing Hypotheses Using Confidence Intervals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision Errors in Hypothesis Testing</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-p-values" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal Testing Using P-values</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-significance-level" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Choosing a Significance Level</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-one-sided-tests" class="internal"><span class="codenumber">5.3.6</span> <span class="title">One-Sided Hypothesis Tests (Special Topic)</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-statistical-vs-practical" class="internal"><span class="codenumber">5.3.7</span> <span class="title">Statistical Significance versus Practical Significance</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#sec-hypothesis-testing-10" class="internal"><span class="codenumber">5.3.8</span> <span class="title">Section 5.3 Exercises</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-ht-framework" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Hypothesis testing framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-ht-confidence-intervals" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Testing hypotheses using confidence intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision errors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-formal-testing-p-values" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal testing using p-values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-p-values" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Formal Testing Using P-values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-significance-level" class="internal"><span class="codenumber">5.3.6</span> <span class="title">Choosing a Significance Level</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-one-sided-tests" class="internal"><span class="codenumber">5.3.7</span> <span class="title">One-Sided Hypothesis Tests (Special Topic)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-statistical-vs-practical" class="internal"><span class="codenumber">5.3.8</span> <span class="title">Statistical Significance versus Practical Significance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#sec-hypothesis-testing-11" class="internal"><span class="codenumber">5.3.9</span> <span class="title">Section 5.3 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -418,61 +417,69 @@ true);
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-chi-square-independence.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Testing for Independence in Two-Way Tables</span></a></div>
+<div class="toc-title-box"><a href="sec-chi-square-independence.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Testing for independence in two-way tables</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-two-way-tables" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Two-Way Tables and Expected Counts</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-chi-square-test-independence" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The Chi-Square Test for Independence</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-chi-square-limitations" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Limitations of Chi-Square Tests</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-expected-counts-two-way" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Expected counts in two-way tables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-chi-square-test-two-way" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The chi-square test for two-way tables</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chi-square-independence.html#sec-chi-square-independence-5" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Section Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch07-review.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Chapter 7 Review Exercises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch06-review.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Chapter 6 Review Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-inference-for-means.html" class="internal"><span class="codenumber">7</span> <span class="title">Inference for Numerical Data</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-one-sample-t.html" class="internal"><span class="codenumber">7.1</span> <span class="title">One-Sample Means with the <span class="process-math">\(t\)</span>-Distribution</span></a></div>
+<div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html" class="internal"><span class="codenumber">7.1</span> <span class="title">One-sample means with the <span class="process-math">\(t\)</span>-distribution</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-one-sample-t.html#subsec-sampling-dist-xbar" class="internal"><span class="codenumber">7.1.1</span> <span class="title">The Sampling Distribution of <span class="process-math">\(\bar{x}\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-one-sample-t.html#subsec-conditions-for-xbar" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Evaluating Conditions for Modeling <span class="process-math">\(\bar{x}\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-one-sample-t.html#subsec-introducing-t-dist" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Introducing the <span class="process-math">\(t\)</span>-Distribution</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-one-sample-t.html#subsec-one-sample-t-ci" class="internal"><span class="codenumber">7.1.4</span> <span class="title">One-Sample <span class="process-math">\(t\)</span>-Confidence Intervals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-one-sample-t.html#subsec-one-sample-t-test" class="internal"><span class="codenumber">7.1.5</span> <span class="title">One-Sample <span class="process-math">\(t\)</span>-Test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#x_bar_sampling_distribution" class="internal"><span class="codenumber">7.1.1</span> <span class="title">The sampling distribution of <span class="process-math">\(\bar{x}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#x_bar_conditions" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Evaluating the two conditions required for modeling <span class="process-math">\(\bar{x}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#introducingTheTDistribution" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Introducing the <span class="process-math">\(t\)</span>-distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#oneSampleTConfidenceIntervals" class="internal"><span class="codenumber">7.1.4</span> <span class="title">One sample <span class="process-math">\(t\)</span>-confidence intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#oneSampleTTests" class="internal"><span class="codenumber">7.1.5</span> <span class="title">One sample <span class="process-math">\(t\)</span>-tests</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#oneSampleMeansWithTDistribution-8" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Section Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-paired-data.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Paired Data</span></a></div>
+<div class="toc-title-box"><a href="pairedData.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Paired data</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paired-data.html#subsec-paired-observations" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Paired Observations and Samples</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paired-data.html#subsec-inference-paired-data" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Inference for Paired Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="pairedData.html#paired-observations" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Paired observations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="pairedData.html#inference-for-paired-data" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Inference for paired data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="pairedData.html#pairedData-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Section Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-difference-two-means.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Difference of Two Means</span></a></div>
+<div class="toc-title-box"><a href="differenceOfTwoMeans.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Difference of two means</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-difference-two-means.html#subsec-comparing-two-indep-means" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Comparing Two Independent Means</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-difference-two-means.html#subsec-two-sample-t-procedures" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Two-Sample <span class="process-math">\(t\)</span>-Procedures</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-difference-two-means.html#subsec-pooled-standard-deviation" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Pooled Standard Deviation (Optional)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#confidenceIntervalDiffMeans" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Confidence interval for a difference of means</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#hypothesisTestsDiffMeans" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Hypothesis tests for the difference of two means</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#caseStudyTwoExamVersions" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Case study: two versions of a course exam</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#pooledStandardDeviations" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Pooled standard deviation estimate (special topic)</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#differenceOfTwoMeans-7" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-power-calculations.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Power Calculations for a Difference of Means</span></a></div>
+<div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Power calculations for a difference of means</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-power-calculations.html#subsec-statistical-power" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Understanding Statistical Power</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-power-calculations.html#subsec-sample-size-determination" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Sample Size Determination</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#going-through-the-motions-of-a-test" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Going through the motions of a test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#computing-the-power-for-a-2-sample-test" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Computing the power for a 2-sample test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#determining-a-proper-sample-size" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Determining a proper sample size</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#PowerForDifferenceOfTwoMeans-6" class="internal"><span class="codenumber">7.4.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-anova.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Comparing Many Means with ANOVA</span></a></div>
+<div class="toc-title-box"><a href="sec-anova.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Comparing many means with ANOVA</span></a></div>
 <ul class="structural toc-item-list active">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-hypotheses" class="internal"><span class="codenumber">7.5.1</span> <span class="title">ANOVA Hypotheses and Conditions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-f-statistic" class="internal"><span class="codenumber">7.5.2</span> <span class="title">The <span class="process-math">\(F\)</span>-Statistic</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-table" class="internal"><span class="codenumber">7.5.3</span> <span class="title">The ANOVA Table</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-multiple-comparisons" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Multiple Comparisons and What ANOVA Doesn’t Tell Us</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-core-ideas-anova" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Core ideas of ANOVA</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-mlb-batting-anova" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Is batting performance related to player position in MLB?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-f-test" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Analysis of variance (ANOVA) and the <span class="process-math">\(F\)</span>-test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-table-software" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Reading an ANOVA table from software</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-diagnostics" class="internal"><span class="codenumber">7.5.5</span> <span class="title">Graphical diagnostics for an ANOVA analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-multiple-comparisons" class="internal"><span class="codenumber">7.5.6</span> <span class="title">Multiple comparisons and controlling Type 1 Error rate</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch06-review.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Chapter 6 Review Exercises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch07-review.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Chapter 7 Review Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -482,28 +489,37 @@ true);
 <div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Fitting a line, residuals, and correlation</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Fitting a line to data</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-residuals" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Residuals</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-correlation" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Correlation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-possum-head-lengths" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Using linear regression to predict possum head lengths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-residuals" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Residuals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-correlation" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Describing linear relationships with correlation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#exercises-sec-fitting-line-residuals-correlation" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Section 8.1 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-least-squares-regression.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Least squares regression</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-least-squares-criterion" class="internal"><span class="codenumber">8.2.1</span> <span class="title">The least squares criterion</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-interpreting-regression-coefficients" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Interpreting regression coefficients</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-r-squared" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Coefficient of determination: <span class="process-math">\(R^2\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-regression-conditions" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Conditions for least squares regression</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-gift-aid-elmhurst" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Gift aid for freshman at Elmhurst College</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-least-squares-criterion" class="internal"><span class="codenumber">8.2.2</span> <span class="title">An objective measure for finding the best line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-regression-conditions" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Conditions for the least squares line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-finding-least-squares-line" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Finding the least squares line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-interpreting-regression-parameters" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Interpreting regression model parameter estimates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-extrapolation" class="internal"><span class="codenumber">8.2.6</span> <span class="title">Extrapolation is treacherous</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-r-squared" class="internal"><span class="codenumber">8.2.7</span> <span class="title">Using <span class="process-math">\(R^2\)</span> to describe the strength of a fit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-categorical-predictors-two-levels" class="internal"><span class="codenumber">8.2.8</span> <span class="title">Categorical predictors with two levels</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-least-squares-regression.html#exercises-least-squares-regression" class="internal"><span class="codenumber">8.2.9</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-outliers-in-regression.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Types of outliers in linear regression</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-outliers-in-regression.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Types of outliers in linear regression</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-outliers-in-regression.html#sec-outliers-in-regression-9" class="internal"><span class="codenumber">8.3</span> <span class="title">Section Exercises</span></a></div></li></ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-inference-for-regression.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Inference for linear regression</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-understanding-regression-model" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Understanding the regression model</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-se-of-slope" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Standard error of the slope</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-hypothesis-test-for-slope" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Hypothesis test for the slope</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-ci-for-slope" class="internal"><span class="codenumber">8.4.4</span> <span class="title">Confidence interval for the slope</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-prediction-intervals" class="internal"><span class="codenumber">8.4.5</span> <span class="title">Prediction intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-midterm-elections-unemployment" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Midterm elections and unemployment</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-understanding-regression-output" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Understanding regression output from software</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-ci-for-coefficient" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Confidence interval for a coefficient</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-inference-for-regression.html#sec-inference-for-regression-6" class="internal"><span class="codenumber">8.4.4</span> <span class="title">Section Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -604,149 +620,553 @@ true);
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-anova"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comparing Many Means with ANOVA</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comparing many means with ANOVA</span>
 </h2>
-<section class="introduction" id="sec-anova-2"><div class="para" id="sec-anova-2-1">Sometimes we want to compare means across more than two groups. For example, we might want to compare average test scores across four different teaching methods, or compare recovery times across three different treatments. When comparing multiple groups, we use <dfn class="terminology">Analysis of Variance (ANOVA)</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-anova-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="subsec-anova-hypotheses"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">ANOVA Hypotheses and Conditions</span>
+<div class="para" id="sec-anova-2">Sometimes we want to compare means across many groups. We might initially think to do pairwise comparisons. For example, if there were three groups, we might be tempted to compare the first mean with the second, then with the third, and then finally compare the second and third means for a total of three comparisons. However, this strategy can be treacherous. If we have many groups and do many comparisons, it is likely that we will eventually find a difference just by chance, even if there is no difference in the populations. Instead, we should apply a holistic test to check whether there is evidence that at least one pair of groups are in fact different, and this is where <em class="emphasis">ANOVA</em> saves the day.<div class="autopermalink" data-description="Paragraph"><a href="#sec-anova-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-core-ideas-anova"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Core ideas of ANOVA</span>
 </h3>
-<div class="para" id="subsec-anova-hypotheses-2">Consider comparing <span class="process-math">\(k\)</span> groups with means <span class="process-math">\(\mu_1, \mu_2, \ldots, \mu_k\text{.}\)</span> The hypotheses for ANOVA are:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-hypotheses-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-core-ideas-anova-2">In this section, we will learn a new method called <dfn class="terminology">analysis of variance (ANOVA)</dfn> and a new test statistic called <span class="process-math">\(F\text{.}\)</span> ANOVA uses a single hypothesis test to check whether the means across many groups are equal:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-core-ideas-anova-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<ul class="disc" id="subsec-anova-hypotheses-3">
-<li id="subsec-anova-hypotheses-3-1">
-<div class="para" id="p-derived-subsec-anova-hypotheses-3-1">
-<span class="process-math">\(H_0\text{:}\)</span> The mean outcome is the same across all groups. <span class="process-math">\(\mu_1 = \mu_2 = \cdots = \mu_k\)</span>
+<ul class="disc" id="subsec-core-ideas-anova-3">
+<li id="subsec-core-ideas-anova-3-1">
+<div class="para" id="p-derived-subsec-core-ideas-anova-3-1">
+<span class="process-math">\(H_0\text{:}\)</span> The mean outcome is the same across all groups. In statistical notation, <span class="process-math">\(\mu_1 = \mu_2 = \cdots = \mu_k\)</span> where <span class="process-math">\(\mu_i\)</span> represents the mean of the outcome for observations in category <span class="process-math">\(i\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-anova-hypotheses-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-core-ideas-anova-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="subsec-anova-hypotheses-3-2">
-<div class="para" id="p-derived-subsec-anova-hypotheses-3-2">
-<span class="process-math">\(H_A\text{:}\)</span> At least one mean is different from the others.</div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-anova-hypotheses-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<li id="subsec-core-ideas-anova-3-2">
+<div class="para" id="p-derived-subsec-core-ideas-anova-3-2">
+<span class="process-math">\(H_A\text{:}\)</span> At least one mean is different.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-core-ideas-anova-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<article class="definition definition-like" id="def-anova-conditions"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<div class="para" id="def-anova-conditions-1-1">
-<dfn class="terminology">Conditions for ANOVA:</dfn><div class="autopermalink" data-description="Paragraph"><a href="#def-anova-conditions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="decimal" id="def-anova-conditions-1-2">
-<li id="def-anova-conditions-1-2-1">
-<div class="para" id="p-derived-def-anova-conditions-1-2-1">
-<em class="alert">Independence:</em> Observations must be independent within and across groups.</div>
-<div class="autopermalink" data-description="Item 1"><a href="#def-anova-conditions-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+<div class="para" id="subsec-core-ideas-anova-4">Generally we must check three conditions on the data before performing ANOVA:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-core-ideas-anova-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="subsec-core-ideas-anova-5">
+<li id="subsec-core-ideas-anova-5-1">
+<div class="para" id="p-derived-subsec-core-ideas-anova-5-1">the observations are independent within and across groups,</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-core-ideas-anova-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="def-anova-conditions-1-2-2">
-<div class="para" id="p-derived-def-anova-conditions-1-2-2">
-<em class="alert">Normality:</em> The data within each group should be approximately normal.</div>
-<div class="autopermalink" data-description="Item 2"><a href="#def-anova-conditions-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+<li id="subsec-core-ideas-anova-5-2">
+<div class="para" id="p-derived-subsec-core-ideas-anova-5-2">the data within each group are nearly normal, and</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-core-ideas-anova-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="def-anova-conditions-1-2-3">
-<div class="para" id="p-derived-def-anova-conditions-1-2-3">
-<em class="alert">Equal variance:</em> The variability should be roughly constant across groups.</div>
-<div class="autopermalink" data-description="Item 3"><a href="#def-anova-conditions-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Definition 7.5.1"><a href="#def-anova-conditions" title="Copy heading and permalink for Definition 7.5.1" aria-label="Copy heading and permalink for Definition 7.5.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 7.5.1: ANOVA Hypotheses and Conditions"><a href="#subsec-anova-hypotheses" title="Copy heading and permalink for Subsection 7.5.1: ANOVA Hypotheses and Conditions" aria-label="Copy heading and permalink for Subsection 7.5.1: ANOVA Hypotheses and Conditions">🔗</a></div></section><section class="subsection" id="subsec-f-statistic"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The <span class="process-math">\(F\)</span>-Statistic</span>
-</h3>
-<div class="para" id="subsec-f-statistic-2">ANOVA uses the <dfn class="terminology">F-statistic</dfn> to compare group means. The F-statistic is a ratio of two measures of variability:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-f-statistic-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="displaymath process-math" id="subsec-f-statistic-3">
-\begin{equation*}
-F = \frac{\text{Variability between groups}}{\text{Variability within groups}} = \frac{MSG}{MSE}
-\end{equation*}
-</div>
-<div class="para" id="subsec-f-statistic-4">where MSG is the <dfn class="terminology">mean square between groups</dfn> and MSE is the <dfn class="terminology">mean square error</dfn> (within groups).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-f-statistic-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<ul class="disc" id="subsec-f-statistic-5">
-<li id="subsec-f-statistic-5-1">
-<div class="para" id="p-derived-subsec-f-statistic-5-1">If the null hypothesis is true (all means equal), we expect <span class="process-math">\(F \approx 1\text{.}\)</span>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-f-statistic-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="subsec-f-statistic-5-2">
-<div class="para" id="p-derived-subsec-f-statistic-5-2">If at least one mean is different, we expect <span class="process-math">\(F &gt; 1\text{.}\)</span>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-f-statistic-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="subsec-f-statistic-5-3">
-<div class="para" id="p-derived-subsec-f-statistic-5-3">Large values of <span class="process-math">\(F\)</span> provide evidence against <span class="process-math">\(H_0\text{.}\)</span>
-</div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-f-statistic-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<li id="subsec-core-ideas-anova-5-3">
+<div class="para" id="p-derived-subsec-core-ideas-anova-5-3">the variability across the groups is about equal.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-core-ideas-anova-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<article class="definition definition-like" id="def-f-distribution"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<div class="para" id="def-f-distribution-1-1">The <dfn class="terminology">F-distribution</dfn> is a right-skewed distribution (starting at 0) used for ANOVA. It has two degrees of freedom parameters:<div class="autopermalink" data-description="Paragraph"><a href="#def-f-distribution-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ul class="disc" id="def-f-distribution-1-2">
-<li id="def-f-distribution-1-2-1">
-<div class="para" id="p-derived-def-f-distribution-1-2-1">
-<span class="process-math">\(df_1 = k - 1\)</span> (degrees of freedom for groups, where <span class="process-math">\(k\)</span> is the number of groups)</div>
-<div class="autopermalink" data-description="Item"><a href="#def-f-distribution-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="para" id="subsec-core-ideas-anova-6">When these three conditions are met, we may perform an ANOVA to determine whether the data provide strong evidence against the null hypothesis that all the <span class="process-math">\(\mu_i\)</span> are equal.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-core-ideas-anova-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-three-stat-classes" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-three-stat-classes-1-1">College departments commonly run multiple lectures of the same introductory course each semester because of high demand. Consider a statistics department that runs three lectures of an introductory statistics course. We might like to determine whether there are statistically significant differences in first exam scores in these three classes (<span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span>). Describe appropriate hypotheses to determine whether there are any differences between the three classes.<div class="autopermalink" data-description="Paragraph"><a href="#ex-three-stat-classes-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-three-stat-classes-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-three-stat-classes-2-1">The hypotheses may be written in the following form:<div class="autopermalink" data-description="Paragraph"><a href="#ex-three-stat-classes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ex-three-stat-classes-2-2">
+<li id="ex-three-stat-classes-2-2-1">
+<div class="para" id="p-derived-ex-three-stat-classes-2-2-1">
+<span class="process-math">\(H_0\text{:}\)</span> The average score is identical in all lectures. Any observed difference is due to chance. Notationally, we write <span class="process-math">\(\mu_A = \mu_B = \mu_C\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-three-stat-classes-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="def-f-distribution-1-2-2">
-<div class="para" id="p-derived-def-f-distribution-1-2-2">
-<span class="process-math">\(df_2 = n - k\)</span> (degrees of freedom for error, where <span class="process-math">\(n\)</span> is the total sample size)</div>
-<div class="autopermalink" data-description="Item"><a href="#def-f-distribution-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<li id="ex-three-stat-classes-2-2-2">
+<div class="para" id="p-derived-ex-three-stat-classes-2-2-2">
+<span class="process-math">\(H_A\text{:}\)</span> The average score varies by class. We would reject the null hypothesis in favor of the alternative hypothesis if there were larger differences among the class averages than what we might expect from chance alone.</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-three-stat-classes-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Definition 7.5.2"><a href="#def-f-distribution" title="Copy heading and permalink for Definition 7.5.2" aria-label="Copy heading and permalink for Definition 7.5.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 7.5.2: The F-Statistic"><a href="#subsec-f-statistic" title="Copy heading and permalink for Subsection 7.5.2: The F-Statistic" aria-label="Copy heading and permalink for Subsection 7.5.2: The F-Statistic">🔗</a></div></section><section class="subsection" id="subsec-anova-table"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The ANOVA Table</span>
+<div class="autopermalink" data-description="Solution 7.5.1.1"><a href="#ex-three-stat-classes-2" title="Copy heading and permalink for Solution 7.5.1.1" aria-label="Copy heading and permalink for Solution 7.5.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.1"><a href="#ex-three-stat-classes" title="Copy heading and permalink for Example 7.5.1" aria-label="Copy heading and permalink for Example 7.5.1">🔗</a></div></article></details><div class="para" id="subsec-core-ideas-anova-8">Strong evidence favoring the alternative hypothesis in ANOVA is described by unusually large differences among the group means. We will soon learn that assessing the variability of the group means relative to the variability among individual observations within each group is key to ANOVA’s success.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-core-ideas-anova-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-toy-anova-groups" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-toy-anova-groups-1-1">Examine <a href="sec-anova.html#fig-toy-anova" class="xref" data-knowl="./knowl/xref/fig-toy-anova.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.3">Figure 7.5.3</a>. Compare groups I, II, and III. Can you visually determine if the differences in the group centers is due to chance or not? Now compare groups IV, V, and VI. Do these differences appear to be due to chance?<div class="autopermalink" data-description="Paragraph"><a href="#ex-toy-anova-groups-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-toy-anova-groups-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-toy-anova-groups-2-1">Any real difference in the means of groups I, II, and III is difficult to discern, because the data within each group are very volatile relative to any differences in the average outcome. On the other hand, it appears there are differences in the centers of groups IV, V, and VI. For instance, group V appears to have a higher mean than that of the other two groups. Investigating groups IV, V, and VI, we see the differences in the groups’ centers are noticeable because those differences are large <em class="emphasis">relative to the variability in the individual observations within each group</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-toy-anova-groups-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.2.1"><a href="#ex-toy-anova-groups-2" title="Copy heading and permalink for Solution 7.5.2.1" aria-label="Copy heading and permalink for Solution 7.5.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.2"><a href="#ex-toy-anova-groups" title="Copy heading and permalink for Example 7.5.2" aria-label="Copy heading and permalink for Example 7.5.2">🔗</a></div></article></details><figure class="figure figure-like" id="fig-toy-anova"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/ch_inference_for_means/figures/toyANOVA.png" class="contained" alt="Side-by-side dot plots are shown for groups I, II, III, IV, V, and VI. The means for I and IV are the same, the means of II and V are the same, and the means of III and VI are also the same. However, the variability of the data shown in groups I, II, and III is larger than the variability of the groups IV, V, and VI."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Side-by-side dot plot for the outcomes for six groups.<div class="autopermalink" data-description="Figure 7.5.3"><a href="#fig-toy-anova" title="Copy heading and permalink for Figure 7.5.3" aria-label="Copy heading and permalink for Figure 7.5.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 7.5.1: Core ideas of ANOVA"><a href="#subsec-core-ideas-anova" title="Copy heading and permalink for Subsection 7.5.1: Core ideas of ANOVA" aria-label="Copy heading and permalink for Subsection 7.5.1: Core ideas of ANOVA">🔗</a></div></section><section class="subsection" id="subsec-mlb-batting-anova"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Is batting performance related to player position in MLB?</span>
 </h3>
-<div class="para" id="subsec-anova-table-2">ANOVA results are typically summarized in an <dfn class="terminology">ANOVA table</dfn>:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-table-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-mlb-batting-anova-2">We would like to discern whether there are real differences between the batting performance of baseball players according to their position: outfielder (OF), infielder (IF), and catcher (C). We will use a data set called <code class="code-inline tex2jax_ignore">bat18</code>, which includes batting records of 429 Major League Baseball (MLB) players from the 2018 season who had at least 100 at bats. Six of the 429 cases represented in <code class="code-inline tex2jax_ignore">bat18</code> are shown in <a href="sec-anova.html#table-mlb-bat18-sample" class="xref" data-knowl="./knowl/xref/table-mlb-bat18-sample.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.4: Six cases from the bat18 data matrix">Table 7.5.4</a>, and descriptions for each variable are provided in <a href="sec-anova.html#table-mlb-bat18-variables" class="xref" data-knowl="./knowl/xref/table-mlb-bat18-variables.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.5: Variables and their descriptions for the bat18 data set">Table 7.5.5</a>. The measure we will use for the player batting performance (the outcome variable) is on-base percentage (OBP). The on-base percentage roughly represents the fraction of the time a player successfully gets on base or hits a home run.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mlb-batting-anova-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-anova-table-3">
-<em class="alert">ANOVA Table Structure:</em><div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-table-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-mlb-bat18-sample"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Six cases from the <code class="code-inline tex2jax_ignore">bat18</code> data matrix<div class="autopermalink" data-description="Table 7.5.4: Six cases from the bat18 data matrix"><a href="#table-mlb-bat18-sample" title="Copy heading and permalink for Table 7.5.4: Six cases from the bat18 data matrix" aria-label="Copy heading and permalink for Table 7.5.4: Six cases from the bat18 data matrix">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
-<th scope="col" class="l m b0 r0 l0 t0 lines">Source</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">Sum of Squares</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">df</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">Mean Square</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">F</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">p-value</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">name</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">team</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">position</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">AB</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">H</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">HR</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">RBI</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">AVG</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">OBP</th>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">Groups</td>
-<td class="l m b0 r0 l0 t0 lines">SSG</td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(k-1\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(MSG = \frac{SSG}{k-1}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{MSG}{MSE}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">Abreu, J</td>
+<td class="l m b0 r0 l0 t0 lines">CWS</td>
+<td class="l m b0 r0 l0 t0 lines">IF</td>
+<td class="l m b0 r0 l0 t0 lines">499</td>
+<td class="l m b0 r0 l0 t0 lines">132</td>
+<td class="l m b0 r0 l0 t0 lines">22</td>
+<td class="l m b0 r0 l0 t0 lines">78</td>
+<td class="l m b0 r0 l0 t0 lines">0.265</td>
+<td class="l m b0 r0 l0 t0 lines">0.325</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">Error</td>
-<td class="l m b0 r0 l0 t0 lines">SSE</td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(n-k\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(MSE = \frac{SSE}{n-k}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">Acuna Jr., R</td>
+<td class="l m b0 r0 l0 t0 lines">ATL</td>
+<td class="l m b0 r0 l0 t0 lines">OF</td>
+<td class="l m b0 r0 l0 t0 lines">433</td>
+<td class="l m b0 r0 l0 t0 lines">127</td>
+<td class="l m b0 r0 l0 t0 lines">26</td>
+<td class="l m b0 r0 l0 t0 lines">64</td>
+<td class="l m b0 r0 l0 t0 lines">0.293</td>
+<td class="l m b0 r0 l0 t0 lines">0.366</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">Total</td>
-<td class="l m b0 r0 l0 t0 lines">SST</td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(n-1\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">Adames, W</td>
+<td class="l m b0 r0 l0 t0 lines">TB</td>
+<td class="l m b0 r0 l0 t0 lines">IF</td>
+<td class="l m b0 r0 l0 t0 lines">288</td>
+<td class="l m b0 r0 l0 t0 lines">80</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">34</td>
+<td class="l m b0 r0 l0 t0 lines">0.278</td>
+<td class="l m b0 r0 l0 t0 lines">0.348</td>
 </tr>
-</table></div>
-<div class="autopermalink" data-description="Subsection 7.5.3: The ANOVA Table"><a href="#subsec-anova-table" title="Copy heading and permalink for Subsection 7.5.3: The ANOVA Table" aria-label="Copy heading and permalink for Subsection 7.5.3: The ANOVA Table">🔗</a></div></section><section class="subsection" id="subsec-multiple-comparisons"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiple Comparisons and What ANOVA Doesn’t Tell Us</span>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">427</td>
+<td class="l m b0 r0 l0 t0 lines">Zimmerman, R</td>
+<td class="l m b0 r0 l0 t0 lines">WSH</td>
+<td class="l m b0 r0 l0 t0 lines">IF</td>
+<td class="l m b0 r0 l0 t0 lines">288</td>
+<td class="l m b0 r0 l0 t0 lines">76</td>
+<td class="l m b0 r0 l0 t0 lines">13</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+<td class="l m b0 r0 l0 t0 lines">0.264</td>
+<td class="l m b0 r0 l0 t0 lines">0.337</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">428</td>
+<td class="l m b0 r0 l0 t0 lines">Zobrist, B</td>
+<td class="l m b0 r0 l0 t0 lines">CHC</td>
+<td class="l m b0 r0 l0 t0 lines">IF</td>
+<td class="l m b0 r0 l0 t0 lines">455</td>
+<td class="l m b0 r0 l0 t0 lines">139</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="l m b0 r0 l0 t0 lines">58</td>
+<td class="l m b0 r0 l0 t0 lines">0.305</td>
+<td class="l m b0 r0 l0 t0 lines">0.378</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">429</td>
+<td class="l m b0 r0 l0 t0 lines">Zunino, M</td>
+<td class="l m b0 r0 l0 t0 lines">SEA</td>
+<td class="l m b0 r0 l0 t0 lines">C</td>
+<td class="l m b0 r0 l0 t0 lines">373</td>
+<td class="l m b0 r0 l0 t0 lines">75</td>
+<td class="l m b0 r0 l0 t0 lines">20</td>
+<td class="l m b0 r0 l0 t0 lines">44</td>
+<td class="l m b0 r0 l0 t0 lines">0.201</td>
+<td class="l m b0 r0 l0 t0 lines">0.259</td>
+</tr>
+</table></div></figure><figure class="table table-like" id="table-mlb-bat18-variables"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Variables and their descriptions for the <code class="code-inline tex2jax_ignore">bat18</code> data set<div class="autopermalink" data-description="Table 7.5.5: Variables and their descriptions for the bat18 data set"><a href="#table-mlb-bat18-variables" title="Copy heading and permalink for Table 7.5.5: Variables and their descriptions for the bat18 data set" aria-label="Copy heading and permalink for Table 7.5.5: Variables and their descriptions for the bat18 data set">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">variable</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">description</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">name</td>
+<td class="l m b0 r0 l0 t0 lines">Player name</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">team</td>
+<td class="l m b0 r0 l0 t0 lines">The abbreviated name of the player’s team</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">position</td>
+<td class="l m b0 r0 l0 t0 lines">The player’s primary field position (OF, IF, C)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">AB</td>
+<td class="l m b0 r0 l0 t0 lines">Number of opportunities at bat</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">H</td>
+<td class="l m b0 r0 l0 t0 lines">Number of hits</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">HR</td>
+<td class="l m b0 r0 l0 t0 lines">Number of home runs</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">RBI</td>
+<td class="l m b0 r0 l0 t0 lines">Number of runs batted in</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">AVG</td>
+<td class="l m b0 r0 l0 t0 lines">Batting average, which is equal to H/AB</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">OBP</td>
+<td class="l m b0 r0 l0 t0 lines">On-base percentage, which is roughly equal to the fraction of times a player gets on base or hits a home run</td>
+</tr>
+</table></div></figure><details id="subsec-mlb-batting-anova-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="subsec-mlb-batting-anova-5-1-1">The null hypothesis under consideration is the following: <span class="process-math">\(\mu_{\text{OF}} = \mu_{\text{IF}} = \mu_{\text{C}}\text{.}\)</span> Write the null and corresponding alternative hypotheses in plain language.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mlb-batting-anova-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="subsec-mlb-batting-anova-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-mlb-batting-anova-5-2-1">
+<span class="process-math">\(H_0\text{:}\)</span> The average on-base percentage is equal across the three positions. <span class="process-math">\(H_A\text{:}\)</span> The average on-base percentage varies across some (or all) groups.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mlb-batting-anova-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.6.1"><a href="#subsec-mlb-batting-anova-5-2" title="Copy heading and permalink for Solution 7.5.6.1" aria-label="Copy heading and permalink for Solution 7.5.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 7.5.6"><a href="#subsec-mlb-batting-anova-5" title="Copy heading and permalink for Checkpoint 7.5.6" aria-label="Copy heading and permalink for Checkpoint 7.5.6">🔗</a></div></article></details><details id="ex-mlb-point-estimate" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-mlb-point-estimate-1-1">The player positions have been divided into three groups: outfield (OF), infield (IF), and catcher (C). What would be an appropriate point estimate of the on-base percentage by outfielders, <span class="process-math">\(\mu_{\text{OF}}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-mlb-point-estimate-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-mlb-point-estimate-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-mlb-point-estimate-2-1">A good estimate of the on-base percentage by outfielders would be the sample average of OBP for just those players whose position is outfield: <span class="process-math">\(\bar{x}_{OF} = 0.320\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-mlb-point-estimate-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.1"><a href="#ex-mlb-point-estimate-2" title="Copy heading and permalink for Solution 7.5.7.1" aria-label="Copy heading and permalink for Solution 7.5.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.7"><a href="#ex-mlb-point-estimate" title="Copy heading and permalink for Example 7.5.7" aria-label="Copy heading and permalink for Example 7.5.7">🔗</a></div></article></details><div class="para" id="subsec-mlb-batting-anova-7">
+<a href="sec-anova.html#table-mlb-summary-stats" class="xref" data-knowl="./knowl/xref/table-mlb-summary-stats.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.8: Summary statistics of on-base percentage, split by player position">Table 7.5.8</a> provides summary statistics for each group. A side-by-side box plot for the on-base percentage is shown in <a href="sec-anova.html#fig-mlb-anova-boxplot" class="xref" data-knowl="./knowl/xref/fig-mlb-anova-boxplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.9">Figure 7.5.9</a>. Notice that the variability appears to be approximately constant across groups; nearly constant variance across groups is an important assumption that must be satisfied before we consider the ANOVA approach.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mlb-batting-anova-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-mlb-summary-stats"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Summary statistics of on-base percentage, split by player position<div class="autopermalink" data-description="Table 7.5.8: Summary statistics of on-base percentage, split by player position"><a href="#table-mlb-summary-stats" title="Copy heading and permalink for Table 7.5.8: Summary statistics of on-base percentage, split by player position" aria-label="Copy heading and permalink for Table 7.5.8: Summary statistics of on-base percentage, split by player position">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">OF</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">IF</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">C</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Sample size (<span class="process-math">\(n_i\)</span>)</td>
+<td class="l m b0 r0 l0 t0 lines">160</td>
+<td class="l m b0 r0 l0 t0 lines">205</td>
+<td class="l m b0 r0 l0 t0 lines">64</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Sample mean (<span class="process-math">\(\bar{x}_i\)</span>)</td>
+<td class="l m b0 r0 l0 t0 lines">0.320</td>
+<td class="l m b0 r0 l0 t0 lines">0.318</td>
+<td class="l m b0 r0 l0 t0 lines">0.302</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Sample SD (<span class="process-math">\(s_i\)</span>)</td>
+<td class="l m b0 r0 l0 t0 lines">0.043</td>
+<td class="l m b0 r0 l0 t0 lines">0.038</td>
+<td class="l m b0 r0 l0 t0 lines">0.038</td>
+</tr>
+</table></div></figure><figure class="figure figure-like" id="fig-mlb-anova-boxplot"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/ch_inference_for_means/figures/mlbANOVA/mlbANOVABoxPlot.png" class="contained" alt="Side-by-side box plot of the on-base percentage for 429 players across three groups. The boxes for outfield (OF) and infield (IF) groups are about 0.30 to 0.34 with a median of about 0.32, while the catcher (C) box is 0.28 to 0.33 with a median of 0.30. The whiskers for outfield and infield extend down to about 0.25 and up to 0.42, while the catcher box plot whiskers extend down to 0.23 and up to 0.38. With over a hundred players in both the infield and outfield groups, a few individual points are shown but are not concerning."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Side-by-side box plot of the on-base percentage for 429 players across three groups. With over a hundred players in both the infield and outfield groups, the apparent outliers are not a concern.<div class="autopermalink" data-description="Figure 7.5.9"><a href="#fig-mlb-anova-boxplot" title="Copy heading and permalink for Figure 7.5.9" aria-label="Copy heading and permalink for Figure 7.5.9">🔗</a></div></figcaption></figure><details id="ex-data-snooping" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-data-snooping-1-1">The largest difference between the sample means is between the catcher and the outfielder positions. Consider again the original hypotheses:<div class="autopermalink" data-description="Paragraph"><a href="#ex-data-snooping-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ul class="disc" id="ex-data-snooping-1-2">
+<li id="ex-data-snooping-1-2-1">
+<div class="para" id="p-derived-ex-data-snooping-1-2-1">
+<span class="process-math">\(H_0\text{:}\)</span> <span class="process-math">\(\mu_{\text{OF}} = \mu_{\text{IF}} = \mu_{\text{C}}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-data-snooping-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-data-snooping-1-2-2">
+<div class="para" id="p-derived-ex-data-snooping-1-2-2">
+<span class="process-math">\(H_A\text{:}\)</span> The average on-base percentage (<span class="process-math">\(\mu_i\)</span>) varies across some (or all) groups.</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-data-snooping-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul> <div class="para" id="ex-data-snooping-1-3">Why might it be inappropriate to run the test by simply estimating whether the difference of <span class="process-math">\(\mu_{\text{C}}\)</span> and <span class="process-math">\(\mu_{\text{OF}}\)</span> is statistically significant at a 0.05 significance level?<div class="autopermalink" data-description="Paragraph"><a href="#ex-data-snooping-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-data-snooping-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-data-snooping-2-1">The primary issue here is that we are inspecting the data before picking the groups that will be compared. It is inappropriate to examine all data by eye (informal testing) and only afterwards decide which parts to formally test. This is called <dfn class="terminology">data snooping</dfn> or <dfn class="terminology">data fishing</dfn>. Naturally, we would pick the groups with the large differences for the formal test, and this would lead to an inflation in the Type 1 Error rate. To understand this better, let’s consider a slightly different problem.<div class="autopermalink" data-description="Paragraph"><a href="#ex-data-snooping-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-data-snooping-2-2">Suppose we are to measure the aptitude for students in 20 classes in a large elementary school at the beginning of the year. In this school, all students are randomly assigned to classrooms, so any differences we observe between the classes at the start of the year are completely due to chance. However, with so many groups, we will probably observe a few groups that look rather different from each other. If we select only these classes that look so different and then perform a formal test, we will probably make the wrong conclusion that the assignment wasn’t random. While we might only formally test differences for a few pairs of classes, we informally evaluated the other classes by eye before choosing the most extreme cases for a comparison.<div class="autopermalink" data-description="Paragraph"><a href="#ex-data-snooping-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.10.1"><a href="#ex-data-snooping-2" title="Copy heading and permalink for Solution 7.5.10.1" aria-label="Copy heading and permalink for Solution 7.5.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.10"><a href="#ex-data-snooping" title="Copy heading and permalink for Example 7.5.10" aria-label="Copy heading and permalink for Example 7.5.10">🔗</a></div></article></details><div class="para" id="subsec-mlb-batting-anova-11">For additional information on the ideas expressed in <a href="sec-anova.html#ex-data-snooping" class="xref" data-knowl="./knowl/xref/ex-data-snooping.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.5.10">Example 7.5.10</a>, we recommend reading about the <dfn class="terminology">prosecutor’s fallacy</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mlb-batting-anova-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-mlb-batting-anova-12">In the next section we will learn how to use the <span class="process-math">\(F\)</span> statistic and ANOVA to test whether observed differences in sample means could have happened just by chance even if there was no difference in the respective population means.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mlb-batting-anova-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 7.5.2: Is batting performance related to player position in MLB?"><a href="#subsec-mlb-batting-anova" title="Copy heading and permalink for Subsection 7.5.2: Is batting performance related to player position in MLB?" aria-label="Copy heading and permalink for Subsection 7.5.2: Is batting performance related to player position in MLB?">🔗</a></div></section><section class="subsection" id="subsec-anova-f-test"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analysis of variance (ANOVA) and the <span class="process-math">\(F\)</span>-test</span>
 </h3>
-<div class="para" id="subsec-multiple-comparisons-2">When ANOVA gives a significant result, it tells us that at least one mean is different, but it doesn’t tell us which means differ. To determine which specific groups differ, we need to conduct <dfn class="terminology">multiple comparisons</dfn> or <dfn class="terminology">post-hoc tests</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-anova-f-test-2">The method of analysis of variance in this context focuses on answering one question: is the variability in the sample means so large that it seems unlikely to be from chance alone? This question is different from earlier testing procedures since we will <em class="emphasis">simultaneously</em> consider many groups, and evaluate whether their sample means differ more than we would expect from natural variation. We call this variability the <dfn class="terminology">mean square between groups (MSG)</dfn>, and it has an associated degrees of freedom, <span class="process-math">\(df_{G} = k - 1\)</span> when there are <span class="process-math">\(k\)</span> groups. The <span class="process-math">\(MSG\)</span> can be thought of as a scaled variance formula for means. If the null hypothesis is true, any variation in the sample means is due to chance and shouldn’t be too large. However, we typically use software for these computations.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-multiple-comparisons-3-1">
-<em class="alert">Multiple Testing Problem:</em> When conducting many pairwise comparisons, the chance of making at least one Type 1 error increases. Methods like the <dfn class="terminology">Bonferroni correction</dfn> or <dfn class="terminology">Tukey’s HSD</dfn> help control this error rate.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-anova-f-test-3">The mean square between the groups is, on its own, quite useless in a hypothesis test. We need a benchmark value for how much variability should be expected among the sample means if the null hypothesis is true. To this end, we compute a pooled variance estimate, often abbreviated as the <dfn class="terminology">mean square error (MSE)</dfn>, which has an associated degrees of freedom value <span class="process-math">\(df_E = n - k\text{.}\)</span> It is helpful to think of <span class="process-math">\(MSE\)</span> as a measure of the variability within the groups.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-multiple-comparisons-4">A simple approach is the <dfn class="terminology">Bonferroni correction</dfn>: If conducting <span class="process-math">\(m\)</span> tests, use <span class="process-math">\(\alpha/m\)</span> as the significance level for each individual test to maintain an overall significance level of approximately <span class="process-math">\(\alpha\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-anova-f-test-4">When the null hypothesis is true, any differences among the sample means are only due to chance, and the <span class="process-math">\(MSG\)</span> and <span class="process-math">\(MSE\)</span> should be about equal. As a test statistic for ANOVA, we examine the fraction of <span class="process-math">\(MSG\)</span> and <span class="process-math">\(MSE\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 7.5.4: Multiple Comparisons and What ANOVA Doesn’t Tell Us"><a href="#subsec-multiple-comparisons" title="Copy heading and permalink for Subsection 7.5.4: Multiple Comparisons and What ANOVA Doesn’t Tell Us" aria-label="Copy heading and permalink for Subsection 7.5.4: Multiple Comparisons and What ANOVA Doesn’t Tell Us">🔗</a></div></section><div class="autopermalink" data-description="Section 7.5: Comparing Many Means with ANOVA"><a href="#sec-anova" title="Copy heading and permalink for Section 7.5: Comparing Many Means with ANOVA" aria-label="Copy heading and permalink for Section 7.5: Comparing Many Means with ANOVA">🔗</a></div></section></div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-f-dist-2-426.html ./knowl/xref/fig-f-dist-2-426.html" id="subsec-anova-f-test-5">
+\begin{gather*}
+F = \frac{MSG}{MSE}
+\end{gather*}
+</div>
+<div class="para" id="subsec-anova-f-test-6">The <span class="process-math">\(MSG\)</span> represents a measure of the between-group variability, and <span class="process-math">\(MSE\)</span> measures the variability within each of the groups.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-anova-f-test-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="subsec-anova-f-test-7-1-1">For the baseball data, <span class="process-math">\(MSG = 0.00803\)</span> and <span class="process-math">\(MSE = 0.00158\text{.}\)</span> Identify the degrees of freedom associated with MSG and MSE and verify the <span class="process-math">\(F\)</span> statistic is approximately 5.077.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="subsec-anova-f-test-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-anova-f-test-7-2-1">There are <span class="process-math">\(k = 3\)</span> groups, so <span class="process-math">\(df_{G} = k - 1 = 2\text{.}\)</span> There are <span class="process-math">\(n = n_1 + n_2 + n_3 = 429\)</span> total observations, so <span class="process-math">\(df_{E} = n - k = 426\text{.}\)</span> Then the <span class="process-math">\(F\)</span> statistic is computed as the ratio of <span class="process-math">\(MSG\)</span> and <span class="process-math">\(MSE\text{:}\)</span> <span class="process-math">\(F = \frac{MSG}{MSE} = \frac{0.00803}{0.00158} = 5.082 \approx 5.077\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.11.1"><a href="#subsec-anova-f-test-7-2" title="Copy heading and permalink for Solution 7.5.11.1" aria-label="Copy heading and permalink for Solution 7.5.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 7.5.11"><a href="#subsec-anova-f-test-7" title="Copy heading and permalink for Checkpoint 7.5.11" aria-label="Copy heading and permalink for Checkpoint 7.5.11">🔗</a></div></article></details><div class="para" id="subsec-anova-f-test-8">We can use the <span class="process-math">\(F\)</span> statistic to evaluate the hypotheses in what is called an <dfn class="terminology">F-test</dfn>. A p-value can be computed from the <span class="process-math">\(F\)</span> statistic using an <span class="process-math">\(F\)</span> distribution, which has two associated parameters: <span class="process-math">\(df_{1}\)</span> and <span class="process-math">\(df_{2}\text{.}\)</span> For the <span class="process-math">\(F\)</span> statistic in ANOVA, <span class="process-math">\(df_{1} = df_{G}\)</span> and <span class="process-math">\(df_{2} = df_{E}\text{.}\)</span> An <span class="process-math">\(F\)</span> distribution with 2 and 426 degrees of freedom, corresponding to the <span class="process-math">\(F\)</span> statistic for the baseball hypothesis test, is shown in <a href="sec-anova.html#fig-f-dist-2-426" class="xref" data-knowl="./knowl/xref/fig-f-dist-2-426.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.12">Figure 7.5.12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-f-dist-2-426"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/ch_inference_for_means/figures/fDist2And423/fDist2And423Shaded.png" class="contained" alt="An F distribution with df-sub-1 equals 2 and df-sub-2 equals 426 is shown. This distribution starts at zero and runs up (and past) a value of 8. The distribution is strongly right skewed. The distribution peaks right at 0 and tapers off quickly, with about 5 percent to 10 percent of the distribution lying above a value of 2. The distribution is indistinguishable from the horizontal axis by about 5. The figure also annotates a small tail area at and above values of 5."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An <span class="process-math">\(F\)</span> distribution with <span class="process-math">\(df_1=2\)</span> and <span class="process-math">\(df_2=426\text{.}\)</span><div class="autopermalink" data-description="Figure 7.5.12"><a href="#fig-f-dist-2-426" title="Copy heading and permalink for Figure 7.5.12" aria-label="Copy heading and permalink for Figure 7.5.12">🔗</a></div></figcaption></figure><div class="para" id="subsec-anova-f-test-10">The larger the observed variability in the sample means (<span class="process-math">\(MSG\)</span>) relative to the within-group observations (<span class="process-math">\(MSE\)</span>), the larger <span class="process-math">\(F\)</span> will be and the stronger the evidence against the null hypothesis. Because larger values of <span class="process-math">\(F\)</span> represent stronger evidence against the null hypothesis, we use the upper tail of the distribution to compute a p-value.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-f-test-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="asm-f-test"><h4 class="heading"><span class="title">The <span class="process-math">\(F\)</span> statistic and the <span class="process-math">\(F\)</span>-test.</span></h4>
+<div class="para" id="asm-f-test-2">Analysis of variance (ANOVA) is used to test whether the mean outcome differs across 2 or more groups. ANOVA uses a test statistic <span class="process-math">\(F\text{,}\)</span> which represents a standardized ratio of variability in the sample means relative to the variability within the groups. If <span class="process-math">\(H_0\)</span> is true and the model conditions are satisfied, the statistic <span class="process-math">\(F\)</span> follows an <span class="process-math">\(F\)</span> distribution with parameters <span class="process-math">\(df_{1} = k - 1\)</span> and <span class="process-math">\(df_{2} = n - k\text{.}\)</span> The upper tail of the <span class="process-math">\(F\)</span> distribution is used to represent the p-value.<div class="autopermalink" data-description="Paragraph"><a href="#asm-f-test-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: The F statistic and the F-test"><a href="#asm-f-test" title="Copy heading and permalink for Assemblage: The F statistic and the F-test" aria-label="Copy heading and permalink for Assemblage: The F statistic and the F-test">🔗</a></div></article><details id="ex-mlb-f-pvalue" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-mlb-f-pvalue-1-1">The p-value corresponding to the shaded area in <a href="sec-anova.html#fig-f-dist-2-426" class="xref" data-knowl="./knowl/xref/fig-f-dist-2-426.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.12">Figure 7.5.12</a> is equal to about 0.0066. Does this provide strong evidence against the null hypothesis?<div class="autopermalink" data-description="Paragraph"><a href="#ex-mlb-f-pvalue-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-mlb-f-pvalue-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-mlb-f-pvalue-2-1">The p-value is smaller than 0.05, indicating the evidence is strong enough to reject the null hypothesis at a significance level of 0.05. That is, the data provide strong evidence that the average on-base percentage varies by player’s primary field position.<div class="autopermalink" data-description="Paragraph"><a href="#ex-mlb-f-pvalue-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.13.1"><a href="#ex-mlb-f-pvalue-2" title="Copy heading and permalink for Solution 7.5.13.1" aria-label="Copy heading and permalink for Solution 7.5.13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.13"><a href="#ex-mlb-f-pvalue" title="Copy heading and permalink for Example 7.5.13" aria-label="Copy heading and permalink for Example 7.5.13">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 7.5.3: Analysis of variance (ANOVA) and the F-test"><a href="#subsec-anova-f-test" title="Copy heading and permalink for Subsection 7.5.3: Analysis of variance (ANOVA) and the F-test" aria-label="Copy heading and permalink for Subsection 7.5.3: Analysis of variance (ANOVA) and the F-test">🔗</a></div></section><section class="subsection" id="subsec-anova-table-software"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading an ANOVA table from software</span>
+</h3>
+<div class="para" id="subsec-anova-table-software-2">The calculations required to perform an ANOVA by hand are tedious and prone to human error. For these reasons, it is common to use statistical software to calculate the <span class="process-math">\(F\)</span> statistic and p-value.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-table-software-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-anova-table-software-3">An ANOVA can be summarized in a table very similar to that of a regression summary, which we will see in later chapters. <a href="sec-anova.html#table-anova-summary-mlb" class="xref" data-knowl="./knowl/xref/table-anova-summary-mlb.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.14: ANOVA summary for testing whether the average on-base percentage differs across player positions">Table 7.5.14</a> shows an ANOVA summary to test whether the mean of on-base percentage varies by player positions in the MLB. Many of these values should look familiar; in particular, the <span class="process-math">\(F\)</span>-test statistic and p-value can be retrieved from the last two columns.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-table-software-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-anova-summary-mlb"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>ANOVA summary for testing whether the average on-base percentage differs across player positions<div class="autopermalink" data-description="Table 7.5.14: ANOVA summary for testing whether the average on-base percentage differs across player positions"><a href="#table-anova-summary-mlb" title="Copy heading and permalink for Table 7.5.14: ANOVA summary for testing whether the average on-base percentage differs across player positions" aria-label="Copy heading and permalink for Table 7.5.14: ANOVA summary for testing whether the average on-base percentage differs across player positions">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Df</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sum Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Mean Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">F value</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Pr(<span class="process-math">\(&gt;F\)</span>)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">position</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">0.0161</td>
+<td class="l m b0 r0 l0 t0 lines">0.0080</td>
+<td class="l m b0 r0 l0 t0 lines">5.0766</td>
+<td class="l m b0 r0 l0 t0 lines">0.0066</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Residuals</td>
+<td class="l m b0 r0 l0 t0 lines">426</td>
+<td class="l m b0 r0 l0 t0 lines">0.6740</td>
+<td class="l m b0 r0 l0 t0 lines">0.0016</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines" colspan="6">
+<span class="process-math">\(s_{pooled} = 0.040\)</span> on <span class="process-math">\(df = 426\)</span>
+</td></tr>
+</table></div></figure><div class="autopermalink" data-description="Subsection 7.5.4: Reading an ANOVA table from software"><a href="#subsec-anova-table-software" title="Copy heading and permalink for Subsection 7.5.4: Reading an ANOVA table from software" aria-label="Copy heading and permalink for Subsection 7.5.4: Reading an ANOVA table from software">🔗</a></div></section><section class="subsection" id="subsec-anova-diagnostics"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Graphical diagnostics for an ANOVA analysis</span>
+</h3>
+<div class="para" id="subsec-anova-diagnostics-2">There are three conditions we must check for an ANOVA analysis: all observations must be independent, the data in each group must be nearly normal, and the variance within each group must be approximately equal.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-diagnostics-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<dl class="description-list">
+<dt id="subsec-anova-diagnostics-3-1">Independence.<div class="autopermalink" data-description="Item: Independence."><a href="#subsec-anova-diagnostics-3-1" title="Copy heading and permalink for Item: Independence." aria-label="Copy heading and permalink for Item: Independence.">🔗</a></div>
+</dt>
+<dd><div class="para" id="subsec-anova-diagnostics-3-1-2">If the data are a simple random sample, this condition is satisfied. For processes and experiments, carefully consider whether the data may be independent (e.g. no pairing). For example, in the MLB data, the data were not sampled. However, there are not obvious reasons why independence would not hold for most or all observations.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-diagnostics-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></dd>
+<dt id="subsec-anova-diagnostics-3-2">Approximately normal.<div class="autopermalink" data-description="Item: Approximately normal."><a href="#subsec-anova-diagnostics-3-2" title="Copy heading and permalink for Item: Approximately normal." aria-label="Copy heading and permalink for Item: Approximately normal.">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-anova-diagnostics-3-2-2">As with one- and two-sample testing for means, the normality assumption is especially important when the sample size is quite small when it is ironically difficult to check for non-normality. A histogram of the observations from each group is shown in <a href="sec-anova.html#fig-mlb-anova-histograms" class="xref" data-knowl="./knowl/xref/fig-mlb-anova-histograms.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.15">Figure 7.5.15</a>. Since each of the groups we’re considering have relatively large sample sizes, what we’re looking for are major outliers. None are apparent, so this condition is reasonably met.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-diagnostics-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-mlb-anova-histograms"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/ch_inference_for_means/figures/mlbANOVA/mlbANOVADiagNormalityGroups.png" class="contained" alt="Three histograms are shown, one for Outfielders, one for Infielders, and one for Catchers. The Outfielders and Infielders are centered slightly above 0.3, while the Catchers distribution is centered at about 0.3. The variability in each group is about 0.03. Each of the distributions somewhat resemble normal distributions and do not have any major outliers."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Histograms of OBP for each field position.<div class="autopermalink" data-description="Figure 7.5.15"><a href="#fig-mlb-anova-histograms" title="Copy heading and permalink for Figure 7.5.15" aria-label="Copy heading and permalink for Figure 7.5.15">🔗</a></div></figcaption></figure>
+</dd>
+<dt id="subsec-anova-diagnostics-3-3">Constant variance.<div class="autopermalink" data-description="Item: Constant variance."><a href="#subsec-anova-diagnostics-3-3" title="Copy heading and permalink for Item: Constant variance." aria-label="Copy heading and permalink for Item: Constant variance.">🔗</a></div>
+</dt>
+<dd><div class="para" id="subsec-anova-diagnostics-3-3-2">The last assumption is that the variance in the groups is about equal from one group to the next. This assumption can be checked by examining a side-by-side box plot of the outcomes across the groups, as in <a href="sec-anova.html#fig-mlb-anova-boxplot" class="xref" data-knowl="./knowl/xref/fig-mlb-anova-boxplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.9">Figure 7.5.9</a>. In this case, the variability is similar in the three groups but not identical. We see in <a href="sec-anova.html#table-mlb-summary-stats" class="xref" data-knowl="./knowl/xref/table-mlb-summary-stats.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.8: Summary statistics of on-base percentage, split by player position">Table 7.5.8</a> that the standard deviation doesn’t vary much from one group to the next.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-diagnostics-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></dd>
+</dl>
+<article class="assemblage assemblage-like" id="subsec-anova-diagnostics-4"><h4 class="heading"><span class="title">Diagnostics for an ANOVA analysis.</span></h4>
+<div class="para" id="subsec-anova-diagnostics-4-2">Independence is always important to an ANOVA analysis. The normality condition is very important when the sample sizes for each group are relatively small. The constant variance condition is especially important when the sample sizes differ between groups.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-anova-diagnostics-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Diagnostics for an ANOVA analysis"><a href="#subsec-anova-diagnostics-4" title="Copy heading and permalink for Assemblage: Diagnostics for an ANOVA analysis" aria-label="Copy heading and permalink for Assemblage: Diagnostics for an ANOVA analysis">🔗</a></div></article><div class="autopermalink" data-description="Subsection 7.5.5: Graphical diagnostics for an ANOVA analysis"><a href="#subsec-anova-diagnostics" title="Copy heading and permalink for Subsection 7.5.5: Graphical diagnostics for an ANOVA analysis" aria-label="Copy heading and permalink for Subsection 7.5.5: Graphical diagnostics for an ANOVA analysis">🔗</a></div></section><section class="subsection" id="subsec-multiple-comparisons"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiple comparisons and controlling Type 1 Error rate</span>
+</h3>
+<div class="para" id="subsec-multiple-comparisons-2">When we reject the null hypothesis in an ANOVA analysis, we might wonder, which of these groups have different means? To answer this question, we compare the means of each possible pair of groups. For instance, if there are three groups and there is strong evidence that there are some differences in the group means, there are three comparisons to make: group 1 to group 2, group 1 to group 3, and group 2 to group 3. These comparisons can be accomplished using a two-sample <span class="process-math">\(t\)</span>-test, but we use a modified significance level and a pooled estimate of the standard deviation across groups. Usually this pooled standard deviation can be found in the ANOVA table, e.g. along the bottom of <a href="sec-anova.html#table-anova-summary-mlb" class="xref" data-knowl="./knowl/xref/table-anova-summary-mlb.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.14: ANOVA summary for testing whether the average on-base percentage differs across player positions">Table 7.5.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-midterm-anova-setup" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-midterm-anova-setup-1-1">
+<a href="sec-anova.html#ex-three-stat-classes" class="xref" data-knowl="./knowl/xref/ex-three-stat-classes.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.5.1">Example 7.5.1</a> discussed three statistics lectures, all taught during the same semester. <a href="sec-anova.html#table-midterm-summary-stats" class="xref" data-knowl="./knowl/xref/table-midterm-summary-stats.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.17: Summary statistics for the first midterm scores in three different lectures of the same course">Table 7.5.17</a> shows summary statistics for these three courses, and a side-by-side box plot of the data is shown in <a href="sec-anova.html#fig-midterm-boxplot" class="xref" data-knowl="./knowl/xref/fig-midterm-boxplot.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.5.18">Figure 7.5.18</a>. We would like to conduct an ANOVA for these data. Do you see any deviations from the three conditions for ANOVA?<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-anova-setup-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-midterm-anova-setup-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-midterm-anova-setup-2-1">In this case (like many others) it is difficult to check independence in a rigorous way. Instead, the best we can do is use common sense to consider reasons the assumption of independence may not hold. For instance, the independence assumption may not be reasonable if there is a star teaching assistant that only half of the students may access; such a scenario would divide a class into two subgroups. No such situations were evident for these particular data, and we believe that independence is acceptable.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-anova-setup-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-midterm-anova-setup-2-2">The distributions in the side-by-side box plot appear to be roughly symmetric and show no noticeable outliers.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-anova-setup-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-midterm-anova-setup-2-3">The box plots show approximately equal variability, which can be verified in <a href="sec-anova.html#table-midterm-summary-stats" class="xref" data-knowl="./knowl/xref/table-midterm-summary-stats.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.17: Summary statistics for the first midterm scores in three different lectures of the same course">Table 7.5.17</a>, supporting the constant variance assumption.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-anova-setup-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.16.1"><a href="#ex-midterm-anova-setup-2" title="Copy heading and permalink for Solution 7.5.16.1" aria-label="Copy heading and permalink for Solution 7.5.16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.16"><a href="#ex-midterm-anova-setup" title="Copy heading and permalink for Example 7.5.16" aria-label="Copy heading and permalink for Example 7.5.16">🔗</a></div></article></details><figure class="table table-like" id="table-midterm-summary-stats"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Summary statistics for the first midterm scores in three different lectures of the same course<div class="autopermalink" data-description="Table 7.5.17: Summary statistics for the first midterm scores in three different lectures of the same course"><a href="#table-midterm-summary-stats" title="Copy heading and permalink for Table 7.5.17: Summary statistics for the first midterm scores in three different lectures of the same course" aria-label="Copy heading and permalink for Table 7.5.17: Summary statistics for the first midterm scores in three different lectures of the same course">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Class <span class="process-math">\(i\)</span>
+</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">A</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">B</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">C</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(n_i\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">58</td>
+<td class="l m b0 r0 l0 t0 lines">55</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\bar{x}_i\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">75.1</td>
+<td class="l m b0 r0 l0 t0 lines">72.0</td>
+<td class="l m b0 r0 l0 t0 lines">78.9</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s_i\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">13.9</td>
+<td class="l m b0 r0 l0 t0 lines">13.8</td>
+<td class="l m b0 r0 l0 t0 lines">13.1</td>
+</tr>
+</table></div></figure><figure class="figure figure-like" id="fig-midterm-boxplot"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/ch_inference_for_means/figures/classData/classDataSBSBoxPlot.png" class="contained" alt="Side-by-side box plot for the first midterm scores in three different lectures of the same course. Lecture A has a box from about 65 to 85, a median of 73, and whiskers that extend down to 45 and up to 100. Lecture B has a box from about 62 to 82, a median of 72, and whiskers that extend down to 40 and up to 100. Lecture C has a box from about 73 to 88, a median of 82, and whiskers that extend down to 45 and up to 100."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Side-by-side box plot for the first midterm scores in three different lectures of the same course.<div class="autopermalink" data-description="Figure 7.5.18"><a href="#fig-midterm-boxplot" title="Copy heading and permalink for Figure 7.5.18" aria-label="Copy heading and permalink for Figure 7.5.18">🔗</a></div></figcaption></figure><details id="subsec-multiple-comparisons-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="subsec-multiple-comparisons-6-1-1">ANOVA was conducted for the midterm data, and summary results are shown in <a href="sec-anova.html#table-anova-summary-midterm" class="xref" data-knowl="./knowl/xref/table-anova-summary-midterm.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.5.20: ANOVA summary table for the midterm data">Table 7.5.20</a>. What should we conclude?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="subsec-multiple-comparisons-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-multiple-comparisons-6-2-1">The p-value of the test is 0.0330, less than the default significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the difference in the average midterm scores is not due to chance.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.19.1"><a href="#subsec-multiple-comparisons-6-2" title="Copy heading and permalink for Solution 7.5.19.1" aria-label="Copy heading and permalink for Solution 7.5.19.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 7.5.19"><a href="#subsec-multiple-comparisons-6" title="Copy heading and permalink for Checkpoint 7.5.19" aria-label="Copy heading and permalink for Checkpoint 7.5.19">🔗</a></div></article></details><figure class="table table-like" id="table-anova-summary-midterm"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>ANOVA summary table for the midterm data<div class="autopermalink" data-description="Table 7.5.20: ANOVA summary table for the midterm data"><a href="#table-anova-summary-midterm" title="Copy heading and permalink for Table 7.5.20: ANOVA summary table for the midterm data" aria-label="Copy heading and permalink for Table 7.5.20: ANOVA summary table for the midterm data">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Df</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sum Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Mean Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">F value</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Pr(<span class="process-math">\(&gt;F\)</span>)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">lecture</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">1290.11</td>
+<td class="l m b0 r0 l0 t0 lines">645.06</td>
+<td class="l m b0 r0 l0 t0 lines">3.48</td>
+<td class="l m b0 r0 l0 t0 lines">0.0330</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Residuals</td>
+<td class="l m b0 r0 l0 t0 lines">161</td>
+<td class="l m b0 r0 l0 t0 lines">29810.13</td>
+<td class="l m b0 r0 l0 t0 lines">185.16</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr><td class="l m b0 r0 l0 t0 lines" colspan="6">
+<span class="process-math">\(s_{pooled}=13.61\)</span> on <span class="process-math">\(df=161\)</span>
+</td></tr>
+</table></div></figure><div class="para" id="subsec-multiple-comparisons-8">There is strong evidence that the different means in each of the three classes are not simply due to chance. We might wonder, which of the classes are actually different? As discussed in earlier chapters, a two-sample <span class="process-math">\(t\)</span>-test could be used to test for differences in each possible pair of groups. However, one pitfall was discussed in <a href="sec-anova.html#ex-data-snooping" class="xref" data-knowl="./knowl/xref/ex-data-snooping.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.5.10">Example 7.5.10</a>: when we run so many tests, the Type 1 Error rate increases. This issue is resolved by using a modified significance level.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="subsec-multiple-comparisons-9"><h4 class="heading"><span class="title">Multiple comparisons and the Bonferroni correction for <span class="process-math">\(\alpha\)</span>.</span></h4>
+<div class="para" id="subsec-multiple-comparisons-9-2">The scenario of testing many pairs of groups is called <dfn class="terminology">multiple comparisons</dfn>. The <dfn class="terminology">Bonferroni correction</dfn> suggests that a more stringent significance level is more appropriate for these tests:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-multiple-comparisons-9-4">where <span class="process-math">\(K\)</span> is the number of comparisons being considered (formally or informally). If there are <span class="process-math">\(k\)</span> groups, then usually all possible pairs are compared and <span class="process-math">\(K=\frac{k(k-1)}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-9-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Multiple comparisons and the Bonferroni correction for \alpha"><a href="#subsec-multiple-comparisons-9" title="Copy heading and permalink for Assemblage: Multiple comparisons and the Bonferroni correction for \alpha" aria-label="Copy heading and permalink for Assemblage: Multiple comparisons and the Bonferroni correction for \alpha">🔗</a></div></article><details id="ex-midterm-pairwise" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-midterm-pairwise-1-1">In the previous exercise, you found strong evidence of differences in the average midterm grades between the three lectures. Complete the three possible pairwise comparisons using the Bonferroni correction and report any differences.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-pairwise-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-midterm-pairwise-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-midterm-pairwise-2-1">We use a modified significance level of <span class="process-math">\(\alpha^{\star} = 0.05 / 3 = 0.0167\text{.}\)</span> Additionally, we use the pooled estimate of the standard deviation: <span class="process-math">\(s_{pooled}=13.61\)</span> on <span class="process-math">\(df=161\text{,}\)</span> which is provided in the ANOVA summary table.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-pairwise-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-midterm-pairwise-2-2">
+<em class="alert">Lecture A versus Lecture B:</em> The estimated difference and standard error are, respectively,<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-pairwise-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-midterm-pairwise-2-3">
+\begin{align*}
+\bar{x}_A - \bar{x}_{B} \amp= 75.1 - 72.0 = 3.1\\
+SE \amp= \sqrt{\frac{13.61^2}{58} + \frac{13.61^2}{55}} = 2.56
+\end{align*}
+</div>
+<div class="para" id="ex-midterm-pairwise-2-4">This results in a T-score of 1.21 on <span class="process-math">\(df = 161\)</span> (we use the <span class="process-math">\(df\)</span> associated with <span class="process-math">\(s_{pooled}\)</span>). Statistical software was used to precisely identify the two-sided p-value since the modified significance level of 0.0167 is not found in the <span class="process-math">\(t\)</span>-table. The p-value (0.228) is larger than <span class="process-math">\(\alpha^*=0.0167\text{,}\)</span> so there is not strong evidence of a difference in the means of lectures A and B.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-pairwise-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-midterm-pairwise-2-5">
+<em class="alert">Lecture A versus Lecture C:</em> The estimated difference and standard error are 3.8 and 2.61, respectively. This results in a <span class="process-math">\(T\)</span> score of 1.46 on <span class="process-math">\(df = 161\)</span> and a two-sided p-value of 0.1462. This p-value is larger than <span class="process-math">\(\alpha^*\text{,}\)</span> so there is not strong evidence of a difference in the means of lectures A and C.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-pairwise-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-midterm-pairwise-2-6">
+<em class="alert">Lecture B versus Lecture C:</em> The estimated difference and standard error are 6.9 and 2.65, respectively. This results in a <span class="process-math">\(T\)</span> score of 2.60 on <span class="process-math">\(df = 161\)</span> and a two-sided p-value of 0.0102. This p-value is smaller than <span class="process-math">\(\alpha^*\text{.}\)</span> Here we find strong evidence of a difference in the means of lectures B and C.<div class="autopermalink" data-description="Paragraph"><a href="#ex-midterm-pairwise-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.21.1"><a href="#ex-midterm-pairwise-2" title="Copy heading and permalink for Solution 7.5.21.1" aria-label="Copy heading and permalink for Solution 7.5.21.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.5.21"><a href="#ex-midterm-pairwise" title="Copy heading and permalink for Example 7.5.21" aria-label="Copy heading and permalink for Example 7.5.21">🔗</a></div></article></details><div class="para" id="subsec-multiple-comparisons-11">We might summarize the findings of the analysis from <a href="sec-anova.html#ex-midterm-pairwise" class="xref" data-knowl="./knowl/xref/ex-midterm-pairwise.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.5.21">Example 7.5.21</a> using the following notation:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table-anova-summary-mlb.html ./knowl/xref/ex-three-stat-classes.html ./knowl/xref/table-midterm-summary-stats.html ./knowl/xref/fig-midterm-boxplot.html ./knowl/xref/table-midterm-summary-stats.html ./knowl/xref/table-anova-summary-midterm.html ./knowl/xref/ex-data-snooping.html ./knowl/xref/ex-midterm-pairwise.html" id="subsec-multiple-comparisons-12">
+\begin{align*}
+\mu_A \amp\stackrel{?}{=} \mu_B \amp \mu_A \amp\stackrel{?}{=} \mu_C \amp \mu_B \amp\neq \mu_C
+\end{align*}
+</div>
+<div class="para" id="subsec-multiple-comparisons-13">The midterm mean in lecture A is not statistically distinguishable from those of lectures B or C. However, there is strong evidence that lectures B and C are different. In the first two pairwise comparisons, we did not have sufficient evidence to reject the null hypothesis. Recall that failing to reject <span class="process-math">\(H_0\)</span> does not imply <span class="process-math">\(H_0\)</span> is true.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="subsec-multiple-comparisons-14"><h4 class="heading"><span class="title">Reject <span class="process-math">\(H_0\)</span> with ANOVA but find no differences in group means.</span></h4>
+<div class="para" id="subsec-multiple-comparisons-14-2">It is possible to reject the null hypothesis using ANOVA and then to not subsequently identify differences in the pairwise comparisons. However, <em class="emphasis">this does not invalidate the ANOVA conclusion</em>. It only means we have not been able to successfully identify which specific groups differ in their means.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Reject H_0 with ANOVA but find no differences in group means"><a href="#subsec-multiple-comparisons-14" title="Copy heading and permalink for Assemblage: Reject H_0 with ANOVA but find no differences in group means" aria-label="Copy heading and permalink for Assemblage: Reject H_0 with ANOVA but find no differences in group means">🔗</a></div></article><div class="para" id="subsec-multiple-comparisons-15">The ANOVA procedure examines the big picture: it considers all groups simultaneously to decipher whether there is evidence that some difference exists. Even if the test indicates that there is strong evidence of differences in group means, identifying with high confidence a specific difference as statistically significant is more difficult.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-multiple-comparisons-16">Consider the following analogy: we observe a Wall Street firm that makes large quantities of money based on predicting mergers. Mergers are generally difficult to predict, and if the prediction success rate is extremely high, that may be considered sufficiently strong evidence to warrant investigation by the Securities and Exchange Commission (SEC). While the SEC may be quite certain that there is insider trading taking place at the firm, the evidence against any single trader may not be very strong. It is only when the SEC considers all the data that they identify the pattern. This is effectively the strategy of ANOVA: stand back and consider all the groups simultaneously.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate"><a href="#subsec-multiple-comparisons" title="Copy heading and permalink for Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate" aria-label="Copy heading and permalink for Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate">🔗</a></div></section><div class="autopermalink" data-description="Section 7.5: Comparing many means with ANOVA"><a href="#sec-anova" title="Copy heading and permalink for Section 7.5: Comparing many means with ANOVA" aria-label="Copy heading and permalink for Section 7.5: Comparing many means with ANOVA">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec-power-calculations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-ch06-review.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="PowerForDifferenceOfTwoMeans.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-ch07-review.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

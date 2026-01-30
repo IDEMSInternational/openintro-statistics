@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Paired data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="OpenIntro Statistics">
+<meta property="book:author" content="David Diez">
+<meta property="book:author" content="Mine Çetinkaya-Rundel">
+<meta property="book:author" content="Christopher D Barr">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.11';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.fc0e080e84d54281.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="openintro-statistics" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://www.openintro.org/"><img src="external/images/openintro-logo.svg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="openintro-statistics.html"><span class="title">OpenIntro Statistics</span> <span class="subtitle">Fourth Edition</span></a></h1>
+<p class="byline">David Diez, Mine Çetinkaya-Rundel, Christopher D Barr</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="icon material-symbols-outlined" aria-hidden="true">&#xea5f;</span><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="oneSampleMeansWithTDistribution.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-inference-for-means.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="differenceOfTwoMeans.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="acknowledgement.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-intro-to-data.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stents-strokes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Case study: using stents to prevent strokes</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-stents-strokes.html#sec-stents-strokes-14" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-data-basics.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Data basics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-observations-variables" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Observations, variables, and data matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-types-of-variables" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Types of variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-relationships-between-variables" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Relationships between variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-explanatory-response-variables" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Explanatory and response variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-observational-studies-experiments" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Introducing observational studies and experiments</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-data-basics.html#sec-data-basics-8" class="internal"><span class="codenumber">1.2.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-sampling-principles.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Sampling principles and strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sampling-principles.html#subsec-populations-samples" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Populations and samples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sampling-principles.html#subsec-anecdotal-evidence" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Anecdotal evidence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sampling-principles.html#subsec-sampling-population" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Sampling from a population</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sampling-principles.html#subsec-observational-studies" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Observational studies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sampling-principles.html#subsec-four-sampling-methods" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Four sampling methods</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-sampling-principles.html#sec-sampling-principles-8" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-experiments.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Experiments</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-experiments.html#subsec-experimental-design" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Principles of experimental design</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-experiments.html#subsec-reducing-bias" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Reducing bias in human experiments</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-experiments.html#sec-experiments-5" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-review-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Review exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-review-exercises.html#sec-review-exercises-2" class="internal"><span class="codenumber">1.5</span> <span class="title">Review exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-summarizing-data.html" class="internal"><span class="codenumber">2</span> <span class="title">Summarizing data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-numerical-data.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Examining numerical data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-scatterplots" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Scatterplots for paired data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-dot-plots-mean" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Dot plots and the mean</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-histograms-shape" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Histograms and shape</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-variance-sd" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Variance and standard deviation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-boxplots-quartiles" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Box plots, quartiles, and the median</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-robust-stats" class="internal"><span class="codenumber">2.1.6</span> <span class="title">Robust statistics</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-transforming-data" class="internal"><span class="codenumber">2.1.7</span> <span class="title">Transforming data (special topic)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-numerical-data.html#subsec-mapping-data" class="internal"><span class="codenumber">2.1.8</span> <span class="title">Mapping data (special topic)</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-categorical-data.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Considering categorical data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-categorical-data.html#subsec-contingency-tables" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Contingency tables and bar plots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-categorical-data.html#subsec-row-column-proportions" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Row and column proportions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-categorical-data.html#subsec-bar-plot-two-vars" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Using a bar plot with two variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-categorical-data.html#subsec-mosaic-plots" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Mosaic plots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-categorical-data.html#subsec-pie-charts" class="internal"><span class="codenumber">2.2.5</span> <span class="title">The only pie chart you will see in this book</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-categorical-data.html#subsec-comparing-across-groups" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Comparing numerical data across groups</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-malaria-vaccine.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Case study: malaria vaccine</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-malaria-vaccine.html#subsec-variability-within-data" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Variability within data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-malaria-vaccine.html#subsec-simulating-the-study" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Simulating the study</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-malaria-vaccine.html#subsec-checking-independence" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Checking for independence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-malaria-vaccine.html#exercises-malaria-case" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-probability.html" class="internal"><span class="codenumber">3</span> <span class="title">Probability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-defining-probability.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Defining probability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-introductory-examples" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Introductory examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-probability-definition" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-disjoint-outcomes" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Disjoint or mutually exclusive outcomes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-probabilities-not-disjoint" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Probabilities when events are not disjoint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-probability-distributions" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Probability distributions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-complement" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Complement of an event</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-defining-probability.html#subsec-independence" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Independence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-conditional-probability.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Conditional probability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-exploring-contingency-table" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Exploring probabilities with a contingency table</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-marginal-joint-probabilities" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Marginal and joint probabilities</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-defining-conditional-probability" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Defining conditional probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-smallpox-boston" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Smallpox in Boston, 1721</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-general-multiplication-rule" class="internal"><span class="codenumber">3.2.5</span> <span class="title">General multiplication rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-independence-conditional" class="internal"><span class="codenumber">3.2.6</span> <span class="title">Independence considerations in conditional probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-tree-diagrams" class="internal"><span class="codenumber">3.2.7</span> <span class="title">Tree diagrams</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-conditional-probability.html#subsec-bayes-theorem" class="internal"><span class="codenumber">3.2.8</span> <span class="title">Bayes’ Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-sampling-small-population.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Sampling from a small population</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-random-variables.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables.html#subsec-expectation" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Expectation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables.html#subsec-variability-random-variables" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Variability in random variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-random-variables.html#subsec-linear-combinations" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Linear combinations of random variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-continuous-distributions.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Continuous distributions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-continuous-distributions.html#subsec-histograms-to-continuous" class="internal"><span class="codenumber">3.5.1</span> <span class="title">From histograms to continuous distributions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-continuous-distributions.html#subsec-probabilities-continuous" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Probabilities from continuous distributions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-distributions.html" class="internal"><span class="codenumber">4</span> <span class="title">Distributions of random variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-normal-distribution.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Normal distribution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-normal-distribution.html#subsec-normal-distribution-model" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Normal distribution model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-normal-distribution.html#subsec-standardizing-z-scores" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Standardizing with Z-scores</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-normal-distribution.html#subsec-finding-tail-areas" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Finding tail areas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-normal-distribution.html#subsec-normal-probability-examples" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Normal probability examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-normal-distribution.html#subsec-68-95-997-rule" class="internal"><span class="codenumber">4.1.5</span> <span class="title">68-95-99.7 rule</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-normal-distribution.html#sec-normal-distribution-8" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-geometric-distribution.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Geometric distribution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geometric-distribution.html#subsec-bernoulli-distribution" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Bernoulli distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geometric-distribution.html#subsec-geometric-distribution-def" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Geometric distribution</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-geometric-distribution.html#sec-geometric-distribution-5" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-binomial-distribution.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Binomial distribution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-binomial-distribution.html#subsec-binomial-distribution-def" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The binomial distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-binomial-distribution.html#subsec-normal-approx-binomial" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Normal approximation to the binomial distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-binomial-distribution.html#subsec-normal-approx-breaks-down" class="internal"><span class="codenumber">4.3.3</span> <span class="title">The normal approximation breaks down on small intervals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-binomial-distribution.html#sec-binomial-distribution-6" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-negative-binomial.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Negative binomial distribution</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-negative-binomial.html#exercises-negative-binomial" class="internal"><span class="codenumber">4.4</span> <span class="title">Section 4.4 Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-poisson-distribution.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Poisson distribution</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-poisson-distribution.html#exercises-poisson" class="internal"><span class="codenumber">4.5</span> <span class="title">Section 4.5 Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ch04-review.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Chapter review</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ch04-review.html#sec-ch04-review-2" class="internal"><span class="codenumber">4.6</span> <span class="title">Chapter review</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-foundations-for-inference.html" class="internal"><span class="codenumber">5</span> <span class="title">Foundations for Inference</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-point-estimates.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Point Estimates and Sampling Variability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-point-estimates-error" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Point Estimates and Error</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-variability-point-estimate" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Understanding the Variability of a Point Estimate</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-central-limit-theorem" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-clt-real-world" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to a real-world setting</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-more-details-clt" class="internal"><span class="codenumber">5.1.5</span> <span class="title">More details regarding the Central Limit Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-extending-framework" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Extending the framework for other statistics</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-point-estimates.html#sec-point-estimates-9" class="internal"><span class="codenumber">5.1.7</span> <span class="title">Section 5.1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-confidence-intervals.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Confidence Intervals for a Proportion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-capturing-parameter" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Capturing the Population Parameter</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-95-ci" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% Confidence Interval</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-changing-confidence" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Changing the Confidence Level</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-more-case-studies" class="internal"><span class="codenumber">5.2.4</span> <span class="title">More Case Studies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-cis" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-confidence-intervals.html#sec-confidence-intervals-8" class="internal"><span class="codenumber">5.2.6</span> <span class="title">Section 5.2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis Testing for a Proportion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-ht-framework" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Hypothesis testing framework</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-ht-confidence-intervals" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Testing hypotheses using confidence intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision errors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-formal-testing-p-values" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal testing using p-values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-p-values" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Formal Testing Using P-values</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-significance-level" class="internal"><span class="codenumber">5.3.6</span> <span class="title">Choosing a Significance Level</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-one-sided-tests" class="internal"><span class="codenumber">5.3.7</span> <span class="title">One-Sided Hypothesis Tests (Special Topic)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-statistical-vs-practical" class="internal"><span class="codenumber">5.3.8</span> <span class="title">Statistical Significance versus Practical Significance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#sec-hypothesis-testing-11" class="internal"><span class="codenumber">5.3.9</span> <span class="title">Section 5.3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chapter 5 Review Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ch05-review.html#sec-ch05-review-5" class="internal"><span class="codenumber">5.4</span> <span class="title">Review Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-inference-for-props.html" class="internal"><span class="codenumber">6</span> <span class="title">Inference for Categorical Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="singleProportion.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Inference for a single proportion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="singleProportion.html#subsec-sample-prop-normal" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Identifying when the sample proportion is nearly normal</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="singleProportion.html#confIntForPropSection" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Confidence intervals for a proportion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="singleProportion.html#htForPropSection" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Hypothesis testing for a proportion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="singleProportion.html#subsec-conditions-not-met" class="internal"><span class="codenumber">6.1.4</span> <span class="title">When one or more conditions aren’t met</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="singleProportion.html#subsec-choosing-sample-size" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Choosing a sample size when estimating a proportion</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="differenceOfTwoProportions.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Difference of two proportions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoProportions.html#subsec-sampling-dist-diff-two-props" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Sampling distribution of the difference of two proportions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoProportions.html#confIntForPropDiffSection" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Confidence intervals for <span class="process-math">\(p_1 - p_2\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoProportions.html#htForPropDiffSection" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Hypothesis tests for the difference of two proportions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoProportions.html#subsec-more-2prop-ht" class="internal"><span class="codenumber">6.2.4</span> <span class="title">More on 2-proportion hypothesis tests (special topic)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoProportions.html#subsec-se-formula-special" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Examining the standard error formula (special topic)</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="oneWayChiSquare.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Testing for goodness of fit using chi-square</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneWayChiSquare.html#subsec-test-statistic-one-way" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Creating a test statistic for one-way tables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneWayChiSquare.html#chiSquareTestStatistic" class="internal"><span class="codenumber">6.3.2</span> <span class="title">The chi-square test statistic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneWayChiSquare.html#subsec-chi-square-dist-areas" class="internal"><span class="codenumber">6.3.3</span> <span class="title">The chi-square distribution and finding areas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneWayChiSquare.html#pValueForAChiSquareTest" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Finding a p-value for a chi-square distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneWayChiSquare.html#subsec-goodness-of-fit-distribution" class="internal"><span class="codenumber">6.3.5</span> <span class="title">Evaluating goodness of fit for a distribution</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chi-square-independence.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Testing for independence in two-way tables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-expected-counts-two-way" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Expected counts in two-way tables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chi-square-independence.html#subsec-chi-square-test-two-way" class="internal"><span class="codenumber">6.4.2</span> <span class="title">The chi-square test for two-way tables</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chi-square-independence.html#sec-chi-square-independence-5" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Section Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch06-review.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Chapter 6 Review Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-inference-for-means.html" class="internal"><span class="codenumber">7</span> <span class="title">Inference for Numerical Data</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html" class="internal"><span class="codenumber">7.1</span> <span class="title">One-sample means with the <span class="process-math">\(t\)</span>-distribution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#x_bar_sampling_distribution" class="internal"><span class="codenumber">7.1.1</span> <span class="title">The sampling distribution of <span class="process-math">\(\bar{x}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#x_bar_conditions" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Evaluating the two conditions required for modeling <span class="process-math">\(\bar{x}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#introducingTheTDistribution" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Introducing the <span class="process-math">\(t\)</span>-distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#oneSampleTConfidenceIntervals" class="internal"><span class="codenumber">7.1.4</span> <span class="title">One sample <span class="process-math">\(t\)</span>-confidence intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#oneSampleTTests" class="internal"><span class="codenumber">7.1.5</span> <span class="title">One sample <span class="process-math">\(t\)</span>-tests</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="oneSampleMeansWithTDistribution.html#oneSampleMeansWithTDistribution-8" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Section Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="pairedData.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Paired data</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="pairedData.html#paired-observations" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Paired observations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="pairedData.html#inference-for-paired-data" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Inference for paired data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="pairedData.html#pairedData-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Section Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="differenceOfTwoMeans.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Difference of two means</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#confidenceIntervalDiffMeans" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Confidence interval for a difference of means</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#hypothesisTestsDiffMeans" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Hypothesis tests for the difference of two means</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#caseStudyTwoExamVersions" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Case study: two versions of a course exam</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#pooledStandardDeviations" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Pooled standard deviation estimate (special topic)</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="differenceOfTwoMeans.html#differenceOfTwoMeans-7" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Power calculations for a difference of means</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#going-through-the-motions-of-a-test" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Going through the motions of a test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#computing-the-power-for-a-2-sample-test" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Computing the power for a 2-sample test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#determining-a-proper-sample-size" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Determining a proper sample size</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="PowerForDifferenceOfTwoMeans.html#PowerForDifferenceOfTwoMeans-6" class="internal"><span class="codenumber">7.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-anova.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Comparing many means with ANOVA</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-core-ideas-anova" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Core ideas of ANOVA</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-mlb-batting-anova" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Is batting performance related to player position in MLB?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-f-test" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Analysis of variance (ANOVA) and the <span class="process-math">\(F\)</span>-test</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-table-software" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Reading an ANOVA table from software</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-diagnostics" class="internal"><span class="codenumber">7.5.5</span> <span class="title">Graphical diagnostics for an ANOVA analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-multiple-comparisons" class="internal"><span class="codenumber">7.5.6</span> <span class="title">Multiple comparisons and controlling Type 1 Error rate</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch07-review.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Chapter 7 Review Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-simple-linear-regression.html" class="internal"><span class="codenumber">8</span> <span class="title">Introduction to Linear Regression</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Fitting a line, residuals, and correlation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-fitting-line-to-data" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Fitting a line to data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-possum-head-lengths" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Using linear regression to predict possum head lengths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-residuals" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Residuals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#subsec-correlation" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Describing linear relationships with correlation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fitting-line-residuals-correlation.html#exercises-sec-fitting-line-residuals-correlation" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Section 8.1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-least-squares-regression.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Least squares regression</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-gift-aid-elmhurst" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Gift aid for freshman at Elmhurst College</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-least-squares-criterion" class="internal"><span class="codenumber">8.2.2</span> <span class="title">An objective measure for finding the best line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-regression-conditions" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Conditions for the least squares line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-finding-least-squares-line" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Finding the least squares line</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-interpreting-regression-parameters" class="internal"><span class="codenumber">8.2.5</span> <span class="title">Interpreting regression model parameter estimates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-extrapolation" class="internal"><span class="codenumber">8.2.6</span> <span class="title">Extrapolation is treacherous</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-r-squared" class="internal"><span class="codenumber">8.2.7</span> <span class="title">Using <span class="process-math">\(R^2\)</span> to describe the strength of a fit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-least-squares-regression.html#subsec-categorical-predictors-two-levels" class="internal"><span class="codenumber">8.2.8</span> <span class="title">Categorical predictors with two levels</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-least-squares-regression.html#exercises-least-squares-regression" class="internal"><span class="codenumber">8.2.9</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-outliers-in-regression.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Types of outliers in linear regression</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-outliers-in-regression.html#sec-outliers-in-regression-9" class="internal"><span class="codenumber">8.3</span> <span class="title">Section Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-inference-for-regression.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Inference for linear regression</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-midterm-elections-unemployment" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Midterm elections and unemployment</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-understanding-regression-output" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Understanding regression output from software</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-inference-for-regression.html#subsec-ci-for-coefficient" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Confidence interval for a coefficient</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-inference-for-regression.html#sec-inference-for-regression-6" class="internal"><span class="codenumber">8.4.4</span> <span class="title">Section Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ch08-review.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Chapter 8 Review</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ch08-review.html#sec-ch08-review-3" class="internal"><span class="codenumber">8.5</span> <span class="title">Practice Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-multiple-logistic-regression.html" class="internal"><span class="codenumber">9</span> <span class="title">Multiple and Logistic Regression</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-multiple-regression-intro.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Introduction to Multiple Regression</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-indicator-categorical-predictors" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Indicator and Categorical Variables as Predictors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-multiple-regression-equation" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Multiple Regression Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-interpretation-coefficients" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Interpreting Coefficients</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-model-selection.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Model Selection</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-r-squared-adjusted" class="internal"><span class="codenumber">9.2.1</span> <span class="title">R-squared and Adjusted R-squared</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-variable-selection" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Variable Selection Strategies</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-model-assumptions.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Checking Model Assumptions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-assumptions.html#subsec-residual-diagnostics" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Residual Diagnostics</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-regression-case-study.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Case Study: Mario Kart</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-case-study-data" class="internal"><span class="codenumber">9.4.1</span> <span class="title">The Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-case-study-analysis" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Model Development</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-logistic-regression.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Introduction to Logistic Regression</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-logistic-function" class="internal"><span class="codenumber">9.5.1</span> <span class="title">The Logistic Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-odds-log-odds" class="internal"><span class="codenumber">9.5.2</span> <span class="title">Odds and Log-Odds</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-coefficient-interpretation-logistic" class="internal"><span class="codenumber">9.5.3</span> <span class="title">Interpreting Logistic Regression Coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-logistic-inference" class="internal"><span class="codenumber">9.5.4</span> <span class="title">Inference in Logistic Regression</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ch09-review.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Chapter Review</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ch09-review.html#subsec-ch09-summary" class="internal"><span class="codenumber">9.6.1</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ch09-review.html#subsec-ch09-terms" class="internal"><span class="codenumber">9.6.2</span> <span class="title">Terms</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="appendix-solutions.html" class="internal"><span class="codenumber">A</span> <span class="title">Exercise Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch01.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Introduction to Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch02.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Summarizing Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch03.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Probability</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch04.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Distributions of Random Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch05.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Foundations for Inference</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch06.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Inference for Categorical Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch07.html" class="internal"><span class="codenumber">A.7</span> <span class="title">Inference for Numerical Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch08.html" class="internal"><span class="codenumber">A.8</span> <span class="title">Introduction to Linear Regression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch09.html" class="internal"><span class="codenumber">A.9</span> <span class="title">Multiple and Logistic Regression</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="appendix-data.html" class="internal"><span class="codenumber">B</span> <span class="title">Data Sets within the Text</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch01.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Introduction to Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch02.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Summarizing Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch03.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Probability</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch04.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Distributions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch05.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Foundations for Inference</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch06.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Inference for Proportions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch07.html" class="internal"><span class="codenumber">B.7</span> <span class="title">Inference for Means</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch08.html" class="internal"><span class="codenumber">B.8</span> <span class="title">Simple Linear Regression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="data-ch09.html" class="internal"><span class="codenumber">B.9</span> <span class="title">Multiple and Logistic Regression</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="appendix-tables.html" class="internal"><span class="codenumber">C</span> <span class="title">Distribution Tables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="normal-probability-table.html" class="internal"><span class="codenumber">C.1</span> <span class="title">Normal Probability Table</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="t-probability-table.html" class="internal"><span class="codenumber">C.2</span> <span class="title"><span class="process-math">\(t\)</span>-Probability Table</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="chi-square-probability-table.html" class="internal"><span class="codenumber">C.3</span> <span class="title">Chi-Square Probability Table</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-5.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="pairedData"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Paired data</span>
+</h2>
+<section class="introduction" id="pairedData-2"><div class="para" id="pairedData-2-1">In an earlier edition of this textbook, we found that Amazon prices were, on average, lower than those of the UCLA Bookstore for UCLA courses in 2010. It’s been several years, and many stores have adapted to the online market, so we wondered, how is the UCLA Bookstore doing today?<div class="autopermalink" data-description="Paragraph"><a href="#pairedData-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="pairedData-2-2">We sampled 201 UCLA courses. Of those, 68 required books could be found on Amazon. A portion of the data set from these courses is shown in Figure <a href="pairedData.html#textbooksDF" class="xref" data-knowl="./knowl/xref/textbooksDF.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.2.1">Figure 7.2.1</a>, where prices are in US dollars.<div class="autopermalink" data-description="Paragraph"><a href="#pairedData-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="textbooksDF"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines">subject</td>
+<td class="l m b2 r0 l0 t0 lines">course number</td>
+<td class="l m b2 r0 l0 t0 lines">bookstore</td>
+<td class="l m b2 r0 l0 t0 lines">amazon</td>
+<td class="l m b2 r0 l0 t0 lines">price difference</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">American Indian Studies</td>
+<td class="l m b0 r0 l0 t0 lines">M10</td>
+<td class="l m b0 r0 l0 t0 lines">47.97</td>
+<td class="l m b0 r0 l0 t0 lines">47.45</td>
+<td class="l m b0 r0 l0 t0 lines">0.52</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">Anthropology</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">14.26</td>
+<td class="l m b0 r0 l0 t0 lines">13.55</td>
+<td class="l m b0 r0 l0 t0 lines">0.71</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">Arts and Architecture</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">13.50</td>
+<td class="l m b0 r0 l0 t0 lines">12.53</td>
+<td class="l m b0 r0 l0 t0 lines">0.97</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">68</td>
+<td class="l m b0 r0 l0 t0 lines">Jewish Studies</td>
+<td class="l m b0 r0 l0 t0 lines">M10</td>
+<td class="l m b0 r0 l0 t0 lines">35.96</td>
+<td class="l m b0 r0 l0 t0 lines">32.40</td>
+<td class="l m b0 r0 l0 t0 lines">3.56</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Four cases of the textbooks data set.<div class="autopermalink" data-description="Figure 7.2.1"><a href="#textbooksDF" title="Copy heading and permalink for Figure 7.2.1" aria-label="Copy heading and permalink for Figure 7.2.1">🔗</a></div></figcaption></figure></section><section class="subsection" id="paired-observations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Paired observations</span>
+</h3>
+<div class="para" id="paired-observations-2">Each textbook has two corresponding prices in the data set: one for the UCLA Bookstore and one for Amazon. When two sets of observations have this special correspondence, they are said to be <dfn class="terminology">paired</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#paired-observations-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="paired-data-def"><h4 class="heading"><span class="title">Paired data.</span></h4>
+<div class="para" id="paired-data-def-2">Two sets of observations are <em class="emphasis">paired</em> if each observation in one set has a special correspondence or connection with exactly one observation in the other data set.<div class="autopermalink" data-description="Paragraph"><a href="#paired-data-def-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Paired data"><a href="#paired-data-def" title="Copy heading and permalink for Assemblage: Paired data" aria-label="Copy heading and permalink for Assemblage: Paired data">🔗</a></div></article><div class="para" id="paired-observations-4">To analyze paired data, it is often useful to look at the difference in outcomes of each pair of observations. In the textbook data, we look at the differences in prices, which is represented as the <code class="code-inline tex2jax_ignore">price_difference</code> variable in the data set. Here the differences are taken as<div class="autopermalink" data-description="Paragraph"><a href="#paired-observations-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/textbooksDF.html ./knowl/xref/diffInTextbookPricesF18.html" id="paired-observations-5">
+\begin{equation*}
+\text{UCLA Bookstore price} - \text{Amazon price}
+\end{equation*}
+</div>
+<div class="para" id="paired-observations-6">It is important that we always subtract using a consistent order; here Amazon prices are always subtracted from UCLA prices. The first difference shown in Figure <a href="pairedData.html#textbooksDF" class="xref" data-knowl="./knowl/xref/textbooksDF.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.2.1">Figure 7.2.1</a> is computed as <span class="process-math">\(47.97 - 47.45 = 0.52\text{.}\)</span> Similarly, the second difference is computed as <span class="process-math">\(14.26 - 13.55 = 0.71\text{,}\)</span> and the third is <span class="process-math">\(13.50 - 12.53 = 0.97\text{.}\)</span> A histogram of the differences is shown in Figure <a href="pairedData.html#diffInTextbookPricesF18" class="xref" data-knowl="./knowl/xref/diffInTextbookPricesF18.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.2.2">Figure 7.2.2</a>. Using differences between paired observations is a common and useful way to analyze paired data.<div class="autopermalink" data-description="Paragraph"><a href="#paired-observations-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="diffInTextbookPricesF18"><div class="para" id="diffInTextbookPricesF18-2"><div class="autopermalink" data-description="Paragraph"><a href="#diffInTextbookPricesF18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Histogram of the difference in price for each book sampled.<div class="autopermalink" data-description="Figure 7.2.2"><a href="#diffInTextbookPricesF18" title="Copy heading and permalink for Figure 7.2.2" aria-label="Copy heading and permalink for Figure 7.2.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 7.2.1: Paired observations"><a href="#paired-observations" title="Copy heading and permalink for Subsection 7.2.1: Paired observations" aria-label="Copy heading and permalink for Subsection 7.2.1: Paired observations">🔗</a></div></section><section class="subsection" id="inference-for-paired-data"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inference for paired data</span>
+</h3>
+<div class="para" id="inference-for-paired-data-2">To analyze a paired data set, we simply analyze the differences. We can use the same <span class="process-math">\(t\)</span>-distribution techniques we applied in Section <a href="oneSampleMeansWithTDistribution.html" class="internal" title="Section 7.1: One-sample means with the t-distribution">Section 7.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#inference-for-paired-data-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="textbooksSummaryStats"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(n_{\text{diff}}\)</span></td>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(\bar{x}_{\text{diff}}\)</span></td>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines"><span class="process-math">\(s_{\text{diff}}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">68</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">3.58</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">13.42</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Summary statistics for the 68 price differences.<div class="autopermalink" data-description="Figure 7.2.3"><a href="#textbooksSummaryStats" title="Copy heading and permalink for Figure 7.2.3" aria-label="Copy heading and permalink for Figure 7.2.3">🔗</a></div></figcaption></figure><details id="htSetupTextbookPriceDiff" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="htSetupTextbookPriceDiff-1-1">Set up a hypothesis test to determine whether, on average, there is a difference between Amazon’s price for a book and the UCLA bookstore’s price. Also, check the conditions for whether we can move forward with the test using the <span class="process-math">\(t\)</span>-distribution.<div class="autopermalink" data-description="Paragraph"><a href="#htSetupTextbookPriceDiff-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="htSetupTextbookPriceDiff-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="htSetupTextbookPriceDiff-2-1">We are considering two scenarios: there is no difference or there is some difference in average prices.<div class="autopermalink" data-description="Paragraph"><a href="#htSetupTextbookPriceDiff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="htSetupTextbookPriceDiff-2-2">
+<li id="htSetupTextbookPriceDiff-2-2-1">
+<div class="para" id="p-derived-htSetupTextbookPriceDiff-2-2-1">
+<span class="process-math">\(H_0\text{:}\)</span> <span class="process-math">\(\mu_{\text{diff}} = 0\text{.}\)</span> There is no difference in the average textbook price.</div>
+<div class="autopermalink" data-description="Item"><a href="#htSetupTextbookPriceDiff-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="htSetupTextbookPriceDiff-2-2-2">
+<div class="para" id="p-derived-htSetupTextbookPriceDiff-2-2-2">
+<span class="process-math">\(H_A\text{:}\)</span> <span class="process-math">\(\mu_{\text{diff}} \neq 0\text{.}\)</span> There is a difference in average prices.</div>
+<div class="autopermalink" data-description="Item"><a href="#htSetupTextbookPriceDiff-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="htSetupTextbookPriceDiff-2-3">Next, we check the independence and normality conditions. The observations are based on a simple random sample, so independence is reasonable. While there are some outliers, <span class="process-math">\(n = 68\)</span> and none of the outliers are particularly extreme, so the normality of <span class="process-math">\(\bar{x}\)</span> is satisfied. With these conditions satisfied, we can move forward with the <span class="process-math">\(t\)</span>-distribution.<div class="autopermalink" data-description="Paragraph"><a href="#htSetupTextbookPriceDiff-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.2.4.1"><a href="#htSetupTextbookPriceDiff-2" title="Copy heading and permalink for Solution 7.2.4.1" aria-label="Copy heading and permalink for Solution 7.2.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.2.4"><a href="#htSetupTextbookPriceDiff" title="Copy heading and permalink for Example 7.2.4" aria-label="Copy heading and permalink for Example 7.2.4">🔗</a></div></article></details><details id="SEAndTScoreTextbookPriceDiff" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="SEAndTScoreTextbookPriceDiff-1-1">Complete the hypothesis test started in Example <a href="pairedData.html#htSetupTextbookPriceDiff" class="xref" data-knowl="./knowl/xref/htSetupTextbookPriceDiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.4">Example 7.2.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="SEAndTScoreTextbookPriceDiff-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="SEAndTScoreTextbookPriceDiff-2-1">To compute the test statistic, we compute the standard error associated with <span class="process-math">\(\bar{x}_{\text{diff}}\)</span> using the standard deviation of the differences (<span class="process-math">\(s_{\text{diff}} = 13.42\)</span>) and the number of differences (<span class="process-math">\(n_{\text{diff}} = 68\)</span>):<div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="SEAndTScoreTextbookPriceDiff-2-2">
+\begin{equation*}
+SE_{\bar{x}_{\text{diff}}} = \frac{s_{\text{diff}}}{\sqrt{n_{\text{diff}}}} 
+= \frac{13.42}{\sqrt{68}} = 1.63
+\end{equation*}
+</div>
+<div class="para" id="SEAndTScoreTextbookPriceDiff-2-3">The test statistic is the T-score of <span class="process-math">\(\bar{x}_{\text{diff}}\)</span> under the null condition that the actual mean difference is 0:<div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="SEAndTScoreTextbookPriceDiff-2-4">
+\begin{equation*}
+T = \frac{\bar{x}_{\text{diff}} - 0}{SE_{\bar{x}_{\text{diff}}}} 
+= \frac{3.58 - 0}{1.63} = 2.20
+\end{equation*}
+</div>
+<div class="para" id="SEAndTScoreTextbookPriceDiff-2-5">To visualize the p-value, the sampling distribution of <span class="process-math">\(\bar{x}_{\text{diff}}\)</span> is drawn as though <span class="process-math">\(H_0\)</span> is true, and the p-value is represented by the two shaded tails:<div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SEAndTScoreTextbookPriceDiff-2-6"><div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="SEAndTScoreTextbookPriceDiff-2-7">The degrees of freedom is <span class="process-math">\(df = 68 - 1 = 67\text{.}\)</span> Using statistical software, we find the one-tail area of 0.0156. Doubling this area gives the p-value: 0.0312.<div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SEAndTScoreTextbookPriceDiff-2-8">Because the p-value is less than 0.05, we reject the null hypothesis. Amazon prices are, on average, lower than the UCLA Bookstore prices for UCLA courses.<div class="autopermalink" data-description="Paragraph"><a href="#SEAndTScoreTextbookPriceDiff-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.2.5.1"><a href="#SEAndTScoreTextbookPriceDiff-2" title="Copy heading and permalink for Solution 7.2.5.1" aria-label="Copy heading and permalink for Solution 7.2.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 7.2.5"><a href="#SEAndTScoreTextbookPriceDiff" title="Copy heading and permalink for Example 7.2.5" aria-label="Copy heading and permalink for Example 7.2.5">🔗</a></div></article></details><details id="inference-for-paired-data-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="inference-for-paired-data-6-1-1">Create a 95% confidence interval for the average price difference between books at the UCLA bookstore and books on Amazon.<details class="ptx-footnote" aria-live="polite" id="inference-for-paired-data-6-1-1-1"><summary class="ptx-footnote__number" title="Footnote 7.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="inference-for-paired-data-6-1-1-1">Conditions have already been verified and the standard error computed in Example <a href="pairedData.html#htSetupTextbookPriceDiff" class="xref" data-knowl="./knowl/xref/htSetupTextbookPriceDiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.4">Example 7.2.4</a>. To find the interval, identify <span class="process-math">\(t^{\star}_{67}\)</span> using statistical software or the <span class="process-math">\(t\)</span>-table (<span class="process-math">\(t^{\star}_{67} = 2.00\)</span>), and plug it, the point estimate, and the standard error into the confidence interval formula: <span class="process-math">\(\text{point estimate} \pm t^{\star} \times SE \to 3.58 \pm 2.00 \times 1.63 \to (0.32, 6.84)\text{.}\)</span> We are 95% confident that Amazon is, on average, between $0.32 and $6.84 less expensive than the UCLA Bookstore for UCLA course books.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#inference-for-paired-data-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 7.2.6"><a href="#inference-for-paired-data-6" title="Copy heading and permalink for Checkpoint 7.2.6" aria-label="Copy heading and permalink for Checkpoint 7.2.6">🔗</a></div></article></details><details id="inference-for-paired-data-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="inference-for-paired-data-7-1-1">We have strong evidence that Amazon is, on average, less expensive. How should this conclusion affect UCLA student buying habits? Should UCLA students always buy their books on Amazon?<details class="ptx-footnote" aria-live="polite" id="inference-for-paired-data-7-1-1-1"><summary class="ptx-footnote__number" title="Footnote 7.2.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="inference-for-paired-data-7-1-1-1">The average price difference is only mildly useful for this question. Examine the distribution shown in Figure <a href="pairedData.html#diffInTextbookPricesF18" class="xref" data-knowl="./knowl/xref/diffInTextbookPricesF18.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.2.2">Figure 7.2.2</a>. There are certainly a handful of cases where Amazon prices are far below the UCLA Bookstore’s, which suggests it is worth checking Amazon (and probably other online sites) before purchasing. However, in many cases the Amazon price is above what the UCLA Bookstore charges, and most of the time the price isn’t that different. Ultimately, if getting a book immediately from the bookstore is notably more convenient, e.g. to get started on reading or homework, it’s likely a good idea to go with the UCLA Bookstore unless the price difference on a specific book happens to be quite large. For reference, this is a very different result from what we (the authors) had seen in a similar data set from 2010. At that time, Amazon prices were almost uniformly lower than those of the UCLA Bookstore’s and by a large margin, making the case to use Amazon over the UCLA Bookstore quite compelling at that time. Now we frequently check multiple websites to find the best price.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#inference-for-paired-data-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 7.2.7"><a href="#inference-for-paired-data-7" title="Copy heading and permalink for Checkpoint 7.2.7" aria-label="Copy heading and permalink for Checkpoint 7.2.7">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 7.2.2: Inference for paired data"><a href="#inference-for-paired-data" title="Copy heading and permalink for Subsection 7.2.2: Inference for paired data" aria-label="Copy heading and permalink for Subsection 7.2.2: Inference for paired data">🔗</a></div></section><section class="exercises" id="pairedData-5"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Section Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="air_quality_shortened"><h4 class="heading">
+<span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Air quality.</span>
+</h4>
+<div class="para" id="air_quality_shortened-2-1">Air quality measurements were collected in a random sample of 25 country capitals in 2013, and then again in the same cities in 2014. We would like to use these data to compare average air quality between the two years. Should we use a paired or non-paired test? Explain your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#air_quality_shortened-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 7.2.3.1: Air quality"><a href="#air_quality_shortened" title="Copy heading and permalink for Exercise 7.2.3.1: Air quality" aria-label="Copy heading and permalink for Exercise 7.2.3.1: Air quality">🔗</a></div></article><article class="exercise exercise-like" id="tf_paired"><h4 class="heading">
+<span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">True / False: paired.</span>
+</h4>
+<div class="para" id="tf_paired-2-1">Determine if the following statements are true or false. If false, explain.<div class="autopermalink" data-description="Paragraph"><a href="#tf_paired-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="tf_paired-2-2">
+<li id="tf_paired-2-2-1">
+<div class="para" id="p-derived-tf_paired-2-2-1">In a paired analysis we first take the difference of each pair of observations, and then we do inference on these differences.</div>
+<div class="autopermalink" data-description="Item 7.2.3.2.a"><a href="#tf_paired-2-2-1" title="Copy heading and permalink for Item 7.2.3.2.a" aria-label="Copy heading and permalink for Item 7.2.3.2.a">🔗</a></div>
+</li>
+<li id="tf_paired-2-2-2">
+<div class="para" id="p-derived-tf_paired-2-2-2">Two data sets of different sizes cannot be analyzed as paired data.</div>
+<div class="autopermalink" data-description="Item 7.2.3.2.b"><a href="#tf_paired-2-2-2" title="Copy heading and permalink for Item 7.2.3.2.b" aria-label="Copy heading and permalink for Item 7.2.3.2.b">🔗</a></div>
+</li>
+<li id="tf_paired-2-2-3">
+<div class="para" id="p-derived-tf_paired-2-2-3">Consider two sets of data that are paired with each other. Each observation in one data set has a natural correspondence with exactly one observation from the other data set.</div>
+<div class="autopermalink" data-description="Item 7.2.3.2.c"><a href="#tf_paired-2-2-3" title="Copy heading and permalink for Item 7.2.3.2.c" aria-label="Copy heading and permalink for Item 7.2.3.2.c">🔗</a></div>
+</li>
+<li id="tf_paired-2-2-4">
+<div class="para" id="p-derived-tf_paired-2-2-4">Consider two sets of data that are paired with each other. Each observation in one data set is subtracted from the average of the other data set’s observations.</div>
+<div class="autopermalink" data-description="Item 7.2.3.2.d"><a href="#tf_paired-2-2-4" title="Copy heading and permalink for Item 7.2.3.2.d" aria-label="Copy heading and permalink for Item 7.2.3.2.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.2: True / False: paired"><a href="#tf_paired" title="Copy heading and permalink for Exercise 7.2.3.2: True / False: paired" aria-label="Copy heading and permalink for Exercise 7.2.3.2: True / False: paired">🔗</a></div></article><article class="exercise exercise-like" id="paired_or_not_1"><h4 class="heading">
+<span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Paired or not? Part I.</span>
+</h4>
+<div class="para" id="paired_or_not_1-2-1">In each of the following scenarios, determine if the data are paired.<div class="autopermalink" data-description="Paragraph"><a href="#paired_or_not_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="paired_or_not_1-2-2">
+<li id="paired_or_not_1-2-2-1">
+<div class="para" id="p-derived-paired_or_not_1-2-2-1">Compare pre- (beginning of semester) and post-test (end of semester) scores of students.</div>
+<div class="autopermalink" data-description="Item 7.2.3.3.a"><a href="#paired_or_not_1-2-2-1" title="Copy heading and permalink for Item 7.2.3.3.a" aria-label="Copy heading and permalink for Item 7.2.3.3.a">🔗</a></div>
+</li>
+<li id="paired_or_not_1-2-2-2">
+<div class="para" id="p-derived-paired_or_not_1-2-2-2">Assess gender-related salary gap by comparing salaries of randomly sampled men and women.</div>
+<div class="autopermalink" data-description="Item 7.2.3.3.b"><a href="#paired_or_not_1-2-2-2" title="Copy heading and permalink for Item 7.2.3.3.b" aria-label="Copy heading and permalink for Item 7.2.3.3.b">🔗</a></div>
+</li>
+<li id="paired_or_not_1-2-2-3">
+<div class="para" id="p-derived-paired_or_not_1-2-2-3">Compare artery thicknesses at the beginning of a study and after 2 years of taking Vitamin E for the same group of patients.</div>
+<div class="autopermalink" data-description="Item 7.2.3.3.c"><a href="#paired_or_not_1-2-2-3" title="Copy heading and permalink for Item 7.2.3.3.c" aria-label="Copy heading and permalink for Item 7.2.3.3.c">🔗</a></div>
+</li>
+<li id="paired_or_not_1-2-2-4">
+<div class="para" id="p-derived-paired_or_not_1-2-2-4">Assess effectiveness of a diet regimen by comparing the before and after weights of subjects.</div>
+<div class="autopermalink" data-description="Item 7.2.3.3.d"><a href="#paired_or_not_1-2-2-4" title="Copy heading and permalink for Item 7.2.3.3.d" aria-label="Copy heading and permalink for Item 7.2.3.3.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.3: Paired or not? Part I"><a href="#paired_or_not_1" title="Copy heading and permalink for Exercise 7.2.3.3: Paired or not? Part I" aria-label="Copy heading and permalink for Exercise 7.2.3.3: Paired or not? Part I">🔗</a></div></article><article class="exercise exercise-like" id="paired_or_not_2"><h4 class="heading">
+<span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Paired or not? Part II.</span>
+</h4>
+<div class="para" id="paired_or_not_2-2-1">In each of the following scenarios, determine if the data are paired.<div class="autopermalink" data-description="Paragraph"><a href="#paired_or_not_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="paired_or_not_2-2-2">
+<li id="paired_or_not_2-2-2-1">
+<div class="para" id="p-derived-paired_or_not_2-2-2-1">We would like to know if Intel’s stock and Southwest Airlines’ stock have similar rates of return. To find out, we take a random sample of 50 days, and record Intel’s and Southwest’s stock on those same days.</div>
+<div class="autopermalink" data-description="Item 7.2.3.4.a"><a href="#paired_or_not_2-2-2-1" title="Copy heading and permalink for Item 7.2.3.4.a" aria-label="Copy heading and permalink for Item 7.2.3.4.a">🔗</a></div>
+</li>
+<li id="paired_or_not_2-2-2-2">
+<div class="para" id="p-derived-paired_or_not_2-2-2-2">We randomly sample 50 items from Target stores and note the price for each. Then we visit Walmart and collect the price for each of those same 50 items.</div>
+<div class="autopermalink" data-description="Item 7.2.3.4.b"><a href="#paired_or_not_2-2-2-2" title="Copy heading and permalink for Item 7.2.3.4.b" aria-label="Copy heading and permalink for Item 7.2.3.4.b">🔗</a></div>
+</li>
+<li id="paired_or_not_2-2-2-3">
+<div class="para" id="p-derived-paired_or_not_2-2-2-3">A school board would like to determine whether there is a difference in average SAT scores for students at one high school versus another high school in the district. To check, they take a simple random sample of 100 students from each high school.</div>
+<div class="autopermalink" data-description="Item 7.2.3.4.c"><a href="#paired_or_not_2-2-2-3" title="Copy heading and permalink for Item 7.2.3.4.c" aria-label="Copy heading and permalink for Item 7.2.3.4.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.4: Paired or not? Part II"><a href="#paired_or_not_2" title="Copy heading and permalink for Exercise 7.2.3.4: Paired or not? Part II" aria-label="Copy heading and permalink for Exercise 7.2.3.4: Paired or not? Part II">🔗</a></div></article><article class="exercise exercise-like" id="global_warming_v2_1"><h4 class="heading">
+<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Global warming, Part I.</span>
+</h4>
+<div class="para" id="global_warming_v2_1-2-1">Let’s consider a limited set of climate data, examining temperature differences in 1948 vs 2018. We sampled 197 locations from the National Oceanic and Atmospheric Administration’s (NOAA) historical data, where the data was available for both years of interest. We want to know: were there more days with temperatures exceeding 90°F in 2018 or in 1948? The difference in number of days exceeding 90°F (number of days in 2018 - number of days in 1948) was calculated for each of the 197 locations. The average of these differences was 2.9 days with a standard deviation of 17.2 days. We are interested in determining whether these data provide strong evidence that there were more days in 2018 that exceeded 90°F from NOAA’s weather stations.<div class="autopermalink" data-description="Paragraph"><a href="#global_warming_v2_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="global_warming_v2_1-2-2"><div class="autopermalink" data-description="Paragraph"><a href="#global_warming_v2_1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <ol class="lower-alpha lower-alpha-level-1" id="global_warming_v2_1-2-3">
+<li id="global_warming_v2_1-2-3-1">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-1">Is there a relationship between the observations collected in 1948 and 2018? Or are the observations in the two groups independent? Explain.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.a"><a href="#global_warming_v2_1-2-3-1" title="Copy heading and permalink for Item 7.2.3.5.a" aria-label="Copy heading and permalink for Item 7.2.3.5.a">🔗</a></div>
+</li>
+<li id="global_warming_v2_1-2-3-2">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-2">Write hypotheses for this research in symbols and in words.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.b"><a href="#global_warming_v2_1-2-3-2" title="Copy heading and permalink for Item 7.2.3.5.b" aria-label="Copy heading and permalink for Item 7.2.3.5.b">🔗</a></div>
+</li>
+<li id="global_warming_v2_1-2-3-3">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-3">Check the conditions required to complete this test. A histogram of the differences is given to the right.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.c"><a href="#global_warming_v2_1-2-3-3" title="Copy heading and permalink for Item 7.2.3.5.c" aria-label="Copy heading and permalink for Item 7.2.3.5.c">🔗</a></div>
+</li>
+<li id="global_warming_v2_1-2-3-4">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-4">Calculate the test statistic and find the p-value.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.d"><a href="#global_warming_v2_1-2-3-4" title="Copy heading and permalink for Item 7.2.3.5.d" aria-label="Copy heading and permalink for Item 7.2.3.5.d">🔗</a></div>
+</li>
+<li id="global_warming_v2_1-2-3-5">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-5">Use <span class="process-math">\(\alpha = 0.05\)</span> to evaluate the test, and interpret your conclusion in context.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.e"><a href="#global_warming_v2_1-2-3-5" title="Copy heading and permalink for Item 7.2.3.5.e" aria-label="Copy heading and permalink for Item 7.2.3.5.e">🔗</a></div>
+</li>
+<li id="global_warming_v2_1-2-3-6">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-6">What type of error might we have made? Explain in context what the error means.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.f"><a href="#global_warming_v2_1-2-3-6" title="Copy heading and permalink for Item 7.2.3.5.f" aria-label="Copy heading and permalink for Item 7.2.3.5.f">🔗</a></div>
+</li>
+<li id="global_warming_v2_1-2-3-7">
+<div class="para" id="p-derived-global_warming_v2_1-2-3-7">Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the number of days exceeding 90°F from 1948 and 2018 to include 0? Explain your reasoning.</div>
+<div class="autopermalink" data-description="Item 7.2.3.5.g"><a href="#global_warming_v2_1-2-3-7" title="Copy heading and permalink for Item 7.2.3.5.g" aria-label="Copy heading and permalink for Item 7.2.3.5.g">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.5: Global warming, Part I"><a href="#global_warming_v2_1" title="Copy heading and permalink for Exercise 7.2.3.5: Global warming, Part I" aria-label="Copy heading and permalink for Exercise 7.2.3.5: Global warming, Part I">🔗</a></div></article><article class="exercise exercise-like" id="hs_beyond_1"><h4 class="heading">
+<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">High School and Beyond, Part I.</span>
+</h4>
+<div class="para" id="hs_beyond_1-2-1">The National Center of Education Statistics conducted a survey of high school seniors, collecting test data on reading, writing, and several other subjects. Here we examine a simple random sample of 200 students from this survey. Side-by-side box plots of reading and writing scores as well as a histogram of the differences in scores are shown below.<div class="autopermalink" data-description="Paragraph"><a href="#hs_beyond_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="hs_beyond_1-2-2"><div class="autopermalink" data-description="Paragraph"><a href="#hs_beyond_1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <div class="para" id="hs_beyond_1-2-3"><div class="autopermalink" data-description="Paragraph"><a href="#hs_beyond_1-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <ol class="lower-alpha lower-alpha-level-1" id="hs_beyond_1-2-4">
+<li id="hs_beyond_1-2-4-1">
+<div class="para" id="p-derived-hs_beyond_1-2-4-1">Is there a clear difference in the average reading and writing scores?</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.a"><a href="#hs_beyond_1-2-4-1" title="Copy heading and permalink for Item 7.2.3.6.a" aria-label="Copy heading and permalink for Item 7.2.3.6.a">🔗</a></div>
+</li>
+<li id="hs_beyond_1-2-4-2">
+<div class="para" id="p-derived-hs_beyond_1-2-4-2">Are the reading and writing scores of each student independent of each other?</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.b"><a href="#hs_beyond_1-2-4-2" title="Copy heading and permalink for Item 7.2.3.6.b" aria-label="Copy heading and permalink for Item 7.2.3.6.b">🔗</a></div>
+</li>
+<li id="hs_beyond_1-2-4-3">
+<div class="para" id="p-derived-hs_beyond_1-2-4-3">Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam?</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.c"><a href="#hs_beyond_1-2-4-3" title="Copy heading and permalink for Item 7.2.3.6.c" aria-label="Copy heading and permalink for Item 7.2.3.6.c">🔗</a></div>
+</li>
+<li id="hs_beyond_1-2-4-4">
+<div class="para" id="p-derived-hs_beyond_1-2-4-4">Check the conditions required to complete this test.</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.d"><a href="#hs_beyond_1-2-4-4" title="Copy heading and permalink for Item 7.2.3.6.d" aria-label="Copy heading and permalink for Item 7.2.3.6.d">🔗</a></div>
+</li>
+<li id="hs_beyond_1-2-4-5">
+<div class="para" id="p-derived-hs_beyond_1-2-4-5">The average observed difference in scores is <span class="process-math">\(\bar{x}_{\text{read-write}} = -0.545\text{,}\)</span> and the standard deviation of the differences is 8.887 points. Do these data provide convincing evidence of a difference between the average scores on the two exams?</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.e"><a href="#hs_beyond_1-2-4-5" title="Copy heading and permalink for Item 7.2.3.6.e" aria-label="Copy heading and permalink for Item 7.2.3.6.e">🔗</a></div>
+</li>
+<li id="hs_beyond_1-2-4-6">
+<div class="para" id="p-derived-hs_beyond_1-2-4-6">What type of error might we have made? Explain what the error means in the context of the application.</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.f"><a href="#hs_beyond_1-2-4-6" title="Copy heading and permalink for Item 7.2.3.6.f" aria-label="Copy heading and permalink for Item 7.2.3.6.f">🔗</a></div>
+</li>
+<li id="hs_beyond_1-2-4-7">
+<div class="para" id="p-derived-hs_beyond_1-2-4-7">Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the reading and writing scores to include 0? Explain your reasoning.</div>
+<div class="autopermalink" data-description="Item 7.2.3.6.g"><a href="#hs_beyond_1-2-4-7" title="Copy heading and permalink for Item 7.2.3.6.g" aria-label="Copy heading and permalink for Item 7.2.3.6.g">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.6: High School and Beyond, Part I"><a href="#hs_beyond_1" title="Copy heading and permalink for Exercise 7.2.3.6: High School and Beyond, Part I" aria-label="Copy heading and permalink for Exercise 7.2.3.6: High School and Beyond, Part I">🔗</a></div></article><article class="exercise exercise-like" id="global_warming_v2_2"><h4 class="heading">
+<span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Global warming, Part II.</span>
+</h4>
+<div class="para" id="global_warming_v2_2-2-1">We considered the change in the number of days exceeding 90°F from 1948 and 2018 at 197 randomly sampled locations from the NOAA database in Exercise <a href="pairedData.html#global_warming_v2_1" class="xref" data-knowl="./knowl/xref/global_warming_v2_1.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.2.3.5: Global warming, Part I">Exercise 7.2.3.5</a>. The mean and standard deviation of the reported differences are 2.9 days and 17.2 days.<div class="autopermalink" data-description="Paragraph"><a href="#global_warming_v2_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="global_warming_v2_2-2-2">
+<li id="global_warming_v2_2-2-2-1">
+<div class="para" id="p-derived-global_warming_v2_2-2-2-1">Calculate a 90% confidence interval for the average difference between number of days exceeding 90°F between 1948 and 2018. We’ve already checked the conditions for you.</div>
+<div class="autopermalink" data-description="Item 7.2.3.7.a"><a href="#global_warming_v2_2-2-2-1" title="Copy heading and permalink for Item 7.2.3.7.a" aria-label="Copy heading and permalink for Item 7.2.3.7.a">🔗</a></div>
+</li>
+<li id="global_warming_v2_2-2-2-2">
+<div class="para" id="p-derived-global_warming_v2_2-2-2-2">Interpret the interval in context.</div>
+<div class="autopermalink" data-description="Item 7.2.3.7.b"><a href="#global_warming_v2_2-2-2-2" title="Copy heading and permalink for Item 7.2.3.7.b" aria-label="Copy heading and permalink for Item 7.2.3.7.b">🔗</a></div>
+</li>
+<li id="global_warming_v2_2-2-2-3">
+<div class="para" id="p-derived-global_warming_v2_2-2-2-3">Does the confidence interval provide convincing evidence that there were more days exceeding 90°F in 2018 than in 1948 at NOAA stations? Explain.</div>
+<div class="autopermalink" data-description="Item 7.2.3.7.c"><a href="#global_warming_v2_2-2-2-3" title="Copy heading and permalink for Item 7.2.3.7.c" aria-label="Copy heading and permalink for Item 7.2.3.7.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.7: Global warming, Part II"><a href="#global_warming_v2_2" title="Copy heading and permalink for Exercise 7.2.3.7: Global warming, Part II" aria-label="Copy heading and permalink for Exercise 7.2.3.7: Global warming, Part II">🔗</a></div></article><article class="exercise exercise-like" id="hs_beyond_2"><h4 class="heading">
+<span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">High school and beyond, Part II.</span>
+</h4>
+<div class="para" id="hs_beyond_2-2-1">We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey in Exercise <a href="pairedData.html#hs_beyond_1" class="xref" data-knowl="./knowl/xref/hs_beyond_1.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.2.3.6: High School and Beyond, Part I">Exercise 7.2.3.6</a>. The mean and standard deviation of the differences are <span class="process-math">\(\bar{x}_{\text{read-write}} = -0.545\)</span> and 8.887 points.<div class="autopermalink" data-description="Paragraph"><a href="#hs_beyond_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="hs_beyond_2-2-2">
+<li id="hs_beyond_2-2-2-1">
+<div class="para" id="p-derived-hs_beyond_2-2-2-1">Calculate a 95% confidence interval for the average difference between the reading and writing scores of all students.</div>
+<div class="autopermalink" data-description="Item 7.2.3.8.a"><a href="#hs_beyond_2-2-2-1" title="Copy heading and permalink for Item 7.2.3.8.a" aria-label="Copy heading and permalink for Item 7.2.3.8.a">🔗</a></div>
+</li>
+<li id="hs_beyond_2-2-2-2">
+<div class="para" id="p-derived-hs_beyond_2-2-2-2">Interpret this interval in context.</div>
+<div class="autopermalink" data-description="Item 7.2.3.8.b"><a href="#hs_beyond_2-2-2-2" title="Copy heading and permalink for Item 7.2.3.8.b" aria-label="Copy heading and permalink for Item 7.2.3.8.b">🔗</a></div>
+</li>
+<li id="hs_beyond_2-2-2-3">
+<div class="para" id="p-derived-hs_beyond_2-2-2-3">Does the confidence interval provide convincing evidence that there is a real difference in the average scores? Explain.</div>
+<div class="autopermalink" data-description="Item 7.2.3.8.c"><a href="#hs_beyond_2-2-2-3" title="Copy heading and permalink for Item 7.2.3.8.c" aria-label="Copy heading and permalink for Item 7.2.3.8.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 7.2.3.8: High school and beyond, Part II"><a href="#hs_beyond_2" title="Copy heading and permalink for Exercise 7.2.3.8: High school and beyond, Part II" aria-label="Copy heading and permalink for Exercise 7.2.3.8: High school and beyond, Part II">🔗</a></div></article><div class="autopermalink" data-description="Exercises 7.2.3: Section Exercises"><a href="#pairedData-5" title="Copy heading and permalink for Exercises 7.2.3: Section Exercises" aria-label="Copy heading and permalink for Exercises 7.2.3: Section Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 7.2: Paired data"><a href="#pairedData" title="Copy heading and permalink for Section 7.2: Paired data" aria-label="Copy heading and permalink for Section 7.2: Paired data">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="oneSampleMeansWithTDistribution.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="differenceOfTwoMeans.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

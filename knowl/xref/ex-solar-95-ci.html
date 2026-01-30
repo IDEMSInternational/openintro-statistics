@@ -19,46 +19,26 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">95% CI for solar energy support.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">95% CI for solar energy support.</span>
 </h4>
-<div class="para">In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported expanding the use of solar energy. Compute and interpret a 95% confidence interval for the population proportion.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">In <a href="sec-point-estimates.html" class="internal" title="Section 5.1: Point Estimates and Sampling Variability">Section 5.1</a> we learned about a Pew Research poll where 88.7% of a random sample of 1,000 American adults supported expanding the role of solar power. Compute and interpret a 95% confidence interval for the population proportion.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical">
-<div class="para">First, we verify the conditions. The observations are from a random sample, so they are independent. We check the success-failure condition:</div>
+<div class="para">We earlier confirmed that <span class="process-math">\(\hat{p}\)</span> follows a normal distribution and has a standard error of <span class="process-math">\(SE_{\hat{p}} = 0.0100\text{.}\)</span> To compute the 95% confidence interval, plug the point estimate <span class="process-math">\(\hat{p} = 0.887\)</span> and standard error into the 95% confidence interval formula:<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="displaymath process-math">
 \begin{align*}
-n\hat{p} \amp= 1000 \times 0.887 = 887 \geq 10\\
-n(1-\hat{p}) \amp= 1000 \times 0.113 = 113 \geq 10
+\hat{p} \pm 1.96 \times SE_{\hat{p}}
+\amp\quad\to\quad
+0.887 \pm 1.96 \times 0.0100\\
+\amp\quad\to\quad
+(0.8674, 0.9066)
 \end{align*}
 </div>
-<div class="para">Both are greater than 10, so the conditions are met.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">We are 95% confident that the actual proportion of American adults who support expanding solar power is between 86.7% and 90.7%. (It’s common to round to the nearest percentage point or nearest tenth of a percentage point when reporting a confidence interval.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical">
-<div class="para">The standard error is:</div>
-<div class="displaymath process-math">
-\begin{align*}
-SE_{\hat{p}} \amp= \sqrt{\frac{0.887 \times 0.113}{1000}}\\
-\amp= 0.0101
-\end{align*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
-<div class="para">The 95% confidence interval is:</div>
-<div class="displaymath process-math">
-\begin{align*}
-0.887 \pm 1.96 \times 0.0101 \amp= 0.887 \pm 0.0198\\
-\amp= (0.8672, 0.9068)
-\end{align*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para">Interpretation: We are 95% confident that between 86.7% and 90.7% of American adults support expanding the use of solar energy.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Solution 5.2.3.1"><a href="#ex-solar-95-ci-3" title="Copy heading and permalink for Solution 5.2.3.1" aria-label="Copy heading and permalink for Solution 5.2.3.1">🔗</a></div>
+<div class="autopermalink" data-description="Solution 5.2.4.1"><a href="#ex-solar-95-ci-3" title="Copy heading and permalink for Solution 5.2.4.1" aria-label="Copy heading and permalink for Solution 5.2.4.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Example 5.2.3: 95% CI for solar energy support"><a href="#ex-solar-95-ci" title="Copy heading and permalink for Example 5.2.3: 95% CI for solar energy support" aria-label="Copy heading and permalink for Example 5.2.3: 95% CI for solar energy support">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-confidence-intervals.html#ex-solar-95-ci">in-context</a></span>
+<div class="autopermalink" data-description="Example 5.2.4: 95% CI for solar energy support"><a href="#ex-solar-95-ci" title="Copy heading and permalink for Example 5.2.4: 95% CI for solar energy support" aria-label="Copy heading and permalink for Example 5.2.4: 95% CI for solar energy support">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-confidence-intervals.html#ex-solar-95-ci">in-context</a></span>
 </body>
 </html>
