@@ -2403,21 +2403,6 @@ sum(sampled_entries == "support") / 1000
       </p>
     </subsection>
     
-    <subsection xml:id="subsec-formal-testing-p-values">
-      <title>Formal testing using p-values</title>
-      
-      <definition xml:id="def-significance-level">
-        <title>Significance Level</title>
-        <statement>
-          <p>
-            The <term>significance level</term> <m>\alpha</m> indicates how often we
-            incorrectly reject <m>H_0</m> when it is true. The traditional significance
-            level is <m>\alpha = 0.05</m>.
-          </p>
-        </statement>
-      </definition>
-    </subsection>
-    
     <subsection xml:id="subsec-p-values">
       <title>Formal Testing Using P-values</title>
       
@@ -2429,6 +2414,17 @@ sum(sampled_entries == "support") / 1000
             favorable to the alternative hypothesis as our current data set, if the null
             hypothesis were true. We typically use a summary statistic of the data, such
             as the sample proportion, to help compute the p-value.
+          </p>
+        </statement>
+      </definition>
+      
+      <definition xml:id="def-significance-level">
+        <title>Significance Level</title>
+        <statement>
+          <p>
+            The <term>significance level</term> <m>\alpha</m> indicates how often we
+            incorrectly reject <m>H_0</m> when it is true. The traditional significance
+            level is <m>\alpha = 0.05</m>.
           </p>
         </statement>
       </definition>
@@ -2596,22 +2592,34 @@ sum(sampled_entries == "support") / 1000
       <title>Choosing a Significance Level</title>
       
       <p>
-        Choosing a significance level for a test is important in many contexts. The
-        traditional level is <m>\alpha = 0.05</m>, but it can be helpful to adjust the
-        significance level based on the application:
+        Choosing a significance level for a test is important in many contexts,
+        and the traditional level is <m>\alpha = 0.05</m>.
+        However, it can be helpful to adjust the significance level based on the application.
+        We may select a level that is smaller or larger than 0.05 depending on the
+        consequences of any conclusions reached from the test.
       </p>
       
-      <ul>
-        <li>If making a Type 1 Error is dangerous or especially costly, choose a small
-            significance level (e.g., 0.01).</li>
-        <li>If a Type 2 Error is relatively more dangerous or costly, choose a higher
-            significance level (e.g., 0.10).</li>
-      </ul>
+      <p>
+        If making a Type 1 Error is dangerous or especially costly,
+        we should choose a small significance level (e.g. 0.01).
+        Under this scenario we want to be very cautious about rejecting the null hypothesis,
+        so we demand very strong evidence favoring <m>H_A</m> before we would reject <m>H_0</m>.
+      </p>
       
       <p>
-        For medical testing, we might use <m>\alpha = 0.01</m> to reduce false positives.
-        For preliminary screening, we might use <m>\alpha = 0.10</m> to catch more
-        potential cases.
+        If a Type 2 Error is relatively more dangerous or much more costly than a Type 1 Error,
+        then we might choose a higher significance level (e.g. 0.10).
+        Here we want to be cautious about failing to reject <m>H_0</m> when the alternative
+        hypothesis is actually true.
+      </p>
+      
+      <p>
+        Additionally, if the cost of collecting data is small relative to the cost of a
+        Type 2 Error, then it may also be a good strategy to collect more data.
+        Under this strategy, the Type 2 Error can be reduced while not affecting the
+        Type 1 Error rate.
+        Of course, collecting extra data is often costly, so there is typically a
+        cost-benefit analysis to be considered.
       </p>
     </subsection>
     
