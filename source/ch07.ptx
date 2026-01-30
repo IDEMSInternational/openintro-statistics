@@ -3862,22 +3862,503 @@
   <section xml:id="sec-ch07-review">
     <title>Chapter 7 Review Exercises</title>
     
-    <p>
-      This chapter introduced inference for numerical data using the t-distribution. Key concepts include:
-    </p>
-    
-    <ul>
-      <li>The t-distribution and its properties</li>
-      <li>One-sample t-confidence intervals and hypothesis tests</li>
-      <li>Paired data analysis using differences</li>
-      <li>Two-sample t-procedures for comparing independent groups</li>
-      <li>Statistical power and sample size determination</li>
-      <li>ANOVA for comparing three or more means</li>
-    </ul>
-    
-    <p>
-      Additional exercises for practicing these concepts are available in the accompanying
-      exercise materials.
-    </p>
+    <exercises>
+      <title>Chapter Review</title>
+      
+      <!-- Exercise 47 -->
+      <exercise xml:id="gaming_distracted_eating_intake">
+        <title>Gaming and distracted eating, Part I</title>
+        <statement>
+          <p>
+            A group of researchers are interested in the possible effects of distracting 
+            stimuli during eating, such as an increase or decrease in the amount of food 
+            consumption. To test this hypothesis, they monitored food intake for a group of 
+            44 patients who were randomized into two equal groups. The treatment group ate 
+            lunch while playing solitaire, and the control group ate lunch without any 
+            added distractions. Patients in the treatment group ate 52.1 grams of biscuits, 
+            with a standard deviation of 45.1 grams, and patients in the control group ate 
+            27.1 grams of biscuits, with a standard deviation of 26.4 grams. Do these data 
+            provide convincing evidence that the average food intake (measured in amount of 
+            biscuits consumed) is different for the patients in the treatment group? Assume 
+            that conditions for inference are satisfied.
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 48 -->
+      <exercise xml:id="gaming_distracted_eating_recall">
+        <title>Gaming and distracted eating, Part II</title>
+        <statement>
+          <p>
+            The researchers from <xref ref="gaming_distracted_eating_intake"/> also 
+            investigated the effects of being distracted by a game on how much people eat. 
+            The 22 patients in the treatment group who ate their lunch while playing 
+            solitaire were asked to do a serial-order recall of the food lunch items they 
+            ate. The average number of items recalled by the patients in this group was 4.9, 
+            with a standard deviation of 1.8. The average number of items recalled by 
+            the patients in the control group (no distraction) was 6.1, with a standard 
+            deviation of 1.8. Do these data provide strong evidence that the average number 
+            of food items recalled by the patients in the treatment and control groups are 
+            different?
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 49 -->
+      <exercise xml:id="sample_size_pairing">
+        <title>Sample size and pairing</title>
+        <statement>
+          <p>
+            Determine if the following statement is true or false, and if false, explain your reasoning: 
+            If comparing means of two groups with equal sample sizes, always use a paired test.
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 50 -->
+      <exercise xml:id="college_credits">
+        <title>College credits</title>
+        <statement>
+          <p>
+            A college counselor is interested in estimating how many credits a student typically enrolls
+            in each semester. The counselor decides to randomly sample 100 students
+            by using the registrar's database of students. The histogram below shows the distribution of 
+            the number of credits taken by these students. Sample statistics for this distribution are 
+            also provided.
+          </p>
+          <sidebyside widths="60% 35%">
+            <figure xml:id="fig-college-credits-hist">
+              <caption>Distribution of credit hours</caption>
+              <image source="ch_inference_for_means/figures/eoce/college_credits/college_credits_hist" width="100%">
+                <description>A histogram is shown for "Number of credits". The distribution is centered at about 13 and is very roughly bell-shaped with data ranging from 8 to 18 with no apparent outliers.</description>
+              </image>
+            </figure>
+            <tabular>
+              <row><cell>Min</cell><cell>8</cell></row>
+              <row><cell>Q1</cell><cell>13</cell></row>
+              <row><cell>Median</cell><cell>14</cell></row>
+              <row><cell>Mean</cell><cell>13.65</cell></row>
+              <row><cell>SD</cell><cell>1.91</cell></row>
+              <row><cell>Q3</cell><cell>15</cell></row>
+              <row><cell>Max</cell><cell>18</cell></row>
+            </tabular>
+          </sidebyside>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  What is the point estimate for the average number of credits taken per semester by 
+                  students at this college? What about the median?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the point estimate for the standard deviation of the number of credits taken 
+                  per semester by students at this college? What about the IQR?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is a load of 16 credits unusually high for this college? What about 18 credits? 
+                  Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The college counselor takes another random sample of 100 students and this time finds 
+                  a sample mean of 14.02 units. Should she be surprised that this sample statistic is 
+                  slightly different than the one from the original sample? Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sample means given above are point estimates for the mean number of credits taken 
+                  by all students at that college. What measures do we use to quantify the variability 
+                  of this estimate? Compute this quantity using the data from the original sample.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 51 -->
+      <exercise xml:id="hen_eggs">
+        <title>Hen eggs</title>
+        <statement>
+          <p>
+            The distribution of the number of eggs laid by a certain species of hen during their 
+            breeding period has a mean of 35 eggs with a standard deviation of 18.2. Suppose a group 
+            of researchers randomly samples 45 hens of this species, counts the number of eggs laid 
+            during their breeding period, and records the sample mean. They repeat this 1,000 times, 
+            and build a distribution of sample means.
+          </p>
+          <p>
+            <ol>
+              <li><p>What is this distribution called?</p></li>
+              <li>
+                <p>
+                  Would you expect the shape of this distribution to be symmetric, right skewed, or 
+                  left skewed? Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the variability of this distribution and state the appropriate term used 
+                  to refer to this value.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose the researchers' budget is reduced and they are only able to collect random 
+                  samples of 10 hens. The sample mean of the number of eggs is recorded, and we repeat 
+                  this 1,000 times, and build a new distribution of sample means. How will the variability 
+                  of this new distribution compare to the variability of the original distribution?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 52 -->
+      <exercise xml:id="forest_mgmt_tree_growth">
+        <title>Forest management</title>
+        <statement>
+          <p>
+            Forest rangers wanted to better understand the rate of growth for younger trees in the park. 
+            They took measurements of a random sample of 50 young trees in 2009 and again measured those 
+            same trees in 2019. The data below summarize their measurements, where the heights are in feet:
+          </p>
+          <tabular halign="center">
+            <row bottom="major">
+              <cell></cell>
+              <cell>2009</cell>
+              <cell>2019</cell>
+              <cell>Differences</cell>
+            </row>
+            <row>
+              <cell><m>\bar{x}</m></cell>
+              <cell>12.0</cell>
+              <cell>24.5</cell>
+              <cell>12.5</cell>
+            </row>
+            <row>
+              <cell><m>s</m></cell>
+              <cell>3.5</cell>
+              <cell>9.5</cell>
+              <cell>7.2</cell>
+            </row>
+            <row>
+              <cell><m>n</m></cell>
+              <cell>50</cell>
+              <cell>50</cell>
+              <cell>50</cell>
+            </row>
+          </tabular>
+          <p>
+            Construct a 99% confidence interval for the average growth of (what had been) younger trees 
+            in the park over 2009-2019.
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 53 -->
+      <exercise xml:id="tech_exp_resizing">
+        <title>Experiment resizing</title>
+        <statement>
+          <p>
+            At a startup company running a new weather app, an engineering team generally runs 
+            experiments where a random sample of 1% of the app's visitors in the control group and 
+            another 1% were in the treatment group to test each new feature. The team's core goal 
+            is to increase a metric called <em>daily visitors</em>, which is essentially the number 
+            of visitors to the app each day. They track this metric in each experiment arm and as 
+            their core experiment metric. In their most recent experiment, the team tested including 
+            a new animation when the app started, and the number of daily visitors in this experiment 
+            stabilized at +1.2% with a 95% confidence interval of (-0.2%, +2.6%). This means if this 
+            new app start animation was launched, the team thinks they might lose as many as 0.2% of 
+            daily visitors or gain as many as 2.6% more daily visitors. Suppose you are consulting 
+            as the team's data scientist, and after discussing with the team, you and they agree that 
+            they should run another experiment that is bigger. You also agree that this new experiment 
+            should be able to detect a gain in the daily visitors metric of 1.0% or more with 80% power. 
+            Now they turn to you and ask, <q>How big of an experiment do we need to run to ensure we can 
+            detect this effect?</q>
+          </p>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  How small must the standard error be if the team is to be able to detect an effect 
+                  of 1.0% with 80% power and a significance level of <m>\alpha = 0.05</m>? You may 
+                  safely assume the percent change in daily visitors metric follows a normal distribution.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the first experiment, where the point estimate was +1.2% and the 95% 
+                  confidence interval was (-0.2%, +2.6%). If that point estimate followed a normal 
+                  distribution, what was the standard error of the estimate?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The ratio of the standard error from part (a) vs the standard error from part (b) 
+                  should be 1.97. How much bigger of an experiment is needed to shrink a standard 
+                  error by a factor of 1.97?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using your answer from part (c) and that the original experiment was a 1% vs 1% 
+                  experiment to recommend an experiment size to the team.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 54 -->
+      <exercise xml:id="torque_on_rusty_bolt">
+        <title>Torque on a rusty bolt</title>
+        <statement>
+          <p>
+            Project Farm is a YouTube channel that routinely compares different products. In one episode, 
+            the channel evaluated different options for loosening rusty bolts. Eight options were evaluated, 
+            including a control group where no treatment was given (<q>none</q> in the graph), to determine 
+            which was most effective. For all treatments, there were four bolts tested, except for a treatment 
+            of heat with a blow torch, where only two data points were collected. The results are shown in 
+            the figure below:
+          </p>
+          <figure xml:id="fig-torque-rusty-bolt">
+            <caption>Torque required to loosen rusty bolts</caption>
+            <image source="ch_inference_for_means/figures/eoce/torque_on_rusty_bolt/torque_on_rusty_bolt_dot_plot" width="80%">
+              <description>A side-by-side dot plot is shown for "Torque required to loosen a rusty bolt, in foot-pounds". There are only 2 to 4 observations per option, which are roughly as follows: Heat (82, 98), WD-40 (106, 118, 129, 131), Royal Purple (108, 114, 122, 132), PB Blaster (110, 124, 127, 128), Liquid Wrench (85, 88, 98, 114), AeroKroil (107, 125, 132, 134), Acetone/ATF (105, 107, 114, 129), and "none" (110, 123, 129, 142).</description>
+            </image>
+          </figure>
+          <p>
+            <ol>
+              <li><p>Do you think it is reasonable to apply ANOVA in this case?</p></li>
+              <li>
+                <p>
+                  Regardless of your answer in part (a), describe hypotheses for ANOVA in this context, 
+                  and use the table below to carry out the test. Give your conclusion in the context of 
+                  the data.
+                </p>
+                <tabular halign="center">
+                  <row bottom="major">
+                    <cell></cell>
+                    <cell>Df</cell>
+                    <cell>Sum Sq</cell>
+                    <cell>Mean Sq</cell>
+                    <cell>F value</cell>
+                    <cell>Pr(<m>></m>F)</cell>
+                  </row>
+                  <row>
+                    <cell>treatment</cell>
+                    <cell>7</cell>
+                    <cell>3603.43</cell>
+                    <cell>514.78</cell>
+                    <cell>4.03</cell>
+                    <cell>0.0056</cell>
+                  </row>
+                  <row>
+                    <cell>Residuals</cell>
+                    <cell>22</cell>
+                    <cell>2812.80</cell>
+                    <cell>127.85</cell>
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                </tabular>
+              </li>
+              <li>
+                <p>
+                  The table below are p-values for pairwise <m>t</m>-tests comparing each of the different 
+                  groups. These p-values have not been corrected for multiple comparisons. Which pair of 
+                  groups appears most likely to represent a difference?
+                </p>
+                <tabular halign="center">
+                  <row bottom="major">
+                    <cell></cell>
+                    <cell>AeroKroil</cell>
+                    <cell>Heat</cell>
+                    <cell>Liquid Wrench</cell>
+                    <cell>none</cell>
+                    <cell>PB Blaster</cell>
+                    <cell>Royal Purple</cell>
+                    <cell>WD-40</cell>
+                  </row>
+                  <row>
+                    <cell>Acetone/ATF</cell>
+                    <cell>0.2026</cell>
+                    <cell>0.0308</cell>
+                    <cell>0.0476</cell>
+                    <cell>0.1542</cell>
+                    <cell>0.3294</cell>
+                    <cell>0.5222</cell>
+                    <cell>0.3744</cell>
+                  </row>
+                  <row>
+                    <cell>AeroKroil</cell>
+                    <cell></cell>
+                    <cell>0.0027</cell>
+                    <cell>0.0025</cell>
+                    <cell>0.8723</cell>
+                    <cell>0.7551</cell>
+                    <cell>0.5143</cell>
+                    <cell>0.6883</cell>
+                  </row>
+                  <row>
+                    <cell>Heat</cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>0.5580</cell>
+                    <cell>0.0020</cell>
+                    <cell>0.0050</cell>
+                    <cell>0.0096</cell>
+                    <cell>0.0059</cell>
+                  </row>
+                  <row>
+                    <cell>Liquid Wrench</cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>0.0017</cell>
+                    <cell>0.0053</cell>
+                    <cell>0.0117</cell>
+                    <cell>0.0065</cell>
+                  </row>
+                  <row>
+                    <cell>none</cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>0.6371</cell>
+                    <cell>0.4180</cell>
+                    <cell>0.5751</cell>
+                  </row>
+                  <row>
+                    <cell>PB Blaster</cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>0.7318</cell>
+                    <cell>0.9286</cell>
+                  </row>
+                  <row>
+                    <cell>Royal Purple</cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell>0.8000</cell>
+                  </row>
+                </tabular>
+              </li>
+              <li>
+                <p>
+                  There are 28 p-values shown in the table in part (c). Determine if any of them are 
+                  statistically significant after correcting for multiple comparisons. If so, which one(s)? 
+                  Explain your answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 55 -->
+      <exercise xml:id="exclusive_relationships">
+        <title>Exclusive relationships</title>
+        <statement>
+          <p>
+            A survey conducted on a reasonably random sample of 203 undergraduates asked, among many other 
+            questions, about the number of exclusive relationships these students have been in. The histogram 
+            below shows the distribution of the data from this sample. The sample average is 3.2 with a 
+            standard deviation of 1.97.
+          </p>
+          <figure xml:id="fig-exclusive-relationships">
+            <caption>Number of exclusive relationships</caption>
+            <image source="ch_inference_for_means/figures/eoce/exclusive_relationships/exclusive_relationships_rel_hist" width="60%">
+              <description>A histogram is shown for "Number of exclusive relationships". The distribution has a peak between 1 and 2 of about 101, a substantial dip for the 2 to 3 bin at a value of about 2, and the 3 to 4 bin is about 50, 4 to 5 bin a value of about 25, and the data continues to taper off with a maximum value of "10" shown.</description>
+            </image>
+          </figure>
+          <p>
+            Estimate the average number of exclusive relationships Duke students have been in using a 90% 
+            confidence interval and interpret this interval in context. Check any conditions required for 
+            inference, and note any assumptions you must make as you proceed with your calculations and 
+            conclusions.
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 56 -->
+      <exercise xml:id="age_at_first_marriage_intro">
+        <title>Age at first marriage, Part I</title>
+        <statement>
+          <p>
+            The National Survey of Family Growth conducted by the Centers for Disease Control gathers 
+            information on family life, marriage and divorce, pregnancy, infertility, use of contraception, 
+            and men's and women's health. One of the variables collected on this survey is the age at first 
+            marriage. The histogram below shows the distribution of ages at first marriage of 5,534 randomly 
+            sampled women between 2006 and 2010. The average age at first marriage among these women is 23.44 
+            with a standard deviation of 4.72.
+          </p>
+          <figure xml:id="fig-age-first-marriage">
+            <caption>Age at first marriage</caption>
+            <image source="ch_inference_for_means/figures/eoce/age_at_first_marriage_intro/age_at_first_marriage_intro_hist" width="60%">
+              <description>A histogram is shown for "Age at first marriage". The distribution is right-skewed, centered at about 23, has a standard deviation of about 5. The data smoothly tapers off in each direction but do not extend below about 12 or above 45.</description>
+            </image>
+          </figure>
+          <p>
+            Estimate the average age at first marriage of women using a 95% confidence interval, and 
+            interpret this interval in context. Discuss any relevant assumptions.
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 57 -->
+      <exercise xml:id="online_communication">
+        <title>Online communication</title>
+        <statement>
+          <p>
+            A study suggests that the average college student spends 10 hours per week communicating with 
+            others online. You believe that this is an underestimate and decide to collect your own sample 
+            for a hypothesis test. You randomly sample 60 students from your dorm and find that on average 
+            they spent 13.5 hours a week communicating with others online. A friend of yours, who offers to 
+            help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any 
+            errors you see.
+          </p>
+          <md>
+            <mrow>H_0\colon \bar{x} \amp\lt 10~\text{hours}</mrow>
+            <mrow>H_A\colon \bar{x} \amp\gt 13.5~\text{hours}</mrow>
+          </md>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 58 -->
+      <exercise xml:id="age_at_first_marriage_hyp_errors">
+        <title>Age at first marriage, Part II</title>
+        <statement>
+          <p>
+            <xref ref="age_at_first_marriage_intro"/> presents the results of a 2006 - 2010 survey showing 
+            that the average age of women at first marriage is 23.44. Suppose a social scientist thinks this 
+            value has changed since the survey was taken. Below is how she set up her hypotheses. Indicate 
+            any errors you see.
+          </p>
+          <md>
+            <mrow>H_0\colon \bar{x} \amp\neq 23.44~\text{years old}</mrow>
+            <mrow>H_A\colon \bar{x} \amp= 23.44~\text{years old}</mrow>
+          </md>
+        </statement>
+      </exercise>
+      
+    </exercises>
   </section>
 </chapter>
