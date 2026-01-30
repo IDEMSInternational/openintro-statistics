@@ -2899,65 +2899,205 @@
     <exercises>
       <title>Exercises</title>
 
-      <exercise xml:id="ex-sec33-sampling-without-replacement">
-        <title>Sampling without replacement</title>
+      <exercise xml:id="marbles_in_urn">
+        <title>Marbles in an urn</title>
         <statement>
           <p>
-            A box contains 8 red cards and 12 black cards. You draw 3 cards without replacement. What is 
-            the probability that all three cards are red?
+            Imagine you have an urn containing 5 red, 3 blue, and 2 orange marbles in it.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that the first marble you draw is blue?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose you drew a blue marble in the first draw. If drawing with replacement, what is the probability of drawing a blue marble in the second draw?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose you instead drew an orange marble in the first draw. If drawing with replacement, what is the probability of drawing a blue marble in the second draw?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If drawing with replacement, what is the probability of drawing two blue marbles in a row?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When drawing with replacement, are the draws independent? Explain.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec33-sampling-with-replacement">
-        <title>Sampling with replacement</title>
+      <exercise xml:id="socks_in_drawer">
+        <title>Socks in a drawer</title>
         <statement>
           <p>
-            Using the same box from the previous exercise (8 red and 12 black cards), if you draw 3 cards 
-            with replacement, what is the probability that all three cards are red? How does this compare 
-            to sampling without replacement?
+            In your sock drawer you have 4 blue, 5 gray, and 3 black socks. Half asleep one morning you grab 2 socks at random and put them on. Find the probability you end up wearing
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  2 blue socks
+                </p>
+              </li>
+              <li>
+                <p>
+                  no gray socks
+                </p>
+              </li>
+              <li>
+                <p>
+                  at least 1 black sock
+                </p>
+              </li>
+              <li>
+                <p>
+                  a green sock
+                </p>
+              </li>
+              <li>
+                <p>
+                  matching socks
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec33-committee-selection">
-        <title>Committee selection</title>
+      <exercise xml:id="chips_in_bag">
+        <title>Chips in a bag</title>
         <statement>
           <p>
-            A club has 15 members: 9 women and 6 men. A committee of 4 people is to be selected at random. 
-            What is the probability that the committee consists of 2 women and 2 men?
+            Imagine you have a bag containing 5 red, 3 blue, and 2 orange chips.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Suppose you draw a chip and it is blue. If drawing without replacement, what is the probability the next is also blue?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose you draw a chip and it is orange, and then you draw a second chip without replacement. What is the probability this second chip is blue?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If drawing without replacement, what is the probability of drawing two blue chips in a row?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When drawing without replacement, are the draws independent? Explain.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec33-independence-sample-size">
-        <title>Independence and sample size</title>
+      <exercise xml:id="books_on_shelf">
+        <title>Books on a bookshelf</title>
         <statement>
           <p>
-            A factory produces 10,000 items per day. Quality control randomly selects 50 items to inspect. 
-            Even though the sampling is done without replacement, why can we treat the selections as 
-            approximately independent?
+            The table below shows the distribution of books on a bookcase based on whether they are nonfiction or fiction and hardcover or paperback.
+          </p>
+          <table>
+            <title>Books by type and format</title>
+            <tabular>
+              <row header="yes">
+                <cell></cell>
+                <cell>Hardcover</cell>
+                <cell>Paperback</cell>
+                <cell>Total</cell>
+              </row>
+              <row>
+                <cell>Fiction</cell>
+                <cell>13</cell>
+                <cell>59</cell>
+                <cell>72</cell>
+              </row>
+              <row>
+                <cell>Nonfiction</cell>
+                <cell>15</cell>
+                <cell>8</cell>
+                <cell>23</cell>
+              </row>
+              <row>
+                <cell>Total</cell>
+                <cell>28</cell>
+                <cell>67</cell>
+                <cell>95</cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Find the probability of drawing a hardcover book first then a paperback fiction book second when drawing without replacement.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Determine the probability of drawing a fiction book first and then a hardcover book second, when drawing without replacement.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability of the scenario in part (b), except this time complete the calculations under the scenario where the first book is placed back on the bookcase before randomly drawing the second book.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The final answers to parts (b) and (c) are very similar. Explain why this is the case.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec33-lottery-tickets">
-        <title>Lottery ticket probability</title>
+      <exercise xml:id="student_outfits">
+        <title>Student outfits</title>
         <statement>
           <p>
-            In a lottery, 100 tickets are sold and 5 prizes will be awarded. If you buy 3 tickets, what is 
-            the probability you win at least one prize? (Assume tickets are drawn without replacement and 
-            you can win at most one prize.)
+            In a classroom with 24 students, 7 students are wearing jeans, 4 are wearing shorts, 8 are wearing skirts, and the rest are wearing leggings. If we randomly select 3 students without replacement, what is the probability that one of the selected students is wearing leggings and the other two are wearing jeans? Note that these are mutually exclusive clothing options.
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec33-deck-of-cards">
-        <title>Drawing cards</title>
+      <exercise xml:id="birthday_problem">
+        <title>The birthday problem</title>
         <statement>
           <p>
-            You draw 5 cards from a standard 52-card deck without replacement. What is the probability that 
-            you get exactly 2 hearts? Explain how sampling without replacement affects this calculation.
+            Suppose we pick three people at random. For each of the following questions, ignore the special case where someone might be born on February 29th, and assume that births are evenly distributed throughout the year.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that the first two people share a birthday?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that at least two people share a birthday?
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
@@ -3662,68 +3802,168 @@
     <exercises>
       <title>Exercises</title>
 
-      <exercise xml:id="ex-sec34-expected-value">
-        <title>Expected value calculation</title>
+      <exercise xml:id="college_smokers">
+        <title>College smokers</title>
         <statement>
           <p>
-            A lottery ticket costs <m>\$2</m>. You have a <m>1/1000</m> chance of winning <m>\$500</m>, a 
-            <m>1/100</m> chance of winning <m>\$10</m>, and otherwise you win nothing. What is the expected 
-            value of buying one lottery ticket? Should you expect to make or lose money in the long run?
+            At a university, 13% of students smoke.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Calculate the expected number of smokers in a random sample of 100 students from this university.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The university gym opens at 9 am on Saturday mornings. One Saturday morning at 8:55 am there are 27 students outside the gym waiting for it to open. Should you use the same approach from part (a) to calculate the expected number of smokers among these 27 students?
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec34-discrete-probability-distribution">
-        <title>Discrete probability distribution</title>
+      <exercise xml:id="ace_of_clubs">
+        <title>Ace of clubs wins</title>
         <statement>
           <p>
-            A random variable X represents the number of heads when flipping three fair coins. Create a 
-            probability distribution table for X showing all possible values and their probabilities. Verify 
-            that the probabilities sum to 1.
+            Consider the following card game with a well-shuffled deck of cards. If you draw a red card, you win nothing. If you get a spade, you win $5. For any club, you win $10 plus an extra $20 for the ace of clubs.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Create a probability model for the amount you win at this game. Also, find the expected winnings for a single game and the standard deviation of the winnings.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the maximum amount you would be willing to pay to play this game? Explain your reasoning.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec34-variance-calculation">
-        <title>Variance of a random variable</title>
+      <exercise xml:id="hearts">
+        <title>Hearts win</title>
         <statement>
           <p>
-            Given a random variable Y with the following probability distribution: <m>P(Y=1)=0.3</m>, 
-            <m>P(Y=2)=0.5</m>, <m>P(Y=3)=0.2</m>. Calculate the expected value, variance, and standard 
-            deviation of Y.
+            In a new card game, you start with a well-shuffled full deck and draw 3 cards without replacement. If you draw 3 hearts, you win $50. If you draw 3 black cards, you win $25. For any other draws, you win nothing.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Create a probability model for the amount you win at this game, and find the expected winnings. Also compute the standard deviation of this distribution.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the game costs $5 to play, what would be the expected value and standard deviation of the net profit (or loss)? (Hint: profit = winnings <m>-</m> cost; <m>X-5</m>)
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the game costs $5 to play, should you play this game? Explain.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec34-linear-combination">
-        <title>Linear combination of random variables</title>
+      <exercise xml:id="worth_it">
+        <title>Is it worth it</title>
         <statement>
           <p>
-            Suppose X has mean 10 and standard deviation 2, and Y has mean 15 and standard deviation 3. 
-            If X and Y are independent, find the mean and standard deviation of the random variable 
-            Z = 2X + 3Y.
+            Andy is always looking for ways to make money fast. Lately, he has been trying to make money by gambling. Here is the game he is considering playing: The game costs $2 to play. He draws a card from a deck. If he gets a number card (2-10), he wins nothing. For any face card (jack, queen or king), he wins $3. For any ace, he wins $5, and he wins an extra $20 if he draws the ace of clubs.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Create a probability model and find Andy's expected profit per game.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Would you recommend this game to Andy as a good way to make money? Explain.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec34-binomial-scenario">
-        <title>Binomial random variable</title>
+      <exercise xml:id="portfolio_return">
+        <title>Portfolio return</title>
         <statement>
           <p>
-            A basketball player makes <m>70\%</m> of her free throws. If she attempts 10 free throws in a 
-            game, what is the probability she makes exactly 7 of them? What is the expected number of 
-            successful free throws?
+            A portfolio's value increases by 18% during a financial boom and by 9% during normal times. It decreases by 12% during a recession. What is the expected return on this portfolio if each scenario is equally likely?
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec34-sum-of-random-variables">
-        <title>Sum of random variables</title>
+      <exercise xml:id="baggage_fees">
+        <title>Baggage fees</title>
         <statement>
           <p>
-            A teacher gives two quizzes. Quiz 1 scores have a mean of 80 and standard deviation of 8. 
-            Quiz 2 scores have a mean of 75 and standard deviation of 10. Assuming the quizzes are independent, 
-            what is the mean and standard deviation of the total score (sum of both quizzes)?
+            An airline charges the following baggage fees: $25 for the first bag and $35 for the second. Suppose 54% of passengers have no checked luggage, 34% have one piece of checked luggage and 12% have two pieces. We suppose a negligible portion of people check more than two bags.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Build a probability model, compute the average revenue per passenger, and compute the corresponding standard deviation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  About how much revenue should the airline expect for a flight of 120 passengers? With what standard deviation? Note any assumptions you make and if you think they are justified.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="roulette_american">
+        <title>American roulette</title>
+        <statement>
+          <p>
+            The game of American roulette involves spinning a wheel with 38 slots: 18 red, 18 black, and 2 green. A ball is spun onto the wheel and will eventually land in a slot, where each slot has an equal chance of capturing the ball. Gamblers can place bets on red or black. If the ball lands on their color, they double their money. If it lands on another color, they lose their money. Suppose you bet $1 on red. What's the expected value and standard deviation of your winnings?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="roulette_european">
+        <title>European roulette</title>
+        <statement>
+          <p>
+            The game of European roulette involves spinning a wheel with 37 slots: 18 red, 18 black, and 1 green. A ball is spun onto the wheel and will eventually land in a slot, where each slot has an equal chance of capturing the ball. Gamblers can place bets on red or black. If the ball lands on their color, they double their money. If it lands on another color, they lose their money.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Suppose you play roulette and bet $3 on a single round. What is the expected value and standard deviation of your total winnings?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose you bet $1 in three different rounds. What is the expected value and standard deviation of your total winnings?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How do your answers to parts (a) and (b) compare? What does this say about the riskiness of the two games?
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
@@ -3895,69 +4135,108 @@
     <exercises>
       <title>Exercises</title>
 
-      <exercise xml:id="ex-sec35-normal-distribution">
-        <title>Normal distribution properties</title>
+      <exercise xml:id="cat_weights">
+        <title>Cat weights</title>
         <statement>
           <p>
-            A continuous random variable X follows a normal distribution with mean <m>\mu = 100</m> and 
-            standard deviation <m>\sigma = 15</m>. Without calculating exact probabilities, describe where 
-            approximately <m>68\%</m>, <m>95\%</m>, and <m>99.7\%</m> of the data should fall according to 
-            the empirical rule.
+            The histogram shown below represents the weights (in kg) of 47 female and 97 male cats.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What fraction of these cats weigh less than 2.5 kg?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What fraction of these cats weigh between 2.5 and 2.75 kg?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What fraction of these cats weigh between 2.75 and 3.5 kg?
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sec35-probability-density">
-        <title>Probability density function</title>
+      <exercise xml:id="income_gender">
+        <title>Income and gender</title>
         <statement>
           <p>
-            Explain why the probability that a continuous random variable takes on any exact value is zero. 
-            How does this differ from discrete random variables? Why do we need to consider intervals for 
-            continuous variables?
+            The relative frequency table below displays the distribution of annual total personal income (in 2009 inflation-adjusted dollars) for a representative sample of 96,420,486 Americans. These data come from the American Community Survey for 2005-2009. This sample is comprised of 59% males and 41% females.
           </p>
-        </statement>
-      </exercise>
-
-      <exercise xml:id="ex-sec35-area-under-curve">
-        <title>Area under the curve</title>
-        <statement>
+          <table>
+            <title>Annual personal income distribution</title>
+            <tabular>
+              <row header="yes">
+                <cell>Income</cell>
+                <cell>Total</cell>
+              </row>
+              <row>
+                <cell>$1 to $9,999 or loss</cell>
+                <cell>2.2%</cell>
+              </row>
+              <row>
+                <cell>$10,000 to $14,999</cell>
+                <cell>4.7%</cell>
+              </row>
+              <row>
+                <cell>$15,000 to $24,999</cell>
+                <cell>15.8%</cell>
+              </row>
+              <row>
+                <cell>$25,000 to $34,999</cell>
+                <cell>18.3%</cell>
+              </row>
+              <row>
+                <cell>$35,000 to $49,999</cell>
+                <cell>21.2%</cell>
+              </row>
+              <row>
+                <cell>$50,000 to $64,999</cell>
+                <cell>13.9%</cell>
+              </row>
+              <row>
+                <cell>$65,000 to $74,999</cell>
+                <cell>5.8%</cell>
+              </row>
+              <row>
+                <cell>$75,000 to $99,999</cell>
+                <cell>8.4%</cell>
+              </row>
+              <row>
+                <cell>$100,000 or more</cell>
+                <cell>9.7%</cell>
+              </row>
+            </tabular>
+          </table>
           <p>
-            The heights of adult males follow approximately a normal distribution with mean 175 cm and 
-            standard deviation 7 cm. If you want to find the proportion of males taller than 182 cm, 
-            what area under the probability density curve would you need to calculate?
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise xml:id="ex-sec35-continuous-vs-discrete">
-        <title>Continuous vs. discrete distributions</title>
-        <statement>
-          <p>
-            Compare and contrast probability calculations for discrete and continuous random variables. 
-            Specifically, address how you would calculate <m>P(X = 5)</m> for each type and 
-            <m>P(X \leq 5)</m> for each type.
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise xml:id="ex-sec35-uniform-distribution">
-        <title>Uniform distribution</title>
-        <statement>
-          <p>
-            A random variable Y is uniformly distributed between 0 and 10, meaning it is equally likely to 
-            take any value in this interval. What is the probability that Y falls between 3 and 7? Draw a 
-            diagram showing the probability density function and shade the appropriate area.
-          </p>
-        </statement>
-      </exercise>
-
-      <exercise xml:id="ex-sec35-percentiles">
-        <title>Percentiles in continuous distributions</title>
-        <statement>
-          <p>
-            Test scores are normally distributed with mean 500 and standard deviation 100. The 
-            <m>90</m>th percentile score is approximately 628. Explain what this means in terms of the area 
-            under the probability density curve. What percentage of students scored above 628?
+            <ol marker="a.">
+              <li>
+                <p>
+                  Describe the distribution of total personal income.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that a randomly chosen US resident makes less than $50,000 per year?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that a randomly chosen US resident makes less than $50,000 per year and is female? Note any assumptions you make.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The same data source indicates that 71.8% of females make less than $50,000 per year. Use this value to determine whether or not the assumption you made in part (c) is valid.
+                </p>
+              </li>
+            </ol>
           </p>
         </statement>
       </exercise>
