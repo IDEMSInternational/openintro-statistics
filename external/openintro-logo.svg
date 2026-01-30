@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <!-- OpenIntro Logo Placeholder -->
+  <rect width="200" height="60" fill="#3B6EA5" rx="5"/>
+  <text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">OpenIntro</text>
+  <text x="100" y="52" font-family="Arial, sans-serif" font-size="10" fill="#E8F0F8" text-anchor="middle">Statistics</text>
+</svg>
