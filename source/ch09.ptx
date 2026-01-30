@@ -1814,7 +1814,7 @@
           <li>
             <title>Check for outliers</title>
             <p>
-              In theory, the distribution of the residuals should be nearly normal; in practice, normality can be relaxed for most applications. Instead, we examine a histogram of the residuals to check if there are any outliers: <xref ref="fig-loans-diag-normal-histogram"/> is a histogram of these outliers. Since this is a very large data set, only particularly extreme observations would be a concern in this particular case. There are no extreme observations that might cause a concern.
+              In theory, the distribution of the residuals should be nearly normal; in practice, normality can be relaxed for most applications. Instead, we examine a histogram of the residuals to check if there are any outliers: <xref ref="fig-loans-diag-normal-histogram"/> is a histogram of the residuals. Since this is a very large data set, only particularly extreme observations would be a concern in this particular case. There are no extreme observations that might cause a concern.
             </p>
             <p>
               If we intended to construct what are called <term>prediction intervals</term> for future observations, we would be more strict and require the residuals to be nearly normal. Prediction intervals are further discussed in an online extra on the OpenIntro website: <url href="https://www.openintro.org/d?id=stat_extra_linear_regression_supp">www.openintro.org/d?id=stat_extra_linear_regression_supp</url>
@@ -1948,7 +1948,7 @@
       </figure>
       
       <p>
-        As a next step, we'd evaluate the new model using the truncated version of <c>debt_to_income</c>, we would complete all the same procedures as before. The other two issues noted while inspecting diagnostics in <xref ref="subsec-diagnostic-plots"/> are still present in the updated model. If we choose to report this model, we would want to also discuss these shortcomings to be transparent in our work. Depending on what the model will be used for, we could either try to bring those under control, or we could stop since those issues aren't severe. Had the non-constant variance been a little more dramatic, it would be a higher priority. Ultimately we decided that the model was reasonable, and we report its final form here:
+        As a next step to evaluate the new model using the truncated version of <c>debt_to_income</c>, we would complete all the same procedures as before. The other two issues noted while inspecting diagnostics in <xref ref="subsec-diagnostic-plots"/> are still present in the updated model. If we choose to report this model, we would want to also discuss these shortcomings to be transparent in our work. Depending on what the model will be used for, we could either try to bring those under control, or we could stop since those issues aren't severe. Had the non-constant variance been a little more dramatic, it would be a higher priority. Ultimately we decided that the model was reasonable, and we report its final form here:
         <md>
           <mrow>\widehat{\text{rate}} \amp = 1.562 + 1.002 \times \mathbb{1}_{\text{income\_ver = source\_only}} + 2.436 \times \mathbb{1}_{\text{income\_ver = verified}}</mrow>
           <mrow>\amp \qquad + 0.048 \times \text{debt\_to\_income\_50} + 4.694 \times \text{credit\_util} + 0.394 \times \text{bankruptcy}</mrow>
@@ -1991,25 +1991,25 @@
             <description>A histogram of residuals is shown, which has a bell-shaped distribution, is centered at 0, and has a standard deviation of about 12.</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_abs_res_fitted" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "fitted values". The residuals does not show any pattern for different fitted values.</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "fitted values". The residuals do not show any pattern for different fitted values.</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_res_order" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "order of collection". The residuals does not show any pattern across the order of collection variable.</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "order of collection". The residuals do not show any pattern across the order of collection variable.</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_res_gestation" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "length of gestation". The residuals does not show any pattern for different lengths of gestation.</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "length of gestation". The residuals do not show any pattern for different lengths of gestation.</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_res_parity" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "parity", which only takes values 0 and 1. The residuals does not show any apparent patterns across the values 0 and 1 of parity.</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "parity", which only takes values 0 and 1. The residuals do not show any apparent patterns across the values 0 and 1 of parity.</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_res_height" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "height of mother". The residuals does not show any pattern for different values of "height of mother".</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "height of mother". The residuals do not show any pattern for different values of "height of mother".</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_res_weight" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "weight of mother". The residuals does not show any pattern for different values of "weight of mother".</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "weight of mother". The residuals do not show any pattern for different values of "weight of mother".</description>
           </image>
           <image source="ch_regr_mult_and_log/figures/eoce/baby_weights_conds/baby_weights_conds_res_smoke" width="40%">
-            <description>A scatterplot of "residuals" (vertical axis) against "smoke", which only takes values 0 and 1. The residuals does not show any pattern for the 0 and 1 values of smoke.</description>
+            <description>A scatterplot of "residuals" (vertical axis) against "smoke", which only takes values 0 and 1. The residuals do not show any pattern for the 0 and 1 values of smoke.</description>
           </image>
         </statement>
       </exercise>
