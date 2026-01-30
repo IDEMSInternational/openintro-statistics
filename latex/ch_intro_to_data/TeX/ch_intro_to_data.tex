@@ -1,0 +1,1409 @@
+\begin{chapterpage}{Introduction to data}
+  \chaptertitle{Introduction to data}
+  \label{introductionToData}
+  \label{ch_intro_to_data}
+  \chaptersection{basicExampleOfStentsAndStrokes}
+  \chaptersection{dataBasics}
+  \chaptersection{overviewOfDataCollectionPrinciples}
+  % \chaptersection{section_obs_data_sampling}
+  \chaptersection{experimentsSection}
+\end{chapterpage}
+\renewcommand{\chapterfolder}{ch_intro_to_data}
+
+%\begin{tipBox}{\tipBoxTitle[Chapter Goal:]{Thinking about data}
+%Understand basics about data organization, data types, numerical summaries of data, graphical summaries of data, and foundational techniques for data collection. We begin and end the chapter with case studies.}
+%\end{tipBox}
+
+\chapterintro{Scientists seek to answer questions
+  using rigorous methods and careful observations.
+  These observations -- collected from the likes of field notes,
+  surveys, and experiments -- form the backbone of a statistical
+  investigation and are called \term{data}.
+  Statistics is the study of how best to collect, analyze,
+  and draw conclusions from data, %It is helpful to put statistics in the context of a general process of investigation:
+%\begin{enumerate}
+%\setlength{\itemsep}{0mm}
+%\item Identify a question or problem.
+%\item Collect relevant data on the topic.
+%\item Analyze the data.
+%\item Form a conclusion.
+%%\item Make decisions based on the conclusion.
+%\end{enumerate}
+%Statistics as a subject focuses on making stages 2-4 objective, rigorous, and efficient. That~is, statistics has three primary components: How best can we collect data? How should it be analyzed? And what can we infer from the analysis?
+  and in this first chapter,
+  we focus on both the properties of data
+  and on the collection of data.}
+
+%The topics scientists investigate are as diverse as the questions they ask. However, many of these investigations can be addressed with a small number of data collection techniques, analytic tools, and fundamental concepts in statistical inference. This chapter provides a glimpse into these and other themes we will encounter throughout the rest of the book. We introduce the basic principles of each branch and learn some tools along the way. We will encounter applications from other fields, some of which are not typically associated with science but nonetheless can benefit from statistical study.
+
+
+
+\section{Case study: using stents to prevent strokes}
+\label{basicExampleOfStentsAndStrokes}
+
+\index{data!stroke|(}
+
+Section~\ref{basicExampleOfStentsAndStrokes} introduces a classic challenge in statistics: evaluating the efficacy of a medical treatment. Terms in this section, and indeed much of this chapter, will all be revisited later in the text. The plan for now is simply to get a sense of the role statistics can play in practice.
+
+In this section we will consider an experiment that studies effectiveness of stents in treating patients at risk of stroke.
+Stents are devices put inside blood vessels that assist in patient recovery after cardiac events and reduce the risk of an additional heart attack or death. Many doctors have hoped that there would be similar benefits for patients at risk of stroke. We start by writing the principal question the researchers hope to answer:
+\begin{quote}
+Does the use of stents reduce the risk of stroke?
+\end{quote}
+
+The researchers who asked this question conducted an experiment with 451 at-risk patients. Each volunteer patient was randomly assigned to one of two groups:
+\begin{itemize}
+\item[]\termsub{Treatment group}{treatment group}. Patients in the treatment group received a stent and medical management. The medical management included medications, management of risk factors, and help in lifestyle modification.
+\item[]\termsub{Control group}{control group}. Patients in the control group received the same medical management as the treatment group, but they did not receive stents.
+\end{itemize}
+Researchers randomly assigned 224 patients to the treatment group and 227 to the control group. In this study, the control group provides a reference point against which we can measure the medical impact of stents in the treatment group.
+
+Researchers studied the effect of stents at two time points: 30~days after enrollment and 365~days after enrollment. The results of 5 patients are summarized in Figure~\ref{stentStudyResultsDF}. Patient outcomes are recorded as ``stroke'' or ``no event'', representing whether or not the patient had a stroke at the end of a time period.
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{l ccc}
+\hline
+Patient	&	group	&	0-30 days 	&	0-365 days \\
+\hline
+1		&	treatment &	no event &	no event \\
+2		&	treatment &	stroke & stroke \\
+3		&	treatment &	no event & no event \\
+$\vdots$	&	$\vdots$	  &	$\vdots$ \\
+450	&	control &	no event &	no event \\
+451	&	control &	no event &	no event \\
+\hline
+\end{tabular}
+\caption{Results for five patients from the stent study.}
+\label{stentStudyResultsDF}
+% trmt <- c(rep('trmt', 224), rep('control', 227)); outcome30 <- c(rep(c('event', 'no_event'), c(33, 191)), rep(c('event', 'no_event'), c(13, 214))); outcome365 <- c(rep(c('event', 'no_event'), c(33, 191)), rep(c('event', 'no_event'), c(13, 214)))
+\end{figure}
+
+Considering data from each patient individually would be a long, cumbersome path towards answering the original research question. Instead, performing a statistical data analysis allows us to consider all of the data at once. Figure~\ref{stentStudyResults} summarizes the raw data in a more helpful way. In this table, we can quickly see what happened over the entire study. For instance, to identify the number of patients in the treatment group who had a stroke within 30 days, we look on the left-side of the table at the intersection of the treatment and stroke: 33.
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{l cc c cc}
+& \multicolumn{2}{c}{0-30 days} &\hspace{5mm}\ & \multicolumn{2}{c}{0-365 days} \\
+  \cline{2-3} \cline{5-6}
+	& 	stroke 	& no event && 	stroke 	& no event \\
+  \hline
+treatment 	& 33		& 191	&&	45 	& 179 \\
+control 		& 13		& 214	&& 	28	& 199 \\
+  \hline
+Total				& 46		& 405	&&	73	& 378 \\
+  \hline
+\end{tabular}
+\caption{Descriptive statistics for the stent study.}
+\label{stentStudyResults}
+\end{figure}
+
+\begin{exercisewrap}
+\begin{nexercise}
+Of the 224 patients in the treatment group, 45 had a stroke by the end of the first year. Using these two numbers, compute the proportion of patients in the treatment group who had a stroke by the end of their first year. (Please note: answers to all Guided Practice exercises are provided using footnotes.)\footnotemark
+\end{nexercise}
+\end{exercisewrap}\footnotetext{The proportion of the 224 patients who had a stroke within 365 days: $45/224 = 0.20$.}
+
+We can compute summary statistics from the table.
+A \term{summary statistic}%
+\index{statistic|seealso{summary statistic}}
+is a single number summarizing
+a large amount of data.
+For instance, the primary results of the study after 1~year
+could be described by two summary statistics:
+the proportion of people who had a stroke in the treatment
+and control groups.
+\begin{itemize}
+\setlength{\itemsep}{0mm}
+\item[] Proportion who had a stroke in the treatment (stent) group: $45/224 = 0.20 = 20\%$.
+\item[] Proportion who had a stroke in the control group: $28/227 = 0.12 = 12\%$.
+\end{itemize}
+These two summary statistics are useful in looking for differences in the groups, and we are in for a surprise: an additional 8\% of patients in the treatment group had a stroke! This is important for two reasons. First, it is contrary to what doctors expected, which was that stents would \emph{reduce} the rate of strokes. Second, it leads to a statistical question: do the data show a ``real'' difference between the groups?
+
+This second question is subtle. Suppose you flip a coin 100 times. While the chance a coin lands heads in any given coin flip is 50\%, we probably won't observe exactly 50 heads. This type of fluctuation is part of almost any type of data generating process. It is possible that the 8\% difference in the stent study is due to this natural variation. However, the larger the difference we observe (for a particular sample size), the less believable it is that the difference is due to chance. So what we are really asking is the following: is the difference so large that we should reject the notion that it was due to chance?
+
+While we don't yet have our statistical tools to fully address this question on our own, we can comprehend the conclusions of the published analysis: there was compelling evidence of harm by stents in this study of stroke patients.
+
+\textbf{Be careful:}
+Do not generalize the results of this study to all patients
+and all stents.
+This study looked at patients with very specific characteristics
+who volunteered to be a part of this study and who may not be
+representative of all stroke patients.
+In addition, there are many types of stents and this study only
+considered the self-expanding Wingspan stent (Boston Scientific).
+However, this study does leave us with an important lesson:
+we should keep our eyes open for surprises.
+
+\index{data!stroke|)}
+
+
+{\input{ch_intro_to_data/TeX/case_study_using_stents_to_prevent_strokes.tex}}
+
+
+
+\section{Data basics}
+\label{dataBasics}
+
+Effective organization and description of data is a first
+step in most analyses.
+This section introduces the \emph{data matrix} for organizing
+data as well as some terminology about different forms of data
+that will be used throughout this book.
+
+\subsection{Observations, variables, and data matrices}
+
+\index{data!loan50|(}
+
+Figure~\ref{loan50DF} displays rows 1, 2, 3, and 50 of a data set
+for 50 randomly sampled loans offered through Lending Club,
+which is a peer-to-peer lending company.
+These observations will be referred to as the
+\data{loan50} data set.
+
+Each row in the table represents a single loan.
+The formal name for a row is a \term{case}
+or \term{observational unit}\index{unit of observation}.
+The columns represent characteristics,
+called \termsub{variables}{variable},
+for each of the loans.
+For example, the first row represents a loan of \$22,000 with an interest rate of 10.90\%, where the borrower is based in New Jersey (NJ) and has an income of \$59,000.
+
+\begin{exercisewrap}
+\begin{nexercise}
+What is the grade of the first loan in Figure~\ref{loan50DF}?
+And what is the home ownership status of the borrower
+for that first loan?
+For these Guided Practice questions, you can check your answer
+in the footnote.\footnotemark{}
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{The loan's grade is B,
+  and the borrower rents their residence.}
+
+In practice, it is especially important to ask clarifying
+questions to ensure important aspects of the data are understood.
+For instance, it is always important to be sure we know what
+each variable means and the units of measurement.
+Descriptions of the \data{loan50} variables are given
+in Figure~\ref{loan50Variables}.
+
+\begin{figure}[h]
+\centering
+{\small
+\begin{tabular}{ccc ccc cc} %c}
+  \hline
+   & \var{loan\us{}amount}
+   & \var{interest\us{}rate}
+   & \var{term} & \var{grade} & \var{state}
+   & \var{total\us{}income}
+   & \var{homeownership} \\
+  \hline
+  1 & 22000 & 10.90 & 60.00 & B & NJ & 59000.00 & rent \\ 
+  2 & 6000 & 9.92 & 36.00 & B & CA & 60000.00 & rent \\ 
+  3 & 25000 & 26.30 & 36.00 & E & SC & 75000.00 & mortgage \\
+  %1 & 7500 & 7.34 & 36 & A & MD & 70000 & rent \\
+  %2 & 25000 & 9.43 & 60 & B & OH & 254000 & mortgage \\
+  %3 & 14500 & 6.08 & 36 & A & MO & 80000 & mortgage \\
+  $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$
+      & $\vdots$ & $\vdots$ \\
+  50 & 15000 & 6.08 & 36.00 & A & TX & 77500.00 & mortgage \\
+  %50 & 3000 & 7.96 & 36 & A & CA & 34000 & rent \\
+   \hline
+\end{tabular}
+}
+\caption{Four rows from the \data{loan50} data matrix.}
+\label{loan50DF}
+\end{figure}
+% Dropped: state, verified_income
+% library(openintro); vars <- c("loan_amount", "interest_rate", "term", "grade", "state", "total_income", "homeownership"); library(xtable); data(loan50); loan50[c(1,2,3,50), vars]; xtable(loan50[c(1,2,3,50), vars])
+
+\begin{figure}[h]
+\centering\small
+\begin{tabular}{lp{10.5cm}}
+\hline
+{\bf variable} & {\bf description} \\
+\hline
+\var{loan\us{}amount} & Amount of the loan received,
+    in US dollars.  \\
+\var{interest\us{}rate} & Interest rate on the loan,
+    in an annual percentage.  \\
+\var{term} & The length of the loan, which is always set
+    as a whole number of months. \\
+\var{grade} & Loan grade, which takes values A through G
+    and represents the quality of the loan and its likelihood
+    of being repaid.  \\
+\var{state} & US state where the borrower resides. \\
+\var{total\us{}income} & Borrower's total income,
+    including any second income, in US dollars.   \\
+\var{homeownership} & Indicates whether the
+    person owns, owns but has a mortgage, or rents.  \\
+%\var{verified\us{}income} & Indicates whether the
+%    income is verified, its source is verified but not the amount,
+%    or it is not verified.   \\
+\hline
+\end{tabular}
+\caption{Variables and their descriptions for the \data{loan50} data set.}
+\label{loan50Variables}
+\end{figure}
+
+\index{data!loan50|)}
+
+The data in Figure~\ref{loan50DF} represent a \term{data matrix},
+which is a convenient and common way to organize data,
+especially if collecting data in a spreadsheet.
+Each row of a data matrix corresponds to a unique case
+(observational unit),
+and each column corresponds to a variable.
+%A data matrix for the stroke study introduced in
+%Section~\ref{basicExampleOfStentsAndStrokes} is shown
+%in Figure~\vref{stentStudyResultsDF}, where the cases were
+%patients and three variables were recorded for each
+%patient.
+
+\D{\newpage}
+
+When recording data, use a data matrix unless you have
+a very good reason to use a different structure.
+This structure allows new cases to be added as rows
+or new variables as new columns.
+
+\begin{exercisewrap}
+\begin{nexercise}
+The grades for assignments, quizzes, and exams in a course are
+often recorded in a gradebook that takes the form of a data matrix.
+How might you organize grade data using a data
+matrix?\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+
+\index{data!county|(}
+
+\begin{exercisewrap}
+\begin{nexercise}\label{desc_county_as_data_matrix}%
+We consider data for 3,142 counties in the United States,
+which includes each county's name,
+the state where it resides, its population in 2017,
+how its population changed from 2010 to 2017,
+poverty rate,
+and six additional characteristics.
+How might these data be organized in
+a data matrix?\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\addtocounter{footnote}{-1}
+\footnotetext{There are multiple strategies that can be followed.
+  One common strategy is to have each student represented by a row,
+  and then add a column for each assignment, quiz, or exam.
+  Under this setup, it is easy to review a single line to understand
+  a student's grade history.
+  There should also be columns to include student information,
+  such as one column to list student names.}
+\addtocounter{footnote}{1}
+\footnotetext{Each county may be viewed as a case,
+  and there are eleven pieces of information recorded for
+  each case.
+  A table with 3,142 rows and 11 columns could hold these data,
+  where each row represents a county and each column represents
+  a particular piece of information.}
+
+The data described in Guided
+Practice~\ref{desc_county_as_data_matrix} represents the
+\data{county} data set, which is shown as a data matrix
+in Figure~\ref{countyDF}.
+The variables are summarized in Figure~\ref{countyVariables}.
+
+\begin{landscape}
+\begin{figure}
+\centering\small
+\begin{tabular}{ccc ccc ccc ccc}
+  \hline
+ & \var{name} & \var{state} & \var{pop} & \var{pop\us{}change} & \var{poverty} & \var{homeownership} & \var{multi\us{}unit} & \var{unemp\us{}rate} & \var{metro} & \var{median\us{}edu} & \var{median\us{}hh\us{}income} \\ 
+  \hline
+1 & Autauga  & Alabama &  55504 &  1.48 & 13.7 & 77.5 &  7.2 & 3.86 & yes & some\us{}college & 55317 \\ 
+  2 & Baldwin  & Alabama & 212628 &  9.19 & 11.8 & 76.7 & 22.6 & 3.99 & yes & some\us{}college & 52562 \\ 
+  3 & Barbour  & Alabama &  25270 & -6.22 & 27.2 & 68.0 & 11.1 & 5.90 & no  & hs\us{}diploma   & 33368 \\ 
+  4 & Bibb     & Alabama &  22668 &  0.73 & 15.2 & 82.9 &  6.6 & 4.39 & yes & hs\us{}diploma   & 43404 \\ 
+  5 & Blount   & Alabama &  58013 &  0.68 & 15.6 & 82.0 &  3.7 & 4.02 & yes & hs\us{}diploma   & 47412 \\ 
+  6 & Bullock  & Alabama &  10309 & -2.28 & 28.5 & 76.9 &  9.9 & 4.93 & no  & hs\us{}diploma   & 29655 \\ 
+  7 & Butler   & Alabama &  19825 & -2.69 & 24.4 & 69.0 & 13.7 & 5.49 & no  & hs\us{}diploma   & 36326 \\ 
+  8 & Calhoun  & Alabama & 114728 & -1.51 & 18.6 & 70.7 & 14.3 & 4.93 & yes & some\us{}college & 43686 \\ 
+  9 & Chambers & Alabama &  33713 & -1.20 & 18.8 & 71.4 &  8.7 & 4.08 & no  & hs\us{}diploma   & 37342 \\ 
+  10 & Cherokee & Alabama &  25857 & -0.60 & 16.1 & 77.5 &  4.3 & 4.05 & no  & hs\us{}diploma   & 40041 \\ 
+  $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+  3142 & Weston   & Wyoming &   6927 & -2.93 & 14.4 & 77.9 &  6.5 & 3.98 & no  & some\us{}college & 59605 \\ 
+   \hline
+\end{tabular}
+\caption{Eleven rows from the \data{county} data set.}
+\label{countyDF}
+% library(openintro); data(county); county$name <- gsub(" County$", "", county$name); county$pop <- county$pop2017; county$unemp_rate = county$unemployment_rate; these <- c("name", "state", "pop", "pop_change", "poverty", "homeownership", "multi_unit", "unemp_rate", "metro", "median_edu", "median_hh_income"); county <- county[, these]; library(xtable); xtable(as.data.frame(lapply(rbind.data.frame(head(county, 10), tail(county, 1)), function(x) { format(x) })))
+\end{figure}
+
+\begin{figure}
+\centering\small
+\begin{tabular}{lp{11cm}}
+\hline
+{\bf variable} & {\bf description} \\
+\hline
+\var{name} &
+    County name. \\
+\var{state} &
+    State where the county resides,
+    or the District of Columbia. \\
+\var{pop} &
+    Population in 2017. \\
+\var{pop\us{}change} &
+    Percent change in the population from 2010 to 2017.
+    For example, the value \resp{1.48} in the first row
+    means the population for this county
+    increased by 1.48\% from 2010 to 2017. \\
+\var{poverty} &
+    Percent of the population in poverty. \\
+\var{homeownership}  &
+    Percent of the population that lives in their own home
+    or lives with the owner, e.g. children living with parents
+    who own the home. \\
+\var{multi\us{}unit}  &
+    Percent of living units that are in multi-unit structures,
+    e.g. apartments. \\
+\var{unemp\us{}rate} &
+    Unemployment rate as a percent. \\
+\var{metro} &
+    Whether the county contains a metropolitan area. \\
+\var{median\us{}edu} & Median education level, which
+    can take a value among
+    \resp{below\us{}hs},
+    \resp{hs\us{}diploma},
+    \resp{some\us{}college},
+    and \resp{bachelors}. \\
+\var{median\us{}hh\us{}income} &
+    Median household income for the county, where a household's
+    income equals the total income of its occupants who are
+    15~years or older. \\
+%\var{per\us{}capita\us{}income} &
+%    Per capita (per person) income for the county. \\
+\hline
+\end{tabular}
+\centering
+\caption{Variables and their descriptions for the \data{county} data set.}
+\label{countyVariables}
+\end{figure}
+\end{landscape}
+
+\subsection{Types of variables}
+\label{variableTypes}
+
+Examine the \var{unemp\us{}rate}, \var{pop}, \var{state},
+and \var{median\us{}edu} variables in the \data{county}
+data set. Each of these variables is inherently different from the
+other three, yet some share certain characteristics.
+
+First consider \var{unemp\us{}rate},
+which is said to be a \term{numerical} variable since
+it can take a wide range of numerical values,
+and it is sensible to add, subtract, or take averages
+with those values.
+On the other hand, we would not classify a variable
+reporting telephone area codes as numerical since the
+average, sum, and difference of area codes doesn't have
+any clear meaning.
+
+The \var{pop} variable is also numerical, although it seems
+to be a little different than \var{unemp\us{}rate}.
+This variable of the population count can only take whole
+non-negative numbers (\resp{0}, \resp{1}, \resp{2}, ...).
+For~this reason, the population variable is said to be
+\term{discrete} since it can only take numerical values
+with jumps.
+On the other hand, the unemployment rate variable is said
+to be \term{continuous}.
+
+The variable \var{state} can take up to 51 values after
+accounting for Washington, DC: \resp{AL}, \resp{AK}, ...,
+and \resp{WY}.
+Because the responses themselves are categories,
+\var{state} is called a \term{categorical} variable,
+and the possible values are called the variable's \term{levels}.
+
+Finally, consider the \var{median\us{}edu} variable,
+which describes the median education level of county
+residents and takes values
+\resp{below\us{}hs}, \resp{hs\us{}diploma},
+\resp{some\us{}college}, or \resp{bachelors}
+in each county.
+This variable seems to be a hybrid: it is a categorical variable
+but the levels have a natural ordering.
+A variable with these properties is called an \term{ordinal}
+variable, while a regular categorical variable without this
+type of special ordering is called a \term{nominal} variable.
+To simplify analyses, any ordinal variable in this book will
+be treated as a nominal (unordered) categorical variable.
+
+\begin{figure}[h]
+  \centering
+  \Figure
+    [Breakdown of variables into their respective types, showing "all variables" breaking down into "numeric" and "categorical". Then "numeric" is divided into "continuous" and "discrete", and "categorical" is broken down into "nominal (unordered categorical)" and "ordinal (ordered categorical)'' variables.]
+    {0.57}{variables}
+  \caption{Breakdown of variables into their respective types.}
+  \label{variables}
+\end{figure}
+
+\begin{examplewrap}
+\begin{nexample}{Data were collected about students
+    in a statistics course.
+    Three variables were recorded for each student:
+    number of siblings, student height, and whether
+    the student had previously taken a statistics course.
+    Classify each of the variables as continuous numerical,
+    discrete numerical, or categorical.}
+  The number of siblings and student height represent
+  numerical variables.
+  Because the number of siblings is a count, it is discrete.
+  Height varies continuously, so it is a continuous numerical
+  variable.
+  The last variable classifies students into two categories
+  -- those who have and those who have not taken a statistics
+  course -- which makes this variable categorical.
+\end{nexample}
+\end{examplewrap}
+
+\begin{exercisewrap}
+\begin{nexercise}\index{data!stroke}%
+An experiment is evaluating the effectiveness of a new drug
+in treating migraines.
+A \var{group} variable is used to indicate the experiment group
+for each patient: treatment or control.
+The \mbox{\var{num\us{}migraines}} variable represents the number
+of migraines the patient experienced during a 3-month period.
+\mbox{Classify} each variable as either numerical or
+categorical.\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{The
+  \var{group} variable can take just one of two group names,
+  making it categorical.
+  The \var{num\us{}migraines} variable describes
+  a count of the number of migraines, which is an outcome where
+  basic arithmetic is sensible, which means this is numerical
+  outcome; more specifically, since it represents a count,
+  \var{num\us{}migraines} is a discrete numerical variable.}
+
+
+\D{\newpage}
+
+\subsection{Relationships between variables}
+\label{variableRelations}
+
+Many analyses are motivated by a researcher looking
+for a relationship between two or more variables.
+A social scientist may like to answer some of the
+following questions:
+\newcommand{\popchangevmedianhhincomequestion}[0]{
+    % Note that this question is used to introduce the
+    %explanatory / response variable topic.
+    Does a higher than average increase in county population
+    tend to correspond to counties with higher or lower median
+    household incomes?}%
+\begin{enumerate}
+\setlength{\itemsep}{0mm}
+\item[(1)]\label{ownershipMultiUnitQuestion}
+    If homeownership is lower than the national average
+    in one county, will the percent of multi-unit structures
+    in that county tend to be above or below the national average?
+\item[(2)]\label{pop_change_v_median_hh_income_question}
+    \popchangevmedianhhincomequestion{}
+    % Do counties with a higher median household income
+    % tend to be growing faster or slower than other counties?
+\item[(3)]\label{isAverageIncomeAssociatedWithSmokingBans}
+    How useful a predictor is median education level
+    for the median household income for US counties?
+\end{enumerate}
+
+To answer these questions, data must be collected, such
+as the \data{county} data set shown in Figure~\ref{countyDF}.
+Examining summary statistics \index{summary statistic} could
+provide insights for each of the three questions about counties.
+Additionally, graphs can be used to visually explore data.
+
+\indexthis{Scatterplots}{scatterplot} are one type of graph
+used to study the relationship between two numerical variables.
+Figure~\ref{multiunitsVsOwnership} compares the variables
+\var{homeownership} and
+\var{multi\us{}unit},
+which is the percent of units in multi-unit structures
+(e.g. apartments, condos).
+Each point on the plot represents a single county.
+For instance, the highlighted dot corresponds to
+County~413 in the \data{county} data set:
+Chattahoochee County, Georgia, which has 39.4\% of
+units in multi-unit structures and a homeownership rate
+of 31.3\%.
+The scatterplot suggests a relationship between the
+two variables: counties with a higher rate of multi-units
+tend to have lower homeownership rates.
+We might brainstorm as to why this relationship exists
+and investigate each idea to determine which are the most
+reasonable explanations.
+
+\begin{figure}[h]
+  \centering
+  \Figure
+    [Scatterplot of thousands of counties with the percent of multiunit structures in each county shown on the horizontal axis and homeownership rate shown on the vertical axis. The data range from 0\% to almost 100\% for both variables. In general, the points are much more concentrated in the upper left corner of the graph and then trend downward for observations further to the right while also becoming more sparse. One point is annotated at the location (39.4\%, 31.3.\%).]
+    {0.79}{multiunitsVsOwnership}
+  \caption{A scatterplot of homeownership versus the percent
+      of units that are in multi-unit structures for US counties.
+      The highlighted dot represents Chattahoochee County, Georgia,
+      which has a multi-unit rate of 39.4\% and a homeownership rate
+      of 31.3\%.}
+  \label{multiunitsVsOwnership}
+\end{figure}
+
+The multi-unit and homeownership rates are said to be
+associated because the plot shows a discernible pattern.
+When two variables show some connection with one another,
+they are called \term{associated} variables.
+Associated variables can also be called \term{dependent}
+variables and vice-versa.
+
+\D{\newpage}
+
+\begin{exercisewrap}
+\begin{nexercise}
+Examine the variables in the \data{loan50} data set,
+which are described in Figure~\vref{loan50Variables}.
+Create two questions about possible relationships
+between variables in \data{loan50} that are of interest
+to~you.\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{Two example questions:
+  (1)~What is the relationship between loan amount and
+      total income?
+  (2)~If someone's income is above the average, will their
+      interest rate tend to be above or below the average?}
+
+\begin{examplewrap}
+\begin{nexample}{This example examines the relationship
+    between a county's population change
+    from 2010 to 2017
+    and median household income,
+    which is visualized as a scatterplot in
+    Figure~\ref{pop_change_v_med_income}.
+    Are these variables associated?}
+  The larger the median household income for a county,
+  the higher the population growth observed for the county.
+  While this trend isn't true for every county,
+  the trend in the plot is evident.
+  Since there is some relationship between the variables,
+  they are associated.
+\end{nexample}
+\end{examplewrap}
+
+%When two variables show some connection with one another,
+%they are called \term{associated} variables.
+%Associated variables can also be called \term{dependent}
+%variables and vice-versa.
+%When the variables increase together,
+%as they do in Figure~\ref{loan_amount_vs_income},
+%they are said to be \term{positively associated}.
+%When the trend in the scatterplot goes down to the right,
+%then they are described as \term{negatively correlated}.
+
+%While we may find it interesting to consider the relationship
+%between two variables such as those in the scatterplot,
+%the relationship between those variables can be more complex.
+%For example, interest rates on loans tend to be chosen based
+%on the riskiness of the loan, i.e. how likely it is to be
+%paid back, and that is likely to depend on a variety of
+%details, such as what the loan is for, the person's
+%creditworthiness, whether their income is verified, etc.
+%We will begin exploring some of these more complex relationships
+%in graphs in Chapter~\ref{ch_summarizing_data} and beyond.
+%\Comment{Revise if we don't add these more rich plots...}
+
+%\begin{example}{Figure~\ref{interest_rate_vs_loan_amount}
+%    features a scatterplot of interest rate against loan amount.
+%    Are these variables associated?}
+%  There isn't an evident trend in the data,
+%  so we would say these two variables are not associated.
+%\end{example}
+
+\begin{figure}
+  \centering
+  \Figure
+    [Scatterplot of thousands of counties with the median household income along the horizontal axis (data ranging from \$0 to \$120,000) and population change over 7 years (data ranging from about -15\% to 25\%). There is a cloud of points centered around (\$45,000, -1\%), and the points show a slight trend upwards while also becoming more sparse and volatile for observations corresponding to higher median incomes. One point is annotated at the location (\$22,736, -3.63\%).]
+    {0.9}{pop_change_v_med_income}
+  \caption{A scatterplot showing
+      \var{pop\us{}change}
+      against \var{median\us{}hh\us{}income}.
+      Owsley County of Kentucky, is highlighted,
+      which lost 3.63\% of its population from 2010 to 2017
+      and had median household income of \$22,736.}
+  \label{pop_change_v_med_income}
+\end{figure}
+
+Because there is a downward trend in
+Figure~\ref{multiunitsVsOwnership} --
+counties with more units in multi-unit structures
+are associated with lower homeownership --
+these variables are said to be
+\termsub{negatively associated}{negative association}.
+A~\term{positive association} is shown in the relationship
+between the
+\var{median\us{}hh\us{}income}
+and \var{pop\us{}change}
+in Figure~\ref{pop_change_v_med_income},
+where counties with higher median household income tend
+to have higher rates of population growth.
+
+If two variables are not associated,
+then they are said to be \term{independent}.
+That is, two variables are independent if there
+is no evident relationship between the two.
+
+\begin{onebox}{Associated or independent, not both}
+A pair of variables are either related in some way (associated) or not (independent). No pair of variables is both associated and independent.
+\end{onebox}
+
+
+\D{\newpage}
+
+\subsection{Explanatory and response variables}
+\label{explanatoryAndResponse}
+
+When we ask questions about the relationship
+between two variables, we sometimes also want to determine
+if the change in one variable causes a change in the other.
+Consider the following rephrasing of an earlier question
+about the \data{county} data set:
+\begin{quote}\em
+  If there is an increase in the median household income
+  in a county, does this drive an increase in its population?
+\end{quote}
+In this question, we are asking whether one variable
+affects another.
+If this is our underlying belief,
+then \emph{median household income} is the
+\termsub{explanatory}{explanatory variable}
+variable and the \emph{population change} is the
+\termsub{response}{response variable} variable
+in the hypothesized relationship.\footnote{Sometimes
+  the explanatory variable is called the \term{independent}
+  variable and the response variable is called the
+  \term{dependent} variable.
+  However, this becomes confusing since a \emph{pair}
+  of variables might be independent or dependent,
+  so we avoid this language.}
+
+\index{data!county|)}
+
+\begin{onebox}{Explanatory and response variables}
+When we suspect one variable might causally affect another,
+we label the first variable the explanatory variable and the
+second the response variable.
+\vspace{1mm}
+
+\hspace{10mm}\Figure
+    [Simple graphic shown the words "explanatory variable" pointing to "response variable", where the words "might affect" appear above the arrow.]
+    {0.53}{expResp}
+
+For many pairs of variables, there is no hypothesized
+relationship, and these labels would not be applied to
+either variable in such cases.
+\end{onebox}
+
+Bear in mind that the act of labeling the variables in this
+way does nothing to guarantee that a causal relationship exists.
+A formal evaluation to check whether one variable causes
+a change in another requires an experiment.
+
+%\begin{exercisewrap}
+%\begin{nexercise}
+%Consider the earlier question:
+%\begin{quote}\em
+%  If a county has a higher median household income,
+%  does this drive an increase in its population?
+%\end{quote}
+%We could have just as easily reframed the causal relationship
+%to be in the reverse direction:
+%\begin{quote}\em
+%  If a county more population growth, does this drive
+%  it to have a higher median household income?
+%\end{quote}
+%What are the explanatory and response variables when framing
+%the variable relationship in the second question?
+%\end{nexercise}
+%\end{exercisewrap}
+%\footnotetext{In this framing, we have hypothesized
+%  that population growth drives median household income.
+%  That is, population growth is the explanatory variable,
+%  and median household income is the response.
+%  This exercise should emphasize that these variable labels
+%  do not actually define whether one variable actually affects
+%  the other.}
+
+
+\subsection{Introducing observational studies and experiments}
+
+\noindent%
+There are two primary types of data collection:
+observational studies and experiments.
+
+Researchers perform an \term{observational study} when they
+collect data in a way that does not directly interfere with
+how the data arise.
+For instance, researchers may collect information via surveys,
+review medical or company records, or follow a \term{cohort}
+of many similar individuals to form hypotheses about why certain
+diseases might develop.
+In each of these situations, researchers merely observe the
+data that arise.
+In general, observational studies can provide evidence of
+a naturally occurring association between variables, but they
+cannot by themselves show a causal connection.
+
+When researchers want to investigate the possibility of
+a causal connection, they conduct an \term{experiment}.
+Usually there will be both an explanatory and a response
+variable.
+For instance, we may suspect administering a drug will reduce
+mortality in heart attack patients over the following year.
+To check if there really is a causal connection between the
+explanatory variable and the response, researchers will collect
+a sample of individuals and split them into groups.
+The individuals in each group are \emph{assigned} a treatment.
+When individuals are randomly assigned to a group,
+the experiment is called a \term{randomized experiment}.
+For example, each heart attack patient in the drug trial
+could be randomly assigned,  perhaps by flipping a coin,
+into one of two groups:
+the first group receives a \term{placebo} (fake treatment)
+and the second group receives the drug.
+See the case study in
+Section~\ref{basicExampleOfStentsAndStrokes} for another
+example of an experiment, though that study did not employ
+a~placebo.
+
+\begin{onebox}{Association $\neq$ Causation}
+  In general, association does not imply causation,
+  and causation can only be inferred from a randomized experiment.
+\end{onebox}
+
+
+{\input{ch_intro_to_data/TeX/data_basics.tex}}
+
+
+
+
+%%%%%
+\section{Sampling principles and strategies}
+\label{overviewOfDataCollectionPrinciples}
+\label{section_obs_data_sampling}
+
+\index{sample|(}
+\index{population|(}
+
+The first step in conducting research is to identify topics
+or questions that are to be investigated.
+A clearly laid out research question is helpful in identifying
+what subjects or cases should be studied and what variables are
+important.
+It is also important to consider \emph{how} data are collected
+so that they are reliable and help achieve the research goals.
+
+
+\subsection{Populations and samples}
+\label{populationsAndSamples}
+
+\noindent%
+Consider the following three research questions:
+\begin{enumerate}
+\setlength{\itemsep}{0mm}
+\item
+    What is the average mercury content in swordfish
+    in the Atlantic Ocean?
+\item
+    \label{timeToGraduationQuestionForUCLAStudents}%
+    Over the last 5 years, what is the average time
+    to complete a degree for Duke undergrads?
+\item
+    \label{identifyPopulationOfStentStudy}%
+    Does a new drug reduce the number of deaths in patients
+    with severe heart disease?
+\end{enumerate}
+Each research question refers to a target \term{population}. In the first question, the target population is all swordfish in the Atlantic ocean, and each fish represents a case. Often times, it is too expensive to collect data for every case in a population. Instead, a sample is taken. A \term{sample} represents a subset of the cases and is often a small fraction of the population. For instance, 60 swordfish (or some other number) in the population might be selected, and this sample data may be used to provide an estimate of the population average and answer the research question.
+
+\begin{exercisewrap}
+\begin{nexercise}\label{identifyingThePopulationForTwoQuestionsInPopAndSampSubsection}%
+For the second and third questions above,
+identify the target population and what
+represents an individual case.\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{(\ref{timeToGraduationQuestionForUCLAStudents})
+    The first question is only relevant
+    to students who complete their degree;
+    the average cannot be computed using a student
+    who never finished her degree.
+    Thus, only Duke undergrads who
+    graduated in the last five years represent cases
+    in the population under consideration.
+    Each such student is an individual case.
+    (\ref{identifyPopulationOfStentStudy})~A person with
+    severe heart disease represents a case.
+    The population includes all people with severe heart
+    disease.}
+
+
+\subsection{Anecdotal evidence}
+\label{anecdotalEvidenceSubsection}
+
+\index{bias|(}
+
+\noindent%
+Consider the following possible responses to the three research questions:
+\begin{enumerate}
+\setlength{\itemsep}{0mm}
+\item
+    A man on the news got mercury poisoning from eating swordfish,
+    so the average mercury concentration in swordfish must be
+    dangerously high.
+\item\label{iKnowThreeStudentsWhoTookMoreThan7YearsToGraduateAtDuke}
+    I met two students who took more than 7 years to graduate
+    from Duke, so it must take longer to graduate at Duke than
+    at many other colleges.
+\item\label{myFriendsDadDiedAfterSulphinpyrazon}
+    My friend's dad had a heart attack and died after they gave
+    him a new heart disease drug, so~the drug must not work.
+\end{enumerate}
+Each conclusion is based on data.
+However, there are two problems.
+First, the data only represent one or two cases.
+Second, and more importantly, it is unclear whether these cases
+are actually representative of the population.
+Data collected in this haphazard fashion are called
+\term{anecdotal evidence}.
+
+\captionsetup{width=\textwidth-75mm}
+\begin{figure}[h]
+  \centering
+  \hspace{8mm}\Figuress
+    [A wintery scene, where the trees are covered in snow, and there are large piles of snow on the sides of the roads. This particular photo was taken at the University of Minnesota campus following a storm after which tree branches were a particularly vibrant white color after the storm.]
+    {55mm}{mnWinter}{mnWinter}\hspace{4mm}
+  \begin{minipage}[b]{\textwidth-75mm}
+    \caption[anecdotal evidence]{In February 2010,
+        some media pundits cited one large snow storm
+        as valid evidence against global warming.
+        As comedian Jon Stewart pointed out,
+        ``It's one storm, in one region, of one country.''
+    \label{mnWinter}}
+  \end{minipage}
+\end{figure}
+\captionsetup{width=\mycaptionwidth}
+
+\begin{onebox}{Anecdotal evidence}
+Be careful of data collected in a haphazard fashion.
+Such evidence may be true and verifiable, but it may
+only represent extraordinary cases.
+\end{onebox}
+
+\D{\newpage}
+
+Anecdotal evidence typically is composed of unusual cases that we recall based on their striking characteristics. For instance, we are more likely to remember the two people we met who took 7~years to graduate than the six others who graduated in four years. Instead of looking at the most unusual cases, we should examine a sample of many cases that represent the population.
+
+\subsection{Sampling from a population}
+
+\index{sample!random sample|(}
+\index{sample!bias|(}
+
+We might try to estimate the time to graduation for Duke
+undergraduates in the last 5 years by collecting a sample
+of students.
+All graduates in the last 5 years represent the
+\emph{population}\index{population}, and graduates who are
+selected for review are collectively called the
+\emph{sample}\index{sample}.
+In general, we always seek to \emph{randomly} select a sample
+from a population.
+The most basic type of random selection is equivalent to how
+raffles are conducted.
+For example, in selecting graduates, we could write each
+graduate's name on a raffle ticket and draw 100 tickets.
+The selected names would represent a random sample of 100 graduates.
+We pick samples randomly to reduce the chance we introduce biases.
+
+\begin{figure}[ht]
+  \centering
+  \Figures
+    [Graphic showing a larger circle on the left for "all graduate" and a smaller circle on the right for "sample". There are a large number of dots randomly scattered around inside the left circle, and five of those dots have arrows originating from them and pointing to 5 dots inside the right circle. Besides those 5 dots, there are no other dots in the right circle.]
+    {0.5}{popToSample}{popToSampleGraduates}
+  \caption{In this graphic, five graduates are randomly
+      selected from the population to be included in the
+      sample.}
+  \label{popToSampleGraduates}
+\end{figure}
+
+\begin{examplewrap}
+\begin{nexample}{Suppose we ask a student who happens to be
+    majoring in nutrition to select several graduates for
+    the study.
+    What kind of students do you think she might collect?
+    Do you think her sample would be representative of all
+    graduates?}
+  Perhaps she would pick a disproportionate number of graduates
+  from health-related fields.
+  Or~perhaps her selection would be a good representation
+  of the population.
+  When selecting samples by hand, we run the risk of picking
+  a \termsub{biased}{sample!bias} sample, even if their bias
+  isn't intended.
+\end{nexample}
+\end{examplewrap}
+
+\begin{figure}
+  \centering
+  \Figures
+    [Graphic showing a larger circle on the left for "all graduate" and a smaller circle on the right for "sample". There are a large number of dots randomly scattered around inside the left circle. A smaller circle annotated as "graduates from health-related fields" is inside this circle and contains a subset of those dots, among which five have arrows originating from them and pointing to 5 dots inside the right circle. Besides those 5 dots, there are no other dots in the right circle.]
+    {0.5}{popToSample}{popToSubSampleGraduates}
+  \caption{Asked to pick a sample of graduates,
+      a nutrition major might inadvertently pick a
+      disproportionate number of graduates from
+      health-related majors.}
+  \label{popToSubSampleGraduates}
+\end{figure}
+
+\D{\newpage}
+
+If someone was permitted to pick and choose exactly which
+graduates were included in the sample, it is entirely possible
+that the sample could be skewed to that person's interests,
+which may be entirely unintentional.
+This introduces \term{bias} into a sample.
+Sampling randomly helps resolve this problem.
+The most basic random sample is called a
+\term{simple random sample}, and which is equivalent to using
+a raffle to select cases.
+This means that each case in the population has an equal chance
+of being included and there is no implied connection between
+the cases in the sample.
+
+The act of taking a simple random sample helps minimize bias.
+However, bias can crop up in other ways.
+Even when people are picked at random, e.g. for surveys,
+caution must be exercised if the
+\term{non-response rate}
+\index{sample!non-response rate|textbf} is high.
+For instance, if only 30\% of the people randomly sampled
+for a survey actually respond, then it is unclear whether
+the results are \term{representative} of the entire population.
+This \term{non-response bias}
+\index{sample!non-response bias|textbf} can skew results.
+
+\begin{figure}[h]
+  \centering
+  \Figures
+    [Graphic showing a larger circle on the left for "population of interest" and a smaller circle on the right for "sample". There are a large number of dots randomly scattered around inside the left circle. A smaller circle annotated as "population actually sampled" is inside this circle and contains a subset of those dots, among which five have arrows originating from them and pointing to 5 dots inside the right circle. Besides those 5 dots, there are no other dots in the right circle.]
+    {0.5}{popToSample}{surveySample}
+  \caption{Due to the possibility of non-response,
+      surveys studies may only reach a certain group
+      within the population.
+      It is difficult, and often times impossible,
+      to completely fix this problem.}
+  \label{surveySample}
+\end{figure}
+
+Another common downfall is a
+\term{convenience sample}\index{sample!convenience sample},
+where individuals who are easily accessible are more likely
+to be included in the sample.
+For instance, if a political survey is done by stopping people
+walking in the Bronx, this will not represent all of New York City.
+It is often difficult to discern what sub-population a convenience
+sample represents.
+
+\begin{exercisewrap}
+\begin{nexercise}
+We can easily access ratings for products, sellers, and companies through websites. These ratings are based only on those people who go out of their way to provide a rating. If 50\% of online reviews for a product are negative, do you think this means that 50\% of buyers are dissatisfied with the product?\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{Answers will vary.
+    From our own anecdotal experiences, we believe people
+    tend to rant more about products that fell below
+    expectations than rave about those that perform as
+    expected.
+    For this reason, we suspect there is a negative bias
+    in product ratings on sites like Amazon.
+    However, since our experiences may not be
+    representative, we also keep an open mind.}
+
+\index{sample!bias|)}
+\index{sample!random sample|)}
+\index{bias|)}
+\index{population|)}
+\index{sample|)}
+
+
+\D{\newpage}
+
+\subsection{Observational studies}
+
+Data where no treatment has been explicitly applied
+(or explicitly withheld) is called \term{observational data}.
+For instance, the loan data and county data described in
+Section~\ref{dataBasics}
+are both examples of observational data.
+%It is important to collect such data in
+%a thoughtful and rigorous manner so that statistical
+%analyses based on the data can have meaningful
+%and generalizable results.
+Making causal conclusions based on experiments is often reasonable.
+However, making the same causal conclusions based on observational
+data can be treacherous and is not recommended.
+Thus, observational studies are generally only sufficient
+to show associations or form hypotheses that we later check
+using experiments.
+
+\begin{exercisewrap}
+\begin{nexercise}\label{sunscreenLurkingExample}%
+Suppose an observational study tracked sunscreen use and skin cancer, and it was found that the more sunscreen someone used, the more likely the person was to have skin cancer. Does this mean sunscreen \emph{causes} skin cancer?\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{No.
+    See the paragraph following the exercise for
+    an explanation.}
+
+Some previous research tells us that using sunscreen actually reduces skin cancer risk, so maybe there is another variable that can explain this hypothetical association between sunscreen usage and skin cancer. One important piece of information that is absent is sun exposure. If someone is out in the sun all day, she is more likely to use sunscreen \emph{and} more likely to get skin cancer. Exposure to the sun is unaccounted for in the simple investigation.
+\begin{center}
+  \Figures
+    [There are three boxes with words positioned in a triangle. One box has "sun exposure" written in it, and that box has two arrows pointing from it to the two other boxes, which are labeled "use sunscreen" and "skin cancer". There is a third arrow more lightly colored and pointing from the "use sunscreen" box to the "skin cancer" box, where a question mark has been placed above that lightly-colored arrow.]
+    {0.55}{variables}{sunCausesCancer}
+\end{center}
+% Some studies:
+% http://www.sciencedirect.com/science/article/pii/S0140673698121682
+% http://archderm.ama-assn.org/cgi/content/abstract/122/5/537
+% Study with a similar scenario to that described here:
+% http://onlinelibrary.wiley.com/doi/10.1002/ijc.22745/full
+
+Sun exposure is what is called a \term{confounding variable},\footnote{Also called a \term{lurking variable}, \term{confounding factor}, or a \term{confounder}.} which is a variable that is correlated with both the explanatory and response variables. While one method to justify making causal conclusions from observational studies is to exhaust the search for confounding variables, there is no guarantee that all confounding variables can be examined or measured.
+
+%In the same way, the \data{county} data set is an observational study with confounding variables, and its data cannot easily be used to make causal conclusions.
+
+\begin{exercisewrap}
+\begin{nexercise}
+Figure~\ref{multiunitsVsOwnership} shows a negative association
+between the homeownership rate and the percentage of multi-unit
+structures in a county.
+However, it is unreasonable to conclude that there is a causal
+relationship between the two variables.
+Suggest a variable that might explain the negative
+relationship.\footnotemark
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{Answers will vary.
+    Population density may be important.
+    If a county is very dense, then this may require
+    a larger fraction of residents to live in
+    multi-unit structures.
+    Additionally, the high density may contribute
+    to increases in property value, making
+    homeownership infeasible for many residents.}
+
+Observational studies come in two forms:
+prospective and retrospective studies.
+A \term{prospective study} identifies individuals
+and collects information as events unfold.
+For instance, medical researchers may identify and follow
+a group of patients over many years to assess
+the possible influences of behavior on cancer risk.
+One example of such a study is The Nurses' Health Study,
+started in 1976 and expanded in 1989.
+This prospective study recruits registered nurses and then
+collects data from them using questionnaires.
+\termsub{Retrospective studies}{retrospective studies}
+collect data after events have taken place,
+e.g. researchers may review past events in medical records.
+Some data sets may contain both prospectively- and
+retrospectively-collected variables.
+
+
+\subsection{Four sampling methods}
+\label{fourSamplingMethods}
+\label{threeSamplingMethods}
+
+Almost all statistical methods are based on the notion of implied randomness. If observational data are not collected in a random framework from a population, these statistical methods -- the estimates and errors associated with the estimates -- are not reliable. Here we consider four random sampling techniques: simple, stratified, cluster, and multistage sampling. Figures~\ref{simple_stratified} and~\ref{cluster_multistage} provide graphical representations of these techniques.
+
+\begin{figure}
+  \centering
+  \Figures
+    [Two figures are shown, one positioned above the other. The first is a large rectangle containing many points, where 18 of those points are circled and are a different color than the other points. The lower figure is also a large rectangle, but this rectangle contains 6 larger circles that are labeled "Stratum 1" through "Stratum 6". In each of these circles are many points, and 3 points have been circled and are in a different color within each of the six circles, specially calling out those 3 points in each of the stratum circles in a similar way to how the 18 points were being called out in the upper figure.]
+    {}{samplingMethodsFigure}{simple_stratified}
+  \caption{
+      Examples of simple random\index{sample!simple random sampling}
+      and stratified sampling\index{sample!stratified sampling}.
+      In the top panel, simple random sampling was used to randomly
+      select the 18 cases.
+      In the bottom panel, stratified sampling was used:
+      cases were grouped into strata, then simple random sampling
+      was employed within \mbox{each stratum}.}
+  \label{simple_stratified}
+\end{figure}
+
+\termsub{Simple random sampling}{sample!simple random sampling} is probably the most intuitive form of random sampling. Consider the salaries of Major League Baseball (MLB) players, where each player is a member of one of the league's 30 teams. To take a simple random sample of 120 baseball players and their salaries, we could write the names of that season's several hundreds of players onto slips of paper, drop the slips into a bucket, shake the bucket around until we are sure the names are all mixed up, then draw out slips until we have the sample of 120 players. In general, a sample is referred to as ``simple random'' if each case in the population has an equal chance of being included in the final sample \emph{and} knowing that a case is included in a sample does not provide useful information about which other cases are included.
+
+\termsub{Stratified sampling}{sample!stratified sampling}
+is a divide-and-conquer sampling strategy.
+The population is divided into groups called
+\term{strata}\index{sample!strata|textbf}.
+The strata are chosen so that similar cases are grouped
+together, then a second sampling method, usually simple
+random sampling, is employed within each stratum.
+In~the baseball salary example, the teams could represent
+the strata, since some teams have a lot more money
+(up to 4~times as much!).
+Then we might randomly sample 4 players from each team for
+a total of 120 players.
+
+Stratified sampling is especially useful when the cases in each stratum are very similar with respect to the outcome of interest. The downside is that analyzing data from a stratified sample is a more complex task than analyzing data from a simple random sample. The analysis methods introduced in this book would need to be extended to analyze data collected using stratified sampling.
+
+\begin{examplewrap}
+\begin{nexample}{Why would it be good for cases within
+    each stratum to be very similar?}
+  We might get a more stable estimate for the subpopulation
+  in a stratum if the cases are very similar,
+  leading to more precise estimates within each group.
+  When we combine these estimates into a single estimate
+  for the full population, that population estimate will
+  tend to be more precise since each individual group
+  estimate is itself more precise.
+\end{nexample}
+\end{examplewrap}
+
+In a \termsub{cluster sample}{sample!cluster sample}, we break up the population into many groups, called \termsub{clusters}{sample!cluster}. Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample. A \termsub{multistage sample}{sample!multistage sample} is like a cluster sample, but rather than keeping all observations in each cluster, we collect a random sample within each selected cluster. %Multistage sampling is similar to stratified sampling in its process, except that stratified sampling requires observations be sampled from \emph{every} stratum.
+
+\begin{figure}
+  \centering
+  \Figures
+    [Two figures are shown, one positioned above the other. The first is a large rectangle containing 8 large circles with labels "Cluster 1" through "Cluster 8". All of these large circles contain points. However, three of the large circles (Cluster 3, Cluster 4, and Cluster 8) are colored differently than the other large circles and their contained points are also colored differently. The lower figure is the same as the upper figure, except that only 5 of the points are colored differently in each of the 3 large circles that have been colored differently.]
+    {}{samplingMethodsFigure}{cluster_multistage}
+  \caption{Examples of cluster\index{sample!cluster sampling}
+  and multistage sampling\index{sample!multistage sampling}.
+  In the top panel, cluster sampling was used:
+  data were binned into nine clusters, three of these clusters
+  were sampled, and all observations within these three cluster
+  were included in the sample.
+  In the bottom panel, multistage sampling was used,
+  which differs from cluster sampling only in that we
+  randomly select a subset of each cluster to be included
+  in the sample rather than measuring every case in each
+  sampled cluster.}
+\label{cluster_multistage}
+\end{figure}
+
+Sometimes cluster or multistage sampling can be more economical
+than the alternative sampling techniques.
+Also, unlike stratified sampling, these approaches are most
+helpful when there is a lot of case-to-case variability within
+a cluster but the clusters themselves don't look very different
+from one another.
+For example, if neighborhoods represented clusters, then cluster
+or multistage sampling work best when the neighborhoods are very
+diverse.
+A~downside of these methods is that more advanced techniques
+are typically required to analyze the data, though the methods
+in this book can be extended to handle such data.
+
+\begin{examplewrap}
+\begin{nexample}{Suppose we are interested in estimating
+    the malaria rate in a densely tropical portion of rural
+    Indonesia.
+    We learn that there are 30 villages in that part of the
+    Indonesian jungle, each more or less similar to the next.
+    Our goal is to test 150 individuals for malaria.
+    What sampling method should be employed?}
+  A simple random sample would likely draw individuals from
+  all 30 villages, which could make data collection extremely
+  expensive.
+  Stratified sampling would be a challenge since it is
+  unclear how we would build strata of similar individuals.
+  However, cluster sampling or multistage sampling seem like
+  very good ideas.
+  If we decided to use multistage sampling, we might randomly
+  select half of the villages, then randomly select
+  10 people from each.
+  This would probably reduce our data collection costs
+  substantially in comparison to a simple random sample,
+  and the cluster sample would still give us reliable
+  information, even if we would need to analyze the data
+  with slightly more advanced methods than we discuss
+  in this book.
+\end{nexample}
+\end{examplewrap}
+
+
+{\input{ch_intro_to_data/TeX/sampling_principles_and_strategies.tex}}
+
+
+
+
+
+
+%%%%%
+\section{Experiments}
+\label{experimentsSection}
+
+%\sectionintro{
+Studies where the researchers assign treatments to cases are called \termsub{experiments}{experiment}. When this assignment includes randomization, e.g.~using a coin flip to decide which treatment a patient receives, it is called a \term{randomized experiment}. Randomized experiments are fundamentally important when trying to show a causal connection between two variables.
+%}\setstretch{1.0}
+
+
+\subsection{Principles of experimental design}
+\label{experimentalDesignPrinciples}
+
+\noindent{}Randomized experiments are generally built on four principles.
+
+\begin{description}
+\item[Controlling.]
+    Researchers assign treatments to cases, and they do their
+    best to \term{control} any other differences in the
+    groups.\footnote{This is a different concept than
+      a \emph{control group}, which we discuss in
+      the second principle and in
+      Section~\ref{biasInHumanExperiments}.}
+    For example, when patients take a drug in pill form,
+    some patients take the pill with only a sip of water
+    while others may have it with an entire glass of water.
+    To control for the effect of water consumption,
+    a doctor may ask all patients to drink a 12 ounce glass
+    of water with the pill.
+\item[Randomization.] Researchers randomize patients into treatment groups to account for variables that cannot be controlled. For example, some patients may be more susceptible to a disease than others due to their dietary habits. Randomizing patients into the treatment or control group helps even out such differences, and it also prevents accidental bias from entering the study.
+\item[Replication.] The more cases researchers observe, the more accurately they can estimate the effect of the explanatory variable on the response. In a single study, we \term{replicate} by collecting a sufficiently large sample. Additionally, a group of scientists may replicate an entire study to verify an earlier finding.
+
+\begin{figure}
+  \centering
+  \Figure
+    [There are three main stages shown in this figure, from top to bottom. The upper stage shows the numbering of patients as a rectangle containing 54 dots in a grid that are labeled with numbers 1 through 54. The dots are one of two colors: blue (high risk) and red (low risk). The second stage shows the two colored dots broken into two blocks. On the left are the low-risk patients (red) and on the right are the high-risk patients (blue). Going into the bottom third stage, are two boxes labeled "control" and "treatment", where half of the low-risk (red) and half of the blue (high risk) points have been randomly placed into each of these two experiment groups.]
+    {0.82}{figureShowingBlocking}
+  \caption{Blocking using a variable depicting patient risk.
+      Patients are first divided into low-risk and high-risk
+      blocks, then each block is evenly separated into the
+      treatment groups using randomization.
+      This strategy ensures an equal representation of patients
+      in each treatment group from both the low-risk and high-risk
+      categories.}
+  \label{figureShowingBlocking}
+\end{figure}
+
+\item[Blocking.] Researchers sometimes know or suspect that variables, other than the treatment, influence the response. Under these circumstances, they may first group individuals based on this variable into \term{blocks} and then randomize cases within each block to the treatment groups. This strategy is often referred to as \term{blocking}. For instance, if we are looking at the effect of a drug on heart attacks, we might first split patients in the study into low-risk and high-risk blocks, then randomly assign half the patients from each block to the control group and the other half to the treatment group, as shown in Figure~\ref{figureShowingBlocking}. This strategy ensures each treatment group has an equal number of low-risk and high-risk patients.
+\end{description}
+
+It is important to incorporate the first three experimental
+design principles into any study, and this book describes
+applicable methods for analyzing data from such experiments.
+Blocking is a slightly more advanced technique, and statistical
+methods in this book may be extended to analyze data collected
+using blocking.
+
+\subsection{Reducing bias in human experiments}
+\label{biasInHumanExperiments}
+
+Randomized experiments are the gold standard for data collection,
+but they do not ensure an unbiased perspective into the cause and
+effect relationship in all cases.
+Human studies are perfect examples where bias can unintentionally
+arise.
+Here we reconsider a study where a new drug was used to treat
+heart attack patients.
+In particular, researchers wanted to know if the drug reduced
+deaths in patients.
+
+These researchers designed a randomized experiment because they wanted to draw causal conclusions about the drug's effect. Study volunteers\footnote{Human subjects are often called \term{patients}, \term{volunteers}, or \term{study participants}.} were randomly placed into two study groups. One group, the \term{treatment group}, received the drug. The other group, called the \term{control group}, did not receive any drug treatment.
+
+Put yourself in the place of a person in the study. If you are in the treatment group, you are given a fancy new drug that you anticipate will help you. On the other hand, a person in the other group doesn't receive the drug and sits idly, hoping her participation doesn't increase her risk of death. These perspectives suggest there are actually two effects: the one of interest is the effectiveness of the drug, and the second is an emotional effect that is difficult to quantify.
+
+Researchers aren't usually interested in the emotional effect,
+which might bias the study.
+To circumvent this problem, researchers do not want patients
+to know which group they are in.
+When researchers keep the patients uninformed about their
+treatment, the study is said to be \term{blind}.
+But there is one problem:
+if a patient doesn't receive a treatment, she will know she
+is in the control group.
+The solution to this problem is to give fake treatments to
+patients in the control group.
+A fake treatment is called a \term{placebo}, and an effective
+placebo is the key to making a study truly blind.
+A classic example of a placebo is a sugar pill that is made
+to look like the actual treatment pill.
+Often times, a placebo results in a slight but real
+improvement in patients.
+This effect has been dubbed the \term{placebo~effect}.
+
+The patients are not the only ones who should be blinded:
+doctors and researchers can accidentally bias a study.
+When a doctor knows a patient has been given the real treatment,
+she might inadvertently give that patient more attention or care
+than a patient that she knows is on the placebo.
+To guard against this bias, which again has been found to have
+a measurable effect in some instances, most modern studies employ
+a \term{double-blind} setup where doctors or researchers who
+interact with patients are, just like the patients,
+unaware of who is or is not receiving the
+treatment.\footnote{There are always some researchers involved
+  in the study who do know which patients are receiving which
+  treatment.
+  However, they do not interact with the study's patients and
+  do not tell the blinded health care professionals who is
+  receiving which treatment.}
+
+\begin{exercisewrap}
+\begin{nexercise}
+Look back to the study in Section~\ref{basicExampleOfStentsAndStrokes} where researchers were testing whether stents were effective at reducing strokes in at-risk patients. Is this an experiment? Was the study blinded? Was it double-blinded?\footnotemark{}
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{The researchers assigned the patients into their treatment groups, so this study was an experiment. However, the patients could distinguish what treatment they received, so this study was not blind. The study could not be double-blind since it was not blind.}
+
+\begin{exercisewrap}
+\begin{nexercise}
+\label{gp_sham_surgery}%
+For the study in Section~\ref{basicExampleOfStentsAndStrokes},
+could the researchers have employed a placebo?
+If so, what would that placebo have looked like?\footnotemark{}
+\end{nexercise}
+\end{exercisewrap}
+\footnotetext{Ultimately, can we make patients think they
+  got treated from a surgery?
+  In fact, we can, and some experiments use
+  what's called a \term{sham surgery}.
+  In a sham surgery, the patient does undergo surgery,
+  but the patient does not receive the full treatment,
+  though they will still get a placebo effect.}
+
+You may have many questions about the ethics of
+sham surgeries to create a placebo after reading
+Guided Practice~\ref{gp_sham_surgery}.
+These questions may have even arisen in your mind when
+in the general experiment context, where a possibly
+helpful treatment was withheld from individuals in the
+control group;
+the main difference is that a sham surgery tends to
+create additional risk, while withholding a treatment
+only maintains a person's risk.
+
+There are always multiple viewpoints of experiments
+and placebos, and rarely is it obvious which is
+ethically ``correct''.
+For instance, is it ethical to use a sham surgery
+when it creates a risk to the patient?
+However, if we don't use sham surgeries,
+we may promote the use of a costly treatment that
+has no real effect;
+if this happens, money and other resources will be diverted
+away from other treatments that are known to be helpful.
+Ultimately, this is a difficult situation where
+we cannot perfectly protect both the patients
+who have volunteered for the study and the patients who
+may benefit (or not) from the treatment in the future.
+
+
+{\input{ch_intro_to_data/TeX/experiments.tex}}

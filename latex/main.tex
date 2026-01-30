@@ -1,0 +1,123 @@
+\documentclass[10pt,openany]%,oneside]
+{book}
+\newcommand{\versiondate}[0]{Dec 30th, 2024}
+
+\usepackage{
+  amsmath, calc,
+  caption, changepage,
+  endnotes, enumerate,
+  epstopdf,
+  fancyhdr,
+  fix-cm,
+  fncychap,
+  footmisc,
+  fullminipage,
+  geometry, graphicx,
+  ifthen, lscape,
+  makeidx, manfnt,
+  marginnote,
+  mdframed,
+  multicol, multirow,
+  setspace, soul,
+  tabto,
+  textcomp,
+  %tocloft,
+  varioref, verbatim,
+  wasysym, wrapfig
+}
+\usepackage{subfigure}
+\usepackage[explicit]{titlesec}
+%\usepackage[usenames,dvipsnames]{color}  
+%\newcommand{\href}[2]{#2} \newcommand{\url}[1]{#1} \newcommand{\urlstyle}[1]{}
+\include{extraTeX/style/colorsV1}
+\newcommand{\printlocation}[0]{}
+
+\newcommand{\chapterpagepadding}[0]{7mm}
+\newcommand{\chapterpagepaddingleftright}[0]{\chapterpagepadding{}}
+\newcommand{\chapterpagepaddingleftinner}[0]{25mm}
+\newcommand{\chapterpagepaddingrightinner}[0]{30mm}
+
+% _____ (1) PDF _____ %
+\usepackage[bookmarksnumbered, colorlinks = false, pdfborder = {0 0 0}, urlcolor = oiGB, colorlinks=true, linkcolor = oiGB, citecolor = oiGB, backref = true]{hyperref}
+
+% _____ (2) PDF -- screenreader _____ %
+% !!!!!
+% 0. Uncomment out the following package:
+%      \usepackage{pdfcomment}
+% 1. Use the `style_simple` instead of `style`.
+% 2. Use the `headers_simple` instead of `headers`.
+% 3. Adjust the TOC depth to 3.
+% !!!!!
+
+% _____ (3) B&W Paperback _____ %
+%\definecolor{oiB}{rgb}{0,0,0}\definecolor{chaptertitlegray}{rgb}{0,0,0}\usepackage[bookmarksnumbered, colorlinks = false, pdfborder = {0 0 0}, urlcolor = oiB, colorlinks=true, linkcolor = oiB, citecolor = oiB, backref = false]{hyperref}
+
+% _____ (4) Hardcover _____ %
+%\definecolor{oiB}{rgb}{0,0,0}\definecolor{chaptertitlegray}{rgb}{0,0,0}\PassOptionsToPackage{hyperref}{colorlinks=false,pdfborder={0 0 0},urlcolor= black,colorlinks=black,linkcolor=black, citecolor=black,backref=true}
+% !!!!!
+% Also must \include{extraTeX/style/hardcover} below.
+% !!!!!
+% \renewcommand{\printlocation}[0]{\noindent Printed in China. \\}
+
+% _____ (5) Color Paperback _____ %
+%\definecolor{chaptertitlegray}{rgb}{0,0,0}\usepackage[bookmarksnumbered, pdfborder = {0 0 0}, urlcolor = black, colorlinks=true, linkcolor = black, citecolor = black, backref = true]{hyperref}\renewcommand{\chapterpagepaddingleftright}[0]{15mm} \renewcommand{\chapterpagepaddingleftinner}[0]{17mm}\renewcommand{\chapterpagepaddingrightinner}[0]{22mm}
+
+
+
+
+\usepackage[style=authortitle-ibid, maxnames=2,natbib=true,sortcites=true,block=space,backend=bibtex]{biblatex}
+\bibliography{eoce.bib}
+
+\makeindex
+\include{extraTeX/style/style}
+%\include{extraTeX/style/style_simple}
+%\include{extraTeX/style/tablet}
+%\include{extraTeX/style/video}
+% The following style file supports an 8.25 x 11 paper size.
+%\include{extraTeX/style/hardcover}
+\include{extraTeX/preamble/title}%_derivative}
+\date{}
+\renewcommand\contentsname{Table of Contents}
+\setcounter{tocdepth}{1} % standard version
+%\setcounter{tocdepth}{3} % screen reader version
+%\renewcommand{\cftchapfont}{\scshape}
+%\renewcommand{\cftsecfont}{\bfseries}
+
+\begin{document}
+%\include{extraTeX/preamble/review_copy}
+\renewcommand{\thepage}{}
+\maketitle
+\include{extraTeX/preamble/copyright}%_derivative}
+\renewcommand{\thepage}{\arabic{page}}
+\tableofcontents
+\include{extraTeX/preamble/preface}
+\normalsize
+
+\begingroup
+\include{extraTeX/style/headers}
+%\include{extraTeX/style/headers_simple}
+\includechapter{1}{ch_intro_to_data}
+\includechapter{2}{ch_summarizing_data}
+\includechapter{3}{ch_probability}
+\includechapter{4}{ch_distributions}
+\includechapter{5}{ch_foundations_for_inf}
+\includechapter{6}{ch_inference_for_props}
+\includechapter{7}{ch_inference_for_means}
+\includechapter{8}{ch_regr_simple_linear}
+\includechapter{9}{ch_regr_mult_and_log}
+\endgroup
+
+\begingroup
+\include{extraTeX/style/style_appendices}
+\appendix{}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}\include{extraTeX/eoceSolutions/eoceSolutions}
+\include{extraTeX/data/data}
+\include{extraTeX/tables/TeX/zTable}
+\include{extraTeX/tables/TeX/tTable}
+\include{extraTeX/tables/TeX/chiSquareTable}
+\endgroup
+
+\include{extraTeX/index/index}
+\printindex
+
+\end{document}
