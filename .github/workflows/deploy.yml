@@ -36,8 +36,12 @@ jobs:
           
       - name: Copy latex assets to output
         run: |
-          cp -r latex output/html/
-          echo "Latex assets copied to output directory"
+          if [ -d "latex" ]; then
+            cp -r latex output/html/
+            echo "Latex assets copied to output directory"
+          else
+            echo "Warning: latex directory not found, skipping copy"
+          fi
           
       - name: Verify build output
         run: |
