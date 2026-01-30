@@ -12,6 +12,7 @@
       <publication>publication/publication.ptx</publication>
       <assets>
         <directory>source/images</directory>
+        <directory>latex</directory>
       </assets>
       <output-dir>output/html</output-dir>
     </target>

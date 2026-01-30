@@ -34,6 +34,11 @@ jobs:
         run: |
           pretext build web
           
+      - name: Copy latex assets to output
+        run: |
+          cp -r latex output/html/
+          echo "Latex assets copied to output directory"
+          
       - name: Verify build output
         run: |
           if [ ! -d "./output/html" ] || [ -z "$(ls -A ./output/html)" ]; then
