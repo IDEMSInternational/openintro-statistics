@@ -1055,6 +1055,75 @@
 
     <!-- End of Section 2.1 subsections -->
 
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec21-scatterplot-interpretation">
+        <title>Scatterplot interpretation</title>
+        <statement>
+          <p>
+            A scatterplot shows the relationship between two numerical variables. Consider a scatterplot 
+            of exam scores versus hours studied for a class of 50 students. What would a positive association 
+            in this scatterplot suggest about the relationship between study time and exam performance?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec21-mean-calculation">
+        <title>Computing the mean</title>
+        <statement>
+          <p>
+            Five students scored the following points on a quiz: 7, 8, 6, 9, and 10. Calculate the mean score 
+            for these students.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec21-histogram-shape">
+        <title>Describing histogram shape</title>
+        <statement>
+          <p>
+            A histogram of household incomes shows a long tail extending to the right with most values 
+            concentrated on the left side. How would you describe the shape of this distribution? What does 
+            this shape suggest about the income distribution?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec21-standard-deviation">
+        <title>Standard deviation interpretation</title>
+        <statement>
+          <p>
+            Two classes took the same exam. Class A has a mean score of 75 with a standard deviation of 5, 
+            while Class B has a mean score of 75 with a standard deviation of 12. What can you conclude about 
+            the variability of scores in these two classes?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec21-boxplot-quartiles">
+        <title>Box plot and quartiles</title>
+        <statement>
+          <p>
+            A box plot displays the following values for a data set: minimum = 20, Q1 = 35, median = 50, 
+            Q3 = 65, maximum = 90. What percentage of the data falls between Q1 and Q3? What is the 
+            interquartile range (IQR)?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec21-robust-statistics">
+        <title>Robust statistics and outliers</title>
+        <statement>
+          <p>
+            A data set of employee salaries has one extremely high value (the CEO's salary). Would the mean 
+            or median be a better measure of center for this data? Explain why in terms of robust statistics.
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
+
   </section>
 
   <!-- Section 2.2: Considering categorical data -->
@@ -1644,6 +1713,79 @@
         </solution>
       </exercise>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec22-contingency-table">
+        <title>Contingency table interpretation</title>
+        <statement>
+          <p>
+            A contingency table shows the relationship between two categorical variables: whether a customer 
+            made a purchase (yes/no) and the type of advertisement they saw (online/print). If the table 
+            shows 60 out of 100 people who saw online ads made a purchase, while 40 out of 100 who saw print 
+            ads made a purchase, what can you say about the relationship between ad type and purchase behavior?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec22-bar-plot">
+        <title>Bar plot construction</title>
+        <statement>
+          <p>
+            You have data on 200 people's preferred mode of transportation: 80 prefer car, 60 prefer public 
+            transit, 40 prefer bicycle, and 20 prefer walking. Describe how you would construct a bar plot 
+            to display this categorical data. Should the bars touch each other? Why or why not?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec22-row-column-proportions">
+        <title>Row and column proportions</title>
+        <statement>
+          <p>
+            In a study of 500 patients, 200 received Treatment A and 300 received Treatment B. Among those 
+            who received Treatment A, 150 improved. Among those who received Treatment B, 180 improved. 
+            Calculate the proportion of patients who improved in each treatment group. Which treatment appears 
+            more effective?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec22-mosaic-plot">
+        <title>Mosaic plot interpretation</title>
+        <statement>
+          <p>
+            A mosaic plot displays the relationship between education level (high school, bachelor's, graduate) 
+            and employment status (employed, unemployed). If the plot shows similar proportions of employed 
+            individuals across all education levels, what would this suggest about the relationship between 
+            education and employment?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec22-pie-chart">
+        <title>Pie chart vs bar plot</title>
+        <statement>
+          <p>
+            When would you prefer to use a pie chart over a bar plot for displaying categorical data? 
+            What are the advantages and disadvantages of each type of plot?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec22-comparing-groups">
+        <title>Comparing groups with plots</title>
+        <statement>
+          <p>
+            You want to compare the distribution of a numerical variable (test scores) across three different 
+            teaching methods (categorical variable). What types of plots would be appropriate for this 
+            comparison? Explain why side-by-side box plots might be useful for this analysis.
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
 
   </section>
 
