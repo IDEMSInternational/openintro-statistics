@@ -2495,88 +2495,1039 @@
   <section xml:id="sec-logistic-regression">
     <title>Introduction to Logistic Regression</title>
     
-    <introduction>
-      <p>
-        When the response variable is binary (two categories), linear regression is not appropriate
-        because it can produce predicted values outside the range [0, 1]. Logistic regression is
-        designed specifically for binary response variables.
-      </p>
-    </introduction>
+    <idx>logistic regression</idx>
+    <idx><h>regression</h><h>logistic</h></idx>
     
-    <subsection xml:id="subsec-logistic-function">
-      <title>The Logistic Function</title>
+    <p>
+      In this section we introduce <term>logistic regression</term><idx><h>regression</h><h>logistic</h></idx> as a tool for building models when there is a categorical response variable with two levels, e.g. yes and no. Logistic regression is a type of <term>generalized linear model</term> (<term>GLM</term>) for response variables where regular multiple regression does not work very well. In particular, the response variable in these settings often takes a form where residuals look completely different from the normal distribution.
+    </p>
+    
+    <p>
+      GLMs can be thought of as a two-stage modeling approach. We first model the response variable using a probability distribution, such as the binomial or Poisson distribution. Second, we model the parameter of the distribution using a collection of predictors and a special form of multiple regression. Ultimately, the application of a GLM will feel very similar to multiple regression, even if some of the details are different.
+    </p>
+    
+    <subsection xml:id="subsec-resume-data">
+      <title>Resume data</title>
+      
+      <idx><h>data</h><h>resume</h></idx>
       
       <p>
-        The logistic function provides a smooth curve that constrains predictions to be between 0 and 1:
-        <me>
-          \hat{p} = \frac{e^{b_0 + b_1 x}}{1 + e^{b_0 + b_1 x}}
-        </me>
+        We will consider experiment data from a study that sought to understand the effect of demographic characteristics on job application callback rates; details of the study and a link to the data set may be found in Appendix B. To evaluate which factors were important, job postings were identified in Boston and Chicago for the study, and researchers created many fake resumes to send off to these jobs to see which would elicit a callback. The researchers enumerated important characteristics, such as years of experience and education details, and they used these characteristics to randomly generate the resumes. Finally, they randomly assigned a name to each resume, where the name would imply the applicant's demographics.
       </p>
       
       <p>
-        This ensures that predicted probabilities are always between 0 and 1, which is crucial for
-        modeling probabilities.
+        The first names that were used and randomly assigned in this experiment were selected so that they would predominantly be recognized as belonging to certain demographic groups; other groups were not considered in this study. While no name would definitively be inferred as pertaining to a particular individual from any specific group, the researchers conducted a survey to check for demographic association of the names; names that did not pass this survey check were excluded from usage in the experiment. You can find the full set of names that did pass the survey test and were ultimately used in the study in <xref ref="fig-resume-first-names"/>. For example, Lakisha was a name that their survey indicated would be interpreted in a certain way, while Greg was a name that would generally be interpreted to be associated with a different demographic.
+      </p>
+      
+      <figure xml:id="fig-resume-first-names">
+        <caption>List of all 36 unique names along with the commonly inferred demographics associated with these names.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell>first_name</cell>
+            <cell>race</cell>
+            <cell>sex</cell>
+            <cell></cell>
+            <cell>first_name</cell>
+            <cell>race</cell>
+            <cell>sex</cell>
+            <cell></cell>
+            <cell>first_name</cell>
+            <cell>race</cell>
+            <cell>sex</cell>
+          </row>
+          <row>
+            <cell>Aisha</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Hakim</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Laurie</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+          </row>
+          <row>
+            <cell>Allison</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Jamal</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Leroy</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+          </row>
+          <row>
+            <cell>Anne</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Jay</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Matthew</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+          </row>
+          <row>
+            <cell>Brad</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Jermaine</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Meredith</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+          </row>
+          <row>
+            <cell>Brendan</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Jill</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Neil</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+          </row>
+          <row>
+            <cell>Brett</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Kareem</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Rasheed</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+          </row>
+          <row>
+            <cell>Carrie</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Keisha</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Sarah</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+          </row>
+          <row>
+            <cell>Darnell</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Kenya</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Tamika</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+          </row>
+          <row>
+            <cell>Ebony</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Kristen</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Tanisha</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+          </row>
+          <row>
+            <cell>Emily</cell>
+            <cell>white</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Lakisha</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Todd</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+          </row>
+          <row>
+            <cell>Geoffrey</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Latonya</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Tremayne</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+          </row>
+          <row>
+            <cell>Greg</cell>
+            <cell>white</cell>
+            <cell>male</cell>
+            <cell></cell>
+            <cell>Latoya</cell>
+            <cell>black</cell>
+            <cell>female</cell>
+            <cell></cell>
+            <cell>Tyrone</cell>
+            <cell>black</cell>
+            <cell>male</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <p>
+        The response variable of interest is whether or not there was a callback from the employer for the applicant, and there were 8 attributes that were randomly assigned that we'll consider, with special interest in the race and sex variables. Race and sex are <term>protected classes</term> in the United States, meaning they are not legally permitted factors for hiring or employment decisions. The full set of attributes considered is provided in <xref ref="fig-resume-variables"/>.
+      </p>
+      
+      <figure xml:id="fig-resume-variables">
+        <caption>Descriptions for the <c>callback</c> variable along with 8 other variables in the <c>resume</c> data set. Many of the variables are indicator<idx>indicator variable</idx> variables, meaning they take the value 1 if the specified characteristic is present and 0 otherwise.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell halign="left"><term>variable</term></cell>
+            <cell halign="left"><term>description</term></cell>
+          </row>
+          <row>
+            <cell halign="left"><c>callback</c></cell>
+            <cell halign="left">Specifies whether the employer called the applicant following submission of the application for the job.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>job_city</c></cell>
+            <cell halign="left">City where the job was located: Boston or Chicago.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>college_degree</c></cell>
+            <cell halign="left">An indicator for whether the resume listed a college degree.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>years_experience</c></cell>
+            <cell halign="left">Number of years of experience listed on the resume.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>honors</c></cell>
+            <cell halign="left">Indicator for the resume listing some sort of honors, e.g. employee of the month.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>military</c></cell>
+            <cell halign="left">Indicator for if the resume listed any military experience.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>email_address</c></cell>
+            <cell halign="left">Indicator for if the resume listed an email address for the applicant.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>race</c></cell>
+            <cell halign="left">Demographic characteristic of the applicant, implied by their first name listed on the resume.</cell>
+          </row>
+          <row>
+            <cell halign="left"><c>sex</c></cell>
+            <cell halign="left">Sex of the applicant (limited to only male and female in this study), implied by the first name listed on the resume.</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <p>
+        All of the attributes listed on each resume were randomly assigned. This means that no attributes that might be favorable or detrimental to employment would favor one demographic over another on these resumes. Importantly, due to the experimental nature of this study, we can infer causation between these variables and the callback rate, if the variable is statistically significant. Our analysis will allow us to compare the practical importance of each of the variables relative to each other.
       </p>
     </subsection>
     
-    <subsection xml:id="subsec-odds-log-odds">
-      <title>Odds and Log-Odds</title>
+    <subsection xml:id="subsec-modeling-probability-event">
+      <title>Modeling the probability of an event</title>
       
-      <definition xml:id="def-odds">
+      <p>
+        Logistic regression is a generalized linear model where the outcome is a two-level categorical variable. The outcome, <m>Y_i</m>, takes the value 1 (in our application, this represents a callback for the resume) with probability <m>p_i</m> and the value 0 with probability <m>1 - p_i</m>. Because each observation has a slightly different context, e.g. different education level or a different number of years of experience, the probability <m>p_i</m> will differ for each observation. Ultimately, it is this probability that we model in relation to the predictor variables: we will examine which resume characteristics correspond to higher or lower callback rates.
+      </p>
+      
+      <assemblage xml:id="assem-logistic-regression-notation">
+        <title>Notation for a logistic regression model</title>
+        <p>
+          The outcome variable for a GLM is denoted by <m>Y_i</m>, where the index <m>i</m> is used to represent observation <m>i</m>. In the resume application, <m>Y_i</m> will be used to represent whether resume <m>i</m> received a callback (<m>Y_i=1</m>) or not (<m>Y_i=0</m>).
+        </p>
+        <p>
+          The predictor variables are represented as follows: <m>x_{1,i}</m> is the value of variable 1 for observation <m>i</m>, <m>x_{2,i}</m> is the value of variable 2 for observation <m>i</m>, and so on.
+        </p>
+      </assemblage>
+      
+      <p>
+        The logistic regression model relates the probability a resume would receive a callback (<m>p_i</m>) to the predictors <m>x_{1,i}</m>, <m>x_{2,i}</m>, <ellipsis/>, <m>x_{k,i}</m> through a framework much like that of multiple regression:
+        <men xml:id="eq-link-transformation">
+          \text{transformation}(p_{i}) = \beta_0 + \beta_1x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}
+        </men>
+        We want to choose a transformation in the equation that makes practical and mathematical sense. For example, we want a transformation that makes the range of possibilities on the left hand side of the equation equal to the range of possibilities for the right hand side; if there was no transformation for this equation, the left hand side could only take values between 0 and 1, but the right hand side could take values outside of this range. A common transformation for <m>p_i</m> is the <term>logit transformation</term>, which may be written as
+        <me>
+          \text{logit}(p_i) = \log_{e}\left( \frac{p_i}{1-p_i} \right)
+        </me>
+        The logit transformation is shown in <xref ref="fig-logit-transformation"/>. Below, we rewrite the equation relating <m>Y_i</m> to its predictors using the logit transformation of <m>p_i</m>:
+        <me>
+          \log_{e}\left( \frac{p_i}{1-p_i} \right) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}
+        </me>
+        In our resume example, there are 8 predictor variables, so <m>k = 8</m>. While the precise choice of a logit function isn't intuitive, it is based on theory that underpins generalized linear models, which is beyond the scope of this book. Fortunately, once we fit a model using software, it will start to feel like we're back in the multiple regression context, even if the interpretation of the coefficients is more complex.
+      </p>
+      
+      <figure xml:id="fig-logit-transformation">
+        <caption>Values of <m>p_i</m> against values of <m>\text{logit}(p_i)</m>.</caption>
+        <image source="ch_regr_mult_and_log/logitTransformationFigureHoriz" width="70%">
+          <description>A plot showing the relationship between logit(p) on the horizontal axis (ranging from -6 to 6) and p on the vertical axis (ranging from 0 to 1). The curve has an S-shape (sigmoid), starting near 0 on the left, increasing slowly at first, then rapidly through the center where logit(p)=0 and p=0.5, then leveling off as it approaches 1 on the right. Key points are marked: (-5, 0.007), (-4, 0.018), (-3, 0.05), (-2, 0.12), (-1, 0.27), (0, 0.5), (1, 0.73), (2, 0.88), (3, 0.95), (4, 0.982), (5, 0.993), (6, 0.998).</description>
+        </image>
+      </figure>
+      
+      <example xml:id="ex-logistic-honors">
+        <title>Logistic regression with honors predictor</title>
         <statement>
           <p>
-            The <term>odds</term> of an event occurring are defined as:
+            We start by fitting a model with a single predictor: <c>honors</c>. This variable indicates whether the applicant had any type of honors listed on their resume, such as employee of the month. The following logistic regression model was fit using statistical software:
             <me>
-              \text{odds} = \frac{p}{1-p}
+              \log_e \left( \frac{p_i}{1-p_i} \right) = -2.4998 + 0.8668 \times\text{honors}
             </me>
-            where <m>p</m> is the probability of the event.
+            <ol marker="a.">
+              <li><p>If a resume is randomly selected from the study and it does not have any honors listed, what is the probability resulted in a callback?</p></li>
+              <li><p>What would the probability be if the resume did list some honors?</p></li>
+            </ol>
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  If a randomly chosen resume from those sent out is considered, and it does not list honors, then <c>honors</c> takes value 0 and the right side of the model equation equals <m>-2.4998</m>. Solving for <m>p_i</m>: <m>\frac{e^{-2.4998}}{1 + e^{-2.4998}} = 0.076</m>. Just as we labeled a fitted value of <m>y_i</m> with a <q>hat</q> in single-variable and multiple regression, we do the same for this probability: <m>\hat{p}_i = 0.076</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the resume had listed some honors, then the right side of the model equation is <m>-2.4998 + 0.8668 \times 1 = -1.6330</m>, which corresponds to a probability <m>\hat{p}_i = 0.163</m>.
+                </p>
+                <p>
+                  Notice that we could examine <m>-2.4998</m> and <m>-1.6330</m> in <xref ref="fig-logit-transformation"/> to estimate the probability before formally calculating the value.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
+      </example>
       
       <p>
-        The <term>log-odds</term> (also called the logit) is the natural logarithm of the odds:
+        To convert from values on the logistic regression scale (e.g. <m>-2.4998</m> and <m>-1.6330</m> in <xref ref="ex-logistic-honors"/>), use the following formula, which is the result of solving for <m>p_i</m> in the regression model:
         <me>
-          \log\left(\frac{p}{1-p}\right) = b_0 + b_1 x
+          p_i = \frac{e^{\beta_0 + \beta_1 x_{1,i}+\cdots+\beta_k x_{k,i}}}{1 + e^{\beta_0 + \beta_1 x_{1,i}+\cdots+\beta_k x_{k,i}}}
         </me>
-      </p>
-      
-      <p>
-        The relationship between <m>x</m> and the log-odds is linear, which makes logistic regression
-        a natural extension of multiple linear regression.
+        As with most applied data problems, we substitute the point estimates for the parameters (the <m>\beta_i</m>) so that we can make use of this formula. In <xref ref="ex-logistic-honors"/>, the probabilities were calculated as
+        <md>
+          <mrow>\amp\frac{e^{-2.4998}}{1 + e^{-2.4998}} = 0.076 \amp\amp \frac{e^{-2.4998 + 0.8668}}{1 + e^{-2.4998 + 0.8668}} = 0.163</mrow>
+        </md>
+        While knowing whether a resume listed honors provides some signal when predicting whether or not the employer would call, we would like to account for many different variables at once to understand how each of the different resume characteristics affected the chance of a callback.
       </p>
     </subsection>
     
-    <subsection xml:id="subsec-coefficient-interpretation-logistic">
-      <title>Interpreting Logistic Regression Coefficients</title>
+    <subsection xml:id="subsec-logistic-model-many-variables">
+      <title>Building the logistic model with many variables</title>
       
       <p>
-        The coefficient <m>b_1</m> in logistic regression represents the change in log-odds for
-        a one-unit increase in <m>x</m>. We can interpret this more intuitively by exponentiating:
+        We used statistical software to fit the logistic regression model with all 8 predictors described in <xref ref="fig-resume-variables"/>. Like multiple regression, the result may be presented in a summary table, which is shown in <xref ref="fig-resume-logistic-model-results"/>. The structure of this table is almost identical to that of multiple regression; the only notable difference is that the p-values are calculated using the normal distribution rather than the <m>t</m>-distribution.
       </p>
       
-      <definition xml:id="def-odds-ratio">
+      <figure xml:id="fig-resume-logistic-model-results">
+        <caption>Summary table for the full logistic regression model for the resume callback example.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>z value</cell>
+            <cell>Pr(<m>></m>|z|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-2.6632</cell>
+            <cell>0.1820</cell>
+            <cell>-14.64</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>job_city (Chicago)</cell>
+            <cell>-0.4403</cell>
+            <cell>0.1142</cell>
+            <cell>-3.85</cell>
+            <cell>0.0001</cell>
+          </row>
+          <row>
+            <cell>college_degree</cell>
+            <cell>-0.0666</cell>
+            <cell>0.1211</cell>
+            <cell>-0.55</cell>
+            <cell>0.5821</cell>
+          </row>
+          <row>
+            <cell>years_experience</cell>
+            <cell>0.0200</cell>
+            <cell>0.0102</cell>
+            <cell>1.96</cell>
+            <cell>0.0503</cell>
+          </row>
+          <row>
+            <cell>honors</cell>
+            <cell>0.7694</cell>
+            <cell>0.1858</cell>
+            <cell>4.14</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>military</cell>
+            <cell>-0.3422</cell>
+            <cell>0.2157</cell>
+            <cell>-1.59</cell>
+            <cell>0.1127</cell>
+          </row>
+          <row>
+            <cell>email_address</cell>
+            <cell>0.2183</cell>
+            <cell>0.1133</cell>
+            <cell>1.93</cell>
+            <cell>0.0541</cell>
+          </row>
+          <row>
+            <cell>race (white)</cell>
+            <cell>0.4424</cell>
+            <cell>0.1080</cell>
+            <cell>4.10</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>sex (male)</cell>
+            <cell>-0.1818</cell>
+            <cell>0.1376</cell>
+            <cell>-1.32</cell>
+            <cell>0.1863</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <p>
+        Just like multiple regression, we could trim some variables from the model. Here we'll use a statistic called <term>Akaike information criterion (AIC)</term>, which is an analog to how we used adjusted R-squared in multiple regression, and we look for models with a lower AIC through a backward elimination strategy. After using this criteria, the <c>college_degree</c> variable is eliminated, giving the smaller model summarized in <xref ref="fig-resume-logistic-reduced-model"/>, which is what we'll rely on for the remainder of this section.
+      </p>
+      
+      <figure xml:id="fig-resume-logistic-reduced-model">
+        <caption>Summary table for the logistic regression model for the resume callback example, where variable selection has been performed using AIC.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>z value</cell>
+            <cell>Pr(<m>></m>|z|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-2.7162</cell>
+            <cell>0.1551</cell>
+            <cell>-17.51</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>job_city (Chicago)</cell>
+            <cell>-0.4364</cell>
+            <cell>0.1141</cell>
+            <cell>-3.83</cell>
+            <cell>0.0001</cell>
+          </row>
+          <row>
+            <cell>years_experience</cell>
+            <cell>0.0206</cell>
+            <cell>0.0102</cell>
+            <cell>2.02</cell>
+            <cell>0.0430</cell>
+          </row>
+          <row>
+            <cell>honors</cell>
+            <cell>0.7634</cell>
+            <cell>0.1852</cell>
+            <cell>4.12</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>military</cell>
+            <cell>-0.3443</cell>
+            <cell>0.2157</cell>
+            <cell>-1.60</cell>
+            <cell>0.1105</cell>
+          </row>
+          <row>
+            <cell>email_address</cell>
+            <cell>0.2221</cell>
+            <cell>0.1130</cell>
+            <cell>1.97</cell>
+            <cell>0.0494</cell>
+          </row>
+          <row>
+            <cell>race (white)</cell>
+            <cell>0.4429</cell>
+            <cell>0.1080</cell>
+            <cell>4.10</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>sex (male)</cell>
+            <cell>-0.1959</cell>
+            <cell>0.1352</cell>
+            <cell>-1.45</cell>
+            <cell>0.1473</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <example xml:id="ex-race-variable-significance">
+        <title>Significance of the race variable</title>
         <statement>
           <p>
-            The <term>odds ratio</term> is <m>e^{b_1}</m>, which represents the multiplicative change
-            in odds for a one-unit increase in <m>x</m>.
+            The <c>race</c> variable had taken only two levels: black and white. Based on the model results, was race a meaningful factor for if a prospective employer would call back?
           </p>
         </statement>
-      </definition>
-    </subsection>
-    
-    <subsection xml:id="subsec-logistic-inference">
-      <title>Inference in Logistic Regression</title>
+        <solution>
+          <p>
+            We see that the p-value for this coefficient is very small (very nearly zero), which implies that race played a statistically significant role in whether a candidate received a callback. Additionally, we see that the coefficient shown corresponds to the level of white, and it is positive. This positive coefficient reflects a positive gain in callback rate for resumes where the candidate's first name implied they were White. The data provide very strong evidence that certain demographic factors played a role in whether employers called back, with resumes associated with White first names receiving more callbacks.
+          </p>
+        </solution>
+      </example>
       
       <p>
-        We can perform hypothesis tests and construct confidence intervals for logistic regression
-        coefficients using the standard error of the estimate. The test statistic follows a normal
-        distribution for large samples.
+        The coefficient of race in the full model in <xref ref="fig-resume-logistic-model-results"/> is nearly identical to the model shown in <xref ref="fig-resume-logistic-reduced-model"/>. The predictors in this experiment were thoughtfully laid out so that the coefficient estimates would typically not be much influenced by which other predictors were in the model, which aligned with the motivation of the study to tease out which effects were important to getting a callback. In most observational data, it's common for point estimates to change a little, and sometimes a lot, depending on which other variables are included in the model.
+      </p>
+      
+      <example xml:id="ex-resume-white-probability">
+        <title>Computing callback probability for a specific candidate</title>
+        <statement>
+          <p>
+            Use the model summarized in <xref ref="fig-resume-logistic-reduced-model"/> to estimate the probability of receiving a callback for a job in Chicago where the candidate lists 14 years experience, no honors, no military experience, includes an email address, and has a first name that implies they are a White male.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can start by writing out the equation using the coefficients from the model, then we can add in the corresponding values of each variable for this individual:
+            <md>
+              <mrow>\log_e \left(\frac{p}{1 - p}\right) \amp= - 2.7162 - 0.4364 \times \mathbb{1}_{\text{job\_city=Chicago}} + 0.0206 \times \text{years\_experience} + 0.7634 \times \text{honors}</mrow>
+              <mrow>\amp\qquad - 0.3443 \times \text{military} + 0.2221 \times \text{email} + 0.4429 \times \mathbb{1}_{\text{race=white}} - 0.1959 \times \mathbb{1}_{\text{sex=male}}</mrow>
+              <mrow>\amp= - 2.7162 - 0.4364 \times 1 + 0.0206 \times 14 + 0.7634 \times 0</mrow>
+              <mrow>\amp\qquad - 0.3443 \times 0 + 0.2221 \times 1 + 0.4429 \times 1 - 0.1959 \times 1</mrow>
+              <mrow>\amp= - 2.3955</mrow>
+            </md>
+            We can now back-solve for <m>p</m>: the chance such an individual will receive a callback is about 8.35%.
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-resume-black-probability">
+        <title>Computing callback probability for a Black candidate</title>
+        <statement>
+          <p>
+            Compute the probability of a callback for an individual with a name commonly inferred to be from a Black male but who otherwise has the same characteristics as the one described in <xref ref="ex-resume-white-probability"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can complete the same steps for an individual with the same characteristics who is Black, where the only difference in the calculation is that the indicator variable for race being white will take a value of 0. Doing so yields a probability of 0.0553. Let's compare the results with those of <xref ref="ex-resume-white-probability"/>.
+          </p>
+          <p>
+            In practical terms, an individual perceived as White based on their first name would need to apply to <m>\frac{1}{0.0835} \approx 12</m> jobs on average to receive a callback, while an individual perceived as Black based on their first name would need to apply to <m>\frac{1}{0.0553} \approx 18</m> jobs on average to receive a callback. That is, applicants who are perceived as Black need to apply to 50% more employers to receive a callback than someone who is perceived as White based on their first name for jobs like those in the study.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        What we've quantified in this section reveals important patterns in the data. However, one aspect that makes patterns in aggregate data challenging to address at an individual level is that the experiment, as well-designed as it is, cannot send us much signal about which specific employers are engaging in which behaviors. It is only possible to say that patterns are happening in aggregate, even if we cannot say which particular callbacks -- or non-callbacks -- represent specific instances. Finding strong evidence for individual cases is a persistent challenge in many settings.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-logistic-diagnostics">
+      <title>Diagnostics for the callback rate model</title>
+      
+      <assemblage xml:id="assem-logistic-regression-conditions">
+        <title>Logistic regression conditions</title>
+        <p>
+          There are two key conditions for fitting a logistic regression model:
+          <ol>
+            <li><p>Each outcome <m>Y_i</m> is independent of the other outcomes.</p></li>
+            <li><p>Each predictor <m>x_i</m> is linearly related to <m>\text{logit}(p_i)</m> if all other predictors are held constant.</p></li>
+          </ol>
+        </p>
+      </assemblage>
+      
+      <p>
+        The first logistic regression model condition -- independence of the outcomes -- is reasonable for the experiment since characteristics of resumes were randomly assigned to the resumes that were sent out.
+      </p>
+      
+      <p>
+        The second condition of the logistic regression model is not easily checked without a fairly sizable amount of data. Luckily, we have 4870 resume submissions in the data set! Let's first visualize these data by plotting the true classification of the resumes against the model's fitted probabilities, as shown in <xref ref="fig-logistic-model-predict"/>.
+      </p>
+      
+      <figure xml:id="fig-logistic-model-predict">
+        <caption>The predicted probability that each of the 4870 resumes results in a callback. Noise (small, random vertical shifts) have been added to each point so points with nearly identical values aren't plotted exactly on top of one another.</caption>
+        <image source="ch_regr_mult_and_log/logisticModel/logisticModelPredict" width="75%">
+          <description>A side-by-side dot plot showing predicted probabilities for two outcome levels: "1 (Callback)" and "0 (No Callback)". For both levels, points are concentrated between 0 and 0.2 with a small fraction taking larger values (none above about 0.3 predicted probability). There is little evident difference between the two groups due to the large number of overlaying points.</description>
+        </image>
+      </figure>
+      
+      <p>
+        We'd like to assess the quality of the model. For example, we might ask: if we look at resumes that we modeled as having a 10% chance of getting a callback, do we find about 10% of them actually receive a callback? We can check this for groups of the data by constructing a plot as follows:
+        <ol>
+          <li><p>Bucket the data into groups based on their predicted probabilities.</p></li>
+          <li><p>Compute the average predicted probability for each group.</p></li>
+          <li><p>Compute the observed probability for each group, along with a 95% confidence interval.</p></li>
+          <li><p>Plot the observed probabilities (with 95% confidence intervals) against the average predicted probabilities for each group.</p></li>
+        </ol>
+        The points plotted should fall close to the line <m>y = x</m>, since the predicted probabilities should be similar to the observed probabilities. We can use the confidence intervals to roughly gauge whether anything might be amiss. Such a plot is shown in <xref ref="fig-logistic-model-bucket-diag"/>.
+      </p>
+      
+      <figure xml:id="fig-logistic-model-bucket-diag">
+        <caption>The dashed line is within the confidence bound of the 95% confidence intervals of each of the buckets, suggesting the logistic fit is reasonable.</caption>
+        <image source="ch_regr_mult_and_log/logisticModel/logisticModelBucketDiag" width="75%">
+          <description>A side-by-side dot plot of predicted probability for two outcome levels with additional annotations. The data are bucketed into 10 groups based on their predicted probabilities. Each bucket has a 95% confidence interval plotted at the average value of the predicted probability in the buckets. A y=x line is plotted, and each of the ten confidence intervals overlaps this line, suggesting good model fit.</description>
+        </image>
+      </figure>
+      
+      <p>
+        Additional diagnostics may be created that are similar to those featured in <xref ref="sec-model-assumptions"/>. For instance, we could compute residuals as the observed outcome minus the expected outcome (<m>e_i = Y_i - \hat{p}_i</m>), and then we could create plots of these residuals against each predictor. We might also create a plot like that in <xref ref="fig-logistic-model-bucket-diag"/> to better understand the deviations.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-groups-different-sizes">
+      <title>Exploring patterns in groups of different sizes</title>
+      
+      <idx>patterns in data</idx>
+      
+      <p>
+        Understanding patterns in data is important, and this is why we decided it was so important to discuss this topic using data. The resume study also only examined one aspect: whether a prospective employer would call a candidate who submitted their resume. There was a 50% higher barrier for resumes when certain characteristics were present. It's unlikely that such patterns would stop there.
+      </p>
+      
+      <example xml:id="ex-sex-imbalance-discrimination">
+        <title>Understanding mathematical properties of imbalanced populations</title>
+        <statement>
+          <p>
+            Let's consider a hypothetical company that consists of 20% women and 80% men, and we'll suppose that the company is very large, consisting of perhaps 20,000 employees. Suppose when someone goes up for promotion at this company, 5 of their colleagues are randomly chosen to provide feedback on their work.
+          </p>
+          <p>
+            Now let's imagine that 10% of the people in the company hold certain views about the other sex. That is, 10% of men hold these views about women, and similarly, 10% of women hold these views about men.
+          </p>
+          <p>
+            Who experiences more of this effect at the company, men or women?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Let's suppose we took 100 men who have gone up for promotion in the past few years. For these men, <m>5 \times 100 = 500</m> random colleagues will be tapped for their feedback, of which about 20% will be women (100 women). Of these 100 women, 10 are expected to hold these views about the man they are reviewing. Then, of the 500 colleagues reviewing them, men will experience this effect by about 2% of their colleagues when they go up for promotion.
+          </p>
+          <p>
+            Let's do a similar calculation for 100 women who have gone up for promotion in the last few years. They will also have 500 random colleagues providing feedback, of which about 400 (80%) will be men. Of these 400 men, about 40 (10%) hold these views against women. Of the 500 colleagues providing feedback on the promotion packet for these women, 8% of the colleagues hold these views against the women.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        <xref ref="ex-sex-imbalance-discrimination"/> highlights something profound: even in a hypothetical setting where each demographic has the same degree of views against the other demographic, the smaller group experiences the negative effects more frequently. Additionally, if we would complete a handful of examples like the one above with different numbers, we'd learn that the greater the imbalance in the population groups, the more the smaller group is disproportionately impacted.
+      </p>
+      
+      <p>
+        Of course, there are other considerable real-world complexities beyond the hypothetical example. For example, studies have found instances where people from one group also hold views against others within their own group. As another example, there are also instances where a majority group can face challenges, with certain historical examples serving as illustrations. Ultimately, understanding patterns in data is complex, and there are many factors at play beyond the mathematical property we observed in <xref ref="ex-sex-imbalance-discrimination"/>.
+      </p>
+      
+      <p>
+        We close this book on this serious topic, and we hope it inspires you to think about the power of reasoning with data. Whether it is with a formal statistical model or by using critical thinking skills to structure a problem, we hope the ideas you have learned will help you do more and do better in life.
       </p>
     </subsection>
   </section>
-  
-  <!-- Chapter review -->
+
+    <!-- Exercises for Section 9.5 -->
+    <exercises xml:id="exercises-logistic-regression">
+      
+      <exercise xml:id="exer-possum-classification-model-select">
+        <title>Possum classification, Part I</title>
+        <statement>
+          <p>
+            The common brushtail possum of the Australia region is a bit cuter than its distant cousin, the American opossum. We consider 104 brushtail possums from two regions in Australia, where the possums may be considered a random sample from the population. The first region is Victoria, which is in the eastern half of Australia and traverses the southern coast. The second region consists of New South Wales and Queensland, which make up eastern and northeastern Australia.
+          </p>
+          <p>
+            We use logistic regression to differentiate between possums in these two regions. The outcome variable, called <c>population</c>, takes value 1 when a possum is from Victoria and 0 when it is from New South Wales or Queensland. We consider five predictors: <c>sex_male</c> (an indicator for a possum being male), <c>head_length</c>, <c>skull_width</c>, <c>total_length</c>, and <c>tail_length</c>. Each variable is summarized in a histogram. The full logistic regression model and a reduced model after variable selection are summarized in the table.
+          </p>
+          <p>
+            <em>Note: For the sex_male categorical variable, about 42 observations are "0 (female)" and 65 are "1 (male)". For head_length (in mm), the distribution is approximately bell-shaped, centered at about 93, with a standard deviation of about 3. For skull_width (in mm), the distribution is slightly right-skewed with its peak at about 56 and a standard deviation of about 3. For total_length (in cm), most values range from about 80 to 95. For tail_length (in cm), most data are between about 33 and 42. For the population categorical variable, about 58 observations are "0 (Not Victoria)" and 45 are "1 (Victoria)".</em>
+          </p>
+          <tabular>
+            <row>
+              <cell></cell>
+              <cell colspan="4" halign="center"><em>Full Model</em></cell>
+              <cell></cell>
+              <cell colspan="4" halign="center"><em>Reduced Model</em></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>SE</cell>
+              <cell>Z</cell>
+              <cell>Pr(<m>></m>|Z|)</cell>
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>SE</cell>
+              <cell>Z</cell>
+              <cell>Pr(<m>></m>|Z|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>39.2349</cell>
+              <cell>11.5368</cell>
+              <cell>3.40</cell>
+              <cell>0.0007</cell>
+              <cell></cell>
+              <cell>33.5095</cell>
+              <cell>9.9053</cell>
+              <cell>3.38</cell>
+              <cell>0.0007</cell>
+            </row>
+            <row>
+              <cell>sex_male</cell>
+              <cell>-1.2376</cell>
+              <cell>0.6662</cell>
+              <cell>-1.86</cell>
+              <cell>0.0632</cell>
+              <cell></cell>
+              <cell>-1.4207</cell>
+              <cell>0.6457</cell>
+              <cell>-2.20</cell>
+              <cell>0.0278</cell>
+            </row>
+            <row>
+              <cell>head_length</cell>
+              <cell>-0.1601</cell>
+              <cell>0.1386</cell>
+              <cell>-1.16</cell>
+              <cell>0.2480</cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>skull_width</cell>
+              <cell>-0.2012</cell>
+              <cell>0.1327</cell>
+              <cell>-1.52</cell>
+              <cell>0.1294</cell>
+              <cell></cell>
+              <cell>-0.2787</cell>
+              <cell>0.1226</cell>
+              <cell>-2.27</cell>
+              <cell>0.0231</cell>
+            </row>
+            <row>
+              <cell>total_length</cell>
+              <cell>0.6488</cell>
+              <cell>0.1531</cell>
+              <cell>4.24</cell>
+              <cell>0.0000</cell>
+              <cell></cell>
+              <cell>0.5687</cell>
+              <cell>0.1322</cell>
+              <cell>4.30</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>tail_length</cell>
+              <cell>-1.8708</cell>
+              <cell>0.3741</cell>
+              <cell>-5.00</cell>
+              <cell>0.0000</cell>
+              <cell></cell>
+              <cell>-1.8057</cell>
+              <cell>0.3599</cell>
+              <cell>-5.02</cell>
+              <cell>0.0000</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Examine each of the predictors. Are there any outliers that are likely to have a very large influence on the logistic regression model?</p></li>
+              <li><p>The summary table for the full model indicates that at least one variable should be eliminated when using the p-value approach for variable selection: <c>head_length</c>. The second component of the table summarizes the reduced model following variable selection. Explain why the remaining estimates change between the two models.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-challenger-disaster-model-select">
+        <title>Challenger disaster, Part I</title>
+        <statement>
+          <p>
+            On January 28, 1986, a routine launch was anticipated for the Challenger space shuttle. Seventy-three seconds into the flight, disaster happened: the shuttle broke apart, killing all seven crew members on board. An investigation into the cause of the disaster focused on a critical seal called an O-ring, and it is believed that damage to these O-rings during a shuttle launch may be related to the ambient temperature during the launch. The table below summarizes observational data on O-rings for 23 shuttle missions, where the mission order is based on the temperature at the time of the launch. <em>Temp</em> gives the temperature in Fahrenheit, <em>Damaged</em> represents the number of damaged O-rings, and <em>Undamaged</em> represents the number of O-rings that were not damaged.
+          </p>
+          <tabular>
+            <row bottom="minor">
+              <cell>Shuttle Mission</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>7</cell>
+              <cell>8</cell>
+              <cell>9</cell>
+              <cell>10</cell>
+              <cell>11</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>Temperature</cell>
+              <cell>53</cell>
+              <cell>57</cell>
+              <cell>58</cell>
+              <cell>63</cell>
+              <cell>66</cell>
+              <cell>67</cell>
+              <cell>67</cell>
+              <cell>67</cell>
+              <cell>68</cell>
+              <cell>69</cell>
+              <cell>70</cell>
+              <cell>70</cell>
+            </row>
+            <row>
+              <cell>Damaged</cell>
+              <cell>5</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+            </row>
+            <row bottom="minor">
+              <cell>Undamaged</cell>
+              <cell>1</cell>
+              <cell>5</cell>
+              <cell>5</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+            <row bottom="minor">
+              <cell>Shuttle Mission</cell>
+              <cell>13</cell>
+              <cell>14</cell>
+              <cell>15</cell>
+              <cell>16</cell>
+              <cell>17</cell>
+              <cell>18</cell>
+              <cell>19</cell>
+              <cell>20</cell>
+              <cell>21</cell>
+              <cell>22</cell>
+              <cell>23</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Temperature</cell>
+              <cell>70</cell>
+              <cell>70</cell>
+              <cell>72</cell>
+              <cell>73</cell>
+              <cell>75</cell>
+              <cell>75</cell>
+              <cell>76</cell>
+              <cell>76</cell>
+              <cell>78</cell>
+              <cell>79</cell>
+              <cell>81</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Damaged</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Undamaged</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell></cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Each column of the table above represents a different shuttle mission. Examine these data and describe what you observe with respect to the relationship between temperatures and damaged O-rings.</p></li>
+              <li>
+                <p>
+                  Failures have been coded as 1 for a damaged O-ring and 0 for an undamaged O-ring, and a logistic regression model was fit to these data. A summary of this model is given below. Describe the key components of this summary table in words.
+                </p>
+                <tabular>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell>Estimate</cell>
+                    <cell>Std. Error</cell>
+                    <cell>z value</cell>
+                    <cell>Pr(<m>></m>|z|)</cell>
+                  </row>
+                  <row>
+                    <cell>(Intercept)</cell>
+                    <cell>11.6630</cell>
+                    <cell>3.2963</cell>
+                    <cell>3.54</cell>
+                    <cell>0.0004</cell>
+                  </row>
+                  <row>
+                    <cell>Temperature</cell>
+                    <cell>-0.2162</cell>
+                    <cell>0.0532</cell>
+                    <cell>-4.07</cell>
+                    <cell>0.0000</cell>
+                  </row>
+                </tabular>
+              </li>
+              <li><p>Write out the logistic model using the point estimates of the model parameters.</p></li>
+              <li><p>Based on the model, do you think concerns regarding O-rings are justified? Explain.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-possum-classification-predict">
+        <title>Possum classification, Part II</title>
+        <statement>
+          <p>
+            A logistic regression model was proposed for classifying common brushtail possums into their two regions in <xref ref="exer-possum-classification-model-select"/>. The outcome variable took value 1 if the possum was from Victoria and 0 otherwise.
+          </p>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>SE</cell>
+              <cell>Z</cell>
+              <cell>Pr(<m>></m>|Z|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>33.5095</cell>
+              <cell>9.9053</cell>
+              <cell>3.38</cell>
+              <cell>0.0007</cell>
+            </row>
+            <row>
+              <cell>sex_male</cell>
+              <cell>-1.4207</cell>
+              <cell>0.6457</cell>
+              <cell>-2.20</cell>
+              <cell>0.0278</cell>
+            </row>
+            <row>
+              <cell>skull_width</cell>
+              <cell>-0.2787</cell>
+              <cell>0.1226</cell>
+              <cell>-2.27</cell>
+              <cell>0.0231</cell>
+            </row>
+            <row>
+              <cell>total_length</cell>
+              <cell>0.5687</cell>
+              <cell>0.1322</cell>
+              <cell>4.30</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>tail_length</cell>
+              <cell>-1.8057</cell>
+              <cell>0.3599</cell>
+              <cell>-5.02</cell>
+              <cell>0.0000</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Write out the form of the model. Also identify which of the variables are positively associated when controlling for other variables.</p></li>
+              <li><p>Suppose we see a brushtail possum at a zoo in the US, and a sign says the possum had been captured in the wild in Australia, but it doesn't say which part of Australia. However, the sign does indicate that the possum is male, its skull is about 63 mm wide, its tail is 37 cm long, and its total length is 83 cm. What is the reduced model's computed probability that this possum is from Victoria? How confident are you in the model's accuracy of this probability calculation?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-challenger-disaster-predict">
+        <title>Challenger disaster, Part II</title>
+        <statement>
+          <p>
+            <xref ref="exer-challenger-disaster-model-select"/> introduced us to O-rings that were identified as a plausible explanation for the breakup of the Challenger space shuttle 73 seconds into takeoff in 1986. The investigation found that the ambient temperature at the time of the shuttle launch was closely related to the damage of O-rings, which are a critical component of the shuttle. See this earlier exercise if you would like to browse the original data.
+          </p>
+          <p>
+            <em>Note: A scatterplot would show temperature (Fahrenheit) on the horizontal axis ranging from about 53 to 82, and probability of damage on the vertical axis ranging from about 0 to 0.8. One point below 55 has probability about 0.8. Three points between 55 and 65 have probabilities about 0.2. For the couple dozen points between 65 and 82, probabilities are almost all 0 with only a few values at 0.2.</em>
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  The data provided in the previous exercise are shown in the plot. The logistic model fit to these data may be written as
+                  <me>
+                    \log\left( \frac{\hat{p}}{1 - \hat{p}} \right) = 11.6630 - 0.2162\times \text{Temperature}
+                  </me>
+                  where <m>\hat{p}</m> is the model-estimated probability that an O-ring will become damaged. Use the model to calculate the probability that an O-ring will become damaged at each of the following ambient temperatures: 51, 53, and 55 degrees Fahrenheit. The model-estimated probabilities for several additional ambient temperatures are provided below, where subscripts indicate the temperature:
+                  <md>
+                    <mrow>\hat{p}_{57} \amp= 0.341 \amp \hat{p}_{59} \amp= 0.251 \amp \hat{p}_{61} \amp= 0.179 \amp \hat{p}_{63} \amp= 0.124</mrow>
+                    <mrow>\hat{p}_{65} \amp= 0.084 \amp \hat{p}_{67} \amp= 0.056 \amp \hat{p}_{69} \amp= 0.037 \amp \hat{p}_{71} \amp= 0.024</mrow>
+                  </md>
+                </p>
+              </li>
+              <li><p>Add the model-estimated probabilities from part (a) on the plot, then connect these dots using a smooth curve to represent the model-estimated probabilities.</p></li>
+              <li><p>Describe any concerns you may have regarding applying logistic regression in this application, and note any assumptions that are required to accept the model's validity.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+    </exercises>
+
+    <!-- Chapter review -->
   <section xml:id="sec-ch09-review">
     <title>Chapter Review</title>
     
@@ -2626,6 +3577,235 @@
         Residual diagnostics, Stepwise selection, Variable selection
       </p>
     </subsection>
+
+    <!-- Chapter 9 Review Exercises -->
+    <exercises xml:id="exercises-ch09-review">
+      <title>Chapter Review Exercises</title>
+      
+      <exercise xml:id="exer-mult-regr-facts">
+        <title>Multiple regression fact checking</title>
+        <statement>
+          <p>
+            Determine which of the following statements are true and false. For each statement that is false, explain why it is false.
+            <ol marker="a.">
+              <li><p>If predictors are collinear, then removing one variable will have no influence on the point estimate of another variable's coefficient.</p></li>
+              <li><p>Suppose a numerical variable <m>x</m> has a coefficient of <m>b_1 = 2.5</m> in the multiple regression model. Suppose also that the first observation has <m>x_1 = 7.2</m>, the second observation has a value of <m>x_1 = 8.2</m>, and these two observations have the same values for all other predictors. Then the predicted value of the second observation will be 2.5 higher than the prediction of the first observation based on the multiple regression model.</p></li>
+              <li><p>If a regression model's first variable has a coefficient of <m>b_1 = 5.7</m>, then if we are able to influence the data so that an observation will have its <m>x_1</m> be 1 larger than it would otherwise, the value <m>y_1</m> for this observation would increase by 5.7.</p></li>
+              <li><p>Suppose we fit a multiple regression model based on a data set of 472 observations. We also notice that the distribution of the residuals includes some skew but does not include any particularly extreme outliers. Because the residuals are not nearly normal, we should not use this model and require more advanced methods to model these data.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-log-regr-facts">
+        <title>Logistic regression fact checking</title>
+        <statement>
+          <p>
+            Determine which of the following statements are true and false. For each statement that is false, explain why it is false.
+            <ol marker="a.">
+              <li><p>Suppose we consider the first two observations based on a logistic regression model, where the first variable in observation 1 takes a value of <m>x_1 = 6</m> and observation 2 has <m>x_1 = 4</m>. Suppose we realized we made an error for these two observations, and the first observation was actually <m>x_1 = 7</m> (instead of 6) and the second observation actually had <m>x_1 = 5</m> (instead of 4). Then the predicted probability from the logistic regression model would increase the same amount for each observation after we correct these variables.</p></li>
+              <li><p>When using a logistic regression model, it is impossible for the model to predict a probability that is negative or a probability that is greater than 1.</p></li>
+              <li><p>Because logistic regression predicts probabilities of outcomes, observations used to build a logistic regression model need not be independent.</p></li>
+              <li><p>When fitting logistic regression, we typically complete model selection using adjusted <m>R^2</m>.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-spam-filtering-model-sel">
+        <title>Spam filtering, Part I</title>
+        <statement>
+          <p>
+            Spam filters are built on principles similar to those used in logistic regression. We fit a probability that each message is spam or not spam. We have several email variables for this problem: <c>to_multiple</c>, <c>cc</c>, <c>attach</c>, <c>dollar</c>, <c>winner</c>, <c>inherit</c>, <c>password</c>, <c>format</c>, <c>re_subj</c>, <c>exclaim_subj</c>, and <c>sent_email</c>. We won't describe what each variable means here for the sake of brevity, but each is either a numerical or indicator variable.
+            <ol marker="a.">
+              <li>
+                <p>
+                  For variable selection, we fit the full model, which includes all variables, and then we also fit each model where we've dropped exactly one of the variables. In each of these reduced models, the AIC value for the model is reported below. Based on these results, which variable, if any, should we drop as part of model selection? Explain.
+                </p>
+                <tabular>
+                  <row bottom="minor">
+                    <cell>Variable Dropped</cell>
+                    <cell>AIC</cell>
+                  </row>
+                  <row>
+                    <cell>None Dropped</cell>
+                    <cell>1863.50</cell>
+                  </row>
+                  <row>
+                    <cell><c>to_multiple</c></cell>
+                    <cell>2023.50</cell>
+                  </row>
+                  <row>
+                    <cell><c>cc</c></cell>
+                    <cell>1863.18</cell>
+                  </row>
+                  <row>
+                    <cell><c>attach</c></cell>
+                    <cell>1871.89</cell>
+                  </row>
+                  <row>
+                    <cell><c>dollar</c></cell>
+                    <cell>1879.70</cell>
+                  </row>
+                  <row>
+                    <cell><c>winner</c></cell>
+                    <cell>1885.03</cell>
+                  </row>
+                  <row>
+                    <cell><c>inherit</c></cell>
+                    <cell>1865.55</cell>
+                  </row>
+                  <row>
+                    <cell><c>password</c></cell>
+                    <cell>1879.31</cell>
+                  </row>
+                  <row>
+                    <cell><c>format</c></cell>
+                    <cell>2008.85</cell>
+                  </row>
+                  <row>
+                    <cell><c>re_subj</c></cell>
+                    <cell>1904.60</cell>
+                  </row>
+                  <row>
+                    <cell><c>exclaim_subj</c></cell>
+                    <cell>1862.76</cell>
+                  </row>
+                  <row>
+                    <cell><c>sent_email</c></cell>
+                    <cell>1958.18</cell>
+                  </row>
+                </tabular>
+              </li>
+              <li>
+                <p>
+                  Consider the following model selection stage. Here again we've computed the AIC for each leave-one-variable-out model. Based on the results, which variable, if any, should we drop as part of model selection? Explain.
+                </p>
+                <tabular>
+                  <row bottom="minor">
+                    <cell>Variable Dropped</cell>
+                    <cell>AIC</cell>
+                  </row>
+                  <row>
+                    <cell>None Dropped</cell>
+                    <cell>1862.41</cell>
+                  </row>
+                  <row>
+                    <cell><c>to_multiple</c></cell>
+                    <cell>2019.55</cell>
+                  </row>
+                  <row>
+                    <cell><c>attach</c></cell>
+                    <cell>1871.17</cell>
+                  </row>
+                  <row>
+                    <cell><c>dollar</c></cell>
+                    <cell>1877.73</cell>
+                  </row>
+                  <row>
+                    <cell><c>winner</c></cell>
+                    <cell>1884.95</cell>
+                  </row>
+                  <row>
+                    <cell><c>inherit</c></cell>
+                    <cell>1864.52</cell>
+                  </row>
+                  <row>
+                    <cell><c>password</c></cell>
+                    <cell>1878.19</cell>
+                  </row>
+                  <row>
+                    <cell><c>format</c></cell>
+                    <cell>2007.45</cell>
+                  </row>
+                  <row>
+                    <cell><c>re_subj</c></cell>
+                    <cell>1902.94</cell>
+                  </row>
+                  <row>
+                    <cell><c>sent_email</c></cell>
+                    <cell>1957.56</cell>
+                  </row>
+                </tabular>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-movie-returns-by-genre">
+        <title>Movie returns, Part II</title>
+        <statement>
+          <p>
+            A student analyzed return-on-investment (ROI) for movies based on release year and genre of movies. The plots show the predicted ROI vs. actual ROI for each of the genres separately. Do these figures support the comment in the FiveThirtyEight.com article that states, <q>The return-on-investment potential for horror movies is absurd.</q> Note that the x-axis range varies for each plot.
+          </p>
+          <p>
+            <em>Note: Five scatterplots would be shown, one for each genre of Action, Adventure, Comedy, Drama, and Horror. Each plot has "Actual ROI" on the horizontal axis and "Predicted ROI" on the vertical axis. The Action and Adventure scatterplots have nearly all points with Actual ROI ranging from about 0 to 5 with a handful between 5 and 15, and Predicted ROI always between about 2 and 3. The Comedy and Drama scatterplots have nearly all points with Actual ROI ranging from about 0 to 12 with a handful above 12, and Predicted ROI always between about 2.5 and 3.5. The Horror scatterplot has nearly all points with Actual ROI ranging from about 0 to 50 with a handful above 50, and Predicted ROI always between about 11 and 12.</em>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-spam-filtering-predict">
+        <title>Spam filtering, Part II</title>
+        <statement>
+          <p>
+            In <xref ref="exer-spam-filtering-model-sel"/>, we encountered a data set where we applied logistic regression to aid in spam classification for individual emails. In this exercise, we've taken a small set of these variables and fit a formal model with the following output:
+          </p>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>z value</cell>
+              <cell>Pr(<m>></m>|z|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-0.8124</cell>
+              <cell>0.0870</cell>
+              <cell>-9.34</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>to_multiple</cell>
+              <cell>-2.6351</cell>
+              <cell>0.3036</cell>
+              <cell>-8.68</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>winner</cell>
+              <cell>1.6272</cell>
+              <cell>0.3185</cell>
+              <cell>5.11</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>format</cell>
+              <cell>-1.5881</cell>
+              <cell>0.1196</cell>
+              <cell>-13.28</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>re_subj</cell>
+              <cell>-3.0467</cell>
+              <cell>0.3625</cell>
+              <cell>-8.40</cell>
+              <cell>0.0000</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Write down the model using the coefficients from the model fit.</p></li>
+              <li><p>Suppose we have an observation where <c>to_multiple</c> = 0, <c>winner</c> = 1, <c>format</c> = 0, and <c>re_subj</c> = 0. What is the predicted probability that this message is spam?</p></li>
+              <li><p>Put yourself in the shoes of a data scientist working on a spam filter. For a given message, how high must the probability a message is spam be before you think it would be reasonable to put it in a <em>spambox</em> (which the user is unlikely to check)? What tradeoffs might you consider? Any ideas about how you might make your spam-filtering system even better from the perspective of someone using your email service?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+    </exercises>
   </section>
 </chapter>
 
