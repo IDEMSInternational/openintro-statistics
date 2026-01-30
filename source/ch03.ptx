@@ -986,7 +986,7 @@
         <title>Backgammon</title>
         <statement>
           <p>
-            Backgammon is a board game for two players in which the playing pieces are moved according to the roll of two dice. Players win by removing all of their pieces from the board, so it is usually good to roll high numbers. You are playing backgammon with a friend and you roll two 6s in your first roll and two 6s in your second roll. Your friend rolls two 3s in his first roll and again in his second row. Your friend claims that you are cheating, because rolling double 6s twice in a row is very unlikely. Using probability, show that your rolls were just as likely as his.
+            Backgammon is a board game for two players in which the playing pieces are moved according to the roll of two dice. Players win by removing all of their pieces from the board, so it is usually good to roll high numbers. You are playing backgammon with a friend and you roll two 6s in your first roll and two 6s in your second roll. Your friend rolls two 3s in his first roll and again in his second roll. Your friend claims that you are cheating, because rolling double 6s twice in a row is very unlikely. Using probability, show that your rolls were just as likely as his.
           </p>
         </statement>
       </exercise>
@@ -2277,7 +2277,7 @@
         <title>Joint and conditional probabilities</title>
         <statement>
           <p>
-            P(A) = 0.3, P(B) = 0.7
+            Given that P(A) = 0.3 and P(B) = 0.7:
           </p>
           <p>
             <ol marker="a.">
