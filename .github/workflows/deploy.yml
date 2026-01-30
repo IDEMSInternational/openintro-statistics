@@ -37,13 +37,27 @@ jobs:
         run: |
           pretext build web
           
-      - name: Copy latex assets to output
+      - name: Copy assets to output
         run: |
+          # Copy latex assets to output root
           if [ -d "latex" ]; then
             cp -r latex output/html/
             echo "Latex assets copied to output directory"
           else
             echo "Warning: latex directory not found, skipping copy"
+          fi
+          # Copy source/images assets to external directory
+          # Need to support both "images/" prefix and no prefix due to inconsistent references in source files
+          if [ -d "source/images" ]; then
+            mkdir -p output/html/external
+            # Copy to external/ root (for references without "images/" prefix like Screenshot_20221025_114715.png)
+            cp -r source/images/* output/html/external/
+            # Also copy to external/images/ (for references with "images/" prefix like images/openintro-logo.svg)
+            mkdir -p output/html/external/images
+            cp -r source/images/* output/html/external/images/
+            echo "Source images copied to output/external directory"
+          else
+            echo "Warning: source/images directory not found, skipping copy"
           fi
           
       - name: Verify build output
