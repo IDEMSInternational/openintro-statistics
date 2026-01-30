@@ -109,24 +109,18 @@
         <p>
           There is no perfect way to check the normality condition, so instead we use two rules of thumb:
         </p>
-        <dl>
+        <ul>
           <li>
-            <title><m>n \lt 30</m>:</title>
             <p>
-              If the sample size <m>n</m> is less than 30 and there are no clear outliers in the data,
-              then we typically assume the data come from a nearly normal distribution to satisfy the
-              condition.
+              <strong><m>n \lt 30</m>:</strong> If the sample size <m>n</m> is less than 30 and there are no clear outliers in the data, then we typically assume the data come from a nearly normal distribution to satisfy the condition.
             </p>
           </li>
           <li>
-            <title><m>n \geq 30</m>:</title>
             <p>
-              If the sample size <m>n</m> is at least 30 and there are no <em>particularly extreme</em>
-              outliers, then we typically assume the sampling distribution of <m>\bar{x}</m> is nearly
-              normal, even if the underlying distribution of individual observations is not.
+              <strong><m>n \geq 30</m>:</strong> If the sample size <m>n</m> is at least 30 and there are no <em>particularly extreme</em> outliers, then we typically assume the sampling distribution of <m>\bar{x}</m> is nearly normal, even if the underlying distribution of individual observations is not.
             </p>
           </li>
-        </dl>
+        </ul>
       </assemblage>
       
       <p>
@@ -541,37 +535,14 @@
       <assemblage xml:id="ci-one-mean-steps">
         <title>Confidence interval for a single mean</title>
         <p>
-          Once you've determined a one-mean confidence interval would be helpful for an application, there
-          are four steps to constructing the interval:
+          Once you've determined a one-mean confidence interval would be helpful for an application, there are four steps to constructing the interval:
         </p>
-        <dl>
-          <li>
-            <title>Prepare.</title>
-            <p>
-              Identify <m>\bar{x}</m>, <m>s</m>, <m>n</m>, and determine what confidence level you wish
-              to use.
-            </p>
-          </li>
-          <li>
-            <title>Check.</title>
-            <p>
-              Verify the conditions to ensure <m>\bar{x}</m> is nearly normal.
-            </p>
-          </li>
-          <li>
-            <title>Calculate.</title>
-            <p>
-              If the conditions hold, compute <m>SE</m>, find <m>t_{df}^{\star}</m>, and construct the
-              interval.
-            </p>
-          </li>
-          <li>
-            <title>Conclude.</title>
-            <p>
-              Interpret the confidence interval in the context of the problem.
-            </p>
-          </li>
-        </dl>
+        <ol>
+          <li><strong>Prepare:</strong> Identify <m>\bar{x}</m>, <m>s</m>, <m>n</m>, and determine what confidence level you wish to use.</li>
+          <li><strong>Check:</strong> Verify the conditions to ensure <m>\bar{x}</m> is nearly normal.</li>
+          <li><strong>Calculate:</strong> If the conditions hold, compute <m>SE</m>, find <m>t_{df}^{\star}</m>, and construct the interval.</li>
+          <li><strong>Conclude:</strong> Interpret the confidence interval in the context of the problem.</li>
+        </ol>
       </assemblage>
       
       <exercise xml:id="croakerWhiteFish90ci">
@@ -696,37 +667,14 @@
       <assemblage xml:id="ht-one-mean-steps">
         <title>Hypothesis testing for a single mean</title>
         <p>
-          Once you've determined a one-mean hypothesis test is the correct procedure, there are four steps
-          to completing the test:
+          Once you've determined a one-mean hypothesis test is the correct procedure, there are four steps to completing the test:
         </p>
-        <dl>
-          <li>
-            <title>Prepare.</title>
-            <p>
-              Identify the parameter of interest, list out hypotheses, identify the significance level,
-              and identify <m>\bar{x}</m>, <m>s</m>, and <m>n</m>.
-            </p>
-          </li>
-          <li>
-            <title>Check.</title>
-            <p>
-              Verify conditions to ensure <m>\bar{x}</m> is nearly normal.
-            </p>
-          </li>
-          <li>
-            <title>Calculate.</title>
-            <p>
-              If the conditions hold, compute <m>SE</m>, compute the T-score, and identify the p-value.
-            </p>
-          </li>
-          <li>
-            <title>Conclude.</title>
-            <p>
-              Evaluate the hypothesis test by comparing the p-value to <m>\alpha</m>, and provide a
-              conclusion in the context of the problem.
-            </p>
-          </li>
-        </dl>
+        <ol>
+          <li><strong>Prepare:</strong> Identify the parameter of interest, list out hypotheses, identify the significance level, and identify <m>\bar{x}</m>, <m>s</m>, and <m>n</m>.</li>
+          <li><strong>Check:</strong> Verify conditions to ensure <m>\bar{x}</m> is nearly normal.</li>
+          <li><strong>Calculate:</strong> If the conditions hold, compute <m>SE</m>, compute the T-score, and identify the p-value.</li>
+          <li><strong>Conclude:</strong> Evaluate the hypothesis test by comparing the p-value to <m>\alpha</m>, and provide a conclusion in the context of the problem.</li>
+        </ol>
       </assemblage>
     </subsection>
     
