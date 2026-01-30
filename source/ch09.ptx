@@ -3108,33 +3108,31 @@
     </subsection>
     
     <subsection xml:id="subsec-groups-different-sizes">
-      <title>Exploring patterns in groups of different sizes</title>
+      <title>Exploring discriminations between groups of different sizes</title>
       
       <idx>patterns in data</idx>
       
       <p>
-        Understanding patterns in data is important, and this is why we decided it was so important to discuss this topic using data. The resume study also only examined one aspect: whether a prospective employer would call a candidate who submitted their resume. There was a 50% higher barrier for resumes when certain characteristics were present. It's unlikely that such patterns would stop there.
+        Any form of discrimination is concerning, and this is why we decided it was so important to discuss this topic using data. The resume study also only examined one aspect: whether a prospective employer would call a candidate who submitted their resume. There was a 50% higher barrier for resumes when certain characteristics were present. It's unlikely that such patterns would stop there.
       </p>
       
       <example xml:id="ex-sex-imbalance-discrimination">
         <title>Understanding mathematical properties of imbalanced populations</title>
         <statement>
           <p>
-            Let's consider a hypothetical company that consists of 20% women and 80% men, and we'll suppose that the company is very large, consisting of perhaps 20,000 employees. Suppose when someone goes up for promotion at this company, 5 of their colleagues are randomly chosen to provide feedback on their work.
+            Let's consider a sex-imbalanced company that consists of 20% women and 80% men, and we'll suppose that the company is very large, consisting of perhaps 20,000 employees. Suppose when someone goes up for promotion at this company, 5 of their colleagues are randomly chosen to provide feedback on their work.
           </p>
+          <p> Now let's imagine that 10% of the people in the company are prejudiced against the other sex. That is, 10% of men are prejudiced against women, and similarly, 10% of women are prejudiced against men. </p>
           <p>
-            Now let's imagine that 10% of the people in the company hold certain views about the other sex. That is, 10% of men hold these views about women, and similarly, 10% of women hold these views about men.
-          </p>
-          <p>
-            Who experiences more of this effect at the company, men or women?
+            Who is discriminated against more at the company, men or women?
           </p>
         </statement>
         <solution>
           <p>
-            Let's suppose we took 100 men who have gone up for promotion in the past few years. For these men, <m>5 \times 100 = 500</m> random colleagues will be tapped for their feedback, of which about 20% will be women (100 women). Of these 100 women, 10 are expected to hold these views about the man they are reviewing. Then, of the 500 colleagues reviewing them, men will experience this effect by about 2% of their colleagues when they go up for promotion.
+            Let's suppose we took 100 men who have gone up for promotion in the past few years. For these men, <m>5 \times 100 = 500</m> random colleagues will be tapped for their feedback, of which about 20% will be women (100 women). Of these 100 women, 10 are expected to be biased against the man they are reviewing. Then, of the 500 colleagues reviewing them, men will experience discrimination by about 2% of their colleagues when they go up for promotion.
           </p>
           <p>
-            Let's do a similar calculation for 100 women who have gone up for promotion in the last few years. They will also have 500 random colleagues providing feedback, of which about 400 (80%) will be men. Of these 400 men, about 40 (10%) hold these views against women. Of the 500 colleagues providing feedback on the promotion packet for these women, 8% of the colleagues hold these views against the women.
+            Let's do a similar calculation for 100 women who have gone up for promotion in the last few years. They will also have 500 random colleagues providing feedback, of which about 400 (80%) will be men. Of these 400 men, about 40 (10%) hold these views against women. Of the 500 colleagues providing feedback on the promotion packet for these women, 8% of the colleagues hold a bias against the women.
           </p>
         </solution>
       </example>
@@ -3144,7 +3142,7 @@
       </p>
       
       <p>
-        Of course, there are other considerable real-world complexities beyond the hypothetical example. For example, studies have found instances where people from one group also hold views against others within their own group. As another example, there are also instances where a majority group can face challenges, with certain historical examples serving as illustrations. Ultimately, understanding patterns in data is complex, and there are many factors at play beyond the mathematical property we observed in <xref ref="ex-sex-imbalance-discrimination"/>.
+        Of course, there are other considerable real-world omissions from the hypothetical example. For example, studies have found instances where people from an oppressed group also discriminate against others within their own oppressed group. As another example, there are also instances where a majority group can be oppressed, with apartheid in South Africa being one such historic example. Ultimately, discrimination is complex, and there are many factors at play beyond the mathematics property we observed in <xref ref="ex-sex-imbalance-discrimination"/>.
       </p>
       
       <p>
