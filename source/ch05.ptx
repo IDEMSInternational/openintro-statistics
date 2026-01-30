@@ -178,7 +178,7 @@ sum(sampled_entries == "support") / 1000
       <figure xml:id="fig-sampling-distribution-solar">
         <caption>A histogram of 10,000 sample proportions, where each sample is taken from a
         population where the population proportion is 0.88 and the sample size is <m>n = 1000</m>.</caption>
-        <image source="images/ch_foundations_for_inf/figures/sampling_10k_prop_88p/sampling_10k_prop_88p.pdf" width="80%">
+        <image source="images/ch_foundations_for_inf/figures/sampling_10k_prop_88p/sampling_10k_prop_88p.png" width="80%">
           <description>A histogram is shown for 10,000 sample proportions where each sample is
           taken from a population where the population proportion is 0.88 and the sample size is
           n = 1000. The distribution is bell-shaped (appears nearly normal), is centered at 0.88
@@ -362,7 +362,7 @@ sum(sampled_entries == "support") / 1000
           <figure xml:id="fig-p-hat-from-86-and-90">
             <caption>A normal distribution centered at 0.88 with a standard deviation of 0.01
             is shown, where the region between 0.86 and 0.90 has been shaded.</caption>
-            <image source="images/ch_foundations_for_inf/figures/p-hat_from_86_and_90/p-hat_from_86_and_90.pdf" width="35%">
+            <image source="images/ch_foundations_for_inf/figures/p-hat_from_86_and_90/p-hat_from_86_and_90.png" width="35%">
               <description>Normal curve centered at 0.88 with shaded region between 0.86 and 0.90</description>
             </image>
           </figure>
@@ -505,7 +505,7 @@ sum(sampled_entries == "support") / 1000
         <caption>Left: simulations of <m>\hat{p}</m> when the sample size is <m>n = 10</m> and
         the population proportion is <m>p = 0.25</m>. Right: a normal distribution with the same
         mean (0.25) and standard deviation (0.137).</caption>
-        <image source="images/ch_foundations_for_inf/figures/sampling_10_prop_25p/sampling_10_prop_25p.pdf" width="97%">
+        <image source="images/ch_foundations_for_inf/figures/sampling_10_prop_25p/sampling_10_prop_25p.png" width="97%">
           <description>There are two plots. The first plot is a histogram of 10,000 simulations
           of p-hat when the sample size is n equals 10 and the population proportion is p equals
           0.25. The possible values are 0.0, 0.1, 0.2, and so on up to 1.0, though the graph only
@@ -529,7 +529,7 @@ sum(sampled_entries == "support") / 1000
         <caption>Sampling distributions for several scenarios of <m>p</m> and <m>n</m>.
         Rows: <m>p = 0.10</m>, <m>p = 0.20</m>, <m>p = 0.50</m>, <m>p = 0.80</m>, and
         <m>p = 0.90</m>. Columns: <m>n = 10</m> and <m>n = 25</m>.</caption>
-        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_1.pdf" width="97%">
+        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_1.png" width="97%">
           <description>Sampling distributions are shown for several scenarios for parameters p
           and n. The graphs are arranged in a grid of 5 rows representing proportions 0.1, 0.2,
           0.5, 0.8, and 0.9 and 2 columns of sample sizes n equals 10 and 25. In each graph, the
@@ -549,7 +549,7 @@ sum(sampled_entries == "support") / 1000
         <caption>Sampling distributions for several scenarios of <m>p</m> and <m>n</m>.
         Rows: <m>p = 0.10</m>, <m>p = 0.20</m>, <m>p = 0.50</m>, <m>p = 0.80</m>, and
         <m>p = 0.90</m>. Columns: <m>n = 50</m>, <m>n = 100</m>, and <m>n = 250</m>.</caption>
-        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_2.pdf" width="97%">
+        <image source="images/ch_foundations_for_inf/figures/clt_prop_grid/clt_prop_grid_2.png" width="97%">
           <description>Sampling distributions are shown for several scenarios for parameters p
           and n. The graphs are arranged in a grid of 5 rows representing proportions 0.1, 0.2,
           0.5, 0.8, and 0.9 and 3 columns of sample sizes n equals 50, 100, and 250. Relative to
@@ -895,7 +895,7 @@ sum(sampled_entries == "support") / 1000
             Only 1 of these 25
             intervals did not capture the population
             proportion, and this interval has been bolded.</caption>
-        <image source="images/ch_foundations_for_inf/figures/95PercentConfidenceInterval/95PercentConfidenceInterval.pdf" width="75%">
+        <image source="images/ch_foundations_for_inf/figures/95PercentConfidenceInterval/95PercentConfidenceInterval.png" width="75%">
           <description>Twenty-five point estimates and confidence intervals from the simulations are shown. These intervals are shown relative to the population proportion p equals 0.88. The point estimates vary around the true population proportion of 0.88, but most of their confidence intervals overlap the value p equals 0.88. One of the 25 intervals does not have a confidence interval that overlaps the population proportion, and this interval has been bolded. We might say that this confidence interval did not capture the parameter p equals 0.88.</description>
         </image>
       </figure>
@@ -1099,7 +1099,7 @@ sum(sampled_entries == "support") / 1000
             which corresponds to 0.5%
             in the lower tail and 0.5% in the upper tail:
             <m>z^{\star}=2.58</m>.</caption>
-        <image source="images/ch_foundations_for_inf/figures/choosingZForCI/choosingZForCI.pdf" width="70%">
+        <image source="images/ch_foundations_for_inf/figures/choosingZForCI/choosingZForCI.png" width="70%">
           <description>A standard normal distribution is shown, where standard is the term used to indicate that the normal distribution is centered at 0 and has a standard deviation of 1. Portions of the normal distribution have been shaded. First, the central 95% portion of the distribution has been shaded in a dark blue, and this region has an annotation stating 95%, extends from -1.96 to 1.96. Recall that the value of 1.96 closely matches our 68-95-99.7 rule for the normal distribution, which had stated that about 95% of the area under the normal distribution lied within 2 standard deviations of the mean. Second, a slightly broader region of the normal distribution is shaded, in this case from about -2.5 to positive 2.5, and this has an annotation stating, 99%, extends -2.58 to 2.58. The values described here -- 1.96 and 2.58 -- are the z-star values that we would use for 95% and 99% confidence intervals, respectively.</description>
         </image>
       </figure>
@@ -2518,14 +2518,14 @@ sum(sampled_entries == "support") / 1000
       
       <figure xml:id="fig-nuclear-arms-p-value">
         <caption>The sampling distribution centered at the null value <m>p_0 = 0.5</m> for the nuclear arms test. The tails beyond the observed proportion show the p-value.</caption>
-        <image source="images/ch_foundations_for_inf/figures/nuclearArmsReduction/nuclearArmsReductionPValue.pdf" width="70%">
+        <image source="images/ch_foundations_for_inf/figures/nuclearArmsReduction/nuclearArmsReductionPValue.png" width="70%">
           <description>Normal distribution centered at 0.5 showing tail areas for nuclear arms test</description>
         </image>
       </figure>
       
       <figure xml:id="fig-coal-p-value">
         <caption>The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.</caption>
-        <image source="images/ch_foundations_for_inf/figures/normal_dist_mean_500_se_016/normal_dist_mean_500_se_016.pdf" width="70%">
+        <image source="images/ch_foundations_for_inf/figures/normal_dist_mean_500_se_016/normal_dist_mean_500_se_016.png" width="70%">
           <description>Normal distribution showing extremely small tail areas for coal test</description>
         </image>
       </figure>

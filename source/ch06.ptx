@@ -188,7 +188,7 @@
           </p>
           <figure xml:id="fig-paydayCC-norm-pvalue">
             <caption>A normal distribution is shown with a center of 0.5 and a standard deviation of 0.017. Two tails are shaded: The region above 0.51 and a region in the corresponding lower tail. Visually, it looks like a little over half of the area under the normal curve is shaded.</caption>
-            <image source="ch_inference_for_props/paydayCC_norm_pvalue.pdf" width="50%"/>
+            <image source="ch_inference_for_props/paydayCC_norm_pvalue.png" width="50%"/>
           </figure>
           <p>
             Based on the normal model, the test statistic can be computed as the Z-score of the point estimate:
@@ -701,7 +701,7 @@
           </md>
           <figure xml:id="mammogramPValue">
             <caption>A normal distribution is shown centered at 0 with a standard deviation of 0.0007. The lower tail is shaded below -0.00012 and the upper tail is shaded above 0.00012. Visually, it looks like very roughly 90% of the area under the normal distribution is shaded.</caption>
-            <image source="ch_inference_for_props/mammograms/mammogramPValue.pdf" width="45%"/>
+            <image source="ch_inference_for_props/mammograms/mammogramPValue.png" width="45%"/>
           </figure>
           <p>
             The lower tail area is 0.4325, which we double to get the p-value: 0.8650. Because this p-value is larger than 0.05, we do not reject the null hypothesis. That is, the difference in breast cancer death rates is reasonably explained by chance, and we do not observe benefits or harm from mammograms relative to a regular breast exam.
@@ -792,7 +792,7 @@
       
       <figure xml:id="bladesTwoSampleHTPValueQC">
         <caption>Distribution of the test statistic if the null hypothesis was true. The p-value is represented by the shaded areas.</caption>
-        <image source="ch_inference_for_props/bladesTwoSampleHTPValueQC.pdf" width="45%"/>
+        <image source="ch_inference_for_props/bladesTwoSampleHTPValueQC.png" width="45%"/>
       </figure>
     </subsection>
     
@@ -1089,7 +1089,7 @@
       
       <figure xml:id="chiSquareDistributionWithInceasingDF">
         <caption>Three chi-square distributions with varying degrees of freedom.</caption>
-        <image source="ch_inference_for_props/figures/chiSquareDistributionWithInceasingDF/chiSquareDistributionWithInceasingDF.pdf" width="80%">
+        <image source="ch_inference_for_props/figures/chiSquareDistributionWithInceasingDF/chiSquareDistributionWithInceasingDF.png" width="80%">
           <description>Three chi-square distributions are shown with degrees of freedom 2, 4, and 9 on the same plot. The horizontal axis ranges from 0 to 25<mdash/>recall that the chi-square distributions never take values smaller than 0. The chi-square distribution with 2 degrees of freedom starts at a peak at zero and then quickly declines more than halfway by the value of 2 and trails off after a value of about 5. The chi-square distribution with 4 degrees of freedom starts at 0 and quickly rises to a peak at about 2, before gradually declining and then more steeply declining starting at 3, before starting to flatten at about 5 or 6. The distribution has fallen very close to the horizontal axis by a value of 10. The chi-square distribution with 9 degrees of freedom starts at zero before gradually rising up to a peak at about 7 before declining again and trailing off between at around 15.</description>
         </image>
       </figure>
@@ -1121,14 +1121,14 @@
         <sidebyside widths="48% 48%">
           <figure xml:id="chiSquareAreaAbove6Point25WithDF3">
             <caption>Chi-square distribution with 3 degrees of freedom, area above 6.25 shaded.</caption>
-            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove6Point25WithDF3.pdf" width="100%">
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove6Point25WithDF3.png" width="100%">
               <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 6.25 shaded. This region appears to be about 10% of the area under the curve.</description>
             </image>
           </figure>
           
           <figure xml:id="chiSquareAreaAbove4Point3WithDF2">
             <caption>2 degrees of freedom, area above 4.3 shaded.</caption>
-            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove4Point3WithDF2.pdf" width="100%">
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove4Point3WithDF2.png" width="100%">
               <description>A chi-square distribution with 2 degrees of freedom is shown, with the area above 4.3 shaded. This region appears to be about 10% of the area under the curve.</description>
             </image>
           </figure>
@@ -1137,14 +1137,14 @@
         <sidebyside widths="48% 48%">
           <figure xml:id="chiSquareAreaAbove5Point1WithDF5">
             <caption>5 degrees of freedom, area above 5.1 shaded.</caption>
-            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove5Point1WithDF5.pdf" width="100%">
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove5Point1WithDF5.png" width="100%">
               <description>A chi-square distribution with 5 degrees of freedom is shown, with the area above 5.1 shaded. This region appears to be very roughly 50% of the area under the curve.</description>
             </image>
           </figure>
           
           <figure xml:id="chiSquareAreaAbove11Point7WithDF7">
             <caption>7 degrees of freedom, area above 11.7 shaded.</caption>
-            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove11Point7WithDF7.pdf" width="100%">
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove11Point7WithDF7.png" width="100%">
               <description>A chi-square distribution with 7 degrees of freedom is shown, with the area above 11.7 shaded. This region appears to be about 15% of the area under the curve.</description>
             </image>
           </figure>
@@ -1153,14 +1153,14 @@
         <sidebyside widths="48% 48%">
           <figure xml:id="chiSquareAreaAbove10WithDF4">
             <caption>4 degrees of freedom, area above 10 shaded.</caption>
-            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove10WithDF4.pdf" width="100%">
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove10WithDF4.png" width="100%">
               <description>A chi-square distribution with 4 degrees of freedom is shown, with the area above 10 shaded. This region appears to be about 5% of the area under the curve.</description>
             </image>
           </figure>
           
           <figure xml:id="chiSquareAreaAbove9Point21WithDF3">
             <caption>3 degrees of freedom, area above 9.21 shaded.</caption>
-            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove9Point21WithDF3.pdf" width="100%">
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove9Point21WithDF3.png" width="100%">
               <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 9.21 shaded. This region appears to be about 3% of the area under the curve.</description>
             </image>
           </figure>
@@ -1276,7 +1276,7 @@
       
       <figure xml:id="jurorHTPValueShown">
         <caption>The p-value for the juror hypothesis test is shaded in the chi-square distribution with <m>df=3</m>.</caption>
-        <image source="ch_inference_for_props/figures/jurorHTPValueShown/jurorHTPValueShown.pdf" width="55%">
+        <image source="ch_inference_for_props/figures/jurorHTPValueShown/jurorHTPValueShown.png" width="55%">
           <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 5.89 shaded. This region appears to be about 10% of the area under the curve.</description>
         </image>
       </figure>
@@ -1476,7 +1476,7 @@
       
       <figure xml:id="geomFitEvaluationForSP500">
         <caption>Side-by-side bar plot of the observed and expected counts for each waiting time.</caption>
-        <image source="ch_inference_for_props/figures/geomFitEvaluationForSP500/geomFitEvaluationForSP500.pdf" width="85%">
+        <image source="ch_inference_for_props/figures/geomFitEvaluationForSP500/geomFitEvaluationForSP500.png" width="85%">
           <description>A side-by-side bar plot is shown for the variable "Wait Until Positive Day", where the two groups shown for the bars are "Observed counts" and "Expected counts". The horizontal axis shows values 1, 2, 3, 4, 5, 6, and "7+". The bar heights highest for "1" at roughly 715 for Observed and 740 for Expected. The bar heights for "2" are about half as high as at "1", with values of about 370 for Observed and 340 for Expected. The bar heights for "3" are about another half has high at about 150 for each for observed and expected. The values at 5, 6, and 7+ are all relatively small, at or below about 30.</description>
         </image>
       </figure>
@@ -1539,7 +1539,7 @@
       
       <figure xml:id="geomFitPValueForSP500">
         <caption>Chi-square distribution with 6 degrees of freedom. The p-value for the stock analysis is shaded.</caption>
-        <image source="ch_inference_for_props/figures/geomFitPValueForSP500/geomFitPValueForSP500.pdf" width="74%">
+        <image source="ch_inference_for_props/figures/geomFitPValueForSP500/geomFitPValueForSP500.png" width="74%">
           <description>A chi-square distribution with 6 degrees of freedom is shown, with the area above 4.61 shaded. This region appears to be about 60% of the area under the curve.</description>
         </image>
       </figure>
