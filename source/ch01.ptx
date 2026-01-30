@@ -962,7 +962,7 @@
 
       <figure xml:id="fig-variable-types">
         <caption>Breakdown of variables into their respective types</caption>
-        <image source="../latex/ch_intro_to_data/figures/variables/variables.pdf" width="70%">
+        <image source="latex/ch_intro_to_data/figures/variables/variables.pdf" width="70%">
           <description>
             A tree diagram showing "all variables" at the top, branching into "numeric" and 
             "categorical". The "numeric" branch splits into "continuous" and "discrete", while 
@@ -1074,7 +1074,7 @@
           structures for US counties. The highlighted dot represents Chattahoochee County, Georgia, 
           which has a multi-unit rate of 39.4% and a homeownership rate of 31.3%.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/multiunitsVsOwnership/multiunitsVsOwnership.pdf" width="85%">
+        <image source="latex/ch_intro_to_data/figures/multiunitsVsOwnership/multiunitsVsOwnership.pdf" width="85%">
           <description>
             Scatterplot of thousands of counties with the percent of multiunit structures in each 
             county shown on the horizontal axis and homeownership rate shown on the vertical axis. 
@@ -1135,7 +1135,7 @@
           of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and 
           had median household income of $22,736.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/pop_change_v_med_income/pop_change_v_med_income.pdf" width="90%">
+        <image source="latex/ch_intro_to_data/figures/pop_change_v_med_income/pop_change_v_med_income.pdf" width="90%">
           <description>
             Scatterplot of thousands of counties with the median household income along the 
             horizontal axis (data ranging from $0 to $120,000) and population change over 7 years 
@@ -1350,7 +1350,7 @@
           </ol>
           <figure xml:id="fig-fisher-iris">
             <caption>Iris versicolor</caption>
-            <image source="../latex/ch_intro_to_data/figures/eoce/fisher_irises/irisversicolor.jpg" width="45%">
+            <image source="latex/ch_intro_to_data/figures/eoce/fisher_irises/irisversicolor.jpg" width="45%">
               <description>Photo of a purple iris flower.</description>
             </image>
           </figure>
@@ -1392,7 +1392,7 @@
           </p>
           <figure xml:id="fig-us-airports">
             <caption>Distribution of US airports by ownership and use</caption>
-            <image source="../latex/ch_intro_to_data/figures/eoce/airports/airports.png" width="90%">
+            <image source="latex/ch_intro_to_data/figures/eoce/airports/airports.png" width="90%">
               <description>Maps showing public/private ownership and use of airports across the US.</description>
             </image>
           </figure>
@@ -1411,7 +1411,7 @@
           </p>
           <figure xml:id="fig-un-votes">
             <caption>UN General Assembly voting patterns</caption>
-            <image source="../latex/ch_intro_to_data/figures/eoce/unvotes/unvotes.png" width="90%">
+            <image source="latex/ch_intro_to_data/figures/eoce/unvotes/unvotes.png" width="90%">
               <description>Trends of percent yes votes over time for several UN issues for three countries.</description>
             </image>
           </figure>
@@ -1510,7 +1510,7 @@
         <caption>
           In February 2010, some media pundits cited one large snow storm as valid evidence against global warming. As comedian Jon Stewart pointed out, <q>It's one storm, in one region, of one country.</q>
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/mnWinter/mnWinter.JPG" width="60%">
+        <image source="latex/ch_intro_to_data/figures/mnWinter/mnWinter.JPG" width="60%">
           <description>A wintery scene, where the trees are covered in snow, and there are large piles of snow on the sides of the roads.</description>
         </image>
       </figure>
@@ -1538,7 +1538,7 @@
         <caption>
           In this graphic, five graduates are randomly selected from the population to be included in the sample.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/popToSample/popToSampleGraduates.pdf" width="55%">
+        <image source="latex/ch_intro_to_data/figures/popToSample/popToSampleGraduates.pdf" width="55%">
           <description>Graphic showing a larger circle on the left for all graduates and a smaller circle on the right for sample. Five graduates are randomly selected with arrows showing the selection.</description>
         </image>
       </figure>
@@ -1559,7 +1559,7 @@
         <caption>
           Asked to pick a sample of graduates, a nutrition major might inadvertently pick a disproportionate number of graduates from health-related majors.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/popToSample/popToSubSampleGraduates.pdf" width="55%">
+        <image source="latex/ch_intro_to_data/figures/popToSample/popToSubSampleGraduates.pdf" width="55%">
           <description>Graphic showing sampling only from a subset (health-related fields) introduces bias.</description>
         </image>
       </figure>
@@ -1576,7 +1576,7 @@
         <caption>
           Due to the possibility of non-response, survey studies may only reach a certain group within the population. It is difficult, and often times impossible, to completely fix this problem.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/popToSample/surveySample.pdf" width="55%">
+        <image source="latex/ch_intro_to_data/figures/popToSample/surveySample.pdf" width="55%">
           <description>Graphic showing a population of interest with a smaller circle representing the population actually sampled, from which a sample is drawn.</description>
         </image>
       </figure>
@@ -1629,7 +1629,7 @@
         <caption>
           Sun exposure is a confounding variable that is associated with both sunscreen use and skin cancer.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/variables/sunCausesCancer.pdf" width="55%">
+        <image source="latex/ch_intro_to_data/figures/variables/sunCausesCancer.pdf" width="55%">
           <description>Diagram showing three boxes in a triangle: sun exposure at the top with arrows pointing to use sunscreen and skin cancer below, with a question mark on a lighter arrow between use sunscreen and skin cancer.</description>
         </image>
       </figure>
@@ -1668,7 +1668,7 @@
         <caption>
           Examples of simple random and stratified sampling. In the top panel, simple random sampling was used to randomly select the 18 cases. In the bottom panel, stratified sampling was used: cases were grouped into strata, then simple random sampling was employed within each stratum.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/samplingMethodsFigure/simple_stratified.pdf" width="80%">
+        <image source="latex/ch_intro_to_data/figures/samplingMethodsFigure/simple_stratified.pdf" width="80%">
           <description>Two figures showing simple random sampling (top) with 18 randomly selected points, and stratified sampling (bottom) with 6 strata and 3 points selected from each stratum.</description>
         </image>
       </figure>
@@ -1705,7 +1705,7 @@
         <caption>
           Examples of cluster and multistage sampling. In the top panel, cluster sampling was used: data were binned into nine clusters, three of these clusters were sampled, and all observations within these three clusters were included in the sample. In the bottom panel, multistage sampling was used, which differs from cluster sampling only in that we randomly select a subset of each cluster to be included in the sample rather than measuring every case in each sampled cluster.
         </caption>
-        <image source="../latex/ch_intro_to_data/figures/samplingMethodsFigure/cluster_multistage.pdf" width="80%">
+        <image source="latex/ch_intro_to_data/figures/samplingMethodsFigure/cluster_multistage.pdf" width="80%">
           <description>Two figures showing cluster sampling (top) with all observations from selected clusters, and multistage sampling (bottom) with random samples from within selected clusters.</description>
         </image>
       </figure>
@@ -2300,7 +2300,7 @@ study?
 
       <figure xml:id="fig-blocking">
         <caption>Blocking using a variable depicting patient risk. Patients are first divided into low-risk and high-risk blocks, then each block is evenly separated into the treatment groups using randomization. This strategy ensures an equal representation of patients in each treatment group from both the low-risk and high-risk categories.</caption>
-        <image source="../latex/ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" width="82%">
+        <image source="latex/ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" width="82%">
           <description>There are three main stages shown in this figure, from top to bottom. The upper stage shows the numbering of patients as a rectangle containing 54 dots in a grid that are labeled with numbers 1 through 54. The dots are one of two colors: blue (high risk) and red (low risk). The second stage shows the two colored dots broken into two blocks. On the left are the low-risk patients (red) and on the right are the high-risk patients (blue). Going into the bottom third stage, are two boxes labeled "control" and "treatment", where half of the low-risk (red) and half of the blue (high risk) points have been randomly placed into each of these two experiment groups.</description>
         </image>
       </figure>
