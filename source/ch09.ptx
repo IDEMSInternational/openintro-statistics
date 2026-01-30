@@ -2041,39 +2041,452 @@
     </exercises>
   </section>
   
-  <!-- Section 9.4: Case study -->
+  <!-- Section 9.4: Multiple regression case study - Mario Kart -->
   <section xml:id="sec-regression-case-study">
-    <title>Case Study: Mario Kart</title>
+    <title>Multiple regression case study: Mario Kart</title>
     
     <p>
-      A case study on the relationship between various characteristics of Mario Kart video game
-      items and their prices on the auction website eBay demonstrates the principles of multiple
-      regression in practice.
+      We'll consider Ebay auctions of a video game called <em>Mario Kart</em> for the Nintendo Wii. The outcome variable of interest is the total price of an auction, which is the highest bid plus the shipping cost. We will try to determine how total price is related to each characteristic in an auction while simultaneously controlling for other variables. For instance, all other characteristics held constant, are longer auctions associated with higher or lower prices? And, on average, how much more do buyers tend to pay for additional Wii wheels (plastic steering wheels that attach to the Wii controller) in auctions? Multiple regression will help us answer these and other questions.
     </p>
     
-    <subsection xml:id="subsec-case-study-data">
-      <title>The Data</title>
+    <subsection xml:id="subsec-case-study-data-full-model">
+      <title>Data set and the full model</title>
       
       <p>
-        The dataset includes information about completed eBay auctions of Mario Kart games,
-        with variables such as:
+        The <c>mariokart</c> data set includes results from 141 auctions. Four observations from this data set are shown in <xref ref="fig-mario-kart-data-matrix"/>, and descriptions for each variable are shown in <xref ref="fig-mario-kart-variables"/>. Notice that the condition and stock photo variables are indicator variables, similar to <c>bankruptcy</c> in the <c>loans</c> data set.
       </p>
       
-      <ul>
-        <li><p>Price (response variable)</p></li>
-        <li><p>Condition of the item (new vs. used)</p></li>
-        <li><p>Game system (Wii, Nintendo 64, etc.)</p></li>
-        <li><p>Number of wheels/characters included</p></li>
-        <li><p>Auction duration</p></li>
-      </ul>
-    </subsection>
-    
-    <subsection xml:id="subsec-case-study-analysis">
-      <title>Model Development</title>
+      <figure xml:id="fig-mario-kart-data-matrix">
+        <caption>Four observations from the <c>mariokart</c> data set.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>price</cell>
+            <cell>cond_new</cell>
+            <cell>stock_photo</cell>
+            <cell>duration</cell>
+            <cell>wheels</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell>51.55</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+            <cell>3</cell>
+            <cell>1</cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell>37.04</cell>
+            <cell>0</cell>
+            <cell>1</cell>
+            <cell>7</cell>
+            <cell>1</cell>
+          </row>
+          <row>
+            <cell><m>\vdots</m></cell>
+            <cell><m>\vdots</m></cell>
+            <cell><m>\vdots</m></cell>
+            <cell><m>\vdots</m></cell>
+            <cell><m>\vdots</m></cell>
+            <cell><m>\vdots</m></cell>
+          </row>
+          <row>
+            <cell>140</cell>
+            <cell>38.76</cell>
+            <cell>0</cell>
+            <cell>0</cell>
+            <cell>7</cell>
+            <cell>0</cell>
+          </row>
+          <row>
+            <cell>141</cell>
+            <cell>54.51</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+            <cell>2</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <figure xml:id="fig-mario-kart-variables">
+        <caption>Variables and their descriptions for the <c>mariokart</c> data set.</caption>
+        <tabular halign="left">
+          <row bottom="medium">
+            <cell><term>variable</term></cell>
+            <cell><term>description</term></cell>
+          </row>
+          <row>
+            <cell><c>price</c></cell>
+            <cell>Final auction price plus shipping costs, in US dollars.</cell>
+          </row>
+          <row>
+            <cell><c>cond_new</c></cell>
+            <cell>Indicator variable for if the game is new (1) or used (0).</cell>
+          </row>
+          <row>
+            <cell><c>stock_photo</c></cell>
+            <cell>Indicator variable for if the auction's main photo is a stock photo.</cell>
+          </row>
+          <row>
+            <cell><c>duration</c></cell>
+            <cell>The length of the auction, in days, taking values from 1 to 10.</cell>
+          </row>
+          <row>
+            <cell><c>wheels</c></cell>
+            <cell>The number of Wii wheels included with the auction. A <em>Wii wheel</em> is an optional steering wheel accessory that holds the Wii controller.</cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <exercise xml:id="exer-cond-new-mario-kart">
+        <statement>
+          <p>
+            We fit a linear regression model with the game's condition as a predictor of auction price. Results of this model are summarized below:
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>42.8711</cell>
+              <cell>0.8140</cell>
+              <cell>52.67</cell>
+              <cell><m>\lt</m>0.0001</cell>
+            </row>
+            <row>
+              <cell>cond_new</cell>
+              <cell>10.8996</cell>
+              <cell>1.2583</cell>
+              <cell>8.66</cell>
+              <cell><m>\lt</m>0.0001</cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell halign="right" colspan="2"><m>df=139</m></cell>
+            </row>
+          </tabular>
+          <p>
+            Write down the equation for the model, note whether the slope is statistically different from zero, and interpret the coefficient.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The equation for the line may be written as
+            <me>
+              \widehat{\text{price}} = 42.87 + 10.90 \times \text{cond\_new}
+            </me>
+            Examining the regression output, we can see that the p-value for <c>cond_new</c> is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this simple one-variable model.
+          </p>
+          <p>
+            The <c>cond_new</c> is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used. This means the 10.90 model coefficient predicts an extra $10.90 for those games that are new versus those that are used.
+          </p>
+        </solution>
+      </exercise>
       
       <p>
-        We can build a multiple regression model to predict Mario Kart prices, starting with all
-        reasonable predictors and using model selection techniques to arrive at a final model.
+        Sometimes there are underlying structures or relationships between predictor variables. For instance, new games sold on Ebay tend to come with more Wii wheels, which may have led to higher prices for those auctions. We would like to fit a model that includes all potentially important variables simultaneously. This would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.
+      </p>
+      
+      <p>
+        We want to construct a model that accounts for not only the game condition, as in <xref ref="exer-cond-new-mario-kart"/>, but simultaneously accounts for three other variables:
+        <md>
+          <mrow>\widehat{\text{price}} \amp = \beta_0 + \beta_1 \times \text{cond\_new} + \beta_2 \times \text{stock\_photo}</mrow>
+          <mrow>\amp \qquad + \beta_3 \times \text{duration} + \beta_4 \times \text{wheels}</mrow>
+        </md>
+        <xref ref="fig-mario-kart-full-model-output"/> summarizes the full model. Using this output, we identify the point estimates of each coefficient.
+      </p>
+      
+      <figure xml:id="fig-mario-kart-full-model-output">
+        <caption>Output for the regression model where <c>price</c> is the outcome and <c>cond_new</c>, <c>stock_photo</c>, <c>duration</c>, and <c>wheels</c> are the predictors.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>36.2110</cell>
+            <cell>1.5140</cell>
+            <cell>23.92</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>cond_new</cell>
+            <cell>5.1306</cell>
+            <cell>1.0511</cell>
+            <cell>4.88</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>stock_photo</cell>
+            <cell>1.0803</cell>
+            <cell>1.0568</cell>
+            <cell>1.02</cell>
+            <cell>0.3085</cell>
+          </row>
+          <row>
+            <cell>duration</cell>
+            <cell>-0.0268</cell>
+            <cell>0.1904</cell>
+            <cell>-0.14</cell>
+            <cell>0.8882</cell>
+          </row>
+          <row>
+            <cell>wheels</cell>
+            <cell>7.2852</cell>
+            <cell>0.5547</cell>
+            <cell>13.13</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell halign="right" colspan="2"><m>df=136</m></cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <exercise xml:id="exer-mario-kart-full-model-eq">
+        <statement>
+          <p>
+            Write out the model's equation using the point estimates from <xref ref="fig-mario-kart-full-model-output"/>. How many predictors are there in this model?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <md>
+              <mrow>\widehat{\text{price}} \amp = 36.21 + 5.13 \times \text{cond\_new} + 1.08 \times \text{stock\_photo}</mrow>
+              <mrow>\amp \qquad - 0.03 \times \text{duration} + 7.29 \times \text{wheels}</mrow>
+            </md>
+            with the <m>k=4</m> predictors.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exer-wheels-coefficient">
+        <statement>
+          <p>
+            What does <m>\beta_4</m>, the coefficient of variable <m>x_4</m> (Wii wheels), represent? What is the point estimate of <m>\beta_4</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            It is the average difference in auction price for each additional Wii wheel included when holding the other variables constant. The point estimate is <m>b_4 = 7.29</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exer-mario-kart-residual">
+        <statement>
+          <p>
+            Compute the residual of the first observation in <xref ref="fig-mario-kart-data-matrix"/> using the equation identified in <xref ref="exer-mario-kart-full-model-eq"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>e_i = y_i - \hat{y}_i = 51.55 - 49.62 = 1.93</m>, where 49.62 was computed using the variables values from the observation and the equation identified in <xref ref="exer-mario-kart-full-model-eq"/>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example xml:id="ex-cond-new-coefficient-difference">
+        <title>Why does the condition coefficient differ between models?</title>
+        <statement>
+          <p>
+            We estimated a coefficient for <c>cond_new</c> in <xref ref="exer-cond-new-mario-kart"/> of <m>b_1 = 10.90</m> with a standard error of <m>SE_{b_1} = 1.26</m> when using simple linear regression. Why might there be a difference between that estimate and the one in the multiple regression setting?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If we examined the data carefully, we would see that there is collinearity among some predictors. For instance, when we estimated the connection of the outcome <c>price</c> and predictor <c>cond_new</c> using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction. That model was biased by the confounding variable <c>wheels</c>. When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).
+          </p>
+        </solution>
+      </example>
+    </subsection>
+    
+    <subsection xml:id="subsec-mario-kart-model-selection">
+      <title>Model selection</title>
+      
+      <p>
+        Let's revisit the model for the Mario Kart auction and complete model selection using backwards selection. Recall that the full model took the following form:
+        <me>
+          \widehat{\text{price}} = 36.21 + 5.13 \times \text{cond\_new} + 1.08 \times \text{stock\_photo} - 0.03 \times \text{duration} + 7.29 \times \text{wheels}
+        </me>
+      </p>
+      
+      <example xml:id="ex-mario-kart-backward-elimination">
+        <title>Backward elimination with Mario Kart data</title>
+        <statement>
+          <p>
+            Results corresponding to the full model for the <c>mariokart</c> data were shown in <xref ref="fig-mario-kart-full-model-output"/>. For this model, we consider what would happen if dropping each of the variables in the model:
+          </p>
+          <tabular halign="center">
+            <row>
+              <cell>Exclude...</cell>
+              <cell><c>cond_new</c></cell>
+              <cell><c>stock_photo</c></cell>
+              <cell><c>duration</c></cell>
+              <cell><c>wheels</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.6626</m></cell>
+              <cell><m>R^2_{adj} = 0.7107</m></cell>
+              <cell><m>R^2_{adj} = 0.7128</m></cell>
+              <cell><m>R^2_{adj} = 0.3487</m></cell>
+            </row>
+          </tabular>
+          <p>
+            For the full model, <m>R_{adj}^2 = 0.7108</m>. How should we proceed under the backward elimination strategy?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The third model without <c>duration</c> has the highest <m>R_{adj}^2</m> of 0.7128, so we compare it to <m>R_{adj}^2</m> for the full model. Because eliminating <c>duration</c> leads to a model with a higher <m>R_{adj}^2</m>, we drop <c>duration</c> from the model.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="exer-mario-kart-further-elimination">
+        <statement>
+          <p>
+            In <xref ref="ex-mario-kart-backward-elimination"/>, we eliminated the <c>duration</c> variable, which resulted in a model with <m>R_{adj}^2 = 0.7128</m>. Let's look at if we would eliminate another variable from the model using backwards elimination:
+          </p>
+          <tabular halign="center">
+            <row>
+              <cell>Exclude <c>duration</c> and...</cell>
+              <cell><c>cond_new</c></cell>
+              <cell><c>stock_photo</c></cell>
+              <cell><c>wheels</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.6587</m></cell>
+              <cell><m>R^2_{adj} = 0.7124</m></cell>
+              <cell><m>R^2_{adj} = 0.3414</m></cell>
+            </row>
+          </tabular>
+          <p>
+            Should we eliminate any additional variable, and if so, which variable should we eliminate?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Removing any of the three remaining variables would lead to a decrease in <m>R_{adj}^2</m>, so we should not remove any additional variables from the model after we removed <c>duration</c>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exer-mario-kart-price-prediction">
+        <statement>
+          <p>
+            After eliminating the auction's duration from the model, we are left with the following reduced model:
+            <me>
+              \widehat{\text{price}} = 36.05 + 5.18 \times \text{cond\_new} + 1.12 \times \text{stock\_photo} + 7.30 \times \text{wheels}
+            </me>
+            How much would you predict for the total price for the Mario Kart game if it was used, used a stock photo, and included two wheels and put up for auction during the time period that the Mario Kart data were collected?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We would plug in 0 for <c>cond_new</c>, 1 for <c>stock_photo</c>, and 2 for <c>wheels</c> into the equation, which would return $51.77, which is the total price we would expect for the auction.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exer-mario-kart-prediction-variability">
+        <statement>
+          <p>
+            Would you be surprised if the seller from <xref ref="exer-mario-kart-price-prediction"/> didn't get the exact price predicted?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            No. The model provides the <em>average</em> auction price we would expect, and the price for one auction to the next will continue to vary a bit (but less than what our prediction would be without the model).
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="subsec-mario-kart-diagnostics">
+      <title>Checking model conditions using graphs</title>
+      
+      <p>
+        Let's take a closer look at the diagnostics for the Mario Kart model to check if the model we have identified is reasonable.
+      </p>
+      
+      <p>
+        <dl>
+          <li>
+            <title>Check for outliers</title>
+            <p>
+              A histogram of the residuals is shown in <xref ref="fig-mk-diag-res-hist"/>. With a data set well over a hundred, we're primarily looking for major outliers. While one minor outlier appears on the upper end, it is not a concern for this large of a data set.
+            </p>
+            <figure xml:id="fig-mk-diag-res-hist">
+              <caption>Histogram of the residuals. No clear outliers are evident.</caption>
+              <image source="ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagResHist" width="60%">
+                <description>A histogram is shown for "Residuals". The distribution is centered at 0, is slightly right skewed, and has a standard deviation of about 4.</description>
+              </image>
+            </figure>
+          </li>
+          <li>
+            <title>Absolute values of residuals against fitted values</title>
+            <p>
+              A plot of the absolute value of the residuals against their corresponding fitted values (<m>\hat{y}_i</m>) is shown in <xref ref="fig-mk-diagnostic-evs-abs-f"/>. We don't see any obvious deviations from constant variance in this example.
+            </p>
+            <figure xml:id="fig-mk-diagnostic-evs-abs-f">
+              <caption>Absolute value of the residuals against the fitted values. No patterns are evident.</caption>
+              <image source="ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagnosticEvsAbsF" width="60%">
+                <description>Scatterplot of "Absolute Value of Residuals" (vertical axis) against "Fitted Values" (horizontal axis). The fitted values range from $35 to $65, and the absolute value of the residuals range from $0 to about $10, with no apparent pattern across the range of fitted values.</description>
+              </image>
+            </figure>
+          </li>
+          <li>
+            <title>Residuals in order of their data collection</title>
+            <p>
+              A plot of the residuals in the order their corresponding auctions were observed is shown in <xref ref="fig-mk-diagnostic-in-order"/>. Here we see no structure that indicates a problem.
+            </p>
+            <figure xml:id="fig-mk-diagnostic-in-order">
+              <caption>Residuals in the order that their corresponding observations were collected. There are no evident patterns.</caption>
+              <image source="ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagnosticInOrder" width="55%">
+                <description>Scatterplot of "Residuals" (vertical axis) against "Order of Collection" (horizontal axis). The order of collection runs from 1 to about 140, and the residuals range from -$10 to about positive $10, with no apparent pattern across the range of fitted values.</description>
+              </image>
+            </figure>
+          </li>
+          <li>
+            <title>Residuals against each predictor variable</title>
+            <p>
+              We consider a plot of the residuals against the <c>cond_new</c> variable, the residuals against the <c>stock_photo</c> variable, and the residuals against the <c>wheels</c> variable. These plots are shown in <xref ref="fig-mk-diagnostic-evs-variables"/>. For the two-level condition variable, we are guaranteed not to see any remaining trend, and instead we are checking that the variability doesn't fluctuate across groups, which it does not. However, looking at the stock photo variable, we find that there is some difference in the variability of the residuals in the two groups. Additionally, when we consider the residuals against the <c>wheels</c> variable, we see some possible structure. There appears to be curvature in the residuals, indicating the relationship is probably not linear.
+            </p>
+            <figure xml:id="fig-mk-diagnostic-evs-variables">
+              <caption>For the condition and stock photo variables, we check for differences in the distribution shape or variability of the residuals. In the case of the stock photos variable, we see a little less variability in the unique photo group than the stock photo group. For numerical predictors, we also check for trends or other structure. We see some slight bowing in the residuals against the <c>wheels</c> variable in the bottom plot.</caption>
+              <image source="ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagnosticEvsVariables" width="90%">
+                <description>Three plots are shown for "Residuals" against different predictor variables "Condition", "Photo Type", and "Number of Wheels". Condition plot: A side-by-side box plot is shown for the condition levels of "Used" and "New". The median of "Used" is at $0 while the median of "New" is at about -$2. The boxes in each box plot ranges from about -$3 to positive $3, and the whiskers of each box plot runs from about -$10 to positive $10. There are a couple of points slightly beyond the whiskers. Photo Type plot: A side-by-side box plot is shown for the photo type levels of "Unique Photo" and "Stock Photo". The median of "Unique Photos" is at $0 while the median of "Stock Photo" is at about -$1. The boxes in each box plot ranges from about -$3 to positive $3. The whiskers of "Unique Photo" box plot ranges from about -$8 to positive $7, and the whiskers of "Stock Photo" box plot ranges from about -$11 to positive $11. There are a couple of points slightly beyond the whiskers. Number of Wheels plot: A scatterplot is shown for "Residuals" (vertical axis) against "Number of Wheels" (horizontal axis) with values from 0 to 4. For 0 wheels, the residuals largely range from -$8 to positive $10. For 1 wheel, the residuals largely range from -$10 to positive $5. For 2 wheels, the residuals largely range from -$8 to positive $10. There are two points with 3 wheels that have residuals of $6 and $11, and one point with 4 wheels that has a residual of about $0.</description>
+              </image>
+            </figure>
+          </li>
+        </dl>
+      </p>
+      
+      <p>
+        As with the <c>loans</c> analysis, we would summarize diagnostics when reporting the model results. In the case of this auction data, we would report that there appears to be non-constant variance in the stock photo variable and that there may be a nonlinear relationship between the total price and the number of wheels included for an auction. This information would be important to buyers and sellers who may review the analysis, and omitting this information could be a setback to the very people who the model might assist.
+      </p>
+      
+      <p>
+        <alert>Note: there are no exercises for this section.</alert>
       </p>
     </subsection>
   </section>
