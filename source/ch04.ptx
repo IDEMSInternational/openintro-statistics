@@ -687,7 +687,7 @@
 
       <figure xml:id="fig-68-95-997">
         <caption>Probabilities for falling within 1, 2, and 3 standard deviations of the mean in a normal distribution.</caption>
-        <image source="ch_distributions/figures/6895997"/>
+        <image source="ch_distributions/figures/6895997/6895997.png"/>
       </figure>
 
       <exercise>
@@ -3057,7 +3057,7 @@
       <caption>
         A histogram of the number of occurrences of AMI on 365 separate days in NYC.
       </caption>
-      <image source="ch_distributions/figures/amiIncidencesOver100Days"/>
+      <image source="ch_distributions/figures/amiIncidencesOver100Days/amiIncidencesOver100Days.png"/>
     </figure>
 
     <p>
