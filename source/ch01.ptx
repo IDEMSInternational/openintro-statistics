@@ -2006,9 +2006,9 @@ and describe its potential effect.
               </p>
             </li>
           </ol>
-          <p>
-[Figure: internet_life_expectancy - Scatterplot with "percent of internet users" (0% to 100%) along the horizontal axis and "life expectancy at birth" (50 to 90) along the vertical axis. For 0% to 15%, about 100 points are evenly spread between 50 and 75. Then for 15% to 90%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.]
-          </p>
+          <image source="ch1/eoce/internet_life_expectancy/internet_life_expectancy.png" width="70%">
+            <description>Scatterplot with "percent of internet users" (0% to 100%) along the horizontal axis and "life expectancy at birth" (50 to 90) along the vertical axis. For 0% to 15%, about 100 points are evenly spread between 50 and 75. Then for 15% to 90%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.</description>
+          </image>
         </statement>
       </exercise>
 
@@ -2607,9 +2607,9 @@ would be exactly the same for dogs and cats.
           <p>
             \
           </p>
-          <p>
-            [Figure: seattle_pet_names - A scatterplot is shown, where each point is labeled with a pet name. The horizontal axis represents "Proportion of cats" and runs from 0.002 to 0.010. The vertical axis represents "Proportion of dogs" and runs from 0.002 to 0.010. There is also a diagonal line (y = x), and only two points fall below this line: "Oliver" at about (0.0045, 0.004) and "Lily" at about (0.005, 0.004). There is a slightly positive trend in the data, the most extreme cases (highest proportions for dogs or cats) are "Lucy" at (0.006, 0.0095), "Charlie" at (0.005, 0.009), "Luna" at (0.0065, 0.007), and "Bella" at (0.005, 0.007).]
-          </p>
+          <image source="ch1/eoce/seattle_pet_names/seattle_pet_names.png" width="70%">
+            <description>A scatterplot is shown, where each point is labeled with a pet name. The horizontal axis represents "Proportion of cats" and runs from 0.002 to 0.010. The vertical axis represents "Proportion of dogs" and runs from 0.002 to 0.010. There is also a diagonal line (y = x), and only two points fall below this line: "Oliver" at about (0.0045, 0.004) and "Lily" at about (0.005, 0.004). There is a slightly positive trend in the data, the most extreme cases (highest proportions for dogs or cats) are "Lucy" at (0.006, 0.0095), "Charlie" at (0.005, 0.009), "Luna" at (0.0065, 0.007), and "Bella" at (0.005, 0.007).</description>
+          </image>
         </statement>
       </exercise>
 
@@ -2800,9 +2800,9 @@ unusual observations, if any.
               </p>
             </li>
           </ol>
-          <p>
-[Figure: county_income_education_scatterplot - A scatterplot is shown, with "Percent with Bachelor's Degree" on the horizontal axis (running 0% to 80%) and "Per Capita Income" on the vertical axis (running $0 to $65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0% to 20%, the points typically lie between the vertical ranges of $10,000 and $25,000. For those between 20% to 40% on the horizontal, the points lie mostly between $15,000 and $35,000 on the vertical. For those between 40% and 60%, the points mostly lie between $25,000 and $45,000. There are only about 5 points with percentages larger than 60%, and these all lie above $45,000 on the vertical.]
-          </p>
+          <image source="ch1/eoce/county_income_education/county_income_education_scatterplot.png" width="70%">
+            <description>A scatterplot is shown, with "Percent with Bachelor's Degree" on the horizontal axis (running 0% to 80%) and "Per Capita Income" on the vertical axis (running $0 to $65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0% to 20%, the points typically lie between the vertical ranges of $10,000 and $25,000. For those between 20% to 40% on the horizontal, the points lie mostly between $15,000 and $35,000 on the vertical. For those between 40% and 60%, the points mostly lie between $25,000 and $45,000. There are only about 5 points with percentages larger than 60%, and these all lie above $45,000 on the vertical.</description>
+          </image>
         </statement>
       </exercise>
 
