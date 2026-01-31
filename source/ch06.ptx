@@ -2820,22 +2820,322 @@
     <title>Chapter 6 Review Exercises</title>
     
     <p>
-      This chapter covered inference for categorical data. Key concepts include:
+      This chapter covered inference for categorical data. Key concepts include confidence intervals and hypothesis tests for a single proportion, sample size calculations for proportions, comparing two proportions, the pooled proportion for hypothesis testing, chi-square goodness of fit tests, and chi-square tests for independence in two-way tables.
     </p>
     
-    <ul>
-      <li>Confidence intervals and hypothesis tests for a single proportion</li>
-      <li>Sample size calculations for proportions</li>
-      <li>Comparing two proportions using confidence intervals and hypothesis tests</li>
-      <li>The pooled proportion for hypothesis testing</li>
-      <li>Chi-square goodness of fit tests for comparing observed and expected distributions</li>
-      <li>Chi-square tests for independence in two-way tables</li>
-      <li>Computing expected counts and degrees of freedom for chi-square tests</li>
-    </ul>
-    
-    <p>
-      Additional exercises for practicing these concepts are available in the accompanying
-      exercise materials.
-    </p>
+    <exercises>
+      <title>Chapter 6 Review Exercises</title>
+      
+      <exercise xml:id="ex-active-learning">
+        <statement>
+          <p>
+            A teacher wanting to increase the active learning component of her course is concerned about student reactions to changes she is planning to make. She conducts a survey in her class, asking students whether they believe more active learning in the classroom (hands on exercises) instead of traditional lecture will helps improve their learning. She does this at the beginning and end of the semester and wants to evaluate whether students' opinions have changed over the semester. Can she used the methods we learned in this chapter for this analysis? Explain your reasoning.
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-website-experiment">
+        <statement>
+          <p>
+            The OpenIntro website occasionally experiments with design and link placement. We conducted one experiment testing three different placements of a download link for this textbook on the book's main page to see which location, if any, led to the most downloads. The number of site visitors included in the experiment was 701 and is captured in one of the response combinations in the following table:
+          </p>
+          <table>
+            <tabular halign="center">
+              <row bottom="minor">
+                <cell></cell>
+                <cell>Download</cell>
+                <cell>No Download</cell>
+              </row>
+              <row>
+                <cell>Position 1</cell>
+                <cell>13.8%</cell>
+                <cell>18.3%</cell>
+              </row>
+              <row>
+                <cell>Position 2</cell>
+                <cell>14.6%</cell>
+                <cell>18.5%</cell>
+              </row>
+              <row bottom="minor">
+                <cell>Position 3</cell>
+                <cell>12.1%</cell>
+                <cell>22.7%</cell>
+              </row>
+            </tabular>
+          </table>
+          <ol>
+            <li>Calculate the actual number of site visitors in each of the six response categories.</li>
+            <li>Each individual in the experiment had an equal chance of being in any of the three experiment groups. However, we see that there are slightly different totals for the groups. Is there any evidence that the groups were actually imbalanced? Make sure to clearly state hypotheses, check conditions, calculate the appropriate test statistic and the p-value, and make your conclusion in context of the data.</li>
+            <li>Complete an appropriate hypothesis test to check whether there is evidence that there is a higher rate of site visitors clicking on the textbook link in any of the three groups.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-shipping-gifts">
+        <statement>
+          <p>
+            A local news survey asked 500 randomly sampled Los Angeles residents which shipping carrier they prefer to use for shipping holiday gifts. The table below shows the distribution of responses by age group as well as the expected counts for each cell (shown in parentheses).
+          </p>
+          <table>
+            <tabular halign="center">
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell colspan="2">18-34</cell>
+                <cell colspan="2">35-54</cell>
+                <cell colspan="2">55+</cell>
+                <cell>Total</cell>
+              </row>
+              <row>
+                <cell>Shipping</cell>
+                <cell>USPS</cell>
+                <cell>72</cell>
+                <cell>(81)</cell>
+                <cell>97</cell>
+                <cell>(102)</cell>
+                <cell>76</cell>
+                <cell>(62)</cell>
+                <cell>245</cell>
+              </row>
+              <row>
+                <cell>Method</cell>
+                <cell>UPS</cell>
+                <cell>52</cell>
+                <cell>(53)</cell>
+                <cell>76</cell>
+                <cell>(68)</cell>
+                <cell>34</cell>
+                <cell>(41)</cell>
+                <cell>162</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell>FedEx</cell>
+                <cell>31</cell>
+                <cell>(21)</cell>
+                <cell>24</cell>
+                <cell>(27)</cell>
+                <cell>9</cell>
+                <cell>(16)</cell>
+                <cell>64</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell>Something else</cell>
+                <cell>7</cell>
+                <cell>(5)</cell>
+                <cell>6</cell>
+                <cell>(7)</cell>
+                <cell>3</cell>
+                <cell>(4)</cell>
+                <cell>16</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell>Not sure</cell>
+                <cell>3</cell>
+                <cell>(5)</cell>
+                <cell>6</cell>
+                <cell>(5)</cell>
+                <cell>4</cell>
+                <cell>(3)</cell>
+                <cell>13</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell>Total</cell>
+                <cell colspan="2">165</cell>
+                <cell colspan="2">209</cell>
+                <cell colspan="2">126</cell>
+                <cell>500</cell>
+              </row>
+            </tabular>
+          </table>
+          <ol>
+            <li>State the null and alternative hypotheses for testing for independence of age and preferred shipping method for holiday gifts among Los Angeles residents.</li>
+            <li>Are the conditions for inference using a chi-square test satisfied?</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-civil-war">
+        <statement>
+          <p>
+            A national survey conducted among a simple random sample of 1,507 adults shows that 56% of Americans think the Civil War is still relevant to American politics and political life.
+          </p>
+          <ol>
+            <li>Conduct a hypothesis test to determine if these data provide strong evidence that the majority of the Americans think the Civil War is still relevant.</li>
+            <li>Interpret the p-value in this context.</li>
+            <li>Calculate a 90% confidence interval for the proportion of Americans who think the Civil War is still relevant. Interpret the interval in this context, and comment on whether or not the confidence interval agrees with the conclusion of the hypothesis test.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-college-smokers">
+        <statement>
+          <p>
+            We are interested in estimating the proportion of students at a university who smoke. Out of a random sample of 200 students from this university, 40 students smoke.
+          </p>
+          <ol>
+            <li>Calculate a 95% confidence interval for the proportion of students at this university who smoke, and interpret this interval in context. (Reminder: Check conditions.)</li>
+            <li>If we wanted the margin of error to be no larger than 2% at a 95% confidence level for the proportion of students who smoke, how big of a sample would we need?</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-acetaminophen">
+        <statement>
+          <p>
+            It is believed that large doses of acetaminophen (the active ingredient in over the counter pain relievers like Tylenol) may cause damage to the liver. A researcher wants to conduct a study to estimate the proportion of acetaminophen users who have liver damage. For participating in this study, he will pay each subject $20 and provide a free medical consultation if the patient has liver damage.
+          </p>
+          <ol>
+            <li>If he wants to limit the margin of error of his 98% confidence interval to 2%, what is the minimum amount of money he needs to set aside to pay his subjects?</li>
+            <li>The amount you calculated in part (a) is substantially over his budget so he decides to use fewer subjects. How will this affect the width of his confidence interval?</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-life-after-college">
+        <statement>
+          <p>
+            We are interested in estimating the proportion of graduates at a mid-sized university who found a job within one year of completing their undergraduate degree. Suppose we conduct a survey and find out that 348 of the 400 randomly sampled graduates found jobs. The graduating class under consideration included over 4500 students.
+          </p>
+          <ol>
+            <li>Describe the population parameter of interest. What is the value of the point estimate of this parameter?</li>
+            <li>Check if the conditions for constructing a confidence interval based on these data are met.</li>
+            <li>Calculate a 95% confidence interval for the proportion of graduates who found a job within one year of completing their undergraduate degree at this university, and interpret it in the context of the data.</li>
+            <li>What does <q>95% confidence</q> mean?</li>
+            <li>Now calculate a 99% confidence interval for the same parameter and interpret it in the context of the data.</li>
+            <li>Compare the widths of the 95% and 99% confidence intervals. Which one is wider? Explain.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-diabetes-unemployment">
+        <statement>
+          <p>
+            A Gallup poll surveyed Americans about their employment status and whether or not they have diabetes. The survey results indicate that 1.5% of the 47,774 employed (full or part time) and 2.5% of the 5,855 unemployed 18-29 year olds have diabetes.
+          </p>
+          <ol>
+            <li>Create a two-way table presenting the results of this study.</li>
+            <li>State appropriate hypotheses to test for difference in proportions of diabetes between employed and unemployed Americans.</li>
+            <li>The sample difference is about 1%. If we completed the hypothesis test, we would find that the p-value is very small (about 0), meaning the difference is statistically significant. Use this result to explain the difference between statistically significant and practically significant findings.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-rock-paper-scissors">
+        <statement>
+          <p>
+            Rock-paper-scissors is a hand game played by two or more people where players choose to sign either rock, paper, or scissors with their hands. For your statistics class project, you want to evaluate whether players choose between these three options randomly, or if certain options are favored above others. You ask two friends to play rock-paper-scissors and count the times each option is played. The following table summarizes the data:
+          </p>
+          <table>
+            <tabular halign="center">
+              <row bottom="minor">
+                <cell>Rock</cell>
+                <cell>Paper</cell>
+                <cell>Scissors</cell>
+              </row>
+              <row>
+                <cell>43</cell>
+                <cell>21</cell>
+                <cell>35</cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
+            Use these data to evaluate whether players choose between these three options randomly, or if certain options are favored above others. Make sure to clearly outline each step of your analysis, and interpret your results in context of the data and the research question.
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-healthcare-law">
+        <statement>
+          <p>
+            On June 28, 2012 the U.S. Supreme Court upheld the much debated 2010 healthcare law, declaring it constitutional. A Gallup poll released the day after this decision indicates that 46% of 1,012 Americans agree with this decision. At a 95% confidence level, this sample has a 3% margin of error. Based on this information, determine if the following statements are true or false, and explain your reasoning.
+          </p>
+          <ol>
+            <li>We are 95% confident that between 43% and 49% of Americans in this sample support the decision of the U.S. Supreme Court on the 2010 healthcare law.</li>
+            <li>We are 95% confident that between 43% and 49% of Americans support the decision of the U.S. Supreme Court on the 2010 healthcare law.</li>
+            <li>If we considered many random samples of 1,012 Americans, and we calculated the sample proportions of those who support the decision of the U.S. Supreme Court, 95% of those sample proportions will be between 43% and 49%.</li>
+            <li>The margin of error at a 90% confidence level would be higher than 3%.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-mobile-browsing">
+        <statement>
+          <p>
+            A survey of 2,254 American adults indicates that 17% of cell phone owners browse the internet exclusively on their phone rather than a computer or other device.
+          </p>
+          <ol>
+            <li>According to an online article, a report from a mobile research company indicates that 38 percent of Chinese mobile web users only access the internet through their cell phones. Conduct a hypothesis test to determine if these data provide strong evidence that the proportion of Americans who only use their cell phones to access the internet is different than the Chinese proportion of 38%.</li>
+            <li>Interpret the p-value in this context.</li>
+            <li>Calculate a 95% confidence interval for the proportion of Americans who access the internet on their cell phones, and interpret the interval in this context.</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="ex-coffee-depression">
+        <statement>
+          <p>
+            Researchers conducted a study investigating the relationship between caffeinated coffee consumption and risk of depression in women. They collected data on 50,739 women free of depression symptoms at the start of the study in the year 1996, and these women were followed through 2006. The researchers used questionnaires to collect data on caffeinated coffee consumption, asked each individual about physician-diagnosed depression, and also asked about the use of antidepressants. The table below shows the distribution of incidences of depression by amount of caffeinated coffee consumption.
+          </p>
+          <table>
+            <tabular halign="center">
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\le</m> 1 cup/week</cell>
+                <cell>2-6 cups/week</cell>
+                <cell>1 cup/day</cell>
+                <cell>2-3 cups/day</cell>
+                <cell><m>\ge</m> 4 cups/day</cell>
+                <cell>Total</cell>
+              </row>
+              <row>
+                <cell>Clinical</cell>
+                <cell>Yes</cell>
+                <cell>670</cell>
+                <cell>373</cell>
+                <cell>905</cell>
+                <cell>564</cell>
+                <cell>95</cell>
+                <cell>2,607</cell>
+              </row>
+              <row>
+                <cell>depression</cell>
+                <cell>No</cell>
+                <cell>11,545</cell>
+                <cell>6,244</cell>
+                <cell>16,329</cell>
+                <cell>11,726</cell>
+                <cell>2,288</cell>
+                <cell>48,132</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell>Total</cell>
+                <cell>12,215</cell>
+                <cell>6,617</cell>
+                <cell>17,234</cell>
+                <cell>12,290</cell>
+                <cell>2,383</cell>
+                <cell>50,739</cell>
+              </row>
+            </tabular>
+          </table>
+          <ol>
+            <li>What type of test is appropriate for evaluating if there is an association between coffee intake and depression?</li>
+            <li>Write the hypotheses for the test you identified in part (a).</li>
+            <li>Calculate the overall proportion of women who do and do not suffer from depression.</li>
+            <li>Identify the expected count for the highlighted cell (the cell with 373), and calculate the contribution of this cell to the test statistic, i.e. <m>(Observed - Expected)^2 / Expected</m>.</li>
+            <li>The test statistic is <m>\chi^2 = 20.93</m>. What is the p-value?</li>
+            <li>What is the conclusion of the hypothesis test?</li>
+            <li>One of the authors of this study was quoted on the NYTimes as saying it was <q>too early to recommend that women load up on extra coffee</q> based on just this study. Do you agree with this statement? Explain your reasoning.</li>
+          </ol>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
 </chapter>
