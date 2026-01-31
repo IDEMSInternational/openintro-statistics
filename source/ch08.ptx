@@ -1113,17 +1113,19 @@
       <title>Exercises</title>
 
       <exercise xml:id="ex-regression-units">
+        <title>Units of regression.</title>
         <statement>
           <p>
-            <em>Units of regression.</em> Consider a regression predicting weight (kg) from height (cm) for a sample of adult males. What are the units of the correlation coefficient, the intercept, and the slope?
+            Consider a regression predicting weight (kg) from height (cm) for a sample of adult males. What are the units of the correlation coefficient, the intercept, and the slope?
           </p>
         </statement>
       </exercise>
 
       <exercise xml:id="ex-which-higher-scatter">
+        <title>Which is higher?</title>
         <statement>
           <p>
-            <em>Which is higher.</em> Determine if I or II is higher or if they are equal. Explain your reasoning. For a regression line, the uncertainty associated with the slope estimate, <m>b_1</m>, is higher when
+            Determine if I or II is higher or if they are equal. Explain your reasoning. For a regression line, the uncertainty associated with the slope estimate, <m>b_1</m>, is higher when
           </p>
           <p>
             <ol marker="I.">
@@ -1135,25 +1137,28 @@
       </exercise>
 
       <exercise xml:id="ex-residual-apple-weight">
+        <title>Over-under, Part I.</title>
         <statement>
           <p>
-            <em>Over-under, Part I.</em> Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.
+            Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.
           </p>
         </statement>
       </exercise>
 
       <exercise xml:id="ex-residual-sun-cancer">
+        <title>Over-under, Part II.</title>
         <statement>
           <p>
-            <em>Over-under, Part II.</em> Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.
+            Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.
           </p>
         </statement>
       </exercise>
 
       <exercise xml:id="ex-tourism-spending-reg-conds">
+        <title>Tourism spending.</title>
         <statement>
           <p>
-            <em>Tourism spending.</em> The Association of Turkish Travel Agencies reports the number of foreign tourists visiting Turkey and tourist spending by year. Three plots are provided: scatterplot showing the relationship between these two variables along with the least squares fit, residuals plot, and histogram of residuals.
+            The Association of Turkish Travel Agencies reports the number of foreign tourists visiting Turkey and tourist spending by year. Three plots are provided: scatterplot showing the relationship between these two variables along with the least squares fit, residuals plot, and histogram of residuals.
           </p>
           <sidebyside widths="32% 32% 32%" margins="auto">
             <image source="ch_regr_simple_linear/figures/eoce/tourism_spending_reg_conds/tourism_spending_count.png">
@@ -1178,9 +1183,10 @@
       </exercise>
 
       <exercise xml:id="ex-starbucks-cals-carbos">
+        <title>Nutrition at Starbucks, Part I.</title>
         <statement>
           <p>
-            <em>Nutrition at Starbucks, Part I.</em> The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we are interested in predicting the amount of carbs a menu item has based on its calorie content.
+            The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we are interested in predicting the amount of carbs a menu item has based on its calorie content.
           </p>
           <sidebyside widths="32% 32% 32%" margins="auto">
             <image source="ch_regr_simple_linear/figures/eoce/starbucks_cals_carbos/starbucks_cals_carbos.png">
@@ -1205,9 +1211,10 @@
       </exercise>
 
       <exercise xml:id="ex-coast-starlight-reg">
+        <title>The Coast Starlight, Part II.</title>
         <statement>
           <p>
-            <em>The Coast Starlight, Part II.</em> An earlier exercise introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 minutes, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.
+            An earlier exercise introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 minutes, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.
           </p>
           <p>
             <ol>
@@ -1223,9 +1230,10 @@
       </exercise>
 
       <exercise xml:id="ex-body-measurements-shoulder-height-reg">
+        <title>Body measurements, Part III.</title>
         <statement>
           <p>
-            <em>Body measurements, Part III.</em> An earlier exercise introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.
+            An earlier exercise introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.
           </p>
           <p>
             <ol>
@@ -1241,9 +1249,10 @@
       </exercise>
 
       <exercise xml:id="ex-murders-poverty-reg">
+        <title>Murders and poverty, Part I.</title>
         <statement>
           <p>
-            <em>Murders and poverty, Part I.</em> The following regression output is for predicting annual murders per million from percentage living in poverty in a random sample of 20 metropolitan areas.
+            The following regression output is for predicting annual murders per million from percentage living in poverty in a random sample of 20 metropolitan areas.
           </p>
           <sidebyside widths="54% 41%" margins="auto" valign="middle">
             <stack>
@@ -1289,9 +1298,10 @@
       </exercise>
 
       <exercise xml:id="ex-cat-body-heart-reg">
+        <title>Cats, Part I.</title>
         <statement>
           <p>
-            <em>Cats, Part I.</em> The following regression output is for predicting the heart weight (in g) of cats from their body weight (in kg). The coefficients are estimated using a dataset of 144 domestic cats.
+            The following regression output is for predicting the heart weight (in g) of cats from their body weight (in kg). The coefficients are estimated using a dataset of 144 domestic cats.
           </p>
           <sidebyside widths="54% 41%" margins="auto" valign="middle">
             <stack>
