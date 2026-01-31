@@ -1014,6 +1014,40 @@
         they are very helpful for seeing geographic trends and generating interesting research questions or hypotheses.
       </p>
 
+      <figure xml:id="fig-county-intensity-maps">
+        <caption>Intensity maps showing (a) poverty rate, (b) unemployment rate, (c) homeownership rate, and (d) median household income for US counties.</caption>
+        <sbsgroup widths="48% 48%" margins="auto" valign="top">
+          <sidebyside>
+            <figure xml:id="fig-county-poverty-map">
+              <caption>(a) Poverty rate (percent)</caption>
+              <image source="ch2/countyIntensityMaps/countyPovertyMap-1.png" width="100%">
+                <description>An intensity map of the United States showing the poverty rate by county. Darker colors indicate higher poverty rates. Notable patterns show higher poverty rates in the deep south, Arizona, New Mexico, and parts of Kentucky.</description>
+              </image>
+            </figure>
+            <figure xml:id="fig-county-unemployment-map">
+              <caption>(b) Unemployment rate (percent)</caption>
+              <image source="ch2/countyIntensityMaps/countyUnemploymentRateMap-1.png" width="100%">
+                <description>An intensity map of the United States showing the unemployment rate by county. Darker colors indicate higher unemployment rates. The pattern follows similar trends to the poverty rate map.</description>
+              </image>
+            </figure>
+          </sidebyside>
+          <sidebyside>
+            <figure xml:id="fig-county-homeownership-map">
+              <caption>(c) Homeownership rate (percent)</caption>
+              <image source="ch2/countyIntensityMaps/countyHomeownershipMap-1.png" width="100%">
+                <description>An intensity map of the United States showing the homeownership rate by county. Darker colors indicate higher homeownership rates.</description>
+              </image>
+            </figure>
+            <figure xml:id="fig-county-median-income-map">
+              <caption>(d) Median household income (dollars)</caption>
+              <image source="ch2/countyIntensityMaps/countyMedIncomeMap-1.png" width="100%">
+                <description>An intensity map of the United States showing the median household income by county. Darker colors indicate higher median household income. Metropolitan areas tend to show as darker spots.</description>
+              </image>
+            </figure>
+          </sidebyside>
+        </sbsgroup>
+      </figure>
+
       <example xml:id="ex-poverty-unemployment-maps">
         <title>Features in poverty and unemployment intensity maps</title>
         <statement>
@@ -1406,15 +1440,31 @@
           <p>
             The US census collects data on race and ethnicity of Americans, among many other variables. The histogram below shows the distribution of the percentage of the population that is Hispanic in 3,142 counties in the US in 2010. Also shown is a histogram of logs of these values.
           </p>
-          <p>
-            <em>Figure description:</em> A histogram is shown for the variable "Percent Hispanic", where the horizontal axis runs from 0 to 100. The first bin, from 0 to 5, is dramatically higher than all other bins at about 2000. From here, the bins descend rapidly: about 500 between 5 and 10, 200 between 10 and 15, 100 between 15 and 20, then then trail off with the bins being nearly indistinguishable from a height of 0 for bins about 50%.
-          </p>
-          <p>
-            A histogram is shown for the transformed variable, "log-base-e of Percent Hispanic", where the horizontal axis runs from about -2.5 to 4.5. The bins are very close to 0 in frequency until -1, then the rise slightly to about -0.5, before sharply rising to a peak at about 0.5. From here, the bins steadily decline towards a frequency of 0 at the horizontal location of 4.5.
-          </p>
-          <p>
-            A spatial intensity map is shown of the United States. The legend for the shading runs from values of 0% to a peak of "greater than 40%". A large portion of the eastern and central portion of the country -- east of Texas, east of Colorado, east of Utah, and east of Idaho -- is shaded mostly with values below 10%. Florida is an exception to this rule, where a handful of counties show higher values. Higher values are particularly prominent in Texas, New Mexico, Arizona, and California, which mostly shows shading for values of at least 20%. Nevada, Idaho, Oregon, and Washington shows values averaging around 10-20%.
-          </p>
+          <figure xml:id="fig-county-hispanic-pop-hists">
+            <caption>Histogram and log-transformed histogram of percent Hispanic population by county</caption>
+            <sbsgroup widths="48% 48%" margins="auto" valign="top">
+              <sidebyside>
+                <figure xml:id="fig-county-hispanic-pop-hist">
+                  <caption>Histogram of percent Hispanic</caption>
+                  <image source="ch2/eoce/county_hispanic_pop/county_hispanic_pop_hist-1.png" width="100%">
+                    <description>A histogram is shown for the variable "Percent Hispanic", where the horizontal axis runs from 0 to 100. The first bin, from 0 to 5, is dramatically higher than all other bins at about 2000. From here, the bins descend rapidly: about 500 between 5 and 10, 200 between 10 and 15, 100 between 15 and 20, then then trail off with the bins being nearly indistinguishable from a height of 0 for bins about 50%.</description>
+                  </image>
+                </figure>
+                <figure xml:id="fig-county-hispanic-pop-log-hist">
+                  <caption>Histogram of log(percent Hispanic)</caption>
+                  <image source="ch2/eoce/county_hispanic_pop/county_hispanic_pop_log_hist-1.png" width="100%">
+                    <description>A histogram is shown for the transformed variable, "log-base-e of Percent Hispanic", where the horizontal axis runs from about -2.5 to 4.5. The bins are very close to 0 in frequency until -1, then the rise slightly to about -0.5, before sharply rising to a peak at about 0.5. From here, the bins steadily decline towards a frequency of 0 at the horizontal location of 4.5.</description>
+                  </image>
+                </figure>
+              </sidebyside>
+            </sbsgroup>
+          </figure>
+          <figure xml:id="fig-county-hispanic-pop-map">
+            <caption>Spatial intensity map of percent Hispanic population by county</caption>
+            <image source="ch2/eoce/county_hispanic_pop/county_hispanic_pop_map-1.png" width="80%">
+              <description>A spatial intensity map is shown of the United States. The legend for the shading runs from values of 0% to a peak of "greater than 40%". A large portion of the eastern and central portion of the country -- east of Texas, east of Colorado, east of Utah, and east of Idaho -- is shaded mostly with values below 10%. Florida is an exception to this rule, where a handful of counties show higher values. Higher values are particularly prominent in Texas, New Mexico, Arizona, and California, which mostly shows shading for values of at least 20%. Nevada, Idaho, Oregon, and Washington shows values averaging around 10-20%.</description>
+            </image>
+          </figure>
           <ol marker="a.">
             <li><p>Describe the numerical distribution and comment on why we might want to use log-transformed values in analyzing or modeling these data.</p></li>
             <li><p>What features of the distribution of the Hispanic population in US counties are apparent in the map but not in the histogram? What features are apparent in the histogram but not the map?</p></li>
@@ -1969,13 +2019,20 @@
 
       <p>
         The <term>side-by-side box plot</term> is a traditional tool for comparing across groups. An example is shown
-        in a figure, where there are two box plots, one for each group, placed into one plotting window and drawn on
+        in <xref ref="fig-county-income-by-pop-gain"/>, where there are two box plots, one for each group, placed into one plotting window and drawn on
         the same scale.
       </p>
 
+      <figure xml:id="fig-county-income-by-pop-gain">
+        <caption>Side-by-side box plot (left panel) and hollow histograms (right panel) for median household income, where the counties are split by whether there was a population gain or there was no gain.</caption>
+        <image source="ch2/countyIncomeSplitByPopGain/countyIncomeSplitByPopGain-1.png" width="90%">
+          <description>The left panel shows a side-by-side box plot comparing median household income for counties with population gain versus no population gain. The right panel shows hollow histograms of the same data overlaid on each other. Counties with population gains tend to have higher median household income (around $45,000) compared to counties without a gain (around $40,000), with slightly higher variability in the population gain group.</description>
+        </image>
+      </figure>
+
       <p>
         Another useful plotting method uses <term>hollow histograms</term> to compare numerical data across groups.
-        These are just the outlines of histograms of each group put on the same plot.
+        These are just the outlines of histograms of each group put on the same plot, as shown in the right panel of <xref ref="fig-county-income-by-pop-gain"/>.
       </p>
 
       <exercise xml:id="guided-practice-compare-income-by-pop">
@@ -2024,12 +2081,25 @@
           <p>
             The bar plot and the pie chart below show the distribution of pre-existing medical conditions of children involved in a study on the optimal duration of antibiotic use in treatment of tracheitis, which is an upper respiratory infection.
           </p>
-          <p>
-            <em>Bar plot description:</em> A bar plot is shown, where values on the axis range of relative frequency from 0 to just over 0.35. The values, in decreasing order and their approximate values, are Prematurity at 0.36, Cardiovascular at 0.17, Respiratory at 0.14, Trauma at 0.11, and Neuromuscular at 0.11, Genetic/metabolic at 0.07, Immunocompromised at 0.02, and Gastrointestinal at 0.02.
-          </p>
-          <p>
-            <em>Pie chart description:</em> A pie chart is shown of the same data from a previous chart, which was a bar chart. The Prematurity category appears to represent about a third of the pie chart (though this and other proportions are difficult to estimate accurately). The Cardiovascular group is roughly one-sixth of the total pie. About a quarter of the pie consists of an even split between Respiratory and Trauma. The remaining categories represent just under a quarter of the pie: Neuromuscular (about an eighth of the pie), Genetic/metabolic (about one-fifteenth of the pie), and the remainder evenly distributed between Immunocompromised and Gastrointestinal.
-          </p>
+          <figure xml:id="fig-antibiotic-use-children">
+            <caption>Bar plot and pie chart of pre-existing medical conditions</caption>
+            <sbsgroup widths="48% 48%" margins="auto" valign="top">
+              <sidebyside>
+                <figure xml:id="fig-antibiotic-use-bar">
+                  <caption>Bar plot</caption>
+                  <image source="ch2/eoce/antibiotic_use_children/antibiotic_use_children_bar-1.png" width="100%">
+                    <description>A bar plot is shown, where values on the axis range of relative frequency from 0 to just over 0.35. The values, in decreasing order and their approximate values, are Prematurity at 0.36, Cardiovascular at 0.17, Respiratory at 0.14, Trauma at 0.11, and Neuromuscular at 0.11, Genetic/metabolic at 0.07, Immunocompromised at 0.02, and Gastrointestinal at 0.02.</description>
+                  </image>
+                </figure>
+                <figure xml:id="fig-antibiotic-use-pie">
+                  <caption>Pie chart</caption>
+                  <image source="ch2/eoce/antibiotic_use_children/antibiotic_use_children_pie-1.png" width="100%">
+                    <description>A pie chart is shown of the same data from a previous chart, which was a bar chart. The Prematurity category appears to represent about a third of the pie chart (though this and other proportions are difficult to estimate accurately). The Cardiovascular group is roughly one-sixth of the total pie. About a quarter of the pie consists of an even split between Respiratory and Trauma. The remaining categories represent just under a quarter of the pie: Neuromuscular (about an eighth of the pie), Genetic/metabolic (about one-fifteenth of the pie), and the remainder evenly distributed between Immunocompromised and Gastrointestinal.</description>
+                  </image>
+                </figure>
+              </sidebyside>
+            </sbsgroup>
+          </figure>
           <ol marker="a.">
             <li><p>What features are apparent in the bar plot but not in the pie chart?</p></li>
             <li><p>What features are apparent in the pie chart but not in the bar plot?</p></li>
@@ -2549,9 +2619,12 @@
             <li><p>If the type of treatment and having cardiovascular problems were independent, about how many patients in the rosiglitazone group would we expect to have had cardiovascular problems?</p></li>
             <li>
               <p>We can investigate the relationship between outcome and treatment in this study using a randomization technique. While in reality we would carry out the simulations required for randomization using statistical software, suppose we actually simulate using index cards. In order to simulate from the independence model, which states that the outcomes were independent of the treatment, we write whether or not each patient had a cardiovascular problem on cards, shuffled all the cards together, then deal them into two groups of size 67,593 and 159,978. We repeat this simulation 1,000 times and each time record the number of people in the rosiglitazone group who had cardiovascular problems. Use the relative frequency histogram of these counts to answer (i)-(iii).</p>
-              <p>
-                <em>Figure description:</em> A histogram is shown for "Simulated rosiglitazone cardiovascular events", where values range between 2250 to 2450. The histogram, starting from the left, starts with bins that have low values until about 2280, at which point the bins rises gradually until rising steeply starting at 2320 to a peak at about 2360. The bins decline sharply at about 2380 to about half of the height of the peak, and then gradually decline out to 2460 before being zero after that point.
-              </p>
+              <figure xml:id="fig-randomization-avandia">
+                <caption>Histogram of simulated rosiglitazone cardiovascular events</caption>
+                <image source="ch2/eoce/randomization_avandia/randomization_avandia-1.png" width="70%">
+                  <description>A histogram is shown for "Simulated rosiglitazone cardiovascular events", where values range between 2250 to 2450. The histogram, starting from the left, starts with bins that have low values until about 2280, at which point the bins rises gradually until rising steeply starting at 2320 to a peak at about 2360. The bins decline sharply at about 2380 to about half of the height of the peak, and then gradually decline out to 2460 before being zero after that point.</description>
+                </image>
+              </figure>
               <ol marker="i.">
                 <li><p>What are the claims being tested?</p></li>
                 <li><p>Compared to the number calculated in part (c), which would provide more support for the alternative hypothesis, <em>more</em> or <em>fewer</em> patients with cardiovascular problems in the rosiglitazone group?</p></li>
@@ -2568,12 +2641,25 @@
           <p>
             The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was designated an official heart transplant candidate, meaning that he was gravely ill and would most likely benefit from a new heart. Some patients got a transplant and some did not. The variable <c>transplant</c> indicates which group the patients were in; patients in the treatment group got a transplant and those in the control group did not. Of the 34 patients in the control group, 30 died. Of the 69 people in the treatment group, 45 died. Another variable called <c>survived</c> was used to indicate whether or not the patient was alive at the end of the study.
           </p>
-          <p>
-            <em>Mosaic plot description:</em> A mosaic plot for variables "experiment group" (primary split) and "survived". The first tall rectangle for the "control" experiment group is about half the width of the second tall rectangle for "treatment". When looking at the secondary split for the control group, the "alive" outcome represents about 10% of the height and "dead" represents about 90% of the height. When looking at the secondary split for the treatment group, the "alive" outcome represents about 35% of the height and "dead" represents about 65% of the height.
-          </p>
-          <p>
-            <em>Box plot description:</em> A side-by-side box plot is shown for the variable "Survival Time (days)" for two box plots labeled "control" and "survived". The axis for survival time spans 0 to about 1800. The box for the control group spans about 0 to 50 with the median line at about 20, and the whiskers extend down to 0 and up to about 125. There are five observations shown beyond the upper whisker at locations of about 150, 250, 300, 400, and 1400. The box for the treatment spans about 100 to 650 with the median line about 250, and the whiskers extend down to 0 and up to about 1400. There are a few points beyond the upper whiskers at about 1550, 1575, and 1800.
-          </p>
+          <figure xml:id="fig-heart-transplant-mosaic-box">
+            <caption>Mosaic plot and box plots for heart transplant study</caption>
+            <sbsgroup widths="48% 48%" margins="auto" valign="top">
+              <sidebyside>
+                <figure xml:id="fig-heart-transplant-mosaic">
+                  <caption>Mosaic plot of survival by experiment group</caption>
+                  <image source="ch2/eoce/randomization_heart_transplants/randomization_heart_transplants_mosaic-1.png" width="100%">
+                    <description>A mosaic plot for variables "experiment group" (primary split) and "survived". The first tall rectangle for the "control" experiment group is about half the width of the second tall rectangle for "treatment". When looking at the secondary split for the control group, the "alive" outcome represents about 10% of the height and "dead" represents about 90% of the height. When looking at the secondary split for the treatment group, the "alive" outcome represents about 35% of the height and "dead" represents about 65% of the height.</description>
+                  </image>
+                </figure>
+                <figure xml:id="fig-heart-transplant-box">
+                  <caption>Box plots of survival time by experiment group</caption>
+                  <image source="ch2/eoce/randomization_heart_transplants/randomization_heart_transplants_box-1.png" width="100%">
+                    <description>A side-by-side box plot is shown for the variable "Survival Time (days)" for two box plots labeled "control" and "survived". The axis for survival time spans 0 to about 1800. The box for the control group spans about 0 to 50 with the median line at about 20, and the whiskers extend down to 0 and up to about 125. There are five observations shown beyond the upper whisker at locations of about 150, 250, 300, 400, and 1400. The box for the treatment spans about 100 to 650 with the median line about 250, and the whiskers extend down to 0 and up to about 1400. There are a few points beyond the upper whiskers at about 1550, 1575, and 1800.</description>
+                  </image>
+                </figure>
+              </sidebyside>
+            </sbsgroup>
+          </figure>
           <ol marker="a.">
             <li><p>Based on the mosaic plot, is survival independent of whether or not the patient got a transplant? Explain your reasoning.</p></li>
             <li><p>What do the box plots below suggest about the efficacy (effectiveness) of the heart transplant treatment.</p></li>
@@ -2590,9 +2676,12 @@
                 </li>
                 <li>
                   <p>What do the simulation results shown below suggest about the effectiveness of the transplant program?</p>
-                  <p>
-                    <em>Figure description:</em> A stacked dot plot is shown for what appears to be about 100 points on the variable "Simulated Differences in Proportions", which spans values of -0.25 to 0.25. There are 11 stacks of points, which are located at the following locations and in the following approximate quantities: 2 points at -0.23, 1 point at -0.19, 8 at -0.14, 15 points at -0.10, 18 points at -0.05, 20 points at -0.01, 12 points at 0.04, 10 points at 0.08, 6 points at 0.12, 4 points at 0.17, and 3 points at 0.21.
-                  </p>
+                  <figure xml:id="fig-heart-transplant-rando">
+                    <caption>Simulated differences in proportions</caption>
+                    <image source="ch2/eoce/randomization_heart_transplants/randomization_heart_transplants_rando-1.png" width="70%">
+                      <description>A stacked dot plot is shown for what appears to be about 100 points on the variable "Simulated Differences in Proportions", which spans values of -0.25 to 0.25. There are 11 stacks of points, which are located at the following locations and in the following approximate quantities: 2 points at -0.23, 1 point at -0.19, 8 at -0.14, 15 points at -0.10, 18 points at -0.05, 20 points at -0.01, 12 points at 0.04, 10 points at 0.08, 6 points at 0.12, 4 points at 0.17, and 3 points at 0.21.</description>
+                    </image>
+                  </figure>
                 </li>
               </ol>
             </li>
