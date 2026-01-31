@@ -50,7 +50,7 @@
 
       <figure xml:id="fig-loan50-amt-vs-income">
         <caption>A scatterplot of <c>total_income</c> versus <c>loan_amount</c> for the <c>loan50</c> data set</caption>
-        <image source="ch_summarizing_data/figures/loan50_amt_vs_interest/loan50_amt_vs_interest.png" width="80%">
+        <image source="ch2/loan50_amt_vs_interest/loan50_amt_vs_interest.png" width="80%">
           <description>
             A scatterplot is shown with "Total Income" along the horizontal axis (range from $0 to $325,000) and
             "Loan Amount" along the vertical axis (range from $0 to $40,000). The points lie in a range from $2,000
@@ -85,7 +85,7 @@
 
       <figure xml:id="fig-median-income-poverty">
         <caption>A scatterplot of the median household income against the poverty rate for the <c>county</c> data set</caption>
-        <image source="ch_summarizing_data/figures/medianHHIncomePoverty/medianHHIncomePoverty.png" width="80%">
+        <image source="ch2/medianHHIncomePoverty/medianHHIncomePoverty.png" width="80%">
           <description>
             A scatterplot of a few thousand points is shown with "Poverty Rate" along the horizontal axis
             (range from 0% to 55%) and "Median Household Income" along the vertical axis (range from $0 to $130,000).
@@ -145,7 +145,7 @@
 
       <figure xml:id="fig-loan-int-rate-dot-plot">
         <caption>A dot plot of <c>interest_rate</c> for the <c>loan50</c> data set</caption>
-        <image source="ch_summarizing_data/figures/loan_int_rate_dot_plot/loan_int_rate_dot_plot.png" width="76%">
+        <image source="ch2/loan_int_rate_dot_plot/loan_int_rate_dot_plot.png" width="76%">
           <description>
             A dot plot is shown for the variable "Interest Rate". There is a horizontal axis ranging from about 5%
             to a bit over 25%, and then several points are shown horizontally above the axis, scattered over the range.
@@ -157,7 +157,7 @@
 
       <figure xml:id="fig-loan-int-rate-dot-plot-stacked">
         <caption>A stacked dot plot of <c>interest_rate</c> for the <c>loan50</c> data set</caption>
-        <image source="ch_summarizing_data/figures/loan_int_rate_dot_plot/loan_int_rate_dot_plot_stacked.png" width="76%">
+        <image source="ch2/loan_int_rate_dot_plot/loan_int_rate_dot_plot_stacked.png" width="76%">
           <description>
             A stacked dot plot is shown for the variable "Interest Rate". There is a horizontal axis ranging from about 5%
             to a bit over 25%, and then several stacks of points are shown at values 5%, 6%, 7%, and so on. There are 3 points
@@ -360,7 +360,7 @@
 
       <figure xml:id="fig-loan50-int-rate-hist">
         <caption>A histogram of <c>interest_rate</c>. This distribution is strongly skewed to the right.</caption>
-        <image source="ch_summarizing_data/figures/loan50IntRateHist/loan50IntRateHist.png" width="76%">
+        <image source="ch2/loan50IntRateHist/loan50IntRateHist.png" width="76%">
           <description>
             A histogram with a horizontal axis of "Interest Rate" and a vertical axis showing the frequency of
             occurrence of different bins of interest rate. The first bin is from 5%-7.5% with a frequency (count)
@@ -452,7 +452,7 @@
 
       <figure xml:id="fig-modal-plots">
         <caption>Distributions showing different numbers of modes</caption>
-        <image source="ch_summarizing_data/figures/singleBiMultiModalPlots/singleBiMultiModalPlots.png" width="90%">
+        <image source="ch2/singleBiMultiModalPlots/singleBiMultiModalPlots.png" width="90%">
           <description>
             Three histograms are shown. The first histogram shows bins of width 2 between 0 to 18 (this is along
             the horizontal axis), and the frequencies are 3, 16, 16, 7, 11, 6, 4, 1, and 1. The second histogram,
@@ -577,7 +577,7 @@
 
       <figure xml:id="fig-sd-rule-int-rate">
         <caption>Standard deviations in the interest rate distribution</caption>
-        <image source="ch_summarizing_data/figures/sdRuleForIntRate/sdRuleForIntRate.png" width="73%">
+        <image source="ch2/sdRuleForIntRate/sdRuleForIntRate.png" width="73%">
           <description>
             A dot plot of 50 observations is shown with values ranging from about 5% to 26%. The data set is the
             same as that shown in earlier dot plots, where the data is more dense from 5% to about 11%, has medium
@@ -600,7 +600,7 @@
 
       <figure xml:id="fig-different-dists-same-sd">
         <caption>Three very different population distributions with the same mean <m>\mu=0</m> and standard deviation <m>\sigma=1</m></caption>
-        <image source="ch_summarizing_data/figures/severalDiffDistWithSdOf1/severalDiffDistWithSdOf1.png" width="60%">
+        <image source="ch2/severalDiffDistWithSdOf1/severalDiffDistWithSdOf1.png" width="60%">
           <description>
             Three histograms are shown (upper, middle, lower). Each distribution also shows shading -- dark gray
             between -1 to 1, lighter gray between -2 and 2, and light gray between -3 and 3, and then very light
@@ -672,7 +672,7 @@
 
       <figure xml:id="fig-loan-int-rate-boxplot">
         <caption>A vertical dot plot next to a labeled box plot for the interest rates of the 50 loans</caption>
-        <image source="ch_summarizing_data/figures/loan_int_rate_box_plot_layout/loan_int_rate_box_plot_layout.png" width="86%">
+        <image source="ch2/loan_int_rate_box_plot_layout/loan_int_rate_box_plot_layout.png" width="86%">
           <description>
             What is shown is a dot plot adjacent to what is called a "box plot". The data values are the same ones
             used in past dot plots, where the data shows greatest density from 5% to 11%, moderate density from 12%
@@ -811,7 +811,7 @@
 
       <figure xml:id="fig-loan-int-rate-robust">
         <caption>Dot plots of the original interest rate data and two modified data sets</caption>
-        <image source="ch_summarizing_data/figures/loan_int_rate_robust_ex/loan_int_rate_robust_ex.png" width="100%">
+        <image source="ch2/loan_int_rate_robust_ex/loan_int_rate_robust_ex.png" width="100%">
           <description>
             Three dot plots are shown in the same plot. The largest observation from the original data set
             (discussed in previous dot plots) at about 26% is moved to 15% in the second dot plot and instead
@@ -928,7 +928,7 @@
 
       <figure xml:id="fig-county-pop-transformed">
         <caption>County population distributions: (a) original data showing extreme skew, (b) log-transformed data</caption>
-        <image source="ch_summarizing_data/figures/county_pop_transformed/county_pop_transformed.png" width="90%">
+        <image source="ch2/county_pop_transformed/county_pop_transformed.png" width="90%">
           <description>
             Two histograms are shown side by side. The first histogram has a horizontal axis of Population with
             possible data ranging from 0 to about 10 million. The first bar representing 0 to 400,000 shows a
@@ -979,7 +979,7 @@
 
       <figure xml:id="fig-pop-change-transform">
         <caption>Scatterplots of population change vs. population: (a) original data, (b) log-transformed population</caption>
-        <image source="ch_summarizing_data/figures/county_pop_change_v_pop_transform/county_pop_change_v_pop_transform.png" width="90%">
+        <image source="ch2/county_pop_change_v_pop_transform/county_pop_change_v_pop_transform.png" width="90%">
           <description>
             Two scatterplots are shown side by side. The first scatterplot has population on the horizontal axis
             (ranging from 0 to 10 million) and population change as a percent on the vertical axis (ranging from
@@ -1237,7 +1237,7 @@
 
       <figure xml:id="fig-homeownership-barplot">
         <caption>Two bar plots of homeownership: (left) counts, (right) proportions</caption>
-        <image source="ch_summarizing_data/figures/loan_homeownership_bar_plot/loan_homeownership_bar_plot.png" width="90%">
+        <image source="ch2/loan_homeownership_bar_plot/loan_homeownership_bar_plot.png" width="90%">
           <description>
             Two bar plots are shown side by side. The left bar plot has Homeownership on the horizontal axis and
             Frequency (count) on the vertical axis. Each level of homeownership has its own "bar" (which looks like
@@ -1442,7 +1442,7 @@
 
       <figure xml:id="fig-bar-plot-variants">
         <caption>Bar plot variants: (left) stacked, (middle) side-by-side, (right) standardized stacked</caption>
-        <image source="ch_summarizing_data/figures/loan_app_type_home_seg_bar/loan_app_type_home_seg_bar.png" width="95%">
+        <image source="ch2/loan_app_type_home_seg_bar/loan_app_type_home_seg_bar.png" width="95%">
           <description>
             Three bar plots are shown side by side showing different representations of the same data. All plots
             show homeownership on the horizontal axis with levels rent, mortgage, and own. The first plot shows a
@@ -1492,7 +1492,7 @@
 
       <figure xml:id="fig-mosaic-plots">
         <caption>Mosaic plots: (left) one-variable for homeownership, (right) two-variable with app_type</caption>
-        <image source="ch_summarizing_data/figures/loan_app_type_home_mosaic_plot/loan_app_type_home_mosaic_plot.png" width="85%">
+        <image source="ch2/loan_app_type_home_mosaic_plot/loan_app_type_home_mosaic_plot.png" width="85%">
           <description>
             Two mosaic plots are shown. The left plot shows a square divided vertically into three sections for
             rent (about 40%), mortgage (about 48%), and own (about 12%). The right plot further subdivides each
@@ -1536,7 +1536,7 @@
 
       <figure xml:id="fig-pie-vs-bar">
         <caption>A pie chart and bar plot of homeownership</caption>
-        <image source="ch_summarizing_data/figures/loan_homeownership_pie_chart/loan_homeownership_pie_chart.png" width="85%">
+        <image source="ch2/loan_homeownership_pie_chart/loan_homeownership_pie_chart.png" width="85%">
           <description>
             Two plots are shown side by side. The left is a pie chart divided into three slices: mortgage (blue,
             about 48%), rent (green, about 39%), and own (red, about 13%). The right is a bar plot with the same
@@ -2072,7 +2072,7 @@
 
       <figure xml:id="fig-malaria-rand-dot-plot">
         <caption>Differences from 100 simulations under the independence model</caption>
-        <image source="ch_summarizing_data/figures/malaria_rand_dot_plot/malaria_rand_dot_plot.png" width="85%">
+        <image source="ch2/malaria_rand_dot_plot/malaria_rand_dot_plot.png" width="85%">
           <description>
             A stacked dot plot is shown. The horizontal axis represents "difference in infection rates" and has a range
             of -0.6 to 0.8. There are six stacks of dots shown in the plot, with 3 points shown at -0.55, 20-25 points
@@ -2266,7 +2266,7 @@
             </stack>
             <figure xml:id="fig-infant-mortality">
               <caption>Infant mortality rates</caption>
-              <image source="ch_summarizing_data/figures/eoce/infant_mortality_rel_freq/infant_mortality_rel_freq_hist.png" width="85%">
+              <image source="ch2/eoce/infant_mortality_rel_freq/infant_mortality_rel_freq_hist.png" width="85%">
                 <description>A histogram is shown for the variable "Infant Mortality (per 1000 live births)" with axis range of 0 to 120. The histogram vertical axis is for "Fraction of Countries" and runs from 0 to 0.4. The bins are as follows: the 0 to 10 bin has a height of 0.38, 10 to 20 has a height of 0.22, 20 to 30 a height of 0.11, 30 to 40 a height of 0.06, 40 to 50 a height of 0.07, 50 to 60 a height of 0.08, 60 to 70 a height of 0.04, 70 to 80 a height of 0.03, 80 to 90 a height of 0.01, 90 to 100 a height of 0.02, and 100 to 110 a height of 0.01.</description>
               </image>
             </figure>
@@ -2321,7 +2321,7 @@
           <sidebyside widths="70% 28%">
             <figure xml:id="fig-oscar-winners">
               <caption>Oscar winners by age</caption>
-              <image source="ch_summarizing_data/figures/eoce/oscar_winners/oscars_winners_hist.png" width="95%">
+              <image source="ch2/eoce/oscar_winners/oscars_winners_hist.png" width="95%">
                 <description>Two histograms are shown, one for "Best Actress" and a second for "Best Actor", where values for the histogram range from 15 to 85. The heights of the bins for the Best Actress histogram are as follows: the bin of 15 to 25 has a height of 9, the 25 to 35 bin has a height of 50, 35 to 45 a height of 19, 45 to 55 a height of 6, 55 to 65 a height of 8, 65 to 75 a height of 1, and 75 to 85 a height of 1. The heights of the bins for the Best Actor histogram are as follows: the bin of 15 to 25 has a height of 0, the 25 to 35 bin has a height of 14, 35 to 45 a height of 45, 45 to 55 a height of 23, 55 to 65 a height of 11, 65 to 75 a height of 0, and 75 to 85 a height of 1.</description>
               </image>
             </figure>
@@ -2395,7 +2395,7 @@
           </p>
           <figure xml:id="fig-marathon-winners-hist">
             <caption>Marathon finishing times histogram and box plot</caption>
-            <image source="ch_summarizing_data/figures/eoce/marathon_winners/marathon_winners_hist_box.png" width="56%">
+            <image source="ch2/eoce/marathon_winners/marathon_winners_hist_box.png" width="56%">
               <description>Two plots are shown, one that is a histogram and one that is a box plot, where the range of data for each is from 2.0 to 3.2. The bins for the histogram are as follows: the 2.0 to 2.2 bin has a height of 21, bin 2.2 to 2.4 a height of 6, 2.4 to 2.6 a height of 25, 2.6 to 2.8 a height of 3, 2.8 to 3.0 a height of 2, and 3.0 to 3.2 a height of 2. The box plot shows the box spanning 2.2 to 2.5, with the median line centered at 2.4. The whiskers extend from about 2.15 to 2.75. There are four points marked beyond the upper whisker at 2.9, 3.0, 3.10, and 3.15.</description>
             </image>
           </figure>
@@ -2415,7 +2415,7 @@
                 </p>
                 <figure xml:id="fig-marathon-winners-gender">
                   <caption>Marathon times by gender</caption>
-                  <image source="ch_summarizing_data/figures/eoce/marathon_winners/marathon_winners_gender_box.png" width="56%">
+                  <image source="ch2/eoce/marathon_winners/marathon_winners_gender_box.png" width="56%">
                     <description>A side-by-side box plot is shown for marathon run times, one box plot for men and one for women. The axis for the run times spans from 2.0 to 3.2. All values described as follows are estimates. For the men box plot, the box spans 2.16 to 2.22 with the median line at 2.19. The whiskers span to 2.12 up to 2.27. There are 6 points above the upper whisker at 2.32, 2.36, 2.38, 2.44, 2.46, and 2.50. For the women box plot, the box spans from 2.44 to 2.52, with a median value of 2.46. The whiskers span from 2.41 to 2.57. There are 6 points above the upper whisker: 2.72, 2.78, 2.9, 2.92, 3.12, and 3.15.</description>
                   </image>
                 </figure>
@@ -2427,7 +2427,7 @@
                 </p>
                 <figure xml:id="fig-marathon-winners-time">
                   <caption>Marathon times over time</caption>
-                  <image source="ch_summarizing_data/figures/eoce/marathon_winners/marathon_winners_time_series.png" width="60%">
+                  <image source="ch2/eoce/marathon_winners/marathon_winners_time_series.png" width="60%">
                     <description>A time series plot is shown, which in this case gives the appearance of a scatterplot. The horizontal variable is for year, which runs from 1970 to 2000, and the vertical variable is "Marathon times", which runs from 2.0 to 3.2 hours. There are two colors of points, one for men and one for women, and there is one point for men and one for women for each year. The points start at about 2.5 for men in 1970 and 2.9 for women in 1971. The points bounce around for a few years and then decline in 1975 or 1976 to 2.2 for men and 2.7 for women. The values for women decrease for a few more years to about 2.5. For the remainder of the years, the values fluctuate up or down 0.1 hours from year to year but are stable until 1999, which is the last year of data provided.</description>
                   </image>
                 </figure>
