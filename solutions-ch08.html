@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Introduction to Linear Regression</title>
+<title>Introduction To Linear Regression</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -617,15 +617,15 @@ true);
 <li class="toc-item toc-appendix contains-active">
 <div class="toc-title-box"><a href="appendix-solutions.html" class="internal"><span class="codenumber">A</span> <span class="title">Exercise Solutions</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch01.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Introduction to Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch01.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Introduction To Data</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch02.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Summarizing Data</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch03.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Probability</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch04.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Distributions of Random Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch05.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Foundations for Inference</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch06.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Inference for Categorical Data</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch07.html" class="internal"><span class="codenumber">A.7</span> <span class="title">Inference for Numerical Data</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="solutions-ch08.html" class="internal"><span class="codenumber">A.8</span> <span class="title">Introduction to Linear Regression</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch09.html" class="internal"><span class="codenumber">A.9</span> <span class="title">Multiple and Logistic Regression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch04.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Distributions Of Random Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch05.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Foundations For Inference</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch06.html" class="internal"><span class="codenumber">A.6</span> <span class="title">Inference For Categorical Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch07.html" class="internal"><span class="codenumber">A.7</span> <span class="title">Inference For Numerical Data</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="solutions-ch08.html" class="internal"><span class="codenumber">A.8</span> <span class="title">Introduction To Linear Regression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="solutions-ch09.html" class="internal"><span class="codenumber">A.9</span> <span class="title">Multiple And Logistic Regression</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-appendix">
@@ -656,12 +656,441 @@ true);
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="solutions-ch08"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to Linear Regression</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction To Linear Regression</span>
 </h2>
-<div class="para" id="solutions-ch08-2">
-<em class="emphasis">Note: Solutions for Chapter 8 exercises would be included here in the complete version.</em><div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<details id="solutions-ch08-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 1</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-2-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-2-2-1">
+<li id="solutions-ch08-2-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-2-2-1-1">The residual plot will show randomly distributed residuals around 0. The variance is also approximately constant.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-2-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-2-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-2-2-1-2">The residuals will show a fan shape, with higher variability for smaller <span class="process-math">\(x\text{.}\)</span> There will also be many points on the right above the line. There is trouble with the model being fit here.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-2-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section A.8: Introduction to Linear Regression"><a href="#solutions-ch08" title="Copy heading and permalink for Section A.8: Introduction to Linear Regression" aria-label="Copy heading and permalink for Section A.8: Introduction to Linear Regression">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Solution A.8.1: Exercise 1"><a href="#solutions-ch08-2" title="Copy heading and permalink for Solution A.8.1: Exercise 1" aria-label="Copy heading and permalink for Solution A.8.1: Exercise 1">🔗</a></div>
+</div></details><details id="solutions-ch08-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 3</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-3-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-3-2-1">
+<li id="solutions-ch08-3-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-3-2-1-1">Strong relationship, but a straight line would not fit the data.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-3-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-3-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-3-2-1-2">Strong relationship, and a linear fit would be reasonable.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-3-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-3-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-3-2-1-3">Weak relationship, and trying a linear fit would be reasonable.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-3-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-3-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-3-2-1-4">Moderate relationship, but a straight line would not fit the data.</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-3-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+<li id="solutions-ch08-3-2-1-5">
+<div class="para" id="p-derived-solutions-ch08-3-2-1-5">Strong relationship, and a linear fit would be reasonable.</div>
+<div class="autopermalink" data-description="Item e"><a href="#solutions-ch08-3-2-1-5" title="Copy heading and permalink for Item e" aria-label="Copy heading and permalink for Item e">🔗</a></div>
+</li>
+<li id="solutions-ch08-3-2-1-6">
+<div class="para" id="p-derived-solutions-ch08-3-2-1-6">Weak relationship, and trying a linear fit would be reasonable.</div>
+<div class="autopermalink" data-description="Item f"><a href="#solutions-ch08-3-2-1-6" title="Copy heading and permalink for Item f" aria-label="Copy heading and permalink for Item f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.2: Exercise 3"><a href="#solutions-ch08-3" title="Copy heading and permalink for Solution A.8.2: Exercise 3" aria-label="Copy heading and permalink for Solution A.8.2: Exercise 3">🔗</a></div>
+</div></details><details id="solutions-ch08-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 5</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-4-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-4-2-1">
+<li id="solutions-ch08-4-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-4-2-1-1">Exam 2 since there is less of a scatter in the plot of final exam grade versus exam 2. Notice that the relationship between Exam 1 and the Final Exam appears to be slightly nonlinear.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-4-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-4-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-4-2-1-2">Exam 2 and the final are relatively close to each other chronologically, or Exam 2 may be cumulative so has greater similarities in material to the final exam. Answers may vary.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-4-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.3: Exercise 5"><a href="#solutions-ch08-4" title="Copy heading and permalink for Solution A.8.3: Exercise 5" aria-label="Copy heading and permalink for Solution A.8.3: Exercise 5">🔗</a></div>
+</div></details><details id="solutions-ch08-5" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 7</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-5-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-5-2-1">
+<li id="solutions-ch08-5-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-5-2-1-1">
+<span class="process-math">\(r = -0.7\)</span> <span class="process-math">\(\to\)</span> (4).</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-5-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-5-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-5-2-1-2">
+<span class="process-math">\(r = 0.45\)</span> <span class="process-math">\(\to\)</span> (3).</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-5-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-5-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-5-2-1-3">
+<span class="process-math">\(r = 0.06\)</span> <span class="process-math">\(\to\)</span> (1).</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-5-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-5-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-5-2-1-4">
+<span class="process-math">\(r = 0.92\)</span> <span class="process-math">\(\to\)</span> (2).</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-5-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.4: Exercise 7"><a href="#solutions-ch08-5" title="Copy heading and permalink for Solution A.8.4: Exercise 7" aria-label="Copy heading and permalink for Solution A.8.4: Exercise 7">🔗</a></div>
+</div></details><details id="solutions-ch08-6" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 9</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-6-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-6-2-1">
+<li id="solutions-ch08-6-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-6-2-1-1">The relationship is positive, weak, and possibly linear. However, there do appear to be some anomalous observations along the left where several students have the same height that is notably far from the cloud of the other points. Additionally, there are many students who appear not to have driven a car, and they are represented by a set of points along the bottom of the scatterplot.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-6-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-6-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-6-2-1-2">There is no obvious explanation why simply being tall should lead a person to drive faster. However, one confounding factor is gender. Males tend to be taller than females on average, and personal experiences (anecdotal) may suggest they drive faster. If we were to follow-up on this suspicion, we would find that sociological studies confirm this suspicion.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-6-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-6-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-6-2-1-3">Males are taller on average and they drive faster. The gender variable is indeed an important confounding variable.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-6-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.5: Exercise 9"><a href="#solutions-ch08-6" title="Copy heading and permalink for Solution A.8.5: Exercise 9" aria-label="Copy heading and permalink for Solution A.8.5: Exercise 9">🔗</a></div>
+</div></details><details id="solutions-ch08-7" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 11</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-7-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-7-2-1">
+<li id="solutions-ch08-7-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-7-2-1-1">There is a somewhat weak, positive, possibly linear relationship between the distance traveled and travel time. There is clustering near the lower left corner that we should take special note of.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-7-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-7-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-7-2-1-2">Changing the units will not change the form, direction or strength of the relationship between the two variables. If longer distances measured in miles are associated with longer travel time measured in minutes, longer distances measured in kilometers will be associated with longer travel time measured in hours.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-7-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-7-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-7-2-1-3">Changing units doesn’t affect correlation: <span class="process-math">\(r = 0.636\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-7-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.6: Exercise 11"><a href="#solutions-ch08-7" title="Copy heading and permalink for Solution A.8.6: Exercise 11" aria-label="Copy heading and permalink for Solution A.8.6: Exercise 11">🔗</a></div>
+</div></details><details id="solutions-ch08-8" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 13</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-8-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-8-2-1">
+<li id="solutions-ch08-8-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-8-2-1-1">There is a moderate, positive, and linear relationship between shoulder girth and height.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-8-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-8-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-8-2-1-2">Changing the units, even if just for one of the variables, will not change the form, direction or strength of the relationship between the two variables.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-8-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.7: Exercise 13"><a href="#solutions-ch08-8" title="Copy heading and permalink for Solution A.8.7: Exercise 13" aria-label="Copy heading and permalink for Solution A.8.7: Exercise 13">🔗</a></div>
+</div></details><details id="solutions-ch08-9" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 15</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="solutions-ch08-9-2">In each part, we can write the husband ages as a linear function of the wife ages. (a) <span class="process-math">\(age_{H} = age_{W} + 3\text{.}\)</span> (b) <span class="process-math">\(age_{H} = age_{W} - 2\text{.}\)</span> (c) <span class="process-math">\(age_{H} = 2 \times age_{W}\text{.}\)</span> Since the slopes are positive and these are perfect linear relationships, the correlation will be exactly 1 in all three parts. An alternative way to gain insight into this solution is to create a mock data set, e.g. 5 women aged 26, 27, 28, 29, and 30, then find the husband ages for each wife in each part and create a scatterplot.<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.8: Exercise 15"><a href="#solutions-ch08-9" title="Copy heading and permalink for Solution A.8.8: Exercise 15" aria-label="Copy heading and permalink for Solution A.8.8: Exercise 15">🔗</a></div>
+</div></details><details id="solutions-ch08-10" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 17</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="solutions-ch08-10-2">Correlation: no units. Intercept: kg. Slope: kg/cm.<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.9: Exercise 17"><a href="#solutions-ch08-10" title="Copy heading and permalink for Solution A.8.9: Exercise 17" aria-label="Copy heading and permalink for Solution A.8.9: Exercise 17">🔗</a></div>
+</div></details><details id="solutions-ch08-11" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 19</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="solutions-ch08-11-2">Over-estimate. Since the residual is calculated as <span class="process-math">\(observed\ -\ predicted\text{,}\)</span> a negative residual means that the predicted value is higher than the observed value.<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.10: Exercise 19"><a href="#solutions-ch08-11" title="Copy heading and permalink for Solution A.8.10: Exercise 19" aria-label="Copy heading and permalink for Solution A.8.10: Exercise 19">🔗</a></div>
+</div></details><details id="solutions-ch08-12" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 21</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-12-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-12-2-1">
+<li id="solutions-ch08-12-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-12-2-1-1">There is a positive, very strong, linear association between the number of tourists and spending.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-12-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-12-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-12-2-1-2">Explanatory: number of tourists (in thousands). Response: spending (in millions of US dollars).</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-12-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-12-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-12-2-1-3">We can predict spending for a given number of tourists using a regression line. This may be useful information for determining how much the country may want to spend in advertising abroad, or to forecast expected revenues from tourism.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-12-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-12-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-12-2-1-4">Even though the relationship appears linear in the scatterplot, the residual plot actually shows a nonlinear relationship. This is not a contradiction: residual plots can show divergences from linearity that can be difficult to see in a scatterplot. A simple linear model is inadequate for modeling these data. It is also important to consider that these data are observed sequentially, which means there may be a hidden structure not evident in the current plots but that is important to consider.</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-12-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.11: Exercise 21"><a href="#solutions-ch08-12" title="Copy heading and permalink for Solution A.8.11: Exercise 21" aria-label="Copy heading and permalink for Solution A.8.11: Exercise 21">🔗</a></div>
+</div></details><details id="solutions-ch08-13" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 23</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-13-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-13-2-1">
+<li id="solutions-ch08-13-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-13-2-1-1">First calculate the slope: <span class="process-math">\(b_1 = R\times s_y/s_x = 0.636 \times 113 / 99 = 0.726\text{.}\)</span> Next, make use of the fact that the regression line passes through the point <span class="process-math">\((\bar{x},\bar{y})\text{:}\)</span> <span class="process-math">\(\bar{y} = b_0 + b_1 \times \bar{x}\text{.}\)</span> Plug in <span class="process-math">\(\bar{x}\text{,}\)</span> <span class="process-math">\(\bar{y}\text{,}\)</span> and <span class="process-math">\(b_1\text{,}\)</span> and solve for <span class="process-math">\(b_0\text{:}\)</span> 51. Solution: <span class="process-math">\(\widehat{travel time} = 51 + 0.726 \times distance\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-13-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-13-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-13-2-1-2">
+<span class="process-math">\(b_1\text{:}\)</span> For each additional mile in distance, the model predicts an additional 0.726 minutes in travel time. <span class="process-math">\(b_0\text{:}\)</span> When the distance traveled is 0 miles, the travel time is expected to be 51 minutes. It does not make sense to have a travel distance of 0 miles in this context. Here, the <span class="process-math">\(y\)</span>-intercept serves only to adjust the height of the line and is meaningless by itself.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-13-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-13-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-13-2-1-3">
+<span class="process-math">\(R^2 = 0.636^2 = 0.40\text{.}\)</span> About 40\% of the variability in travel time is accounted for by the model, i.e. explained by the distance traveled.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-13-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-13-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-13-2-1-4">
+<span class="process-math">\(\widehat{travel time} = 51 + 0.726 \times distance = 51 + 0.726 \times 103 \approx 126\)</span> minutes. (Note: we should be cautious in our predictions with this model since we have not yet evaluated whether it is a well-fit model.).</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-13-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+<li id="solutions-ch08-13-2-1-5">
+<div class="para" id="p-derived-solutions-ch08-13-2-1-5">
+<span class="process-math">\(e_i = y_i - \hat{y}_i = 168 - 126 = 42\)</span> minutes. A positive residual means that the model underestimates the travel time.</div>
+<div class="autopermalink" data-description="Item e"><a href="#solutions-ch08-13-2-1-5" title="Copy heading and permalink for Item e" aria-label="Copy heading and permalink for Item e">🔗</a></div>
+</li>
+<li id="solutions-ch08-13-2-1-6">
+<div class="para" id="p-derived-solutions-ch08-13-2-1-6">No, this calculation would require extrapolation.</div>
+<div class="autopermalink" data-description="Item f"><a href="#solutions-ch08-13-2-1-6" title="Copy heading and permalink for Item f" aria-label="Copy heading and permalink for Item f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.12: Exercise 23"><a href="#solutions-ch08-13" title="Copy heading and permalink for Solution A.8.12: Exercise 23" aria-label="Copy heading and permalink for Solution A.8.12: Exercise 23">🔗</a></div>
+</div></details><details id="solutions-ch08-14" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 25</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-14-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-14-2-1">
+<li id="solutions-ch08-14-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-14-2-1-1"><span class="process-math">\(\widehat{murder} = -29.901 + 2.559 \times poverty\%\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-14-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-14-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-14-2-1-2">Expected murder rate in metropolitan areas with no poverty is -29. 901 per million. This is obviously not a meaningful value, it just serves to adjust the height of the regression line.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-14-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-14-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-14-2-1-3">For each additional percentage increase in poverty, we expect murders per million to be higher on average by 2.559.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-14-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-14-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-14-2-1-4">Poverty level explains 70.52\% of the variability in murder rates in metropolitan areas.</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-14-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+<li id="solutions-ch08-14-2-1-5">
+<div class="para" id="p-derived-solutions-ch08-14-2-1-5"><span class="process-math">\(\sqrt{0.7052} = 0.8398\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item e"><a href="#solutions-ch08-14-2-1-5" title="Copy heading and permalink for Item e" aria-label="Copy heading and permalink for Item e">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.13: Exercise 25"><a href="#solutions-ch08-14" title="Copy heading and permalink for Solution A.8.13: Exercise 25" aria-label="Copy heading and permalink for Solution A.8.13: Exercise 25">🔗</a></div>
+</div></details><details id="solutions-ch08-15" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 27</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-15-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-15-2-1">
+<li id="solutions-ch08-15-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-15-2-1-1">There is an outlier in the bottom right. Since it is far from the center of the data, it is a point with high leverage. It is also an influential point since, without that observation, the regression line would have a very different slope.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-15-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-15-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-15-2-1-2">There is an outlier in the bottom right. Since it is far from the center of the data, it is a point with high leverage. However, it does not appear to be affecting the line much, so it is not an influential point.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-15-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-15-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-15-2-1-3">The observation is in the center of the data (in the x-axis direction), so this point does <em class="emphasis">not</em> have high leverage. This means the point won’t have much effect on the slope of the line and so is not an influential point.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-15-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.14: Exercise 27"><a href="#solutions-ch08-15" title="Copy heading and permalink for Solution A.8.14: Exercise 27" aria-label="Copy heading and permalink for Solution A.8.14: Exercise 27">🔗</a></div>
+</div></details><details id="solutions-ch08-16" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 29</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-16-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-16-2-1">
+<li id="solutions-ch08-16-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-16-2-1-1">There is a negative, moderate-to-strong, somewhat linear relationship between percent of families who own their home and the percent of the population living in urban areas in 2010. There is one outlier: a state where 100\% of the population is urban. The variability in the percent of homeownership also increases as we move from left to right in the plot.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-16-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-16-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-16-2-1-2">The outlier is located in the bottom right corner, horizontally far from the center of the other points, so it is a point with high leverage. It is an influential point since excluding this point from the analysis would greatly affect the slope of the regression line.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-16-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.15: Exercise 29"><a href="#solutions-ch08-16" title="Copy heading and permalink for Solution A.8.15: Exercise 29" aria-label="Copy heading and permalink for Solution A.8.15: Exercise 29">🔗</a></div>
+</div></details><details id="solutions-ch08-17" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 31</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-17-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-17-2-1">
+<li id="solutions-ch08-17-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-17-2-1-1">The relationship is positive, moderate-to-strong, and linear. There are a few outliers but no points that appear to be influential.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-17-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-17-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-17-2-1-2">
+<span class="process-math">\(\widehat{weight} = -105.0113 + 1.0176 \times height\text{.}\)</span> Slope: For each additional centimeter in height, the model predicts the average weight to be 1.0176 additional kilograms (about 2.2 pounds). Intercept: People who are 0 centimeters tall are expected to weigh - 105.0113 kilograms. This is obviously not possible. Here, the <span class="process-math">\(y\)</span>- intercept serves only to adjust the height of the line and is meaningless by itself.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-17-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-17-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-17-2-1-3">
+<span class="process-math">\(H_0\text{:}\)</span> The true slope coefficient of height is zero (<span class="process-math">\(\beta_1 = 0\)</span>). <span class="process-math">\(H_A\text{:}\)</span> The true slope coefficient of height is different than zero (<span class="process-math">\(\beta_1 \neq 0\)</span>). The p-value for the two-sided alternative hypothesis (<span class="process-math">\(\beta_1 \ne 0\)</span>) is incredibly small, so we reject <span class="process-math">\(H_0\text{.}\)</span> The data provide convincing evidence that height and weight are positively correlated. The true slope parameter is indeed greater than 0.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-17-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-17-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-17-2-1-4">
+<span class="process-math">\(R^2 = 0.72^2 = 0.52\text{.}\)</span> Approximately 52\% of the variability in weight can be explained by the height of individuals.</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-17-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.16: Exercise 31"><a href="#solutions-ch08-17" title="Copy heading and permalink for Solution A.8.16: Exercise 31" aria-label="Copy heading and permalink for Solution A.8.16: Exercise 31">🔗</a></div>
+</div></details><details id="solutions-ch08-18" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 33</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-18-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-18-2-1">
+<li id="solutions-ch08-18-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-18-2-1-1">
+<span class="process-math">\(H_0\text{:}\)</span> <span class="process-math">\(\beta_1 = 0\text{.}\)</span> <span class="process-math">\(H_A\text{:}\)</span> <span class="process-math">\(\beta_1 \neq 0\text{.}\)</span> The p-value, as reported in the table, is incredibly small and is smaller than 0.05, so we reject <span class="process-math">\(H_0\text{.}\)</span> The data provide convincing evidence that wives’ and husbands’ heights are positively correlated.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-18-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-18-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-18-2-1-2"><span class="process-math">\(\widehat{height}_{W} = 43.5755 + 0.2863 \times height_{H}\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-18-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-18-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-18-2-1-3">Slope: For each additional inch in husband’s height, the average wife’s height is expected to be an additional 0.2863 inches on average. Intercept: Men who are 0 inches tall are expected to have wives who are, on average, 43.5755 inches tall. The intercept here is meaningless, and it serves only to adjust the height of the line.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-18-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-18-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-18-2-1-4">The slope is positive, so <span class="process-math">\(r\)</span> must also be positive. <span class="process-math">\(r = \sqrt{0.09} = 0.30\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-18-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+<li id="solutions-ch08-18-2-1-5">
+<div class="para" id="p-derived-solutions-ch08-18-2-1-5">63.33. Since <span class="process-math">\(R^2\)</span> is low, the prediction based on this regression model is not very reliable.</div>
+<div class="autopermalink" data-description="Item e"><a href="#solutions-ch08-18-2-1-5" title="Copy heading and permalink for Item e" aria-label="Copy heading and permalink for Item e">🔗</a></div>
+</li>
+<li id="solutions-ch08-18-2-1-6">
+<div class="para" id="p-derived-solutions-ch08-18-2-1-6">No, we should avoid extrapolating.</div>
+<div class="autopermalink" data-description="Item f"><a href="#solutions-ch08-18-2-1-6" title="Copy heading and permalink for Item f" aria-label="Copy heading and permalink for Item f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.17: Exercise 33"><a href="#solutions-ch08-18" title="Copy heading and permalink for Solution A.8.17: Exercise 33" aria-label="Copy heading and permalink for Solution A.8.17: Exercise 33">🔗</a></div>
+</div></details><details id="solutions-ch08-19" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 35</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-19-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-19-2-1">
+<li id="solutions-ch08-19-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-19-2-1-1"><span class="process-math">\(H_0: \beta_1 = 0; H_A: \beta_1 \ne 0\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-19-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-19-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-19-2-1-2">The p-value for this test is approximately 0, therefore we reject <span class="process-math">\(H_0\text{.}\)</span> The data provide convincing evidence that poverty percentage is a significant predictor of murder rate.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-19-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-19-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-19-2-1-3">
+<span class="process-math">\(n = 20, df = 18, T^*_{18} = 2.10\text{;}\)</span> <span class="process-math">\(2.559 \pm 2.10 \times 0.390 = (1.74, 3.378)\text{;}\)</span> For each percentage point poverty is higher, murder rate is expected to be higher on average by 1.74 to 3.378 per million.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-19-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-19-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-19-2-1-4">Yes, we rejected <span class="process-math">\(H_0\)</span> and the confidence interval does not include 0.</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-19-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-19-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.18: Exercise 35"><a href="#solutions-ch08-19" title="Copy heading and permalink for Solution A.8.18: Exercise 35" aria-label="Copy heading and permalink for Solution A.8.18: Exercise 35">🔗</a></div>
+</div></details><details id="solutions-ch08-20" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 37</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-20-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-20-2-1">
+<li id="solutions-ch08-20-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-20-2-1-1">True.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-20-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-20-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-20-2-1-2">False, correlation is a measure of the linear association between any two numerical variables.</div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-20-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-20-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.19: Exercise 37"><a href="#solutions-ch08-20" title="Copy heading and permalink for Solution A.8.19: Exercise 37" aria-label="Copy heading and permalink for Solution A.8.19: Exercise 37">🔗</a></div>
+</div></details><details id="solutions-ch08-21" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 39</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-21-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-21-2-1">
+<li id="solutions-ch08-21-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-21-2-1-1">The point estimate and standard error are <span class="process-math">\(b_1 = 0.9112\)</span> and <span class="process-math">\(SE = 0.0259\text{.}\)</span> We can compute a T-score: <span class="process-math">\(T = (0.9112 - 1)/0.0259 = -3.43\text{.}\)</span> Using <span class="process-math">\(df=168\text{,}\)</span> the p-value is about 0.001, which is less than <span class="process-math">\(\alpha = 0.05\text{.}\)</span> That is, the data provide strong evidence that the average difference between husbands’ and wives’ ages has actually changed over time.</div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-21-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-21-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-21-2-1-2"><span class="process-math">\(\widehat{age}_W = 1.5740 + 0.9112 \times age_{H}\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-21-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-21-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-21-2-1-3">Slope: For each additional year in husband’s age, the model predicts an additional 0.9112 years in wife’s age. This means that wives’ ages tend to be lower for later ages, suggesting the average gap of husband and wife age is larger for older people. Intercept: Men who are 0 years old are expected to have wives who are on average 1.5740 years old. The intercept here is meaningless and serves only to adjust the height of the line.</div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-21-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-21-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-21-2-1-4">
+<span class="process-math">\(R = \sqrt{0.88} = 0.94\text{.}\)</span> The regression of wives’ ages on husbands’ ages has a positive slope, so the correlation coefficient will be positive.</div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-21-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+<li id="solutions-ch08-21-2-1-5">
+<div class="para" id="p-derived-solutions-ch08-21-2-1-5">
+<span class="process-math">\(\widehat{age}_W = 1.5740 + 0.9112 \times 55 = 51.69\text{.}\)</span> Since <span class="process-math">\(R^2\)</span> is pretty high, the prediction based on this regression model is reliable.</div>
+<div class="autopermalink" data-description="Item e"><a href="#solutions-ch08-21-2-1-5" title="Copy heading and permalink for Item e" aria-label="Copy heading and permalink for Item e">🔗</a></div>
+</li>
+<li id="solutions-ch08-21-2-1-6">
+<div class="para" id="p-derived-solutions-ch08-21-2-1-6">No, we shouldn’t use the same model to predict an 85 year old man’s wife’s age. This would require extrapolation. The scatterplot from an earlier exercise shows that husbands in this data set are approximately 20 to 65 years old. The regression model may not be reasonable outside of this range.</div>
+<div class="autopermalink" data-description="Item f"><a href="#solutions-ch08-21-2-1-6" title="Copy heading and permalink for Item f" aria-label="Copy heading and permalink for Item f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-21-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.20: Exercise 39"><a href="#solutions-ch08-21" title="Copy heading and permalink for Solution A.8.20: Exercise 39" aria-label="Copy heading and permalink for Solution A.8.20: Exercise 39">🔗</a></div>
+</div></details><details id="solutions-ch08-22" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 41</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="solutions-ch08-22-2">There is an upwards trend. However, the variability is higher for higher calorie counts, and it looks like there might be two clusters of observations above and below the line on the right, so we should be cautious about fitting a linear model to these data.<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-22-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.21: Exercise 41"><a href="#solutions-ch08-22" title="Copy heading and permalink for Solution A.8.21: Exercise 41" aria-label="Copy heading and permalink for Solution A.8.21: Exercise 41">🔗</a></div>
+</div></details><details id="solutions-ch08-23" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercise 43</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="solutions-ch08-23-2">
+<ol class="lower-alpha ol-marker-4" id="solutions-ch08-23-2-1">
+<li id="solutions-ch08-23-2-1-1">
+<div class="para" id="p-derived-solutions-ch08-23-2-1-1"><span class="process-math">\(r = -0.72 \to (2)\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item a"><a href="#solutions-ch08-23-2-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="solutions-ch08-23-2-1-2">
+<div class="para" id="p-derived-solutions-ch08-23-2-1-2"><span class="process-math">\(r = 0.07 \to (4)\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item b"><a href="#solutions-ch08-23-2-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="solutions-ch08-23-2-1-3">
+<div class="para" id="p-derived-solutions-ch08-23-2-1-3"><span class="process-math">\(r = 0.86 \to (1)\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item c"><a href="#solutions-ch08-23-2-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="solutions-ch08-23-2-1-4">
+<div class="para" id="p-derived-solutions-ch08-23-2-1-4"><span class="process-math">\(r = 0.99 \to (3)\text{.}\)</span></div>
+<div class="autopermalink" data-description="Item d"><a href="#solutions-ch08-23-2-1-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#solutions-ch08-23-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution A.8.22: Exercise 43"><a href="#solutions-ch08-23" title="Copy heading and permalink for Solution A.8.22: Exercise 43" aria-label="Copy heading and permalink for Solution A.8.22: Exercise 43">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Section A.8: Introduction To Linear Regression"><a href="#solutions-ch08" title="Copy heading and permalink for Section A.8: Introduction To Linear Regression" aria-label="Copy heading and permalink for Section A.8: Introduction To Linear Regression">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="solutions-ch07.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="solutions-ch09.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
