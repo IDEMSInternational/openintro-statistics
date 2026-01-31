@@ -499,6 +499,7 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-table-software" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Reading an ANOVA table from software</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-anova-diagnostics" class="internal"><span class="codenumber">7.5.5</span> <span class="title">Graphical diagnostics for an ANOVA analysis</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-anova.html#subsec-multiple-comparisons" class="internal"><span class="codenumber">7.5.6</span> <span class="title">Multiple comparisons and controlling Type 1 Error rate</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-anova.html#sec-anova-9" class="internal"><span class="codenumber">7.5.7</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -1199,7 +1200,442 @@ SE \amp= \sqrt{\frac{13.61^2}{58} + \frac{13.61^2}{55}} = 2.56
 </div>
 <div class="para" id="subsec-multiple-comparisons-16">Consider the following analogy: we observe a Wall Street firm that makes large quantities of money based on predicting mergers. Mergers are generally difficult to predict, and if the prediction success rate is extremely high, that may be considered sufficiently strong evidence to warrant investigation by the Securities and Exchange Commission (SEC). While the SEC may be quite certain that there is insider trading taking place at the firm, the evidence against any single trader may not be very strong. It is only when the SEC considers all the data that they identify the pattern. This is effectively the strategy of ANOVA: stand back and consider all the groups simultaneously.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-multiple-comparisons-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate"><a href="#subsec-multiple-comparisons" title="Copy heading and permalink for Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate" aria-label="Copy heading and permalink for Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate">🔗</a></div></section><div class="autopermalink" data-description="Section 7.5: Comparing many means with ANOVA"><a href="#sec-anova" title="Copy heading and permalink for Section 7.5: Comparing many means with ANOVA" aria-label="Copy heading and permalink for Section 7.5: Comparing many means with ANOVA">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate"><a href="#subsec-multiple-comparisons" title="Copy heading and permalink for Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate" aria-label="Copy heading and permalink for Subsection 7.5.6: Multiple comparisons and controlling Type 1 Error rate">🔗</a></div></section><section class="exercises" id="sec-anova-9"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="fitb_anova"><h4 class="heading">
+<span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fill in the blank.</span>
+</h4>
+<div class="para" id="fitb_anova-2-1">When doing an ANOVA, you observe large differences in means between groups. Within the ANOVA framework, this would most likely be interpreted as evidence strongly favoring the <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> hypothesis.<div class="autopermalink" data-description="Paragraph"><a href="#fitb_anova-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="fitb_anova-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="fitb_anova-3-1">alternative<div class="autopermalink" data-description="Paragraph"><a href="#fitb_anova-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.1.1"><a href="#fitb_anova-3" title="Copy heading and permalink for Solution 7.5.7.1.1" aria-label="Copy heading and permalink for Solution 7.5.7.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.1: Fill in the blank"><a href="#fitb_anova" title="Copy heading and permalink for Exercise 7.5.7.1: Fill in the blank" aria-label="Copy heading and permalink for Exercise 7.5.7.1: Fill in the blank">🔗</a></div></article><article class="exercise exercise-like" id="which_test_anova"><h4 class="heading">
+<span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Which test.</span>
+</h4>
+<div class="para" id="which_test_anova-2-1">We would like to test if students who are in the social sciences, natural sciences, arts and humanities, and other fields spend the same amount of time studying for this course. What type of test should we use? Explain your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#which_test_anova-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="which_test_anova-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="which_test_anova-3-1">We should use ANOVA. We are comparing means across more than two groups (four fields of study), and ANOVA is the appropriate test for comparing multiple group means simultaneously rather than doing multiple pairwise t-tests.<div class="autopermalink" data-description="Paragraph"><a href="#which_test_anova-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.2.1"><a href="#which_test_anova-3" title="Copy heading and permalink for Solution 7.5.7.2.1" aria-label="Copy heading and permalink for Solution 7.5.7.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.2: Which test"><a href="#which_test_anova" title="Copy heading and permalink for Exercise 7.5.7.2: Which test" aria-label="Copy heading and permalink for Exercise 7.5.7.2: Which test">🔗</a></div></article><article class="exercise exercise-like" id="chick_wts_anova"><h4 class="heading">
+<span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Chicken diet and weight, Part III.</span>
+</h4>
+<div class="para" id="chick_wts_anova-2-1">A better analysis would first consider all feed types at once: casein, horsebean, linseed, meat meal, soybean, and sunflower. The ANOVA output below can be used to test for differences between the average weights of chicks on different diets.<div class="autopermalink" data-description="Paragraph"><a href="#chick_wts_anova-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="table table-like" id="chick_wts_anova-2-2"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>ANOVA table for chicken weights<div class="autopermalink" data-description="Table 7.5.22: ANOVA table for chicken weights"><a href="#chick_wts_anova-2-2" title="Copy heading and permalink for Table 7.5.22: ANOVA table for chicken weights" aria-label="Copy heading and permalink for Table 7.5.22: ANOVA table for chicken weights">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Df</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sum Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Mean Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">F value</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Pr(<span class="process-math">\(&gt;\)</span>F)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">feed</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">231,129.16</td>
+<td class="l m b0 r0 l0 t0 lines">46,225.83</td>
+<td class="l m b0 r0 l0 t0 lines">15.36</td>
+<td class="l m b0 r0 l0 t0 lines">0.0000</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Residuals</td>
+<td class="l m b0 r0 l0 t0 lines">65</td>
+<td class="l m b0 r0 l0 t0 lines">195,556.02</td>
+<td class="l m b0 r0 l0 t0 lines">3,008.55</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure> <div class="para" id="chick_wts_anova-2-3">Conduct a hypothesis test to determine if these data provide convincing evidence that the average weight of chicks varies across some (or all) groups. Make sure to check relevant conditions. Figures and summary statistics are shown below.<div class="autopermalink" data-description="Paragraph"><a href="#chick_wts_anova-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:65% 35%;column-gap:0%;">
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="chick_wts_anova-2-4-1"><img src="external/ch_inference_for_means/eoce/chick_wts_anova/chick_wts_box.png" class="contained" alt='A side-by-side box plot is shown for "Weight, in grams" for several feed types. The width of the data range for each feed type spans about 150 grams. However, they are centered at different locations: about 325 for "casein", about 150 for "horsebean", about 225 for "linseed", about 275 for "meatmeal", about 250 for "soybean", and about 325 for "sunflower".'><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 7.5.23"><a href="#chick_wts_anova-2-4-1" title="Copy heading and permalink for Figure 7.5.23" aria-label="Copy heading and permalink for Figure 7.5.23">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel fixed-width sbspanel--top top" style=""><figure class="table table-like" id="chick_wts_anova-2-4-2"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Mean</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">SD</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">n</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">casein</td>
+<td class="l m b0 r0 l0 t0 lines">323.58</td>
+<td class="l m b0 r0 l0 t0 lines">64.43</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">horsebean</td>
+<td class="l m b0 r0 l0 t0 lines">160.20</td>
+<td class="l m b0 r0 l0 t0 lines">38.63</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">linseed</td>
+<td class="l m b0 r0 l0 t0 lines">218.75</td>
+<td class="l m b0 r0 l0 t0 lines">52.24</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">meatmeal</td>
+<td class="l m b0 r0 l0 t0 lines">276.91</td>
+<td class="l m b0 r0 l0 t0 lines">64.90</td>
+<td class="l m b0 r0 l0 t0 lines">11</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">soybean</td>
+<td class="l m b0 r0 l0 t0 lines">246.43</td>
+<td class="l m b0 r0 l0 t0 lines">54.13</td>
+<td class="l m b0 r0 l0 t0 lines">14</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">sunflower</td>
+<td class="l m b0 r0 l0 t0 lines">328.92</td>
+<td class="l m b0 r0 l0 t0 lines">48.84</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+</tr>
+</table>
+<figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Summary statistics<div class="autopermalink" data-description="Table 7.5.24: Summary statistics"><a href="#chick_wts_anova-2-4-2" title="Copy heading and permalink for Table 7.5.24: Summary statistics" aria-label="Copy heading and permalink for Table 7.5.24: Summary statistics">🔗</a></div></figcaption></figure></div>
+</div></div>
+<div class="solutions"><details id="chick_wts_anova-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="chick_wts_anova-3-1">
+<span class="process-math">\(H_0\text{:}\)</span> The average weight is the same across all feed types: <span class="process-math">\(\mu_{\text{casein}} = \mu_{\text{horsebean}} = \mu_{\text{linseed}} = \mu_{\text{meatmeal}} = \mu_{\text{soybean}} = \mu_{\text{sunflower}}\text{.}\)</span> <span class="process-math">\(H_A\text{:}\)</span> At least one mean is different.<div class="autopermalink" data-description="Paragraph"><a href="#chick_wts_anova-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chick_wts_anova-3-2">Independence: Chicks are randomly assigned to feed types. Approximate normality: Sample sizes are all relatively small, but the box plots show the distributions are reasonably symmetric with no extreme outliers. Constant variance: The box plots show similar spreads across groups.<div class="autopermalink" data-description="Paragraph"><a href="#chick_wts_anova-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="chick_wts_anova-3-3">With F = 15.36 and p-value <span class="process-math">\(\approx\)</span> 0.0000, we reject <span class="process-math">\(H_0\text{.}\)</span> The data provide convincing evidence that average weight varies across feed types.<div class="autopermalink" data-description="Paragraph"><a href="#chick_wts_anova-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.3.1"><a href="#chick_wts_anova-3" title="Copy heading and permalink for Solution 7.5.7.3.1" aria-label="Copy heading and permalink for Solution 7.5.7.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.3: Chicken diet and weight, Part III"><a href="#chick_wts_anova" title="Copy heading and permalink for Exercise 7.5.7.3: Chicken diet and weight, Part III" aria-label="Copy heading and permalink for Exercise 7.5.7.3: Chicken diet and weight, Part III">🔗</a></div></article><article class="exercise exercise-like" id="teach_descriptive_stats"><h4 class="heading">
+<span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Teaching descriptive statistics.</span>
+</h4>
+<div class="para" id="teach_descriptive_stats-2-1">A study compared five different methods for teaching descriptive statistics. The five methods were traditional lecture and discussion, programmed textbook instruction, programmed text with lectures, computer instruction, and computer instruction with lectures. 45 students were randomly assigned, 9 to each method. After completing the course, students took a 1-hour exam.<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="teach_descriptive_stats-2-2">
+<ol class="lower-alpha lower-alpha-level-1" id="teach_descriptive_stats-2-2-1">
+<li id="teach_descriptive_stats-2-2-1-1">
+<div class="para" id="teach_descriptive_stats-2-2-1-1-1">What are the hypotheses for evaluating if the average test scores are different for the different teaching methods?<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.4.a"><a href="#teach_descriptive_stats-2-2-1-1" title="Copy heading and permalink for Item 7.5.7.4.a" aria-label="Copy heading and permalink for Item 7.5.7.4.a">🔗</a></div>
+</li>
+<li id="teach_descriptive_stats-2-2-1-2">
+<div class="para" id="teach_descriptive_stats-2-2-1-2-1">What are the degrees of freedom associated with the <span class="process-math">\(F\)</span>-test for evaluating these hypotheses?<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.4.b"><a href="#teach_descriptive_stats-2-2-1-2" title="Copy heading and permalink for Item 7.5.7.4.b" aria-label="Copy heading and permalink for Item 7.5.7.4.b">🔗</a></div>
+</li>
+<li id="teach_descriptive_stats-2-2-1-3">
+<div class="para" id="teach_descriptive_stats-2-2-1-3-1">Suppose the p-value for this test is 0.0168. What is the conclusion?<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.4.c"><a href="#teach_descriptive_stats-2-2-1-3" title="Copy heading and permalink for Item 7.5.7.4.c" aria-label="Copy heading and permalink for Item 7.5.7.4.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="teach_descriptive_stats-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="teach_descriptive_stats-3-1">
+<ol class="lower-alpha lower-alpha-level-1" id="teach_descriptive_stats-3-1-1">
+<li id="teach_descriptive_stats-3-1-1-1">
+<div class="para" id="teach_descriptive_stats-3-1-1-1-1">
+<span class="process-math">\(H_0\text{:}\)</span> <span class="process-math">\(\mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5\)</span> (the average test score is the same across all five teaching methods). <span class="process-math">\(H_A\text{:}\)</span> At least one mean is different.<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.4.a"><a href="#teach_descriptive_stats-3-1-1-1" title="Copy heading and permalink for Item 7.5.7.4.a" aria-label="Copy heading and permalink for Item 7.5.7.4.a">🔗</a></div>
+</li>
+<li id="teach_descriptive_stats-3-1-1-2">
+<div class="para" id="teach_descriptive_stats-3-1-1-2-1">
+<span class="process-math">\(df_1 = k - 1 = 5 - 1 = 4\)</span> (between groups), <span class="process-math">\(df_2 = n - k = 45 - 5 = 40\)</span> (within groups/residuals).<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.4.b"><a href="#teach_descriptive_stats-3-1-1-2" title="Copy heading and permalink for Item 7.5.7.4.b" aria-label="Copy heading and permalink for Item 7.5.7.4.b">🔗</a></div>
+</li>
+<li id="teach_descriptive_stats-3-1-1-3">
+<div class="para" id="teach_descriptive_stats-3-1-1-3-1">Since the p-value (0.0168) is less than 0.05, we reject <span class="process-math">\(H_0\text{.}\)</span> The data provide convincing evidence that at least one teaching method produces a different average test score than the others.<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.4.c"><a href="#teach_descriptive_stats-3-1-1-3" title="Copy heading and permalink for Item 7.5.7.4.c" aria-label="Copy heading and permalink for Item 7.5.7.4.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#teach_descriptive_stats-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.4.1"><a href="#teach_descriptive_stats-3" title="Copy heading and permalink for Solution 7.5.7.4.1" aria-label="Copy heading and permalink for Solution 7.5.7.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.4: Teaching descriptive statistics"><a href="#teach_descriptive_stats" title="Copy heading and permalink for Exercise 7.5.7.4: Teaching descriptive statistics" aria-label="Copy heading and permalink for Exercise 7.5.7.4: Teaching descriptive statistics">🔗</a></div></article><article class="exercise exercise-like" id="gpa_major"><h4 class="heading">
+<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">GPA and major.</span>
+</h4>
+<div class="para" id="gpa_major-2-1">Undergraduate students taking an introductory statistics course at Duke University conducted a survey about GPA and major. The side-by-side box plots show the distribution of GPA among three groups of majors. Also provided is the ANOVA output.<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="gpa_major-2-2"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/ch_inference_for_means/eoce/gpa_major/gpa_major.png" class="contained" alt='Side-by-side box plot for GPA in three different groups of majors. "Arts and Humanities" has a box from about 3.3 to 3.8, a median of 3.6, and whiskers that extend down to 3.1 to 4.0. "Natural Sciences" has a box from about 3.4 to 3.8, a median of 3.7, and whiskers that extend down to 2.9 to 4.0. "Social Sciences" has a box from about 3.3 to 3.8, a median of 3.6, whiskers that extend down to 2.8 to 4.0, and a single point beyond the lower whisker at about 2.6.'></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 7.5.25"><a href="#gpa_major-2-2" title="Copy heading and permalink for Figure 7.5.25" aria-label="Copy heading and permalink for Figure 7.5.25">🔗</a></div></figcaption></figure> <figure class="table table-like" id="gpa_major-2-3"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>ANOVA table for GPA by major<div class="autopermalink" data-description="Table 7.5.26: ANOVA table for GPA by major"><a href="#gpa_major-2-3" title="Copy heading and permalink for Table 7.5.26: ANOVA table for GPA by major" aria-label="Copy heading and permalink for Table 7.5.26: ANOVA table for GPA by major">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Df</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sum Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Mean Sq</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">F value</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Pr(<span class="process-math">\(&gt;\)</span>F)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">major</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">0.03</td>
+<td class="l m b0 r0 l0 t0 lines">0.015</td>
+<td class="l m b0 r0 l0 t0 lines">0.185</td>
+<td class="l m b0 r0 l0 t0 lines">0.8313</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Residuals</td>
+<td class="l m b0 r0 l0 t0 lines">195</td>
+<td class="l m b0 r0 l0 t0 lines">15.77</td>
+<td class="l m b0 r0 l0 t0 lines">0.081</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure> <div class="para logical" id="gpa_major-2-4">
+<ol class="lower-alpha lower-alpha-level-1" id="gpa_major-2-4-1">
+<li id="gpa_major-2-4-1-1">
+<div class="para" id="gpa_major-2-4-1-1-1">Write the hypotheses for testing for a difference between average GPA across majors.<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-2-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.5.a"><a href="#gpa_major-2-4-1-1" title="Copy heading and permalink for Item 7.5.7.5.a" aria-label="Copy heading and permalink for Item 7.5.7.5.a">🔗</a></div>
+</li>
+<li id="gpa_major-2-4-1-2">
+<div class="para" id="gpa_major-2-4-1-2-1">What is the conclusion of the hypothesis test?<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-2-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.5.b"><a href="#gpa_major-2-4-1-2" title="Copy heading and permalink for Item 7.5.7.5.b" aria-label="Copy heading and permalink for Item 7.5.7.5.b">🔗</a></div>
+</li>
+<li id="gpa_major-2-4-1-3">
+<div class="para" id="gpa_major-2-4-1-3-1">How many students answered these questions on the survey, i.e. what is the sample size?<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-2-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.5.c"><a href="#gpa_major-2-4-1-3" title="Copy heading and permalink for Item 7.5.7.5.c" aria-label="Copy heading and permalink for Item 7.5.7.5.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="gpa_major-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="gpa_major-3-1">
+<ol class="lower-alpha lower-alpha-level-1" id="gpa_major-3-1-1">
+<li id="gpa_major-3-1-1-1">
+<div class="para" id="gpa_major-3-1-1-1-1">
+<span class="process-math">\(H_0\text{:}\)</span> <span class="process-math">\(\mu_{\text{Arts}} = \mu_{\text{Natural}} = \mu_{\text{Social}}\text{.}\)</span> <span class="process-math">\(H_A\text{:}\)</span> At least one mean GPA is different.<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.5.a"><a href="#gpa_major-3-1-1-1" title="Copy heading and permalink for Item 7.5.7.5.a" aria-label="Copy heading and permalink for Item 7.5.7.5.a">🔗</a></div>
+</li>
+<li id="gpa_major-3-1-1-2">
+<div class="para" id="gpa_major-3-1-1-2-1">Since the p-value (0.8313) is much greater than 0.05, we fail to reject <span class="process-math">\(H_0\text{.}\)</span> The data do not provide convincing evidence of a difference in average GPA across majors.<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.5.b"><a href="#gpa_major-3-1-1-2" title="Copy heading and permalink for Item 7.5.7.5.b" aria-label="Copy heading and permalink for Item 7.5.7.5.b">🔗</a></div>
+</li>
+<li id="gpa_major-3-1-1-3">
+<div class="para" id="gpa_major-3-1-1-3-1">Total sample size = <span class="process-math">\(df_{\text{Total}} + 1 = (2 + 195) + 1 = 198\)</span> students.<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.5.c"><a href="#gpa_major-3-1-1-3" title="Copy heading and permalink for Item 7.5.7.5.c" aria-label="Copy heading and permalink for Item 7.5.7.5.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#gpa_major-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.5.1"><a href="#gpa_major-3" title="Copy heading and permalink for Solution 7.5.7.5.1" aria-label="Copy heading and permalink for Solution 7.5.7.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.5: GPA and major"><a href="#gpa_major" title="Copy heading and permalink for Exercise 7.5.7.5: GPA and major" aria-label="Copy heading and permalink for Exercise 7.5.7.5: GPA and major">🔗</a></div></article><article class="exercise exercise-like" id="work_hours_education"><h4 class="heading">
+<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work hours and education.</span>
+</h4>
+<div class="para" id="work_hours_education-2-1">The General Social Survey collects data on demographics, education, and work, among many other characteristics of US residents. Using ANOVA, we can consider educational attainment levels for all 1,172 respondents at once. Below are the distributions of hours worked by educational attainment and relevant summary statistics.<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="table table-like" id="work_hours_education-2-2"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Summary statistics by education level<div class="autopermalink" data-description="Table 7.5.27: Summary statistics by education level"><a href="#work_hours_education-2-2" title="Copy heading and permalink for Table 7.5.27: Summary statistics by education level" aria-label="Copy heading and permalink for Table 7.5.27: Summary statistics by education level">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Less than HS</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">HS</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Jr Coll</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Bachelor’s</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Graduate</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Mean</td>
+<td class="l m b0 r0 l0 t0 lines">38.67</td>
+<td class="l m b0 r0 l0 t0 lines">39.6</td>
+<td class="l m b0 r0 l0 t0 lines">41.39</td>
+<td class="l m b0 r0 l0 t0 lines">42.55</td>
+<td class="l m b0 r0 l0 t0 lines">40.85</td>
+<td class="l m b0 r0 l0 t0 lines">40.45</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">SD</td>
+<td class="l m b0 r0 l0 t0 lines">15.81</td>
+<td class="l m b0 r0 l0 t0 lines">14.97</td>
+<td class="l m b0 r0 l0 t0 lines">18.1</td>
+<td class="l m b0 r0 l0 t0 lines">13.62</td>
+<td class="l m b0 r0 l0 t0 lines">15.51</td>
+<td class="l m b0 r0 l0 t0 lines">15.17</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">n</td>
+<td class="l m b0 r0 l0 t0 lines">121</td>
+<td class="l m b0 r0 l0 t0 lines">546</td>
+<td class="l m b0 r0 l0 t0 lines">97</td>
+<td class="l m b0 r0 l0 t0 lines">253</td>
+<td class="l m b0 r0 l0 t0 lines">155</td>
+<td class="l m b0 r0 l0 t0 lines">1,172</td>
+</tr>
+</table></div></figure> <figure class="figure figure-like" id="work_hours_education-2-3"><div class="image-box" style="width: 78%; margin-left: 11%; margin-right: 11%;"><img src="external/ch_inference_for_means/eoce/work_hours_education/work_hours_education.png" class="contained" alt='Side-by-side box plot for "Hours worked per week" for five different levels of education. "Less than High School" has a box from about 31 to 46, a median of 40, and whiskers that extend down to 9 and up to 69. "High School" has a box from about 32 to 48, a median of 41, and whiskers that extend down to 33 and up to 49. "Junior College" has a box from about 31 to 50, a median of 42, and whiskers that extend down to 0 and up to 49. "Bachelor’s" has a box from about 42 to 50, a median of 42, and whiskers that extend down to 31 and up to 62. "Graduate" has a box from about 38 to 48, a median of 42, and whiskers that extend down to 20 and up to 72. All boxes have a few points extending beyond the whiskers, with the exception of Bachelor’s, which has a large number of points below the lower whisker extending close to 0.'></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.5.28<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 7.5.28"><a href="#work_hours_education-2-3" title="Copy heading and permalink for Figure 7.5.28" aria-label="Copy heading and permalink for Figure 7.5.28">🔗</a></div></figcaption></figure> <div class="para logical" id="work_hours_education-2-4">
+<ol class="lower-alpha lower-alpha-level-1" id="work_hours_education-2-4-1">
+<li id="work_hours_education-2-4-1-1">
+<div class="para" id="work_hours_education-2-4-1-1-1">Write hypotheses for evaluating whether the average number of hours worked varies across the five groups.<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-2-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.6.a"><a href="#work_hours_education-2-4-1-1" title="Copy heading and permalink for Item 7.5.7.6.a" aria-label="Copy heading and permalink for Item 7.5.7.6.a">🔗</a></div>
+</li>
+<li id="work_hours_education-2-4-1-2">
+<div class="para" id="work_hours_education-2-4-1-2-1">Check conditions and describe any assumptions you must make to proceed with the test.<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-2-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.6.b"><a href="#work_hours_education-2-4-1-2" title="Copy heading and permalink for Item 7.5.7.6.b" aria-label="Copy heading and permalink for Item 7.5.7.6.b">🔗</a></div>
+</li>
+<li id="work_hours_education-2-4-1-3">
+<div class="para" id="work_hours_education-2-4-1-3-1">What is the conclusion of the test? (The mean square for degree is 501.54 and the p-value is 0.0682.)<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-2-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.6.c"><a href="#work_hours_education-2-4-1-3" title="Copy heading and permalink for Item 7.5.7.6.c" aria-label="Copy heading and permalink for Item 7.5.7.6.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="work_hours_education-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="work_hours_education-3-1">
+<ol class="lower-alpha lower-alpha-level-1" id="work_hours_education-3-1-1">
+<li id="work_hours_education-3-1-1-1">
+<div class="para" id="work_hours_education-3-1-1-1-1">
+<span class="process-math">\(H_0\text{:}\)</span> <span class="process-math">\(\mu_{\text{less than HS}} = \mu_{\text{HS}} = \mu_{\text{Jr Coll}} = \mu_{\text{Bach}} = \mu_{\text{Grad}}\text{.}\)</span> <span class="process-math">\(H_A\text{:}\)</span> At least one mean is different.<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.6.a"><a href="#work_hours_education-3-1-1-1" title="Copy heading and permalink for Item 7.5.7.6.a" aria-label="Copy heading and permalink for Item 7.5.7.6.a">🔗</a></div>
+</li>
+<li id="work_hours_education-3-1-1-2">
+<div class="para" id="work_hours_education-3-1-1-2-1">Independence: The sample is from a random survey. We assume the General Social Survey used appropriate random sampling methods. Approximate normality: With large sample sizes in each group (all <span class="process-math">\(n_i \geq 30\)</span> except Jr Coll), the sampling distributions should be approximately normal by the CLT despite some outliers visible in the plots. Constant variance: The standard deviations are similar across groups (ranging from 13.62 to 18.1), suggesting reasonably constant variance.<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.6.b"><a href="#work_hours_education-3-1-1-2" title="Copy heading and permalink for Item 7.5.7.6.b" aria-label="Copy heading and permalink for Item 7.5.7.6.b">🔗</a></div>
+</li>
+<li id="work_hours_education-3-1-1-3">
+<div class="para" id="work_hours_education-3-1-1-3-1">Since the p-value (0.0682) is greater than 0.05, we fail to reject <span class="process-math">\(H_0\)</span> at the 5% significance level. The data do not provide convincing evidence of a difference in average hours worked across education levels.<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.6.c"><a href="#work_hours_education-3-1-1-3" title="Copy heading and permalink for Item 7.5.7.6.c" aria-label="Copy heading and permalink for Item 7.5.7.6.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#work_hours_education-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.6.1"><a href="#work_hours_education-3" title="Copy heading and permalink for Solution 7.5.7.6.1" aria-label="Copy heading and permalink for Solution 7.5.7.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.6: Work hours and education"><a href="#work_hours_education" title="Copy heading and permalink for Exercise 7.5.7.6: Work hours and education" aria-label="Copy heading and permalink for Exercise 7.5.7.6: Work hours and education">🔗</a></div></article><article class="exercise exercise-like" id="tf_anova_1"><h4 class="heading">
+<span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">True / False: ANOVA, Part I.</span>
+</h4>
+<div class="para" id="tf_anova_1-2-1">Determine if the following statements are true or false in ANOVA, and explain your reasoning for statements you identify as false.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="tf_anova_1-2-2">
+<ol class="lower-alpha lower-alpha-level-1" id="tf_anova_1-2-2-1">
+<li id="tf_anova_1-2-2-1-1">
+<div class="para" id="tf_anova_1-2-2-1-1-1">As the number of groups increases, the modified significance level for pairwise tests increases as well.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.a"><a href="#tf_anova_1-2-2-1-1" title="Copy heading and permalink for Item 7.5.7.7.a" aria-label="Copy heading and permalink for Item 7.5.7.7.a">🔗</a></div>
+</li>
+<li id="tf_anova_1-2-2-1-2">
+<div class="para" id="tf_anova_1-2-2-1-2-1">As the total sample size increases, the degrees of freedom for the residuals increases as well.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.b"><a href="#tf_anova_1-2-2-1-2" title="Copy heading and permalink for Item 7.5.7.7.b" aria-label="Copy heading and permalink for Item 7.5.7.7.b">🔗</a></div>
+</li>
+<li id="tf_anova_1-2-2-1-3">
+<div class="para" id="tf_anova_1-2-2-1-3-1">The constant variance condition can be somewhat relaxed when the sample sizes are relatively consistent across groups.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.c"><a href="#tf_anova_1-2-2-1-3" title="Copy heading and permalink for Item 7.5.7.7.c" aria-label="Copy heading and permalink for Item 7.5.7.7.c">🔗</a></div>
+</li>
+<li id="tf_anova_1-2-2-1-4">
+<div class="para" id="tf_anova_1-2-2-1-4-1">The independence assumption can be relaxed when the total sample size is large.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-2-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.d"><a href="#tf_anova_1-2-2-1-4" title="Copy heading and permalink for Item 7.5.7.7.d" aria-label="Copy heading and permalink for Item 7.5.7.7.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="tf_anova_1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="tf_anova_1-3-1">
+<ol class="lower-alpha lower-alpha-level-1" id="tf_anova_1-3-1-1">
+<li id="tf_anova_1-3-1-1-1">
+<div class="para" id="tf_anova_1-3-1-1-1-1">False. As the number of groups increases, we need to do more pairwise comparisons, so the modified significance level (using Bonferroni correction) decreases, not increases, to maintain the overall error rate.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.a"><a href="#tf_anova_1-3-1-1-1" title="Copy heading and permalink for Item 7.5.7.7.a" aria-label="Copy heading and permalink for Item 7.5.7.7.a">🔗</a></div>
+</li>
+<li id="tf_anova_1-3-1-1-2">
+<div class="para" id="tf_anova_1-3-1-1-2-1">True. The degrees of freedom for residuals is <span class="process-math">\(df_E = n - k\text{,}\)</span> where <span class="process-math">\(n\)</span> is the total sample size and <span class="process-math">\(k\)</span> is the number of groups. As <span class="process-math">\(n\)</span> increases, <span class="process-math">\(df_E\)</span> increases.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.b"><a href="#tf_anova_1-3-1-1-2" title="Copy heading and permalink for Item 7.5.7.7.b" aria-label="Copy heading and permalink for Item 7.5.7.7.b">🔗</a></div>
+</li>
+<li id="tf_anova_1-3-1-1-3">
+<div class="para" id="tf_anova_1-3-1-1-3-1">True. ANOVA is robust to violations of constant variance when sample sizes are equal or similar across groups.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.c"><a href="#tf_anova_1-3-1-1-3" title="Copy heading and permalink for Item 7.5.7.7.c" aria-label="Copy heading and permalink for Item 7.5.7.7.c">🔗</a></div>
+</li>
+<li id="tf_anova_1-3-1-1-4">
+<div class="para" id="tf_anova_1-3-1-1-4-1">False. The independence assumption is crucial and cannot be relaxed regardless of sample size. Large sample size does not fix dependence between observations.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.7.d"><a href="#tf_anova_1-3-1-1-4" title="Copy heading and permalink for Item 7.5.7.7.d" aria-label="Copy heading and permalink for Item 7.5.7.7.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.7.1"><a href="#tf_anova_1-3" title="Copy heading and permalink for Solution 7.5.7.7.1" aria-label="Copy heading and permalink for Solution 7.5.7.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.7: True / False: ANOVA, Part I"><a href="#tf_anova_1" title="Copy heading and permalink for Exercise 7.5.7.7: True / False: ANOVA, Part I" aria-label="Copy heading and permalink for Exercise 7.5.7.7: True / False: ANOVA, Part I">🔗</a></div></article><article class="exercise exercise-like" id="tf_anova_2"><h4 class="heading">
+<span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">True / False: ANOVA, Part II.</span>
+</h4>
+<div class="para" id="tf_anova_2-2-1">Determine if the following statements are true or false, and explain your reasoning for statements you identify as false.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="tf_anova_2-2-2">If the null hypothesis that the means of four groups are all the same is rejected using ANOVA at a 5% significance level, then...<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="tf_anova_2-2-3">
+<ol class="lower-alpha lower-alpha-level-1" id="tf_anova_2-2-3-1">
+<li id="tf_anova_2-2-3-1-1">
+<div class="para" id="tf_anova_2-2-3-1-1-1">we can then conclude that all the means are different from one another.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.a"><a href="#tf_anova_2-2-3-1-1" title="Copy heading and permalink for Item 7.5.7.8.a" aria-label="Copy heading and permalink for Item 7.5.7.8.a">🔗</a></div>
+</li>
+<li id="tf_anova_2-2-3-1-2">
+<div class="para" id="tf_anova_2-2-3-1-2-1">the standardized variability between groups is higher than the standardized variability within groups.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.b"><a href="#tf_anova_2-2-3-1-2" title="Copy heading and permalink for Item 7.5.7.8.b" aria-label="Copy heading and permalink for Item 7.5.7.8.b">🔗</a></div>
+</li>
+<li id="tf_anova_2-2-3-1-3">
+<div class="para" id="tf_anova_2-2-3-1-3-1">the pairwise analysis will identify at least one pair of means that are significantly different.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.c"><a href="#tf_anova_2-2-3-1-3" title="Copy heading and permalink for Item 7.5.7.8.c" aria-label="Copy heading and permalink for Item 7.5.7.8.c">🔗</a></div>
+</li>
+<li id="tf_anova_2-2-3-1-4">
+<div class="para" id="tf_anova_2-2-3-1-4-1">the appropriate <span class="process-math">\(\alpha\)</span> to be used in pairwise comparisons is 0.05 / 4 = 0.0125 since there are four groups.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.d"><a href="#tf_anova_2-2-3-1-4" title="Copy heading and permalink for Item 7.5.7.8.d" aria-label="Copy heading and permalink for Item 7.5.7.8.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="tf_anova_2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="tf_anova_2-3-1">
+<ol class="lower-alpha lower-alpha-level-1" id="tf_anova_2-3-1-1">
+<li id="tf_anova_2-3-1-1-1">
+<div class="para" id="tf_anova_2-3-1-1-1-1">False. Rejecting <span class="process-math">\(H_0\)</span> only tells us that at least one mean is different, not that all means are different from each other.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.a"><a href="#tf_anova_2-3-1-1-1" title="Copy heading and permalink for Item 7.5.7.8.a" aria-label="Copy heading and permalink for Item 7.5.7.8.a">🔗</a></div>
+</li>
+<li id="tf_anova_2-3-1-1-2">
+<div class="para" id="tf_anova_2-3-1-1-2-1">True. The <span class="process-math">\(F\)</span>-statistic is the ratio of between-group variability to within-group variability. A significant result means this ratio is large, indicating higher between-group variability.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.b"><a href="#tf_anova_2-3-1-1-2" title="Copy heading and permalink for Item 7.5.7.8.b" aria-label="Copy heading and permalink for Item 7.5.7.8.b">🔗</a></div>
+</li>
+<li id="tf_anova_2-3-1-1-3">
+<div class="para" id="tf_anova_2-3-1-1-3-1">False. It is possible that ANOVA detects a difference but pairwise comparisons (with adjusted significance levels) fail to identify which specific pairs are different. This can happen when multiple small differences combine to produce a significant overall effect.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.c"><a href="#tf_anova_2-3-1-1-3" title="Copy heading and permalink for Item 7.5.7.8.c" aria-label="Copy heading and permalink for Item 7.5.7.8.c">🔗</a></div>
+</li>
+<li id="tf_anova_2-3-1-1-4">
+<div class="para" id="tf_anova_2-3-1-1-4-1">False. With four groups, there are <span class="process-math">\(\binom{4}{2} = 6\)</span> pairwise comparisons. The Bonferroni correction would use <span class="process-math">\(\alpha = 0.05 / 6 \approx 0.0083\text{,}\)</span> not 0.0125.<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.5.7.8.d"><a href="#tf_anova_2-3-1-1-4" title="Copy heading and permalink for Item 7.5.7.8.d" aria-label="Copy heading and permalink for Item 7.5.7.8.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#tf_anova_2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 7.5.7.8.1"><a href="#tf_anova_2-3" title="Copy heading and permalink for Solution 7.5.7.8.1" aria-label="Copy heading and permalink for Solution 7.5.7.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 7.5.7.8: True / False: ANOVA, Part II"><a href="#tf_anova_2" title="Copy heading and permalink for Exercise 7.5.7.8: True / False: ANOVA, Part II" aria-label="Copy heading and permalink for Exercise 7.5.7.8: True / False: ANOVA, Part II">🔗</a></div></article><div class="autopermalink" data-description="Exercises 7.5.7: Exercises"><a href="#sec-anova-9" title="Copy heading and permalink for Exercises 7.5.7: Exercises" aria-label="Copy heading and permalink for Exercises 7.5.7: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 7.5: Comparing many means with ANOVA"><a href="#sec-anova" title="Copy heading and permalink for Section 7.5: Comparing many means with ANOVA" aria-label="Copy heading and permalink for Section 7.5: Comparing many means with ANOVA">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="PowerForDifferenceOfTwoMeans.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-ch07-review.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
