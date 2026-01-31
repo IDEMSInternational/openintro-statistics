@@ -1098,9 +1098,14 @@
           <p>
             Data were collected on life spans (in years) and gestation lengths (in days) for 62 mammals. A scatterplot of life span versus length of gestation is shown below.
           </p>
-          <p>
-            <em>Figure description:</em> A scatterplot of 62 points is shown. The variable "Gestation" is shown along the horizontal axis with a range of 0 days to about 650 days. The variable "Life Span" is shown along the vertical axis with a range of 0 years to 100 years. A large cluster of points is shown between 0 to 250 gestational days and 0 to 30 years. Outside of this cluster, there is one point at approximately (10, 50). There is another cluster of points between 250 and 450 gestational days and 25 and 50 years. Beyond the points so far described are three points located at (250 days, 100 years), (640 days, 70 years), and (650 days, 45 years).
-          </p>
+          <figure xml:id="fig-mammal-life-spans">
+            <caption>Scatterplot of life span versus gestation length for 62 mammals</caption>
+            <image source="ch2/eoce/mammal_life_spans/mammal_life_spans_scatterplot.png" width="70%">
+              <description>
+                A scatterplot of 62 points is shown. The variable "Gestation" is shown along the horizontal axis with a range of 0 days to about 650 days. The variable "Life Span" is shown along the vertical axis with a range of 0 years to 100 years. A large cluster of points is shown between 0 to 250 gestational days and 0 to 30 years. Outside of this cluster, there is one point at approximately (10, 50). There is another cluster of points between 250 and 450 gestational days and 25 and 50 years. Beyond the points so far described are three points located at (250 days, 100 years), (640 days, 70 years), and (650 days, 45 years).
+              </description>
+            </image>
+          </figure>
           <ol marker="a.">
             <li><p>What type of an association is apparent between life span and length of gestation?</p></li>
             <li><p>What type of an association would you expect to see if the axes of the plot were reversed, i.e. if we plotted length of gestation versus life span?</p></li>
@@ -1115,9 +1120,14 @@
           <p>
             Indicate which of the plots show (a) a positive association, (b) a negative association, or (c) no association. Also determine if the positive and negative associations are linear or nonlinear. Each part may refer to more than one plot.
           </p>
-          <p>
-            <em>Figure description:</em> Four scatterplots are shown and are labeled 1, 2, 3, and 4. There are no labeled axes on these plots, as only the patterns of the points in the plots are important for this exercise. In plot 1, the points are moderately clustered in the lower left corner of the plot and remain clustered looking further right in the plot, where the points follow steadily upwards to the top-right corner. In plot 2, the points appear to be scattered almost randomly all around the rectangular plotting region. Plot 3 shows points clustered tightly in the lower left corner and the data points remain clustered even as moving right, with the data trending upwards gradually and then more steeply as it reaches the right side of the plot. Plot 4, when looking on the left portion, shows data moderately clustered in the upper-left corner, which then steadily trends downward to the lower-right corner of the plot.
-          </p>
+          <figure xml:id="fig-association-plots">
+            <caption>Four scatterplots showing different types of associations</caption>
+            <image source="ch2/eoce/association_plots/association_plots.png" width="80%">
+              <description>
+                Four scatterplots are shown and are labeled 1, 2, 3, and 4. There are no labeled axes on these plots, as only the patterns of the points in the plots are important for this exercise. In plot 1, the points are moderately clustered in the lower left corner of the plot and remain clustered looking further right in the plot, where the points follow steadily upwards to the top-right corner. In plot 2, the points appear to be scattered almost randomly all around the rectangular plotting region. Plot 3 shows points clustered tightly in the lower left corner and the data points remain clustered even as moving right, with the data trending upwards gradually and then more steeply as it reaches the right side of the plot. Plot 4, when looking on the left portion, shows data moderately clustered in the upper-left corner, which then steadily trends downward to the lower-right corner of the plot.
+              </description>
+            </image>
+          </figure>
         </statement>
       </exercise>
 
@@ -1230,27 +1240,20 @@
           <p>
             Describe the distribution in the histograms below and match them to the box plots.
           </p>
-          <p>
-            <em>Figure description:</em> Six plots are shown, three histograms labeled a, b, and c, and 3 box plots labeled 1, 2, and 3.
-          </p>
-          <p>
-            Plot (a) shows a histogram with horizontal range for the data of 50 to 70. The data are bell-shaped and centered in the plot, with only a little data reaching close to the lower end of 50 and the upper end of 70.
-          </p>
-          <p>
-            Plot (b) shows another histogram, where the horizontal axis extends from 0 to 100, and the histogram bins are relatively steady in their height in the first bin near zero across the plot to the last bin near 100.
-          </p>
-          <p>
-            Plot (c) is a histogram with a horizontal axis running from 0 to about 7. The first few bins rise quickly to a peak at the horizontal location of 1 and then fall until reaching 2 and then decline much more gradually until about 4, where the bins are near zero and stay near zero for larger values.
-          </p>
-          <p>
-            Plot (1) is a box plot. The vertical axis for the box plot spans from 0 to about 7. The lower whisker is at 0, the box spans about 1 to 2, with the center line for the box plot at about 1.4. The upper whisker extends up to about 3.5, and then there are several points marked individually extending further upwards to about 7.
-          </p>
-          <p>
-            Plot (2) is a box plot with a vertical axis spanning about 50 to 70. The box for the plot is centered at 60 and runs from about 58 to 62. The whiskers span about 52 to 68. There are 2 individually points shown below 52 and about 4 points shown above 68.
-          </p>
-          <p>
-            Plot (3) is a box plot spanning from 0 to 100. The box is centered at about 50, and the box spans about 25 to 75. The whiskers extend down to 0 and up to 100.
-          </p>
+          <figure xml:id="fig-hist-box-match">
+            <caption>Three histograms and three box plots to match</caption>
+            <image source="ch2/eoce/hist_box_match/hist_box_match.png" width="80%">
+              <description>
+                Six plots are shown, three histograms labeled a, b, and c, and 3 box plots labeled 1, 2, and 3.
+                Plot (a) shows a histogram with horizontal range for the data of 50 to 70. The data are bell-shaped and centered in the plot, with only a little data reaching close to the lower end of 50 and the upper end of 70.
+                Plot (b) shows another histogram, where the horizontal axis extends from 0 to 100, and the histogram bins are relatively steady in their height in the first bin near zero across the plot to the last bin near 100.
+                Plot (c) is a histogram with a horizontal axis running from 0 to about 7. The first few bins rise quickly to a peak at the horizontal location of 1 and then fall until reaching 2 and then decline much more gradually until about 4, where the bins are near zero and stay near zero for larger values.
+                Plot (1) is a box plot. The vertical axis for the box plot spans from 0 to about 7. The lower whisker is at 0, the box spans about 1 to 2, with the center line for the box plot at about 1.4. The upper whisker extends up to about 3.5, and then there are several points marked individually extending further upwards to about 7.
+                Plot (2) is a box plot with a vertical axis spanning about 50 to 70. The box for the plot is centered at 60 and runs from about 58 to 62. The whiskers span about 52 to 68. There are 2 individually points shown below 52 and about 4 points shown above 68.
+                Plot (3) is a box plot spanning from 0 to 100. The box is centered at about 50, and the box spans about 25 to 75. The whiskers extend down to 0 and up to 100.
+              </description>
+            </image>
+          </figure>
         </statement>
       </exercise>
 
@@ -1260,9 +1263,14 @@
           <p>
             Daily air quality is measured by the air quality index (AQI) reported by the Environmental Protection Agency. This index reports the pollution level and what associated health effects might be a concern. The index is calculated for five major air pollutants regulated by the Clean Air Act and takes values from 0 to 300, where a higher value indicates lower air quality. AQI was reported for a sample of 91 days in 2011 in Durham, NC. The relative frequency histogram below shows the distribution of the AQI values on these days.
           </p>
-          <p>
-            <em>Figure description:</em> A histogram of "Daily AQI", where the horizontal axis for the data runs from about 5 to 65. The bin width is 5, there are 12 bins from 5 to 60, and the vertical axis shows proportions. The heights of the 12 bins, in order from left to right, are about 0.02 (for the bin 5 to 10), 0.06, 0.20, 0.06, 0.20, 0.15, 0.07, 0.04, 0.07, 0.08, 0.03, and 0.02 for the last bin for 60 to 65.
-          </p>
+          <figure xml:id="fig-air-quality-durham">
+            <caption>Relative frequency histogram of daily AQI values in Durham, NC</caption>
+            <image source="ch2/eoce/air_quality_durham/air_quality_durham_rel_freq_hist.png" width="70%">
+              <description>
+                A histogram of "Daily AQI", where the horizontal axis for the data runs from about 5 to 65. The bin width is 5, there are 12 bins from 5 to 60, and the vertical axis shows proportions. The heights of the 12 bins, in order from left to right, are about 0.02 (for the bin 5 to 10), 0.06, 0.20, 0.06, 0.20, 0.15, 0.07, 0.04, 0.07, 0.08, 0.03, and 0.02 for the last bin for 60 to 65.
+              </description>
+            </image>
+          </figure>
           <ol marker="a.">
             <li><p>Estimate the median AQI value of this sample.</p></li>
             <li><p>Would you expect the mean AQI value of this sample to be higher or lower than the median? Explain your reasoning.</p></li>
@@ -1278,9 +1286,14 @@
           <p>
             Estimate the median for the 400 observations shown in the histogram, and note whether you expect the mean to be higher or lower than the median.
           </p>
-          <p>
-            <em>Figure description:</em> A histogram is shown, with the horizontal axis for the data runs from 40 to 100, with a bin size width of 5. The frequencies for the bins are as follows, where counts are approximate: 2 (for bin 40 to 45), 4, 2, 10, 20, 25, 50, 75, 70, 85, 45, and 10 for the last bin from 95 to 100.
-          </p>
+          <figure xml:id="fig-estimate-mean-median-simple">
+            <caption>Histogram of 400 observations</caption>
+            <image source="ch2/eoce/estimate_mean_median_simple/estimate_mean_median_simple.png" width="70%">
+              <description>
+                A histogram is shown, with the horizontal axis for the data runs from 40 to 100, with a bin size width of 5. The frequencies for the bins are as follows, where counts are approximate: 2 (for bin 40 to 45), 4, 2, 10, 20, 25, 50, 75, 70, 85, 45, and 10 for the last bin from 95 to 100.
+              </description>
+            </image>
+          </figure>
         </statement>
       </exercise>
 
@@ -1290,15 +1303,16 @@
           <p>
             Compare the two plots below. What characteristics of the distribution are apparent in the histogram and not in the box plot? What characteristics are apparent in the box plot but not in the histogram?
           </p>
-          <p>
-            <em>Figure description:</em> Two plots are shown, first a histogram and second a box plot. The data for each plot runs from about 0 to 30.
-          </p>
-          <p>
-            The histogram has bins of width 2. The bins, starting at the lower values, shows an initial peak at about the horizontal location of 5, then declines to near the horizontal axis at 10, before rising again between 10 and 14, and then lower values again for bins between 15 to 30.
-          </p>
-          <p>
-            The box plot has its box centered at 10 and runs from about 5 to 12. The whiskers reach out to about 2 and up to about 22. There are a few points above the upper whisker.
-          </p>
+          <figure xml:id="fig-hist-vs-box">
+            <caption>Histogram and box plot of the same data</caption>
+            <image source="ch2/eoce/hist_vs_box/hist_vs_box.png" width="70%">
+              <description>
+                Two plots are shown, first a histogram and second a box plot. The data for each plot runs from about 0 to 30.
+                The histogram has bins of width 2. The bins, starting at the lower values, shows an initial peak at about the horizontal location of 5, then declines to near the horizontal axis at 10, before rising again between 10 and 14, and then lower values again for bins between 15 to 30.
+                The box plot has its box centered at 10 and runs from about 5 to 12. The whiskers reach out to about 2 and up to about 22. There are a few points above the upper whisker.
+              </description>
+            </image>
+          </figure>
         </statement>
       </exercise>
 
@@ -1346,9 +1360,14 @@
           <p>
             The first histogram below shows the distribution of the yearly incomes of 40 patrons at a college coffee shop. Suppose two new people walk into the coffee shop: one making $225,000 and the other $250,000. The second histogram shows the new income distribution. Summary statistics are also provided.
           </p>
-          <p>
-            <em>Figure description:</em> Two histograms are shown and are labeled 1 and 2. Plot 1 has a horizontal axis from $60,000 to $70,000. The bins, from left to right, generally rise steadily from frequencies of 2 to 3 at $60,000 to $62,000 and up to a peak of about 7 to 8 between $64,000 to $66,000. From here, the bin counts steadily decline down to about 2 for the last bin, $69,000 to $70,000. Plot (2) shows a histogram, with the horizontal axis running from about $60,000 to $260,000. The width of the bins are $1,000, like in the first plot, and the first 10 bins reflect those described in Plot (1). Two additional bins are shown at about $225,000 and $250,000, each with a bin height of 1.
-          </p>
+          <figure xml:id="fig-income-coffee-shop">
+            <caption>Income distributions at a coffee shop before and after two high earners arrive</caption>
+            <image source="ch2/eoce/income_coffee_shop/income_coffee_shop.png" width="80%">
+              <description>
+                Two histograms are shown and are labeled 1 and 2. Plot 1 has a horizontal axis from $60,000 to $70,000. The bins, from left to right, generally rise steadily from frequencies of 2 to 3 at $60,000 to $62,000 and up to a peak of about 7 to 8 between $64,000 to $66,000. From here, the bin counts steadily decline down to about 2 for the last bin, $69,000 to $70,000. Plot (2) shows a histogram, with the horizontal axis running from about $60,000 to $260,000. The width of the bins are $1,000, like in the first plot, and the first 10 bins reflect those described in Plot (1). Two additional bins are shown at about $225,000 and $250,000, each with a bin height of 1.
+              </description>
+            </image>
+          </figure>
           <table>
             <title>Summary statistics for income distributions</title>
             <tabular>
@@ -1421,12 +1440,29 @@
           <p>
             The US census collects data on time it takes Americans to commute to work, among many other variables. The histogram below shows the distribution of average commute times in 3,142 US counties in 2010. Also shown below is a spatial intensity map of the same data.
           </p>
-          <p>
-            <em>Figure description:</em> A histogram is shown, where the horizontal axis is for the variable "Mean work travel in minutes" spans approximately 0 to 50, with the vertical axis representing frequency with a peak value of about 200. The bins start with small bin heights on the left side, and the bin heights start increasing at about 10 and then rapidly ascend by 15 before leveling off and reaching a peak at about 22. The bins begin declining again about 24 gradually and then more rapidly around 26 to 29. At 30, the bins continue declining, but at a slower pace, before they level off near a height of 0 at about 35.
-          </p>
-          <p>
-            A spatial intensity map is shown of the United States. The legend for the shading runs from values of 4 to about 33. The shading for the eastern half of the country suggests slightly higher values, while the western portion of the upper midwest (North Dakota, South Dakota, and Nebraska) shows lower values. Other specific regions that show patterns of higher values than surrounding areas are in lower Florida and northern California.
-          </p>
+          <figure xml:id="fig-county-commute-times">
+            <caption>Distribution of average commute times in US counties</caption>
+            <sbsgroup widths="48% 48%" margins="auto" valign="top">
+              <sidebyside>
+                <figure xml:id="fig-county-commute-times-hist">
+                  <caption>Histogram</caption>
+                  <image source="ch2/eoce/county_commute_times/county_commute_times_hist.png" width="100%">
+                    <description>
+                      A histogram is shown, where the horizontal axis is for the variable "Mean work travel in minutes" spans approximately 0 to 50, with the vertical axis representing frequency with a peak value of about 200. The bins start with small bin heights on the left side, and the bin heights start increasing at about 10 and then rapidly ascend by 15 before leveling off and reaching a peak at about 22. The bins begin declining again about 24 gradually and then more rapidly around 26 to 29. At 30, the bins continue declining, but at a slower pace, before they level off near a height of 0 at about 35.
+                    </description>
+                  </image>
+                </figure>
+                <figure xml:id="fig-county-commute-times-map">
+                  <caption>Spatial intensity map</caption>
+                  <image source="ch2/eoce/county_commute_times/county_commute_times_map.png" width="100%">
+                    <description>
+                      A spatial intensity map is shown of the United States. The legend for the shading runs from values of 4 to about 33. The shading for the eastern half of the country suggests slightly higher values, while the western portion of the upper midwest (North Dakota, South Dakota, and Nebraska) shows lower values. Other specific regions that show patterns of higher values than surrounding areas are in lower Florida and northern California.
+                    </description>
+                  </image>
+                </figure>
+              </sidebyside>
+            </sbsgroup>
+          </figure>
           <ol marker="a.">
             <li><p>Describe the numerical distribution and comment on whether or not a log transformation may be advisable for these data.</p></li>
             <li><p>Describe the spatial distribution of commuting times using the map above.</p></li>
@@ -2183,9 +2219,14 @@
           <p>
             A random sample of registered voters from Tampa, FL were asked if they support the DREAM Act, a proposed law which would provide a path to citizenship for people brought illegally to the US as children. The survey also collected information on the political ideology of the respondents. Based on the mosaic plot shown below, do views on the DREAM Act and political ideology appear to be independent? Explain your reasoning.
           </p>
-          <p>
-            <em>Figure description:</em> A mosaic plot is shown. The square (or, more accurately, a rectangle in this case), is divided into three main categories as tall rectangles: Conservative (about 40% of the data), Moderate (about 40% of the data), and Liberal (about 20%). The tall rectangles are each divided into "Support", "Not Support", and "Not Sure". The "Support" category is about 45-50% for the Conservative and Moderate political groups and about 60-65% for Liberal. The "Not Support" category is about 40-45% for the Conservative and Moderate groups, while it is about 30% for the Liberal group. In all three of the main groupings, "Not sure" is about the same, representing about 5-10% of each political categories.
-          </p>
+          <figure xml:id="fig-dream-act-mosaic">
+            <caption>Mosaic plot of DREAM Act support by political ideology</caption>
+            <image source="ch2/eoce/dream_act_mosaic/dream_act_mosaic.png" width="70%">
+              <description>
+                A mosaic plot is shown. The square (or, more accurately, a rectangle in this case), is divided into three main categories as tall rectangles: Conservative (about 40% of the data), Moderate (about 40% of the data), and Liberal (about 20%). The tall rectangles are each divided into "Support", "Not Support", and "Not Sure". The "Support" category is about 45-50% for the Conservative and Moderate political groups and about 60-65% for Liberal. The "Not Support" category is about 40-45% for the Conservative and Moderate groups, while it is about 30% for the Liberal group. In all three of the main groupings, "Not sure" is about the same, representing about 5-10% of each political categories.
+              </description>
+            </image>
+          </figure>
         </statement>
       </exercise>
 
@@ -2195,9 +2236,14 @@
           <p>
             A random sample of registered voters nationally were asked whether they think it's better to raise taxes on the rich or raise taxes on the poor. The survey also collected information on the political party affiliation of the respondents. Based on the mosaic plot shown below, do views on raising taxes and political affiliation appear to be independent? Explain your reasoning.
           </p>
-          <p>
-            <em>Figure description:</em> A mosaic plot is shown for variables of political affiliation (main variable split) and opinion on whether to raise taxes on the rich, poor, or not sure. The political split, representing the main vertical splits in the mosaic plot, is roughly evenly split between Democrat, Republican, and Independent/Other, with perhaps a little more respondents in the Democrat group. The very large portion of the Democrat group -- about 85% -- overwhelmingly supports raising taxes on the rich, with only about 5% of this group supports raising taxes on the poor, and 5% are unsure. About 45-50% of the Republican and Independent/Other groups each support raising taxes on the rich, about 10% of these groups support raising taxes on the poor, and about 40-45% of each of these groups are not sure.
-          </p>
+          <figure xml:id="fig-raise-taxes-mosaic">
+            <caption>Mosaic plot of views on raising taxes by political affiliation</caption>
+            <image source="ch2/eoce/raise_taxes_mosaic/raise_taxes_mosaic.png" width="70%">
+              <description>
+                A mosaic plot is shown for variables of political affiliation (main variable split) and opinion on whether to raise taxes on the rich, poor, or not sure. The political split, representing the main vertical splits in the mosaic plot, is roughly evenly split between Democrat, Republican, and Independent/Other, with perhaps a little more respondents in the Democrat group. The very large portion of the Democrat group -- about 85% -- overwhelmingly supports raising taxes on the rich, with only about 5% of this group supports raising taxes on the poor, and 5% are unsure. About 45-50% of the Republican and Independent/Other groups each support raising taxes on the rich, about 10% of these groups support raising taxes on the poor, and about 40-45% of each of these groups are not sure.
+              </description>
+            </image>
+          </figure>
         </statement>
       </exercise>
 
