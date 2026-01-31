@@ -3162,9 +3162,12 @@
           <p>
             We use logistic regression to differentiate between possums in these two regions. The outcome variable, called <c>population</c>, takes value 1 when a possum is from Victoria and 0 when it is from New South Wales or Queensland. We consider five predictors: <c>sex_male</c> (an indicator for a possum being male), <c>head_length</c>, <c>skull_width</c>, <c>total_length</c>, and <c>tail_length</c>. Each variable is summarized in a histogram. The full logistic regression model and a reduced model after variable selection are summarized in the table.
           </p>
-          <p>
-            <em>Note: For the sex_male categorical variable, about 42 observations are "0 (female)" and 65 are "1 (male)". For head_length (in mm), the distribution is approximately bell-shaped, centered at about 93, with a standard deviation of about 3. For skull_width (in mm), the distribution is slightly right-skewed with its peak at about 56 and a standard deviation of about 3. For total_length (in cm), most values range from about 80 to 95. For tail_length (in cm), most data are between about 33 and 42. For the population categorical variable, about 58 observations are "0 (Not Victoria)" and 45 are "1 (Victoria)".</em>
-          </p>
+          <figure xml:id="fig-possum-variables">
+            <caption>Six plots showing the distributions of each predictor variable.</caption>
+            <image source="ch9/eoce/possum_classification_model_select/possum_variables.png" width="90%">
+              <description>Six plots are shown for the distributions of each predictor variable. For the sex_male categorical variable, about 42 observations are "0 (female)" and 65 are "1 (male)". For head_length (in mm), the distribution is approximately bell-shaped, centered at about 93, with a standard deviation of about 3. For skull_width (in mm), the distribution is slightly right-skewed with its peak at about 56 and a standard deviation of about 3. For total_length (in cm), most values range from about 80 to 95. For tail_length (in cm), most data are between about 33 and 42. For the population categorical variable, about 58 observations are "0 (Not Victoria)" and 45 are "1 (Victoria)".</description>
+            </image>
+          </figure>
           <tabular>
             <row>
               <cell></cell>
@@ -3497,9 +3500,12 @@
           <p>
             <xref ref="exer-challenger-disaster-model-select"/> introduced us to O-rings that were identified as a plausible explanation for the breakup of the Challenger space shuttle 73 seconds into takeoff in 1986. The investigation found that the ambient temperature at the time of the shuttle launch was closely related to the damage of O-rings, which are a critical component of the shuttle. See this earlier exercise if you would like to browse the original data.
           </p>
-          <p>
-            <em>Note: A scatterplot would show temperature (Fahrenheit) on the horizontal axis ranging from about 53 to 82, and probability of damage on the vertical axis ranging from about 0 to 0.8. One point below 55 has probability about 0.8. Three points between 55 and 65 have probabilities about 0.2. For the couple dozen points between 65 and 82, probabilities are almost all 0 with only a few values at 0.2.</em>
-          </p>
+          <figure xml:id="fig-challenger-disaster-damage-temp">
+            <caption>Scatterplot showing the relationship between temperature and probability of damage for O-rings.</caption>
+            <image source="ch9/eoce/challenger_disaster_predict/challenger_disaster_damage_temp.png" width="70%">
+              <description>A scatterplot is shown. The horizontal axis is "Temperature (Fahrenheit)" with values ranging from about 53 to 82. The vertical axis is "Probability of damage" with values ranging from about 0 to 0.8. Only one point has a temperature below 55, which has a probability of damage at about 0.8. Three points have temperature between 55 and 65, and these have probabilities of about 0.2. For the couple dozen points with temperature between 65 and 82, probabilities are almost all 0 with only a few values at 0.2.</description>
+            </image>
+          </figure>
           <p>
             <ol marker="a.">
               <li>
@@ -3688,9 +3694,12 @@
           <p>
             A student analyzed return-on-investment (ROI) for movies based on release year and genre of movies. The plots show the predicted ROI vs. actual ROI for each of the genres separately. Do these figures support the comment in the FiveThirtyEight.com article that states, <q>The return-on-investment potential for horror movies is absurd.</q> Note that the x-axis range varies for each plot.
           </p>
-          <p>
-            <em>Note: Five scatterplots would be shown, one for each genre of Action, Adventure, Comedy, Drama, and Horror. Each plot has "Actual ROI" on the horizontal axis and "Predicted ROI" on the vertical axis. The Action and Adventure scatterplots have nearly all points with Actual ROI ranging from about 0 to 5 with a handful between 5 and 15, and Predicted ROI always between about 2 and 3. The Comedy and Drama scatterplots have nearly all points with Actual ROI ranging from about 0 to 12 with a handful above 12, and Predicted ROI always between about 2.5 and 3.5. The Horror scatterplot has nearly all points with Actual ROI ranging from about 0 to 50 with a handful above 50, and Predicted ROI always between about 11 and 12.</em>
-          </p>
+          <figure xml:id="fig-movie-returns-by-genre">
+            <caption>Five scatterplots showing predicted ROI vs. actual ROI for each movie genre.</caption>
+            <image source="ch9/eoce/movie_returns_by_genre/horror_movies_by_genre.png" width="70%">
+              <description>Five scatterplots are shown, one for each genre of Action, Adventure, Comedy, Drama, and Horror. Each plot has "Actual ROI" on the horizontal axis and "Predicted ROI" on the vertical axis. The Action and Adventure scatterplots have nearly all points with Actual ROI ranging from about 0 to 5 with a handful between 5 and 15, and Predicted ROI always between about 2 and 3. The Comedy and Drama scatterplots have nearly all points with Actual ROI ranging from about 0 to 12 with a handful above 12, and Predicted ROI always between about 2.5 and 3.5. The Horror scatterplot has nearly all points with Actual ROI ranging from about 0 to 50 with a handful above 50, and Predicted ROI always between about 11 and 12.</description>
+            </image>
+          </figure>
         </statement>
       </exercise>
       
