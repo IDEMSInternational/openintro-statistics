@@ -1512,10 +1512,10 @@
       <p>
         <ol marker="(a)">
           <li>For each observation in one data set, there is exactly one specially corresponding observation in the other data set for the same geographic location. The data are paired.</li>
-          <li><m>H_0: \mu_{\text{diff}} = 0</m> (There is no difference in average number of days exceeding 90\textdegree{}F in 1948 and 2018 for NOAA stations.) <m>H_A: \mu_{\text{diff}} \neq 0</m> (There is a difference.).</li>
+          <li><m>H_0: \mu_{\text{diff}} = 0</m> (There is no difference in average number of days exceeding 90°{}F in 1948 and 2018 for NOAA stations.) <m>H_A: \mu_{\text{diff}} \neq 0</m> (There is a difference.).</li>
           <li>Locations were randomly sampled, so independence is reasonable. The sample size is at least 30, so we're just looking for particularly extreme outliers: none are present (the observation off left in the histogram would be considered a clear outlier, but not a particularly extreme one). Therefore, the conditions are satisfied.</li>
           <li><m>SE = 17.2 / \sqrt{197} = 1.23</m>. <m>T = \frac{2.9 - 0}{1.23} = 2.36</m> with degrees of freedom <m>df = 197 - 1 = 196</m>. This leads to a one-tail area of 0.0096 and a p-value of about 0.019.</li>
-          <li>Since the p-value is less than 0.05, we reject <m>H_0</m>. The data provide strong evidence that NOAA stations observed more 90\textdegree{}F days in 2018 than in 1948.</li>
+          <li>Since the p-value is less than 0.05, we reject <m>H_0</m>. The data provide strong evidence that NOAA stations observed more 90°{}F days in 2018 than in 1948.</li>
           <li>Type 1 Error, since we may have incorrectly rejected <m>H_0</m>. This error would mean that NOAA stations did not actually observe a decrease, but the sample we took just so happened to make it appear that this was the case.</li>
           <li>No, since we rejected <m>H_0</m>, which had a null value of 0.</li>
         </ol>
@@ -1527,7 +1527,7 @@
       <p>
         <ol marker="(a)">
           <li><m>SE = 1.23</m> and <m>t^{\star} = 1.65</m>. <m>2.9 \pm 1.65 \times 1.23 \to (0.87, 4.93)</m>.</li>
-          <li>We are 90\% confident that there was an increase of 0.87 to 4.93 in the average number of days that hit 90\textdegree{}F in 2018 relative to 1948 for NOAA stations.</li>
+          <li>We are 90\% confident that there was an increase of 0.87 to 4.93 in the average number of days that hit 90°{}F in 2018 relative to 1948 for NOAA stations.</li>
           <li>Yes, since the interval lies entirely above 0.</li>
         </ol>
       </p>

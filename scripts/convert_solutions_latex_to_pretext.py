@@ -19,6 +19,9 @@ def convert_latex_to_pretext(latex_content):
                      r'[Figure: \1]', content)
     content = re.sub(r'\\Figure\[[^\]]+\]\{[^}]+\}', '[Figure]', content)
     
+    # Handle LaTeX degree symbol
+    content = content.replace('\\textdegree', '°')
+    
     # Handle LaTeX math environments - convert to inline math or note
     # These typically need display math <md> or <me> tags in PreTeXt
     # First, protect them by replacing & with a placeholder
