@@ -145,7 +145,7 @@
       <figure xml:id="fig-die-prop">
         <caption>The fraction of die rolls that are 1 at each stage in a simulation. The proportion tends to 
           get closer to the probability <m>1/6 \approx 0.167</m> as the number of rolls increases.</caption>
-        <image source="ch_probability/figures/dieProp"/>
+        <image source="ch_probability/figures/dieProp/dieProp.png"/>
       </figure>
 
       <assemblage xml:id="law-large-numbers">
@@ -284,7 +284,7 @@
       <figure xml:id="fig-disjoint-sets">
         <caption>Three events, <m>A</m>, <m>B</m>, and <m>D</m>, consist of outcomes from rolling a die. <m>A</m> and 
           <m>B</m> are disjoint since they do not have any outcomes in common.</caption>
-        <image source="ch_probability/figures/disjointSets"/>
+        <image source="ch_probability/figures/disjointSets/disjointSets.png"/>
       </figure>
 
       <p>
@@ -355,7 +355,7 @@
 
       <figure xml:id="fig-deck-of-cards">
         <caption>Representations of the 52 unique cards in a deck.</caption>
-        <image source="ch_probability/figures/deckOfCards" width="85%"/>
+        <image source="ch_probability/figures/deckOfCards/deckOfCards.png" width="85%"/>
       </figure>
 
       <exercise xml:id="ex-diamond-face-card-prob">
@@ -388,7 +388,7 @@
 
       <figure xml:id="fig-cards-diamond-face-venn">
         <caption>A Venn diagram for diamonds and face cards.</caption>
-        <image source="ch_probability/figures/cardsDiamondFaceVenn" width="65%"/>
+        <image source="ch_probability/figures/cardsDiamondFaceVenn/cardsDiamondFaceVenn.png" width="65%"/>
       </figure>
 
       <p>
@@ -460,7 +460,7 @@
             and the number represented in the right circle is <m>950 + 545 = 1495</m>.
           </p>
           <figure>
-            <image source="ch_probability/figures/loans_app_type_home_venn" width="50%"/>
+            <image source="ch_probability/figures/loans_app_type_home_venn/loans_app_type_home_venn.png" width="50%"/>
           </figure>
         </solution>
       </exercise>
@@ -572,12 +572,12 @@
 
       <figure xml:id="fig-us-household-income-dist-bar">
         <caption>The probability distribution of US household income.</caption>
-        <image source="ch_probability/figures/usHouseholdIncomeDistBar" width="65%"/>
+        <image source="ch_probability/figures/usHouseholdIncomeDistBar/usHouseholdIncomeDistBar.png" width="65%"/>
       </figure>
 
       <figure xml:id="fig-dice-sum-dist">
         <caption>The probability distribution of the sum of two dice.</caption>
-        <image source="ch_probability/figures/diceSumDist" width="67%"/>
+        <image source="ch_probability/figures/diceSumDist/diceSumDist.png" width="67%"/>
       </figure>
 
       <p>
@@ -608,7 +608,7 @@
       <figure xml:id="fig-complement-of-d">
         <caption>Event <m>D=\{2, 3\}</m> and its complement, <m>D^c = \{1, 4, 5, 6\}</m>. <m>S</m> 
           represents the sample space, which is the set of all possible outcomes.</caption>
-        <image source="ch_probability/figures/complementOfD" width="55%"/>
+        <image source="ch_probability/figures/complementOfD/complementOfD.png" width="55%"/>
       </figure>
 
       <exercise xml:id="ex-complement-dice">
@@ -738,7 +738,7 @@
       <figure xml:id="fig-indep-for-rolling-two-1s">
         <caption><m>1/6</m> of the time, the first roll is a 1. Then <m>1/6</m> of <em>those</em> times, 
           the second roll will also be a 1.</caption>
-        <image source="ch_probability/figures/indepForRollingTwo1s" width="60%"/>
+        <image source="ch_probability/figures/indepForRollingTwo1s/indepForRollingTwo1s.png" width="60%"/>
       </figure>
 
       <example xml:id="ex-three-dice">
@@ -1383,7 +1383,7 @@
 
       <figure xml:id="fig-photo-classify-venn">
         <caption>A Venn diagram using boxes for the <c>photo_classify</c> data set.</caption>
-        <image source="ch_probability/figures/photoClassifyVenn" width="65%"/>
+        <image source="ch_probability/figures/photoClassifyVenn/photoClassifyVenn.png" width="65%"/>
       </figure>
 
       <example xml:id="ex-ml-classifier-accuracy">
@@ -1960,7 +1960,7 @@
 
       <figure xml:id="fig-smallpox-tree">
         <caption>A tree diagram of the <c>smallpox</c> data set.</caption>
-        <image source="ch_probability/figures/smallpoxTreeDiagram" width="93%"/>
+        <image source="ch_probability/figures/smallpoxTreeDiagram/smallpoxTreeDiagram.png" width="93%"/>
       </figure>
 
       <p>
@@ -1995,7 +1995,7 @@
             information into a tree diagram (shown below).
           </p>
           <figure>
-            <image source="ch_probability/figures/testTree" width="85%"/>
+            <image source="ch_probability/figures/testTree/testTree.png" width="85%"/>
           </figure>
           <p>
             Variables provided with marginal probabilities are often used to create the tree's primary branches; 
@@ -2037,7 +2037,7 @@
             <m>P(\text{construct tree diagram} \mid \text{passed}) = \frac{0.7566}{0.8820} = 0.8578</m>.
           </p>
           <figure>
-            <image source="ch_probability/figures/treeDiagramAndPass" width="70%"/>
+            <image source="ch_probability/figures/treeDiagramAndPass/treeDiagramAndPass.png" width="70%"/>
           </figure>
         </solution>
       </exercise>
@@ -2082,7 +2082,7 @@
             We can construct a tree diagram to organize these probabilities:
           </p>
           <figure>
-            <image source="ch_probability/figures/BreastCancerTreeDiagram" width="90%"/>
+            <image source="ch_probability/figures/BreastCancerTreeDiagram/BreastCancerTreeDiagram.png" width="90%"/>
           </figure>
           <p>
             The probability the patient has breast cancer and the mammogram is positive is:
@@ -2188,7 +2188,7 @@
             full, there is a 56% probability that there is a sporting event.
           </p>
           <figure>
-            <image source="ch_probability/figures/treeDiagramGarage" width="65%"/>
+            <image source="ch_probability/figures/treeDiagramGarage/treeDiagramGarage.png" width="65%"/>
           </figure>
         </solution>
       </exercise>
@@ -3207,7 +3207,7 @@
       <figure xml:id="fig-book-cost-dist">
         <caption>Probability distribution for the bookstore's revenue from one student. 
           The triangle represents the average revenue per student.</caption>
-        <image source="ch_probability/figures/bookCostDist" width="60%"/>
+        <image source="ch_probability/figures/bookCostDist/bookCostDist.png" width="60%"/>
       </figure>
 
       <example xml:id="ex-rev-per-student">
@@ -3700,7 +3700,7 @@
       <figure xml:id="fig-leonard-portfolio-monthly">
         <caption>The change in a portfolio like Leonard's for 36 months, where $6000 is in Caterpillar's 
           stock and $2000 is in Exxon Mobil's.</caption>
-        <image source="ch_probability/figures/changeInLeonardsStockPortfolioFor36Months" width="60%"/>
+        <image source="ch_probability/figures/changeInLeonardsStockPortfolioFor36Months/changeInLeonardsStockPortfolioFor36Months.png" width="60%"/>
       </figure>
 
       <p>
@@ -4002,7 +4002,7 @@
 
     <figure xml:id="fig-fdic-histograms">
       <caption>Four hollow histograms of US adults heights with varying bin widths</caption>
-      <image source="ch_probability/figures/fdicHistograms" width="95%"/>
+      <image source="ch_probability/figures/fdicHistograms/fdicHistograms.png" width="95%"/>
     </figure>
 
     <example xml:id="ex-height-180-185">
@@ -4028,7 +4028,7 @@
     <figure xml:id="fig-us-heights-180-185">
       <caption>A histogram with bin sizes of 2.5 cm. The shaded region represents individuals with 
         heights between 180 and 185 cm.</caption>
-      <image source="ch_probability/figures/usHeightsHist180185" width="90%"/>
+      <image source="ch_probability/figures/usHeightsHist180185/usHeightsHist180185.png" width="90%"/>
     </figure>
 
     <subsection xml:id="subsec-histograms-to-continuous">
@@ -4050,7 +4050,7 @@
 
       <figure xml:id="fig-fdic-height-cont-dist">
         <caption>The continuous probability distribution of heights for US adults.</caption>
-        <image source="ch_probability/figures/fdicHeightContDist" width="90%"/>
+        <image source="ch_probability/figures/fdicHeightContDist/fdicHeightContDist.png" width="90%"/>
       </figure>
     </subsection>
 
@@ -4072,7 +4072,7 @@
       <figure xml:id="fig-fdic-height-filled">
         <caption>Density for heights in the US adult population with the area between 180 and 185 cm shaded. 
           Compare this plot with <xref ref="fig-us-heights-180-185"/>.</caption>
-        <image source="ch_probability/figures/fdicHeightContDistFilled" width="70%"/>
+        <image source="ch_probability/figures/fdicHeightContDistFilled/fdicHeightContDistFilled.png" width="70%"/>
       </figure>
 
       <exercise xml:id="ex-height-three-adults">
