@@ -3261,7 +3261,21 @@
       <p>
         In physics, the expectation holds the same meaning as the center of gravity. The distribution can be 
         represented by a series of weights at each outcome, and the mean represents the balancing point.
+        This is represented in <xref ref="fig-book-cost-dist"/> and <xref ref="fig-book-wts"/>. The idea of 
+        a center of gravity also expands to continuous probability distributions. <xref ref="fig-cont-balance"/> 
+        shows a continuous probability distribution balanced atop a wedge placed at the mean.
       </p>
+
+      <figure xml:id="fig-book-wts">
+        <caption>A weight system representing the probability distribution for <m>X</m>. The string holds the 
+        distribution at the mean to keep the system balanced.</caption>
+        <image source="ch_probability/figures/bookWts/bookWts.png" width="72%"/>
+      </figure>
+
+      <figure xml:id="fig-cont-balance">
+        <caption>A continuous distribution can also be balanced at its mean.</caption>
+        <image source="ch_probability/figures/contBalance/contBalance.png" width="68%"/>
+      </figure>
     </subsection>
 
     <subsection xml:id="subsec-variability-random-variables">
@@ -4141,6 +4155,10 @@
           <p>
             The histogram shown below represents the weights (in kg) of 47 female and 97 male cats.
           </p>
+          <figure xml:id="fig-cat-weights">
+            <caption>Histogram of cat weights</caption>
+            <image source="ch_probability/figures/eoce/cat_weights/cat_weights.png" width="70%"/>
+          </figure>
           <p>
             <ol marker="a.">
               <li>
