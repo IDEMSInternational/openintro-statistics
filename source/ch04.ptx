@@ -27,7 +27,7 @@
 
       <figure xml:id="fig-simple-normal">
         <caption>A normal curve</caption>
-        <image source="ch_distributions/figures/simpleNormal"/>
+        <image source="ch_distributions/figures/simpleNormal/simpleNormal.png"/>
       </figure>
 
       <p>
@@ -52,12 +52,12 @@
 
       <figure xml:id="fig-two-sample-normals">
         <caption>Both curves represent the normal distribution. However, they differ in their center and spread.</caption>
-        <image source="ch_distributions/figures/twoSampleNormals"/>
+        <image source="ch_distributions/figures/twoSampleNormals/twoSampleNormals.png"/>
       </figure>
 
       <figure xml:id="fig-two-sample-normals-stacked">
         <caption>The normal distributions shown in <xref ref="fig-two-sample-normals"/> but plotted together and on the same scale.</caption>
-        <image source="ch_distributions/figures/twoSampleNormalsStacked"/>
+        <image source="ch_distributions/figures/twoSampleNormalsStacked/twoSampleNormalsStacked.png"/>
       </figure>
 
       <p>
@@ -156,7 +156,7 @@
 
       <figure xml:id="fig-sat-act-normals">
         <caption>Ann's and Tom's scores shown against the SAT and ACT distributions.</caption>
-        <image source="ch_distributions/figures/satActNormals"/>
+        <image source="ch_distributions/figures/satActNormals/satActNormals.png"/>
       </figure>
 
       <p>
@@ -281,7 +281,7 @@
 
       <figure xml:id="fig-sat-below-1300">
         <caption>The area to the left of <m>Z</m> represents the fraction of people who scored lower than Ann.</caption>
-        <image source="ch_distributions/figures/satBelow1300"/>
+        <image source="ch_distributions/figures/satBelow1300/satBelow1300.png"/>
       </figure>
 
       <p>
@@ -355,7 +355,7 @@
 
           <figure xml:id="fig-sat-above-1190">
             <caption>Shading the upper tail above 1190</caption>
-            <image source="ch_distributions/figures/satAbove1190"/>
+            <image source="ch_distributions/figures/satAbove1190/satAbove1190.png"/>
           </figure>
 
           <p>
@@ -373,7 +373,7 @@
 
           <figure xml:id="fig-subtracting-area">
             <caption>Computing the upper tail area</caption>
-            <image source="ch_distributions/figures/subtractingArea"/>
+            <image source="ch_distributions/figures/subtractingArea/subtractingArea.png"/>
           </figure>
 
           <p>
@@ -424,7 +424,7 @@
 
           <figure xml:id="fig-sat-below-1030">
             <caption>Shading the lower tail below 1030</caption>
-            <image source="ch_distributions/figures/satBelow1030"/>
+            <image source="ch_distributions/figures/satBelow1030/satBelow1030.png"/>
           </figure>
 
           <p>
@@ -521,7 +521,7 @@
 
           <figure xml:id="fig-height-40-perc">
             <caption>Finding the height at the 40th percentile</caption>
-            <image source="ch_distributions/figures/height40Perc"/>
+            <image source="ch_distributions/figures/height40Perc/height40Perc.png"/>
           </figure>
 
           <p>
@@ -559,7 +559,7 @@
 
           <figure xml:id="fig-height-82-perc">
             <caption>Finding the height at the 82nd percentile</caption>
-            <image source="ch_distributions/figures/height82Perc"/>
+            <image source="ch_distributions/figures/height82Perc/height82Perc.png"/>
           </figure>
 
           <p>
@@ -623,7 +623,7 @@
 
           <figure xml:id="fig-between-59-and-62">
             <caption>Finding area between two values</caption>
-            <image source="ch_distributions/figures/between59And62"/>
+            <image source="ch_distributions/figures/between59And62/between59And62.png"/>
           </figure>
 
           <p>
@@ -634,7 +634,7 @@
 
           <figure xml:id="fig-subtracting-2-areas">
             <caption>Subtracting the tail areas from 1</caption>
-            <image source="ch_distributions/figures/subtracting2Areas"/>
+            <image source="ch_distributions/figures/subtracting2Areas/subtracting2Areas.png"/>
           </figure>
 
           <p>
@@ -1210,7 +1210,7 @@
         <caption>
           The geometric distribution when the probability of success is <m>p = 0.7</m>
         </caption>
-        <image source="ch_distributions/figures/geometricDist70"/>
+        <image source="ch_distributions/figures/geometricDist70/geometricDist70.png"/>
       </figure>
 
       <p>
@@ -1963,7 +1963,7 @@
           Hollow histograms of samples from the binomial model when <m>p=0.10</m>. The sample 
           sizes for the four plots are <m>n=10</m>, 30, 100, and 300, respectively.
         </caption>
-        <image source="ch_distributions/figures/fourBinomialModelsShowingApproxToNormal"/>
+        <image source="ch_distributions/figures/fourBinomialModelsShowingApproxToNormal/fourBinomialModelsShowingApproxToNormal.png"/>
       </figure>
 
       <blockquote>
@@ -2057,7 +2057,7 @@
           A normal curve with the area between 49 and 51 shaded. The outlined area represents 
           the exact binomial probability.
         </caption>
-        <image source="ch_distributions/figures/normApproxToBinomFail"/>
+        <image source="ch_distributions/figures/normApproxToBinomFail/normApproxToBinomFail.png"/>
       </figure>
 
       <blockquote>
