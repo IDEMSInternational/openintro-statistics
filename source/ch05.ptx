@@ -1515,6 +1515,7 @@ sum(sampled_entries == "support") / 1000
       <title>Section 5.2 Exercises</title>
 
       <exercise xml:id="ex-chronic-illness-intro">
+       <title>Chronic illness, Part I.</title>
         <statement>
           <p>
             In 2013, the Pew Research Foundation reported that "45% of U.S. adults report
@@ -1530,6 +1531,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-twitter-users-intro">
+       <title>Twitter users and news. Part I.</title>
         <statement>
           <p>
             A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at
@@ -1543,6 +1545,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-chronic-illness-tf">
+       <title>Chronic illness, Part II.</title>
         <statement>
           <p>
             In 2013, the Pew Research Foundation reported that "45% of U.S. adults report
@@ -1568,6 +1571,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-twitter-users-tf">
+       <title>Twitter users and news, Part II.</title>
         <statement>
           <p>
             A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at
@@ -1593,6 +1597,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-er-wait-intro">
+       <title>Waiting at an ER, Part I.</title>
         <statement>
           <p>
             A hospital administrator hoping to improve wait times decides to estimate the
@@ -1621,6 +1626,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-mental-health">
+       <title>Mental health.</title>
         <statement>
           <p>
             The General Social Survey asked the question: "For how many days during the
@@ -1643,6 +1649,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-website-registration">
+       <title>Website registration</title>
         <statement>
           <p>
             A website is trying to increase registration for first-time visitors,
@@ -1661,6 +1668,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-store-coupon">
+       <title>Coupons driving visits</title>
         <statement>
           <p>
             A store randomly samples 603 shoppers over the course of a year and finds
@@ -2787,6 +2795,7 @@ sum(sampled_entries == "support") / 1000
       <title>Section 5.3 Exercises</title>
 
       <exercise xml:id="ex-identify-hypotheses-1">
+       <title>Identify hypotheses, Part I.</title>
         <statement>
           <p>
             Write the null and alternative hypotheses in words and then symbols for each
@@ -2810,6 +2819,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-identify-hypotheses-2">
+       <title>Identify hypotheses, Part II.</title>
         <statement>
           <p>
             Write the null and alternative hypotheses in words and using symbols for
@@ -2834,6 +2844,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-online-communication">
+       <title>Online communication.</title>
         <statement>
           <p>
             A study suggests that 60% of college students spend 10 or more hours per week
@@ -2852,6 +2863,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-married-at-25">
+       <title>Married at 25.</title>
         <statement>
           <p>
             A study suggests that 25% of 25 year olds have gotten married. You
@@ -2869,6 +2881,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-cyberbullying-rates">
+       <title>Cyberbullying rates.</title>
         <statement>
           <p>
             Teens were surveyed about cyberbullying, and 54% to 64% reported
@@ -2890,6 +2903,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-er-wait-ci-ht">
+       <title>Waiting at an ER, Part II.</title>
         <statement>
           <p>
             The ER wait time exercise provides a 95% confidence interval for the mean
@@ -2911,6 +2925,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-minimum-wage-1">
+       <title>Minimum wage, Part I.</title>
         <statement>
           <p>
             Do a majority of US adults believe raising the minimum wage will help the
@@ -2923,6 +2938,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-getting-enough-sleep">
+       <title>Getting enough sleep.</title>
         <statement>
           <p>
             400 students were randomly sampled from a large university, and 289 said they
@@ -2934,6 +2950,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-working-backwards-1">
+       <title>Working backwards, Part I.</title>
         <statement>
           <p>
             You are given the following hypotheses:
@@ -2951,6 +2968,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-working-backwards-2">
+       <title>Working backwards, Part II.</title>
         <statement>
           <p>
             You are given the following hypotheses:
@@ -2968,6 +2986,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-testing-fibromyalgia">
+       <title>Testing for Fibromyalgia.</title>
         <statement>
           <p>
             A patient named Diana was diagnosed with Fibromyalgia, a long-term syndrome
@@ -2987,6 +3006,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-which-is-higher">
+       <title>Which is higher?</title>
         <statement>
           <p>
             In each part below, there is a value of interest and two scenarios (I and
@@ -3009,32 +3029,12 @@ sum(sampled_entries == "support") / 1000
   </section>
 
   <!-- Section 5.4: Chapter 5 review exercises -->
-  <section xml:id="sec-ch05-review">
-    <title>Chapter 5 Review Exercises</title>
-    
-    <p>
-      This chapter introduced the foundational concepts of statistical inference:
-    </p>
-    
-    <ul>
-      <li><strong>Point estimates</strong> provide single best guesses for population
-          parameters, but come with sampling error.</li>
-      <li><strong>Confidence intervals</strong> provide a range of plausible values for
-          parameters, accounting for sampling variability.</li>
-      <li><strong>Hypothesis tests</strong> allow us to formally evaluate claims about
-          population parameters using sample data.</li>
-    </ul>
-    
-    <p>
-      These methods all rely on the Central Limit Theorem, which tells us that sample
-      proportions follow an approximately normal distribution when certain conditions
-      are met. The same framework extends to other parameters beyond proportions.
-    </p>
-    
+  <section xml:id="sec-ch05-review">    
     <exercises>
       <title>Review Exercises</title>
       
       <exercise xml:id="ex-relax-after-work">
+       <title>Relaxing after work.</title>
         <statement>
           <p>
             The General Social Survey asked the question:
@@ -3059,6 +3059,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-minimum-wage-2">
+       <title>Minimum wage, Part II.</title>
         <statement>
           <p>
             In <xref ref="ex-minimum-wage-1"/>,
@@ -3072,6 +3073,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-testing-food-safety">
+       <title>Testing for food safety.</title>
         <statement>
           <p>
             A food safety inspector 
@@ -3094,6 +3096,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-true-false-review">
+       <title>True or false?</title>
         <statement>
           <p>
             Determine if the following statements are true or false, and 
@@ -3115,6 +3118,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-unemployment-relationship">
+       <title>Unemployment and relationship problems.</title>
         <statement>
           <p>
             A USA Today/Gallup poll asked a group of
@@ -3140,6 +3144,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-nearsighted">
+       <title>Nearsighted.</title>
         <statement>
           <p>
             It is believed that nearsightedness affects about 8% of 
@@ -3152,6 +3157,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-nutrition-labels">
+       <title>Nutrition labels.</title>
         <statement>
           <p>
             The nutrition label on a bag of potato chips says
@@ -3169,6 +3175,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-clt-proportions">
+       <title>CLT for proportions.</title>
         <statement>
           <p>
             Define the term <q>sampling distribution</q> of the sample proportion,
@@ -3179,6 +3186,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-practical-vs-statistical">
+       <title>Practical vs statistical significance.</title>
         <statement>
           <p>
             Determine whether the following statement is true
@@ -3191,6 +3199,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-same-obs-diff-n">
+       <title>Same observation, different sample size.</title>
         <statement>
           <p>
             Suppose you 
@@ -3203,6 +3212,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-gender-pay-gap">
+       <title>Gender pay gap in medicine.</title>
         <statement>
           <p>
             A study examined the average pay for men and women
