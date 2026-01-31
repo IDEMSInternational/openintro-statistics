@@ -707,17 +707,19 @@
             <m>t</m>-distribution with 1 degree of freedom. Determine which is which, and explain your 
             reasoning.
           </p>
-          <p>
-            <!-- TODO: Add figure reference - Three distributions are shown, all symmetric, bell-shaped, 
-            and centered at zero. The first is shown as a solid line and has the broadest peak of the three 
-            distributions, and the tails of this distribution also visually approach zero at about -3 and 
-            positive 3. The second curve that is shown as a dashed line has a less broad, slightly sharper 
-            peak than the distribution based on solid line. The tails of the distribution with the dashed 
-            line has tails that visually approach zero at values of about -4 and positive 4. The third curve 
-            is shown as a dotted line and has the sharpest peak of the three distributions. The tails of the 
-            dotted line distribution has tails that visually approach zero further out, beyond the limits 
-            shown in this plot of -4 and positive 4. -->
-          </p>
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/t_distribution/t_distribution.png" width="70%">
+              <description>Three distributions are shown, all symmetric, bell-shaped, 
+              and centered at zero. The first is shown as a solid line and has the broadest peak of the three 
+              distributions, and the tails of this distribution also visually approach zero at about -3 and 
+              positive 3. The second curve that is shown as a dashed line has a less broad, slightly sharper 
+              peak than the distribution based on solid line. The tails of the distribution with the dashed 
+              line has tails that visually approach zero at values of about -4 and positive 4. The third curve 
+              is shown as a dotted line and has the sharpest peak of the three distributions. The tails of the 
+              dotted line distribution has tails that visually approach zero further out, beyond the limits 
+              shown in this plot of -4 and positive 4.</description>
+            </image>
+          </figure>
         </statement>
       </exercise>
       
@@ -822,12 +824,14 @@
             measurements, as well as age, weight, height and gender, for 507 physically active individuals.
             The histogram below shows the sample distribution of heights in centimeters.
           </p>
-          <p>
-            <!-- TODO: Add figure - A histogram is shown for "Height" with values ranging from 140 to 200, 
-            with a bin width of 5. The distribution is roughly symmetric with a center at about 170. The bin 
-            heights, starting with the bin from 145 to 150, are about 3, 17, 55, 70, 100, 85, 95, 50, 30, 15, 
-            and 3. -->
-          </p>
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/adult_heights/adult_heights_hist.png" width="70%">
+              <description>A histogram is shown for "Height" with values ranging from 140 to 200, 
+              with a bin width of 5. The distribution is roughly symmetric with a center at about 170. The bin 
+              heights, starting with the bin from 145 to 150, are about 3, 17, 55, 70, 100, 85, 95, 50, 30, 15, 
+              and 3.</description>
+            </image>
+          </figure>
           <p>
             Summary statistics:
           </p>
@@ -1167,11 +1171,13 @@
             To visualize the p-value, the sampling distribution of <m>\bar{x}_{\text{diff}}</m> is
             drawn as though <m>H_0</m> is true, and the p-value is represented by the two shaded tails:
           </p>
-          <p>
-            <!-- TODO: Add figure - A bell-shaped distribution is shown, with a center of mu-sub-0, 
-            which has a value of 0. The area under the distribution above x-bar-sub-diff equals 3.58 
-            is shaded, as is the corresponding tail below -3.58. -->
-          </p>
+          <figure>
+            <image source="ch_inference_for_means/figures/textbooksF18/textbooksF18HTTails.png" width="70%">
+              <description>A bell-shaped distribution is shown, with a center of mu-sub-0, 
+              which has a value of 0. The area under the distribution above x-bar-sub-diff equals 3.58 
+              is shaded, as is the corresponding tail below -3.58.</description>
+            </image>
+          </figure>
           <p>
             The degrees of freedom is <m>df = 68 - 1 = 67</m>. Using statistical software, we find the
             one-tail area of 0.0156. Doubling this area gives the p-value: 0.0312.
@@ -1302,13 +1308,15 @@
             strong evidence that there were more days in 2018 that exceeded 90°F from NOAA's weather
             stations.
           </p>
-          <p>
-            <!-- TODO: Add histogram figure - A histogram is shown for "Differences in Number of Days", 
-            which has bins between -70 and 60, where the bin width is 10. There is a prominent peak around 
-            zero, where much of the data lies between -40 and positive 40. The non-zero bins beyond this 
-            range are -70 to -60 has a bin height of 1, the 40 to 50 bin has a bin height of 2, and the 50 
-            to 60 bin has a bin height of 1. -->
-          </p>
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/global_warming_v2_1/global_warming_v2_1_diffs.png" width="70%">
+              <description>A histogram is shown for "Differences in Number of Days", 
+              which has bins between -70 and 60, where the bin width is 10. There is a prominent peak around 
+              zero, where much of the data lies between -40 and positive 40. The non-zero bins beyond this 
+              range are -70 to -60 has a bin height of 1, the 40 to 50 bin has a bin height of 2, and the 50 
+              to 60 bin has a bin height of 1.</description>
+            </image>
+          </figure>
           <ol>
             <li>Is there a relationship between the observations collected in 1948 and 2018? Or are the
             observations in the two groups independent? Explain.</li>
@@ -1334,19 +1342,23 @@
             random sample of 200 students from this survey. Side-by-side box plots of reading and writing
             scores as well as a histogram of the differences in scores are shown below.
           </p>
-          <p>
-            <!-- TODO: Add figures - Side-by-side box plot with dot plots also overlaid for each box plot. 
-            There are two categories shown, "read" and "write", for values ranging from about 27 to 77. The 
-            box portion of each distribution is nearly identical, ranging from about 45 to 60. The median of 
-            "read" is about 49 while the median of "write" is about 53. The whiskers for "read" extend down 
-            to about 27 and up to 77, while the whiskers for "write" extend down to about 32 and up to about 
-            67. No points are shown beyond the whiskers for either box plot. -->
-          </p>
-          <p>
-            <!-- TODO: Add histogram - A histogram is shown for "Difference in scores (read minus write)", 
-            which is centered at approximately zero and is roughly bell-shaped with values ranging from -25 
-            to positive 25. -->
-          </p>
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/hs_beyond_1/hs_beyond_read_write_box.png" width="70%">
+              <description>Side-by-side box plot with dot plots also overlaid for each box plot. 
+              There are two categories shown, "read" and "write", for values ranging from about 27 to 77. The 
+              box portion of each distribution is nearly identical, ranging from about 45 to 60. The median of 
+              "read" is about 49 while the median of "write" is about 53. The whiskers for "read" extend down 
+              to about 27 and up to 77, while the whiskers for "write" extend down to about 32 and up to about 
+              67. No points are shown beyond the whiskers for either box plot.</description>
+            </image>
+          </figure>
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/hs_beyond_1/hs_beyond_diff_hist.png" width="70%">
+              <description>A histogram is shown for "Difference in scores (read minus write)", 
+              which is centered at approximately zero and is roughly bell-shaped with values ranging from -25 
+              to positive 25.</description>
+            </image>
+          </figure>
           <ol>
             <li>Is there a clear difference in the average reading and writing scores?</li>
             <li>Are the reading and writing scores of each student independent of each other?</li>
@@ -2143,9 +2155,11 @@
             In the early 1990's, researchers in the UK collected data on traffic flow, number of shoppers, and traffic accident related emergency room admissions on Friday the 13<m>^{\text{th}}</m> and the previous Friday, Friday the 6<m>^{\text{th}}</m>. The histograms below show the distribution of number of cars passing by a specific intersection on Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m> for many such date pairs. Also given are some sample statistics, where the difference is the number of cars on the 6th minus the number of cars on the 13th.
           </p>
           
-          <!-- TODO: Add figure - Three histograms showing Friday 6th, Friday 13th, and Difference distributions
-               Alt text: Three histograms are shown. The first histogram is for "Friday the 6th", which has values ranging from 110,000 to 140,000. The second histogram is for "Friday the 13th", which also has values ranging from 110,000 to 140,000. The third histogram is for "Difference", with values ranging from 0 to 5,000. While the first two distributions are relatively uniform across the range, the last distribution has most of its distribution ranging between 0 and 3,000, with one observation in the 4,000 to 5,000 bin.
-               Source: ch_inference_for_means/figures/eoce/friday_13th_traffic/friday_13th_traffic_hist -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/friday_13th_traffic/friday_13th_traffic_hist.png" width="70%">
+              <description>Three histograms are shown. The first histogram is for "Friday the 6th", which has values ranging from 110,000 to 140,000. The second histogram is for "Friday the 13th", which also has values ranging from 110,000 to 140,000. The third histogram is for "Difference", with values ranging from 0 to 5,000. While the first two distributions are relatively uniform across the range, the last distribution has most of its distribution ranging between 0 and 3,000, with one observation in the 4,000 to 5,000 bin.</description>
+            </image>
+          </figure>
           
           <tabular>
             <row header="yes">
@@ -2223,9 +2237,11 @@
             </row>
           </tabular>
           
-          <!-- TODO: Add figure - Side-by-side box plot for diamond prices
-               Alt text: Side-by-side box plot for "Point price, in dollars". The two categories shown are for "0.99 carats" and "1 carat" diamonds. The 0.99 carat diamonds have their box running from about $36 to $57, a median of about $49, and the whiskers spanning about $19 to $62. The 1 carat diamonds have their box running from about $48 to $72, a median of about $55, and the whiskers spanning about $34 to $72.
-               Source: ch_inference_for_means/figures/eoce/diamonds_1/diamonds_box.pdf -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/diamonds_1/diamonds_box.png" width="70%">
+              <description>Side-by-side box plot for "Point price, in dollars". The two categories shown are for "0.99 carats" and "1 carat" diamonds. The 0.99 carat diamonds have their box running from about $36 to $57, a median of about $49, and the whiskers spanning about $19 to $62. The 1 carat diamonds have their box running from about $48 to $72, a median of about $55, and the whiskers spanning about $34 to $72.</description>
+            </image>
+          </figure>
         </statement>
       </exercise>
       
@@ -2237,9 +2253,11 @@
             The Friday the <m>13^{\text{th}}</m> study reported in Exercise<nbsp/><xref ref="friday_13th_traffic"/> also provides data on traffic accident related emergency room admissions. The distributions of these counts from Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m> are shown below for six such paired dates along with summary statistics. You may assume that conditions for inference are met.
           </p>
           
-          <!-- TODO: Add figure - Three histograms for accident admissions
-               Alt text: Three histograms are shown. The first histogram is for "Friday the 6th", which has values ranging across 3 to 12. The second histogram is for "Friday the 13th", which has values ranging from 4 to 14. The third histogram is for "Difference", with values ranging from -8 to positive 2.
-               Source: ch_inference_for_means/figures/eoce/friday_13th_accident/friday_13th_accident_hist -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/friday_13th_accident/friday_13th_accident_hist.png" width="70%">
+              <description>Three histograms are shown. The first histogram is for "Friday the 6th", which has values ranging across 3 to 12. The second histogram is for "Friday the 13th", which has values ranging from 4 to 14. The third histogram is for "Difference", with values ranging from -8 to positive 2.</description>
+            </image>
+          </figure>
           
           <tabular>
             <row header="yes">
@@ -2319,9 +2337,11 @@
             Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Below are some summary statistics from this data set along with box plots showing the distribution of weights by feed type.
           </p>
           
-          <!-- TODO: Add figure - Side-by-side box plots for chicken weights by feed type
-               Alt text: A side-by-side box plot is shown for "Weight, in grams" for several feed types. The width of the data range for each feed type spans about 150 grams. However, they are centered at different locations: about 325 for "casein", about 150 for "horsebean", about 225 for "linseed", about 275 for "meatmeal", about 250 for "soybean", and about 325 for "sunflower".
-               Source: ch_inference_for_means/figures/eoce/chick_wts_linseed_horsebean/chick_wts_box.pdf -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/chick_wts_linseed_horsebean/chick_wts_box.png" width="70%">
+              <description>A side-by-side box plot is shown for "Weight, in grams" for several feed types. The width of the data range for each feed type spans about 150 grams. However, they are centered at different locations: about 325 for "casein", about 150 for "horsebean", about 225 for "linseed", about 275 for "meatmeal", about 250 for "soybean", and about 325 for "sunflower".</description>
+            </image>
+          </figure>
           
           <tabular>
             <row header="yes">
@@ -2415,9 +2435,11 @@
             </row>
           </tabular>
           
-          <!-- TODO: Add figure - Side-by-side box plot for city MPG
-               Alt text: A side-by-side box plot is shown for "City MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 14 to 19, has a median of about 16, and its whiskers extending down to about 7 and up to about 24. The "manual" box plot has its box spanning approximately 18 to 24, has a median of about 21, and its whiskers extending down to about 8 and up to about 31.
-               Source: ch_inference_for_means/figures/eoce/fuel_eff_city/fuel_eff_city_box.pdf -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/fuel_eff_city/fuel_eff_city_box.png" width="70%">
+              <description>A side-by-side box plot is shown for "City MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 14 to 19, has a median of about 16, and its whiskers extending down to about 7 and up to about 24. The "manual" box plot has its box spanning approximately 18 to 24, has a median of about 21, and its whiskers extending down to about 8 and up to about 31.</description>
+            </image>
+          </figure>
         </statement>
       </exercise>
       
@@ -2467,9 +2489,11 @@
             </row>
           </tabular>
           
-          <!-- TODO: Add figure - Side-by-side box plot for highway MPG
-               Alt text: A side-by-side box plot is shown for "Highway MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 20 to 26, has a median of about 23, and its whiskers extending down to about 14 and up to about 34. The "manual" box plot has its box spanning approximately 26 to 32, has a median of about 29, and its whiskers extending down to about 17 and up to about 38.
-               Source: ch_inference_for_means/figures/eoce/fuel_eff_hway/fuel_eff_hway_box.pdf -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/fuel_eff_hway/fuel_eff_hway_box.png" width="70%">
+              <description>A side-by-side box plot is shown for "Highway MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 20 to 26, has a median of about 23, and its whiskers extending down to about 14 and up to about 34. The "manual" box plot has its box spanning approximately 26 to 32, has a median of about 29, and its whiskers extending down to about 17 and up to about 38.</description>
+            </image>
+          </figure>
         </statement>
       </exercise>
       
@@ -2493,9 +2517,11 @@
             Forty-two subjects were randomly assigned to these treatment groups, and an MMPI test was administered before and after the treatment. Distributions of the differences between pre and post treatment scores (pre - post) are shown below, along with some sample statistics. Use this information to independently test the effectiveness of each treatment. Make sure to clearly state your hypotheses, check conditions, and interpret results in the context of the data.
           </p>
           
-          <!-- TODO: Add figure - Three box plots for treatment differences
-               Alt text: Three box plots are shown for Treatments 1, 2, and 3. The box plot for "Treatment 1" is slightly right skewed with values ranging from about -10 to about positive 40, and this distribution has one borderline outlier between 30 and 40. The box plot for "Treatment 2" is about symmetric with values ranging from about -20 to about positive 20. The box plot for "Treatment 3" is left skewed with values ranging from about -30 to about positive 10.
-               Source: ch_inference_for_means/figures/eoce/prison_isolation_T/prison_isolation_hist -->
+          <figure>
+            <image source="ch_inference_for_means/figures/eoce/prison_isolation_T/prison_isolation_hist.png" width="70%">
+              <description>Three box plots are shown for Treatments 1, 2, and 3. The box plot for "Treatment 1" is slightly right skewed with values ranging from about -10 to about positive 40, and this distribution has one borderline outlier between 30 and 40. The box plot for "Treatment 2" is about symmetric with values ranging from about -20 to about positive 20. The box plot for "Treatment 3" is left skewed with values ranging from about -30 to about positive 10.</description>
+            </image>
+          </figure>
           
           <tabular>
             <row header="yes">
@@ -3032,7 +3058,6 @@
       
       <figure xml:id="fig-toy-anova">
         <caption>Side-by-side dot plot for the outcomes for six groups.</caption>
-        <!-- TODO: Add figure image reference -->
         <image source="ch_inference_for_means/figures/toyANOVA/toyANOVA.png" width="70%">
           <description>Side-by-side dot plots are shown for groups I, II, III, IV, V, and VI. The means for I and IV are the same, the means of II and V are the same, and the means of III and VI are also the same. However, the variability of the data shown in groups I, II, and III is larger than the variability of the groups IV, V, and VI.</description>
         </image>
@@ -3272,7 +3297,6 @@
       
       <figure xml:id="fig-mlb-anova-boxplot">
         <caption>Side-by-side box plot of the on-base percentage for 429 players across three groups. With over a hundred players in both the infield and outfield groups, the apparent outliers are not a concern.</caption>
-        <!-- TODO: Add figure image reference -->
         <image source="ch_inference_for_means/figures/mlbANOVA/mlbANOVABoxPlot.png" width="65%">
           <description>Side-by-side box plot of the on-base percentage for 429 players across three groups. The boxes for outfield (OF) and infield (IF) groups are about 0.30 to 0.34 with a median of about 0.32, while the catcher (C) box is 0.28 to 0.33 with a median of 0.30. The whiskers for outfield and infield extend down to about 0.25 and up to 0.42, while the catcher box plot whiskers extend down to 0.23 and up to 0.38. With over a hundred players in both the infield and outfield groups, a few individual points are shown but are not concerning.</description>
         </image>
@@ -3395,7 +3419,6 @@
       
       <figure xml:id="fig-f-dist-2-426">
         <caption>An <m>F</m> distribution with <m>df_1=2</m> and <m>df_2=426</m>.</caption>
-        <!-- TODO: Add figure image reference -->
         <image source="ch_inference_for_means/figures/fDist2And423/fDist2And423Shaded.png" width="65%">
           <description>An F distribution with df-sub-1 equals 2 and df-sub-2 equals 426 is shown. This distribution starts at zero and runs up (and past) a value of 8. The distribution is strongly right skewed. The distribution peaks right at 0 and tapers off quickly, with about 5 percent to 10 percent of the distribution lying above a value of 2. The distribution is indistinguishable from the horizontal axis by about 5. The figure also annotates a small tail area at and above values of 5.</description>
         </image>
@@ -3527,7 +3550,6 @@
           
           <figure xml:id="fig-mlb-anova-histograms">
             <caption>Histograms of OBP for each field position.</caption>
-            <!-- TODO: Add figure image reference -->
             <image source="ch_inference_for_means/figures/mlbANOVA/mlbANOVADiagNormalityGroups.png" width="80%">
               <description>Three histograms are shown, one for Outfielders, one for Infielders, and one for Catchers. The Outfielders and Infielders are centered slightly above 0.3, while the Catchers distribution is centered at about 0.3. The variability in each group is about 0.03. Each of the distributions somewhat resemble normal distributions and do not have any major outliers.</description>
             </image>
@@ -3631,7 +3653,6 @@
       
       <figure xml:id="fig-midterm-boxplot">
         <caption>Side-by-side box plot for the first midterm scores in three different lectures of the same course.</caption>
-        <!-- TODO: Add figure image reference -->
         <image source="ch_inference_for_means/figures/classData/classDataSBSBoxPlot.png" width="75%">
           <description>Side-by-side box plot for the first midterm scores in three different lectures of the same course. Lecture A has a box from about 65 to 85, a median of 73, and whiskers that extend down to 45 and up to 100. Lecture B has a box from about 62 to 82, a median of 72, and whiskers that extend down to 40 and up to 100. Lecture C has a box from about 73 to 88, a median of 82, and whiskers that extend down to 45 and up to 100.</description>
         </image>
