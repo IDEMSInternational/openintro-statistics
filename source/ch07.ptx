@@ -137,10 +137,12 @@
             Consider the following two plots that come from simple random samples from different
             populations. Their sample sizes are <m>n_1 = 15</m> and <m>n_2 = 50</m>.
           </p>
-          <p>
-            [Figure showing two histograms: Sample 1 Observations (n=15) with values 0-7, and Sample 2
-            Observations (n=50) with values 0-22 with most data near zero and one outlier at 21-22]
-          </p>
+          <figure>
+            <image source="ch_inference_for_means/outliers_and_ss_condition/outliers_and_ss_condition.png" width="70%">
+              <description>Figure showing two histograms: Sample 1 Observations (n=15) with values 0-7, and Sample 2
+              Observations (n=50) with values 0-22 with most data near zero and one outlier at 21-22.</description>
+            </image>
+          </figure>
           <p>
             Are the independence and normality conditions met in each case?
           </p>
@@ -2656,9 +2658,11 @@
         <p>
           The degrees of freedom are greater than 30, so the distribution of <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> will be approximately normal. The standard deviation of this distribution (the standard error) would be about 1.70, and under the null hypothesis, its mean would be 0.
         </p>
-        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". 
-        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution".
-        Source files: power_null_0_1-7.pdf, power_null_A_0_1-7.pdf -->
+        <figure>
+          <image source="ch_inference_for_means/power_null_0_1-7/power_null_A_0_1-7.png" width="70%">
+            <description>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution".</description>
+          </image>
+        </figure>
       </solution>
     </example>
     
@@ -2683,9 +2687,11 @@
           </dl>
           The boundaries of these <term>rejection regions</term> are shown below:
         </p>
-        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". Three regions are labeled: the region between about -3.3 and positive 3.3 is labeled as "Do not reject H-sub-0", while the two regions on either side of this central region are labeled with "Reject H-sub-zero".
-        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". Three regions are labeled: the region between about -3.3 and positive 3.3 is labeled as "Do not reject H-sub-0", while the two regions on either side of this central region are labeled with "Reject H-sub-zero".
-        Source files: power_null_0_1-7.pdf, power_null_B_0_1-7_with_rejection_region.pdf -->
+        <figure>
+          <image source="ch_inference_for_means/power_null_0_1-7/power_null_B_0_1-7_with_rejection_region.png" width="70%">
+            <description>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". Three regions are labeled: the region between about -3.3 and positive 3.3 is labeled as "Do not reject H-sub-0", while the two regions on either side of this central region are labeled with "Reject H-sub-zero".</description>
+          </image>
+        </figure>
       </solution>
     </example>
     
@@ -2721,9 +2727,11 @@
           <ul>
             <li>
               <p>The sampling distribution for <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> when the true difference is -3<nbsp/>mmHg. This is the same as the null distribution, except it is shifted to the left by<nbsp/>3:</p>
-              <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown.
-              Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown.
-              Source files: power_null_0_1-7.pdf, power_null_C_0_1-7_with_alt_at_3.pdf -->
+              <figure>
+                <image source="ch_inference_for_means/power_null_0_1-7/power_null_C_0_1-7_with_alt_at_3.png" width="70%">
+                  <description>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown.</description>
+                </image>
+              </figure>
             </li>
             <li>
               <p>The rejection regions, which are outside of the dotted lines above.</p>
@@ -2734,9 +2742,11 @@
           </ul>
           In short, we need to calculate the probability that <m>x \lt -3.332</m> for a normal distribution with mean -3 and standard deviation<nbsp/>1.7. To do so, we first shade the area we want to calculate:
         </p>
-        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -3.2 is shaded, representing just under half of that distribution.
-        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -3.2 is shaded, representing just under half of that distribution.
-        Source files: power_null_0_1-7.pdf, power_null_D_0_1-7_with_alt_at_3_and_shaded.pdf -->
+        <figure>
+          <image source="ch_inference_for_means/power_null_0_1-7/power_null_D_0_1-7_with_alt_at_3_and_shaded.png" width="70%">
+            <description>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -3.2 is shaded, representing just under half of that distribution.</description>
+          </image>
+        </figure>
         
         <p>
           We'll use a normal approximation, which is good approximation when the degrees of freedom is about 30 or more. We'll start by calculating the Z-score and find the tail area using either statistical software or the probability table:
@@ -2808,9 +2818,11 @@
         <p>
           (b)<nbsp/><ampersand/><nbsp/>(c)<nbsp/>The null distribution, rejection boundaries, and alternative distribution are shown below:
         </p>
-        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 0.76 (note that this is a much smaller than in earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 0.76, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The overlap of these two normal distributions is much smaller than in the last plot. Lines are shown demarking "reject" regions for the null distribution are shown at about -1.5 and positive 1.5, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 95% of the distribution.
-        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 0.76 (note that this is a much smaller than in earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 0.76, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The overlap of these two normal distributions is much smaller than in the last plot. Lines are shown demarking "reject" regions for the null distribution are shown at about -1.5 and positive 1.5, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 95% of the distribution.
-        Source files: power_null_0_0-76.pdf, power_null_0_0-76_with_alt_at_3_and_shaded.pdf -->
+        <figure>
+          <image source="ch_inference_for_means/power_null_0_0-76/power_null_0_0-76_with_alt_at_3_and_shaded.png" width="70%">
+            <description>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 0.76 (note that this is a much smaller than in earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 0.76, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The overlap of these two normal distributions is much smaller than in the last plot. Lines are shown demarking "reject" regions for the null distribution are shown at about -1.5 and positive 1.5, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 95% of the distribution.</description>
+          </image>
+        </figure>
         <p>
           The rejection regions are the areas on the outside of the two dotted lines and are at <m>\pm 0.76 \times 1.96 = \pm 1.49</m>.
         </p>
@@ -2846,9 +2858,11 @@
         <p>
           We start by identifying the Z-score that would give us a lower tail of 80%. For a moderately large sample size per group, the Z-score for a lower tail of 80% would be about <m>Z = 0.84</m>.
         </p>
-        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.1 (note that this is different than earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.1, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". Lines are shown demarking "reject" regions for the null distribution are shown at about -2.2 and positive 2.2, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 80% of the distribution. The distance from 0 to the rejection region line at 2.2 is labeled "1.96 times SE", and the distance between the rejection region line and -3 is labeled "0.84 times SE".
-        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.1 (note that this is different than earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.1, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". Lines are shown demarking "reject" regions for the null distribution are shown at about -2.2 and positive 2.2, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 80% of the distribution. The distance from 0 to the rejection region line at 2.2 is labeled "1.96 times SE", and the distance between the rejection region line and -3 is labeled "0.84 times SE".
-        Source file: power_best_sample_size.pdf -->
+        <figure>
+          <image source="ch_inference_for_means/power_best_sample_size/power_best_sample_size.png" width="70%">
+            <description>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.1 (note that this is different than earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.1, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". Lines are shown demarking "reject" regions for the null distribution are shown at about -2.2 and positive 2.2, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 80% of the distribution. The distance from 0 to the rejection region line at 2.2 is labeled "1.96 times SE", and the distance between the rejection region line and -3 is labeled "0.84 times SE".</description>
+          </image>
+        </figure>
         
         <p>
           Additionally, the rejection region extends <m>1.96\times SE</m> from the center of the null distribution for <m>\alpha = 0.05</m>. This allows us to calculate the target distance between the center of the null and alternative distributions in terms of the standard error:
@@ -2924,9 +2938,9 @@
     </p>
     
     <figure xml:id="power_curve_neg-3">
-      <!-- TODO: Figure - A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts t about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.
-      Alt-text from LaTeX: A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts t about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.
-      Source files: power_curve.pdf, power_curve_neg-3.pdf -->
+      <image source="ch_inference_for_means/power_curve/power_curve_neg-3.png" width="70%">
+        <description>A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts t about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.</description>
+      </image>
       <caption>
         The curve shows the power for different sample sizes in the context of the blood pressure example when the true difference is<nbsp/>-3. Having more than about 250 to 350 observations doesn't provide much additional value in detecting an effect when <m>\alpha = 0.05</m>.
       </caption>
