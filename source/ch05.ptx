@@ -3030,9 +3030,8 @@ sum(sampled_entries == "support") / 1000
 
   <!-- Section 5.4: Chapter 5 review exercises -->
   <section xml:id="sec-ch05-review">    
-    <exercises>
       <title>Review Exercises</title>
-      
+    <exercises>      
       <exercise xml:id="ex-relax-after-work">
        <title>Relaxing after work.</title>
         <statement>
