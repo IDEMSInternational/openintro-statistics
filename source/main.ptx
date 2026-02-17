@@ -60,6 +60,16 @@
       <preface xml:id="preface">
         <title>Preface</title>
         <p>
+          This is a PreTeXt version of the original <em>OpenIntro Statistics</em> textbook.
+          The original book was created by David Diez, Mine Çetinkaya-Rundel, and Christopher D. Barr,
+          and is available at <url href="https://www.openintro.org/book/os/" visual="openintro.org/book/os">OpenIntro.org</url>.
+          The LaTeX source files for the original book can be found at the
+          <url href="https://github.com/OpenIntroStat/openintro-statistics" visual="github.com/OpenIntroStat/openintro-statistics">OpenIntro Statistics GitHub repository</url>.
+          This PreTeXt conversion was created to enable enhanced online features and improved accessibility.
+          If you encounter any issues with the PreTeXt rendering or conversion, please report them at the
+          <url href="https://github.com/PreTeXtBooks/openintro-statistics" visual="github.com/PreTeXtBooks/openintro-statistics">PreTeXtBooks GitHub repository</url>.
+        </p>
+        <p>
           OpenIntro Statistics offers a traditional introduction to statistics
           at the college level. This book is now available in PreTeXt format,
           enabling enhanced online features and accessibility.
