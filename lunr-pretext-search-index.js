@@ -16,7 +16,7 @@ var ptx_lunr_docs = [
   "type": "Preface",
   "number": "",
   "title": "Preface",
-  "body": " Preface  OpenIntro Statistics offers a traditional introduction to statistics at the college level. This book is now available in PreTeXt format, enabling enhanced online features and accessibility.  The book's approach balances conceptual understanding with computational skills and practical application. Real data and examples are used throughout to illustrate statistical concepts.  "
+  "body": " Preface  This is a PreTeXt version of the original OpenIntro Statistics textbook. The original book was created by David Diez, Mine Çetinkaya-Rundel, and Christopher D. Barr, and is available at OpenIntro.org . The LaTeX source files for the original book can be found at the OpenIntro Statistics GitHub repository . If you encounter any issues with the PreTeXt rendering or conversion, please report them at the PreTeXtBooks GitHub repository .  OpenIntro Statistics offers a traditional introduction to statistics at the college level. This book is now available in PreTeXt format, enabling enhanced online features and accessibility.  The book's approach balances conceptual understanding with computational skills and practical application. Real data and examples are used throughout to illustrate statistical concepts.  "
 },
 {
   "id": "acknowledgement",
